@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alavanka.com.br — Fractional CRO para B2B Tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #ffffff;
+            --accent: #6B5CE7;
+            --accent-dark: #5648c7;
+            --accent-light: #8879ed;
+            --accent-bg: rgba(107, 92, 231, 0.08);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #8888a0;
+            --border: #e8e8f0;
+            --border-accent: rgba(107, 92, 231, 0.25);
+            --danger: #e53e3e;
+            --danger-bg: rgba(229, 62, 62, 0.08);
+            --success: #38a169;
+            --success-bg: rgba(56, 161, 105, 0.08);
+            --warning: #d69e2e;
+            --warning-bg: rgba(214, 158, 46, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .lang-toggle {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero .subheadline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        /* Qualification Box - NEW */
+        .qualification-box {
+            background: var(--accent-bg);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+
+        .qualification-box h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .qualification-box p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .qualification-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .qual-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .credential-badge {
+            padding: 0.6rem 1.1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(107, 92, 231, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(107, 92, 231, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-bg);
+        }
+
+        .capacity-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-header-left {
+            margin-bottom: 3rem;
+        }
+
+        .section-header-left h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header-left p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent-bg);
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .card li::before {
+            content: "→";
+            color: var(--accent);
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        /* === SECTION 1: A DOR === */
+        .pain-section {
+            background: var(--bg-secondary);
+        }
+
+        .pain-card {
+            background: var(--bg-card);
+            border-left: 4px solid var(--danger);
+        }
+
+        .pain-card h3 {
+            color: var(--danger);
+            border-bottom-color: var(--danger-bg);
+        }
+
+        /* === SECTION 2: CONSEQUÊNCIAS === */
+        .consequences-section {
+            background: var(--bg-primary);
+        }
+
+        .consequence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .consequence-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--danger);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .consequence-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .consequence-card h4 {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .consequence-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .urgency-box {
+            background: var(--danger-bg);
+            border: 1px solid rgba(229, 62, 62, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .urgency-box h4 {
+            color: var(--danger);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .urgency-box p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* === SECTION 3: MUNDO IDEAL === */
+        .ideal-section {
+            background: var(--bg-secondary);
+        }
+
+        .ideal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .ideal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--success);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .ideal-card h3 {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .ideal-card ul {
+            list-style: none;
+        }
+
+        .ideal-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .ideal-card li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .transformation-box {
+            background: var(--success-bg);
+            border: 1px solid rgba(56, 161, 105, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .transformation-box h4 {
+            color: var(--success);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .transformation-box p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* === SECTION 4: COMO FRACTIONAL CRO SE ENCAIXA === */
+        .solution-section {
+            background: var(--bg-primary);
+        }
+
+        .solution-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+        }
+
+        .solution-intro p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .comparison-table-container {
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            padding: 1.25rem 1rem;
+            text-align: left;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th:last-child {
+            background: var(--accent-bg);
+            color: var(--accent);
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        .comparison-table td:last-child {
+            color: var(--accent);
+            font-weight: 500;
+            background: rgba(107, 92, 231, 0.03);
+        }
+
+        .comparison-table tr:hover td:last-child {
+            background: rgba(107, 92, 231, 0.08);
+        }
+
+        /* === SECTION 5: POR QUE ALAVANKA === */
+        .why-section {
+            background: var(--bg-secondary);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .why-card.featured {
+            border: 2px solid var(--accent);
+        }
+
+        .why-card h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .why-card .stat {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card ul {
+            list-style: none;
+        }
+
+        .why-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .why-card li::before {
+            content: "→";
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .credential-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .credential-card h4 {
+            color: var(--accent);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .credential-card ul {
+            list-style: none;
+        }
+
+        .credential-card li {
+            font-size: 0.9rem;
+            padding: 0.35rem 0;
+            color: var(--text-secondary);
+        }
+
+        .quote-box {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 2rem;
+        }
+
+        /* === SECTION 6: COMO FUNCIONA === */
+        .process-section {
+            background: var(--bg-primary);
+        }
+
+        .phases-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .phase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .phase-card::after {
+            content: "→";
+            position: absolute;
+            top: 50%;
+            right: -1.1rem;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .phase-card:last-child::after {
+            display: none;
+        }
+
+        .phase-number {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 44px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .phase-card h3 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+
+        .phase-card .duration {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .phase-card ul {
+            list-style: none;
+        }
+
+        .phase-card li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .phase-card li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .deliverables-summary {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .deliverables-summary h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .deliverables-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .del-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* === SECTION 7: MODELO COMERCIAL (SEM VALORES) === */
+        .model-section {
+            background: var(--bg-secondary);
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .model-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .model-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .model-card h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .model-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .model-principles {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .model-principles h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .principle-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .principle-item .check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* === SECTION 8: QUALIFICAÇÃO DETALHADA === */
+        .fit-section {
+            background: var(--bg-primary);
+        }
+
+        .fit-hero {
+            background: var(--accent);
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .fit-hero h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .fit-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .fit-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .fit-card.positive {
+            border-left: 4px solid var(--success);
+        }
+
+        .fit-card.negative {
+            border-left: 4px solid var(--danger);
+        }
+
+        .fit-card h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .fit-card.positive h3 {
+            color: var(--success);
+        }
+
+        .fit-card.negative h3 {
+            color: var(--danger);
+        }
+
+        .fit-card ul {
+            list-style: none;
+        }
+
+        .fit-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .fit-card.positive li::before {
+            content: "✓ ";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .fit-card.negative li::before {
+            content: "✗ ";
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        /* === CTA FINAL === */
+        .cta-final {
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .cta-final .section-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .cta-main-box {
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            box-shadow: 0 4px 20px rgba(107, 92, 231, 0.15);
+        }
+
+        .cta-main-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-main-box p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-main-box ul {
+            list-style: none;
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-main-box li {
+            padding: 0.4rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-main-box li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .capacity-final {
+            background: var(--warning-bg);
+            border: 1px solid rgba(214, 158, 46, 0.3);
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .capacity-final strong {
+            color: var(--warning);
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 10%;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: var(--bg-primary);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .two-col, .why-grid, .fit-grid, .ideal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consequence-grid, .phases-container, .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-card::after {
+                display: none;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .qualification-tags {
+                justify-content: center;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .qualification-box {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">ALAVANKA</div>
+        <div class="nav-links">
+            <a href="#problema">O Problema</a>
+            <a href="#solucao">A Solução</a>
+            <a href="#porque">Por Que Nós</a>
+            <a href="#processo">Como Funciona</a>
+            <a href="#contato">Contato</a>
+            <button class="lang-toggle">EN | PT</button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <p class="hero-eyebrow">Fractional CRO para B2B Tech</p>
+        <h1>De Estagnação para<br><span>Crescimento Previsível</span></h1>
+        <p class="subheadline">Execução de GTM com accountability — não consultoria.<br>Para empresas que já provaram seu produto mas travaram no crescimento.</p>
+        
+        <!-- QUALIFICATION BOX - Direto ao ponto -->
+        <div class="qualification-box">
+            <h3>Para quem é este serviço</h3>
+            <p>Trabalhamos exclusivamente com empresas B2B tech que já validaram o mercado e agora precisam destravar o motor de crescimento.</p>
+            <div class="qualification-tags">
+                <span class="qual-tag">Receita ≥ R$10M/ano</span>
+                <span class="qual-tag">Série B+</span>
+                <span class="qual-tag">Tração comprovada</span>
+                <span class="qual-tag">GTM precisa de estrutura</span>
+            </div>
+        </div>
+
+        <div class="credentials">
+            <span class="credential-badge">Ex-Presidente Oracle Brasil</span>
+            <span class="credential-badge">Ex-CEO AT&T LATAM</span>
+            <span class="credential-badge">Track Record: $3M → $240M</span>
+            <span class="credential-badge">Harvard | Columbia | IBGC</span>
+        </div>
+
+        <div class="cta-group">
+            <button class="btn-primary">Agendar Conversa</button>
+            <button class="btn-secondary">WhatsApp Direto</button>
+        </div>
+        <p class="capacity-note">Capacidade limitada: máximo 3 empresas simultaneamente.</p>
+    </section>
+
+    <!-- ===== SECTION 1: A DOR ===== -->
+    <section id="problema" class="pain-section">
+        <div class="section-header">
+            <h2>A Armadilha da Estagnação</h2>
+            <p>Você construiu um produto que funciona. Clientes adoram. Mas a receita travou.</p>
+        </div>
+
+        <div class="two-col">
+            <div class="card pain-card">
+                <h3>O Que o Founder Sente</h3>
+                <ul>
+                    <li>Produto validado, clientes renovam — mas crescimento parou</li>
+                    <li>Trabalhando 80h/semana, resultado flat há 6+ meses</li>
+                    <li>Time de vendas não consegue explicar por que deals morrem</li>
+                    <li>Board meetings viraram sessões de explicação</li>
+                    <li>Runway diminuindo enquanto debate "mais reps ou nova estratégia?"</li>
+                    <li>Concorrência avançando com produto claramente inferior</li>
+                </ul>
+            </div>
+            <div class="card pain-card">
+                <h3>O Que o VC Vê no Portfólio</h3>
+                <ul>
+                    <li>Empresa na "zona zumbi" — não está morrendo, mas não cresce</li>
+                    <li>CEO em burnout, 60% do tempo apagando incêndio em vendas</li>
+                    <li>Milestone sempre escorregando (6 meses → 9 → 12)</li>
+                    <li>Follow-on em risco ou exigindo down-round</li>
+                    <li>4-6h/mês do GP em modo crise por empresa</li>
+                    <li>Múltiplo de exit comprimindo enquanto o mercado espera</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 2: CONSEQUÊNCIAS DA DOR ===== -->
+    <section class="consequences-section">
+        <div class="section-header">
+            <h2>O Custo de Não Agir</h2>
+            <p>Cada mês de estagnação tem um preço composto</p>
+        </div>
+
+        <div class="consequence-grid">
+            <div class="consequence-card">
+                <div class="icon">💰</div>
+                <h4>Capital Preso</h4>
+                <p>Investimento travado em ativo underperforming. Cada mês sem crescimento é capital que poderia estar gerando retorno em outro lugar.</p>
+            </div>
+            <div class="consequence-card">
+                <div class="icon">📉</div>
+                <h4>Valuation Comprimindo</h4>
+                <p>Múltiplos de SaaS dependem de crescimento. Estagnação hoje significa down-round amanhã — ou exit forçado a preço de liquidação.</p>
+            </div>
+            <div class="consequence-card">
+                <div class="icon">🚪</div>
+                <h4>Talentos Saindo</h4>
+                <p>Os melhores percebem primeiro. Top performers não ficam em empresas estagnadas. Quem fica é quem não tem opção.</p>
+            </div>
+        </div>
+
+        <div class="consequence-grid">
+            <div class="consequence-card">
+                <div class="icon">⏱️</div>
+                <h4>Janela Fechando</h4>
+                <p>Mercados não esperam. Enquanto você debate estratégia, concorrentes estão executando e capturando seus prospects.</p>
+            </div>
+            <div class="consequence-card">
+                <div class="icon">🔥</div>
+                <h4>Founder Burnout</h4>
+                <p>CEO gastando 60% do tempo em vendas não está construindo produto, cultura ou estratégia. É insustentável.</p>
+            </div>
+            <div class="consequence-card">
+                <div class="icon">🎯</div>
+                <h4>Credibilidade Erodindo</h4>
+                <p>Cada meta perdida, cada milestone atrasado. O board perde confiança. LPs questionam. O ciclo se alimenta.</p>
+            </div>
+        </div>
+
+        <div class="urgency-box">
+            <h4>A matemática é cruel</h4>
+            <p>Uma empresa de R$10M ARR com 0% de crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em valor de equity.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: O MUNDO IDEAL ===== -->
+    <section class="ideal-section">
+        <div class="section-header">
+            <h2>O Que Deveria Estar Acontecendo</h2>
+            <p>Se o GTM estivesse funcionando, você veria isso:</p>
+        </div>
+
+        <div class="ideal-grid">
+            <div class="ideal-card">
+                <h3>Na Operação de Vendas</h3>
+                <ul>
+                    <li>Pipeline com cobertura de 3x+ da meta, sempre</li>
+                    <li>Processo claro: cada rep sabe exatamente o que fazer em cada stage</li>
+                    <li>Win rate subindo consistentemente (30%+)</li>
+                    <li>Ciclo de vendas previsível e diminuindo</li>
+                    <li>Forecast confiável — sem surpresas no fim do quarter</li>
+                    <li>Reps novos produtivos em 90 dias, não 6 meses</li>
+                </ul>
+            </div>
+            <div class="ideal-card">
+                <h3>Nos Indicadores Financeiros</h3>
+                <ul>
+                    <li>NRR acima de 110% — expansão pagando o crescimento</li>
+                    <li>CAC payback abaixo de 12 meses</li>
+                    <li>LTV/CAC acima de 3:1</li>
+                    <li>Churn sob controle e com razões documentadas</li>
+                    <li>Unit economics que sustentam escala</li>
+                    <li>Métricas que impressionam na próxima rodada</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ideal-grid" style="margin-top: 2rem;">
+            <div class="ideal-card">
+                <h3>No Dia-a-Dia do Founder</h3>
+                <ul>
+                    <li>CEO focado em produto, estratégia e cultura</li>
+                    <li>Board meetings são updates, não interrogatórios</li>
+                    <li>Confiança para delegar revenue para quem entende</li>
+                    <li>Visibilidade total sem precisar microgerenciar</li>
+                    <li>Energia para pensar no próximo passo, não no incêndio de hoje</li>
+                </ul>
+            </div>
+            <div class="ideal-card">
+                <h3>Para o Investidor</h3>
+                <ul>
+                    <li>Portfolio company em trajetória de crescimento</li>
+                    <li>Métricas que sustentam follow-on ou exit</li>
+                    <li>Menos horas de GP em modo crise</li>
+                    <li>Playbook replicável para outras empresas do portfólio</li>
+                    <li>Retorno sobre o investimento original protegido</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="transformation-box">
+            <h4>Isso não é fantasia</h4>
+            <p>É o que acontece quando você tem arquitetura de GTM instalada e execução disciplinada contra as métricas certas.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4: COMO FRACTIONAL CRO SE ENCAIXA ===== -->
+    <section id="solucao" class="solution-section">
+        <div class="section-header">
+            <h2>Por Que as Soluções Tradicionais Não Funcionam</h2>
+        </div>
+
+        <div class="solution-intro">
+            <p>Você provavelmente já considerou (ou tentou) algumas destas opções. Entenda por que elas falham — e o que funciona no lugar.</p>
+        </div>
+
+        <div class="comparison-table-container">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Opção Tradicional</th>
+                        <th>Por Que Falha</th>
+                        <th>Fractional CRO Resolve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Contratar VP Sales</strong></td>
+                        <td>12-18 meses de ramp. 50% taxa de falha. Custo de R$1M+/ano all-in. Se não funcionar, você perdeu 18 meses e muito dinheiro.</td>
+                        <td>Instalar a arquitetura primeiro. Contratar VP quando a máquina estiver funcionando e você souber exatamente o perfil certo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consultoria Big 4</strong></td>
+                        <td>R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos. Você fica com o deck, não com resultado.</td>
+                        <td>Execução hands-on, 2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Conselho do Board</strong></td>
+                        <td>1 hora por mês não muda cadência operacional. GPs não têm tempo para execução. Conselho estratégico não vira pipeline.</td>
+                        <td>Rigor de board + execução diária. Alguém que fala a língua do board mas está na trincheira.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Founder Faz Tudo</strong></td>
+                        <td>Context switching constante. Produto sempre ganha de vendas na priorização. CEO vira gargalo. Burnout garantido.</td>
+                        <td>Co-ownership de revenue com CEO. Founder livre para focar em produto e estratégia. Accountability compartilhada.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mais Vendedores</strong></td>
+                        <td>Se o processo está quebrado, mais reps = mais caos. Você escala o problema, não a solução. CAC explode.</td>
+                        <td>Consertar o processo primeiro. Depois escalar. Na ordem certa, cada rep novo é multiplicador, não custo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 5: POR QUE ALAVANKA ===== -->
+    <section id="porque" class="why-section">
+        <div class="section-header">
+            <h2>Por Que a Alavanka</h2>
+            <p>Não somos consultores. Somos operadores que já construíram o que você está tentando construir.</p>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card featured">
+                <h3>Track Record de Execução</h3>
+                <div class="stat">$3M → $240M</div>
+                <div class="stat-label">construído pessoalmente, não aconselhado</div>
+                <ul>
+                    <li>Oracle Brasil: $48M → $240M em 5 anos como Presidente</li>
+                    <li>AT&T LATAM: $3M → $47M em 2 anos como CEO</li>
+                    <li>Informatica: 150% crescimento YoY como VP LATAM</li>
+                    <li>LoySci: 9 anos como Co-Founder e CEO</li>
+                </ul>
+            </div>
+            <div class="why-card">
+                <h3>O Que Nos Diferencia</h3>
+                <ul>
+                    <li><strong>Operador, não consultor</strong> — já sentei na cadeira que você está sentando</li>
+                    <li><strong>Execução > Opinião</strong> — métricas, não narrativas. Resultados, não relatórios</li>
+                    <li><strong>Pele no jogo</strong> — success fee atrelado a resultado real</li>
+                    <li><strong>Capacidade limitada</strong> — máximo 3 empresas. Foco total</li>
+                    <li><strong>Kill-switch</strong> — não funcionou em 30 dias? Encerramos sem drama</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <h4>P&L Leadership</h4>
+                <ul>
+                    <li>Oracle Brasil President</li>
+                    <li>AT&T LATAM CEO</li>
+                    <li>Informatica VP LATAM</li>
+                    <li>PeopleSoft MD</li>
+                </ul>
+            </div>
+            <div class="credential-card">
+                <h4>Founder Experience</h4>
+                <ul>
+                    <li>LoySci Co-Founder (9 anos)</li>
+                    <li>Pioneiro Loyalty 3.0 LATAM</li>
+                </ul>
+            </div>
+            <div class="credential-card">
+                <h4>Board & Advisory</h4>
+                <ul>
+                    <li>Conselheiro IBGC (2024)</li>
+                    <li>Alta Rail, Digitron, ClearSale</li>
+                    <li>Mentor Endeavor</li>
+                    <li>Professor INSPER</li>
+                </ul>
+            </div>
+            <div class="credential-card">
+                <h4>Educação</h4>
+                <ul>
+                    <li>Harvard (Finance for Senior Execs)</li>
+                    <li>Columbia Business School</li>
+                    <li>Neuromarketing (Inova)</li>
+                    <li>Behavior Design (Octalisys)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            "Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro. E sei o que é teoria bonita que não sobrevive ao contato com a realidade."
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: COMO FUNCIONA ===== -->
+    <section id="processo" class="process-section">
+        <div class="section-header">
+            <h2>Como Funciona na Prática</h2>
+            <p>Um programa estruturado de 6 meses com checkpoints claros</p>
+        </div>
+
+        <div class="phases-container">
+            <div class="phase-card">
+                <span class="phase-number">1</span>
+                <h3>Diagnóstico</h3>
+                <p class="duration">30 dias</p>
+                <ul>
+                    <li>Deep-dive em 25+ KPIs</li>
+                    <li>Entrevistas 360° (time, clientes, lost deals)</li>
+                    <li>Baseline documentado</li>
+                    <li>Metas D30/D60/D90 acordadas</li>
+                    <li>Kill-criteria definidos</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <span class="phase-number">2</span>
+                <h3>Transformação</h3>
+                <p class="duration">90 dias</p>
+                <ul>
+                    <li>ICP, posicionamento e messaging reconstruídos</li>
+                    <li>Processo de vendas com critérios de stage</li>
+                    <li>RevOps e rituais semanais instalados</li>
+                    <li>Dashboards funcionando</li>
+                    <li>Quick wins e pipeline cleanup</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <span class="phase-number">3</span>
+                <h3>Aceleração</h3>
+                <p class="duration">+60 dias</p>
+                <ul>
+                    <li>Hiring/ajuste de liderança se necessário</li>
+                    <li>Playbooks documentados e rodando</li>
+                    <li>Handover estruturado</li>
+                    <li>Growth committee mensal (opcional)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="deliverables-summary">
+            <h4>O Que Fica Instalado na Sua Operação</h4>
+            <div class="deliverables-tags">
+                <span class="del-tag">ICP documentado</span>
+                <span class="del-tag">Matriz de priorização de contas</span>
+                <span class="del-tag">Messaging por persona</span>
+                <span class="del-tag">Processo de vendas com stages</span>
+                <span class="del-tag">Critérios de saída de stage</span>
+                <span class="del-tag">Playbook de prospecção</span>
+                <span class="del-tag">Rituais semanais</span>
+                <span class="del-tag">Dashboards de pipeline</span>
+                <span class="del-tag">Política de desconto</span>
+                <span class="del-tag">Plano de enablement</span>
+                <span class="del-tag">Modelo de comp alinhado</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 7: MODELO COMERCIAL (SEM VALORES) ===== -->
+    <section class="model-section">
+        <div class="section-header">
+            <h2>Modelo Comercial</h2>
+            <p>Estrutura alinhada a resultado — não a horas</p>
+        </div>
+
+        <div class="model-grid">
+            <div class="model-card">
+                <div class="icon">📅</div>
+                <h3>Retainer Mensal</h3>
+                <p>Dedicação de 2 dias/semana + 1 surge day/mês. Presença consistente na operação, não visitas esporádicas.</p>
+            </div>
+            <div class="model-card">
+                <div class="icon">🎯</div>
+                <h3>Success Fee</h3>
+                <p>Percentual sobre o crescimento de ARR acima do baseline. Só ganhamos mais se você crescer mais. Pele no jogo real.</p>
+            </div>
+            <div class="model-card">
+                <div class="icon">📈</div>
+                <h3>Equity (Opcional)</h3>
+                <p>Warrants de performance que só vestam se atingirmos métricas específicas de NRR e CAC payback.</p>
+            </div>
+        </div>
+
+        <div class="model-principles">
+            <h4>Princípios do Modelo</h4>
+            <div class="principles-grid">
+                <div class="principle-item"><span class="check">✓</span> Kill-switch no Dia 30 e Dia 90 — não funcionou, encerramos</div>
+                <div class="principle-item"><span class="check">✓</span> Report mensal ao board — transparência total</div>
+                <div class="principle-item"><span class="check">✓</span> Métricas acordadas antes de começar — sem ambiguidade</div>
+                <div class="principle-item"><span class="check">✓</span> Success fee com cap — alinhamento, não extração</div>
+                <div class="principle-item"><span class="check">✓</span> Clawback se churn excepcional — responsabilidade compartilhada</div>
+                <div class="principle-item"><span class="check">✓</span> Handover estruturado — vocês ficam com a capacidade instalada</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 8: QUALIFICAÇÃO DETALHADA ===== -->
+    <section class="fit-section">
+        <div class="fit-hero">
+            <h3>Este Serviço Não É Para Todo Mundo</h3>
+            <p>Somos muito específicos sobre com quem trabalhamos. Se você não se encaixa no perfil, vamos te dizer — e provavelmente indicar alguém mais adequado.</p>
+        </div>
+
+        <div class="fit-grid">
+            <div class="fit-card positive">
+                <h3>Trabalhamos Com Empresas Que...</h3>
+                <ul>
+                    <li>Têm receita anual de pelo menos R$10M</li>
+                    <li>Já captaram Série B ou posterior</li>
+                    <li>Têm tração de mercado comprovada (clientes pagando, renovando)</li>
+                    <li>Produto validado — o problema é GTM, não product-market fit</li>
+                    <li>Estagnaram no crescimento há 6+ meses apesar de esforço</li>
+                    <li>CEO coachable e board alinhado com a intervenção</li>
+                    <li>Runway de pelo menos 12 meses</li>
+                    <li>Disposição para tomar decisões difíceis</li>
+                </ul>
+            </div>
+            <div class="fit-card negative">
+                <h3>Não Trabalhamos Com Empresas Que...</h3>
+                <ul>
+                    <li>Ainda estão buscando product-market fit</li>
+                    <li>Têm receita abaixo de R$10M/ano</li>
+                    <li>Runway menor que 9 meses (não há tempo)</li>
+                    <li>Founder não está disposto a mudar abordagem</li>
+                    <li>Não têm time de customer success (retenção quebrada mata crescimento)</li>
+                    <li>Burn maior que 2x receita sem path claro para eficiência</li>
+                    <li>Querem "só estratégia" sem execução</li>
+                    <li>Esperam resultados mágicos em 30 dias</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section id="contato" class="cta-final">
+        <div class="section-header">
+            <h2>Próximo Passo</h2>
+            <p>Uma conversa de 30 minutos para entender sua situação</p>
+        </div>
+
+        <div class="cta-main-box">
+            <h3>Diagnóstico Inicial (Sem Compromisso)</h3>
+            <p>Uma conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer — e provavelmente indicar quem é.</p>
+            <ul>
+                <li>Análise rápida da sua situação atual</li>
+                <li>Identificação dos 3 maiores gargalos de GTM</li>
+                <li>Recomendação honesta (mesmo que não seja nos contratar)</li>
+            </ul>
+            <button class="btn-primary" style="font-size: 1.1rem; padding: 1.25rem 2.5rem;">Agendar Conversa</button>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">📧 <a href="/cdn-cgi/l/email-protection#83e0e2f1efecf0ade2ede7f1e6c3e2efe2f5e2ede8e2ade0ecee"><span class="__cf_email__" data-cfemail="9efdffecf2f1edb0fff0faecfbdefff2ffe8fff0f5ffb0fdf1f3">[email&#160;protected]</span></a></div>
+            <div class="contact-item">📱 <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></div>
+            <div class="contact-item">💼 <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></div>
+        </div>
+
+        <div class="capacity-final">
+            <strong>Atenção:</strong> Capacidade limitada a 3 empresas simultaneamente
+        </div>
+
+        <p class="tagline">"Ex-Presidente Oracle Brasil, CEO AT&T LATAM — Construí o que estou ajudando você a escalar."</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>© 2025 Alavanka. Todos os direitos reservados.</div>
+        <div>
+            <a href="https://alavanka.com">Alavanka.com (Market Entry para LATAM)</a>
+            <a href="#">
