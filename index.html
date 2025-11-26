@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -1257,7 +1258,11 @@
             align-items: center;
             gap: 1rem;
             font-size: 0.9rem;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
         }
 
         .redirect-banner span {
@@ -1295,12 +1300,27 @@
             opacity: 1;
         }
 
+        /* Adjust nav position for banner */
+        nav {
+            top: 42px !important;
+        }
+
+        body {
+            padding-top: 42px;
+        }
+
         @media (max-width: 768px) {
             .redirect-banner {
                 flex-direction: column;
                 gap: 0.5rem;
                 text-align: center;
                 padding: 0.75rem 15%;
+            }
+            nav {
+                top: 70px !important;
+            }
+            body {
+                padding-top: 70px;
             }
         }
 
