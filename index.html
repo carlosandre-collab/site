@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,11 @@
             color: var(--accent);
         }
 
+        /* Mobile language toggle - hidden on desktop */
+        .lang-toggle-mobile {
+            display: none;
+        }
+
         /* Hamburger - hidden on desktop */
         .hamburger {
             display: none;
@@ -104,6 +109,11 @@
 
         .close-menu {
             display: none;
+        }
+
+        /* Mobile menu content wrapper - for desktop, no special styling needed */
+        .mobile-menu-content {
+            display: contents;
         }
 
         /* Sections */
@@ -1230,7 +1240,28 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Mobile Menu */
+            /* ===== IMPROVED MOBILE MENU ===== */
+            
+            /* Hide desktop language toggle in nav-links on mobile */
+            .nav-links .lang-toggle {
+                display: none;
+            }
+            
+            /* Show mobile language toggle in navbar */
+            .lang-toggle-mobile {
+                display: block;
+                padding: 0.4rem 0.8rem;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: transparent;
+                color: var(--text-secondary);
+                cursor: pointer;
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin-right: 0.5rem;
+            }
+
+            /* Mobile Menu Overlay */
             .nav-links {
                 display: none;
                 position: fixed;
@@ -1238,27 +1269,79 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(255, 255, 255, 0.98);
+                background: var(--bg-primary);
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
-                gap: 2rem;
                 z-index: 1002;
+                overflow-y: auto;
+                padding: 0;
             }
 
             .nav-links.active {
                 display: flex;
             }
 
-            .nav-links a {
-                font-size: 1.3rem;
+            /* Mobile menu content wrapper */
+            .mobile-menu-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                width: 100%;
+                padding: 2rem;
+                gap: 0;
             }
 
-            .nav-links .lang-toggle {
-                margin-top: 1rem;
-                font-size: 1.1rem;
+            /* Menu links styling */
+            .nav-links .mobile-menu-content a {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                text-decoration: none;
+                padding: 1.25rem 2rem;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--border);
+                transition: background-color 0.2s ease, color 0.2s ease;
             }
 
+            .nav-links .mobile-menu-content a:first-child {
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-links .mobile-menu-content a:hover,
+            .nav-links .mobile-menu-content a:active {
+                background-color: var(--accent-bg);
+                color: var(--accent);
+            }
+
+            /* Close button */
+            .close-menu {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 1.25rem;
+                right: 1.25rem;
+                width: 44px;
+                height: 44px;
+                font-size: 1.75rem;
+                background: var(--bg-secondary);
+                border: 1px solid var(--border);
+                border-radius: 50%;
+                cursor: pointer;
+                color: var(--text-primary);
+                z-index: 1004;
+                transition: background-color 0.2s ease;
+            }
+
+            .close-menu:hover {
+                background: var(--border);
+            }
+
+            /* Hamburger button */
             .hamburger {
                 display: flex;
                 flex-direction: column;
@@ -1269,15 +1352,15 @@
             }
 
             .hamburger span {
-                width: 25px;
-                height: 3px;
+                width: 24px;
+                height: 2px;
                 background: var(--text-primary);
                 border-radius: 2px;
                 transition: all 0.3s ease;
             }
 
             .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
+                transform: rotate(45deg) translate(5px, 5px);
             }
 
             .hamburger.active span:nth-child(2) {
@@ -1285,22 +1368,30 @@
             }
 
             .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+                transform: rotate(-45deg) translate(5px, -5px);
             }
 
-            .close-menu {
-                display: block;
-                position: absolute;
-                top: 1.5rem;
-                right: 1.5rem;
-                font-size: 2rem;
-                background: none;
-                border: none;
+            /* Language toggle inside mobile menu */
+            .nav-links > .lang-toggle {
+                display: block !important;
+                margin: 2rem 0;
+                padding: 0.875rem 2.5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                border: 2px solid var(--accent);
+                border-radius: 8px;
+                background: transparent;
+                color: var(--accent);
                 cursor: pointer;
-                color: var(--text-primary);
-                z-index: 1004;
+                transition: all 0.2s ease;
             }
 
+            .nav-links > .lang-toggle:hover {
+                background: var(--accent);
+                color: white;
+            }
+
+            /* Other mobile adjustments */
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
@@ -1421,13 +1512,18 @@
         
         <div class="nav-links" id="navLinks">
             <button class="close-menu" onclick="toggleMobileMenu()" aria-label="Fechar menu">×</button>
-            <a href="#problema" data-i18n="nav.problem" onclick="closeMobileMenu()">O Problema</a>
-            <a href="#solucao" data-i18n="nav.solution" onclick="closeMobileMenu()">A Solução</a>
-            <a href="#porque" data-i18n="nav.why" onclick="closeMobileMenu()">Por Que Nós</a>
-            <a href="#processo" data-i18n="nav.process" onclick="closeMobileMenu()">Como Funciona</a>
-            <a href="#contato" data-i18n="nav.contact" onclick="closeMobileMenu()">Contato</a>
+            <div class="mobile-menu-content">
+                <a href="#problema" data-i18n="nav.problem" onclick="closeMobileMenu()">O Problema</a>
+                <a href="#solucao" data-i18n="nav.solution" onclick="closeMobileMenu()">A Solução</a>
+                <a href="#porque" data-i18n="nav.why" onclick="closeMobileMenu()">Por Que Nós</a>
+                <a href="#processo" data-i18n="nav.process" onclick="closeMobileMenu()">Como Funciona</a>
+                <a href="#contato" data-i18n="nav.contact" onclick="closeMobileMenu()">Contato</a>
+            </div>
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
+        
+        <!-- Separate language toggle for mobile (visible only on mobile, outside nav-links) -->
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
     </nav>
 
     <!-- ===== HERO ===== -->
@@ -2209,7 +2305,13 @@
 
     function toggleLanguage() {
         currentLang = currentLang === 'pt' ? 'en' : 'pt';
-        document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+        const langText = currentLang === 'pt' ? 'EN' : 'PT';
+        document.getElementById('langToggle').textContent = langText;
+        // Also update mobile language toggle if it exists
+        const mobileLangToggle = document.getElementById('langToggleMobile');
+        if (mobileLangToggle) {
+            mobileLangToggle.textContent = langText;
+        }
         applyTranslations();
         localStorage.setItem('alavanka-lang', currentLang);
     }
@@ -2235,7 +2337,13 @@
         const savedLang = localStorage.getItem('alavanka-lang');
         if (savedLang && savedLang !== currentLang) {
             currentLang = savedLang;
-            document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+            const langText = currentLang === 'pt' ? 'EN' : 'PT';
+            document.getElementById('langToggle').textContent = langText;
+            // Also update mobile language toggle if it exists
+            const mobileLangToggle = document.getElementById('langToggleMobile');
+            if (mobileLangToggle) {
+                mobileLangToggle.textContent = langText;
+            }
             applyTranslations();
         }
     });
@@ -2274,7 +2382,7 @@
 </body>
 </html>
 
-Apollo
+
 
 Apollo
 
