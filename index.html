@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -1257,117 +1257,41 @@
                 grid-template-columns: 1fr;
             }
 
-            /* ===== MOBILE MENU - COMPLETE OVERRIDE ===== */
+            /* ===== MOBILE MENU - SIMPLIFIED: HIDE MENU, SHOW ONLY LANGUAGE BUTTON ===== */
             
-            /* Show hamburger */
+            /* Hide hamburger - not needed */
             nav .hamburger {
-                display: flex;
+                display: none !important;
+            }
+            
+            /* Hide the full nav-links menu */
+            nav .nav-links {
+                display: none !important;
             }
             
             /* Show mobile language toggle in navbar */
             nav .lang-toggle-mobile {
                 display: block;
-                padding: 0.4rem 0.8rem;
+                padding: 0.5rem 1rem;
                 border: 1px solid var(--border);
                 border-radius: 6px;
                 background: transparent;
                 color: var(--text-secondary);
                 cursor: pointer;
-                font-size: 0.75rem;
+                font-size: 0.85rem;
                 font-weight: 600;
-                margin-right: 0.5rem;
+                margin-left: auto;
             }
-
-            /* Hamburger animation */
-            nav .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            nav .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            nav .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-
-            /* MOBILE MENU OVERLAY - Hide by default */
-            nav .nav-links {
-                position: fixed;
-                top: 130px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: #f5f5f7;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: stretch;
-                z-index: 1002;
-                overflow-y: auto;
-                padding: 0;
-                gap: 0;
-                display: none;
-            }
-
-            /* Show menu when active */
-            nav .nav-links.active {
-                display: flex;
-            }
-
-            /* Hide close button - hamburger toggles */
-            nav .close-menu {
-                display: none;
-            }
-
-            /* Mobile menu content wrapper */
-            nav .nav-links .mobile-menu-content {
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                width: 100%;
-                padding: 0;
-                gap: 0;
-            }
-
-            /* Menu links styling */
-            nav .nav-links .mobile-menu-content a {
-                display: block;
-                font-size: 1rem;
-                font-weight: 500;
-                color: #1a1a2e;
-                text-decoration: none;
-                padding: 1rem 1.5rem;
-                width: 100%;
-                text-align: left;
-                background: #ffffff;
-                border-bottom: 1px solid #e5e5ea;
-                transition: background-color 0.2s ease;
-                box-sizing: border-box;
-            }
-
-            nav .nav-links .mobile-menu-content a:hover,
-            nav .nav-links .mobile-menu-content a:active {
-                background-color: #f0f0f5;
-            }
-
-            /* Language toggle inside mobile menu */
-            nav .nav-links > .lang-toggle {
-                display: block;
-                margin: 1rem 1.5rem;
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
-                font-weight: 600;
-                border: 2px solid var(--accent);
-                border-radius: 8px;
-                background: #fff;
-                color: var(--accent);
-                cursor: pointer;
-                transition: all 0.2s ease;
-                align-self: flex-start;
-                width: auto;
-            }
-
-            nav .nav-links > .lang-toggle:hover {
+            
+            nav .lang-toggle-mobile:hover {
                 background: var(--accent);
                 color: white;
+                border-color: var(--accent);
+            }
+
+            /* Hide close button */
+            nav .close-menu {
+                display: none;
             }
 
             /* Other mobile adjustments */
@@ -1490,13 +1414,12 @@
         </div>
         
         <div class="nav-links" id="navLinks">
-            <button class="close-menu" onclick="toggleMobileMenu()" aria-label="Fechar menu">×</button>
             <div class="mobile-menu-content">
-                <a href="#problema" data-i18n="nav.problem" onclick="closeMobileMenu()">O Problema</a>
-                <a href="#solucao" data-i18n="nav.solution" onclick="closeMobileMenu()">A Solução</a>
-                <a href="#porque" data-i18n="nav.why" onclick="closeMobileMenu()">Por Que Nós</a>
-                <a href="#processo" data-i18n="nav.process" onclick="closeMobileMenu()">Como Funciona</a>
-                <a href="#contato" data-i18n="nav.contact" onclick="closeMobileMenu()">Contato</a>
+                <a href="#problema" data-i18n="nav.problem">O Problema</a>
+                <a href="#solucao" data-i18n="nav.solution">A Solução</a>
+                <a href="#porque" data-i18n="nav.why">Por Que Nós</a>
+                <a href="#processo" data-i18n="nav.process">Como Funciona</a>
+                <a href="#contato" data-i18n="nav.contact">Contato</a>
             </div>
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
@@ -2730,6 +2653,9 @@
     </script>
 </body>
 </html>
+
+
+
 
 
 
