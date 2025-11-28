@@ -767,5 +767,71 @@
     <p style="font-size: 0.85rem; color: #8888a0;">© 2025 Alavanka. Todos os direitos reservados.</p>
 </footer>
 
+<script>
+    // Language toggle
+    let currentLang = 'pt';
+    
+    const translations = {
+        pt: {
+            'nav.problem': 'O Problema',
+            'nav.solution': 'A Solução',
+            'nav.why': 'Por Que Nós',
+            'nav.process': 'Como Funciona',
+            'nav.contact': 'Contato',
+            'article.category': 'Revenue Operations',
+            'article.title': 'O Custo Invisível de Não Ter um CRO',
+            'article.time': '📖 8 min de leitura',
+            'article.date': '📅 Novembro 2025',
+            'cta.title': 'Quer calcular o custo real para sua empresa?',
+            'cta.text': 'Uma conversa de 30 minutos pode revelar números que você não está vendo. Sem compromisso, sem pitch — apenas diagnóstico.',
+            'cta.button': 'Agendar Diagnóstico',
+            'back': '← Voltar para o Blog'
+        },
+        en: {
+            'nav.problem': 'The Problem',
+            'nav.solution': 'The Solution',
+            'nav.why': 'Why Us',
+            'nav.process': 'How It Works',
+            'nav.contact': 'Contact',
+            'article.category': 'Revenue Operations',
+            'article.title': 'The Hidden Cost of Not Having a CRO',
+            'article.time': '📖 8 min read',
+            'article.date': '📅 November 2025',
+            'cta.title': 'Want to calculate the real cost for your company?',
+            'cta.text': 'A 30-minute conversation can reveal numbers you\'re not seeing. No commitment, no pitch — just diagnosis.',
+            'cta.button': 'Schedule Diagnosis',
+            'back': '← Back to Blog'
+        }
+    };
+
+    document.getElementById('langToggle').addEventListener('click', function() {
+        currentLang = currentLang === 'pt' ? 'en' : 'pt';
+        this.textContent = currentLang === 'pt' ? 'EN' : 'PT';
+        
+        // Update nav links
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks[1].textContent = translations[currentLang]['nav.problem'];
+        navLinks[2].textContent = translations[currentLang]['nav.solution'];
+        navLinks[3].textContent = translations[currentLang]['nav.why'];
+        navLinks[4].textContent = translations[currentLang]['nav.process'];
+        navLinks[6].textContent = translations[currentLang]['nav.contact'];
+        
+        // Update article header
+        document.querySelector('.article-category').textContent = translations[currentLang]['article.category'];
+        document.querySelector('.article-title').textContent = translations[currentLang]['article.title'];
+        const metaSpans = document.querySelectorAll('.article-meta span');
+        metaSpans[0].textContent = translations[currentLang]['article.time'];
+        metaSpans[1].textContent = translations[currentLang]['article.date'];
+        
+        // Update CTA
+        document.querySelector('.article-cta h3').textContent = translations[currentLang]['cta.title'];
+        document.querySelector('.article-cta p').textContent = translations[currentLang]['cta.text'];
+        document.querySelector('.article-cta a').textContent = translations[currentLang]['cta.button'];
+        
+        // Update back link
+        document.querySelector('a[href="../blog.html"]').textContent = translations[currentLang]['back'];
+    });
+</script>
+
 </body>
 </html>
