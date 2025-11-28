@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilustração: O Ciclo de Inação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f8f9fc;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .illustration-container {
+            width: 700px;
+            height: 400px;
+            background: #fff;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Background */
+        .illustration-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at center, rgba(229, 62, 62, 0.02) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Central circle container */
+        .cycle-container {
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+
+        /* Rotating arrow ring */
+        .arrow-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280px;
+            height: 280px;
+            transform: translate(-50%, -50%);
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        @keyframes rotate-ring {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .arrow-ring svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ring-path {
+            fill: none;
+            stroke: url(#ringGradient);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 15 10;
+        }
+
+        /* Stage nodes */
+        .stage {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            background: #fff;
+            border-radius: 16px;
+            border: 2px solid #e8e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .stage:hover {
+            transform: scale(1.05);
+            border-color: #6B5CE7;
+            box-shadow: 0 8px 24px rgba(107, 92, 231, 0.15);
+        }
+
+        /* Position stages in circle */
+        .stage-1 {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stage-2 {
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+        }
+
+        .stage-3 {
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .stage-4 {
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+        }
+
+        .stage-1:hover { transform: translateX(-50%) scale(1.05); }
+        .stage-2:hover { transform: translateY(-50%) scale(1.05); }
+        .stage-3:hover { transform: translateX(-50%) scale(1.05); }
+        .stage-4:hover { transform: translateY(-50%) scale(1.05); }
+
+        /* Stage number */
+        .stage-number {
+            width: 24px;
+            height: 24px;
+            background: #6B5CE7;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        /* Stage icon */
+        .stage-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        /* Stage text */
+        .stage-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #1a1a2e;
+            line-height: 1.3;
+        }
+
+        /* Center element */
+        .center-element {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(229, 62, 62, 0.1) 0%, rgba(229, 62, 62, 0.05) 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(229, 62, 62, 0.3);
+        }
+
+        .center-icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .center-text {
+            font-size: 9px;
+            font-weight: 600;
+            color: #e53e3e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Arrow connectors between stages */
+        .arrow-connector {
+            position: absolute;
+            color: #6B5CE7;
+            font-size: 18px;
+            opacity: 0.6;
+        }
+
+        .arrow-1 {
+            top: 50px;
+            right: 30px;
+            transform: rotate(45deg);
+        }
+
+        .arrow-2 {
+            bottom: 50px;
+            right: 30px;
+            transform: rotate(135deg);
+        }
+
+        .arrow-3 {
+            bottom: 50px;
+            left: 30px;
+            transform: rotate(-135deg);
+        }
+
+        .arrow-4 {
+            top: 50px;
+            left: 30px;
+            transform: rotate(-45deg);
+        }
+
+        /* Side labels */
+        .side-label {
+            position: absolute;
+            background: rgba(107, 92, 231, 0.08);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6B5CE7;
+        }
+
+        .label-left {
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .label-right {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Bottom text */
+        .bottom-insight {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(229, 62, 62, 0.08);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #e53e3e;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Pulsing effect on center */
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(229, 62, 62, 0.2);
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="illustration-container">
+        
+        <!-- Side labels -->
+        <div class="side-label label-left">Ciclo se repete</div>
+        <div class="side-label label-right">Sem intervenção</div>
+
+        <div class="cycle-container">
+            
+            <!-- Rotating arrow ring -->
+            <div class="arrow-ring">
+                <svg viewBox="0 0 280 280">
+                    <defs>
+                        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6B5CE7;stop-opacity:0.3" />
+                            <stop offset="50%" style="stop-color:#6B5CE7;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#6B5CE7;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="ring-path" cx="140" cy="140" r="130" />
+                </svg>
+            </div>
+
+            <!-- Pulse effect -->
+            <div class="pulse-ring"></div>
+
+            <!-- Center element -->
+            <div class="center-element">
+                <div class="center-icon">🔄</div>
+                <div class="center-text">Loop Infinito</div>
+            </div>
+
+            <!-- Stage 1: Top -->
+            <div class="stage stage-1">
+                <div class="stage-number">1</div>
+                <div class="stage-icon">📉</div>
+                <div class="stage-text">Problema de Vendas</div>
+            </div>
+
+            <!-- Stage 2: Right -->
+            <div class="stage stage-2">
+                <div class="stage-number">2</div>
+                <div class="stage-icon">👤</div>
+                <div class="stage-text">Founder Assume</div>
+            </div>
+
+            <!-- Stage 3: Bottom -->
+            <div class="stage stage-3">
+                <div class="stage-number">3</div>
+                <div class="stage-icon">⚠️</div>
+                <div class="stage-text">Outras Áreas Sofrem</div>
+            </div>
+
+            <!-- Stage 4: Left -->
+            <div class="stage stage-4">
+                <div class="stage-number">4</div>
+                <div class="stage-icon">🔥</div>
+                <div class="stage-text">Mais Problemas de Vendas</div>
+            </div>
+
+            <!-- Arrow connectors -->
+            <div class="arrow-connector arrow-1">→</div>
+            <div class="arrow-connector arrow-2">→</div>
+            <div class="arrow-connector arrow-3">→</div>
+            <div class="arrow-connector arrow-4">→</div>
+
+        </div>
+
+        <!-- Bottom insight -->
+        <div class="bottom-insight">⚡ Cada ciclo comprime tempo, receita e valuation</div>
+
+    </div>
+</body>
+</html>

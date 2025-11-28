@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilustração: O Custo Invisível</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #1a1a2e;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .illustration-container {
+            width: 800px;
+            height: 450px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16162a 50%, #1a1a2e 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background grid pattern */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(107, 92, 231, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(107, 92, 231, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Glowing orbs in background */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+        }
+
+        .glow-orb-1 {
+            width: 200px;
+            height: 200px;
+            background: #6B5CE7;
+            top: -50px;
+            left: -50px;
+        }
+
+        .glow-orb-2 {
+            width: 150px;
+            height: 150px;
+            background: #e53e3e;
+            bottom: -30px;
+            right: 100px;
+            opacity: 0.3;
+        }
+
+        /* Main funnel */
+        .funnel-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .funnel {
+            width: 180px;
+            height: 220px;
+            position: relative;
+        }
+
+        .funnel-top {
+            width: 180px;
+            height: 60px;
+            background: linear-gradient(180deg, #6B5CE7 0%, #5648c7 100%);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            box-shadow: 0 0 30px rgba(107, 92, 231, 0.3);
+        }
+
+        .funnel-top::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .funnel-middle {
+            width: 0;
+            height: 0;
+            border-left: 90px solid transparent;
+            border-right: 90px solid transparent;
+            border-top: 100px solid #5648c7;
+            position: relative;
+        }
+
+        .funnel-bottom {
+            width: 40px;
+            height: 60px;
+            background: linear-gradient(180deg, #4a3db0 0%, #3d3299 100%);
+            margin: 0 auto;
+            border-radius: 0 0 4px 4px;
+            position: relative;
+        }
+
+        /* Cracks in funnel */
+        .crack {
+            position: absolute;
+            background: #e53e3e;
+            box-shadow: 0 0 10px rgba(229, 62, 62, 0.5);
+        }
+
+        .crack-1 {
+            width: 3px;
+            height: 25px;
+            top: 80px;
+            left: 30px;
+            transform: rotate(-20deg);
+        }
+
+        .crack-2 {
+            width: 3px;
+            height: 20px;
+            top: 100px;
+            right: 40px;
+            transform: rotate(15deg);
+        }
+
+        .crack-3 {
+            width: 3px;
+            height: 18px;
+            top: 140px;
+            left: 55px;
+            transform: rotate(-10deg);
+        }
+
+        /* Money drops */
+        .money-drop {
+            position: absolute;
+            font-size: 20px;
+            animation: fall 2s ease-in infinite;
+            opacity: 0;
+        }
+
+        .money-drop-1 { left: 25px; top: 100px; animation-delay: 0s; }
+        .money-drop-2 { right: 35px; top: 115px; animation-delay: 0.5s; }
+        .money-drop-3 { left: 50px; top: 150px; animation-delay: 1s; }
+        .money-drop-4 { left: 70px; top: 280px; animation-delay: 0.3s; }
+        .money-drop-5 { left: 90px; top: 280px; animation-delay: 0.8s; }
+        .money-drop-6 { left: 80px; top: 280px; animation-delay: 1.3s; }
+
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(80px) rotate(20deg);
+            }
+        }
+
+        /* Side leaks */
+        .leak {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .leak-left {
+            left: -120px;
+            top: 120px;
+        }
+
+        .leak-right {
+            right: -120px;
+            top: 100px;
+        }
+
+        .leak-stream {
+            display: flex;
+            gap: 4px;
+        }
+
+        .leak-drop {
+            width: 8px;
+            height: 8px;
+            background: #38a169;
+            border-radius: 50%;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .leak-drop:nth-child(2) { animation-delay: 0.2s; opacity: 0.7; }
+        .leak-drop:nth-child(3) { animation-delay: 0.4s; opacity: 0.5; }
+        .leak-drop:nth-child(4) { animation-delay: 0.6s; opacity: 0.3; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Clock */
+        .clock-container {
+            position: absolute;
+            right: 80px;
+            top: 80px;
+        }
+
+        .clock {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #2a2a4a 0%, #1a1a2e 100%);
+            border-radius: 50%;
+            border: 3px solid #6B5CE7;
+            position: relative;
+            box-shadow: 0 0 20px rgba(107, 92, 231, 0.2);
+        }
+
+        .clock-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+        }
+
+        .clock-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #e53e3e;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            background: #fff;
+            border-radius: 2px;
+        }
+
+        .hour-hand {
+            width: 4px;
+            height: 22px;
+            margin-left: -2px;
+            transform: rotate(120deg);
+        }
+
+        .minute-hand {
+            width: 3px;
+            height: 30px;
+            margin-left: -1.5px;
+            transform: rotate(45deg);
+            animation: tick 10s linear infinite;
+        }
+
+        @keyframes tick {
+            from { transform: rotate(45deg); }
+            to { transform: rotate(405deg); }
+        }
+
+        .clock-label {
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #8888a0;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* Stats boxes */
+        .stat-box {
+            position: absolute;
+            background: rgba(26, 26, 46, 0.9);
+            border: 1px solid rgba(107, 92, 231, 0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box-left {
+            left: 40px;
+            top: 60px;
+        }
+
+        .stat-box-bottom {
+            left: 60px;
+            bottom: 50px;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e53e3e;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: #8888a0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Downward arrow/trend */
+        .trend-container {
+            position: absolute;
+            right: 60px;
+            bottom: 60px;
+        }
+
+        .trend-arrow {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .trend-line {
+            stroke: #e53e3e;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px rgba(229, 62, 62, 0.5));
+        }
+
+        .trend-label {
+            color: #8888a0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Title overlay */
+        .title-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .title-text {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(107, 92, 231, 0.5);
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .particle-1 { top: 30%; left: 20%; animation-delay: 0s; }
+        .particle-2 { top: 60%; left: 15%; animation-delay: 1s; }
+        .particle-3 { top: 40%; right: 25%; animation-delay: 2s; }
+        .particle-4 { top: 70%; right: 20%; animation-delay: 0.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-10px) scale(1.2); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="illustration-container">
+        <!-- Background elements -->
+        <div class="bg-grid"></div>
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        
+        <!-- Floating particles -->
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+
+        <!-- Left stat box -->
+        <div class="stat-box stat-box-left">
+            <div class="stat-number">-19%</div>
+            <div class="stat-label">Win Rate</div>
+        </div>
+
+        <!-- Main funnel -->
+        <div class="funnel-container">
+            <div class="funnel">
+                <div class="funnel-top"></div>
+                <div class="funnel-middle"></div>
+                <div class="funnel-bottom"></div>
+                
+                <!-- Cracks -->
+                <div class="crack crack-1"></div>
+                <div class="crack crack-2"></div>
+                <div class="crack crack-3"></div>
+                
+                <!-- Money drops from cracks -->
+                <div class="money-drop money-drop-1">💰</div>
+                <div class="money-drop money-drop-2">💵</div>
+                <div class="money-drop money-drop-3">💰</div>
+                
+                <!-- Money from bottom -->
+                <div class="money-drop money-drop-4">💵</div>
+                <div class="money-drop money-drop-5">💰</div>
+                <div class="money-drop money-drop-6">💵</div>
+
+                <!-- Side leaks -->
+                <div class="leak leak-left">
+                    <div class="leak-stream">
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                    </div>
+                </div>
+                <div class="leak leak-right">
+                    <div class="leak-stream">
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                        <div class="leak-drop"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clock -->
+        <div class="clock-container">
+            <div class="clock">
+                <div class="clock-face">
+                    <div class="clock-center"></div>
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                </div>
+            </div>
+            <div class="clock-label">Tempo Passando</div>
+        </div>
+
+        <!-- Bottom stat -->
+        <div class="stat-box stat-box-bottom">
+            <div class="stat-number">R$25M+</div>
+            <div class="stat-label">Custo da Inação</div>
+        </div>
+
+        <!-- Trend arrow -->
+        <div class="trend-container">
+            <div class="trend-arrow">
+                <svg viewBox="0 0 60 60" width="60" height="60">
+                    <path class="trend-line" d="M 5 10 Q 20 15, 30 30 T 55 55" />
+                    <polygon fill="#e53e3e" points="50,45 55,55 45,52" />
+                </svg>
+            </div>
+            <div class="trend-label">Valuation</div>
+        </div>
+    </div>
+</body>
+</html>

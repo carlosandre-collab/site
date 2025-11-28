@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilustração: Os Três Vazamentos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f8f9fc;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .illustration-container {
+            width: 760px;
+            height: 340px;
+            background: #fff;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* Subtle background pattern */
+        .illustration-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(107, 92, 231, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(229, 62, 62, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Card base */
+        .leak-card {
+            width: 200px;
+            height: 260px;
+            background: linear-gradient(180deg, #fafbfd 0%, #fff 100%);
+            border-radius: 16px;
+            border: 1px solid #e8e8f0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .leak-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Card number badge */
+        .card-number {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            background: #6B5CE7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(107, 92, 231, 0.3);
+        }
+
+        /* Icon container */
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(107, 92, 231, 0.08) 0%, rgba(107, 92, 231, 0.15) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        /* Pipeline icon */
+        .pipeline-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .pipe {
+            position: absolute;
+            background: #6B5CE7;
+            border-radius: 4px;
+        }
+
+        .pipe-vertical {
+            width: 12px;
+            height: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .pipe-horizontal {
+            width: 40px;
+            height: 12px;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .pipe-leak {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 3px;
+        }
+
+        .drop {
+            width: 6px;
+            height: 10px;
+            background: #e53e3e;
+            border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+            animation: drip 1.5s ease-in-out infinite;
+        }
+
+        .drop:nth-child(2) { animation-delay: 0.3s; }
+        .drop:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes drip {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(8px); opacity: 0.5; }
+        }
+
+        /* Clock icon */
+        .clock-icon {
+            width: 46px;
+            height: 46px;
+            border: 4px solid #6B5CE7;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .clock-hand {
+            position: absolute;
+            background: #6B5CE7;
+            border-radius: 2px;
+            transform-origin: bottom center;
+        }
+
+        .clock-hand-hour {
+            width: 4px;
+            height: 12px;
+            bottom: 50%;
+            left: calc(50% - 2px);
+            transform: rotate(-30deg);
+        }
+
+        .clock-hand-minute {
+            width: 3px;
+            height: 16px;
+            bottom: 50%;
+            left: calc(50% - 1.5px);
+            transform: rotate(60deg);
+            animation: spin 8s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(60deg); }
+            to { transform: rotate(420deg); }
+        }
+
+        .clock-center {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #e53e3e;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sand-particles {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4px;
+        }
+
+        .sand {
+            width: 4px;
+            height: 4px;
+            background: #d69e2e;
+            border-radius: 50%;
+            animation: sand-fall 1s ease-in infinite;
+        }
+
+        .sand:nth-child(2) { animation-delay: 0.2s; }
+        .sand:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes sand-fall {
+            0% { opacity: 0; transform: translateY(-5px); }
+            50% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(5px); }
+        }
+
+        /* Chart icon */
+        .chart-icon {
+            width: 50px;
+            height: 40px;
+            position: relative;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-path {
+            fill: none;
+            stroke: #e53e3e;
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw-line 2s ease forwards infinite;
+        }
+
+        @keyframes draw-line {
+            0% { stroke-dashoffset: 100; }
+            50%, 100% { stroke-dashoffset: 0; }
+        }
+
+        .chart-arrow {
+            position: absolute;
+            right: -2px;
+            bottom: 2px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid #e53e3e;
+            transform: rotate(30deg);
+        }
+
+        /* Card content */
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 13px;
+            color: #4a4a68;
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        /* Impact stat */
+        .impact-stat {
+            margin-top: auto;
+            background: rgba(229, 62, 62, 0.08);
+            border-radius: 8px;
+            padding: 10px 16px;
+            text-align: center;
+        }
+
+        .impact-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e53e3e;
+            line-height: 1;
+        }
+
+        .impact-label {
+            font-size: 10px;
+            color: #8888a0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Connecting lines between cards */
+        .connector {
+            position: absolute;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e8e8f0, transparent);
+        }
+
+        .connector-1 {
+            left: 230px;
+        }
+
+        .connector-2 {
+            left: 490px;
+        }
+    </style>
+</head>
+<body>
+    <div class="illustration-container">
+        <!-- Card 1: Pipeline -->
+        <div class="leak-card">
+            <div class="card-number">1</div>
+            <div class="icon-container">
+                <div class="pipeline-icon">
+                    <div class="pipe pipe-vertical"></div>
+                    <div class="pipe pipe-horizontal"></div>
+                    <div class="pipe-leak">
+                        <div class="drop"></div>
+                        <div class="drop"></div>
+                        <div class="drop"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-title">Pipeline</div>
+            <div class="card-description">Deals entram e desaparecem sem explicação. Win rate abaixo do benchmark.</div>
+            <div class="impact-stat">
+                <div class="impact-number">-R$5M</div>
+                <div class="impact-label">Receita/ano</div>
+            </div>
+        </div>
+
+        <!-- Card 2: Tempo -->
+        <div class="leak-card">
+            <div class="card-number">2</div>
+            <div class="icon-container">
+                <div class="clock-icon">
+                    <div class="clock-hand clock-hand-hour"></div>
+                    <div class="clock-hand clock-hand-minute"></div>
+                    <div class="clock-center"></div>
+                </div>
+                <div class="sand-particles">
+                    <div class="sand"></div>
+                    <div class="sand"></div>
+                    <div class="sand"></div>
+                </div>
+            </div>
+            <div class="card-title">Tempo do CEO</div>
+            <div class="card-description">60%+ do tempo apagando incêndio em vendas ao invés de escalar.</div>
+            <div class="impact-stat">
+                <div class="impact-number">1.400h</div>
+                <div class="impact-label">Horas/ano</div>
+            </div>
+        </div>
+
+        <!-- Card 3: Valuation -->
+        <div class="leak-card">
+            <div class="card-number">3</div>
+            <div class="icon-container">
+                <div class="chart-icon">
+                    <svg class="chart-svg" viewBox="0 0 50 40">
+                        <path class="chart-path" d="M 5 8 Q 15 10, 25 20 T 45 35" />
+                    </svg>
+                    <div class="chart-arrow"></div>
+                </div>
+            </div>
+            <div class="card-title">Valuation</div>
+            <div class="card-description">Estagnação comprime múltiplo. Próxima rodada fica mais cara.</div>
+            <div class="impact-stat">
+                <div class="impact-number">-R$25M</div>
+                <div class="impact-label">Em Equity</div>
+            </div>
+        </div>
+
+        <!-- Connectors -->
+        <div class="connector connector-1"></div>
+        <div class="connector connector-2"></div>
+    </div>
+</body>
+</html>

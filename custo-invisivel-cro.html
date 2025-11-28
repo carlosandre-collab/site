@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Custo Invisível de Não Ter um CRO | AlavankaCRO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #ffffff;
+            --accent: #6B5CE7;
+            --accent-dark: #5648c7;
+            --accent-light: #8879ed;
+            --accent-bg: rgba(107, 92, 231, 0.08);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #8888a0;
+            --border: #e8e8f0;
+            --border-accent: rgba(107, 92, 231, 0.25);
+            --danger: #e53e3e;
+            --danger-bg: rgba(229, 62, 62, 0.08);
+            --success: #38a169;
+            --success-bg: rgba(56, 161, 105, 0.08);
+            --warning: #d69e2e;
+            --warning-bg: rgba(214, 158, 46, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .lang-toggle {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+        }
+
+        /* Article Container */
+        .article-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 120px 24px 100px;
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 48px;
+        }
+
+        .article-category {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-image iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Inline Illustration */
+        .inline-image {
+            width: 100%;
+            height: 340px;
+            border-radius: 12px;
+            margin: 32px 0;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .inline-image iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Article Content */
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 48px 0 24px;
+            line-height: 1.3;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 32px 0 16px;
+        }
+
+        .article-content p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+
+        .article-content p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Lead Paragraph */
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--accent-bg);
+            border-left: 4px solid var(--accent);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .highlight-box .source {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            display: block;
+        }
+
+        /* Data Point */
+        .data-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+
+        .data-point-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            min-width: 100px;
+        }
+
+        .data-point-text {
+            flex: 1;
+        }
+
+        .data-point-text strong {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .data-point-text span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Calculation Box */
+        .calculation-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+
+        .calculation-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-row.total {
+            border-top: 2px solid var(--accent);
+            margin-top: 12px;
+            padding-top: 16px;
+            font-weight: 600;
+        }
+
+        .calc-label {
+            color: var(--text-secondary);
+        }
+
+        .calc-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .calc-row.total .calc-value {
+            color: var(--danger);
+            font-size: 1.2rem;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .warning-box p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+
+        /* Quote */
+        .pull-quote {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            padding: 40px 20px;
+            margin: 48px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            line-height: 1.4;
+        }
+
+        /* List in article */
+        .article-content ul {
+            margin: 24px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .article-content ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .article-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* CTA Section */
+        .article-cta {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 56px;
+            text-align: center;
+            color: white;
+        }
+
+        .article-cta h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .article-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        .article-cta a {
+            display: inline-block;
+            background: white;
+            color: var(--accent);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Author Box */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 32px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            margin-top: 48px;
+        }
+
+        .author-avatar {
+            width: 72px;
+            height: 72px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .article-container {
+                padding: 60px 20px 80px;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .data-point {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .data-point-number {
+                min-width: auto;
+            }
+
+            .hero-image {
+                height: 280px;
+            }
+
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../index.html" class="logo">ALAVANKA</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html#problema">O Problema</a>
+            <a href="../index.html#solucao">A Solução</a>
+            <a href="../index.html#porque">Por Que Nós</a>
+            <a href="../index.html#processo">Como Funciona</a>
+            <a href="../blog.html" class="active">Blog</a>
+            <a href="../index.html#contato">Contato</a>
+            <button class="lang-toggle">EN</button>
+        </div>
+    </nav>
+
+<article class="article-container">
+    
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">Revenue Operations</div>
+        <h1 class="article-title">O Custo Invisível de Não Ter um CRO</h1>
+        <div class="article-meta">
+            <span>📖 8 min de leitura</span>
+            <span>📅 Novembro 2025</span>
+        </div>
+    </header>
+
+    <!-- Hero Image -->
+    <div class="hero-image">
+        <iframe src="ilustracao_capa.html"></iframe>
+    </div>
+
+    <!-- Content -->
+    <div class="article-content">
+        
+        <p class="lead">
+            Quando uma empresa B2B Tech brasileira atinge R$10-15M de ARR e depois estagna, a primeira reação costuma ser buscar mais vendedores, trocar o CRM ou investir em marketing. Raramente alguém pergunta: <strong>"Quanto estamos perdendo por não ter liderança sênior de receita?"</strong> A resposta, quando calculada, costuma tirar o sono de founders e boards.
+        </p>
+
+        <h2>O que ninguém calcula: o custo da ausência</h2>
+
+        <p>
+            Existe um fenômeno curioso em empresas que cresceram rápido até um ponto e depois travaram: todos conseguem ver o problema — deals que morrem sem explicação, ciclos de venda intermináveis, forecast que nunca bate — mas poucos conseguem quantificar quanto isso custa.
+        </p>
+
+        <p>
+            A matemática é contra-intuitiva. O custo de não ter um CRO não aparece como linha no P&L. Ele se esconde em três lugares: receita que não entra, tempo que se perde, e valor que se comprime.
+        </p>
+
+        <!-- Data Point 1 -->
+        <div class="data-point">
+            <div class="data-point-number">19%</div>
+            <div class="data-point-text">
+                <strong>Win rate médio em SaaS caiu de 23% para 19% entre 2022 e 2024</strong>
+                <span>Empresas sem processo estruturado de vendas operam frequentemente abaixo de 15%. Cada ponto percentual de win rate representa milhões em receita não capturada.</span>
+            </div>
+        </div>
+
+        <p>
+            Para uma empresa com R$15M de ARR e pipeline de R$50M, a diferença entre operar com win rate de 15% (sem CRO) e 25% (com processo estruturado) representa R$5M de receita perdida anualmente. Não é um número teórico — é dinheiro que seus competidores estão capturando.
+        </p>
+
+        <h2>Os três vazamentos silenciosos</h2>
+
+        <!-- Inline Image 1: Os Três Vazamentos -->
+        <div class="inline-image">
+            <iframe src="ilustracao_tres_vazamentos.html"></iframe>
+        </div>
+
+        <h3>1. O vazamento do pipeline</h3>
+
+        <p>
+            Sem liderança de receita dedicada, o pipeline vira um cemitério de oportunidades. Deals entram, avançam até certo ponto, e depois desaparecem. Ninguém sabe exatamente por quê. O Bridge Group documenta que o ciclo médio de vendas em SaaS B2B varia entre 78 e 360 dias dependendo do ACV — mas empresas sem processo estruturado frequentemente operam no extremo superior dessa faixa, ou pior.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                O custo médio de uma posição de vendas vazia por 60 dias é de aproximadamente R$200.000 em receita não capturada — considerando quota média de R$800K e tempo de ramp-up. Agora multiplique isso por um time inteiro operando sem direção clara.
+            </p>
+            <span class="source">Fonte: Seattle Corporate Search, 2025</span>
+        </div>
+
+        <h3>2. O vazamento do tempo do founder</h3>
+
+        <p>
+            O segundo custo é mais insidioso: o tempo do CEO. Pesquisas indicam que founders de empresas em estágio de crescimento gastam cerca de 40% do tempo em tarefas que não geram receita diretamente — mas quando não há CRO, essa porcentagem explode para 60% ou mais em "apagar incêndio" de vendas.
+        </p>
+
+        <div class="data-point">
+            <div class="data-point-number">72%</div>
+            <div class="data-point-text">
+                <strong>dos founders reportam burnout</strong>
+                <span>Muitos citam a sobrecarga de responsabilidades comerciais como fator principal. A ausência de liderança sênior de receita não é apenas um problema de negócio — é um problema de saúde.</span>
+            </div>
+        </div>
+
+        <p>
+            Jason Lemkin, fundador do SaaStr, recomenda que CEOs dediquem no mínimo 20% do tempo conversando com clientes. Mas há uma diferença brutal entre 20% estratégico e 60% operacional. No primeiro caso, o CEO aprende sobre o mercado. No segundo, ele vira o gargalo que impede a empresa de escalar.
+        </p>
+
+        <h3>3. O vazamento do valuation</h3>
+
+        <p>
+            O terceiro custo aparece no momento mais inconveniente: quando você vai levantar a próxima rodada. Investidores de Série B e C são obsessivos com métricas de eficiência — NRR, CAC Payback, Magic Number. Uma empresa que estagnou por 6-12 meses não apenas perde receita: perde múltiplo.
+        </p>
+
+        <div class="warning-box">
+            <p>
+                <strong>O efeito composto:</strong> Entre 2021 e 2024, múltiplos de receita para SaaS B2B comprimiram dramaticamente. Empresas que levantaram a 40x receita viram comparáveis caírem para 6-8x. Uma stagnação de crescimento durante esse período não significou apenas menos receita — significou repricing brutal do equity.
+            </p>
+        </div>
+
+        <h2>A matemática que founders evitam fazer</h2>
+
+        <p>
+            Vamos ser específicos. Considere uma empresa B2B Tech brasileira típica do nosso público-alvo:
+        </p>
+
+        <div class="calculation-box">
+            <h4>Cenário: Empresa com R$12M ARR estagnada há 8 meses</h4>
+            
+            <div class="calc-row">
+                <span class="calc-label">Crescimento esperado (se mantivesse 40% YoY)</span>
+                <span class="calc-value">+ R$4.8M</span>
+            </div>
+            <div class="calc-row">
+                <span class="calc-label">Crescimento real (estagnação)</span>
+                <span class="calc-value">+ R$0.5M</span>
+            </div>
+            <div class="calc-row">
+                <span class="calc-label">Receita perdida no período</span>
+                <span class="calc-value">- R$4.3M</span>
+            </div>
+            <div class="calc-row">
+                <span class="calc-label">Impacto no valuation (assumindo múltiplo 6x)</span>
+                <span class="calc-value">- R$25.8M</span>
+            </div>
+            <div class="calc-row">
+                <span class="calc-label">Tempo do CEO em operação de vendas (8 meses)</span>
+                <span class="calc-value">~1.400 horas</span>
+            </div>
+            <div class="calc-row total">
+                <span class="calc-label">Custo total estimado da ausência de CRO</span>
+                <span class="calc-value">R$25-30M</span>
+            </div>
+        </div>
+
+        <p>
+            Esse número parece exagerado? Faça as contas para sua própria empresa. Pegue sua taxa de crescimento pré-estagnação, projete onde você estaria, compare com onde está, e aplique o múltiplo de mercado. O resultado raramente é confortável.
+        </p>
+
+        <!-- Pull Quote -->
+        <div class="pull-quote">
+            "O custo de um CRO parece alto até você calcular o custo de não ter um."
+        </div>
+
+        <h2>Por que o problema persiste</h2>
+
+        <!-- Inline Image 2: O Ciclo de Inação -->
+        <div class="inline-image">
+            <iframe src="ilustracao_ciclo_inacao.html"></iframe>
+        </div>
+
+        <p>
+            A resposta está na psicologia do founder e na estrutura de incentivos do ecossistema.
+        </p>
+
+        <p>
+            <strong>O viés do "eu consigo resolver":</strong> Founders que construíram empresas de R$10M+ são, por definição, pessoas que resolvem problemas. Quando vendas trava, o instinto é arregaçar as mangas e resolver pessoalmente. O problema é que essa abordagem não escala — e frequentemente mascara a necessidade de mudança estrutural.
+        </p>
+
+        <p>
+            <strong>O medo do custo fixo:</strong> Um CRO sênior custa caro. Em mercados como São Paulo, estamos falando de R$80-120K/mês em compensação total para alguém com experiência real de escala. Para uma empresa de R$12M ARR, isso parece um compromisso pesado. O que não entra na análise é que o "não-CRO" custa mais.
+        </p>
+
+        <p>
+            <strong>A ilusão das soluções parciais:</strong> É mais fácil contratar mais dois vendedores, trocar de ferramenta de CRM, ou trazer um consultor para um projeto de 3 meses. Essas ações geram sensação de progresso sem resolver a causa raiz. E quando não funcionam, o ciclo recomeça.
+        </p>
+
+        <div class="data-point">
+            <div class="data-point-number">66%</div>
+            <div class="data-point-text">
+                <strong>dos AEs atingem quota em empresas com processo estruturado</strong>
+                <span>Em empresas sem liderança de receita dedicada, esse número frequentemente cai para 40-50%. A diferença não está nos vendedores — está no sistema em que operam.</span>
+            </div>
+        </div>
+
+        <h2>O que muda quando há liderança de receita</h2>
+
+        <p>
+            A presença de um CRO — seja full-time ou fractional — transforma fundamentalmente três dinâmicas:
+        </p>
+
+        <ul>
+            <li><strong>Visibilidade:</strong> Pela primeira vez, existe alguém cujo trabalho é entender por que deals morrem, onde o funil vaza, e quais métricas importam. Problemas que antes eram "sensação" viram dados acionáveis.</li>
+            <li><strong>Accountability:</strong> Vendedores passam a operar com stage criteria claros, rituais semanais de pipeline review, e forecast que significa algo. O resultado não é apenas melhor performance — é previsibilidade.</li>
+            <li><strong>Liberação do CEO:</strong> O founder volta a dedicar tempo às atividades que só ele pode fazer: produto, cultura, captação, estratégia de longo prazo. Isso não é luxo — é pré-requisito para escalar.</li>
+        </ul>
+
+        <h2>O cálculo que importa</h2>
+
+        <p>
+            A pergunta não é "quanto custa um CRO?" — é "quanto custa cada mês adicional sem um?"
+        </p>
+
+        <p>
+            Para a maioria das empresas no estágio de R$10-20M ARR com crescimento travado, a matemática é clara: o custo de oportunidade de não ter liderança sênior de receita excede significativamente o investimento necessário para trazê-la.
+        </p>
+
+        <p>
+            Isso não significa que toda empresa precisa de um CRO full-time amanhã. Modelos como Fractional CRO existem precisamente porque muitas empresas precisam do capability antes de poderem justificar o headcount permanente. O importante é reconhecer que "resolver depois" tem um preço — e ele é maior do que parece.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                <strong>Uma reflexão final:</strong> Se você é founder de uma empresa B2B Tech que cresceu rápido até um ponto e depois desacelerou, pergunte-se: há quanto tempo estou tentando resolver isso sozinho? Qual foi o custo real — em receita, em equity, em saúde — dessa tentativa?
+            </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="article-cta">
+            <h3>Quer calcular o custo real para sua empresa?</h3>
+            <p>Uma conversa de 30 minutos pode revelar números que você não está vendo. Sem compromisso, sem pitch — apenas diagnóstico.</p>
+            <a href="../index.html#contato">Agendar Diagnóstico</a>
+        </div>
+
+        <!-- Author -->
+        <div class="author-box">
+            <div class="author-avatar">CA</div>
+            <div class="author-info">
+                <h4>Carlos André</h4>
+                <p>Fractional CRO com experiência em escalar operações de receita na Oracle Brasil (de $48M para $240M), AT&T LATAM e Informatica. Fundador da Alavanka.</p>
+            </div>
+        </div>
+
+        <!-- Back to Blog -->
+        <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center;">
+            <a href="../blog.html" style="color: var(--accent); text-decoration: none; font-weight: 500;">← Voltar para o Blog</a>
+        </div>
+
+    </div>
+
+</article>
+
+<!-- Footer -->
+<footer style="background: var(--text-primary); color: var(--bg-primary); padding: 40px 10%; text-align: center; margin-top: 60px;">
+    <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px;">
+        <a href="../index.html" style="color: #f8f9fc; text-decoration: none; font-size: 0.9rem;">Home</a>
+        <a href="../blog.html" style="color: #f8f9fc; text-decoration: none; font-size: 0.9rem;">Blog</a>
+        <a href="../index.html#contato" style="color: #f8f9fc; text-decoration: none; font-size: 0.9rem;">Contato</a>
+        <a href="https://www.linkedin.com/company/alavankacro" target="_blank" style="color: #f8f9fc; text-decoration: none; font-size: 0.9rem;">LinkedIn</a>
+    </div>
+    <p style="font-size: 0.85rem; color: #8888a0;">© 2025 Alavanka. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
