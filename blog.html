@@ -351,13 +351,19 @@
             <span></span>
         </div>
         <div class="nav-links" id="navLinks">
+            <a href="index.html" title="Home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+            </a>
             <a href="index.html#problema">O Problema</a>
             <a href="index.html#solucao">A Solução</a>
             <a href="index.html#porque">Por Que Nós</a>
             <a href="index.html#processo">Como Funciona</a>
             <a href="blog.html" class="active">Blog</a>
             <a href="index.html#contato">Contato</a>
-            <button class="lang-toggle" id="langToggle">EN</button>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
     </nav>
 
@@ -374,11 +380,7 @@
             <!-- Featured Article -->
             <a href="blog/custo-invisivel-cro.html" class="article-card featured-article">
                 <div class="article-thumbnail">
-                    <div class="article-thumbnail-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
+                    <iframe src="blog/ilustracao_capa.html" style="width:100%; height:100%; border:none; pointer-events:none;"></iframe>
                 </div>
                 <div class="article-content">
                     <span class="featured-badge">
@@ -423,5 +425,64 @@
         </div>
         <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Language toggle
+        let currentLang = 'pt';
+        
+        const translations = {
+            pt: {
+                'blog.title': 'Insights de <span>GTM & Revenue</span>',
+                'blog.subtitle': 'Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.',
+                'featured.badge': 'Artigo em Destaque',
+                'article.category': 'Diagnóstico',
+                'article.title': 'O Custo Invisível de Não Ter um CRO',
+                'article.excerpt': 'O custo mais caro para uma empresa B2B Tech em crescimento não é o que você paga — é o que você deixa de ganhar. Entenda a matemática que founders evitam fazer e descubra quanto sua empresa está perdendo com a falta de liderança dedicada de receita.',
+                'article.time': '7 min de leitura',
+                'nav.problem': 'O Problema',
+                'nav.solution': 'A Solução',
+                'nav.why': 'Por Que Nós',
+                'nav.process': 'Como Funciona',
+                'nav.contact': 'Contato'
+            },
+            en: {
+                'blog.title': 'Insights on <span>GTM & Revenue</span>',
+                'blog.subtitle': 'Practical articles on Go-to-Market, revenue operations and growth for B2B Tech — from someone who built operations from $3M to $240M.',
+                'featured.badge': 'Featured Article',
+                'article.category': 'Diagnosis',
+                'article.title': 'The Hidden Cost of Not Having a CRO',
+                'article.excerpt': 'The most expensive cost for a growing B2B Tech company is not what you pay — it\'s what you fail to earn. Understand the math founders avoid doing and discover how much your company is losing without dedicated revenue leadership.',
+                'article.time': '7 min read',
+                'nav.problem': 'The Problem',
+                'nav.solution': 'The Solution',
+                'nav.why': 'Why Us',
+                'nav.process': 'How It Works',
+                'nav.contact': 'Contact'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+            
+            // Update blog header
+            document.querySelector('.blog-header h1').innerHTML = translations[currentLang]['blog.title'];
+            document.querySelector('.blog-header p').textContent = translations[currentLang]['blog.subtitle'];
+            
+            // Update article card
+            document.querySelector('.featured-badge').innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> ' + translations[currentLang]['featured.badge'];
+            document.querySelector('.article-category').textContent = translations[currentLang]['article.category'];
+            document.querySelector('.article-title').textContent = translations[currentLang]['article.title'];
+            document.querySelector('.article-excerpt').textContent = translations[currentLang]['article.excerpt'];
+            
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks[1].textContent = translations[currentLang]['nav.problem'];
+            navLinks[2].textContent = translations[currentLang]['nav.solution'];
+            navLinks[3].textContent = translations[currentLang]['nav.why'];
+            navLinks[4].textContent = translations[currentLang]['nav.process'];
+            navLinks[6].textContent = translations[currentLang]['nav.contact'];
+        }
+    </script>
 </body>
 </html>
