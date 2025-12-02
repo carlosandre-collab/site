@@ -331,6 +331,52 @@
                 display: flex;
             }
 
+            /* Mobile language toggle (outside menu) */
+            nav .lang-toggle-mobile {
+                display: block;
+                padding: 0.5rem 1rem;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: transparent;
+                color: var(--text-secondary);
+                cursor: pointer;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-left: auto;
+            }
+
+            nav .lang-toggle-mobile:hover {
+                background: var(--accent);
+                color: #fff;
+                border-color: var(--accent);
+            }
+
+            /* Hide desktop lang toggle on mobile */
+            nav .lang-toggle {
+                display: none;
+            }
+
+            /* Mobile dropdown menu */
+            nav .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 5%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav .nav-links.active a {
+                display: block;
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+
             .blog-header h1 {
                 font-size: 2rem;
             }
@@ -345,7 +391,8 @@
     <!-- Navigation -->
     <nav>
         <a href="index.html" class="logo">ALAVANKA</a>
-        <div class="hamburger" id="hamburger">
+        <!-- Hamburger for mobile -->
+        <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -365,6 +412,8 @@
             <a href="index.html#contato">Contato</a>
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
+        <!-- Language toggle outside menu for mobile -->
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
     </nav>
 
     <!-- Blog Header -->
@@ -483,6 +532,48 @@
             navLinks[4].textContent = translations[currentLang]['nav.process'];
             navLinks[6].textContent = translations[currentLang]['nav.contact'];
         }
+    
+        // Mobile menu for blog
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (!hamburger || !navLinks) return;
+
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+
+            if (navLinks.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (!hamburger || !navLinks) return;
+
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('#navLinks a');
+            links.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        });
+
     </script>
 </body>
 </html>

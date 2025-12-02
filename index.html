@@ -1257,16 +1257,19 @@
                 grid-template-columns: 1fr;
             }
 
-            /* ===== MOBILE MENU - SIMPLIFIED: HIDE MENU, SHOW ONLY LANGUAGE BUTTON ===== */
+            /* ===== MOBILE MENU - UPDATED: SHOW HAMBURGER & DROPDOWN MENU ===== */
             
-            /* Hide hamburger - not needed */
+            /* Show hamburger on mobile */
             nav .hamburger {
-                display: none !important;
+                display: flex !important;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
             }
             
-            /* Hide the full nav-links menu */
+            /* Hide the full nav-links menu by default on mobile */
             nav .nav-links {
-                display: none !important;
+                display: none;
             }
             
             /* Show mobile language toggle in navbar */
@@ -1289,10 +1292,37 @@
                 border-color: var(--accent);
             }
 
+            /* Hide desktop language toggle on mobile */
+            nav .lang-toggle {
+                display: none;
+            }
+
+            /* Mobile dropdown menu styles */
+            nav .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 5%;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav .nav-links.active a {
+                display: block;
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+
             /* Hide close button */
             nav .close-menu {
                 display: none;
             }
+
 
             /* Other mobile adjustments */
             .contact-info {
@@ -2655,10 +2685,11 @@
     
     // Close mobile menu on window resize (if switching to desktop)
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 600) {
+        if (window.innerWidth > 768) {
             closeMobileMenu();
         }
     });
     </script>
 </body>
 </html>
+
