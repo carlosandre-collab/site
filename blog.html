@@ -55,12 +55,19 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--accent);
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
         }
 
         .nav-links {
@@ -91,9 +98,16 @@
             cursor: pointer;
             font-size: 0.8rem;
             font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        /* Mobile */
+        .lang-toggle:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* Mobile Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -110,6 +124,20 @@
             height: 2px;
             background: var(--text-primary);
             border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger active state - X animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         /* Blog Header */
@@ -401,6 +429,7 @@
             cursor: pointer;
             z-index: 999;
             transition: transform 0.3s;
+            text-decoration: none;
         }
 
         .whatsapp-float:hover {
@@ -414,9 +443,11 @@
                 text-align: center;
                 padding: 0.75rem 15%;
             }
+
             nav {
                 top: 70px !important;
             }
+
             body {
                 padding-top: 70px;
             }
@@ -483,103 +514,136 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
-    <div class="redirect-banner" id="redirectBanner">
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+    <div class="redirect-banner" id="redirectBanner" role="banner">
         <span>🌎 Looking to expand your company into Latin America?</span>
-        <a href="https://alavanka.com" target="_blank">Visit Alavanka.com <span>→</span></a>
-        <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Close">×</button>
+        <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com <span aria-hidden="true">→</span></a>
+        <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Fechar banner">×</button>
     </div>
 
-    <nav>
-       <a href="index.html" class="logo">ALAVANKA</a><a href="index.html" class="logo"><img src="data:image/webp;base64,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
-            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+    <nav role="navigation" aria-label="Navegação principal">
+        <!-- Logo with image -->
+        <a href="index.html" class="logo" aria-label="Alavanka - Página inicial">
+            <img src="images/20240607_Alavanka_marca24-preto.png" alt="Alavanka - Sustainable Growth" height="40">
+        </a>
+        
+        <!-- FIX #8: Added aria-label and aria-expanded to hamburger -->
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navLinks">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
+        
         <div class="nav-links" id="navLinks">
-            <a href="index.html" title="Home">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+            <a href="index.html" title="Home" aria-label="Página inicial">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                     <polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
             </a>
-            <a href="index.html#problema">O Problema</a>
-            <a href="index.html#solucao">A Solução</a>
-            <a href="index.html#porque">Por Que Nós</a>
-            <a href="index.html#processo">Como Funciona</a>
+            <a href="index.html#problema" data-i18n="nav.problem">O Problema</a>
+            <a href="index.html#solucao" data-i18n="nav.solution">A Solução</a>
+            <a href="index.html#porque" data-i18n="nav.why">Por Que Nós</a>
+            <a href="index.html#processo" data-i18n="nav.process">Como Funciona</a>
             <a href="blog.html" class="active">Blog</a>
-            <a href="index.html#contato">Contato</a>
-            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
+            <a href="index.html#contato" data-i18n="nav.contact">Contato</a>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Mudar idioma para inglês">EN</button>
         </div>
-        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()" aria-label="Mudar idioma para inglês">EN</button>
     </nav>
 
-    <section class="blog-header">
-        <h1>Insights de <span>GTM & Revenue</span></h1>
-        <p>Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
-    </section>
+    <main id="main-content">
+        <section class="blog-header">
+            <h1 data-i18n-html="blog.title">Insights de <span>GTM & Revenue</span></h1>
+            <p data-i18n="blog.subtitle">Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
+        </section>
 
-    <div class="blog-container">
-        <div class="blog-grid">
-            
-            <a href="blog/custo-invisivel-cro.html" class="article-card featured-article">
-                <div class="article-thumbnail">
-                    <iframe src="blog/ilustracao_capa.html" style="width:100%; height:100%; border:none; pointer-events:none;"></iframe>
-                </div>
-                <div class="article-content">
-                    <span class="featured-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                        </svg>
-                        Artigo em Destaque
-                    </span>
-                    <span class="article-category">Diagnóstico</span>
-                    <h2 class="article-title">O Custo Invisível de Não Ter um CRO</h2>
-                    <p class="article-excerpt">O custo mais caro para uma empresa B2B Tech em crescimento não é o que você paga — é o que você deixa de ganhar. Entenda a matemática que founders evitam fazer e descubra quanto sua empresa está perdendo com a falta de liderança dedicada de receita.</p>
-                    <div class="article-meta">
-                        <span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                            </svg>
-                            7 min de leitura
-                        </span>
-                        <span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="16" y1="2" x2="16" y2="6"/>
-                                <line x1="8" y1="2" x2="8" y2="6"/>
-                                <line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                            Nov 2024
-                        </span>
+        <div class="blog-container">
+            <div class="blog-grid">
+                
+                <a href="blog/custo-invisivel-cro.html" class="article-card featured-article">
+                    <div class="article-thumbnail">
+                        <!-- FIX #9: Added title attribute to iframe for accessibility -->
+                        <iframe src="blog/ilustracao_capa.html" title="Ilustração do artigo sobre o custo invisível de não ter um CRO" style="width:100%; height:100%; border:none; pointer-events:none;" loading="lazy"></iframe>
                     </div>
-                </div>
-            </a>
-            
+                    <div class="article-content">
+                        <span class="featured-badge" data-i18n-badge="featured.badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                            Artigo em Destaque
+                        </span>
+                        <span class="article-category" data-i18n="article.category">Diagnóstico</span>
+                        <h2 class="article-title" data-i18n="article.title">O Custo Invisível de Não Ter um CRO</h2>
+                        <p class="article-excerpt" data-i18n="article.excerpt">O custo mais caro para uma empresa B2B Tech em crescimento não é o que você paga — é o que você deixa de ganhar. Entenda a matemática que founders evitam fazer e descubra quanto sua empresa está perdendo com a falta de liderança dedicada de receita.</p>
+                        <div class="article-meta">
+                            <span data-i18n-meta="article.time">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                7 min de leitura
+                            </span>
+                            <span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                Nov 2024
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
         </div>
-    </div>
+    </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="index.html#contato">Contato</a>
-            <a href="https://www.linkedin.com/company/alavankacro" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/alavankacro" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/5511975341961" target="_blank" class="whatsapp-float">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l-.001 5.946z"/></svg>
+    <!-- FIX #4: Corrected WhatsApp SVG path -->
+    <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contato via WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
     </a>
 
     <script>
-        // Language toggle
+        // Language toggle state
         let currentLang = 'pt';
         
+        // FIX #11: Robust translation system using data attributes
         const translations = {
             pt: {
                 'blog.title': 'Insights de <span>GTM & Revenue</span>',
@@ -593,7 +657,10 @@
                 'nav.solution': 'A Solução',
                 'nav.why': 'Por Que Nós',
                 'nav.process': 'Como Funciona',
-                'nav.contact': 'Contato'
+                'nav.contact': 'Contato',
+                'lang.toggle.label': 'Mudar idioma para inglês',
+                'skip.link': 'Pular para o conteúdo',
+                'hamburger.label': 'Abrir menu de navegação'
             },
             en: {
                 'blog.title': 'Insights on <span>GTM & Revenue</span>',
@@ -607,34 +674,82 @@
                 'nav.solution': 'The Solution',
                 'nav.why': 'Why Us',
                 'nav.process': 'How It Works',
-                'nav.contact': 'Contact'
+                'nav.contact': 'Contact',
+                'lang.toggle.label': 'Switch language to Portuguese',
+                'skip.link': 'Skip to content',
+                'hamburger.label': 'Open navigation menu'
             }
         };
 
+        // FIX #5 & #7 & #11: Comprehensive translation function
         function toggleLanguage() {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+            const newLabel = currentLang === 'pt' ? 'EN' : 'PT';
             
-            // Update blog header
-            document.querySelector('.blog-header h1').innerHTML = translations[currentLang]['blog.title'];
-            document.querySelector('.blog-header p').textContent = translations[currentLang]['blog.subtitle'];
+            // Update both language toggle buttons
+            const langToggle = document.getElementById('langToggle');
+            const langToggleMobile = document.getElementById('langToggleMobile');
             
-            // Update article card
-            document.querySelector('.featured-badge').innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> ' + translations[currentLang]['featured.badge'];
-            document.querySelector('.article-category').textContent = translations[currentLang]['article.category'];
-            document.querySelector('.article-title').textContent = translations[currentLang]['article.title'];
-            document.querySelector('.article-excerpt').textContent = translations[currentLang]['article.excerpt'];
+            if (langToggle) {
+                langToggle.textContent = newLabel;
+                langToggle.setAttribute('aria-label', translations[currentLang]['lang.toggle.label']);
+            }
+            if (langToggleMobile) {
+                langToggleMobile.textContent = newLabel;
+                langToggleMobile.setAttribute('aria-label', translations[currentLang]['lang.toggle.label']);
+            }
             
-            // Update nav links
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks[1].textContent = translations[currentLang]['nav.problem'];
-            navLinks[2].textContent = translations[currentLang]['nav.solution'];
-            navLinks[3].textContent = translations[currentLang]['nav.why'];
-            navLinks[4].textContent = translations[currentLang]['nav.process'];
-            navLinks[6].textContent = translations[currentLang]['nav.contact'];
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+            
+            // Update all elements with data-i18n attribute (text content)
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // Update elements with data-i18n-html attribute (innerHTML)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            
+            // Update featured badge (needs to preserve SVG)
+            const featuredBadge = document.querySelector('[data-i18n-badge]');
+            if (featuredBadge) {
+                const key = featuredBadge.getAttribute('data-i18n-badge');
+                if (translations[currentLang][key]) {
+                    featuredBadge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> ' + translations[currentLang][key];
+                }
+            }
+            
+            // Update article time meta (needs to preserve SVG)
+            const timeMeta = document.querySelector('[data-i18n-meta]');
+            if (timeMeta) {
+                const key = timeMeta.getAttribute('data-i18n-meta');
+                if (translations[currentLang][key]) {
+                    timeMeta.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ' + translations[currentLang][key];
+                }
+            }
+            
+            // Update skip link
+            const skipLink = document.querySelector('.skip-link');
+            if (skipLink) {
+                skipLink.textContent = translations[currentLang]['skip.link'];
+            }
+            
+            // Update hamburger aria-label
+            const hamburger = document.getElementById('hamburger');
+            if (hamburger) {
+                hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
+            }
         }
     
-        // Mobile menu for blog
+        // FIX #6 & #8: Mobile menu with proper ARIA handling
         function toggleMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
@@ -644,10 +759,16 @@
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
 
-            if (navLinks.classList.contains('active')) {
+            // Update aria-expanded attribute
+            const isExpanded = navLinks.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded.toString());
+
+            if (isExpanded) {
                 document.body.style.overflow = 'hidden';
+                hamburger.setAttribute('aria-label', currentLang === 'pt' ? 'Fechar menu de navegação' : 'Close navigation menu');
             } else {
                 document.body.style.overflow = '';
+                hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
             }
         }
 
@@ -659,15 +780,19 @@
 
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
             document.body.style.overflow = '';
         }
 
+        // Close mobile menu on window resize
         window.addEventListener('resize', function () {
             if (window.innerWidth > 768) {
                 closeMobileMenu();
             }
         });
 
+        // Close mobile menu when clicking nav links
         document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('#navLinks a');
             links.forEach(link => {
@@ -675,6 +800,16 @@
             });
         });
 
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
     </script>
 </body>
 </html>
+
+
+
+Apollo
