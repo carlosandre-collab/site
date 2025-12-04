@@ -322,7 +322,105 @@
             }
         }
 
+        /* Redirect Banner */
+        .redirect-banner {
+            background: linear-gradient(90deg, #1A1A2E 0%, #2D2D44 100%);
+            color: white;
+            padding: 0.75rem 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+
+        .redirect-banner span {
+            opacity: 0.9;
+        }
+
+        .redirect-banner a {
+            color: #A5A0F3;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+        }
+
+        .redirect-banner a:hover {
+            color: white;
+            gap: 0.6rem;
+        }
+
+        .redirect-banner .close-banner {
+            position: absolute;
+            right: 2%;
+            background: none;
+            border: none;
+            color: white;
+            opacity: 0.6;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem;
+        }
+
+        .redirect-banner .close-banner:hover {
+            opacity: 1;
+        }
+
+        /* Adjust nav position for banner */
+        nav {
+            top: 42px !important;
+        }
+
+        body {
+            padding-top: 42px;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
+            .redirect-banner {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+                padding: 0.75rem 15%;
+            }
+            nav {
+                top: 70px !important;
+            }
+            body {
+                padding-top: 70px;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -388,11 +486,15 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="redirect-banner" id="redirectBanner">
+        <span>🌎 Looking to expand your company into Latin America?</span>
+        <a href="https://alavanka.com" target="_blank">Visit Alavanka.com <span>→</span></a>
+        <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Close">×</button>
+    </div>
+
     <nav>
-        <a href="index.html" class="logo">ALAVANKA</a>
-        <!-- Hamburger for mobile -->
-        <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+       <a href="index.html" class="logo">ALAVANKA</a><a href="index.html" class="logo"><img src="data:image/webp;base64,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
+            <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -412,21 +514,17 @@
             <a href="index.html#contato">Contato</a>
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
-        <!-- Language toggle outside menu for mobile -->
         <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
     </nav>
 
-    <!-- Blog Header -->
     <section class="blog-header">
         <h1>Insights de <span>GTM & Revenue</span></h1>
         <p>Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
     </section>
 
-    <!-- Blog Articles Grid -->
     <div class="blog-container">
         <div class="blog-grid">
             
-            <!-- Featured Article -->
             <a href="blog/custo-invisivel-cro.html" class="article-card featured-article">
                 <div class="article-thumbnail">
                     <iframe src="blog/ilustracao_capa.html" style="width:100%; height:100%; border:none; pointer-events:none;"></iframe>
@@ -465,7 +563,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-links">
             <a href="index.html">Home</a>
@@ -474,6 +571,10 @@
         </div>
         <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
     </footer>
+
+    <a href="https://wa.me/5511975341961" target="_blank" class="whatsapp-float">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l-.001 5.946z"/></svg>
+    </a>
 
     <script>
         // Language toggle
