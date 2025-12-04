@@ -2643,21 +2643,32 @@
         });
     }
 
-    // Load saved language preference
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedLang = localStorage.getItem('alavanka-lang');
-        if (savedLang && savedLang !== currentLang) {
-            currentLang = savedLang;
-            const langText = currentLang === 'pt' ? 'EN' : 'PT';
-            document.getElementById('langToggle').textContent = langText;
-            // Also update mobile language toggle if it exists
-            const mobileLangToggle = document.getElementById('langToggleMobile');
-            if (mobileLangToggle) {
-                mobileLangToggle.textContent = langText;
-            }
-            applyTranslations();
+   // Load saved language preference and setup event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('alavanka-lang');
+    if (savedLang && savedLang !== currentLang) {
+        currentLang = savedLang;
+        const langText = currentLang === 'pt' ? 'EN' : 'PT';
+        document.getElementById('langToggle').textContent = langText;
+        const mobileLangToggle = document.getElementById('langToggleMobile');
+        if (mobileLangToggle) {
+            mobileLangToggle.textContent = langText;
         }
+        applyTranslations();
+    }
+    
+    // FIX: Close mobile menu when clicking nav links
+    const navLinksElements = document.querySelectorAll('#navLinks a');
+    navLinksElements.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
     });
+});
+// Close mobile menu on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
     // Mobile Menu Functions
     function toggleMobileMenu() {
         const hamburger = document.getElementById('hamburger');
