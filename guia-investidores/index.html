@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os 7 Sinais de Alerta de uma Portfolio Company Travada | Alavanka</title>
+    <meta name="description" content="Guia gratuito para investidores: como identificar problemas de GTM antes que virem crise — e o que fazer a respeito.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6B5CE7;
+            --primary-dark: #5648c7;
+            --primary-light: #8879ed;
+            --dark: #1a1a2e;
+            --dark-lighter: #2a2a4a;
+            --text: #4a4a68;
+            --text-light: #6b6b8a;
+            --light: #f8f9fc;
+            --white: #ffffff;
+            --danger: #e53e3e;
+            --success: #38a169;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .header-cta {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .header-cta:hover {
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 540px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(107, 92, 231, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-bullets {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .hero-bullets li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: rgba(255,255,255,0.85);
+            font-size: 16px;
+        }
+
+        .hero-bullets li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .hero-note {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-card h2 {
+            color: var(--dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .form-card .form-subtitle {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group label .optional {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(107, 92, 231, 0.15);
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            background: var(--dark-lighter);
+            padding: 80px 40px;
+        }
+
+        .preview-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .preview-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .preview-container .subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 18px;
+            margin-bottom: 48px;
+        }
+
+        .signals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            text-align: left;
+        }
+
+        .signal-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .signal-card:hover {
+            border-color: var(--primary);
+            background: rgba(107, 92, 231, 0.05);
+        }
+
+        .signal-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .signal-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .signal-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* Author Section */
+        .author-section {
+            background: var(--dark);
+            padding: 60px 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .author-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            font-size: 14px;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .author-info p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            color: var(--primary-light);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-copy {
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 40px 24px 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .form-card {
+                padding: 32px 24px;
+            }
+
+            .author-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header {
+                padding: 16px 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .preview-container h2 {
+                font-size: 24px;
+            }
+
+            .signals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Success State */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        .form-success .success-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+        }
+
+        .form-success h3 {
+            color: var(--dark);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .form-success p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .form-content.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="https://www.alavanka.com.br" class="logo">ALAVANKA</a>
+        <a href="https://www.alavanka.com.br" class="header-cta">← Voltar ao site</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Guia Gratuito para Investidores</span>
+            
+            <h1>Os 7 Sinais de Alerta de uma Portfolio Company <span>Travada no Crescimento</span></h1>
+            
+            <p class="hero-subtitle">
+                Como identificar problemas de GTM antes que virem crise — e o que fazer a respeito.
+            </p>
+            
+            <ul class="hero-bullets">
+                <li>Os 7 padrões mais comuns de estagnação em B2B Tech</li>
+                <li>Red flags para identificar em board meetings</li>
+                <li>Scorecard prático para avaliação rápida de GTM</li>
+                <li>O custo real de cada mês de inação</li>
+            </ul>
+            
+            <p class="hero-note">
+                Leitura de 8 minutos. Baseado em 25+ anos de experiência construindo operações de $3M a $240M.
+            </p>
+        </div>
+
+        <div class="form-card">
+            <div class="form-content">
+                <h2>Baixe o Guia Gratuito</h2>
+                <p class="form-subtitle">Preencha abaixo para receber o PDF por email.</p>
+                
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Corporativo</label>
+                        <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Cargo</label>
+                        <select id="role" name="role" required>
+                            <option value="">Selecione...</option>
+                            <option value="gp">General Partner / Managing Partner</option>
+                            <option value="partner">Partner</option>
+                            <option value="principal">Principal / Director</option>
+                            <option value="ceo">CEO / Founder</option>
+                            <option value="cro">CRO / VP Sales</option>
+                            <option value="board">Board Member</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fund">Nome do Fundo <span class="optional">(opcional)</span></label>
+                        <input type="text" id="fund" name="fund" placeholder="Ex: Kaszek, Monashees...">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Baixar Guia Gratuito</button>
+                </form>
+                
+                <p class="form-footer">
+                    Ao baixar, você concorda com nossa <a href="#">Política de Privacidade</a>.
+                </p>
+            </div>
+
+            <div class="form-success" id="formSuccess">
+                <div class="success-icon">✓</div>
+                <h3>Guia Enviado!</h3>
+                <p>Verifique seu email em alguns minutos. Se não encontrar, confira a pasta de spam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="preview-section">
+        <div class="preview-container">
+            <h2>O Que Você Vai Aprender</h2>
+            <p class="subtitle">7 sinais que indicam que sua portfolio company está travando — e como diagnosticar cada um</p>
+            
+            <div class="signals-grid">
+                <div class="signal-card">
+                    <span class="signal-number">1</span>
+                    <h3>Pipeline Sempre "Quase Lá"</h3>
+                    <p>Cobertura alta, conversão baixa. O forecast otimista que nunca se materializa.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">2</span>
+                    <h3>Ciclo de Vendas Elástico</h3>
+                    <p>Deals que se arrastam indefinidamente. Falta de urgência no processo.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">3</span>
+                    <h3>Founder em Modo Bombeiro</h3>
+                    <p>CEO gastando 60%+ do tempo em vendas. Gargalo operacional.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">4</span>
+                    <h3>Time Vendendo Features</h3>
+                    <p>Pitch que não conecta com dor do cliente. Commoditização.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">5</span>
+                    <h3>ICP Nebuloso</h3>
+                    <p>"Nosso produto serve para qualquer empresa." CAC explodindo.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">6</span>
+                    <h3>Métricas Sem Dono</h3>
+                    <p>RevOps inexistente. Decisões por intuição, não dados.</p>
+                </div>
+                
+                <div class="signal-card">
+                    <span class="signal-number">7</span>
+                    <h3>NRR Estagnado</h3>
+                    <p>Expansão não compensa churn. Motor vazando combustível.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="author-container">
+            <div class="author-image">CA</div>
+            <div class="author-info">
+                <h3>Sobre o Autor</h3>
+                <h4>Carlos André</h4>
+                <p>
+                    Managing Partner da Alavanka. Fractional CRO para empresas B2B Tech em estágio de crescimento. 
+                    25+ anos construindo operações de revenue em empresas como Oracle, AT&T, Informatica e PeopleSoft. 
+                    Mentor Endeavor. Conselheiro certificado IBGC.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">ALAVANKA</div>
+        <div class="footer-tagline">Fractional CRO para B2B Tech</div>
+        
+        <div class="footer-links">
+            <a href="https://www.alavanka.com.br">Site Principal</a>
+            <a href="https://www.alavanka.com.br/blog.html">Blog</a>
+            <a href="https://www.linkedin.com/in/carlosandre/">LinkedIn</a>
+        </div>
+        
+        <p class="footer-copy">© 2024 Alavanka. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                role: document.getElementById('role').value,
+                fund: document.getElementById('fund').value
+            };
+            
+            // =====================================================
+            // APOLLO INTEGRATION - OPÇÃO 1: Via Webhook
+            // =====================================================
+            // Substitua YOUR_APOLLO_WEBHOOK_URL pelo webhook do Apollo
+            // Para criar: Apollo > Settings > Integrations > Webhooks
+            
+            /*
+            fetch('YOUR_APOLLO_WEBHOOK_URL', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    first_name: formData.name.split(' ')[0],
+                    last_name: formData.name.split(' ').slice(1).join(' ') || '',
+                    email: formData.email,
+                    title: formData.role,
+                    organization_name: formData.fund,
+                    tags: ['guia_7_sinais', 'lead_magnet'],
+                    // Custom fields - configure no Apollo primeiro
+                    custom_fields: {
+                        lead_source: 'guia_7_sinais_alerta',
+                        cargo_selecionado: formData.role
+                    }
+                })
+            }).then(response => {
+                console.log('Lead enviado para Apollo');
+            }).catch(error => {
+                console.error('Erro ao enviar para Apollo:', error);
+            });
+            */
+            
+            // =====================================================
+            // APOLLO INTEGRATION - OPÇÃO 2: Via Form Action
+            // =====================================================
+            // Vá em Apollo > Engage > Forms > Create Form
+            // Copie o action URL e substitua abaixo
+            // Descomente e use o form action nativo do Apollo
+            
+            // Salva no localStorage para debug (remover em produção)
+            localStorage.setItem('lastLead', JSON.stringify(formData));
+            console.log('Lead captured:', formData);
+            
+            // Redireciona para página de obrigado com download
+            window.location.href = 'obrigado.html';
+        });
+    </script>
+
+</body>
+</html>
