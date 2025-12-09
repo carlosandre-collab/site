@@ -1,0 +1,73 @@
+/* ============================================
+   SECTION: Desktop Navigation Styles
+   PURPOSE: Styles for navbar, logo, desktop links, and language toggle button
+   CREATED: 2025-12-02 | TASK: P2A-002
+   ============================================ */
+.navbar {
+    background-color: var(--bg-primary);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Language Toggle (Desktop) */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    background: var(--bg-secondary);
+    border-radius: 5px;
+    border: 1px solid var(--text-muted);
+}
+
+.lang-toggle span {
+    padding: 0 5px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.lang-toggle span.active {
+    color: var(--color-accent);
+    font-weight: bold;
+}

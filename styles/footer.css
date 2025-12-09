@@ -1,0 +1,44 @@
+/* ============================================
+   SECTION: Footer Styles
+   PURPOSE: Consistent styles for the main footer section
+   CREATED: 2025-12-02 | TASK: P2A-003
+   ============================================ */
+.footer {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Specific article footer style */
+.article-footer {
+    /* P2D-001: Moved from inline style in custo-invisivel-cro.html */
+    background-color: var(--text-primary); 
+    color: var(--color-white);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
