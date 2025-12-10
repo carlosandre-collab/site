@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
             overflow: hidden;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -31,194 +31,336 @@
             justify-content: center;
         }
 
-        /* Blurred message bubbles representing unclear communication */
-        .bubble {
+        /* Gradient orbs for depth */
+        .orb {
             position: absolute;
-            border-radius: 20px;
-            padding: 15px 25px;
-            font-size: 14px;
-            font-weight: 500;
-            opacity: 0.15;
-            filter: blur(2px);
-            color: #fff;
-            background: rgba(107, 92, 231, 0.3);
-            border: 1px solid rgba(107, 92, 231, 0.2);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
         }
 
-        .bubble-1 {
-            top: 15%;
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #6B5CE7 0%, transparent 70%);
+            top: 10%;
             left: 10%;
-            transform: rotate(-5deg);
-            animation: float1 6s ease-in-out infinite;
+            animation: float-orb 8s ease-in-out infinite;
         }
 
-        .bubble-2 {
-            top: 25%;
-            right: 15%;
-            transform: rotate(3deg);
-            animation: float2 7s ease-in-out infinite;
-        }
-
-        .bubble-3 {
-            bottom: 30%;
-            left: 15%;
-            transform: rotate(2deg);
-            animation: float3 5s ease-in-out infinite;
-        }
-
-        .bubble-4 {
-            bottom: 20%;
+        .orb-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #e53e3e 0%, transparent 70%);
+            bottom: 15%;
             right: 10%;
-            transform: rotate(-3deg);
-            animation: float1 8s ease-in-out infinite;
+            animation: float-orb 10s ease-in-out infinite reverse;
         }
 
-        @keyframes float1 {
-            0%, 100% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-10px) rotate(-3deg); }
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #38a169 0%, transparent 70%);
+            top: 50%;
+            right: 25%;
+            animation: float-orb 7s ease-in-out infinite;
         }
 
-        @keyframes float2 {
-            0%, 100% { transform: translateY(0) rotate(3deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
+        @keyframes float-orb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -20px) scale(1.1); }
         }
 
-        @keyframes float3 {
-            0%, 100% { transform: translateY(0) rotate(2deg); }
-            50% { transform: translateY(-8px) rotate(0deg); }
-        }
-
-        /* Central focus element */
-        .center-element {
+        /* Central composition */
+        .center-composition {
             position: relative;
             z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
         }
 
-        /* Target with question mark */
-        .target-container {
+        /* Large target */
+        .target-wrapper {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
         }
 
-        .target {
-            width: 100%;
-            height: 100%;
+        .target-ring {
+            position: absolute;
             border-radius: 50%;
-            border: 3px solid rgba(107, 92, 231, 0.4);
+            border: 3px solid;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .target-ring-1 {
+            width: 200px;
+            height: 200px;
+            border-color: rgba(107, 92, 231, 0.8);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        .target-ring-2 {
+            width: 150px;
+            height: 150px;
+            border-color: rgba(107, 92, 231, 0.6);
+            animation: pulse-ring 2s ease-out infinite 0.3s;
+        }
+
+        .target-ring-3 {
+            width: 100px;
+            height: 100px;
+            border-color: rgba(107, 92, 231, 0.4);
+            animation: pulse-ring 2s ease-out infinite 0.6s;
+        }
+
+        .target-center {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6B5CE7 0%, #8879ed 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            animation: pulse 3s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(107, 92, 231, 0.6);
         }
 
-        .target::before {
-            content: '';
-            position: absolute;
-            width: 80%;
-            height: 80%;
-            border-radius: 50%;
-            border: 2px solid rgba(107, 92, 231, 0.3);
-        }
-
-        .target::after {
-            content: '';
-            position: absolute;
-            width: 60%;
-            height: 60%;
-            border-radius: 50%;
-            border: 2px solid rgba(107, 92, 231, 0.2);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-        }
-
-        .question-mark {
-            font-size: 48px;
+        .target-center::after {
+            content: '?';
+            font-size: 28px;
             font-weight: 800;
-            color: #6B5CE7;
-            opacity: 0.9;
-            animation: fade 2s ease-in-out infinite;
+            color: white;
+            animation: pulse-question 1.5s ease-in-out infinite;
         }
 
-        @keyframes fade {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.3); opacity: 0; }
         }
 
-        /* Scattered arrows missing the target */
+        @keyframes pulse-question {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Arrows missing target */
         .arrow {
             position: absolute;
-            width: 40px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, rgba(229, 62, 62, 0.6));
-            border-radius: 2px;
+            display: flex;
+            align-items: center;
         }
 
-        .arrow::after {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: -6px;
-            border-left: 12px solid rgba(229, 62, 62, 0.6);
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
+        .arrow-body {
+            width: 60px;
+            height: 6px;
+            background: linear-gradient(90deg, rgba(229, 62, 62, 0.3), rgba(229, 62, 62, 0.9));
+            border-radius: 3px;
+        }
+
+        .arrow-head {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 16px solid #e53e3e;
         }
 
         .arrow-1 {
-            top: 35%;
-            left: 25%;
+            top: 20%;
+            left: 15%;
             transform: rotate(25deg);
+            animation: arrow-fly 3s ease-in-out infinite;
         }
 
         .arrow-2 {
-            top: 55%;
-            left: 20%;
-            transform: rotate(-15deg);
+            top: 70%;
+            left: 12%;
+            transform: rotate(-20deg);
+            animation: arrow-fly 3s ease-in-out infinite 0.5s;
         }
 
         .arrow-3 {
-            top: 40%;
-            right: 25%;
-            transform: rotate(160deg);
+            top: 30%;
+            right: 15%;
+            transform: rotate(155deg);
+            animation: arrow-fly 3s ease-in-out infinite 1s;
         }
 
         .arrow-4 {
-            bottom: 35%;
-            right: 22%;
-            transform: rotate(-170deg);
+            top: 65%;
+            right: 12%;
+            transform: rotate(-160deg);
+            animation: arrow-fly 3s ease-in-out infinite 1.5s;
         }
 
-        /* Text label */
-        .label {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
+        .arrow-5 {
+            top: 45%;
+            left: 8%;
+            transform: rotate(5deg);
+            animation: arrow-fly 3s ease-in-out infinite 0.8s;
+        }
+
+        @keyframes arrow-fly {
+            0%, 100% { opacity: 0.6; transform: translateX(0) rotate(inherit); }
+            50% { opacity: 1; transform: translateX(10px) rotate(inherit); }
+        }
+
+        /* Message bubbles - confused/unclear */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+        }
+
+        .bubble::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        .bubble-1 {
+            top: 12%;
+            left: 20%;
+            animation: bubble-float 4s ease-in-out infinite;
+        }
+        .bubble-1::before {
+            bottom: -8px;
+            right: 20px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bubble-2 {
+            top: 18%;
+            right: 18%;
+            animation: bubble-float 4s ease-in-out infinite 1s;
+        }
+        .bubble-2::before {
+            bottom: -8px;
+            left: 20px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bubble-3 {
+            bottom: 22%;
+            left: 18%;
+            animation: bubble-float 4s ease-in-out infinite 2s;
+        }
+        .bubble-3::before {
+            top: -8px;
+            right: 20px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bubble-4 {
+            bottom: 18%;
+            right: 20%;
+            animation: bubble-float 4s ease-in-out infinite 3s;
+        }
+        .bubble-4::before {
+            top: -8px;
+            left: 20px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes bubble-float {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        /* Strikethrough effect on bubbles */
+        .bubble span {
+            position: relative;
+        }
+
+        .bubble span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: rgba(229, 62, 62, 0.6);
+            transform: rotate(-5deg);
+        }
+
+        /* Bottom label */
+        .label-container {
+            margin-top: 40px;
             text-align: center;
-            padding: 8px 16px;
-            background: rgba(107, 92, 231, 0.15);
-            border-radius: 4px;
-            border: 1px solid rgba(107, 92, 231, 0.2);
         }
 
-        /* Decorative grid */
+        .label-main {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 20px rgba(107, 92, 231, 0.5);
+        }
+
+        .label-sub {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(229, 62, 62, 0.9);
+            letter-spacing: 1px;
+        }
+
+        /* Decorative particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(107, 92, 231, 0.6);
+            border-radius: 50%;
+        }
+
+        .particle-1 { top: 25%; left: 35%; animation: particle-drift 6s linear infinite; }
+        .particle-2 { top: 35%; right: 30%; animation: particle-drift 8s linear infinite 1s; }
+        .particle-3 { bottom: 30%; left: 28%; animation: particle-drift 7s linear infinite 2s; }
+        .particle-4 { bottom: 40%; right: 35%; animation: particle-drift 5s linear infinite 0.5s; }
+        .particle-5 { top: 55%; left: 25%; animation: particle-drift 9s linear infinite 3s; }
+        .particle-6 { top: 60%; right: 28%; animation: particle-drift 6s linear infinite 1.5s; }
+
+        @keyframes particle-drift {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-30px) translateX(10px); opacity: 0; }
+        }
+
+        /* Grid overlay */
         .grid-overlay {
             position: absolute;
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(107, 92, 231, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(107, 92, 231, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(107, 92, 231, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(107, 92, 231, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
             pointer-events: none;
         }
     </style>
@@ -227,26 +369,59 @@
     <div class="container">
         <div class="grid-overlay"></div>
         
-        <!-- Blurred message bubbles -->
-        <div class="bubble bubble-1">Plataforma de IA...</div>
-        <div class="bubble bubble-2">Solução integrada...</div>
-        <div class="bubble bubble-3">Otimização de...</div>
-        <div class="bubble bubble-4">Eficiência...</div>
-        
-        <!-- Arrows missing the target -->
-        <div class="arrow arrow-1"></div>
-        <div class="arrow arrow-2"></div>
-        <div class="arrow arrow-3"></div>
-        <div class="arrow arrow-4"></div>
-        
-        <!-- Central element -->
-        <div class="center-element">
-            <div class="target-container">
-                <div class="target">
-                    <span class="question-mark">?</span>
-                </div>
+        <!-- Gradient orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <!-- Particles -->
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+
+        <!-- Arrows missing target -->
+        <div class="arrow arrow-1">
+            <div class="arrow-body"></div>
+            <div class="arrow-head"></div>
+        </div>
+        <div class="arrow arrow-2">
+            <div class="arrow-body"></div>
+            <div class="arrow-head"></div>
+        </div>
+        <div class="arrow arrow-3">
+            <div class="arrow-body"></div>
+            <div class="arrow-head"></div>
+        </div>
+        <div class="arrow arrow-4">
+            <div class="arrow-body"></div>
+            <div class="arrow-head"></div>
+        </div>
+        <div class="arrow arrow-5">
+            <div class="arrow-body"></div>
+            <div class="arrow-head"></div>
+        </div>
+
+        <!-- Message bubbles -->
+        <div class="bubble bubble-1"><span>"Plataforma de IA..."</span></div>
+        <div class="bubble bubble-2"><span>"Solução integrada..."</span></div>
+        <div class="bubble bubble-3"><span>"Otimizamos processos..."</span></div>
+        <div class="bubble bubble-4"><span>"Mais eficiência..."</span></div>
+
+        <!-- Central composition -->
+        <div class="center-composition">
+            <div class="target-wrapper">
+                <div class="target-ring target-ring-1"></div>
+                <div class="target-ring target-ring-2"></div>
+                <div class="target-ring target-ring-3"></div>
+                <div class="target-center"></div>
             </div>
-            <div class="label">Value Proposition</div>
+            <div class="label-container">
+                <div class="label-main">Value Proposition</div>
+                <div class="label-sub">❌ Impreciso = Crescimento Travado</div>
+            </div>
         </div>
     </div>
 </body>
