@@ -1421,10 +1421,246 @@
                 padding-top: 70px;
             }
         }
+/* ===== VC BANNER STYLES (NEW) ===== */
+.vc-banner {
+    background: linear-gradient(90deg, #1A1A2E 0%, #2D2D44 100%);
+    color: white;
+    padding: 0.7rem 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    position: fixed;
+    top: 42px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
 
+.vc-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vc-banner-icon {
+    font-size: 1rem;
+}
+
+.vc-banner-text {
+    opacity: 0.95;
+}
+
+.vc-banner a {
+    color: #A5A0F3;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.vc-banner a:hover {
+    color: white;
+    gap: 0.5rem;
+}
+
+.vc-banner .close-vc-banner {
+    position: absolute;
+    right: 2%;
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+}
+
+.vc-banner .close-vc-banner:hover {
+    opacity: 1;
+}
+
+body.vc-banner-visible nav {
+    top: 84px !important;
+}
+
+body.vc-banner-visible {
+    padding-top: 84px;
+}
+
+body:not(.vc-banner-visible) .vc-banner {
+    display: none;
+}
+
+/* ===== INVESTORS SECTION STYLES (NEW) ===== */
+.investors-section {
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, #EEF0F8 100%);
+    padding: 80px 10%;
+    max-width: none;
+}
+
+.investors-section .section-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.investors-section .section-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.investors-section .section-header h2 span {
+    color: var(--accent);
+}
+
+.investors-section .section-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.investors-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.investors-text p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.investors-benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.investors-benefits li {
+    padding: 0.6rem 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.investors-benefits li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.investors-cta-box {
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(107, 92, 231, 0.12);
+}
+
+.investors-cta-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.investors-cta-box .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.investors-cta-box .btn-primary {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 1rem 2.5rem;
+}
+
+.investors-cta-box .reading-time {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* ===== FOOTER INVESTORS LINK (NEW) ===== */
+.footer-investors-section {
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-investors-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent) !important;
+    font-weight: 500;
+    margin-left: 0 !important;
+}
+
+.footer-investors-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVE - VC ADDITIONS ===== */
+@media (max-width: 900px) {
+    .investors-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vc-banner {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+        padding: 0.6rem 15%;
+        font-size: 0.85rem;
+        top: 70px;
+    }
+
+    .vc-banner-content {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    body.vc-banner-visible nav {
+        top: 112px !important;
+    }
+
+    body.vc-banner-visible {
+        padding-top: 112px;
+    }
+
+    .investors-section {
+        padding: 60px 5%;
+    }
+}
     </style>
 </head>
-<body>
+<body class="vc-banner-visible">
 
     <!-- Redirect Banner -->
     <div class="redirect-banner" id="redirectBanner">
@@ -1432,6 +1668,15 @@
         <a href="https://alavanka.com" target="_blank">Visit Alavanka.com <span>→</span></a>
         <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Close">×</button>
     </div>
+    <!-- NEW: VC Banner -->
+<div class="vc-banner" id="vcBanner" role="banner">
+    <div class="vc-banner-content">
+        <span class="vc-banner-icon">📊</span>
+        <span class="vc-banner-text" data-i18n="vcbanner.text">Investidor? Baixe grátis: "Os 7 Sinais de uma Portfolio Company Travada"</span>
+        <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener noreferrer" data-i18n="vcbanner.cta">Baixar Guia <span aria-hidden="true">→</span></a>
+    </div>
+    <button class="close-vc-banner" onclick="closeVcBanner()" aria-label="Fechar banner">×</button>
+</div>
 
     <!-- Navigation -->
     <nav>
@@ -1946,13 +2191,45 @@
             <a href="https://alavanka.com" target="_blank" class="btn-outline" data-i18n="cross.cta">Visit Alavanka.com →</a>
         </div>
     </section>
-
+<!-- NEW: Investors Section -->
+<section class="investors-section" id="investidores">
+    <div class="section-header">
+        <h2 data-i18n="investors.title">Para <span>Fundos de Investimento</span></h2>
+        <p data-i18n="investors.subtitle">Sua portfolio company está travada no crescimento?</p>
+    </div>
+    
+    <div class="investors-content">
+        <div class="investors-text">
+            <p data-i18n="investors.description">Criamos um guia prático para ajudar GPs e Partners a identificar os 7 sinais mais comuns de problemas de GTM em empresas B2B Tech — antes que virem crise.</p>
+            
+            <ul class="investors-benefits">
+                <li data-i18n="investors.benefit1">Os 7 padrões mais comuns de estagnação em B2B Tech</li>
+                <li data-i18n="investors.benefit2">Red flags para identificar em board meetings</li>
+                <li data-i18n="investors.benefit3">Scorecard prático para avaliação rápida de GTM</li>
+                <li data-i18n="investors.benefit4">O custo real de cada mês de inação</li>
+            </ul>
+        </div>
+        
+        <div class="investors-cta-box">
+            <h3 data-i18n="investors.cta.title">Guia Gratuito</h3>
+            <p class="subtitle" data-i18n="investors.cta.subtitle">Os 7 Sinais de Alerta de uma Portfolio Company Travada no Crescimento</p>
+            <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="investors.cta.button">Baixar Guia Gratuito →</a>
+            <p class="reading-time" data-i18n="investors.cta.time">Leitura de 8 minutos. Baseado em 25+ anos de experiência.</p>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
     <footer>
         <div data-i18n="footer.rights">© 2025 Alavanka. Todos os direitos reservados.</div>
         <div>
             <a href="https://alavanka.com.br">Fractional CRO</a>
             <a href="https://alavanka.com">Market Entry LATAM</a>
+        </div>
+    <!-- NEW: Footer Investors Section -->
+        <div class="footer-investors-section">
+    <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener noreferrer" class="footer-investors-link" data-i18n="footer.investors">
+        📊 Guia para Investidores: 7 Sinais de Alerta →
+    </a>
         </div>
     </footer>
 
@@ -1963,6 +2240,25 @@
 
     <!-- Language Toggle Script -->
     <script>
+        // ===== VC Banner Control Functions (NEW) =====
+function closeVcBanner() {
+    const vcBanner = document.getElementById('vcBanner');
+    if (vcBanner) {
+        vcBanner.style.display = 'none';
+        document.body.classList.remove('vc-banner-visible');
+        sessionStorage.setItem('vc-banner-closed', 'true');
+    }
+}
+
+function initVcBanner() {
+    if (sessionStorage.getItem('vc-banner-closed') === 'true') {
+        const vcBanner = document.getElementById('vcBanner');
+        if (vcBanner) {
+            vcBanner.style.display = 'none';
+            document.body.classList.remove('vc-banner-visible');
+        }
+    }
+}
     const translations = {
         pt: {
             // Nav
@@ -2285,7 +2581,26 @@
             "cross.cta": "Visite Alavanka.com →",
             
             // Footer
-            "footer.rights": "© 2025 Alavanka. Todos os direitos reservados."
+            "footer.rights": "© 2025 Alavanka. Todos os direitos reservados.",
+            // VC Banner
+            "vcbanner.text": "Investidor? Baixe grátis: \"Os 7 Sinais de uma Portfolio Company Travada\"",
+            "vcbanner.cta": "Baixar Guia →",
+
+            // Investors Section
+            "investors.title": "Para <span>Fundos de Investimento</span>",
+            "investors.subtitle": "Sua portfolio company está travada no crescimento?",
+            "investors.description": "Criamos um guia prático para ajudar GPs e Partners a identificar os 7 sinais mais comuns de problemas de GTM em empresas B2B Tech — antes que virem crise.",
+            "investors.benefit1": "Os 7 padrões mais comuns de estagnação em B2B Tech",
+            "investors.benefit2": "Red flags para identificar em board meetings",
+            "investors.benefit3": "Scorecard prático para avaliação rápida de GTM",
+            "investors.benefit4": "O custo real de cada mês de inação",
+            "investors.cta.title": "Guia Gratuito",
+            "investors.cta.subtitle": "Os 7 Sinais de Alerta de uma Portfolio Company Travada no Crescimento",
+            "investors.cta.button": "Baixar Guia Gratuito →",
+            "investors.cta.time": "Leitura de 8 minutos. Baseado em 25+ anos de experiência.",
+
+            // Footer
+            "footer.investors": "📊 Guia para Investidores: 7 Sinais de Alerta →",
         },
         en: {
             // Nav
@@ -2608,7 +2923,26 @@
             "cross.cta": "Visit Alavanka.com →",
             
             // Footer
-            "footer.rights": "© 2025 Alavanka. All rights reserved."
+            "footer.rights": "© 2025 Alavanka. All rights reserved.",
+            // VC Banner
+            "vcbanner.text": "Investor? Download free: \"The 7 Warning Signs of a Stalled Portfolio Company\"",
+            "vcbanner.cta": "Download Guide →",
+
+            // Investors Section
+            "investors.title": "For <span>Investment Funds</span>",
+            "investors.subtitle": "Is your portfolio company stuck in growth?",
+            "investors.description": "We created a practical guide to help GPs and Partners identify the 7 most common GTM problem signs in B2B Tech companies — before they become a crisis.",
+            "investors.benefit1": "The 7 most common stagnation patterns in B2B Tech",
+            "investors.benefit2": "Red flags to identify in board meetings",
+            "investors.benefit3": "Practical scorecard for quick GTM assessment",
+            "investors.benefit4": "The real cost of each month of inaction",
+            "investors.cta.title": "Free Guide",
+            "investors.cta.subtitle": "The 7 Warning Signs of a Stalled Portfolio Company",
+            "investors.cta.button": "Download Free Guide →",
+            "investors.cta.time": "8-minute read. Based on 25+ years of experience.",
+
+            // Footer
+            "footer.investors": "📊 Guide for Investors: 7 Warning Signs →",
         }
     };
 
@@ -2656,7 +2990,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         applyTranslations();
     }
-    
+    // Initialize VC Banner
+        initVcBanner();
     // FIX: Close mobile menu when clicking nav links
     const navLinksElements = document.querySelectorAll('#navLinks a');
     navLinksElements.forEach(link => {
