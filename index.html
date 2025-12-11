@@ -1407,25 +1407,8 @@
             padding-top: 42px;
         }
 
-        @media (max-width: 768px) {
-    /* Redirect Banner - altura controlada */
-    .redirect-banner {
-        flex-direction: column;
-        gap: 0.4rem;
-        text-align: center;
-        padding: 0.6rem 12%;
-        font-size: 0.85rem;
-        min-height: 58px;
-    }
-    
-    /* Nav sem VC banner */
-    nav {
-        top: 58px !important;
-    }
-    body {
-        padding-top: 58px;
-    }
-}
+       
+
         
 /* ===== VC BANNER STYLES (NEW) ===== */
 .vc-banner {
@@ -1636,73 +1619,196 @@ body:not(.vc-banner-visible) .vc-banner {
         gap: 2rem;
     }
 }
+/* =====================================================
+   CORREÇÃO MOBILE BANNERS v2 - alavanka.com.br
+   Texto reduzido + posicionamento corrigido
+   ===================================================== */
 
+/* ========================================= */
+/* MOBILE (768px) - Substituir bloco antigo */
+/* ========================================= */
 @media (max-width: 768px) {
-    /* VC Banner - posicionado abaixo do redirect */
-    .vc-banner {
+    /* Founder profile */
+    .founder-profile {
         flex-direction: column;
+        text-align: center;
+    }
+    .founder-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* ===== REDIRECT BANNER ===== */
+    .redirect-banner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 0.3rem;
         text-align: center;
-        padding: 0.5rem 10%;
-        font-size: 0.8rem;
-        top: 58px; /* Igual à altura do redirect banner */
-        min-height: 48px;
+        padding: 0.4rem 8%;
+        font-size: 0.7rem;
+        min-height: 36px;
+        line-height: 1.3;
+    }
+
+    .redirect-banner span {
+        display: none; /* Esconde "Looking to expand..." no mobile */
+    }
+
+    .redirect-banner a {
+        font-size: 0.7rem;
+    }
+
+    .redirect-banner .close-banner {
+        position: absolute;
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        padding: 0.2rem;
+    }
+
+    /* ===== VC BANNER ===== */
+    .vc-banner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+        text-align: center;
+        padding: 0.4rem 8%;
+        font-size: 0.68rem;
+        top: 36px; /* Altura do redirect banner */
+        min-height: 38px;
+        line-height: 1.3;
     }
 
     .vc-banner-content {
-        flex-direction: column;
-        gap: 0.2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    .vc-banner-icon {
+        font-size: 0.85rem;
+    }
+
+    .vc-banner-text {
+        font-size: 0.68rem;
+    }
+
+    .vc-banner a {
+        font-size: 0.68rem;
+        margin-left: 0.3rem;
     }
 
     .vc-banner .close-vc-banner {
         position: absolute;
-        right: 3%;
+        right: 2%;
         top: 50%;
         transform: translateY(-50%);
-        padding: 0.5rem;
+        font-size: 1rem;
+        padding: 0.2rem;
     }
 
-    /* Nav COM VC banner visível */
-    body.vc-banner-visible nav {
-        top: 106px !important; /* 58px + 48px */
-    }
-
-    body.vc-banner-visible {
-        padding-top: 106px;
-    }
-}
-/* Extra small screens */
-@media (max-width: 480px) {
-    .redirect-banner {
-        padding: 0.5rem 8%;
-        font-size: 0.8rem;
-        min-height: 54px;
-    }
-    
-    .vc-banner {
-        padding: 0.4rem 8%;
-        font-size: 0.75rem;
-        top: 54px;
-        min-height: 44px;
-    }
-    
-    body:not(.vc-banner-visible) nav {
-        top: 54px !important;
-    }
-    
+    /* ===== NAV POSITIONING ===== */
+    /* Sem VC banner */
     body:not(.vc-banner-visible) {
-        padding-top: 54px;
+        padding-top: 36px;
     }
-    
-    body.vc-banner-visible nav {
-        top: 98px !important; /* 54px + 44px */
+    body:not(.vc-banner-visible) nav {
+        top: 36px !important;
     }
-    
+
+    /* Com VC banner */
     body.vc-banner-visible {
-        padding-top: 98px;
+        padding-top: 74px; /* 36 + 38 */
+    }
+    body.vc-banner-visible nav {
+        top: 74px !important;
+    }
+
+    /* Investors section */
+    .investors-section {
+        padding: 60px 5%;
     }
 }
-    </style>
+
+/* ========================================= */
+/* SMALL MOBILE (480px)                     */
+/* ========================================= */
+@media (max-width: 480px) {
+    /* Redirect banner - só link */
+    .redirect-banner {
+        padding: 0.35rem 6%;
+        font-size: 0.65rem;
+        min-height: 32px;
+    }
+
+    .redirect-banner a {
+        font-size: 0.65rem;
+    }
+
+    /* VC Banner - texto compacto */
+    .vc-banner {
+        padding: 0.35rem 6%;
+        font-size: 0.62rem;
+        top: 32px;
+        min-height: 34px;
+    }
+
+    .vc-banner-icon {
+        font-size: 0.8rem;
+    }
+
+    .vc-banner-text {
+        font-size: 0.62rem;
+    }
+
+    .vc-banner a {
+        font-size: 0.62rem;
+    }
+
+    /* Nav positioning */
+    body:not(.vc-banner-visible) {
+        padding-top: 32px;
+    }
+    body:not(.vc-banner-visible) nav {
+        top: 32px !important;
+    }
+
+    body.vc-banner-visible {
+        padding-top: 66px; /* 32 + 34 */
+    }
+    body.vc-banner-visible nav {
+        top: 66px !important;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* =====================================================
+   RESUMO v2 (texto reduzido)
+   =====================================================
+   
+   MOBILE (768px):
+   - Redirect: 36px, font: 0.7rem (texto principal escondido)
+   - VC: 38px, font: 0.68rem, top: 36px
+   - Nav com VC: top: 74px
+   
+   SMALL (480px):
+   - Redirect: 32px, font: 0.65rem
+   - VC: 34px, font: 0.62rem, top: 32px
+   - Nav com VC: top: 66px
+   
+   ===================================================== */
+</style>
 </head>
 <body class="vc-banner-visible">
 
@@ -1927,6 +2033,7 @@ body:not(.vc-banner-visible) .vc-banner {
             <h4 data-i18n="ideal.transform.title">Isso não é fantasia</h4>
             <p data-i18n="ideal.transform.text">É o que acontece quando você tem arquitetura de GTM instalada e execução disciplinada contra as métricas certas.</p>
         </div>
+
     </section>
 
     <!-- ===== SECTION 4: COMO FRACTIONAL CRO SE ENCAIXA ===== -->
