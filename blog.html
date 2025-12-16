@@ -7,11 +7,7 @@
     <meta name="description" content="Artigos sobre Go-to-Market, Revenue Operations e crescimento para empresas B2B Tech. Insights práticos de quem construiu operações de $3M a $240M.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-primary: #ffffff;
@@ -26,10 +22,6 @@
             --text-muted: #8888a0;
             --border: #e8e8f0;
             --border-accent: rgba(107, 92, 231, 0.25);
-            --danger: #e53e3e;
-            --danger-bg: rgba(229, 62, 62, 0.08);
-            --success: #38a169;
-            --success-bg: rgba(56, 161, 105, 0.08);
         }
 
         body {
@@ -54,28 +46,11 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 40px; width: auto; transition: opacity 0.3s ease; }
+        .logo:hover img { opacity: 0.8; }
 
-        .logo img {
-            height: 40px;
-            width: auto;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover img {
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -83,11 +58,7 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
         .lang-toggle {
             padding: 0.5rem 1rem;
@@ -100,14 +71,9 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
+        .lang-toggle:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-        .lang-toggle:hover {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-
-        /* Mobile Hamburger */
+        /* Mobile */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -117,7 +83,6 @@
             background: none;
             border: none;
         }
-
         .hamburger span {
             display: block;
             width: 24px;
@@ -126,19 +91,9 @@
             border-radius: 2px;
             transition: all 0.3s ease;
         }
-
-        /* Hamburger active state - X animation */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
         /* Blog Header */
         .blog-header {
@@ -146,7 +101,6 @@
             background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             text-align: center;
         }
-
         .blog-header h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
@@ -154,11 +108,7 @@
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
-
-        .blog-header h1 span {
-            color: var(--accent);
-        }
-
+        .blog-header h1 span { color: var(--accent); }
         .blog-header p {
             font-size: 1.1rem;
             color: var(--text-secondary);
@@ -167,12 +117,7 @@
         }
 
         /* Blog Grid */
-        .blog-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 5% 80px;
-        }
-
+        .blog-container { max-width: 1100px; margin: 0 auto; padding: 40px 5% 80px; }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -191,7 +136,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .article-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(107, 92, 231, 0.12);
@@ -205,21 +149,12 @@
             position: relative;
             overflow: hidden;
         }
-
-        .article-thumbnail-placeholder {
+        .article-thumbnail img, .article-thumbnail iframe {
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-        }
-
-        .article-thumbnail-placeholder svg {
-            width: 60px;
-            height: 60px;
-            opacity: 0.3;
-            stroke: white;
+            object-fit: cover;
+            border: none;
+            pointer-events: none;
         }
 
         .article-content {
@@ -228,7 +163,6 @@
             display: flex;
             flex-direction: column;
         }
-
         .article-category {
             font-size: 0.75rem;
             font-weight: 600;
@@ -237,7 +171,6 @@
             letter-spacing: 1px;
             margin-bottom: 12px;
         }
-
         .article-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.25rem;
@@ -246,7 +179,6 @@
             margin-bottom: 12px;
             line-height: 1.3;
         }
-
         .article-excerpt {
             font-size: 0.95rem;
             color: var(--text-secondary);
@@ -254,7 +186,6 @@
             margin-bottom: 16px;
             flex: 1;
         }
-
         .article-meta {
             display: flex;
             align-items: center;
@@ -264,31 +195,22 @@
             padding-top: 16px;
             border-top: 1px solid var(--border);
         }
-
-        .article-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .article-meta span { display: flex; align-items: center; gap: 6px; }
 
         /* Featured Article */
-        .featured-article {
+        .article-card.featured {
             grid-column: 1 / -1;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             gap: 0;
         }
-
-        .featured-article .article-thumbnail {
+        .article-card.featured .article-thumbnail {
             height: 100%;
             min-height: 300px;
             border-radius: 16px 0 0 16px;
         }
-
-        .featured-article .article-content {
-            padding: 32px;
-            justify-content: center;
-        }
+        .article-card.featured .article-content { padding: 32px; justify-content: center; }
+        .article-card.featured .article-title { font-size: 1.5rem; }
 
         .featured-badge {
             display: inline-flex;
@@ -302,52 +224,6 @@
             font-weight: 600;
             margin-bottom: 16px;
             width: fit-content;
-        }
-
-        .featured-article .article-title {
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 40px 10%;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: var(--bg-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-light);
-        }
-
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .featured-article {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-article .article-thumbnail {
-                border-radius: 16px 16px 0 0;
-                min-height: 200px;
-            }
         }
 
         /* Redirect Banner */
@@ -366,11 +242,7 @@
             right: 0;
             z-index: 1001;
         }
-
-        .redirect-banner span {
-            opacity: 0.9;
-        }
-
+        .redirect-banner span { opacity: 0.9; }
         .redirect-banner a {
             color: #A5A0F3;
             text-decoration: none;
@@ -380,12 +252,7 @@
             gap: 0.4rem;
             transition: all 0.2s ease;
         }
-
-        .redirect-banner a:hover {
-            color: white;
-            gap: 0.6rem;
-        }
-
+        .redirect-banner a:hover { color: white; gap: 0.6rem; }
         .redirect-banner .close-banner {
             position: absolute;
             right: 2%;
@@ -397,19 +264,22 @@
             font-size: 1.2rem;
             padding: 0.25rem;
         }
+        .redirect-banner .close-banner:hover { opacity: 1; }
 
-        .redirect-banner .close-banner:hover {
-            opacity: 1;
-        }
+        nav { top: 42px !important; }
+        body { padding-top: 42px; }
 
-        /* Adjust nav position for banner */
-        nav {
-            top: 42px !important;
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 40px 10%;
+            text-align: center;
         }
-
-        body {
-            padding-top: 42px;
-        }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .footer-links a { color: var(--bg-secondary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
 
         /* WhatsApp Float */
         .whatsapp-float {
@@ -424,43 +294,42 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            cursor: pointer;
             z-index: 999;
             transition: transform 0.3s;
             text-decoration: none;
         }
+        .whatsapp-float:hover { transform: scale(1.1); }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
+        /* Loading state */
+        .blog-grid.loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .article-card.featured { grid-template-columns: 1fr; }
+            .article-card.featured .article-thumbnail { border-radius: 16px 16px 0 0; min-height: 200px; }
         }
 
         @media (max-width: 768px) {
-            .redirect-banner {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-                padding: 0.75rem 15%;
-            }
-
-            nav {
-                top: 70px !important;
-            }
-
-            body {
-                padding-top: 70px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            /* Mobile language toggle (outside menu) */
+            .redirect-banner { flex-direction: column; gap: 0.5rem; text-align: center; padding: 0.75rem 15%; }
+            nav { top: 70px !important; }
+            body { padding-top: 70px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
             nav .lang-toggle-mobile {
                 display: block;
                 padding: 0.5rem 1rem;
@@ -473,19 +342,8 @@
                 font-weight: 600;
                 margin-left: auto;
             }
-
-            nav .lang-toggle-mobile:hover {
-                background: var(--accent);
-                color: #fff;
-                border-color: var(--accent);
-            }
-
-            /* Hide desktop lang toggle on mobile */
-            nav .lang-toggle {
-                display: none;
-            }
-
-            /* Mobile dropdown menu */
+            nav .lang-toggle-mobile:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+            nav .lang-toggle { display: none; }
             nav .nav-links.active {
                 display: flex;
                 position: absolute;
@@ -499,23 +357,11 @@
                 padding: 1rem 5%;
                 border-bottom: 1px solid var(--border);
             }
-
-            nav .nav-links.active a {
-                display: block;
-                width: 100%;
-                padding: 0.5rem 0;
-            }
-
-            .blog-header h1 {
-                font-size: 2rem;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
+            nav .nav-links.active a { display: block; width: 100%; padding: 0.5rem 0; }
+            .blog-header h1 { font-size: 2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
         }
 
-        /* Skip link for accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -527,37 +373,30 @@
             text-decoration: none;
             border-radius: 0 0 4px 0;
         }
-
-        .skip-link:focus {
-            top: 0;
-        }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body>
-    <!-- Skip link for accessibility -->
     <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
-    <div class="redirect-banner" id="redirectBanner" role="banner">
+    <div class="redirect-banner" id="redirectBanner">
         <span>🌎 Looking to expand your company into Latin America?</span>
-        <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com <span aria-hidden="true">→</span></a>
+        <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com →</a>
         <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Fechar banner">×</button>
     </div>
 
     <nav role="navigation" aria-label="Navegação principal">
-        <!-- Logo with image -->
         <a href="index.html" class="logo" aria-label="Alavanka - Página inicial">
-            <img src="images/20240607_Alavanka_marca24-preto.png" alt="Alavanka - Sustainable Growth" height="40">
+            <img src="images/20240607_Alavanka_marca24-preto.png" alt="Alavanka" height="40">
         </a>
         
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navLinks">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
         </button>
         
         <div class="nav-links" id="navLinks">
-            <a href="index.html" title="Home" aria-label="Página inicial">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <a href="index.html" title="Home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                     <polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
@@ -568,91 +407,25 @@
             <a href="index.html#processo" data-i18n="nav.process">Como Funciona</a>
             <a href="blog.html" class="active">Blog</a>
             <a href="index.html#contato" data-i18n="nav.contact">Contato</a>
-            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Mudar idioma para inglês">EN</button>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
         </div>
-        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()" aria-label="Mudar idioma para inglês">EN</button>
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
     </nav>
 
     <main id="main-content">
         <section class="blog-header">
-            <h1 data-i18n-html="blog.title">Insights de <span>GTM & Revenue</span></h1>
-            <p data-i18n="blog.subtitle">Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
+            <h1 id="blogTitle">Insights de <span>GTM & Revenue</span></h1>
+            <p id="blogSubtitle">Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
         </section>
 
         <div class="blog-container">
-            <div class="blog-grid">
-                
-                <!-- NOVO ARTIGO: Value Proposition Impreciso (Featured) -->
-                <a href="blog/value-proposition-impreciso.html" class="article-card featured-article">
-                    <div class="article-thumbnail">
-                        <iframe src="blog/ilustracao_value_proposition.html" title="Ilustração do artigo sobre Value Proposition Impreciso" style="width:100%; height:100%; border:none; pointer-events:none;" loading="lazy"></iframe>
-                    </div>
-                    <div class="article-content">
-                        <span class="featured-badge" data-i18n-badge="featured.badge">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                            </svg>
-                            Artigo em Destaque
-                        </span>
-                        <span class="article-category" data-i18n="article2.category">Diagnóstico</span>
-                        <h2 class="article-title" data-i18n="article2.title">Value Proposition Impreciso: O Assassino Silencioso do Crescimento</h2>
-                        <p class="article-excerpt" data-i18n="article2.excerpt">Por que empresas com produtos validados travam — e como diagnosticar se esse é o seu problema. Descubra os sintomas, os 5 erros mais comuns e um framework prático para corrigir.</p>
-                        <div class="article-meta">
-                            <span data-i18n-meta="article2.time">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 6v6l4 2"/>
-                                </svg>
-                                10 min de leitura
-                            </span>
-                            <span>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                    <line x1="3" y1="10" x2="21" y2="10"/>
-                                </svg>
-                                Dez 2024
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- ARTIGO ANTERIOR: Custo Invisível (agora sem featured) -->
-                <a href="blog/custo-invisivel-cro.html" class="article-card">
-                    <div class="article-thumbnail">
-                        <iframe src="blog/ilustracao_capa.html" title="Ilustração do artigo sobre o custo invisível de não ter um CRO" style="width:100%; height:100%; border:none; pointer-events:none;" loading="lazy"></iframe>
-                    </div>
-                    <div class="article-content">
-                        <span class="article-category" data-i18n="article.category">Diagnóstico</span>
-                        <h2 class="article-title" data-i18n="article.title">O Custo Invisível de Não Ter um CRO</h2>
-                        <p class="article-excerpt" data-i18n="article.excerpt">O custo mais caro para uma empresa B2B Tech em crescimento não é o que você paga — é o que você deixa de ganhar. Entenda a matemática que founders evitam fazer e descubra quanto sua empresa está perdendo com a falta de liderança dedicada de receita.</p>
-                        <div class="article-meta">
-                            <span data-i18n-meta="article.time">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 6v6l4 2"/>
-                                </svg>
-                                7 min de leitura
-                            </span>
-                            <span>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                    <line x1="16" y1="2" x2="16" y2="6"/>
-                                    <line x1="8" y1="2" x2="8" y2="6"/>
-                                    <line x1="3" y1="10" x2="21" y2="10"/>
-                                </svg>
-                                Nov 2024
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                
+            <div class="blog-grid" id="blogGrid">
+                <div class="loader"></div>
             </div>
         </div>
     </main>
 
-    <footer role="contentinfo">
+    <footer>
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="index.html#contato">Contato</a>
@@ -661,159 +434,158 @@
         <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contato via WhatsApp">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+    <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
 
     <script>
-        // Language toggle state
-        let currentLang = 'pt';
+        // ============================================
+        // BLOG ENGINE - Carrega artigos do JSON
+        // ============================================
         
-        const translations = {
-            pt: {
-                'blog.title': 'Insights de <span>GTM & Revenue</span>',
-                'blog.subtitle': 'Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.',
-                'featured.badge': 'Artigo em Destaque',
-                'article.category': 'Diagnóstico',
-                'article.title': 'O Custo Invisível de Não Ter um CRO',
-                'article.excerpt': 'O custo mais caro para uma empresa B2B Tech em crescimento não é o que você paga — é o que você deixa de ganhar. Entenda a matemática que founders evitam fazer e descubra quanto sua empresa está perdendo com a falta de liderança dedicada de receita.',
-                'article.time': '7 min de leitura',
-                'article2.category': 'Diagnóstico',
-                'article2.title': 'Value Proposition Impreciso: O Assassino Silencioso do Crescimento',
-                'article2.excerpt': 'Por que empresas com produtos validados travam — e como diagnosticar se esse é o seu problema. Descubra os sintomas, os 5 erros mais comuns e um framework prático para corrigir.',
-                'article2.time': '10 min de leitura',
-                'nav.problem': 'O Problema',
-                'nav.solution': 'A Solução',
-                'nav.why': 'Por Que Nós',
-                'nav.process': 'Como Funciona',
-                'nav.contact': 'Contato',
-                'lang.toggle.label': 'Mudar idioma para inglês',
-                'skip.link': 'Pular para o conteúdo',
-                'hamburger.label': 'Abrir menu de navegação'
-            },
-            en: {
-                'blog.title': 'Insights on <span>GTM & Revenue</span>',
-                'blog.subtitle': 'Practical articles on Go-to-Market, revenue operations and growth for B2B Tech — from someone who built operations from $3M to $240M.',
-                'featured.badge': 'Featured Article',
-                'article.category': 'Diagnosis',
-                'article.title': 'The Hidden Cost of Not Having a CRO',
-                'article.excerpt': 'The most expensive cost for a growing B2B Tech company is not what you pay — it\'s what you fail to earn. Understand the math founders avoid doing and discover how much your company is losing without dedicated revenue leadership.',
-                'article.time': '7 min read',
-                'article2.category': 'Diagnosis',
-                'article2.title': 'Unclear Value Proposition: The Silent Growth Killer',
-                'article2.excerpt': 'Why companies with validated products stall — and how to diagnose if this is your problem. Discover the symptoms, the 5 most common mistakes, and a practical framework to fix it.',
-                'article2.time': '10 min read',
-                'nav.problem': 'The Problem',
-                'nav.solution': 'The Solution',
-                'nav.why': 'Why Us',
-                'nav.process': 'How It Works',
-                'nav.contact': 'Contact',
-                'lang.toggle.label': 'Switch language to Portuguese',
-                'skip.link': 'Skip to content',
-                'hamburger.label': 'Open navigation menu'
-            }
+        let currentLang = 'pt';
+        let articlesData = null;
+
+        // SVG icons como strings
+        const icons = {
+            clock: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
+            calendar: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+            star: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>'
         };
 
+        // Navegação traduções
+        const navTranslations = {
+            pt: { problem: 'O Problema', solution: 'A Solução', why: 'Por Que Nós', process: 'Como Funciona', contact: 'Contato' },
+            en: { problem: 'The Problem', solution: 'The Solution', why: 'Why Us', process: 'How It Works', contact: 'Contact' }
+        };
+
+        // Carregar JSON de artigos
+        async function loadArticles() {
+            try {
+                const response = await fetch('blog/articles.json');
+                if (!response.ok) throw new Error('Failed to load articles');
+                articlesData = await response.json();
+                renderArticles();
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                document.getElementById('blogGrid').innerHTML = '<p style="text-align:center;color:var(--text-muted);">Erro ao carregar artigos. Tente novamente.</p>';
+            }
+        }
+
+        // Criar HTML de um card de artigo
+        function createArticleCard(article) {
+            const lang = currentLang;
+            const isFeatured = article.featured;
+            
+            // Thumbnail
+            let thumbnailHTML = '';
+            if (article.thumbnail.type === 'image') {
+                thumbnailHTML = `<img src="${article.thumbnail.src}" alt="${article.thumbnail.alt[lang]}" loading="lazy">`;
+            } else if (article.thumbnail.type === 'iframe') {
+                thumbnailHTML = `<iframe src="${article.thumbnail.src}" title="${article.thumbnail.alt[lang]}" loading="lazy"></iframe>`;
+            }
+
+            // Featured badge
+            const featuredBadge = isFeatured ? `
+                <span class="featured-badge">
+                    ${icons.star}
+                    ${articlesData.ui.featuredBadge[lang]}
+                </span>
+            ` : '';
+
+            return `
+                <a href="blog/${article.slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
+                    <div class="article-thumbnail">${thumbnailHTML}</div>
+                    <div class="article-content">
+                        ${featuredBadge}
+                        <span class="article-category">${article.category[lang]}</span>
+                        <h2 class="article-title">${article.title[lang]}</h2>
+                        <p class="article-excerpt">${article.excerpt[lang]}</p>
+                        <div class="article-meta">
+                            <span>${icons.clock} ${article.readTime[lang]}</span>
+                            <span>${icons.calendar} ${article.dateLabel[lang]}</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        // Renderizar todos os artigos
+        function renderArticles() {
+            if (!articlesData) return;
+
+            const grid = document.getElementById('blogGrid');
+            const lang = currentLang;
+
+            // Ordenar: featured primeiro, depois por data
+            const sortedArticles = [...articlesData.articles].sort((a, b) => {
+                if (a.featured && !b.featured) return -1;
+                if (!a.featured && b.featured) return 1;
+                return b.date.localeCompare(a.date);
+            });
+
+            // Renderizar cards
+            grid.innerHTML = sortedArticles.map(article => createArticleCard(article)).join('');
+
+            // Atualizar header
+            document.getElementById('blogTitle').innerHTML = articlesData.ui.blogTitle[lang];
+            document.getElementById('blogSubtitle').textContent = articlesData.ui.blogSubtitle[lang];
+        }
+
+        // Alternar idioma
         function toggleLanguage() {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             const newLabel = currentLang === 'pt' ? 'EN' : 'PT';
             
-            const langToggle = document.getElementById('langToggle');
-            const langToggleMobile = document.getElementById('langToggleMobile');
-            
-            if (langToggle) {
-                langToggle.textContent = newLabel;
-                langToggle.setAttribute('aria-label', translations[currentLang]['lang.toggle.label']);
-            }
-            if (langToggleMobile) {
-                langToggleMobile.textContent = newLabel;
-                langToggleMobile.setAttribute('aria-label', translations[currentLang]['lang.toggle.label']);
-            }
-            
+            document.getElementById('langToggle').textContent = newLabel;
+            document.getElementById('langToggleMobile').textContent = newLabel;
             document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-            
+
+            // Atualizar navegação
+            const nav = navTranslations[currentLang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    el.textContent = translations[currentLang][key];
-                }
+                const key = el.getAttribute('data-i18n').replace('nav.', '');
+                if (nav[key]) el.textContent = nav[key];
             });
-            
-            document.querySelectorAll('[data-i18n-html]').forEach(el => {
-                const key = el.getAttribute('data-i18n-html');
-                if (translations[currentLang][key]) {
-                    el.innerHTML = translations[currentLang][key];
-                }
-            });
-            
-            const featuredBadge = document.querySelector('[data-i18n-badge]');
-            if (featuredBadge) {
-                const key = featuredBadge.getAttribute('data-i18n-badge');
-                if (translations[currentLang][key]) {
-                    featuredBadge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> ' + translations[currentLang][key];
-                }
-            }
-            
-            document.querySelectorAll('[data-i18n-meta]').forEach(el => {
-                const key = el.getAttribute('data-i18n-meta');
-                if (translations[currentLang][key]) {
-                    el.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> ' + translations[currentLang][key];
-                }
-            });
-            
-            const skipLink = document.querySelector('.skip-link');
-            if (skipLink) {
-                skipLink.textContent = translations[currentLang]['skip.link'];
-            }
-            
-            const hamburger = document.getElementById('hamburger');
-            if (hamburger) {
-                hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
-            }
+
+            // Re-renderizar artigos no novo idioma
+            renderArticles();
         }
-    
+
+        // Menu mobile
         function toggleMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-
-            if (!hamburger || !navLinks) return;
-
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
-
             const isExpanded = navLinks.classList.contains('active');
-            hamburger.setAttribute('aria-expanded', isExpanded.toString());
-
-            if (isExpanded) {
-                document.body.style.overflow = 'hidden';
-                hamburger.setAttribute('aria-label', currentLang === 'pt' ? 'Fechar menu de navegação' : 'Close navigation menu');
-            } else {
-                document.body.style.overflow = '';
-                hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
-            }
+            hamburger.setAttribute('aria-expanded', isExpanded);
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
         }
 
         function closeMobileMenu() {
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
-
-            if (!hamburger || !navLinks) return;
-
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
             hamburger.setAttribute('aria-expanded', 'false');
-            hamburger.setAttribute('aria-label', translations[currentLang]['hamburger.label']);
             document.body.style.overflow = '';
         }
 
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
-            }
+        // Event listeners
+        window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMobileMenu(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+        document.addEventListener('DOMContentLoaded', () => {
+            loadArticles();
+            document.querySelectorAll('#navLinks a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
         });
-
+    </script>
+</body>
+</html>
         document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('#navLinks a');
             links.forEach(link => {
