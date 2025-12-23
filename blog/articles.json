@@ -1,6 +1,40 @@
 {
   "articles": [
     {
+      "id": "getting-started-vercel-analytics",
+      "slug": "getting-started-vercel-analytics",
+      "featured": true,
+      "category": {
+        "pt": "Guia Técnico",
+        "en": "Technical Guide"
+      },
+      "title": {
+        "pt": "Primeiros Passos com Vercel Web Analytics",
+        "en": "Getting Started with Vercel Web Analytics"
+      },
+      "excerpt": {
+        "pt": "Aprenda como habilitar Vercel Web Analytics no seu projeto, adicionar o pacote, fazer deploy no Vercel e visualizar seus dados no dashboard.",
+        "en": "Learn how to enable Vercel Web Analytics on your project, add the package, deploy to Vercel, and view your data in the dashboard."
+      },
+      "readTime": {
+        "pt": "8 min de leitura",
+        "en": "8 min read"
+      },
+      "date": "2024-12",
+      "dateLabel": {
+        "pt": "Dez 2024",
+        "en": "Dec 2024"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "blog/ilustracao-sistema-gtm.svg",
+        "alt": {
+          "pt": "Ilustração sobre Vercel Web Analytics",
+          "en": "Vercel Web Analytics illustration"
+        }
+      }
+    },
+    {
       "id": "compensacao-sistema-gtm",
       "slug": "compensacao-sistema-gtm",
       "featured": true,
