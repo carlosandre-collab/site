@@ -1,40 +1,6 @@
 {
   "articles": [
     {
-      "id": "guia-precificacao-startups-b2b",
-      "slug": "guia-precificacao-startups-b2b",
-      "featured": true,
-      "category": {
-        "pt": "Estratégia & Growth",
-        "en": "Strategy & Growth"
-      },
-      "title": {
-        "pt": "Como Precificar Seu Produto B2B Sem Deixar Dinheiro na Mesa",
-        "en": "How to Price Your B2B Product Without Leaving Money on the Table"
-      },
-      "excerpt": {
-        "pt": "Como parar de deixar dinheiro na mesa e construir uma máquina de receita previsível com estratégias de pricing baseadas em valor.",
-        "en": "How to stop leaving money on the table and build a predictable revenue machine with value-based pricing strategies."
-      },
-      "readTime": {
-        "pt": "12 min de leitura",
-        "en": "12 min read"
-      },
-      "date": "2025-01",
-      "dateLabel": {
-        "pt": "Jan 2025",
-        "en": "Jan 2025"
-      },
-      "thumbnail": {
-        "type": "image",
-        "src": "blog/images/guia-precificacao-startups-b2b.jpg",
-        "alt": {
-          "pt": "Ilustração sobre precificação para startups B2B mostrando o impacto do preço no lucro",
-          "en": "Illustration about B2B startup pricing showing the impact of price on profit"
-        }
-      }
-    },
-    {
       "id": "compensacao-sistema-gtm",
       "slug": "compensacao-sistema-gtm",
       "featured": true,
