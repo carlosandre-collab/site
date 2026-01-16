@@ -1,1 +1,5 @@
-{}
+{
+  "buildCommand": "node generate-sitemap.js",
+  "outputDirectory": "public",
+  "cleanUrls": true
+}
