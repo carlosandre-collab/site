@@ -9,16 +9,32 @@ const staticPages = [
   { url: '/blog.html', priority: '0.9', changefreq: 'weekly' }
 ];
 
-// Função para buscar todos HTMLs em /blog
+// Função para buscar todos HTMLs em /blog (procura em 2 lugares)
 function getBlogPosts() {
-  const blogDir = path.join(__dirname, 'blog');
+  // Tenta procurar em /public/blog primeiro
+  let blogDir = path.join(__dirname, 'public', 'blog');
+  
+  // Se não existir, procura em /blog na raiz
+  if (!fs.existsSync(blogDir)) {
+    console.log('⚠️ /public/blog não encontrado, procurando em /blog');
+    blogDir = path.join(__dirname, 'blog');
+  }
   
   if (!fs.existsSync(blogDir)) {
+    console.log('❌ Pasta /blog não encontrada em lugar nenhum!');
+    console.log('   Procurei em:', path.join(__dirname, 'public', 'blog'));
+    console.log('   E também em:', path.join(__dirname, 'blog'));
     return [];
   }
   
+  console.log('✅ Pasta blog encontrada em:', blogDir);
+  
   const files = fs.readdirSync(blogDir)
-    .filter(file => file.endsWith('.html'))
+    .filter(file => {
+      const isHtml = file.endsWith('.html');
+      console.log(`   Arquivo: ${file} - HTML? ${isHtml}`);
+      return isHtml;
+    })
     .map(file => {
       const filePath = path.join(blogDir, file);
       const stats = fs.statSync(filePath);
@@ -31,6 +47,7 @@ function getBlogPosts() {
       };
     });
   
+  console.log(`✅ Encontrados ${files.length} artigos`);
   return files;
 }
 
@@ -48,9 +65,15 @@ ${allPages.map(page => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-  fs.writeFileSync('sitemap.xml', sitemap);
-  console.log(`✅ Sitemap gerado com ${allPages.length} páginas`);
+  // Salva em /public se existir, senão na raiz
+  const publicDir = path.join(__dirname, 'public');
+  const sitemapPath = fs.existsSync(publicDir) 
+    ? path.join(publicDir, 'sitemap.xml')
+    : path.join(__dirname, 'sitemap.xml');
   
+  fs.writeFileSync(sitemapPath, sitemap);
+  
+  console.log(`✅ Sitemap gerado com ${allPages.length} páginas em: ${sitemapPath}`);
   allPages.forEach(page => {
     console.log(`   - ${page.url}`);
   });
