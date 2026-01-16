@@ -9,6 +9,20 @@ const staticPages = [
   { url: '/blog.html', priority: '0.9', changefreq: 'weekly' }
 ];
 
+// Extensões de arquivos que NÃO são artigos
+const ignoredExtensions = [
+  '.svg',
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.gif',
+  '.webp',
+  '.ico',
+  '.pdf',
+  '.css',
+  '.js'
+];
+
 // Função para buscar todos HTMLs em /blog (procura em 2 lugares)
 function getBlogPosts() {
   // Tenta procurar em /public/blog primeiro
@@ -31,9 +45,28 @@ function getBlogPosts() {
   
   const files = fs.readdirSync(blogDir)
     .filter(file => {
-      const isHtml = file.endsWith('.html');
-      console.log(`   Arquivo: ${file} - HTML? ${isHtml}`);
-      return isHtml;
+      const ext = path.extname(file).toLowerCase();
+      
+      // Ignorar arquivos de ilustração
+      if (file.startsWith('ilustracao_')) {
+        console.log(`   ⏭️  Ignorando: ${file} (ilustração)`);
+        return false;
+      }
+      
+      // Ignorar imagens e outros arquivos não-HTML
+      if (ignoredExtensions.includes(ext)) {
+        console.log(`   ⏭️  Ignorando: ${file} (tipo: ${ext})`);
+        return false;
+      }
+      
+      // Ignorar arquivos que não são HTML
+      if (!file.endsWith('.html')) {
+        console.log(`   ⏭️  Ignorando: ${file} (não é HTML)`);
+        return false;
+      }
+      
+      console.log(`   ✅ Incluindo: ${file}`);
+      return true;
     })
     .map(file => {
       const filePath = path.join(blogDir, file);
@@ -47,14 +80,17 @@ function getBlogPosts() {
       };
     });
   
-  console.log(`✅ Encontrados ${files.length} artigos`);
+  console.log(`✅ Total de ${files.length} artigos encontrados`);
   return files;
 }
 
 // Gerar sitemap
 function generateSitemap() {
+  console.log('🔨 Iniciando geração do sitemap...');
+  
   const allPages = [...staticPages, ...getBlogPosts()];
   
+  // CRÍTICO: Declaração XML DEVE ser a primeira linha (sem espaços antes)
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages.map(page => `  <url>
@@ -73,10 +109,21 @@ ${allPages.map(page => `  <url>
   
   fs.writeFileSync(sitemapPath, sitemap);
   
-  console.log(`✅ Sitemap gerado com ${allPages.length} páginas em: ${sitemapPath}`);
+  console.log(`\n✅ Sitemap gerado com sucesso!`);
+  console.log(`📍 Local: ${sitemapPath}`);
+  console.log(`📊 Total de páginas: ${allPages.length}\n`);
+  console.log('📋 URLs incluídas:');
   allPages.forEach(page => {
     console.log(`   - ${page.url}`);
   });
+  
+  console.log('\n✨ Sitemap pronto para deploy!');
 }
 
-generateSitemap();
+// Executar
+try {
+  generateSitemap();
+} catch (error) {
+  console.error('❌ Erro ao gerar sitemap:', error.message);
+  process.exit(1);
+}
