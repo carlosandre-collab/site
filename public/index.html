@@ -1377,6 +1377,107 @@
             margin-bottom: 1rem;
         }
 
+        /* Guide Promo Section */
+        .guide-promo-section {
+            background: linear-gradient(135deg, #f8f9fc 0%, #eef0f8 100%);
+            padding: 4rem 10%;
+        }
+
+        .guide-promo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+
+        .guide-promo-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        .guide-promo-content {
+            flex: 1;
+        }
+
+        .guide-promo-badge {
+            display: inline-block;
+            background: var(--accent-bg);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .guide-promo-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-promo-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-promo-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .guide-promo-features span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .guide-promo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .guide-promo-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .guide-promo-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .guide-promo-features {
+                justify-content: center;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 2rem 10%;
@@ -2173,6 +2274,7 @@ body:not(.vc-banner-visible) .vc-banner {
                 <a href="#solucao" data-i18n="nav.solution">A Solução</a>
                 <a href="#porque" data-i18n="nav.why">Por Que Nós</a>
                 <a href="#processo" data-i18n="nav.process">Como Funciona</a>
+                <a href="guia-fractional-cro-brasil.html" data-i18n="nav.guide">Guia</a>
                 <a href="blog.html" data-i18n="nav.blog">Blog</a>
                 <a href="#faq" data-i18n="nav.faq">FAQ</a>
                 <a href="#contato" data-i18n="nav.contact">Contato</a>
@@ -2626,6 +2728,25 @@ body:not(.vc-banner-visible) .vc-banner {
         </div>
     </section>
 
+    <!-- ===== GUIDE PROMO ===== -->
+    <section class="guide-promo-section">
+        <div class="guide-promo-card">
+            <div class="guide-promo-icon">📘</div>
+            <div class="guide-promo-content">
+                <span class="guide-promo-badge" data-i18n="guide.badge">Guia Completo</span>
+                <h3 data-i18n="guide.title">Guia Fractional CRO Brasil 2025</h3>
+                <p data-i18n="guide.description">Tudo que você precisa saber sobre liderança de receita fracionada: dados de mercado, custos reais, metodologia de implementação, métricas críticas e os 7 erros fatais na contratação.</p>
+                <div class="guide-promo-features">
+                    <span>📊 <span data-i18n="guide.feature1">Dados e benchmarks</span></span>
+                    <span>💰 <span data-i18n="guide.feature2">Custos detalhados</span></span>
+                    <span>✅ <span data-i18n="guide.feature3">Checklist prático</span></span>
+                    <span>⏱️ <span data-i18n="guide.feature4">25 min de leitura</span></span>
+                </div>
+                <a href="guia-fractional-cro-brasil.html" class="guide-promo-cta" data-i18n="guide.cta">Ler Guia Completo →</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== CTA FINAL ===== -->
     <section id="contato" class="cta-final">
         <div class="section-header">
@@ -2910,7 +3031,18 @@ function initVcBanner() {
             "nav.why": "Por Que Nós",
             "nav.process": "Como Funciona",
             "nav.blog": "Blog",
+            "nav.guide": "Guia",
             "nav.contact": "Contato",
+            
+            // Guide Promo
+            "guide.badge": "Guia Completo",
+            "guide.title": "Guia Fractional CRO Brasil 2025",
+            "guide.description": "Tudo que você precisa saber sobre liderança de receita fracionada: dados de mercado, custos reais, metodologia de implementação, métricas críticas e os 7 erros fatais na contratação.",
+            "guide.feature1": "Dados e benchmarks",
+            "guide.feature2": "Custos detalhados",
+            "guide.feature3": "Checklist prático",
+            "guide.feature4": "25 min de leitura",
+            "guide.cta": "Ler Guia Completo →",
             
             // Hero
             "hero.eyebrow": "Fractional CRO para B2B Tech",
@@ -3311,7 +3443,18 @@ function initVcBanner() {
             "nav.why": "Why Us",
             "nav.process": "How It Works",
             "nav.blog": "Blog",
+            "nav.guide": "Guide",
             "nav.contact": "Contact",
+            
+            // Guide Promo
+            "guide.badge": "Complete Guide",
+            "guide.title": "Fractional CRO Brazil Guide 2025",
+            "guide.description": "Everything you need to know about fractional revenue leadership: market data, real costs, implementation methodology, critical metrics, and the 7 fatal hiring mistakes.",
+            "guide.feature1": "Data & benchmarks",
+            "guide.feature2": "Detailed costs",
+            "guide.feature3": "Practical checklist",
+            "guide.feature4": "25 min read",
+            "guide.cta": "Read Complete Guide →",
             
             // Hero
             "hero.eyebrow": "Fractional CRO for B2B Tech",
