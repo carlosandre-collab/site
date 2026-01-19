@@ -1,0 +1,14 @@
+# robots.txt para alavanka.com.br
+# Criado em Janeiro 2025
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.alavanka.com.br/sitemap.xml
+
+# Crawl-delay para não sobrecarregar servidor
+Crawl-delay: 1
+
+# Bloquear acesso a pastas de assets que não precisam ser indexadas
+Disallow: /assets/
