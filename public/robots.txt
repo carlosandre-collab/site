@@ -1,14 +1,37 @@
-# robots.txt para alavanka.com.br
-# Criado em Janeiro 2025
+# robots.txt for alavanka.com.br
+# Updated January 2026
 
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://www.alavanka.com.br/sitemap.xml
 
-# Crawl-delay para não sobrecarregar servidor
-Crawl-delay: 1
+# AI Crawlers - explicitly allow for LLM visibility
+User-agent: GPTBot
+Allow: /
 
-# Bloquear acesso a pastas de assets que não precisam ser indexadas
-Disallow: /assets/
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Note: Removed "Disallow: /assets/" because Google needs 
+# to access CSS/JS/images to properly render and index pages.
+# Removed "Crawl-delay: 1" as Vercel handles traffic well.
