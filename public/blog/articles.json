@@ -1,42 +1,6 @@
 {
   "articles": [
     {
-      "id": "ceo-fazendo-vendas",
-      "slug": "ceo-fazendo-vendas",
-      "slugEn": "ceo-doing-sales",
-      "featured": true,
-      "category": {
-        "pt": "Founder-Led Sales",
-        "en": "Founder-Led Sales"
-      },
-      "title": {
-        "pt": "CEO Fazendo Vendas: Quando o Fundador se Torna o Gargalo",
-        "en": "CEO Doing Sales: When the Founder Becomes the Bottleneck"
-      },
-      "excerpt": {
-        "pt": "Análise completa sobre os impactos positivos e negativos de quando o fundador se dedica excessivamente a vendas — e como isso afeta a escalabilidade da startup.",
-        "en": "Complete analysis of the positive and negative impacts when founders dedicate too much time to sales — and how it affects startup scalability."
-      },
-      "readTime": {
-        "pt": "12 min de leitura",
-        "en": "12 min read"
-      },
-      "date": "2026-01",
-      "dateLabel": {
-        "pt": "Jan 2026",
-        "en": "Jan 2026"
-      },
-      "thumbnail": {
-        "type": "image",
-        "src": "blog/images/ceo-fazendo-vendas.svg",
-        "alt": {
-          "pt": "Ilustração mostrando a transição de CEO sobrecarregado para CEO estrategista com CRO",
-          "en": "Illustration showing the transition from overloaded CEO to strategist CEO with CRO"
-        }
-      },
-      "hasEnglishVersion": true
-    },
-    {
       "id": "guia-precificacao-startups-b2b",
       "slug": "guia-precificacao-startups-b2b",
       "featured": true,
