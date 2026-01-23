@@ -6,8 +6,7 @@ const baseUrl = 'https://www.alavanka.com.br';
 // Páginas estáticas
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/blog.html', priority: '0.9', changefreq: 'weekly' },
-  { url: '/guia-fractional-cro-brasil.html', priority: '0.9', changefreq: 'monthly' }
+  { url: '/blog.html', priority: '0.9', changefreq: 'weekly' }
 ];
 
 // Extensões de arquivos que NÃO são artigos
@@ -24,24 +23,32 @@ const ignoredExtensions = [
   '.js'
 ];
 
-// Função para buscar todos HTMLs em /blog/posts (nova estrutura)
+// Função para buscar todos HTMLs em /blog (procura em 2 lugares)
 function getBlogPosts() {
-  // Nova estrutura: /public/blog/posts
-  let blogDir = path.join(__dirname, 'public', 'blog', 'posts');
+  // Tenta procurar em /public/blog primeiro
+  let blogDir = path.join(__dirname, 'public', 'blog');
+  
+  // Se não existir, procura em /blog na raiz
+  if (!fs.existsSync(blogDir)) {
+    console.log('⚠️ /public/blog não encontrado, procurando em /blog');
+    blogDir = path.join(__dirname, 'blog');
+  }
   
   if (!fs.existsSync(blogDir)) {
-    console.log('❌ Pasta /public/blog/posts não encontrada!');
+    console.log('❌ Pasta /blog não encontrada em lugar nenhum!');
+    console.log('   Procurei em:', path.join(__dirname, 'public', 'blog'));
+    console.log('   E também em:', path.join(__dirname, 'blog'));
     return [];
   }
   
-  console.log('✅ Pasta blog/posts encontrada em:', blogDir);
+  console.log('✅ Pasta blog encontrada em:', blogDir);
   
   const files = fs.readdirSync(blogDir)
     .filter(file => {
       const ext = path.extname(file).toLowerCase();
       
       // Ignorar arquivos de ilustração
-      if (file.startsWith('ilustracao_') || file.startsWith('ilustracao-')) {
+      if (file.startsWith('ilustracao_')) {
         console.log(`   ⏭️  Ignorando: ${file} (ilustração)`);
         return false;
       }
@@ -66,7 +73,7 @@ function getBlogPosts() {
       const stats = fs.statSync(filePath);
       
       return {
-        url: `/blog/posts/${file}`,
+        url: `/blog/${file}`,
         priority: '0.8',
         changefreq: 'monthly',
         lastmod: stats.mtime.toISOString().split('T')[0]

@@ -496,7 +496,7 @@
             ` : '';
 
             return `
-                <a href="blog/posts/${article.slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
+                <a href="blog/${article.slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
                     <div class="article-thumbnail">${thumbnailHTML}</div>
                     <div class="article-content">
                         ${featuredBadge}
