@@ -1,5 +1,32 @@
 {
   "buildCommand": "node generate-sitemap.js",
   "outputDirectory": "public",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/blog/custo-invisivel-cro.html",
+      "destination": "/blog/posts/custo-invisivel-cro.html",
+      "permanent": false
+    },
+    {
+      "source": "/blog/compensacao-sistema-gtm.html",
+      "destination": "/blog/posts/compensacao-sistema-gtm.html",
+      "permanent": false
+    },
+    {
+      "source": "/blog/guia-precificacao-startups-b2b.html",
+      "destination": "/blog/posts/guia-precificacao-startups-b2b.html",
+      "permanent": false
+    },
+    {
+      "source": "/blog/value-proposition-impreciso.html",
+      "destination": "/blog/posts/value-proposition-impreciso.html",
+      "permanent": false
+    },
+    {
+      "source": "/blog/value-proposition-impreciso-en.html",
+      "destination": "/blog/posts/value-proposition-impreciso-en.html",
+      "permanent": false
+    }
+  ]
 }
