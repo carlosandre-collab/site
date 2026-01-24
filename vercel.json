@@ -6,27 +6,27 @@
     {
       "source": "/blog/custo-invisivel-cro.html",
       "destination": "/blog/posts/custo-invisivel-cro.html",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog/compensacao-sistema-gtm.html",
       "destination": "/blog/posts/compensacao-sistema-gtm.html",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog/guia-precificacao-startups-b2b.html",
       "destination": "/blog/posts/guia-precificacao-startups-b2b.html",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog/value-proposition-impreciso.html",
       "destination": "/blog/posts/value-proposition-impreciso.html",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/blog/value-proposition-impreciso-en.html",
       "destination": "/blog/posts/value-proposition-impreciso-en.html",
-      "permanent": false
+      "permanent": true
     }
   ]
 }
