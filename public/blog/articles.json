@@ -61,7 +61,7 @@
       },
       "thumbnail": {
         "type": "image",
-        "src": "blog/ilustracao-sistema-gtm.svg",
+        "src": "assets/images/illustrations/ilustracao-sistema-gtm.svg",
         "alt": {
           "pt": "Ilustração do sistema de GTM mostrando como compensação funciona como lente diagnóstica",
           "en": "GTM system illustration showing how compensation works as a diagnostic lens"
@@ -95,7 +95,7 @@
       },
       "thumbnail": {
         "type": "iframe",
-        "src": "blog/ilustracao_value_proposition.html",
+        "src": "assets/images/illustrations/ilustracao_value_proposition.html",
         "alt": {
           "pt": "Ilustração do artigo sobre Value Proposition Impreciso",
           "en": "Illustration for the article about Unclear Value Proposition"
@@ -129,7 +129,7 @@
       },
       "thumbnail": {
         "type": "iframe",
-        "src": "blog/ilustracao_capa.html",
+        "src": "assets/images/illustrations/ilustracao_capa.html",
         "alt": {
           "pt": "Ilustração do artigo sobre o custo invisível de não ter um CRO",
           "en": "Illustration for the article about the hidden cost of not having a CRO"
