@@ -9,6 +9,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}:root{--bg-primary:#fff;--bg-secondary:#f8f9fc;--bg-card:#fff;--accent:#6B5CE7;--accent-dark:#5648c7;--accent-light:#8879ed;--accent-bg:rgba(107,92,231,.08);--text-primary:#1a1a2e;--text-secondary:#4a4a68;--text-muted:#8888a0;--border:#e8e8f0;--border-accent:rgba(107,92,231,.25);--danger:#e53e3e;--danger-bg:rgba(229,62,62,.08);--success:#38a169}body{font-family:'Inter',sans-serif;background-color:var(--bg-secondary);color:var(--text-primary);line-height:1.7;padding-top:42px}nav{position:fixed;top:42px!important;width:100%;padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;border-bottom:1px solid var(--border)}.logo{display:flex;align-items:center;text-decoration:none}.logo img{height:40px;width:auto;transition:opacity .3s ease}.logo:hover img{opacity:.8}.nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s}.nav-links a:hover,.nav-links a.active{color:var(--accent)}.lang-toggle{padding:.5rem 1rem;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:.8rem;font-weight:500;transition:all .3s ease}.lang-toggle:hover{background:var(--accent);color:#fff;border-color:var(--accent)}.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;background:none;border:none}.hamburger span{display:block;width:24px;height:2px;background:var(--text-primary);border-radius:2px;transition:all .3s ease}.redirect-banner{background:linear-gradient(90deg,#1A1A2E 0%,#2D2D44 100%);color:#fff;padding:.75rem 10%;display:flex;justify-content:center;align-items:center;gap:1rem;font-size:.9rem;position:fixed;top:0;left:0;right:0;z-index:1001}.redirect-banner span{opacity:.9}.redirect-banner a{color:#A5A0F3;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s ease}.redirect-banner a:hover{color:#fff;gap:.6rem}.redirect-banner .close-banner{position:absolute;right:2%;background:none;border:none;color:#fff;opacity:.6;cursor:pointer;font-size:1.2rem;padding:.25rem}.redirect-banner .close-banner:hover{opacity:1}.article-header{padding:140px 5% 60px;background:linear-gradient(180deg,var(--bg-primary) 0%,var(--bg-secondary) 100%)}.article-header-content{max-width:800px;margin:0 auto}.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);text-decoration:none;font-size:.9rem;font-weight:500;margin-bottom:24px;transition:gap .3s ease}.back-link:hover{gap:12px}.article-category{display:inline-block;font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;background:var(--accent-bg);padding:6px 12px;border-radius:4px}.article-header h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:800;color:var(--text-primary);margin-bottom:16px;line-height:1.2}.article-subtitle{font-size:1.25rem;color:var(--text-secondary);margin-bottom:24px;font-style:italic}.article-meta{display:flex;align-items:center;gap:24px;font-size:.9rem;color:var(--text-muted)}.article-meta span{display:flex;align-items:center;gap:6px}.article-cover{max-width:900px;margin:0 auto 40px;padding:0 5%}.article-cover-image{width:100%;height:400px;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.12)}.article-cover-image iframe{width:100%;height:100%;border:none}.article-content{max-width:800px;margin:0 auto;padding:0 5% 80px}.article-content h2{font-family:'Montserrat',sans-serif;font-size:1.75rem;font-weight:700;color:var(--text-primary);margin:48px 0 24px;padding-top:24px;border-top:1px solid var(--border)}.article-content h2:first-of-type{margin-top:0;padding-top:0;border-top:none}.article-content h3{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:700;color:var(--text-primary);margin:32px 0 16px}.article-content p{font-size:1.05rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.8}.article-content strong{color:var(--text-primary);font-weight:600}.article-content ul,.article-content ol{margin:20px 0 20px 24px;color:var(--text-secondary)}.article-content li{margin-bottom:12px;font-size:1.05rem;line-height:1.7}.highlight-box{background:var(--accent-bg);border-left:4px solid var(--accent);padding:24px;margin:32px 0;border-radius:0 12px 12px 0}.highlight-box p{margin-bottom:0;color:var(--text-primary)}.warning-box{background:var(--danger-bg);border-left:4px solid var(--danger);padding:24px;margin:32px 0;border-radius:0 12px 12px 0}.warning-box p{margin-bottom:0;color:var(--text-primary)}.example-box{background:var(--bg-card);border:1px solid var(--border);padding:24px;margin:24px 0;border-radius:12px}.example-box .label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:block}.example-box .label.error{color:var(--danger)}.example-box .label.success{color:var(--success)}.example-box p{margin-bottom:0;font-size:1rem}.divider{width:60px;height:4px;background:var(--accent);border-radius:2px;margin:48px 0}.cta-box{background:linear-gradient(135deg,var(--text-primary) 0%,#2a2a4a 100%);padding:40px;border-radius:16px;margin-top:48px;text-align:center}.cta-box p{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:24px}.cta-button{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:1rem;transition:all .3s ease}.cta-button:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 20px rgba(107,92,231,.3)}footer{background:var(--text-primary);color:var(--bg-primary);padding:40px 10%;text-align:center}.footer-links{display:flex;justify-content:center;gap:30px;margin-bottom:20px}.footer-links a{color:var(--bg-secondary);text-decoration:none;font-size:.9rem}.footer-links a:hover{color:var(--accent-light)}.footer-copy{font-size:.85rem;color:var(--text-muted)}.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}@media(max-width:768px){.redirect-banner{flex-direction:column;gap:.5rem;text-align:center;padding:.75rem 15%}nav{top:70px!important}body{padding-top:70px}.nav-links{display:none}.hamburger{display:flex}nav .lang-toggle-mobile{display:block;padding:.5rem 1rem;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:.85rem;font-weight:600;margin-left:auto}nav .lang-toggle{display:none}nav .nav-links.active{display:flex;position:absolute;top:100%;left:0;width:100%;background:var(--bg-primary);flex-direction:column;align-items:flex-start;gap:1rem;padding:1rem 5%;border-bottom:1px solid var(--border)}.article-header{padding:120px 5% 40px}.article-header h1{font-size:1.75rem}.article-subtitle{font-size:1.1rem}.article-meta{flex-direction:column;align-items:flex-start;gap:12px}.article-cover-image{height:250px}.article-content h2{font-size:1.4rem}.cta-box{padding:30px 20px}}.skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px 16px;z-index:10000;text-decoration:none;border-radius:0 0 4px 0}.skip-link:focus{top:0}
+
+        /* Mobile menu content wrapper - for desktop, no special styling needed */
+        .mobile-menu-content {
+            display: contents;
+        }
+
+        .lang-toggle-mobile {
+            display: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .lang-toggle-mobile:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .lang-toggle-mobile {
+                display: block;
+                margin-left: auto;
+            }
+
+            .nav-links .lang-toggle {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 5%;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active .mobile-menu-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .nav-links.active a {
+                display: block;
+                width: 100%;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+        }
     </style>
     <!-- Vercel Web Analytics -->
     <script>
@@ -23,21 +86,6 @@
         <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com →</a>
         <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Close banner">×</button>
     </div>
-    <nav role="navigation" aria-label="Main navigation">
-        <a href="../../index.html" class="logo"><img src="../../assets/images/brand/logo-preto.png" alt="Alavanka" height="40"></a>
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <div class="nav-links" id="navLinks">
-            <a href="../../index.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
-            <a href="../../index.html#problema">The Problem</a>
-            <a href="../../index.html#solucao">The Solution</a>
-            <a href="../../index.html#porque">Why Us</a>
-            <a href="../../index.html#processo">How It Works</a>
-            <a href="../../blog.html" class="active">Blog</a>
-            <a href="../../index.html#contato">Contact</a>
-            <button class="lang-toggle" onclick="window.location.href='value-proposition-impreciso.html'">PT</button>
-        </div>
-        <button class="lang-toggle-mobile" onclick="window.location.href='value-proposition-impreciso.html'">PT</button>
-    </nav>
     <main id="main-content">
         <article>
             <header class="article-header">

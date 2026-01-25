@@ -441,6 +441,69 @@
             .framework-section { padding: 20px; }
             .article-cta { padding: 28px 20px; }
         }
+
+        /* Mobile menu content wrapper - for desktop, no special styling needed */
+        .mobile-menu-content {
+            display: contents;
+        }
+
+        .lang-toggle-mobile {
+            display: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .lang-toggle-mobile:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 900px) {
+            .lang-toggle-mobile {
+                display: block;
+                margin-left: auto;
+            }
+
+            .nav-links .lang-toggle {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem 5%;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active .mobile-menu-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .nav-links.active a {
+                display: block;
+                width: 100%;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+        }
     </style>
     <!-- Vercel Web Analytics -->
     <script>
@@ -451,25 +514,6 @@
 <body>
 
     <!-- Navigation -->
-    <nav>
-        <a href="../../index.html" class="logo">
-            <img src="../../assets/images/brand/logo-preto.png" alt="Alavanka">
-        </a>
-        
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
-        
-        <div class="nav-links" id="navLinks">
-            <a href="../../index.html#problema">O Problema</a>
-            <a href="../../index.html#solucao">A Solução</a>
-            <a href="../../index.html#porque">Por Que Nós</a>
-            <a href="../../index.html#processo">Como Funciona</a>
-            <a href="../../blog.html" class="active">Blog</a>
-            <a href="../../index.html#contato">Contato</a>
-            <button class="lang-toggle">EN</button>
-        </div>
-    </nav>
 
     <!-- Article Header -->
     <header class="article-header">
