@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assessment: Sua Empresa Está Pronta para um Fractional CRO? | Alavanka</title>
     <meta name="description" content="Responda 5 perguntas rápidas e descubra se sua empresa B2B tech está pronta para um Fractional CRO. Assessment gratuito da Alavanka.">
-    <meta property="og:title" content="Assessment GTM Readiness | Alavanka">
-    <meta property="og:description" content="Descubra se sua empresa está pronta para um Fractional CRO. 5 perguntas, 2 minutos.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.alavanka.com.br/assessment.html">
     <link rel="canonical" href="https://www.alavanka.com.br/assessment.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,12 +124,14 @@
         <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
         <div class="nav-links" id="navLinks">
             <div class="mobile-menu-content">
+                <a href="index.html" title="Home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
                 <a href="index.html#problema">O Problema</a>
                 <a href="index.html#solucao">A Solução</a>
                 <a href="index.html#porque">Por Que Nós</a>
                 <a href="index.html#processo">Como Funciona</a>
                 <a href="guia-fractional-cro-brasil.html">Playbook</a>
                 <a href="blog.html">Blog</a>
+                <a href="index.html#faq">FAQ</a>
                 <a href="index.html#contato">Contato</a>
             </div>
             <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
@@ -214,7 +212,7 @@
                 <div class="result-form" id="resultForm">
                     <div id="formInput">
                         <h3 id="formTitle">Baixe seu diagnóstico personalizado</h3>
-                        <p id="formSubtitle">PDF com análise detalhada + próximos passos recomendados</p>
+                        <p id="formSubtitle">PDF com análise detalhada, estatísticas de mercado e próximos passos</p>
                         <div class="form-row" id="formRow">
                             <input type="email" id="assessmentEmail" placeholder="seu@email.com">
                             <button onclick="submitAndDownload()" id="formBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Gerar PDF</span></button>
@@ -246,16 +244,17 @@
                 high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o modelo de Fractional CRO. Você tem a maturidade e os desafios certos para se beneficiar de liderança de receita fracionada." },
                 medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar de um Fractional CRO, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
                 low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, um Fractional CRO pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo para quando o momento chegar." },
-                formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada + próximos passos recomendados", formBtn: "Gerar PDF",
+                formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada, estatísticas de mercado e próximos passos", formBtn: "Gerar PDF",
                 successT: "Seu diagnóstico está pronto!", successS: "Clique abaixo para baixar o PDF personalizado.", downloadBtn: "Baixar Diagnóstico PDF",
                 formInv: "Por favor, insira um email válido.", formErr: "Erro ao processar. Tente novamente.",
                 divider: "ou converse diretamente", cta: "Agendar Conversa com Carlos André →", backSite: "← Voltar ao site",
-                pdf: { title: "Diagnóstico GTM Readiness", subtitle: "Assessment Personalizado", preparedFor: "Preparado para:", date: "Data:", scoreLabel: "Pontuação Total", yourAnswers: "Suas Respostas",
-                    questions: ["Faixa de receita anual (ARR)", "Tempo de estagnação", "Tempo do CEO em vendas", "Líder comercial dedicado", "Maturidade do processo comercial"], analysis: "Análise do Resultado",
-                    highAnalysis: ["Sua empresa apresenta o perfil ideal para um Fractional CRO:", "", "• Receita e maturidade adequadas para investir em liderança de revenue", "• Desafios de crescimento que exigem expertise operacional sênior", "• Timing correto para estruturar processos antes de escalar", "", "RECOMENDAÇÃO: Agende uma conversa para discutir um plano de ação."],
-                    mediumAnalysis: ["Sua empresa tem potencial para se beneficiar de um Fractional CRO,", "mas alguns pontos merecem atenção:", "", "• Avalie se o momento é de estruturar processos ou crescer receita", "• Considere o runway disponível para implementar mudanças", "• Uma conversa pode ajudar a clarificar o timing ideal", "", "RECOMENDAÇÃO: Agende uma conversa exploratória sem compromisso."],
-                    lowAnalysis: ["Com base nas suas respostas, o timing pode não ser ideal para um", "Fractional CRO neste momento. Possíveis razões:", "", "• A empresa pode precisar primeiro validar product-market fit", "• O estágio atual pode exigir foco em outras prioridades", "• Recursos podem ser melhor alocados em outras áreas", "", "RECOMENDAÇÃO: Reavalie em 6 meses."],
-                    nextSteps: "Próximos Passos", step1: "1. Agende uma conversa de diagnóstico (30 min, sem compromisso)", step2: "2. Leia nosso Playbook Fractional CRO Brasil 2025", step3: "3. Acesse: www.alavanka.com.br", footer: "Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br" }
+                pdf: { title: "Diagnostico GTM Readiness", subtitle: "Assessment Personalizado", preparedFor: "Preparado para:", date: "Data:", scoreLabel: "Pontuacao Total", yourAnswers: "Suas Respostas",
+                    questions: ["Faixa de receita anual (ARR)", "Tempo de estagnacao", "Tempo do CEO em vendas", "Lider comercial dedicado", "Maturidade do processo comercial"], analysis: "Analise do Resultado",
+                    highAnalysis: ["Sua empresa apresenta o perfil ideal para um Fractional CRO:", "", "- Receita e maturidade adequadas para investir em lideranca de revenue", "- Desafios de crescimento que exigem expertise operacional senior", "- Timing correto para estruturar processos antes de escalar", "", "RECOMENDACAO: Agende uma conversa para discutir um plano de acao."],
+                    mediumAnalysis: ["Sua empresa tem potencial para se beneficiar de um Fractional CRO,", "mas alguns pontos merecem atencao:", "", "- Avalie se o momento e de estruturar processos ou crescer receita", "- Considere o runway disponivel para implementar mudancas", "- Uma conversa pode ajudar a clarificar o timing ideal", "", "RECOMENDACAO: Agende uma conversa exploratororia sem compromisso."],
+                    lowAnalysis: ["Com base nas suas respostas, o timing pode nao ser ideal para um", "Fractional CRO neste momento. Possiveis razoes:", "", "- A empresa pode precisar primeiro validar product-market fit", "- O estagio atual pode exigir foco em outras prioridades", "- Recursos podem ser melhor alocados em outras areas", "", "RECOMENDACAO: Reavalie em 6 meses."],
+                    insightsTitle: "Insights Baseados nas Suas Respostas", statsTitle: "Estatisticas de Mercado", nextSteps: "Proximos Passos Recomendados",
+                    footer: "Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br", sources: "Fontes: SaaS Capital, ICONIQ, Frak Report, Gartner, SaaStr, OpenView, Bessemer" }
             },
             en: {
                 title: "Is Your Company Ready for a Fractional CRO?", subtitle: "Answer 5 quick questions and find out",
@@ -265,16 +264,17 @@
                 high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with the Fractional CRO model. You have the right maturity and challenges to benefit from fractional revenue leadership." },
                 medium: { t: "Good Compatibility", d: "Your company could benefit from a Fractional CRO, but there are some points to consider. A conversation can help understand if the timing is right." },
                 low: { t: "Timing May Not Be Ideal", d: "Based on your answers, a Fractional CRO may not be the best solution right now. But keep following our content for when the time comes." },
-                formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis + recommended next steps", formBtn: "Generate PDF",
+                formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis, market statistics and next steps", formBtn: "Generate PDF",
                 successT: "Your diagnosis is ready!", successS: "Click below to download the personalized PDF.", downloadBtn: "Download Diagnosis PDF",
                 formInv: "Please enter a valid email.", formErr: "Error processing. Please try again.",
-                divider: "or talk directly", cta: "Schedule Call with Carlos André →", backSite: "← Back to site",
+                divider: "or talk directly", cta: "Schedule Call with Carlos Andre →", backSite: "← Back to site",
                 pdf: { title: "GTM Readiness Diagnosis", subtitle: "Personalized Assessment", preparedFor: "Prepared for:", date: "Date:", scoreLabel: "Total Score", yourAnswers: "Your Answers",
                     questions: ["Annual revenue range (ARR)", "Stagnation duration", "CEO time on sales", "Dedicated sales leader", "Sales process maturity"], analysis: "Result Analysis",
-                    highAnalysis: ["Your company has the ideal profile for a Fractional CRO:", "", "• Adequate revenue and maturity to invest in revenue leadership", "• Growth challenges that require senior operational expertise", "• Right timing to structure processes before scaling", "", "RECOMMENDATION: Schedule a call to discuss a personalized action plan."],
-                    mediumAnalysis: ["Your company has potential to benefit from a Fractional CRO,", "but some points deserve attention:", "", "• Evaluate if it's time to structure processes or grow revenue", "• Consider the runway available to implement changes", "• A conversation can help clarify the ideal timing", "", "RECOMMENDATION: Schedule an exploratory call with no commitment."],
-                    lowAnalysis: ["Based on your answers, the timing may not be ideal for a", "Fractional CRO at this moment. Possible reasons:", "", "• The company may need to first validate product-market fit", "• The current stage may require focus on other priorities", "• Resources may be better allocated in other areas", "", "RECOMMENDATION: Reassess in 6 months."],
-                    nextSteps: "Next Steps", step1: "1. Schedule a diagnostic call (30 min, no commitment)", step2: "2. Read our Fractional CRO Brazil 2025 Playbook", step3: "3. Visit: www.alavanka.com.br", footer: "Alavanka | Fractional CRO for B2B Tech | www.alavanka.com.br" }
+                    highAnalysis: ["Your company has the ideal profile for a Fractional CRO:", "", "- Adequate revenue and maturity to invest in revenue leadership", "- Growth challenges that require senior operational expertise", "- Right timing to structure processes before scaling", "", "RECOMMENDATION: Schedule a call to discuss a personalized action plan."],
+                    mediumAnalysis: ["Your company has potential to benefit from a Fractional CRO,", "but some points deserve attention:", "", "- Evaluate if its time to structure processes or grow revenue", "- Consider the runway available to implement changes", "- A conversation can help clarify the ideal timing", "", "RECOMMENDATION: Schedule an exploratory call with no commitment."],
+                    lowAnalysis: ["Based on your answers, the timing may not be ideal for a", "Fractional CRO at this moment. Possible reasons:", "", "- The company may need to first validate product-market fit", "- The current stage may require focus on other priorities", "- Resources may be better allocated in other areas", "", "RECOMMENDATION: Reassess in 6 months."],
+                    insightsTitle: "Insights Based on Your Answers", statsTitle: "Market Statistics", nextSteps: "Recommended Next Steps",
+                    footer: "Alavanka | Fractional CRO for B2B Tech | www.alavanka.com.br", sources: "Sources: SaaS Capital, ICONIQ, Frak Report, Gartner, SaaStr, OpenView, Bessemer" }
             }
         };
         let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
@@ -284,11 +284,237 @@
         function toggleMobileMenu() { document.getElementById('hamburger').classList.toggle('active'); document.getElementById('navLinks').classList.toggle('active'); }
         function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; document.getElementById('progressFill').style.width = pct + '%'; document.getElementById('progressPercent').textContent = Math.round(pct) + '%'; document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur); document.querySelectorAll('.question-number').forEach((el, i) => { el.textContent = t.qOf.replace('{n}', i + 1); }); document.getElementById('btnBack').disabled = cur === 1; document.getElementById('btnBack').textContent = t.back; document.getElementById('btnNext').disabled = !ans[cur]; document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next; }
         document.addEventListener('click', function(e) { const btn = e.target.closest('.option-btn'); if (!btn) return; btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); ans[cur] = parseInt(btn.dataset.value); const labelKey = lang === 'pt' ? 'labelPt' : 'labelEn'; answerLabels[cur] = btn.dataset[labelKey] || btn.querySelector('span:last-child').textContent; updateUI(); });
-        function nextQuestion() { if (cur === total) { showResults(); return; } if (!ans[cur]) return; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active'); cur++; const slide = document.querySelector(`.question-slide[data-question="${cur}"]`); slide.classList.add('active'); if (ans[cur]) { const b = slide.querySelector(`.option-btn[data-value="${ans[cur]}"]`); if (b) b.classList.add('selected'); } updateUI(); }
-        function prevQuestion() { if (cur === 1) return; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active'); cur--; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.add('active'); updateUI(); }
+        function nextQuestion() { if (cur === total) { showResults(); return; } if (!ans[cur]) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur++; const slide = document.querySelector('.question-slide[data-question="'+cur+'"]'); slide.classList.add('active'); if (ans[cur]) { const b = slide.querySelector('.option-btn[data-value="'+ans[cur]+'"]'); if (b) b.classList.add('selected'); } updateUI(); }
+        function prevQuestion() { if (cur === 1) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur--; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.add('active'); updateUI(); }
         function showResults() { const t = T[lang]; const score = Object.values(ans).reduce((a, b) => a + b, 0); document.getElementById('questionsBody').style.display = 'none'; document.getElementById('progressSection').style.display = 'none'; document.getElementById('resultScreen').classList.add('active'); document.getElementById('scoreNumber').textContent = score; const rs = document.getElementById('resultScore'); rs.className = 'result-score'; let level; if (score >= 14) { rs.classList.add('high'); level = 'high'; } else if (score >= 9) { rs.classList.add('medium'); level = 'medium'; } else { rs.classList.add('low'); level = 'low'; } document.getElementById('resultTitle').textContent = t[level].t; document.getElementById('resultDescription').textContent = t[level].d; if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score }); }
         async function submitAndDownload() { const t = T[lang]; const email = document.getElementById('assessmentEmail').value; if (!email || !email.includes('@')) { alert(t.formInv); return; } userEmail = email; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const btn = document.getElementById('formBtn'); btn.disabled = true; btn.querySelector('span').textContent = '...'; try { await fetch('https://formspree.io/f/mykwjwyl', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() }) }); document.getElementById('formInput').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level }); } catch (e) { console.error(e); btn.disabled = false; btn.querySelector('span').textContent = t.formBtn; alert(t.formErr); } }
-        function downloadPDF() { const t = T[lang]; const pdf = t.pdf; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const doc = new jsPDF(); const pageWidth = doc.internal.pageSize.getWidth(); const margin = 20; let y = 20; const purple = [107, 92, 231], darkText = [26, 26, 46], grayText = [74, 74, 104], green = [34, 197, 94], yellow = [251, 191, 36], red = [239, 68, 68]; doc.setFillColor(...purple); doc.rect(0, 0, pageWidth, 35, 'F'); doc.setTextColor(255, 255, 255); doc.setFontSize(22); doc.setFont('helvetica', 'bold'); doc.text(pdf.title, margin, 18); doc.setFontSize(12); doc.setFont('helvetica', 'normal'); doc.text(pdf.subtitle, margin, 28); y = 50; doc.setTextColor(...grayText); doc.setFontSize(10); doc.text(`${pdf.preparedFor} ${userEmail}`, margin, y); doc.text(`${pdf.date} ${new Date().toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-US')}`, pageWidth - margin - 50, y); y += 15; const scoreColor = level === 'high' ? green : level === 'medium' ? yellow : red; doc.setFillColor(...scoreColor); doc.roundedRect(margin, y, pageWidth - 2*margin, 30, 3, 3, 'F'); doc.setTextColor(255, 255, 255); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.scoreLabel, margin + 10, y + 12); doc.setFontSize(28); doc.text(`${score}/20`, margin + 10, y + 25); doc.setFontSize(16); const levelText = t[level].t; doc.text(levelText, pageWidth - margin - doc.getTextWidth(levelText) - 10, y + 20); y += 45; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.yourAnswers, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 8; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); for (let i = 1; i <= 5; i++) { doc.setTextColor(...grayText); doc.text(`${pdf.questions[i-1]}:`, margin, y); doc.setTextColor(...darkText); doc.setFont('helvetica', 'bold'); const ansLabel = answerLabels[i] || `Option ${ans[i]}`; doc.text(ansLabel, margin + 75, y); doc.setFont('helvetica', 'normal'); y += 7; } y += 10; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.analysis, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 10; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); const analysisLines = level === 'high' ? pdf.highAnalysis : level === 'medium' ? pdf.mediumAnalysis : pdf.lowAnalysis; analysisLines.forEach(line => { if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); } doc.text(line, margin, y); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); y += 6; }); y += 10; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.nextSteps, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 10; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); doc.text(pdf.step1, margin, y); y += 7; doc.text(pdf.step2, margin, y); y += 7; doc.text(pdf.step3, margin, y); doc.setFillColor(248, 249, 252); doc.rect(0, 280, pageWidth, 17, 'F'); doc.setFontSize(9); doc.setTextColor(...grayText); doc.text(pdf.footer, pageWidth / 2, 290, { align: 'center' }); const filename = lang === 'pt' ? 'diagnostico-gtm-alavanka.pdf' : 'gtm-diagnosis-alavanka.pdf'; doc.save(filename); if (typeof gtag === 'function') gtag('event', 'assessment_pdf_downloaded', { event_category: 'lead_generation', event_label: level }); }
+        
+        function getInsights(answers, lang) {
+            const insights = [];
+            if (answers[1] >= 3) { insights.push(lang === 'pt' ? { title: 'Faixa de ARR Ideal', content: 'Empresas com R$10M+ ARR tem maturidade ideal para Fractional CRO. Top performers nessa faixa crescem 51% ao ano vs mediana de 27%.', source: 'SaaS Capital Benchmarks 2025' } : { title: 'Ideal ARR Range', content: 'Companies with $10M+ ARR have ideal maturity for Fractional CRO. Top performers in this range grow 51% annually vs 27% median.', source: 'SaaS Capital Benchmarks 2025' }); }
+            else { insights.push(lang === 'pt' ? { title: 'Consideracao sobre Estagio', content: 'Empresas sub-$10M geralmente se beneficiam de founder-led sales. Jason Lemkin recomenda nao contratar CRO full-time ate $10-20M ARR.', source: 'SaaStr / Jason Lemkin' } : { title: 'Stage Consideration', content: 'Companies under $10M generally benefit from founder-led sales. Jason Lemkin recommends not hiring full-time CRO until $10-20M ARR.', source: 'SaaStr / Jason Lemkin' }); }
+            if (answers[2] >= 3) { insights.push(lang === 'pt' ? { title: 'Alerta: Estagnacao Prolongada', content: 'Empresas enfrentam Growth Plateau entre $20-25M ARR. Estagnacao por 6+ meses indica necessidade urgente de intervencao em GTM.', source: 'ICONIQ Capital Research 2024' } : { title: 'Alert: Prolonged Stagnation', content: 'Companies face Growth Plateau between $20-25M ARR. Stagnation for 6+ months indicates urgent need for GTM intervention.', source: 'ICONIQ Capital Research 2024' }); }
+            if (answers[3] >= 3) { insights.push(lang === 'pt' ? { title: 'CEO Sobrecarregado', content: 'Jason Lemkin recomenda founders gastarem minimo 20% do tempo com clientes. Acima de 40% indica falta de lideranca comercial estruturada.', source: 'Lennys Podcast / SaaStr' } : { title: 'CEO Overloaded', content: 'Jason Lemkin recommends founders spend minimum 20% of time with customers. Above 40% indicates lack of structured commercial leadership.', source: 'Lennys Podcast / SaaStr' }); }
+            if (answers[4] >= 3) { insights.push(lang === 'pt' ? { title: 'Momento Critico para Lideranca', content: 'Tenure medio de CROs e apenas 2 anos. Fractional CRO reduz risco de mis-hire que custa centenas de milhares em custo direto.', source: 'Blossom Street Ventures' } : { title: 'Critical Leadership Moment', content: 'Average CRO tenure is only 2 years. Fractional CRO reduces mis-hire risk costing hundreds of thousands in direct costs.', source: 'Blossom Street Ventures' }); }
+            if (answers[5] >= 3) { insights.push(lang === 'pt' ? { title: 'Processo Precisa Estrutura', content: 'Empresas top quartile mantem NRR de 100-110% gracas a processos estruturados. Crescimento e correlacionado com Net Revenue Retention.', source: 'OpenView / High Alpha 2024' } : { title: 'Process Needs Structure', content: 'Top quartile companies maintain NRR of 100-110% thanks to structured processes. Growth correlates with Net Revenue Retention.', source: 'OpenView / High Alpha 2024' }); }
+            return insights.slice(0, 4);
+        }
+        
+        function getStats(lang) {
+            return lang === 'pt' ? [
+                '68% crescimento na demanda por executivos fracionados 2023-2024 (Frak Report)',
+                'Mercado global de executivos fracionados: $5.7B, crescendo 14%/ano (Fractionus)',
+                'Gartner: 1/3 das empresas mid-market terao executivos fracionados ate 2027',
+                'VCs como Bessemer e OpenView recomendam Fractional CROs para growth eficiente',
+                'Numero de fractional executives dobrou: 60K (2022) para 120K (2024)'
+            ] : [
+                '68% demand growth for fractional executives 2023-2024 (Frak Report)',
+                'Global fractional executive market: $5.7B, growing 14%/year (Fractionus)',
+                'Gartner: 1/3 of mid-market companies will have fractional execs by 2027',
+                'VCs like Bessemer and OpenView recommend Fractional CROs for efficient growth',
+                'Number of fractional executives doubled: 60K (2022) to 120K (2024)'
+            ];
+        }
+        
+        function getSteps(level, lang) {
+            if (level === 'high') {
+                return lang === 'pt' ? ['1. Agende uma conversa de diagnostico (30 min, sem compromisso)','   Vamos mapear seus desafios especificos de GTM','','2. Receba um plano de acao personalizado','   Baseado em frameworks testados em Oracle, AT&T e Informatica','','3. Defina o modelo de engajamento ideal','   Fractional (10-20h/semana) ou projeto especifico (90 dias)','','-> Capacidade limitada: maximo 3 empresas simultaneamente'] : ['1. Schedule a diagnostic conversation (30 min, no commitment)','   Well map your specific GTM challenges','','2. Receive a personalized action plan','   Based on frameworks tested at Oracle, AT&T and Informatica','','3. Define the ideal engagement model','   Fractional (10-20h/week) or specific project (90 days)','','-> Limited capacity: maximum 3 companies simultaneously'];
+            } else if (level === 'medium') {
+                return lang === 'pt' ? ['1. Agende uma conversa exploratoria (30 min)','   Vamos entender se o timing esta correto','','2. Baixe o Playbook Fractional CRO Brasil 2025','   guia.alavanka.com.br - conteudo gratuito','','3. Avalie internamente os gaps de GTM','   Use este diagnostico como base para discussao com socios','','-> Mesmo que nao seja o momento, mantenha contato'] : ['1. Schedule an exploratory conversation (30 min)','   Well understand if the timing is right','','2. Download the Fractional CRO Brazil 2025 Playbook','   guia.alavanka.com.br - free content','','3. Internally assess GTM gaps','   Use this diagnosis as basis for discussion with partners','','-> Even if not the right time, stay in touch'];
+            } else {
+                return lang === 'pt' ? ['1. Foque em validar product-market fit primeiro','   Founder-led sales e essencial neste estagio','','2. Acompanhe nosso conteudo no blog','   alavanka.com.br/blog - insights semanais sobre GTM','','3. Reavalie em 6 meses','   Quando atingir R$5-10M ARR, o cenario muda','','-> Dica: 20%+ do tempo do founder deve ser com clientes'] : ['1. Focus on validating product-market fit first','   Founder-led sales is essential at this stage','','2. Follow our blog content','   alavanka.com.br/blog - weekly GTM insights','','3. Reassess in 6 months','   When you reach $5-10M ARR, the scenario changes','','-> Tip: 20%+ of founder time should be with customers'];
+            }
+        }
+        
+        function downloadPDF() {
+            const t = T[lang];
+            const pdf = t.pdf;
+            const score = Object.values(ans).reduce((a, b) => a + b, 0);
+            const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low';
+            const doc = new jsPDF();
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const margin = 20;
+            let y = 20;
+            const purple = [107, 92, 231], darkText = [26, 26, 46], grayText = [74, 74, 104];
+            const green = [34, 197, 94], yellow = [251, 191, 36], red = [239, 68, 68], lightGray = [248, 249, 252];
+            
+            // PAGE 1 - Header
+            doc.setFillColor(...purple);
+            doc.rect(0, 0, pageWidth, 32, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(20);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.title, margin, 16);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.text(pdf.subtitle, margin, 26);
+            y = 42;
+            
+            // Info row
+            doc.setTextColor(...grayText);
+            doc.setFontSize(9);
+            doc.text(pdf.preparedFor + ' ' + userEmail, margin, y);
+            doc.text(pdf.date + ' ' + new Date().toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-US'), pageWidth - margin - 40, y);
+            y += 10;
+            
+            // Score box
+            const scoreColor = level === 'high' ? green : level === 'medium' ? yellow : red;
+            doc.setFillColor(...scoreColor);
+            doc.roundedRect(margin, y, pageWidth - 2*margin, 24, 3, 3, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.scoreLabel, margin + 8, y + 10);
+            doc.setFontSize(20);
+            doc.text(score + '/20', margin + 8, y + 20);
+            doc.setFontSize(13);
+            const levelText = t[level].t;
+            doc.text(levelText, pageWidth - margin - doc.getTextWidth(levelText) - 8, y + 16);
+            y += 32;
+            
+            // Answers
+            doc.setTextColor(...darkText);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.yourAnswers, margin, y);
+            y += 5;
+            doc.setDrawColor(220, 220, 220);
+            doc.line(margin, y, pageWidth - margin, y);
+            y += 6;
+            doc.setFontSize(8);
+            doc.setFont('helvetica', 'normal');
+            for (let i = 1; i <= 5; i++) {
+                doc.setTextColor(...grayText);
+                doc.text(pdf.questions[i-1] + ':', margin, y);
+                doc.setTextColor(...darkText);
+                doc.setFont('helvetica', 'bold');
+                doc.text(answerLabels[i] || 'Option ' + ans[i], margin + 58, y);
+                doc.setFont('helvetica', 'normal');
+                y += 5;
+            }
+            y += 6;
+            
+            // Analysis
+            doc.setTextColor(...darkText);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.analysis, margin, y);
+            y += 5;
+            doc.line(margin, y, pageWidth - margin, y);
+            y += 6;
+            doc.setFontSize(8);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(...grayText);
+            const analysisLines = level === 'high' ? pdf.highAnalysis : level === 'medium' ? pdf.mediumAnalysis : pdf.lowAnalysis;
+            analysisLines.forEach(line => {
+                if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); }
+                doc.text(line, margin, y);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(...grayText);
+                y += 4.5;
+            });
+            y += 6;
+            
+            // Insights
+            doc.setTextColor(...darkText);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.insightsTitle, margin, y);
+            y += 5;
+            doc.line(margin, y, pageWidth - margin, y);
+            y += 6;
+            
+            const insights = getInsights(ans, lang);
+            insights.forEach((ins, idx) => {
+                doc.setFillColor(...lightGray);
+                doc.roundedRect(margin, y, pageWidth - 2*margin, 18, 2, 2, 'F');
+                doc.setFillColor(...purple);
+                doc.circle(margin + 6, y + 5, 3, 'F');
+                doc.setTextColor(255, 255, 255);
+                doc.setFontSize(7);
+                doc.setFont('helvetica', 'bold');
+                doc.text(String(idx + 1), margin + 4.5, y + 6.5);
+                doc.setTextColor(...darkText);
+                doc.setFontSize(8);
+                doc.text(ins.title, margin + 12, y + 6);
+                doc.setTextColor(...grayText);
+                doc.setFontSize(7);
+                doc.setFont('helvetica', 'normal');
+                const lines = doc.splitTextToSize(ins.content, pageWidth - 2*margin - 16);
+                doc.text(lines[0], margin + 12, y + 11);
+                if (lines[1]) doc.text(lines[1], margin + 12, y + 14.5);
+                doc.setTextColor(...purple);
+                doc.setFontSize(6);
+                doc.text('Fonte: ' + ins.source, margin + 12, y + 17);
+                y += 20;
+            });
+            
+            // PAGE 2
+            doc.addPage();
+            y = 20;
+            
+            // Stats box
+            doc.setFillColor(...purple);
+            doc.roundedRect(margin, y, pageWidth - 2*margin, 48, 3, 3, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.statsTitle, margin + 8, y + 10);
+            doc.setFontSize(7);
+            doc.setFont('helvetica', 'normal');
+            let statY = y + 17;
+            getStats(lang).forEach(stat => { doc.text('- ' + stat, margin + 8, statY); statY += 6; });
+            y += 55;
+            
+            // Next Steps
+            doc.setTextColor(...darkText);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(pdf.nextSteps, margin, y);
+            y += 5;
+            doc.setDrawColor(220, 220, 220);
+            doc.line(margin, y, pageWidth - margin, y);
+            y += 7;
+            doc.setFontSize(8);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(...grayText);
+            getSteps(level, lang).forEach(step => {
+                if (step.startsWith('->') || step.startsWith('→')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); }
+                doc.text(step, margin, y);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(...grayText);
+                y += 5;
+            });
+            y += 10;
+            
+            // CTA Box
+            doc.setFillColor(...lightGray);
+            doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'F');
+            doc.setDrawColor(...purple);
+            doc.setLineWidth(0.5);
+            doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'S');
+            doc.setTextColor(...darkText);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'bold');
+            doc.text(lang === 'pt' ? 'Pronto para destravar seu crescimento?' : 'Ready to unlock your growth?', margin + 8, y + 9);
+            doc.setFontSize(9);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(...purple);
+            doc.text('calendly.com/carlos-andre-alavanka/30min', margin + 8, y + 17);
+            
+            // Footer
+            doc.setFillColor(...lightGray);
+            doc.rect(0, 275, pageWidth, 22, 'F');
+            doc.setFontSize(8);
+            doc.setTextColor(...grayText);
+            doc.text(pdf.footer, pageWidth / 2, 283, { align: 'center' });
+            doc.setFontSize(6);
+            doc.text(pdf.sources, pageWidth / 2, 290, { align: 'center' });
+            
+            doc.save(lang === 'pt' ? 'diagnostico-gtm-alavanka.pdf' : 'gtm-diagnosis-alavanka.pdf');
+            if (typeof gtag === 'function') gtag('event', 'assessment_pdf_downloaded', { event_category: 'lead_generation', event_label: level });
+        }
+        
         document.addEventListener('DOMContentLoaded', function() { updateUI(); if (typeof gtag === 'function') gtag('event', 'assessment_started', { event_category: 'engagement' }); });
     </script>
 </body>
