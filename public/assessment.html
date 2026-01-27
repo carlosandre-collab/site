@@ -3,63 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Básico -->
     <title>Assessment: Sua Empresa Está Pronta para um Fractional CRO? | Alavanka</title>
     <meta name="description" content="Responda 5 perguntas rápidas e descubra se sua empresa B2B tech está pronta para um Fractional CRO. Assessment gratuito da Alavanka.">
-    
-    <!-- Open Graph -->
     <meta property="og:title" content="Assessment GTM Readiness | Alavanka">
     <meta property="og:description" content="Descubra se sua empresa está pronta para um Fractional CRO. 5 perguntas, 2 minutos.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.alavanka.com.br/assessment.html">
-    <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
-    <meta property="og:locale" content="pt_BR">
-    
-    <!-- Canonical -->
     <link rel="canonical" href="https://www.alavanka.com.br/assessment.html">
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fc;
-            --accent: #6B5CE7;
-            --accent-dark: #5648c7;
-            --accent-bg: rgba(107, 92, 231, 0.08);
-            --text-primary: #1a1a2e;
-            --text-secondary: #4a4a68;
-            --border: #e8e8f0;
-            --success: #22c55e;
-            --success-bg: rgba(34, 197, 94, 0.1);
-            --warning: #fbbf24;
-            --warning-bg: rgba(251, 191, 36, 0.1);
-            --danger: #ef4444;
-            --danger-bg: rgba(239, 68, 68, 0.1);
-        }
-        
+        :root { --bg-primary: #ffffff; --bg-secondary: #f8f9fc; --accent: #6B5CE7; --accent-dark: #5648c7; --accent-bg: rgba(107, 92, 231, 0.08); --text-primary: #1a1a2e; --text-secondary: #4a4a68; --border: #e8e8f0; --success: #22c55e; --success-bg: rgba(34, 197, 94, 0.1); --warning: #fbbf24; --warning-bg: rgba(251, 191, 36, 0.1); --danger: #ef4444; --danger-bg: rgba(239, 68, 68, 0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-            z-index: 1000; border-bottom: 1px solid var(--border);
-        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-secondary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); }
         .logo { display: flex; align-items: center; text-decoration: none; }
         .logo img { height: 40px; }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
@@ -70,60 +29,28 @@
         .hamburger span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
         .lang-toggle-mobile { display: none; }
         .mobile-menu-content { display: contents; }
-        
-        /* Main */
-        main {
-            flex: 1; display: flex; align-items: center; justify-content: center;
-            padding: 100px 1rem 2rem;
-        }
-        
-        .assessment-container {
-            background: white; border-radius: 16px; max-width: 640px; width: 100%;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); overflow: hidden;
-        }
-        
-        .assessment-header {
-            padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border);
-        }
-        .assessment-header h1 {
-            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
-            color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3;
-        }
+        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 100px 1rem 2rem; }
+        .assessment-container { background: white; border-radius: 16px; max-width: 640px; width: 100%; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); overflow: hidden; }
+        .assessment-header { padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
+        .assessment-header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3; }
         .assessment-header p { color: var(--text-secondary); font-size: 0.95rem; }
-        
         .assessment-progress { padding: 1rem 2rem; background: var(--bg-secondary); }
         .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; width: 0%; }
         .progress-text { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
-        
         .assessment-body { padding: 2rem; }
         .question-slide { display: none; }
         .question-slide.active { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .question-number {
-            display: inline-block; background: var(--accent-bg); color: var(--accent);
-            font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem;
-            border-radius: 20px; margin-bottom: 1rem;
-        }
+        .question-number { display: inline-block; background: var(--accent-bg); color: var(--accent); font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 20px; margin-bottom: 1rem; }
         .question-text { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.4; }
-        
         .question-options { display: flex; flex-direction: column; gap: 0.75rem; }
-        .option-btn {
-            display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem;
-            background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px;
-            text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
-            color: var(--text-primary); font-family: inherit;
-        }
+        .option-btn { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; color: var(--text-primary); font-family: inherit; }
         .option-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
         .option-btn.selected { border-color: var(--accent); background: var(--accent-bg); }
-        .option-indicator {
-            width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s;
-        }
+        .option-indicator { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
         .option-btn.selected .option-indicator { background: var(--accent); border-color: var(--accent); }
         .option-btn.selected .option-indicator::after { content: '✓'; color: white; font-size: 0.8rem; font-weight: bold; }
-        
         .assessment-nav { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
         .nav-btn { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; font-family: inherit; }
         .nav-btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
@@ -132,14 +59,9 @@
         .nav-btn-next { background: var(--accent); border: none; color: white; }
         .nav-btn-next:hover:not(:disabled) { background: var(--accent-dark); }
         .nav-btn-next:disabled { background: var(--border); cursor: not-allowed; }
-        
-        /* Results */
         .result-screen { display: none; text-align: center; padding: 2rem; }
         .result-screen.active { display: block; animation: fadeIn 0.3s ease; }
-        .result-score {
-            width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; border: 4px solid;
-        }
+        .result-score { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 4px solid; }
         .result-score.high { background: var(--success-bg); border-color: var(--success); }
         .result-score.medium { background: var(--warning-bg); border-color: var(--warning); }
         .result-score.low { background: var(--danger-bg); border-color: var(--danger); }
@@ -150,27 +72,32 @@
         .score-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
         .result-title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
         .result-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; }
-        
         .result-form { background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; }
         .result-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
         .result-form p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
         .form-row { display: flex; gap: 0.75rem; }
         .form-row input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
         .form-row input:focus { outline: none; border-color: var(--accent); }
-        .form-row button { padding: 0.75rem 1.5rem; background: var(--accent); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; }
+        .form-row button { padding: 0.75rem 1.5rem; background: var(--accent); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; display: flex; align-items: center; gap: 0.5rem; }
         .form-row button:hover { background: var(--accent-dark); }
-        .form-success { display: none; padding: 1rem; background: var(--success-bg); border: 1px solid var(--success); border-radius: 8px; color: #166534; margin-top: 1rem; }
-        .form-success.show { display: block; }
-        
+        .form-row button:disabled { background: var(--border); cursor: not-allowed; }
+        .form-row button svg { width: 18px; height: 18px; }
+        .form-success { display: none; text-align: center; }
+        .form-success.show { display: block; animation: fadeIn 0.3s ease; }
+        .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .form-success h4 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .form-success p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+        .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.2s; }
+        .btn-download:hover { background: #1aa34a; transform: translateY(-1px); }
+        .btn-download svg { width: 20px; height: 20px; }
         .result-cta-main { display: inline-block; padding: 1rem 2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s; }
         .result-cta-main:hover { background: var(--accent-dark); }
         .result-back { display: block; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; }
         .result-back:hover { color: var(--accent); }
-        
+        .divider-text { display: flex; align-items: center; gap: 1rem; color: var(--text-secondary); font-size: 0.85rem; margin: 1.5rem 0; }
+        .divider-text::before, .divider-text::after { content: ''; flex: 1; height: 1px; background: var(--border); }
         footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.85rem; }
         footer a { color: var(--accent); text-decoration: none; }
-        
-        /* Mobile */
         @media (max-width: 768px) {
             .hamburger { display: flex; }
             .nav-links { display: none; }
@@ -189,7 +116,7 @@
             .question-text { font-size: 1.05rem; }
             .option-btn { padding: 0.875rem 1rem; font-size: 0.9rem; }
             .form-row { flex-direction: column; }
-            .form-row button { width: 100%; }
+            .form-row button { width: 100%; justify-content: center; }
             .result-score { width: 120px; height: 120px; }
             .score-number { font-size: 2rem; }
         }
@@ -197,12 +124,8 @@
 </head>
 <body>
     <nav>
-        <a href="index.html" class="logo">
-            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40">
-        </a>
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-            <span></span><span></span><span></span>
-        </button>
+        <a href="index.html" class="logo"><img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40"></a>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
         <div class="nav-links" id="navLinks">
             <div class="mobile-menu-content">
                 <a href="index.html#problema">O Problema</a>
@@ -224,274 +147,149 @@
                 <h1 id="headerTitle">Sua Empresa Está Pronta para um Fractional CRO?</h1>
                 <p id="headerSubtitle">Responda 5 perguntas rápidas e descubra</p>
             </div>
-            
             <div class="assessment-progress" id="progressSection">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-text">
-                    <span id="progressCurrent">Pergunta 1 de 5</span>
-                    <span id="progressPercent">0%</span>
-                </div>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="progress-text"><span id="progressCurrent">Pergunta 1 de 5</span><span id="progressPercent">0%</span></div>
             </div>
-            
             <div class="assessment-body" id="questionsBody">
                 <div class="question-slide active" data-question="1">
                     <span class="question-number">Pergunta 1 de 5</span>
                     <p class="question-text" id="q1text">Qual é a faixa de receita anual (ARR) da sua empresa?</p>
                     <div class="question-options">
-                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de R$5M</span></button>
-                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>R$5M - R$10M</span></button>
-                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>R$10M - R$30M</span></button>
-                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de R$30M</span></button>
+                        <button class="option-btn" data-value="1" data-label-pt="Menos de R$5M" data-label-en="Less than R$5M"><span class="option-indicator"></span><span>Menos de R$5M</span></button>
+                        <button class="option-btn" data-value="2" data-label-pt="R$5M - R$10M" data-label-en="R$5M - R$10M"><span class="option-indicator"></span><span>R$5M - R$10M</span></button>
+                        <button class="option-btn" data-value="3" data-label-pt="R$10M - R$30M" data-label-en="R$10M - R$30M"><span class="option-indicator"></span><span>R$10M - R$30M</span></button>
+                        <button class="option-btn" data-value="4" data-label-pt="Mais de R$30M" data-label-en="More than R$30M"><span class="option-indicator"></span><span>Mais de R$30M</span></button>
                     </div>
                 </div>
-                
                 <div class="question-slide" data-question="2">
                     <span class="question-number">Pergunta 2 de 5</span>
                     <p class="question-text" id="q2text">Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?</p>
                     <div class="question-options">
-                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de 3 meses</span></button>
-                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>3 a 6 meses</span></button>
-                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>6 a 12 meses</span></button>
-                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de 12 meses</span></button>
+                        <button class="option-btn" data-value="1" data-label-pt="Menos de 3 meses" data-label-en="Less than 3 months"><span class="option-indicator"></span><span>Menos de 3 meses</span></button>
+                        <button class="option-btn" data-value="2" data-label-pt="3 a 6 meses" data-label-en="3 to 6 months"><span class="option-indicator"></span><span>3 a 6 meses</span></button>
+                        <button class="option-btn" data-value="3" data-label-pt="6 a 12 meses" data-label-en="6 to 12 months"><span class="option-indicator"></span><span>6 a 12 meses</span></button>
+                        <button class="option-btn" data-value="4" data-label-pt="Mais de 12 meses" data-label-en="More than 12 months"><span class="option-indicator"></span><span>Mais de 12 meses</span></button>
                     </div>
                 </div>
-                
                 <div class="question-slide" data-question="3">
                     <span class="question-number">Pergunta 3 de 5</span>
                     <p class="question-text" id="q3text">Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?</p>
                     <div class="question-options">
-                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de 20%</span></button>
-                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>20% a 40%</span></button>
-                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>40% a 60%</span></button>
-                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de 60%</span></button>
+                        <button class="option-btn" data-value="1" data-label-pt="Menos de 20%" data-label-en="Less than 20%"><span class="option-indicator"></span><span>Menos de 20%</span></button>
+                        <button class="option-btn" data-value="2" data-label-pt="20% a 40%" data-label-en="20% to 40%"><span class="option-indicator"></span><span>20% a 40%</span></button>
+                        <button class="option-btn" data-value="3" data-label-pt="40% a 60%" data-label-en="40% to 60%"><span class="option-indicator"></span><span>40% a 60%</span></button>
+                        <button class="option-btn" data-value="4" data-label-pt="Mais de 60%" data-label-en="More than 60%"><span class="option-indicator"></span><span>Mais de 60%</span></button>
                     </div>
                 </div>
-                
                 <div class="question-slide" data-question="4">
                     <span class="question-number">Pergunta 4 de 5</span>
                     <p class="question-text" id="q4text">Você tem um líder comercial (VP Sales, CRO) dedicado full-time?</p>
                     <div class="question-options">
-                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Sim, com resultados consistentes</span></button>
-                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>Sim, mas resultados abaixo do esperado</span></button>
-                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>Não, o founder lidera vendas</span></button>
-                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Não, e estamos buscando contratar</span></button>
+                        <button class="option-btn" data-value="1" data-label-pt="Sim, com resultados consistentes" data-label-en="Yes, with consistent results"><span class="option-indicator"></span><span>Sim, com resultados consistentes</span></button>
+                        <button class="option-btn" data-value="2" data-label-pt="Sim, mas abaixo do esperado" data-label-en="Yes, but below expectations"><span class="option-indicator"></span><span>Sim, mas resultados abaixo do esperado</span></button>
+                        <button class="option-btn" data-value="3" data-label-pt="Não, o founder lidera vendas" data-label-en="No, the founder leads sales"><span class="option-indicator"></span><span>Não, o founder lidera vendas</span></button>
+                        <button class="option-btn" data-value="4" data-label-pt="Não, buscando contratar" data-label-en="No, looking to hire"><span class="option-indicator"></span><span>Não, e estamos buscando contratar</span></button>
                     </div>
                 </div>
-                
                 <div class="question-slide" data-question="5">
                     <span class="question-number">Pergunta 5 de 5</span>
                     <p class="question-text" id="q5text">Como você descreveria seu processo comercial atual?</p>
                     <div class="question-options">
-                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Estruturado com métricas e playbooks claros</span></button>
-                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>Parcialmente documentado, mas inconsistente</span></button>
-                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>Depende muito de pessoas específicas</span></button>
-                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Praticamente inexistente, vendemos por intuição</span></button>
+                        <button class="option-btn" data-value="1" data-label-pt="Estruturado com métricas claras" data-label-en="Structured with clear metrics"><span class="option-indicator"></span><span>Estruturado com métricas e playbooks claros</span></button>
+                        <button class="option-btn" data-value="2" data-label-pt="Parcialmente documentado" data-label-en="Partially documented"><span class="option-indicator"></span><span>Parcialmente documentado, mas inconsistente</span></button>
+                        <button class="option-btn" data-value="3" data-label-pt="Depende de pessoas específicas" data-label-en="Dependent on specific people"><span class="option-indicator"></span><span>Depende muito de pessoas específicas</span></button>
+                        <button class="option-btn" data-value="4" data-label-pt="Praticamente inexistente" data-label-en="Virtually nonexistent"><span class="option-indicator"></span><span>Praticamente inexistente, vendemos por intuição</span></button>
                     </div>
                 </div>
-                
                 <div class="assessment-nav">
                     <button class="nav-btn nav-btn-back" id="btnBack" onclick="prevQuestion()" disabled>← Voltar</button>
                     <button class="nav-btn nav-btn-next" id="btnNext" onclick="nextQuestion()" disabled>Próxima →</button>
                 </div>
             </div>
-            
             <div class="result-screen" id="resultScreen">
-                <div class="result-score" id="resultScore">
-                    <span class="score-number" id="scoreNumber">0</span>
-                    <span class="score-label">/20</span>
-                </div>
+                <div class="result-score" id="resultScore"><span class="score-number" id="scoreNumber">0</span><span class="score-label">/20</span></div>
                 <h2 class="result-title" id="resultTitle">Alta Compatibilidade!</h2>
                 <p class="result-description" id="resultDescription">Seu perfil indica forte alinhamento com o modelo de Fractional CRO.</p>
-                
                 <div class="result-form" id="resultForm">
-                    <h3 id="formTitle">Receba seu diagnóstico personalizado</h3>
-                    <p id="formSubtitle">Inclui análise detalhada + próximos passos recomendados</p>
-                    <div class="form-row" id="formRow">
-                        <input type="email" id="assessmentEmail" placeholder="seu@email.com">
-                        <button onclick="submitEmail()" id="formBtn">Enviar</button>
+                    <div id="formInput">
+                        <h3 id="formTitle">Baixe seu diagnóstico personalizado</h3>
+                        <p id="formSubtitle">PDF com análise detalhada + próximos passos recomendados</p>
+                        <div class="form-row" id="formRow">
+                            <input type="email" id="assessmentEmail" placeholder="seu@email.com">
+                            <button onclick="submitAndDownload()" id="formBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Gerar PDF</span></button>
+                        </div>
                     </div>
-                    <div class="form-success" id="formSuccess">✓ Enviado! Você receberá o diagnóstico em alguns minutos.</div>
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon">📄</div>
+                        <h4 id="successTitle">Seu diagnóstico está pronto!</h4>
+                        <p id="successText">Clique abaixo para baixar o PDF personalizado.</p>
+                        <button class="btn-download" onclick="downloadPDF()" id="btnDownload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Baixar Diagnóstico PDF</span></button>
+                    </div>
                 </div>
-                
-                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="result-cta-main" id="resultCta">
-                    Agendar Conversa com Carlos André →
-                </a>
+                <div class="divider-text" id="dividerText">ou converse diretamente</div>
+                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="result-cta-main" id="resultCta">Agendar Conversa com Carlos André →</a>
                 <a href="index.html" class="result-back" id="resultBack">← Voltar ao site</a>
             </div>
         </div>
     </main>
-    
     <footer>© 2025 <a href="index.html">Alavanka</a>. Todos os direitos reservados.</footer>
     
     <script>
+        const { jsPDF } = window.jspdf;
         const T = {
             pt: {
-                title: "Sua Empresa Está Pronta para um Fractional CRO?",
-                subtitle: "Responda 5 perguntas rápidas e descubra",
-                q1: "Qual é a faixa de receita anual (ARR) da sua empresa?",
-                q2: "Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?",
-                q3: "Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?",
-                q4: "Você tem um líder comercial (VP Sales, CRO) dedicado full-time?",
-                q5: "Como você descreveria seu processo comercial atual?",
-                back: "← Voltar", next: "Próxima →", see: "Ver Resultado →",
-                qOf: "Pergunta {n} de 5",
+                title: "Sua Empresa Está Pronta para um Fractional CRO?", subtitle: "Responda 5 perguntas rápidas e descubra",
+                q1: "Qual é a faixa de receita anual (ARR) da sua empresa?", q2: "Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?",
+                q3: "Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?", q4: "Você tem um líder comercial (VP Sales, CRO) dedicado full-time?",
+                q5: "Como você descreveria seu processo comercial atual?", back: "← Voltar", next: "Próxima →", see: "Ver Resultado →", qOf: "Pergunta {n} de 5",
                 high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o modelo de Fractional CRO. Você tem a maturidade e os desafios certos para se beneficiar de liderança de receita fracionada." },
                 medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar de um Fractional CRO, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
                 low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, um Fractional CRO pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo para quando o momento chegar." },
-                formT: "Receba seu diagnóstico personalizado",
-                formS: "Inclui análise detalhada + próximos passos recomendados",
-                formBtn: "Enviar",
-                formOk: "✓ Enviado! Você receberá o diagnóstico em alguns minutos.",
-                formErr: "Erro ao enviar. Tente novamente.",
-                formInv: "Por favor, insira um email válido.",
-                cta: "Agendar Conversa com Carlos André →",
-                backSite: "← Voltar ao site"
+                formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada + próximos passos recomendados", formBtn: "Gerar PDF",
+                successT: "Seu diagnóstico está pronto!", successS: "Clique abaixo para baixar o PDF personalizado.", downloadBtn: "Baixar Diagnóstico PDF",
+                formInv: "Por favor, insira um email válido.", formErr: "Erro ao processar. Tente novamente.",
+                divider: "ou converse diretamente", cta: "Agendar Conversa com Carlos André →", backSite: "← Voltar ao site",
+                pdf: { title: "Diagnóstico GTM Readiness", subtitle: "Assessment Personalizado", preparedFor: "Preparado para:", date: "Data:", scoreLabel: "Pontuação Total", yourAnswers: "Suas Respostas",
+                    questions: ["Faixa de receita anual (ARR)", "Tempo de estagnação", "Tempo do CEO em vendas", "Líder comercial dedicado", "Maturidade do processo comercial"], analysis: "Análise do Resultado",
+                    highAnalysis: ["Sua empresa apresenta o perfil ideal para um Fractional CRO:", "", "• Receita e maturidade adequadas para investir em liderança de revenue", "• Desafios de crescimento que exigem expertise operacional sênior", "• Timing correto para estruturar processos antes de escalar", "", "RECOMENDAÇÃO: Agende uma conversa para discutir um plano de ação."],
+                    mediumAnalysis: ["Sua empresa tem potencial para se beneficiar de um Fractional CRO,", "mas alguns pontos merecem atenção:", "", "• Avalie se o momento é de estruturar processos ou crescer receita", "• Considere o runway disponível para implementar mudanças", "• Uma conversa pode ajudar a clarificar o timing ideal", "", "RECOMENDAÇÃO: Agende uma conversa exploratória sem compromisso."],
+                    lowAnalysis: ["Com base nas suas respostas, o timing pode não ser ideal para um", "Fractional CRO neste momento. Possíveis razões:", "", "• A empresa pode precisar primeiro validar product-market fit", "• O estágio atual pode exigir foco em outras prioridades", "• Recursos podem ser melhor alocados em outras áreas", "", "RECOMENDAÇÃO: Reavalie em 6 meses."],
+                    nextSteps: "Próximos Passos", step1: "1. Agende uma conversa de diagnóstico (30 min, sem compromisso)", step2: "2. Leia nosso Playbook Fractional CRO Brasil 2025", step3: "3. Acesse: www.alavanka.com.br", footer: "Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br" }
             },
             en: {
-                title: "Is Your Company Ready for a Fractional CRO?",
-                subtitle: "Answer 5 quick questions and find out",
-                q1: "What is your company's annual revenue range (ARR)?",
-                q2: "How long has revenue growth been stagnant or below expectations?",
-                q3: "How much of your time (CEO/Founder) is spent on sales activities?",
-                q4: "Do you have a dedicated full-time sales leader (VP Sales, CRO)?",
-                q5: "How would you describe your current sales process?",
-                back: "← Back", next: "Next →", see: "See Results →",
-                qOf: "Question {n} of 5",
+                title: "Is Your Company Ready for a Fractional CRO?", subtitle: "Answer 5 quick questions and find out",
+                q1: "What is your company's annual revenue range (ARR)?", q2: "How long has revenue growth been stagnant or below expectations?",
+                q3: "How much of your time (CEO/Founder) is spent on sales activities?", q4: "Do you have a dedicated full-time sales leader (VP Sales, CRO)?",
+                q5: "How would you describe your current sales process?", back: "← Back", next: "Next →", see: "See Results →", qOf: "Question {n} of 5",
                 high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with the Fractional CRO model. You have the right maturity and challenges to benefit from fractional revenue leadership." },
                 medium: { t: "Good Compatibility", d: "Your company could benefit from a Fractional CRO, but there are some points to consider. A conversation can help understand if the timing is right." },
                 low: { t: "Timing May Not Be Ideal", d: "Based on your answers, a Fractional CRO may not be the best solution right now. But keep following our content for when the time comes." },
-                formT: "Get your personalized diagnosis",
-                formS: "Includes detailed analysis + recommended next steps",
-                formBtn: "Send",
-                formOk: "✓ Sent! You'll receive your diagnosis in a few minutes.",
-                formErr: "Error submitting. Please try again.",
-                formInv: "Please enter a valid email.",
-                cta: "Schedule Call with Carlos André →",
-                backSite: "← Back to site"
+                formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis + recommended next steps", formBtn: "Generate PDF",
+                successT: "Your diagnosis is ready!", successS: "Click below to download the personalized PDF.", downloadBtn: "Download Diagnosis PDF",
+                formInv: "Please enter a valid email.", formErr: "Error processing. Please try again.",
+                divider: "or talk directly", cta: "Schedule Call with Carlos André →", backSite: "← Back to site",
+                pdf: { title: "GTM Readiness Diagnosis", subtitle: "Personalized Assessment", preparedFor: "Prepared for:", date: "Date:", scoreLabel: "Total Score", yourAnswers: "Your Answers",
+                    questions: ["Annual revenue range (ARR)", "Stagnation duration", "CEO time on sales", "Dedicated sales leader", "Sales process maturity"], analysis: "Result Analysis",
+                    highAnalysis: ["Your company has the ideal profile for a Fractional CRO:", "", "• Adequate revenue and maturity to invest in revenue leadership", "• Growth challenges that require senior operational expertise", "• Right timing to structure processes before scaling", "", "RECOMMENDATION: Schedule a call to discuss a personalized action plan."],
+                    mediumAnalysis: ["Your company has potential to benefit from a Fractional CRO,", "but some points deserve attention:", "", "• Evaluate if it's time to structure processes or grow revenue", "• Consider the runway available to implement changes", "• A conversation can help clarify the ideal timing", "", "RECOMMENDATION: Schedule an exploratory call with no commitment."],
+                    lowAnalysis: ["Based on your answers, the timing may not be ideal for a", "Fractional CRO at this moment. Possible reasons:", "", "• The company may need to first validate product-market fit", "• The current stage may require focus on other priorities", "• Resources may be better allocated in other areas", "", "RECOMMENDATION: Reassess in 6 months."],
+                    nextSteps: "Next Steps", step1: "1. Schedule a diagnostic call (30 min, no commitment)", step2: "2. Read our Fractional CRO Brazil 2025 Playbook", step3: "3. Visit: www.alavanka.com.br", footer: "Alavanka | Fractional CRO for B2B Tech | www.alavanka.com.br" }
             }
         };
-        
-        let lang = 'pt', cur = 1, ans = {};
+        let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
         const total = 5;
-        
-        function toggleLanguage() {
-            lang = lang === 'pt' ? 'en' : 'pt';
-            document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT';
-            document.getElementById('langToggleMobile').textContent = lang === 'pt' ? 'EN' : 'PT';
-            applyLang();
-        }
-        
-        function applyLang() {
-            const t = T[lang];
-            document.getElementById('headerTitle').textContent = t.title;
-            document.getElementById('headerSubtitle').textContent = t.subtitle;
-            document.getElementById('q1text').textContent = t.q1;
-            document.getElementById('q2text').textContent = t.q2;
-            document.getElementById('q3text').textContent = t.q3;
-            document.getElementById('q4text').textContent = t.q4;
-            document.getElementById('q5text').textContent = t.q5;
-            document.getElementById('formTitle').textContent = t.formT;
-            document.getElementById('formSubtitle').textContent = t.formS;
-            document.getElementById('formBtn').textContent = t.formBtn;
-            document.getElementById('resultCta').textContent = t.cta;
-            document.getElementById('resultBack').textContent = t.backSite;
-            updateUI();
-        }
-        
-        function toggleMobileMenu() {
-            document.getElementById('hamburger').classList.toggle('active');
-            document.getElementById('navLinks').classList.toggle('active');
-        }
-        
-        function updateUI() {
-            const t = T[lang];
-            const pct = ((cur - 1) / total) * 100;
-            document.getElementById('progressFill').style.width = pct + '%';
-            document.getElementById('progressPercent').textContent = Math.round(pct) + '%';
-            document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur);
-            document.querySelectorAll('.question-number').forEach((el, i) => {
-                el.textContent = t.qOf.replace('{n}', i + 1);
-            });
-            document.getElementById('btnBack').disabled = cur === 1;
-            document.getElementById('btnBack').textContent = t.back;
-            document.getElementById('btnNext').disabled = !ans[cur];
-            document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next;
-        }
-        
-        document.addEventListener('click', function(e) {
-            const btn = e.target.closest('.option-btn');
-            if (!btn) return;
-            btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            ans[cur] = parseInt(btn.dataset.value);
-            updateUI();
-        });
-        
-        function nextQuestion() {
-            if (cur === total) { showResults(); return; }
-            if (!ans[cur]) return;
-            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active');
-            cur++;
-            const slide = document.querySelector(`.question-slide[data-question="${cur}"]`);
-            slide.classList.add('active');
-            if (ans[cur]) {
-                const b = slide.querySelector(`.option-btn[data-value="${ans[cur]}"]`);
-                if (b) b.classList.add('selected');
-            }
-            updateUI();
-        }
-        
-        function prevQuestion() {
-            if (cur === 1) return;
-            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active');
-            cur--;
-            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.add('active');
-            updateUI();
-        }
-        
-        function showResults() {
-            const t = T[lang];
-            const score = Object.values(ans).reduce((a, b) => a + b, 0);
-            document.getElementById('questionsBody').style.display = 'none';
-            document.getElementById('progressSection').style.display = 'none';
-            document.getElementById('resultScreen').classList.add('active');
-            document.getElementById('scoreNumber').textContent = score;
-            const rs = document.getElementById('resultScore');
-            rs.className = 'result-score';
-            let level;
-            if (score >= 14) { rs.classList.add('high'); level = 'high'; }
-            else if (score >= 9) { rs.classList.add('medium'); level = 'medium'; }
-            else { rs.classList.add('low'); level = 'low'; }
-            document.getElementById('resultTitle').textContent = t[level].t;
-            document.getElementById('resultDescription').textContent = t[level].d;
-            if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score });
-        }
-        
-        async function submitEmail() {
-            const t = T[lang];
-            const email = document.getElementById('assessmentEmail').value;
-            if (!email || !email.includes('@')) { alert(t.formInv); return; }
-            const score = Object.values(ans).reduce((a, b) => a + b, 0);
-            const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low';
-            try {
-                const r = await fetch('https://formspree.io/f/mykwjwyl', {
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() })
-                });
-                if (r.ok) {
-                    document.getElementById('formSuccess').classList.add('show');
-                    document.getElementById('formRow').style.display = 'none';
-                    if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level });
-                } else { alert(t.formErr); }
-            } catch (e) { console.error(e); alert(t.formErr); }
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            updateUI();
-            if (typeof gtag === 'function') gtag('event', 'assessment_started', { event_category: 'engagement' });
-        });
+        function toggleLanguage() { lang = lang === 'pt' ? 'en' : 'pt'; document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT'; document.getElementById('langToggleMobile').textContent = lang === 'pt' ? 'EN' : 'PT'; applyLang(); }
+        function applyLang() { const t = T[lang]; document.getElementById('headerTitle').textContent = t.title; document.getElementById('headerSubtitle').textContent = t.subtitle; document.getElementById('q1text').textContent = t.q1; document.getElementById('q2text').textContent = t.q2; document.getElementById('q3text').textContent = t.q3; document.getElementById('q4text').textContent = t.q4; document.getElementById('q5text').textContent = t.q5; document.getElementById('formTitle').textContent = t.formT; document.getElementById('formSubtitle').textContent = t.formS; document.querySelector('#formBtn span').textContent = t.formBtn; document.getElementById('successTitle').textContent = t.successT; document.getElementById('successText').textContent = t.successS; document.querySelector('#btnDownload span').textContent = t.downloadBtn; document.getElementById('dividerText').textContent = t.divider; document.getElementById('resultCta').textContent = t.cta; document.getElementById('resultBack').textContent = t.backSite; updateUI(); }
+        function toggleMobileMenu() { document.getElementById('hamburger').classList.toggle('active'); document.getElementById('navLinks').classList.toggle('active'); }
+        function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; document.getElementById('progressFill').style.width = pct + '%'; document.getElementById('progressPercent').textContent = Math.round(pct) + '%'; document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur); document.querySelectorAll('.question-number').forEach((el, i) => { el.textContent = t.qOf.replace('{n}', i + 1); }); document.getElementById('btnBack').disabled = cur === 1; document.getElementById('btnBack').textContent = t.back; document.getElementById('btnNext').disabled = !ans[cur]; document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next; }
+        document.addEventListener('click', function(e) { const btn = e.target.closest('.option-btn'); if (!btn) return; btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); ans[cur] = parseInt(btn.dataset.value); const labelKey = lang === 'pt' ? 'labelPt' : 'labelEn'; answerLabels[cur] = btn.dataset[labelKey] || btn.querySelector('span:last-child').textContent; updateUI(); });
+        function nextQuestion() { if (cur === total) { showResults(); return; } if (!ans[cur]) return; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active'); cur++; const slide = document.querySelector(`.question-slide[data-question="${cur}"]`); slide.classList.add('active'); if (ans[cur]) { const b = slide.querySelector(`.option-btn[data-value="${ans[cur]}"]`); if (b) b.classList.add('selected'); } updateUI(); }
+        function prevQuestion() { if (cur === 1) return; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active'); cur--; document.querySelector(`.question-slide[data-question="${cur}"]`).classList.add('active'); updateUI(); }
+        function showResults() { const t = T[lang]; const score = Object.values(ans).reduce((a, b) => a + b, 0); document.getElementById('questionsBody').style.display = 'none'; document.getElementById('progressSection').style.display = 'none'; document.getElementById('resultScreen').classList.add('active'); document.getElementById('scoreNumber').textContent = score; const rs = document.getElementById('resultScore'); rs.className = 'result-score'; let level; if (score >= 14) { rs.classList.add('high'); level = 'high'; } else if (score >= 9) { rs.classList.add('medium'); level = 'medium'; } else { rs.classList.add('low'); level = 'low'; } document.getElementById('resultTitle').textContent = t[level].t; document.getElementById('resultDescription').textContent = t[level].d; if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score }); }
+        async function submitAndDownload() { const t = T[lang]; const email = document.getElementById('assessmentEmail').value; if (!email || !email.includes('@')) { alert(t.formInv); return; } userEmail = email; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const btn = document.getElementById('formBtn'); btn.disabled = true; btn.querySelector('span').textContent = '...'; try { await fetch('https://formspree.io/f/mykwjwyl', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() }) }); document.getElementById('formInput').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level }); } catch (e) { console.error(e); btn.disabled = false; btn.querySelector('span').textContent = t.formBtn; alert(t.formErr); } }
+        function downloadPDF() { const t = T[lang]; const pdf = t.pdf; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const doc = new jsPDF(); const pageWidth = doc.internal.pageSize.getWidth(); const margin = 20; let y = 20; const purple = [107, 92, 231], darkText = [26, 26, 46], grayText = [74, 74, 104], green = [34, 197, 94], yellow = [251, 191, 36], red = [239, 68, 68]; doc.setFillColor(...purple); doc.rect(0, 0, pageWidth, 35, 'F'); doc.setTextColor(255, 255, 255); doc.setFontSize(22); doc.setFont('helvetica', 'bold'); doc.text(pdf.title, margin, 18); doc.setFontSize(12); doc.setFont('helvetica', 'normal'); doc.text(pdf.subtitle, margin, 28); y = 50; doc.setTextColor(...grayText); doc.setFontSize(10); doc.text(`${pdf.preparedFor} ${userEmail}`, margin, y); doc.text(`${pdf.date} ${new Date().toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-US')}`, pageWidth - margin - 50, y); y += 15; const scoreColor = level === 'high' ? green : level === 'medium' ? yellow : red; doc.setFillColor(...scoreColor); doc.roundedRect(margin, y, pageWidth - 2*margin, 30, 3, 3, 'F'); doc.setTextColor(255, 255, 255); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.scoreLabel, margin + 10, y + 12); doc.setFontSize(28); doc.text(`${score}/20`, margin + 10, y + 25); doc.setFontSize(16); const levelText = t[level].t; doc.text(levelText, pageWidth - margin - doc.getTextWidth(levelText) - 10, y + 20); y += 45; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.yourAnswers, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 8; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); for (let i = 1; i <= 5; i++) { doc.setTextColor(...grayText); doc.text(`${pdf.questions[i-1]}:`, margin, y); doc.setTextColor(...darkText); doc.setFont('helvetica', 'bold'); const ansLabel = answerLabels[i] || `Option ${ans[i]}`; doc.text(ansLabel, margin + 75, y); doc.setFont('helvetica', 'normal'); y += 7; } y += 10; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.analysis, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 10; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); const analysisLines = level === 'high' ? pdf.highAnalysis : level === 'medium' ? pdf.mediumAnalysis : pdf.lowAnalysis; analysisLines.forEach(line => { if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); } doc.text(line, margin, y); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); y += 6; }); y += 10; doc.setTextColor(...darkText); doc.setFontSize(14); doc.setFont('helvetica', 'bold'); doc.text(pdf.nextSteps, margin, y); y += 8; doc.setDrawColor(200, 200, 200); doc.line(margin, y, pageWidth - margin, y); y += 10; doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(...grayText); doc.text(pdf.step1, margin, y); y += 7; doc.text(pdf.step2, margin, y); y += 7; doc.text(pdf.step3, margin, y); doc.setFillColor(248, 249, 252); doc.rect(0, 280, pageWidth, 17, 'F'); doc.setFontSize(9); doc.setTextColor(...grayText); doc.text(pdf.footer, pageWidth / 2, 290, { align: 'center' }); const filename = lang === 'pt' ? 'diagnostico-gtm-alavanka.pdf' : 'gtm-diagnosis-alavanka.pdf'; doc.save(filename); if (typeof gtag === 'function') gtag('event', 'assessment_pdf_downloaded', { event_category: 'lead_generation', event_label: level }); }
+        document.addEventListener('DOMContentLoaded', function() { updateUI(); if (typeof gtag === 'function') gtag('event', 'assessment_started', { event_category: 'engagement' }); });
     </script>
 </body>
 </html>
