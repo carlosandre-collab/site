@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>Assessment: Sua Empresa Está Pronta para um Fractional CRO? | Alavanka</title>
+    <meta name="description" content="Responda 5 perguntas rápidas e descubra se sua empresa B2B tech está pronta para um Fractional CRO. Assessment gratuito da Alavanka.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Assessment GTM Readiness | Alavanka">
+    <meta property="og:description" content="Descubra se sua empresa está pronta para um Fractional CRO. 5 perguntas, 2 minutos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alavanka.com.br/assessment.html">
+    <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.alavanka.com.br/assessment.html">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --accent: #6B5CE7;
+            --accent-dark: #5648c7;
+            --accent-bg: rgba(107, 92, 231, 0.08);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --border: #e8e8f0;
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+            --warning: #fbbf24;
+            --warning-bg: rgba(251, 191, 36, 0.1);
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            z-index: 1000; border-bottom: 1px solid var(--border);
+        }
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--accent); }
+        .lang-toggle { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: transparent; cursor: pointer; font-size: 0.85rem; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
+        .lang-toggle-mobile { display: none; }
+        .mobile-menu-content { display: contents; }
+        
+        /* Main */
+        main {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            padding: 100px 1rem 2rem;
+        }
+        
+        .assessment-container {
+            background: white; border-radius: 16px; max-width: 640px; width: 100%;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); overflow: hidden;
+        }
+        
+        .assessment-header {
+            padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border);
+        }
+        .assessment-header h1 {
+            font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
+            color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .assessment-header p { color: var(--text-secondary); font-size: 0.95rem; }
+        
+        .assessment-progress { padding: 1rem 2rem; background: var(--bg-secondary); }
+        .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; width: 0%; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+        
+        .assessment-body { padding: 2rem; }
+        .question-slide { display: none; }
+        .question-slide.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .question-number {
+            display: inline-block; background: var(--accent-bg); color: var(--accent);
+            font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem;
+            border-radius: 20px; margin-bottom: 1rem;
+        }
+        .question-text { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.4; }
+        
+        .question-options { display: flex; flex-direction: column; gap: 0.75rem; }
+        .option-btn {
+            display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem;
+            background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px;
+            text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+            color: var(--text-primary); font-family: inherit;
+        }
+        .option-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
+        .option-btn.selected { border-color: var(--accent); background: var(--accent-bg); }
+        .option-indicator {
+            width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s;
+        }
+        .option-btn.selected .option-indicator { background: var(--accent); border-color: var(--accent); }
+        .option-btn.selected .option-indicator::after { content: '✓'; color: white; font-size: 0.8rem; font-weight: bold; }
+        
+        .assessment-nav { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        .nav-btn { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; font-family: inherit; }
+        .nav-btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
+        .nav-btn-back:hover:not(:disabled) { border-color: var(--text-secondary); }
+        .nav-btn-back:disabled { opacity: 0.5; cursor: not-allowed; }
+        .nav-btn-next { background: var(--accent); border: none; color: white; }
+        .nav-btn-next:hover:not(:disabled) { background: var(--accent-dark); }
+        .nav-btn-next:disabled { background: var(--border); cursor: not-allowed; }
+        
+        /* Results */
+        .result-screen { display: none; text-align: center; padding: 2rem; }
+        .result-screen.active { display: block; animation: fadeIn 0.3s ease; }
+        .result-score {
+            width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; border: 4px solid;
+        }
+        .result-score.high { background: var(--success-bg); border-color: var(--success); }
+        .result-score.medium { background: var(--warning-bg); border-color: var(--warning); }
+        .result-score.low { background: var(--danger-bg); border-color: var(--danger); }
+        .score-number { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+        .result-score.high .score-number { color: var(--success); }
+        .result-score.medium .score-number { color: var(--warning); }
+        .result-score.low .score-number { color: var(--danger); }
+        .score-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        .result-title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .result-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; }
+        
+        .result-form { background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; }
+        .result-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .result-form p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .form-row { display: flex; gap: 0.75rem; }
+        .form-row input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
+        .form-row input:focus { outline: none; border-color: var(--accent); }
+        .form-row button { padding: 0.75rem 1.5rem; background: var(--accent); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; }
+        .form-row button:hover { background: var(--accent-dark); }
+        .form-success { display: none; padding: 1rem; background: var(--success-bg); border: 1px solid var(--success); border-radius: 8px; color: #166534; margin-top: 1rem; }
+        .form-success.show { display: block; }
+        
+        .result-cta-main { display: inline-block; padding: 1rem 2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s; }
+        .result-cta-main:hover { background: var(--accent-dark); }
+        .result-back { display: block; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; }
+        .result-back:hover { color: var(--accent); }
+        
+        footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.85rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
+            .lang-toggle-mobile { display: block; margin-left: auto; margin-right: 1rem; }
+            .nav-links .lang-toggle { display: none; }
+            .nav-links.active { display: flex; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 1rem 5%; border-bottom: 1px solid var(--border); gap: 0; }
+            .nav-links.active .mobile-menu-content { display: flex; flex-direction: column; width: 100%; }
+            .nav-links.active a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+            main { padding: 80px 1rem 1rem; }
+            .assessment-header { padding: 1.5rem 1.5rem 1rem; }
+            .assessment-header h1 { font-size: 1.25rem; }
+            .assessment-body { padding: 1.5rem; }
+            .question-text { font-size: 1.05rem; }
+            .option-btn { padding: 0.875rem 1rem; font-size: 0.9rem; }
+            .form-row { flex-direction: column; }
+            .form-row button { width: 100%; }
+            .result-score { width: 120px; height: 120px; }
+            .score-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40">
+        </a>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <div class="mobile-menu-content">
+                <a href="index.html#problema">O Problema</a>
+                <a href="index.html#solucao">A Solução</a>
+                <a href="index.html#porque">Por Que Nós</a>
+                <a href="index.html#processo">Como Funciona</a>
+                <a href="guia-fractional-cro-brasil.html">Playbook</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contato">Contato</a>
+            </div>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
+        </div>
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
+    </nav>
+    
+    <main>
+        <div class="assessment-container">
+            <div class="assessment-header">
+                <h1 id="headerTitle">Sua Empresa Está Pronta para um Fractional CRO?</h1>
+                <p id="headerSubtitle">Responda 5 perguntas rápidas e descubra</p>
+            </div>
+            
+            <div class="assessment-progress" id="progressSection">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressCurrent">Pergunta 1 de 5</span>
+                    <span id="progressPercent">0%</span>
+                </div>
+            </div>
+            
+            <div class="assessment-body" id="questionsBody">
+                <div class="question-slide active" data-question="1">
+                    <span class="question-number">Pergunta 1 de 5</span>
+                    <p class="question-text" id="q1text">Qual é a faixa de receita anual (ARR) da sua empresa?</p>
+                    <div class="question-options">
+                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de R$5M</span></button>
+                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>R$5M - R$10M</span></button>
+                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>R$10M - R$30M</span></button>
+                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de R$30M</span></button>
+                    </div>
+                </div>
+                
+                <div class="question-slide" data-question="2">
+                    <span class="question-number">Pergunta 2 de 5</span>
+                    <p class="question-text" id="q2text">Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?</p>
+                    <div class="question-options">
+                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de 3 meses</span></button>
+                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>3 a 6 meses</span></button>
+                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>6 a 12 meses</span></button>
+                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de 12 meses</span></button>
+                    </div>
+                </div>
+                
+                <div class="question-slide" data-question="3">
+                    <span class="question-number">Pergunta 3 de 5</span>
+                    <p class="question-text" id="q3text">Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?</p>
+                    <div class="question-options">
+                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Menos de 20%</span></button>
+                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>20% a 40%</span></button>
+                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>40% a 60%</span></button>
+                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Mais de 60%</span></button>
+                    </div>
+                </div>
+                
+                <div class="question-slide" data-question="4">
+                    <span class="question-number">Pergunta 4 de 5</span>
+                    <p class="question-text" id="q4text">Você tem um líder comercial (VP Sales, CRO) dedicado full-time?</p>
+                    <div class="question-options">
+                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Sim, com resultados consistentes</span></button>
+                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>Sim, mas resultados abaixo do esperado</span></button>
+                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>Não, o founder lidera vendas</span></button>
+                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Não, e estamos buscando contratar</span></button>
+                    </div>
+                </div>
+                
+                <div class="question-slide" data-question="5">
+                    <span class="question-number">Pergunta 5 de 5</span>
+                    <p class="question-text" id="q5text">Como você descreveria seu processo comercial atual?</p>
+                    <div class="question-options">
+                        <button class="option-btn" data-value="1"><span class="option-indicator"></span><span>Estruturado com métricas e playbooks claros</span></button>
+                        <button class="option-btn" data-value="2"><span class="option-indicator"></span><span>Parcialmente documentado, mas inconsistente</span></button>
+                        <button class="option-btn" data-value="3"><span class="option-indicator"></span><span>Depende muito de pessoas específicas</span></button>
+                        <button class="option-btn" data-value="4"><span class="option-indicator"></span><span>Praticamente inexistente, vendemos por intuição</span></button>
+                    </div>
+                </div>
+                
+                <div class="assessment-nav">
+                    <button class="nav-btn nav-btn-back" id="btnBack" onclick="prevQuestion()" disabled>← Voltar</button>
+                    <button class="nav-btn nav-btn-next" id="btnNext" onclick="nextQuestion()" disabled>Próxima →</button>
+                </div>
+            </div>
+            
+            <div class="result-screen" id="resultScreen">
+                <div class="result-score" id="resultScore">
+                    <span class="score-number" id="scoreNumber">0</span>
+                    <span class="score-label">/20</span>
+                </div>
+                <h2 class="result-title" id="resultTitle">Alta Compatibilidade!</h2>
+                <p class="result-description" id="resultDescription">Seu perfil indica forte alinhamento com o modelo de Fractional CRO.</p>
+                
+                <div class="result-form" id="resultForm">
+                    <h3 id="formTitle">Receba seu diagnóstico personalizado</h3>
+                    <p id="formSubtitle">Inclui análise detalhada + próximos passos recomendados</p>
+                    <div class="form-row" id="formRow">
+                        <input type="email" id="assessmentEmail" placeholder="seu@email.com">
+                        <button onclick="submitEmail()" id="formBtn">Enviar</button>
+                    </div>
+                    <div class="form-success" id="formSuccess">✓ Enviado! Você receberá o diagnóstico em alguns minutos.</div>
+                </div>
+                
+                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="result-cta-main" id="resultCta">
+                    Agendar Conversa com Carlos André →
+                </a>
+                <a href="index.html" class="result-back" id="resultBack">← Voltar ao site</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>© 2025 <a href="index.html">Alavanka</a>. Todos os direitos reservados.</footer>
+    
+    <script>
+        const T = {
+            pt: {
+                title: "Sua Empresa Está Pronta para um Fractional CRO?",
+                subtitle: "Responda 5 perguntas rápidas e descubra",
+                q1: "Qual é a faixa de receita anual (ARR) da sua empresa?",
+                q2: "Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?",
+                q3: "Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?",
+                q4: "Você tem um líder comercial (VP Sales, CRO) dedicado full-time?",
+                q5: "Como você descreveria seu processo comercial atual?",
+                back: "← Voltar", next: "Próxima →", see: "Ver Resultado →",
+                qOf: "Pergunta {n} de 5",
+                high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o modelo de Fractional CRO. Você tem a maturidade e os desafios certos para se beneficiar de liderança de receita fracionada." },
+                medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar de um Fractional CRO, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
+                low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, um Fractional CRO pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo para quando o momento chegar." },
+                formT: "Receba seu diagnóstico personalizado",
+                formS: "Inclui análise detalhada + próximos passos recomendados",
+                formBtn: "Enviar",
+                formOk: "✓ Enviado! Você receberá o diagnóstico em alguns minutos.",
+                formErr: "Erro ao enviar. Tente novamente.",
+                formInv: "Por favor, insira um email válido.",
+                cta: "Agendar Conversa com Carlos André →",
+                backSite: "← Voltar ao site"
+            },
+            en: {
+                title: "Is Your Company Ready for a Fractional CRO?",
+                subtitle: "Answer 5 quick questions and find out",
+                q1: "What is your company's annual revenue range (ARR)?",
+                q2: "How long has revenue growth been stagnant or below expectations?",
+                q3: "How much of your time (CEO/Founder) is spent on sales activities?",
+                q4: "Do you have a dedicated full-time sales leader (VP Sales, CRO)?",
+                q5: "How would you describe your current sales process?",
+                back: "← Back", next: "Next →", see: "See Results →",
+                qOf: "Question {n} of 5",
+                high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with the Fractional CRO model. You have the right maturity and challenges to benefit from fractional revenue leadership." },
+                medium: { t: "Good Compatibility", d: "Your company could benefit from a Fractional CRO, but there are some points to consider. A conversation can help understand if the timing is right." },
+                low: { t: "Timing May Not Be Ideal", d: "Based on your answers, a Fractional CRO may not be the best solution right now. But keep following our content for when the time comes." },
+                formT: "Get your personalized diagnosis",
+                formS: "Includes detailed analysis + recommended next steps",
+                formBtn: "Send",
+                formOk: "✓ Sent! You'll receive your diagnosis in a few minutes.",
+                formErr: "Error submitting. Please try again.",
+                formInv: "Please enter a valid email.",
+                cta: "Schedule Call with Carlos André →",
+                backSite: "← Back to site"
+            }
+        };
+        
+        let lang = 'pt', cur = 1, ans = {};
+        const total = 5;
+        
+        function toggleLanguage() {
+            lang = lang === 'pt' ? 'en' : 'pt';
+            document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT';
+            document.getElementById('langToggleMobile').textContent = lang === 'pt' ? 'EN' : 'PT';
+            applyLang();
+        }
+        
+        function applyLang() {
+            const t = T[lang];
+            document.getElementById('headerTitle').textContent = t.title;
+            document.getElementById('headerSubtitle').textContent = t.subtitle;
+            document.getElementById('q1text').textContent = t.q1;
+            document.getElementById('q2text').textContent = t.q2;
+            document.getElementById('q3text').textContent = t.q3;
+            document.getElementById('q4text').textContent = t.q4;
+            document.getElementById('q5text').textContent = t.q5;
+            document.getElementById('formTitle').textContent = t.formT;
+            document.getElementById('formSubtitle').textContent = t.formS;
+            document.getElementById('formBtn').textContent = t.formBtn;
+            document.getElementById('resultCta').textContent = t.cta;
+            document.getElementById('resultBack').textContent = t.backSite;
+            updateUI();
+        }
+        
+        function toggleMobileMenu() {
+            document.getElementById('hamburger').classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        function updateUI() {
+            const t = T[lang];
+            const pct = ((cur - 1) / total) * 100;
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressPercent').textContent = Math.round(pct) + '%';
+            document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur);
+            document.querySelectorAll('.question-number').forEach((el, i) => {
+                el.textContent = t.qOf.replace('{n}', i + 1);
+            });
+            document.getElementById('btnBack').disabled = cur === 1;
+            document.getElementById('btnBack').textContent = t.back;
+            document.getElementById('btnNext').disabled = !ans[cur];
+            document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next;
+        }
+        
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.option-btn');
+            if (!btn) return;
+            btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            ans[cur] = parseInt(btn.dataset.value);
+            updateUI();
+        });
+        
+        function nextQuestion() {
+            if (cur === total) { showResults(); return; }
+            if (!ans[cur]) return;
+            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active');
+            cur++;
+            const slide = document.querySelector(`.question-slide[data-question="${cur}"]`);
+            slide.classList.add('active');
+            if (ans[cur]) {
+                const b = slide.querySelector(`.option-btn[data-value="${ans[cur]}"]`);
+                if (b) b.classList.add('selected');
+            }
+            updateUI();
+        }
+        
+        function prevQuestion() {
+            if (cur === 1) return;
+            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.remove('active');
+            cur--;
+            document.querySelector(`.question-slide[data-question="${cur}"]`).classList.add('active');
+            updateUI();
+        }
+        
+        function showResults() {
+            const t = T[lang];
+            const score = Object.values(ans).reduce((a, b) => a + b, 0);
+            document.getElementById('questionsBody').style.display = 'none';
+            document.getElementById('progressSection').style.display = 'none';
+            document.getElementById('resultScreen').classList.add('active');
+            document.getElementById('scoreNumber').textContent = score;
+            const rs = document.getElementById('resultScore');
+            rs.className = 'result-score';
+            let level;
+            if (score >= 14) { rs.classList.add('high'); level = 'high'; }
+            else if (score >= 9) { rs.classList.add('medium'); level = 'medium'; }
+            else { rs.classList.add('low'); level = 'low'; }
+            document.getElementById('resultTitle').textContent = t[level].t;
+            document.getElementById('resultDescription').textContent = t[level].d;
+            if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score });
+        }
+        
+        async function submitEmail() {
+            const t = T[lang];
+            const email = document.getElementById('assessmentEmail').value;
+            if (!email || !email.includes('@')) { alert(t.formInv); return; }
+            const score = Object.values(ans).reduce((a, b) => a + b, 0);
+            const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low';
+            try {
+                const r = await fetch('https://formspree.io/f/mykwjwyl', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() })
+                });
+                if (r.ok) {
+                    document.getElementById('formSuccess').classList.add('show');
+                    document.getElementById('formRow').style.display = 'none';
+                    if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level });
+                } else { alert(t.formErr); }
+            } catch (e) { console.error(e); alert(t.formErr); }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateUI();
+            if (typeof gtag === 'function') gtag('event', 'assessment_started', { event_category: 'engagement' });
+        });
+    </script>
+</body>
+</html>
