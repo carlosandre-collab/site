@@ -425,6 +425,79 @@
             color: var(--text-primary);
         }
 
+        /* Experience Logos Section */
+        .experience-logos {
+            margin: 2rem 0 2.5rem 0;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            max-width: 700px;
+        }
+
+        .logos-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-item img {
+            height: 28px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .logo-result {
+            font-size: 0.7rem;
+            color: var(--accent);
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover .logo-result {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .logos-grid { gap: 1.5rem; }
+            .logo-item img { height: 24px; }
+            .logo-result { opacity: 1; transform: translateY(0); font-size: 0.65rem; }
+            .experience-logos { text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .logos-grid { gap: 1rem; }
+            .logo-item img { height: 20px; }
+        }
+
         .credentials {
             display: flex;
             flex-wrap: wrap;
@@ -2304,11 +2377,23 @@ body:not(.vc-banner-visible) .vc-banner {
             </div>
         </div>
 
-        <div class="credentials">
-            <span class="credential-badge" data-i18n="hero.cred1">Ex-Presidente Oracle Brasil</span>
-            <span class="credential-badge" data-i18n="hero.cred2">Ex-CEO AT&T LATAM</span>
-            <span class="credential-badge" data-i18n="hero.cred3">Track Record: $3M → $240M</span>
-            <span class="credential-badge" data-i18n="hero.cred4">Harvard | Columbia | IBGC</span>
+        <!-- EXPERIENCE LOGOS - Onde construí operações de receita -->
+        <div class="experience-logos">
+            <p class="logos-label" data-i18n="hero.logos.label">Onde construí operações de receita</p>
+            <div class="logos-grid">
+                <div class="logo-item">
+                    <img src="assets/images/brand/oracle.svg" alt="Oracle">
+                    <span class="logo-result">$48M → $240M</span>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/images/brand/att.svg" alt="AT&T">
+                    <span class="logo-result">$3M → $47M</span>
+                </div>
+                <div class="logo-item">
+                    <img src="assets/images/brand/informatica.svg" alt="Informatica">
+                    <span class="logo-result">150% YoY</span>
+                </div>
+            </div>
         </div>
 
         <div class="cta-group">
@@ -3060,6 +3145,7 @@ function initVcBanner() {
             "hero.cred2": "Ex-CEO AT&T LATAM",
             "hero.cred3": "Track Record: $3M → $240M",
             "hero.cred4": "Harvard | Columbia | IBGC",
+            "hero.logos.label": "Onde construí operações de receita",
             "hero.capacity": "Capacidade limitada: máximo 3 empresas simultaneamente.",
             
             // Problem Section
@@ -3472,6 +3558,7 @@ function initVcBanner() {
             "hero.cred2": "Former AT&T LATAM CEO",
             "hero.cred3": "Track Record: $3M → $240M",
             "hero.cred4": "Harvard | Columbia | IBGC",
+            "hero.logos.label": "Where I built revenue operations",
             "hero.capacity": "Limited capacity: maximum 3 companies simultaneously.",
             
             // Problem Section
