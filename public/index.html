@@ -462,8 +462,11 @@
         .logo-item img {
             height: 28px;
             width: auto;
+            min-width: 60px;
+            max-width: 120px;
+            object-fit: contain;
             filter: grayscale(100%);
-            opacity: 0.6;
+            opacity: 0.7;
             transition: all 0.3s ease;
         }
 
@@ -561,6 +564,73 @@
         .capacity-note {
             font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        /* Urgency Line */
+        .urgency-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #92400e;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+        }
+
+        .urgency-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Hero CTA Enhanced */
+        .btn-primary-hero {
+            padding: 1.15rem 2.5rem !important;
+            font-size: 1.1rem !important;
+            box-shadow: 0 6px 20px rgba(107, 92, 231, 0.4) !important;
+        }
+
+        .btn-primary-hero:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(107, 92, 231, 0.5) !important;
+        }
+
+        /* WhatsApp Secondary Link */
+        .cta-secondary-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-link:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .urgency-line {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .btn-primary-hero {
+                padding: 1rem 2rem !important;
+                font-size: 1rem !important;
+                width: 100%;
+            }
         }
 
         /* Section Headers */
@@ -2365,6 +2435,11 @@ body:not(.vc-banner-visible) .vc-banner {
         <h1 data-i18n="hero.title">De Estagnação para<br><span>Crescimento Previsível</span></h1>
         <p class="subheadline" data-i18n="hero.subtitle">Execução de GTM com accountability — não consultoria.<br>Para empresas que já provaram seu produto mas travaram no crescimento.</p>
         
+        <!-- URGENCY LINE -->
+        <p class="urgency-line" data-i18n="hero.urgency">
+            <span class="urgency-icon">⚠️</span> Cada mês de estagnação custa milhões em valuation comprimido.
+        </p>
+        
         <!-- QUALIFICATION BOX - Direto ao ponto -->
         <div class="qualification-box">
             <h3 data-i18n="hero.qual.title">Para quem é este serviço</h3>
@@ -2397,9 +2472,12 @@ body:not(.vc-banner-visible) .vc-banner {
         </div>
 
         <div class="cta-group">
-            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" style="text-decoration: none;" data-i18n="hero.cta1">Agendar Conversa</a>
-            <a href="https://wa.me/5511975341961" target="_blank" class="btn-secondary" style="text-decoration: none;" data-i18n="hero.cta2">WhatsApp Direto</a>
+            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary btn-primary-hero" style="text-decoration: none;" data-i18n="hero.cta1">Agendar Diagnóstico Gratuito</a>
         </div>
+        <p class="cta-secondary-text">
+            <span data-i18n="hero.cta.prefer">Prefere WhatsApp?</span> 
+            <a href="https://wa.me/5511975341961" target="_blank" class="whatsapp-link" data-i18n="hero.cta2">Envie uma mensagem →</a>
+        </p>
         <p class="capacity-note" data-i18n="hero.capacity">Capacidade limitada: máximo 3 empresas simultaneamente.</p>
     </section>
 
@@ -3133,8 +3211,10 @@ function initVcBanner() {
             "hero.eyebrow": "Fractional CRO para B2B Tech",
             "hero.title": "De Estagnação para<br><span>Crescimento Previsível</span>",
             "hero.subtitle": "Execução de GTM com accountability — não consultoria.<br>Para empresas que já provaram seu produto mas travaram no crescimento.",
-            "hero.cta1": "Agendar Conversa",
-            "hero.cta2": "WhatsApp Direto",
+            "hero.urgency": "<span class=\"urgency-icon\">⚠️</span> Cada mês de estagnação custa milhões em valuation comprimido.",
+            "hero.cta1": "Agendar Diagnóstico Gratuito",
+            "hero.cta.prefer": "Prefere WhatsApp?",
+            "hero.cta2": "Envie uma mensagem →",
             "hero.qual.title": "Para quem é este serviço",
             "hero.qual.text": "Trabalhamos exclusivamente com empresas B2B tech que já validaram o mercado e agora precisam destravar o motor de crescimento.",
             "hero.qual.tag1": "Receita ≥ R$10M/ano",
@@ -3546,8 +3626,10 @@ function initVcBanner() {
             "hero.eyebrow": "Fractional CRO for B2B Tech",
             "hero.title": "From Stagnation to<br><span>Predictable Growth</span>",
             "hero.subtitle": "GTM execution with accountability — not consulting.<br>For companies that proved product-market fit but stalled on growth.",
-            "hero.cta1": "Book a Call",
-            "hero.cta2": "WhatsApp Direct",
+            "hero.urgency": "<span class=\"urgency-icon\">⚠️</span> Every month of stagnation costs millions in compressed valuation.",
+            "hero.cta1": "Book Free Diagnosis",
+            "hero.cta.prefer": "Prefer WhatsApp?",
+            "hero.cta2": "Send a message →",
             "hero.qual.title": "Who This Service Is For",
             "hero.qual.text": "We work exclusively with B2B tech companies that have validated the market and now need to unlock the growth engine.",
             "hero.qual.tag1": "Revenue ≥ $2M/year",
