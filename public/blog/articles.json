@@ -1,6 +1,40 @@
 {
   "articles": [
     {
+      "id": "quotas-vendas-b2b-startups",
+      "slug": "quotas-vendas-b2b-startups",
+      "featured": false,
+      "category": {
+        "pt": "Operações",
+        "en": "Operations"
+      },
+      "title": {
+        "pt": "A Matemática das Quotas: Como Definir Metas para SDRs e AEs que Escalam",
+        "en": "The Math Behind Quotas: How to Set SDR and AE Targets That Scale"
+      },
+      "excerpt": {
+        "pt": "70% dos vendedores B2B não batem quota. Aprenda a definir metas de SDRs e AEs que escalam receita sem destruir a moral do time. Framework com benchmarks 2024-2025.",
+        "en": "70% of B2B salespeople miss quota. Learn how to set SDR and AE targets that scale revenue without destroying team morale. Framework with 2024-2025 benchmarks."
+      },
+      "readTime": {
+        "pt": "12 min de leitura",
+        "en": "12 min read"
+      },
+      "date": "2025-01",
+      "dateLabel": {
+        "pt": "Jan 2025",
+        "en": "Jan 2025"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/quotas-vendas-b2b-startups-thumb.jpg",
+        "alt": {
+          "pt": "Ilustração sobre quotas de vendas B2B mostrando métricas de SDR e AE",
+          "en": "Illustration about B2B sales quotas showing SDR and AE metrics"
+        }
+      }
+    },
+    {
       "id": "guia-precificacao-startups-b2b",
       "slug": "guia-precificacao-startups-b2b",
       "featured": true,
