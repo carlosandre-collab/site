@@ -7,7 +7,7 @@
         "pt": "quotas-vendas-b2b-startups",
         "en": "b2b-sales-quotas-startups"
       },
-      "featured": false,
+      "featured": true,
       "category": {
         "pt": "Operações",
         "en": "Operations"
@@ -41,7 +41,7 @@
     {
       "id": "guia-precificacao-startups-b2b",
       "slug": "guia-precificacao-startups-b2b",
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Estratégia & Growth",
         "en": "Strategy & Growth"
@@ -75,7 +75,7 @@
     {
       "id": "compensacao-sistema-gtm",
       "slug": "compensacao-sistema-gtm",
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Diagnóstico",
         "en": "Diagnosis"
