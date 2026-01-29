@@ -2046,7 +2046,7 @@ function initVcBanner() {
     let translationsLoaded = false;
 
     // Load translations asynchronously
-    fetch('/translations.json')
+    fetch('./translations.json')
         .then(r => r.json())
         .then(data => {
             Object.assign(translations.pt, data.pt);
