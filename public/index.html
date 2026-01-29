@@ -1,8 +1,13 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- DNS Prefetch & Preconnect for Performance -->
+<link rel="dns-prefetch" href="//snap.licdn.com">
+<link rel="dns-prefetch" href="//px.ads.linkedin.com">
+<link rel="preconnect" href="https://snap.licdn.com" crossorigin>
 
 <!-- SEO Básico -->
 <title>Fractional CRO Brasil | Alavanka - De Estagnação para Crescimento</title>
@@ -204,10 +209,16 @@
     }
     </script>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts - loaded asynchronously to reduce TBT -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <style>
+        /* Critical CSS - System font fallback until Google Fonts load */
         * {
             margin: 0;
             padding: 0;
@@ -236,7 +247,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
@@ -2464,7 +2475,7 @@ body:not(.vc-banner-visible) .vc-banner {
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo"><img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40"></a>
+        <a href="#" class="logo"><img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40" width="150" fetchpriority="high"></a>
         <!-- Hamburger Menu Button for Mobile -->
         <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
             <span></span>
@@ -2519,15 +2530,15 @@ body:not(.vc-banner-visible) .vc-banner {
             <p class="logos-label" data-i18n="hero.logos.label">Onde construí operações de receita</p>
             <div class="logos-grid">
                 <div class="logo-item">
-                    <img src="assets/images/brand/oracle.png" alt="Oracle">
+                    <img src="assets/images/brand/oracle.png" alt="Oracle" width="100" height="28">
                     <span class="logo-result">$48M → $240M</span>
                 </div>
                 <div class="logo-item">
-                    <img src="assets/images/brand/att.png" alt="AT&T">
+                    <img src="assets/images/brand/att.png" alt="AT&T" width="65" height="28">
                     <span class="logo-result">$3M → $47M</span>
                 </div>
                 <div class="logo-item">
-                    <img src="assets/images/brand/informatica.png" alt="Informatica">
+                    <img src="assets/images/brand/informatica.png" alt="Informatica" width="110" height="28">
                     <span class="logo-result">150% YoY</span>
                 </div>
             </div>
@@ -3241,8 +3252,11 @@ body:not(.vc-banner-visible) .vc-banner {
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l-.001 5.946z"/></svg>
     </a>
 
-    <!-- Language Toggle Script -->
+    <!-- Language Toggle Script - Optimized for TBT -->
     <script>
+        // ===== Performance: Use passive event listeners =====
+        'use strict';
+        
         // ===== VC Banner Control Functions (NEW) =====
 function closeVcBanner() {
     const vcBanner = document.getElementById('vcBanner');
@@ -4114,18 +4128,33 @@ function initVcBanner() {
 
     function applyTranslations() {
         const t = translations[currentLang];
+        const elements = document.querySelectorAll('[data-i18n]');
         
-        // Nav links
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (t[key]) {
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = t[key];
-                } else {
-                    el.innerHTML = t[key];
+        // Process in chunks to avoid blocking main thread
+        const CHUNK_SIZE = 50;
+        let index = 0;
+        
+        function processChunk() {
+            const end = Math.min(index + CHUNK_SIZE, elements.length);
+            for (let i = index; i < end; i++) {
+                const el = elements[i];
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = t[key];
+                    } else {
+                        el.innerHTML = t[key];
+                    }
                 }
             }
-        });
+            index = end;
+            if (index < elements.length) {
+                // Use requestAnimationFrame for smoother updates
+                requestAnimationFrame(processChunk);
+            }
+        }
+        
+        processChunk();
     }
 
    // Load saved language preference and setup event listeners
@@ -4134,20 +4163,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedLang && savedLang !== currentLang) {
         currentLang = savedLang;
         const langText = currentLang === 'pt' ? 'EN' : 'PT';
-        document.getElementById('langToggle').textContent = langText;
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) langToggle.textContent = langText;
         const mobileLangToggle = document.getElementById('langToggleMobile');
         if (mobileLangToggle) {
             mobileLangToggle.textContent = langText;
         }
-        applyTranslations();
+        // Defer translation application to reduce TBT
+        requestAnimationFrame(applyTranslations);
     }
     // Initialize VC Banner
         initVcBanner();
-    // FIX: Close mobile menu when clicking nav links
-    const navLinksElements = document.querySelectorAll('#navLinks a');
-    navLinksElements.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-    });
+    // FIX: Close mobile menu when clicking nav links - use event delegation
+    document.getElementById('navLinks')?.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') closeMobileMenu();
+    }, { passive: true });
 });
 // Close mobile menu on Escape key
 document.addEventListener('keydown', function(e) {
@@ -4197,38 +4227,56 @@ document.addEventListener('keydown', function(e) {
     }
     
     // Close mobile menu on window resize (if switching to desktop)
+    // Optimize resize listener with debounce
+    let resizeTimeout;
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            closeMobileMenu();
-        }
-    });
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        }, 150);
+    }, { passive: true });
     </script>
-    <!-- Vercel Web Analytics -->
+    
+    <!-- Vercel Web Analytics - deferred -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     
-    <!-- LinkedIn Insight Tag -->
-    <script type="text/javascript">
-    _linkedin_partner_id = "9076865";
-    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script type="text/javascript">
-    (function(l) {
-    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-    window.lintrk.q=[]}
-    var s = document.getElementsByTagName("script")[0];
-    var b = document.createElement("script");
-    b.type = "text/javascript";b.async = true;
-    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);})(window.lintrk);
+    <!-- Third-party scripts loaded after main content is interactive -->
+    <script>
+    // Defer non-critical third-party scripts to improve TBT
+    function loadThirdPartyScripts() {
+        // LinkedIn Insight Tag
+        window._linkedin_partner_id = "9076865";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+        
+        if (!window.lintrk) {
+            window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+            window.lintrk.q = [];
+        }
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";
+        b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+    }
+    
+    // Load third-party scripts after page becomes interactive
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadThirdPartyScripts, { timeout: 3000 });
+    } else {
+        setTimeout(loadThirdPartyScripts, 2000);
+    }
     </script>
     <noscript>
     <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
     </noscript>
-    <!-- End LinkedIn Insight Tag -->
+    
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
