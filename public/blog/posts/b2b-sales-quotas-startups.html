@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Math Behind Quotas: How to Set SDR and AE Targets That Scale | Alavanka</title>
+    <meta name="description" content="70% of B2B salespeople miss quota. Learn how to set SDR and AE targets that scale revenue without destroying team morale. Framework with 2024-2025 benchmarks.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Math Behind Quotas: How to Set SDR and AE Targets That Scale">
+    <meta property="og:description" content="70% of B2B salespeople miss quota. Learn how to set SDR and AE targets that scale revenue without destroying team morale.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.alavanka.com.br/blog/posts/b2b-sales-quotas-startups.html">
+    <meta property="og:image" content="https://www.alavanka.com.br/assets/images/blog/quotas-vendas-b2b-startups-thumb.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="Carlos André">
+    <meta property="article:published_time" content="2025-01-29">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Math Behind Quotas: How to Set SDR and AE Targets That Scale">
+    <meta name="twitter:description" content="70% of B2B salespeople miss quota. Framework with 2024-2025 benchmarks.">
+    
+    <!-- Canonical & Alternate -->
+    <link rel="canonical" href="https://www.alavanka.com.br/blog/posts/b2b-sales-quotas-startups.html">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.alavanka.com.br/blog/posts/quotas-vendas-b2b-startups.html">
+    <link rel="alternate" hreflang="en" href="https://www.alavanka.com.br/blog/posts/b2b-sales-quotas-startups.html">
+    
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Math Behind Quotas: How to Set SDR and AE Targets That Scale",
+        "description": "70% of B2B salespeople miss quota. Learn how to set SDR and AE targets that scale revenue without destroying team morale.",
+        "image": "https://www.alavanka.com.br/assets/images/blog/quotas-vendas-b2b-startups-thumb.jpg",
+        "author": {
+            "@type": "Person",
+            "name": "Carlos André",
+            "jobTitle": "Fractional CRO",
+            "url": "https://www.alavanka.com.br"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Alavanka",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.alavanka.com.br/assets/images/brand/logo-preto.png"
+            }
+        },
+        "datePublished": "2025-01-29",
+        "dateModified": "2025-01-29",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.alavanka.com.br/blog/posts/b2b-sales-quotas-startups.html"
+        },
+        "inLanguage": "en"
+    }
+    </script>
+    
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What's the ideal quota to OTE ratio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For enterprise AEs, the quota:OTE ratio should be between 4x and 5x. For example, an AE with $200K OTE should have a quota between $800K and $1M. For SDRs, quotas should generate enough pipeline for 60-70% of the team to hit 100%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many SDRs does an AE need for adequate pipeline coverage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On average, 1 SDR supports 2.3 AEs. However, this varies by model: companies with ACV above $50K need more SDRs per AE (1:1.5), while PLG models with lower ACV can operate at 1:4."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What to do when less than 50% of the team hits quota?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When less than 50% of the team hits quota, the problem usually isn't the salespeople—it's the system: quotas misaligned with market reality, insufficient pipeline coverage, or lack of structured process. The solution starts with root cause diagnosis, not terminations."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fc;
+            --bg-card: #ffffff;
+            --accent: #6B5CE7;
+            --accent-dark: #5648c7;
+            --accent-light: #8879ed;
+            --accent-bg: rgba(107, 92, 231, 0.08);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #8888a0;
+            --border: #e8e8f0;
+            --border-accent: rgba(107, 92, 231, 0.25);
+            --danger: #e53e3e;
+            --danger-bg: rgba(229, 62, 62, 0.08);
+            --success: #38a169;
+            --success-bg: rgba(56, 161, 105, 0.08);
+            --warning: #d69e2e;
+            --warning-bg: rgba(214, 158, 46, 0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .lang-toggle,
+        .lang-toggle-mobile {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover,
+        .lang-toggle-mobile:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .mobile-menu-content {
+            display: contents;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle-mobile {
+            display: none;
+        }
+
+        /* Article Styles */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 5% 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: var(--accent-bg);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            background: var(--bg-secondary);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content .lead {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .article-content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* Data Points */
+        .data-point {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .data-point-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .data-point-text {
+            flex: 1;
+        }
+
+        .data-point-text strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .data-point-text span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Callouts */
+        .callout {
+            background: var(--accent-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+
+        .callout-warning {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning);
+        }
+
+        .callout-warning .callout-title {
+            color: var(--warning);
+        }
+
+        .callout-danger {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+        }
+
+        .callout-danger .callout-title {
+            color: var(--danger);
+        }
+
+        .callout-success {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success);
+        }
+
+        .callout-success .callout-title {
+            color: var(--success);
+        }
+
+        /* Quote */
+        blockquote {
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            background: var(--bg-secondary);
+            border-radius: 0 12px 12px 0;
+        }
+
+        blockquote p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        blockquote cite {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: normal;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+        }
+
+        .data-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        .source {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: -1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: var(--text-primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .formula-box .formula {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .formula-box .formula-description {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box.warning {
+            background: var(--warning-bg);
+            border-color: var(--warning);
+        }
+
+        .highlight-box.danger {
+            background: var(--danger-bg);
+            border-color: var(--danger);
+        }
+
+        /* Article Footer */
+        .article-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .article-footer h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .lang-toggle-mobile {
+                display: block;
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            .nav-links .lang-toggle {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 1rem 5%;
+                border-bottom: 1px solid var(--border);
+                gap: 0;
+            }
+
+            .nav-links.active .mobile-menu-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links.active a {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .data-point {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .data-table {
+                font-size: 0.85rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="../../index.html" class="logo">
+            <img src="../../assets/images/brand/logo-preto.png" alt="Alavanka" height="40">
+        </a>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <div class="mobile-menu-content">
+                <a href="../../index.html" title="Home">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </a>
+                <a href="../../index.html#problema">The Problem</a>
+                <a href="../../index.html#solucao">The Solution</a>
+                <a href="../../index.html#porque">Why Us</a>
+                <a href="../../index.html#processo">How It Works</a>
+                <a href="../../guia-fractional-cro-brasil.html">Playbook</a>
+                <a href="../../blog.html" class="active">Blog</a>
+                <a href="../../index.html#faq">FAQ</a>
+                <a href="../../index.html#contato">Contact</a>
+            </div>
+            <button class="lang-toggle" id="langToggle" onclick="switchToPortuguese()">PT</button>
+        </div>
+        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="switchToPortuguese()">PT</button>
+    </nav>
+
+    <main id="main-content">
+        <article class="article-container">
+            
+            <header class="article-header">
+                <div class="article-category">Revenue Operations</div>
+                <h1 class="article-title">The Math Behind Quotas: How to Set SDR and AE Targets That Scale</h1>
+                <div class="article-meta">
+                    <span>📖 12 min read</span>
+                    <span>📅 January 2025</span>
+                </div>
+            </header>
+
+            <div class="hero-image">
+                <img src="../../assets/images/blog/quotas-vendas-b2b-startups-thumb.jpg" alt="Illustration about B2B sales quotas showing SDR and AE metrics" loading="lazy">
+            </div>
+
+            <div class="article-content">
+                
+                <p class="lead">
+                    <strong>The short answer:</strong> Well-designed quotas are the difference between scaling revenue predictably and burning runway with a demoralized sales team. When 70% of B2B salespeople miss quota, the problem is rarely the salespeople—it's the system that sets those targets.
+                </p>
+
+                <p>If you're a B2B startup founder or an investor evaluating portfolio companies, this article will show you how to diagnose quota problems, structure targets for SDRs (Input Sales) and AEs (Output Sales), and build a system that scales. Based on 2024-2025 data from Bridge Group, 6sense, Salesforce, and Gartner.</p>
+
+                <div class="data-point">
+                    <div class="data-point-number">70%</div>
+                    <div class="data-point-text">
+                        <strong>of B2B AEs missed quota in 2024</strong>
+                        <span>According to Salesforce's State of Sales 2024, 67% of reps didn't expect to hit quota, and 84% had missed it the prior year. Bridge Group data confirms: only 51% of AEs hit quota in 2024, down from 66% in 2022.</span>
+                    </div>
+                </div>
+
+                <h2>The Diagnosis: Why Your Quotas Don't Work</h2>
+
+                <p>Before discussing methodologies, we need to understand why most startups get quota setting so wrong. In our experience with over 50 B2B tech companies, we've identified five recurring patterns:</p>
+
+                <h3>1. The "Board Said So" Syndrome</h3>
+
+                <p>The typical scenario: the board decides the company needs to grow 50% YoY. The CEO passes this to the VP of Sales. The VP divides by the number of AEs and adds a 15% "buffer." The result? Quotas that reflect investor aspirations, not market reality.</p>
+
+                <div class="callout callout-warning">
+                    <div class="callout-title">⚠️ Warning Sign for Investors</div>
+                    <p>When less than 40% of the team consistently hits quota, the problem isn't sales talent quality—it's the quota-setting methodology. Pushing for terminations without fixing the system only increases turnover and talent acquisition costs.</p>
+                </div>
+
+                <h3>2. Quotas Disconnected from Pipeline</h3>
+
+                <p>A $1M annual quota requires $3-4M in pipeline (3-4x pipeline coverage). If your SDRs aren't generating enough pipeline, your AEs are doomed to fail before they start. Many companies set AE quotas without calibrating pipeline generation capacity.</p>
+
+                <h3>3. The "Historical + 10%" Myth</h3>
+
+                <p>Using past performance as the only input ignores market changes, territory maturity, and individual capacity. An AE who closed $800K in virgin territory won't necessarily do $880K in year two—the territory might be saturated.</p>
+
+                <h3>4. SDR Quotas Focused on Volume, Not Quality</h3>
+
+                <p>SDRs measured only by "meetings booked" generate inflated pipeline with opportunities that never convert. The result: AEs waste time with unqualified leads and conversion rates plummet.</p>
+
+                <h3>5. Ignoring Ramp Time</h3>
+
+                <p>Average ramp time for a SaaS AE is 4-6 months. Expecting full quota from a rep with 3 months of tenure is a recipe for failure and turnover. SDRs ramp faster (3.2 months average), but also need adjusted quotas.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">4-6</div>
+                        <div class="stat-label">months average ramp for AE</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3.2</div>
+                        <div class="stat-label">months average ramp for SDR</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">months average productivity before turnover</div>
+                    </div>
+                </div>
+                <p class="source">Source: Bridge Group SDR Metrics Report 2024</p>
+
+                <h2>Quota Setting Framework: Top-Down vs Bottom-Up</h2>
+
+                <p>There are two fundamental approaches to setting quotas, and the right answer is to use both—not choose one.</p>
+
+                <h3>Top-Down Approach</h3>
+
+                <p>Starts with the company's revenue target and divides by number of reps. It's fast, aligns with board objectives, but often ignores field reality.</p>
+
+                <div class="formula-box">
+                    <div class="formula">Individual Quota = Total Company Target ÷ Adjusted Sales Capacity</div>
+                    <div class="formula-description">Where Adjusted Capacity = (# of AEs × Expected Productivity %) accounting for ramp and turnover</div>
+                </div>
+
+                <h3>Bottom-Up Approach</h3>
+
+                <p>Starts with each rep's individual capacity based on territory, track record, and available pipeline. More accurate, but may not hit board targets when aggregated.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Best practice:</strong> Use top-down to set the global target and bottom-up to validate if it's achievable. If there's a gap greater than 10-15%, something needs to change: either board expectations or team capacity (hiring, productivity, addressable market).</p>
+                </div>
+
+                <h3>The Hybrid Method in Practice</h3>
+
+                <p>Mature companies use what Varicent calls "ABQS" (Account-Based Quota Setting): they start with top-down targets but adjust by territory considering existing pipeline, historical win rates, and account potential.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Methodology</th>
+                            <th>When to Use</th>
+                            <th>Main Risk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pure Top-Down</strong></td>
+                            <td>Early-stage startups, new markets</td>
+                            <td>Unrealistic quotas, high turnover</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pure Bottom-Up</strong></td>
+                            <td>Mature markets, well-defined territories</td>
+                            <td>May not hit growth targets</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hybrid/ABQS</strong></td>
+                            <td>Scale-ups, Series B+</td>
+                            <td>Requires quality data</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="source">Source: Alexander Group, Korn Ferry, Varicent 2024</p>
+
+                <h2>SDR Quotas: Input Sales That Generates Quality Pipeline</h2>
+
+                <p>SDRs are the pipeline engine. Setting their quotas correctly determines whether your AEs will have enough "at-bats" to hit their numbers.</p>
+
+                <h3>Types of SDR Quotas</h3>
+
+                <p>SDR quotas fundamentally depend on the role's charter: is the SDR responsible for booking introductory meetings, generating semi-qualified opportunities, or delivering fully-qualified opportunities?</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>SDR Charter</th>
+                            <th>Typical Monthly Quota</th>
+                            <th>Ideal Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Introductory Meetings</strong></td>
+                            <td>15-25 meetings</td>
+                            <td>AEs with empty calendars, immature market</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Semi-Qualified Opportunities</strong></td>
+                            <td>10-18 opps</td>
+                            <td>AEs need pipeline but have some volume</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fully-Qualified Opportunities</strong></td>
+                            <td>6-12 opps</td>
+                            <td>AEs "drowning" in pipeline, focus on quality</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="source">Source: Bridge Group SDR Metrics Report 2024</p>
+
+                <div class="callout">
+                    <div class="callout-title">📊 Benchmark: Variation by ACV</div>
+                    <p>According to Bridge Group, SDR quotas vary dramatically with deal size. Outbound SDRs with ACV above $200K may have quotas of just 2-3 opportunities/month, while inbound SDRs with ACV below $5K may have quotas of 40-60 meetings/month.</p>
+                </div>
+
+                <h3>Activity vs Outcome Metrics</h3>
+
+                <p>SDRs need balanced quotas between activity (leading indicators) and outcome (lagging indicators):</p>
+
+                <ul>
+                    <li><strong>Activity Quota:</strong> Dials, emails, connections—useful for coaching but shouldn't be the only compensation driver</li>
+                    <li><strong>Output Quota:</strong> Meetings booked, opportunities created, pipeline generated—what actually matters</li>
+                    <li><strong>Quality Quota:</strong> % of opportunities accepted by AE, conversion rate, contribution to closed-won—prevents gaming</li>
+                </ul>
+
+                <div class="data-point">
+                    <div class="data-point-number">88%</div>
+                    <div class="data-point-text">
+                        <strong>BDR quota attainment in 2025 (vs 81-90% in 2024)</strong>
+                        <span>According to 6sense BDR Benchmark 2025, BDRs who feel "supported" achieve 95% of quota vs 80% for those who don't. The difference isn't just in targets—it's in enablement.</span>
+                    </div>
+                </div>
+
+                <h3>SDR:AE Ratio</h3>
+
+                <p>On average, 1 SDR supports 2.3 AEs. But this number varies significantly:</p>
+
+                <ul>
+                    <li><strong>Enterprise (ACV > $100K):</strong> 1 SDR per 1-1.5 AE</li>
+                    <li><strong>Mid-Market (ACV $25-100K):</strong> 1 SDR per 2-3 AEs</li>
+                    <li><strong>SMB/PLG (ACV < $25K):</strong> 1 SDR per 3-5 AEs (or no SDR model)</li>
+                </ul>
+
+                <h2>AE Quotas: Output Sales That Closes Revenue</h2>
+
+                <p>AE quotas are where the rubber meets the road. Getting this wrong means losing your best talent (who leave for companies with achievable quotas) or keeping poor performers (who accept any target knowing they won't hit it anyway).</p>
+
+                <h3>The Quota:OTE Ratio</h3>
+
+                <p>The ratio between quota and On-Target Earnings (OTE) is one of the most important indicators of quota health:</p>
+
+                <div class="formula-box">
+                    <div class="formula">Ideal Quota:OTE Ratio = 4x to 5x</div>
+                    <div class="formula-description">An AE with $200K OTE should have a quota between $800K and $1M. Ratio below 3x = overpaying. Above 6x = unrealistic quota.</div>
+                </div>
+
+                <p>According to Bridge Group 2024, median OTE for SaaS AEs is $190K, with a 53% base and 47% variable split. Median quotas are at $740K annually, resulting in a ~3.9x ratio.</p>
+
+                <h3>Types of AE Quotas</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Quota Type</th>
+                            <th>What It Measures</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Revenue Quota</strong></td>
+                            <td>$ of ARR/ACV closed</td>
+                            <td>Default for most SaaS companies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bookings Quota</strong></td>
+                            <td>Total contract value</td>
+                            <td>When multi-year deals are common</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unit/Volume Quota</strong></td>
+                            <td># of deals closed</td>
+                            <td>SMB with standardized ticket</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Activity Quota</strong></td>
+                            <td>Demos, proposals</td>
+                            <td>New AE ramp</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Combined Quota</strong></td>
+                            <td>Revenue + Win Rate or Volume</td>
+                            <td>Prevent "sandbagging" and gaming</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Pipeline Coverage: The Magic Number</h3>
+
+                <p>If there's one metric that predicts quota attainment, it's pipeline coverage. The general rule:</p>
+
+                <div class="highlight-box">
+                    <p><strong>Pipeline Coverage = 3x to 4x of Quota</strong></p>
+                    <p>An AE with $1M quota needs $3-4M in qualified pipeline. If coverage drops below 2x, the problem isn't closing—it's pipeline generation.</p>
+                </div>
+
+                <blockquote>
+                    <p>"If 70%+ of the team misses quota, the problem is the system, not the salespeople."</p>
+                    <cite>— SaaS Capital 2024 Benchmark</cite>
+                </blockquote>
+
+                <h2>Compensation Tied to Quota: What Works</h2>
+
+                <p>Quota without aligned compensation is just a number in the CRM. Comp structure determines team behavior.</p>
+
+                <h3>Base vs Variable Split</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Typical Split (Base:Variable)</th>
+                            <th>Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Entry-Level SDR</strong></td>
+                            <td>60:40 or 70:30</td>
+                            <td>Greater stability for ramping reps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Experienced SDR</strong></td>
+                            <td>50:50</td>
+                            <td>Greater ownership over results</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mid-Market AE</strong></td>
+                            <td>53:47</td>
+                            <td>Bridge Group 2024 median</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enterprise AE</strong></td>
+                            <td>50:50 or 45:55</td>
+                            <td>Larger deals, more control over outcome</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="source">Source: Bridge Group 2024, Tenbound 2024</p>
+
+                <h3>Commission Rate</h3>
+
+                <p>Median commission rate for AEs at 100% quota is 11.5% of ACV (Bridge Group 2024), with typical range of 10-14%. Accelerators for overperformance usually kick in at 110% of quota and can reach 2x commission rate at 150%+.</p>
+
+                <div class="callout callout-danger">
+                    <div class="callout-title">🚨 Common Mistake: Pipeline Commission for SDRs</div>
+                    <p>Don't tie more than 20% of SDR variable compensation to "opportunity won." If the sales cycle is longer than 90-120 days, the SDR has no control over the outcome, and this creates frustration. Focus on metrics the SDR controls: qualified meetings, pipeline generated.</p>
+                </div>
+
+                <h2>Checklist for Board Reviews of Portfolio Companies</h2>
+
+                <p>For investors evaluating GTM health of portfolio companies, here are the right questions about quotas:</p>
+
+                <h3>Quick Diagnosis</h3>
+
+                <ol>
+                    <li><strong>What's the team's % quota attainment over the last 3 quarters?</strong> If < 50%, there's a systemic problem.</li>
+                    <li><strong>What's the average pipeline coverage per AE?</strong> If < 2.5x, the problem is top-of-funnel, not closing.</li>
+                    <li><strong>What's the Quota:OTE ratio?</strong> If > 6x, quotas are unrealistic. If < 3x, you're overpaying.</li>
+                    <li><strong>How were quotas set?</strong> If the answer is "board said so" or "historical + X%," there's room for improvement.</li>
+                    <li><strong>Is there a ramp quota?</strong> New reps should have adjusted quotas for the first 3-6 months.</li>
+                </ol>
+
+                <h3>Signs of Quota Health</h3>
+
+                <div class="callout callout-success">
+                    <div class="callout-title">✅ Positive Indicators</div>
+                    <p>60-70% of team hitting quota, turnover < 30%/year, pipeline coverage > 3x, hybrid methodology (top-down + bottom-up), quotas adjusted for ramp and territory.</p>
+                </div>
+
+                <div class="callout callout-danger">
+                    <div class="callout-title">❌ Red Flags</div>
+                    <p>< 40% of team hitting quota, top performers leaving, quotas increasing while attainment falls, SDRs measured only by volume, AEs without adequate pipeline coverage.</p>
+                </div>
+
+                <h2>Implementation: Where to Start</h2>
+
+                <p>If you've identified quota problems in your company or portfolio company, here's a practical roadmap:</p>
+
+                <h3>30-Day Sprint: Diagnosis</h3>
+
+                <ol>
+                    <li><strong>Week 1:</strong> Pull quota attainment data for the last 4 quarters, by rep and segment</li>
+                    <li><strong>Week 2:</strong> Map pipeline coverage by AE, conversion rates by stage, sales cycle by deal size</li>
+                    <li><strong>Week 3:</strong> Interview top performers and underperformers—what do they think about quotas?</li>
+                    <li><strong>Week 4:</strong> Benchmark against market data (Bridge Group, 6sense, Gartner)</li>
+                </ol>
+
+                <h3>60-Day Sprint: Redesign</h3>
+
+                <ol>
+                    <li>Define methodology (top-down + bottom-up + ABQS for enterprise)</li>
+                    <li>Recalibrate SDR quotas based on charter and ACV</li>
+                    <li>Adjust AE quotas by territory and ramp stage</li>
+                    <li>Review comp plan to align incentives</li>
+                    <li>Implement quota relief policy for territory or market changes</li>
+                </ol>
+
+                <h3>Ongoing: Governance</h3>
+
+                <ul>
+                    <li><strong>Monthly:</strong> Track attainment, pipeline coverage, leading indicators</li>
+                    <li><strong>Quarterly:</strong> Review quotas if significant market changes</li>
+                    <li><strong>Annually:</strong> Complete quota redesign with input from sales, finance, and ops</li>
+                </ul>
+
+                <h2>Conclusion: Quotas Are a System Problem, Not a People Problem</h2>
+
+                <p>The statistic that 70% of B2B salespeople miss quota isn't a reflection of sales professional quality—it's a reflection of how most companies set targets.</p>
+
+                <p>Well-designed quotas do three things: align expectations between board, management, and field; create revenue predictability; and motivate the right people (while naturally selecting out non-performers).</p>
+
+                <p>Poorly designed quotas destroy morale, increase turnover, and create a vicious cycle where the company hires more reps to compensate for underperformance—only to watch new reps fail too.</p>
+
+                <p>For founders and investors, the message is clear: before blaming the sales team for poor results, look at the system that sets their targets. The difference between companies that scale from $10M to $50M and those that stagnate is often the sophistication of their quota-setting process.</p>
+
+            </div>
+
+            <div class="article-footer">
+                <h3>Need Help with Quota Setting?</h3>
+                <p>At Alavanka, we structure revenue operations for B2B tech startups—including quota methodology, compensation, and pipeline coverage. If you've identified problems in your current system, let's talk.</p>
+                <a href="../../index.html#contato" class="cta-button">Schedule a Free Diagnostic</a>
+            </div>
+        </article>
+    </main>
+
+    <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.getElementById('hamburger').classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            if (navLinks && hamburger && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Switch to Portuguese version
+        function switchToPortuguese() {
+            window.location.href = 'quotas-vendas-b2b-startups.html';
+        }
+    </script>
+
+    <script defer src="https://cdn.vercel-analytics.com/v1/script.js"></script>
+</body>
+</html>
