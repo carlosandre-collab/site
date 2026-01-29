@@ -3,6 +3,10 @@
     {
       "id": "quotas-vendas-b2b-startups",
       "slug": "quotas-vendas-b2b-startups",
+      "slugs": {
+        "pt": "quotas-vendas-b2b-startups",
+        "en": "b2b-sales-quotas-startups"
+      },
       "featured": false,
       "category": {
         "pt": "Operações",
