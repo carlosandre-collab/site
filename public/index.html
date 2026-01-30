@@ -492,6 +492,28 @@ body:not(.vc-banner-visible) .vc-banner{display:none;}
     /* Capacity note */
     .capacity-note{font-size:0.75rem;}
 }
+
+/* ===== UNIVERSAL MOBILE FIXES ===== */
+@media (max-width:768px){
+    /* Prevent ANY horizontal overflow */
+    *{max-width:100%;}
+    
+    /* Text wrapping */
+    h1,h2,h3,h4,p,li,span,a{
+        word-wrap:break-word;
+        overflow-wrap:break-word;
+        hyphens:auto;
+    }
+    
+    /* Tables */
+    table{display:block;overflow-x:auto;white-space:nowrap;}
+    
+    /* Images */
+    img,svg,video,iframe{max-width:100%;height:auto;}
+    
+    /* Pre and code */
+    pre,code{white-space:pre-wrap;word-wrap:break-word;}
+}
     </style> 
 
 <!-- Below-fold CSS - loaded asynchronously (Cards, Sections, Footer, FAQ) -->
