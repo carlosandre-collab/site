@@ -111,15 +111,16 @@ body{padding-top:108px}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .nav-links{
-    display:none;position:fixed;left:0;right:0;top:108px;bottom:0;
-    background:#FFFFFF;flex-direction:column;padding:16px 20px;gap:4px;
-    overflow-y:auto;z-index:9999;box-shadow:0 4px 20px rgba(0,0,0,0.15);
-    border-top:1px solid #E5E7EB;
-    align-items:stretch;justify-content:flex-start;
+    display:none;position:fixed;right:0;top:0;bottom:0;width:280px;max-width:85vw;
+    background:#FFFFFF;flex-direction:column;padding:80px 20px 24px;gap:2px;
+    overflow-y:auto;z-index:9998;box-shadow:-4px 0 24px rgba(0,0,0,0.15);
+    transform:translateX(100%);transition:transform 0.3s ease;
 }
-.nav-links.active{display:flex !important;}
-.nav-links a{padding:16px 16px;color:#12121A;text-decoration:none;font-size:17px;font-weight:500;border-radius:10px;transition:0.2s;display:block;background:#FAFBFD;border:1px solid #E5E7EB}
-.nav-links a:hover,.nav-links a:active{background:rgba(107,92,231,0.1);color:#6B5CE7;border-color:rgba(107,92,231,0.3)}
+.nav-links.active{display:flex !important;transform:translateX(0);}
+.nav-links a{padding:12px 16px;color:#12121A;text-decoration:none;font-size:15px;font-weight:500;border-radius:8px;transition:0.2s;display:block}
+.nav-links a:hover,.nav-links a:active{background:rgba(107,92,231,0.08);color:#6B5CE7}
+.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9997}
+.menu-overlay.active{display:block}
 .lang-toggle{display:none}
 .lang-toggle-mobile{padding:8px 16px;background:#FAFBFD;border:1px solid #E5E7EB;border-radius:8px;font-size:14px;font-weight:600;color:#5A5A72;cursor:pointer;order:2;margin-left:auto;margin-right:8px}
 .nav-links .lang-toggle{display:none}
@@ -206,9 +207,10 @@ section{padding:56px 20px}
 /* Desktop */
 @media(min-width:1024px){
     .hamburger{display:none}
+    .menu-overlay{display:none !important}
     nav{height:80px;padding:0 5%}
     body{padding-top:124px}
-    .nav-links{display:flex !important;position:static;flex-direction:row;background:transparent;padding:0;gap:32px;overflow:visible;box-shadow:none;z-index:auto;border-top:none;order:2;align-items:center;justify-content:flex-end}
+    .nav-links{display:flex !important;position:static;flex-direction:row;width:auto;max-width:none;background:transparent;padding:0;gap:32px;overflow:visible;box-shadow:none;z-index:auto;transform:none;transition:none;order:2;align-items:center;justify-content:flex-end}
     .nav-links a{font-size:14px;padding:8px 0;display:inline;background:transparent;border:none}
     .nav-links a:hover{background:transparent;border:none}
     .lang-toggle{display:block;padding:8px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:0.2s}
@@ -241,6 +243,7 @@ section{padding:56px 20px}
 </div>
 
 <!-- Navigation -->
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <nav>
     <a href="#" class="logo">
         <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="108" height="36">
@@ -966,8 +969,10 @@ section{padding:56px 20px}
 function toggleMenu() {
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('menuOverlay');
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
     document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
 }
 
@@ -975,9 +980,11 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         const navLinks = document.getElementById('navLinks');
         const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('menuOverlay');
         if (navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
+            overlay.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
@@ -987,8 +994,10 @@ window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
         const navLinks = document.getElementById('navLinks');
         const hamburger = document.getElementById('hamburger');
+        const overlay = document.getElementById('menuOverlay');
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
+        overlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 });
