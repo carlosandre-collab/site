@@ -546,6 +546,9 @@
             const lang = currentLang;
             const isFeatured = article.featured;
             
+            // Slug - usa slug específico do idioma se existir, senão usa o padrão
+            const slug = (article.slugs && article.slugs[lang]) ? article.slugs[lang] : article.slug;
+            
             // Thumbnail
             let thumbnailHTML = '';
             if (article.thumbnail.type === 'image') {
@@ -563,7 +566,7 @@
             ` : '';
 
             return `
-                <a href="blog/posts/${article.slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
+                <a href="blog/posts/${slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
                     <div class="article-thumbnail">${thumbnailHTML}</div>
                     <div class="article-content">
                         ${featuredBadge}
