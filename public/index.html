@@ -105,26 +105,77 @@ nav{
 body{padding-top:108px}
 .logo{display:flex;align-items:center}
 .logo img{height:36px;width:auto}
-.hamburger{display:flex;flex-direction:column;gap:5px;padding:10px;background:none;border:none;cursor:pointer;z-index:1001;min-width:44px;min-height:44px;align-items:center;justify-content:center;order:3}
-.hamburger span{display:block;width:24px;height:2.5px;background:#12121A;border-radius:2px;transition:0.3s}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.nav-links{
-    display:none;position:fixed;right:0;top:0;bottom:0;width:280px;max-width:85vw;
-    background:#FFFFFF;flex-direction:column;padding:80px 20px 24px;gap:2px;
-    overflow-y:auto;z-index:9998;box-shadow:-4px 0 24px rgba(0,0,0,0.15);
-    transform:translateX(100%);transition:transform 0.3s ease;
+.hamburger{
+    display:flex;flex-direction:column;gap:6px;padding:12px;
+    background:none;border:none;cursor:pointer;z-index:9999;
 }
-.nav-links.active{display:flex !important;transform:translateX(0);}
-.nav-links a{padding:12px 16px;color:#12121A;text-decoration:none;font-size:15px;font-weight:500;border-radius:8px;transition:0.2s;display:block}
-.nav-links a:hover,.nav-links a:active{background:rgba(107,92,231,0.08);color:#6B5CE7}
-.menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:9997}
-.menu-overlay.active{display:block}
-.lang-toggle{display:none}
-.lang-toggle-mobile{padding:8px 16px;background:#FAFBFD;border:1px solid #E5E7EB;border-radius:8px;font-size:14px;font-weight:600;color:#5A5A72;cursor:pointer;order:2;margin-left:auto;margin-right:8px}
-.nav-links .lang-toggle{display:none}
-.nav-links button.lang-toggle{display:none}
+.hamburger span{display:block;width:22px;height:2px;background:#1a1a2e;border-radius:2px;transition:0.25s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* Mobile Sidebar Menu */
+.nav-links{
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:280px;
+    height:100vh;
+    background:#ffffff;
+    z-index:9998;
+    display:flex;
+    flex-direction:column;
+    padding-top:80px;
+    transition:right 0.3s ease;
+    border-left:1px solid #e5e5e5;
+}
+.nav-links.active{right:0}
+
+.nav-links a{
+    display:block;
+    padding:16px 24px;
+    color:#1a1a2e;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    border-bottom:1px solid #f0f0f0;
+    transition:background 0.2s;
+}
+.nav-links a:active,
+.nav-links a:hover{
+    background:#f5f3ff;
+    color:#6B5CE7;
+}
+
+.nav-links .lang-toggle{
+    display:block;
+    margin:20px 24px;
+    padding:12px 20px;
+    background:#f5f5f5;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#666;
+    cursor:pointer;
+    text-align:center;
+}
+
+.lang-toggle-mobile{
+    padding:8px 14px;
+    background:#f5f5f5;
+    border:1px solid #e0e0e0;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    color:#666;
+    cursor:pointer;
+    margin-left:auto;
+    margin-right:12px;
+}
+
+/* Remove overlay - não usar */
+.menu-overlay{display:none !important}
 
 /* Hero */
 .hero{
@@ -207,15 +258,38 @@ section{padding:56px 20px}
 /* Desktop */
 @media(min-width:1024px){
     .hamburger{display:none}
-    .menu-overlay{display:none !important}
+    .lang-toggle-mobile{display:none}
     nav{height:80px;padding:0 5%}
     body{padding-top:124px}
-    .nav-links{display:flex !important;position:static;flex-direction:row;width:auto;max-width:none;background:transparent;padding:0;gap:32px;overflow:visible;box-shadow:none;z-index:auto;transform:none;transition:none;order:2;align-items:center;justify-content:flex-end}
-    .nav-links a{font-size:14px;padding:8px 0;display:inline;background:transparent;border:none}
-    .nav-links a:hover{background:transparent;border:none}
-    .lang-toggle{display:block;padding:8px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:0.2s}
-    .lang-toggle:hover{border-color:var(--accent);color:var(--accent)}
-    .lang-toggle-mobile{display:none}
+    
+    .nav-links{
+        position:static;
+        right:auto;
+        width:auto;
+        height:auto;
+        background:transparent;
+        flex-direction:row;
+        padding:0;
+        gap:28px;
+        border-left:none;
+        align-items:center;
+    }
+    .nav-links a{
+        padding:8px 0;
+        font-size:14px;
+        border-bottom:none;
+        display:inline;
+    }
+    .nav-links a:hover{background:transparent}
+    .nav-links .lang-toggle{
+        display:inline-block;
+        margin:0;
+        padding:8px 16px;
+        background:transparent;
+        border:1px solid #e0e0e0;
+    }
+    .nav-links .lang-toggle:hover{border-color:#6B5CE7;color:#6B5CE7}
+    
     section{padding:96px 10%;max-width:1200px;margin:0 auto}
     .hero{min-height:calc(100vh - 124px);padding:64px 10%}
     .hero h1{font-size:52px}
@@ -243,25 +317,25 @@ section{padding:56px 20px}
 </div>
 
 <!-- Navigation -->
-<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 <nav>
     <a href="#" class="logo">
         <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="108" height="36">
     </a>
+    <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLang()">EN</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
     <div class="nav-links" id="navLinks">
         <a href="#problema">O Problema</a>
         <a href="#solucao">A Solução</a>
         <a href="#porque">Por Que Nós</a>
         <a href="#processo">Como Funciona</a>
+        <a href="guia-fractional-cro-brasil.html">Playbook</a>
         <a href="blog.html">Blog</a>
         <a href="#faq">FAQ</a>
         <a href="#contato">Contato</a>
         <button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</button>
     </div>
-    <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLang()">EN</button>
-    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-    </button>
 </nav>
 
 <main>
@@ -967,38 +1041,23 @@ section{padding:56px 20px}
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Mobile Menu
 function toggleMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    const overlay = document.getElementById('menuOverlay');
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
 }
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        const navLinks = document.getElementById('navLinks');
-        const hamburger = document.getElementById('hamburger');
-        const overlay = document.getElementById('menuOverlay');
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+// Fecha menu ao clicar em link
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
     });
 });
 
-window.addEventListener('resize', () => {
+// Fecha menu ao redimensionar para desktop
+window.addEventListener('resize', function() {
     if (window.innerWidth >= 1024) {
-        const navLinks = document.getElementById('navLinks');
-        const hamburger = document.getElementById('hamburger');
-        const overlay = document.getElementById('menuOverlay');
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
     }
 });
 
