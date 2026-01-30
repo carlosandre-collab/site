@@ -3,6 +3,65 @@
    These styles affect elements not visible on initial load
    ================================================ */
 
+/* ================================================
+   PERFORMANCE OPTIMIZATIONS
+   - contain: isolates layout/paint recalculations
+   - will-change: hints GPU acceleration
+   - content-visibility: defers rendering of off-screen content
+   ================================================ */
+
+/* Contain for layout isolation - reduces Style & Layout time */
+.pain-section,
+.consequences-section,
+.ideal-section,
+.solution-section,
+.why-section,
+.process-section,
+.model-section,
+.fit-section,
+.cta-final,
+.faq-section,
+.investors-section,
+.cross-sell {
+    contain: layout style;
+}
+
+/* Paint containment for cards - prevents repaint propagation */
+.card,
+.pain-card,
+.consequence-card,
+.ideal-card,
+.why-card,
+.credential-card,
+.phase-card,
+.model-card,
+.fit-card,
+.faq-item,
+.cross-sell-card,
+.guide-promo-card,
+.investors-cta-box {
+    contain: layout style paint;
+}
+
+/* GPU hints for animated elements */
+.faq-answer,
+.faq-question .icon,
+.whatsapp-float,
+.btn-primary,
+.btn-outline,
+.guide-promo-cta {
+    will-change: transform;
+}
+
+/* Defer rendering of off-screen sections */
+.faq-section,
+.investors-section,
+.cross-sell,
+footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+
 /* Cards */
 .card {
     background: var(--bg-card);
@@ -83,7 +142,7 @@
     margin-bottom: 1rem;
 }
 
-.consequence-card h4 {
+.consequence-card h3 {
     color: var(--text-primary);
     font-size: 1.05rem;
     margin-bottom: 0.75rem;
@@ -104,7 +163,7 @@
     text-align: center;
 }
 
-.urgency-box h4 {
+.urgency-box h3 {
     color: var(--danger);
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -980,11 +1039,17 @@ footer a:hover {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     cursor: pointer;
     z-index: 999;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
+    contain: layout style paint;
+}
+
+.whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
 }
 
 .whatsapp-float:hover {
@@ -1177,20 +1242,27 @@ footer a:hover {
 }
 
 .faq-answer {
-    max-height: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
 .faq-item.active .faq-answer {
-    max-height: 600px;
+    grid-template-rows: 1fr;
 }
 
 .faq-answer-content {
-    padding: 0 2rem 1.5rem 2rem;
+    padding: 0 2rem 0 2rem;
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.8;
+    overflow: hidden;
+    transition: padding 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer-content {
+    padding-bottom: 1.5rem;
 }
 
 .faq-answer-content p {
