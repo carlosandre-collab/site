@@ -112,7 +112,7 @@ body{padding-top:108px}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .nav-links{
     display:none;position:fixed;inset:0;top:108px;background:var(--bg-card);
-    flex-direction:column;padding:24px;gap:4px;overflow-y:auto;
+    flex-direction:column;padding:24px;gap:4px;overflow-y:auto;z-index:999;
 }
 .nav-links.active{display:flex}
 .nav-links a{padding:14px 16px;color:var(--text);text-decoration:none;font-size:16px;font-weight:500;border-radius:var(--r-sm);transition:0.2s}
@@ -493,7 +493,7 @@ section{padding:56px 20px}
     </div>
     
     <div class="founder-profile">
-        <img src="assets/images/brand/carlos-andre.jpg" alt="Carlos André" class="founder-photo" width="120" height="120" loading="lazy">
+        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André" class="founder-photo" width="120" height="120" loading="lazy">
         <div class="founder-info">
             <h3>Carlos André</h3>
             <p class="founder-title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
@@ -602,7 +602,7 @@ section{padding:56px 20px}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                 WhatsApp
             </a>
-            <a href="mailto:carlos@alavanka.com.br" class="sec-link">
+            <a href="/cdn-cgi/l/email-protection#ec8f8d9e80839fac8d808d9a8d82878dc28f8381c28e9e" class="sec-link">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 Email
             </a>
@@ -610,7 +610,7 @@ section{padding:56px 20px}
     </div>
     
     <div class="contact-info">
-        <p><span>📧</span> <a href="mailto:carlos@alavanka.com.br">carlos@alavanka.com.br</a></p>
+        <p><span>📧</span> <a href="/cdn-cgi/l/email-protection#f69597849a9985b6979a978097989d97d895999bd89484"><span class="__cf_email__" data-cfemail="016260736d6e7241606d6077606f6a602f626e6c2f6373">[email&#160;protected]</span></a></p>
         <p><span>📱</span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span>💼</span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -955,7 +955,7 @@ section{padding:56px 20px}
     <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Mobile Menu
 function toggleMenu() {
     const hamburger = document.getElementById('hamburger');
@@ -1074,14 +1074,4 @@ function loadThirdPartyScripts() {
 
 // Load after page is interactive
 if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadThirdPartyScripts, { timeout: 3000 });
-} else {
-    setTimeout(loadThirdPartyScripts, 2000);
-}
-</script>
-<noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
-</noscript>
-
-<!-- Vercel Analytics -->
-<script>window.va=window.va||functi
+    requestIdleCallback(loadThirdPartyScripts
