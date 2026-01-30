@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Content Security Policy - Basic protection while allowing inline scripts -->
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://snap.licdn.com https://px.ads.linkedin.com https://calendly.com https://*.vercel-insights.com https://*.vercel-scripts.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https://px.ads.linkedin.com https://*.calendly.com;
+    connect-src 'self' https://formspree.io https://snap.licdn.com https://px.ads.linkedin.com https://*.vercel-insights.com;
+    frame-src https://calendly.com https://*.calendly.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self' https://formspree.io;
+    upgrade-insecure-requests;
+">
+
+<!-- Referrer Policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Additional Security Headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
 <!-- DNS Prefetch & Preconnect for Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,7 +285,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxyg
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">
-            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="150" height="40">
+            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="108" height="40">
         </a>
         <!-- Hamburger Menu Button for Mobile -->
         <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
