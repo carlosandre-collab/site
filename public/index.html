@@ -1,323 +1,584 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
-<!-- SEO Básico -->
-<title>Fractional CRO Brasil | Alavanka - De Estagnação para Crescimento</title>
-<meta name="description" content="Fractional CRO para empresas B2B tech brasileiras. Ex-Presidente Oracle Brasil e Ex-CEO AT&T LATAM. Destravar crescimento de receita sem contratar VP full-time.">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Fractional CRO Brasil | Alavanka">
-<meta property="og:description" content="Execução de GTM com accountability para B2B tech. Track record: $3M → $240M.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.alavanka.com.br">
-<meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
-<meta property="og:locale" content="pt_BR">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://www.alavanka.com.br">
-
-<!-- DNS Prefetch & Preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="dns-prefetch" href="//snap.licdn.com">
-
-<!-- Preload critical resources -->
-<link rel="preload" href="assets/images/brand/logo-preto.png" as="image" fetchpriority="high">
-
-<!-- Fonts - optimized loading -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
-
-<!-- CRITICAL CSS (Above the fold: Nav, Hero, Qualifier) -->
-<style>
-```
-
-/* =====================================================
-CRITICAL CSS - Above the Fold Only
-===================================================== */
+    
+    <!-- SEO Básico -->
+    <title>Fractional CRO Brasil | Alavanka - De Estagnação para Crescimento</title>
+    <meta name="description" content="Fractional CRO para empresas B2B tech brasileiras. Ex-Presidente Oracle Brasil e Ex-CEO AT&T LATAM. Destravar crescimento de receita sem contratar VP full-time.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fractional CRO Brasil | Alavanka">
+    <meta property="og:description" content="Execução de GTM com accountability para B2B tech. Track record: $3M → $240M.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alavanka.com.br">
+    <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.alavanka.com.br">
+    
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//snap.licdn.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/brand/logo-preto.png" as="image" fetchpriority="high">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- CRITICAL CSS -->
+    <style>
+/* Reset & Variables */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 
 :root{
-–accent:#6B5CE7;
-–accent-dark:#5245C7;
-–accent-light:#8B7EF0;
-–accent-glow:rgba(107,92,231,0.25);
-–accent-bg:rgba(107,92,231,0.06);
-–bg:#FAFBFD;
-–bg-card:#FFFFFF;
-–bg-dark:#12121A;
-–text:#12121A;
-–text-secondary:#5A5A72;
-–text-muted:#8C8CA1;
-–text-inverse:#FFFFFF;
-–success:#10B981;
-–success-bg:rgba(16,185,129,0.08);
-–danger:#EF4444;
-–danger-bg:rgba(239,68,68,0.08);
-–warning:#F59E0B;
-–border:#E5E7EB;
-–border-accent:rgba(107,92,231,0.2);
-–shadow-sm:0 1px 2px rgba(0,0,0,0.04);
-–shadow-md:0 4px 16px rgba(0,0,0,0.08);
-–shadow-lg:0 12px 40px rgba(0,0,0,0.12);
-–shadow-glow:0 8px 32px rgba(107,92,231,0.3);
-–r-sm:8px;–r-md:12px;–r-lg:16px;–r-xl:24px;–r-full:9999px;
+    --accent:#6B5CE7;
+    --accent-dark:#5245C7;
+    --accent-light:#8B7EF0;
+    --accent-glow:rgba(107,92,231,0.25);
+    --accent-bg:rgba(107,92,231,0.06);
+    --bg:#FAFBFD;
+    --bg-card:#FFFFFF;
+    --bg-dark:#12121A;
+    --text:#12121A;
+    --text-secondary:#5A5A72;
+    --text-muted:#8C8CA1;
+    --text-inverse:#FFFFFF;
+    --success:#10B981;
+    --success-bg:rgba(16,185,129,0.08);
+    --danger:#EF4444;
+    --danger-bg:rgba(239,68,68,0.08);
+    --warning:#F59E0B;
+    --border:#E5E7EB;
+    --border-accent:rgba(107,92,231,0.2);
+    --shadow-sm:0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
+    --shadow-glow:0 8px 32px rgba(107,92,231,0.3);
+    --r-sm:8px;
+    --r-md:12px;
+    --r-lg:16px;
+    --r-xl:24px;
+    --r-full:9999px;
 }
 
 body{
-font-family:‘DM Sans’,system-ui,sans-serif;
-font-size:16px;line-height:1.6;
-color:var(–text);background:var(–bg);
--webkit-font-smoothing:antialiased;overflow-x:hidden;
+    font-family:'DM Sans',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
 }
-h1,h2,h3,h4{font-family:‘Space Grotesk’,sans-serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em}
+
+h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+}
 
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp 0.6s ease forwards;opacity:0}
-.fade-up-1{animation-delay:0.1s}.fade-up-2{animation-delay:0.2s}.fade-up-3{animation-delay:0.3s}.fade-up-4{animation-delay:0.4s}
+.fade-up-1{animation-delay:0.1s}
+.fade-up-2{animation-delay:0.2s}
+.fade-up-3{animation-delay:0.3s}
+.fade-up-4{animation-delay:0.4s}
 
 /* Audience Bar */
 .audience-bar{
-position:fixed;top:0;left:0;right:0;height:44px;
-background:linear-gradient(90deg,var(–bg-dark) 0%,#1E1E2A 100%);
-display:flex;align-items:center;justify-content:center;gap:8px;z-index:1100;padding:0 16px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:44px;
+    background:linear-gradient(90deg,var(--bg-dark) 0%,#1E1E2A 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    z-index:1100;
+    padding:0 16px;
 }
-.audience-bar::before{content:‘Eu sou:’;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;margin-right:4px}
+.audience-bar::before{
+    content:'Eu sou:';
+    color:rgba(255,255,255,0.5);
+    font-size:13px;
+    font-weight:500;
+    margin-right:4px;
+}
 .audience-btn{
-padding:6px 16px;background:transparent;border:1px solid rgba(255,255,255,0.15);
-border-radius:var(–r-full);color:rgba(255,255,255,0.7);font-size:13px;font-weight:600;
-font-family:inherit;cursor:pointer;transition:all 0.2s;
+    padding:6px 16px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--r-full);
+    color:rgba(255,255,255,0.7);
+    font-size:13px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+    transition:all 0.2s;
 }
-.audience-btn:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.25)}
-.audience-btn.active{background:var(–accent);border-color:var(–accent);color:#fff}
+.audience-btn:hover{
+    background:rgba(255,255,255,0.05);
+    border-color:rgba(255,255,255,0.25);
+}
+.audience-btn.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+}
 .audience-btn span{margin-right:6px}
 
 /* Navigation */
 nav{
-position:fixed;top:44px;left:0;right:0;height:64px;
-background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-border-bottom:1px solid var(–border);display:flex;align-items:center;
-justify-content:space-between;padding:0 20px;z-index:1000;
+    position:fixed;
+    top:44px;
+    left:0;
+    right:0;
+    height:64px;
+    background:rgba(255,255,255,0.98);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    z-index:1000;
 }
 body{padding-top:108px}
+
 .logo{display:flex;align-items:center}
 .logo img{height:36px;width:auto}
+
 .hamburger{
-display:flex;flex-direction:column;gap:6px;padding:12px;
-background:none;border:none;cursor:pointer;z-index:9999;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    padding:12px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    z-index:9999;
 }
-.hamburger span{display:block;width:22px;height:2px;background:#1a1a2e;border-radius:2px;transition:0.25s}
+.hamburger span{
+    display:block;
+    width:22px;
+    height:2px;
+    background:#1a1a2e;
+    border-radius:2px;
+    transition:0.25s;
+}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
 
-/* Mobile Sidebar Menu */
+/* Mobile Sidebar */
 .nav-links{
-position:fixed;
-top:0;
-right:-280px;
-width:280px;
-height:100vh;
-background:#ffffff;
-z-index:9998;
-display:flex;
-flex-direction:column;
-padding-top:80px;
-transition:right 0.3s ease;
-border-left:1px solid #e5e5e5;
+    position:fixed;
+    top:0;
+    right:-280px;
+    width:280px;
+    height:100vh;
+    background:#ffffff;
+    z-index:9998;
+    display:flex;
+    flex-direction:column;
+    padding-top:80px;
+    transition:right 0.3s ease;
+    border-left:1px solid #e5e5e5;
 }
 .nav-links.active{right:0}
 
 .nav-links a{
-display:block;
-padding:16px 24px;
-color:#1a1a2e;
-text-decoration:none;
-font-size:16px;
-font-weight:500;
-border-bottom:1px solid #f0f0f0;
-transition:background 0.2s;
+    display:block;
+    padding:16px 24px;
+    color:#1a1a2e;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    border-bottom:1px solid #f0f0f0;
+    transition:background 0.2s;
 }
-.nav-links a:active,
 .nav-links a:hover{
-background:#f5f3ff;
-color:#6B5CE7;
+    background:#f5f3ff;
+    color:#6B5CE7;
 }
 
 .nav-links .lang-toggle{
-display:block;
-margin:20px 24px;
-padding:12px 20px;
-background:#f5f5f5;
-border:1px solid #e0e0e0;
-border-radius:8px;
-font-size:14px;
-font-weight:600;
-color:#666;
-cursor:pointer;
-text-align:center;
+    display:block;
+    margin:20px 24px;
+    padding:12px 20px;
+    background:#f5f5f5;
+    border:1px solid #e0e0e0;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#666;
+    cursor:pointer;
+    text-align:center;
 }
 
 .lang-toggle-mobile{
-padding:8px 14px;
-background:#f5f5f5;
-border:1px solid #e0e0e0;
-border-radius:6px;
-font-size:13px;
-font-weight:600;
-color:#666;
-cursor:pointer;
-margin-left:auto;
-margin-right:12px;
+    padding:8px 14px;
+    background:#f5f5f5;
+    border:1px solid #e0e0e0;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    color:#666;
+    cursor:pointer;
+    margin-left:auto;
+    margin-right:12px;
 }
-
-/* Remove overlay - não usar */
-.menu-overlay{display:none !important}
 
 /* Hero */
 .hero{
-min-height:calc(100vh - 108px);display:flex;flex-direction:column;
-align-items:center;justify-content:center;text-align:center;
-padding:32px 20px 48px;background:linear-gradient(180deg,#fff 0%,var(–bg) 100%);position:relative;
+    min-height:calc(100vh - 108px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:32px 20px 48px;
+    background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+    position:relative;
 }
-.hero::before{content:’’;position:absolute;top:0;right:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(107,92,231,0.06) 0%,transparent 70%);pointer-events:none}
+.hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    right:-20%;
+    width:60%;
+    height:60%;
+    background:radial-gradient(circle,rgba(107,92,231,0.06) 0%,transparent 70%);
+    pointer-events:none;
+}
 .hero-badge{
-display:inline-flex;align-items:center;gap:12px;padding:10px 20px;
-background:linear-gradient(135deg,rgba(107,92,231,0.08),rgba(107,92,231,0.03));
-border:1px solid var(–border-accent);border-radius:var(–r-full);margin-bottom:24px;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 20px;
+    background:linear-gradient(135deg,rgba(107,92,231,0.08),rgba(107,92,231,0.03));
+    border:1px solid var(--border-accent);
+    border-radius:var(--r-full);
+    margin-bottom:24px;
 }
-.hero-badge .stat{display:flex;align-items:center;gap:6px;font-size:13px;color:var(–accent);font-weight:600}
-.hero-badge .stat strong{font-family:‘Space Grotesk’,sans-serif;font-size:15px;font-weight:700}
-.hero-badge .divider{width:1px;height:16px;background:var(–border-accent)}
-.hero h1{font-size:clamp(28px,7vw,48px);color:var(–text);margin-bottom:16px;max-width:600px}
-.hero h1 .highlight{color:var(–accent);position:relative}
-.hero h1 .highlight::after{content:’’;position:absolute;bottom:4px;left:0;right:0;height:8px;background:var(–accent-glow);border-radius:4px;z-index:-1}
-.hero-sub{font-size:clamp(16px,4vw,19px);color:var(–text-secondary);max-width:520px;margin-bottom:28px;line-height:1.7}
-.hero-sub strong{color:var(–text);font-weight:600}
+.hero-badge .stat{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    color:var(--accent);
+    font-weight:600;
+}
+.hero-badge .stat strong{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px;
+    font-weight:700;
+}
+.hero-badge .divider{
+    width:1px;
+    height:16px;
+    background:var(--border-accent);
+}
+
+.hero h1{
+    font-size:clamp(28px,7vw,48px);
+    color:var(--text);
+    margin-bottom:16px;
+    max-width:600px;
+}
+.hero h1 .highlight{
+    color:var(--accent);
+    position:relative;
+}
+.hero h1 .highlight::after{
+    content:'';
+    position:absolute;
+    bottom:4px;
+    left:0;
+    right:0;
+    height:8px;
+    background:var(--accent-glow);
+    border-radius:4px;
+    z-index:-1;
+}
+
+.hero-sub{
+    font-size:clamp(16px,4vw,19px);
+    color:var(--text-secondary);
+    max-width:520px;
+    margin-bottom:28px;
+    line-height:1.7;
+}
+.hero-sub strong{color:var(--text);font-weight:600}
 
 /* Track Record */
-.track-record{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:420px;margin-bottom:32px}
-.track-card{background:var(–bg-card);border:1px solid var(–border);border-radius:var(–r-md);padding:14px 8px;text-align:center;transition:all 0.3s}
-.track-card:hover{border-color:var(–accent);transform:translateY(-3px);box-shadow:var(–shadow-md)}
-.track-card .company{font-size:10px;font-weight:700;color:var(–text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
-.track-card .growth{font-family:‘Space Grotesk’,sans-serif;font-size:clamp(14px,4vw,17px);font-weight:700;color:var(–accent)}
-.track-card .growth small{display:block;font-size:10px;font-weight:600;color:var(–success);margin-top:4px}
+.track-record{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    width:100%;
+    max-width:420px;
+    margin-bottom:32px;
+}
+.track-card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:var(--r-md);
+    padding:14px 8px;
+    text-align:center;
+    transition:all 0.3s;
+}
+.track-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-md);
+}
+.track-card .company{
+    font-size:10px;
+    font-weight:700;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:6px;
+}
+.track-card .growth{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(14px,4vw,17px);
+    font-weight:700;
+    color:var(--accent);
+}
+.track-card .growth small{
+    display:block;
+    font-size:10px;
+    font-weight:600;
+    color:var(--success);
+    margin-top:4px;
+}
 
 /* Hero CTA */
-.hero-cta{display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px}
-.btn-hero{
-display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-padding:16px 24px;background:linear-gradient(135deg,var(–accent),var(–accent-dark));
-color:#fff;border:none;border-radius:var(–r-md);font-family:inherit;
-font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;
-box-shadow:var(–shadow-glow);transition:all 0.3s;position:relative;overflow:hidden;
+.hero-cta{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    max-width:380px;
 }
-.btn-hero::before{content:’’;position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:0.5s}
+.btn-hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px 24px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+    color:#fff;
+    border:none;
+    border-radius:var(--r-md);
+    font-family:inherit;
+    font-size:16px;
+    font-weight:700;
+    text-decoration:none;
+    cursor:pointer;
+    box-shadow:var(--shadow-glow);
+    transition:all 0.3s;
+    position:relative;
+    overflow:hidden;
+}
+.btn-hero::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
+    transition:0.5s;
+}
 .btn-hero:hover::before{left:100%}
-.btn-hero:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(107,92,231,0.4)}
+.btn-hero:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 40px rgba(107,92,231,0.4);
+}
 .btn-hero svg{width:20px;height:20px;flex-shrink:0}
-.hero-cta-note{margin-top:12px;font-size:13px;color:var(–text-muted)}
-.hero-cta-note strong{color:var(–warning)}
-.hero-links{display:flex;align-items:center;gap:24px;margin-top:16px}
-.hero-link{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(–text-secondary);text-decoration:none;transition:0.2s}
-.hero-link:hover{color:var(–accent)}
+
+.hero-cta-note{
+    margin-top:12px;
+    font-size:13px;
+    color:var(--text-muted);
+}
+.hero-cta-note strong{color:var(--warning)}
+
+.hero-links{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    margin-top:16px;
+}
+.hero-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-secondary);
+    text-decoration:none;
+    transition:0.2s;
+}
+.hero-link:hover{color:var(--accent)}
 .hero-link svg{width:16px;height:16px}
 
 /* Qualifier */
-.qualifier{padding:40px 20px;background:var(–bg-dark);color:var(–text-inverse)}
-.qualifier-inner{max-width:600px;margin:0 auto;text-align:center}
-.qualifier-label{font-size:11px;font-weight:700;color:var(–accent-light);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-.qualifier h2{font-size:clamp(20px,5vw,26px);color:var(–text-inverse);margin-bottom:20px}
-.qualifier-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
-.qualifier-tag{padding:8px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(–r-full);font-size:13px;font-weight:500;color:rgba(255,255,255,0.85)}
-.qualifier-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:#fff;color:var(–bg-dark);border-radius:var(–r-md);font-weight:700;text-decoration:none;transition:0.3s}
-.qualifier-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.qualifier{
+    padding:40px 20px;
+    background:var(--bg-dark);
+    color:var(--text-inverse);
+}
+.qualifier-inner{
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+}
+.qualifier-label{
+    font-size:11px;
+    font-weight:700;
+    color:var(--accent-light);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+.qualifier h2{
+    font-size:clamp(20px,5vw,26px);
+    color:var(--text-inverse);
+    margin-bottom:20px;
+}
+.qualifier-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:24px;
+}
+.qualifier-tag{
+    padding:8px 16px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--r-full);
+    font-size:13px;
+    font-weight:500;
+    color:rgba(255,255,255,0.85);
+}
+.qualifier-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 24px;
+    background:#fff;
+    color:var(--bg-dark);
+    border-radius:var(--r-md);
+    font-weight:700;
+    text-decoration:none;
+    transition:0.3s;
+}
+.qualifier-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
 
 /* Sections Base */
 section{padding:56px 20px}
 .section-header{text-align:center;margin-bottom:40px}
-.section-header h2{font-size:clamp(24px,6vw,36px);color:var(–text);margin-bottom:12px}
-.section-header h2 .hl{color:var(–accent)}
-.section-header p{font-size:17px;color:var(–text-secondary);max-width:520px;margin:0 auto}
+.section-header h2{
+    font-size:clamp(24px,6vw,36px);
+    color:var(--text);
+    margin-bottom:12px;
+}
+.section-header h2 .hl{color:var(--accent)}
+.section-header p{
+    font-size:17px;
+    color:var(--text-secondary);
+    max-width:520px;
+    margin:0 auto;
+}
 
 /* Tablet */
 @media(min-width:768px){
-nav{height:72px;padding:0 32px}
-body{padding-top:116px}
-section{padding:72px 32px}
-.hero{padding:48px 32px 64px}
-.hero h1{font-size:42px}
-.track-record{max-width:480px;gap:16px}
-.track-card{padding:18px 12px}
-.hero-cta{max-width:400px}
+    nav{height:72px;padding:0 32px}
+    body{padding-top:116px}
+    section{padding:72px 32px}
+    .hero{padding:48px 32px 64px}
+    .hero h1{font-size:42px}
+    .track-record{max-width:480px;gap:16px}
+    .track-card{padding:18px 12px}
+    .hero-cta{max-width:400px}
 }
 
 /* Desktop */
 @media(min-width:1024px){
-.hamburger{display:none}
-.lang-toggle-mobile{display:none}
-nav{height:80px;padding:0 5%}
-body{padding-top:124px}
-
-```
-.nav-links{
-    position:static;
-    right:auto;
-    width:auto;
-    height:auto;
-    background:transparent;
-    flex-direction:row;
-    padding:0;
-    gap:28px;
-    border-left:none;
-    align-items:center;
+    .hamburger{display:none}
+    .lang-toggle-mobile{display:none}
+    nav{height:80px;padding:0 5%}
+    body{padding-top:124px}
+    
+    .nav-links{
+        position:static;
+        right:auto;
+        width:auto;
+        height:auto;
+        background:transparent;
+        flex-direction:row;
+        padding:0;
+        gap:28px;
+        border-left:none;
+        align-items:center;
+    }
+    .nav-links a{
+        padding:8px 0;
+        font-size:14px;
+        border-bottom:none;
+        display:inline;
+    }
+    .nav-links a:hover{background:transparent}
+    .nav-links .lang-toggle{
+        display:inline-block;
+        margin:0;
+        padding:8px 16px;
+        background:transparent;
+        border:1px solid #e0e0e0;
+    }
+    .nav-links .lang-toggle:hover{
+        border-color:#6B5CE7;
+        color:#6B5CE7;
+    }
+    
+    section{padding:96px 10%;max-width:1200px;margin:0 auto}
+    .hero{min-height:calc(100vh - 124px);padding:64px 10%}
+    .hero h1{font-size:52px}
+    .hero-sub{font-size:20px;max-width:600px}
+    .track-record{max-width:540px;gap:20px}
+    .track-card{padding:20px 16px}
+    .track-card .growth{font-size:20px}
 }
-.nav-links a{
-    padding:8px 0;
-    font-size:14px;
-    border-bottom:none;
-    display:inline;
-}
-.nav-links a:hover{background:transparent}
-.nav-links .lang-toggle{
-    display:inline-block;
-    margin:0;
-    padding:8px 16px;
-    background:transparent;
-    border:1px solid #e0e0e0;
-}
-.nav-links .lang-toggle:hover{border-color:#6B5CE7;color:#6B5CE7}
-
-section{padding:96px 10%;max-width:1200px;margin:0 auto}
-.hero{min-height:calc(100vh - 124px);padding:64px 10%}
-.hero h1{font-size:52px}
-.hero-sub{font-size:20px;max-width:600px}
-.track-record{max-width:540px;gap:20px}
-.track-card{padding:20px 16px}
-.track-card .growth{font-size:20px}
-```
-
-}
-</style>
-
-```
-<!-- DEFERRED CSS - Below-fold styles loaded asynchronously -->
-<link rel="preload" href="styles/styles-deferred.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="styles/styles-deferred.css"></noscript>
-```
-
+    </style>
+    
+    <!-- DEFERRED CSS -->
+    <link rel="preload" href="styles/styles-deferred.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/styles-deferred.css"></noscript>
 </head>
 <body>
 
 <!-- Audience Selector Bar -->
-
 <div class="audience-bar">
     <button class="audience-btn active" data-audience="founder" onclick="setAudience('founder')">
         <span>🚀</span><span data-i18n="audience.founder">Founder / CEO</span>
@@ -328,7 +589,6 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
 </div>
 
 <!-- Navigation -->
-
 <nav>
     <a href="#" class="logo">
         <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="108" height="36">
@@ -353,7 +613,6 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
 <main>
 
 <!-- Hero -->
-
 <section class="hero">
     <div class="hero-badge fade-up">
         <div class="stat"><strong>$240M+</strong> <span data-i18n="hero.badge.built">construído</span></div>
@@ -363,54 +622,50 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
         <div class="stat"><strong>3</strong> <span data-i18n="hero.badge.slots">vagas max</span></div>
     </div>
 
-```
-<h1 class="fade-up fade-up-1" data-i18n="hero.title">De estagnação para<br><span class="highlight">crescimento estruturado</span></h1>
+    <h1 class="fade-up fade-up-1" data-i18n="hero.title">De estagnação para<br><span class="highlight">crescimento estruturado</span></h1>
 
-<p class="hero-sub fade-up fade-up-2" data-i18n="hero.subtitle">
-    <strong>Fractional CRO</strong> para B2B Tech. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
-</p>
+    <p class="hero-sub fade-up fade-up-2" data-i18n="hero.subtitle">
+        <strong>Fractional CRO</strong> para B2B Tech. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
+    </p>
 
-<div class="track-record fade-up fade-up-3">
-    <div class="track-card">
-        <div class="company">Oracle Brasil</div>
-        <div class="growth">$48M→$240M<small>5x em 5 anos</small></div>
+    <div class="track-record fade-up fade-up-3">
+        <div class="track-card">
+            <div class="company">Oracle Brasil</div>
+            <div class="growth">$48M→$240M<small>5x em 5 anos</small></div>
+        </div>
+        <div class="track-card">
+            <div class="company">AT&T LATAM</div>
+            <div class="growth">$3M→$47M<small>15x em 2 anos</small></div>
+        </div>
+        <div class="track-card">
+            <div class="company">Informatica</div>
+            <div class="growth">150% YoY<small>VP LATAM</small></div>
+        </div>
     </div>
-    <div class="track-card">
-        <div class="company">AT&T LATAM</div>
-        <div class="growth">$3M→$47M<small>15x em 2 anos</small></div>
-    </div>
-    <div class="track-card">
-        <div class="company">Informatica</div>
-        <div class="growth">150% YoY<small>VP LATAM</small></div>
-    </div>
-</div>
 
-<div class="hero-cta fade-up fade-up-4">
-    <a href="assessment.html" class="btn-hero">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-        </svg>
-        <span data-i18n="hero.cta.assessment">Descubra se Sua Empresa se Qualifica</span>
-    </a>
-    <p class="hero-cta-note" data-i18n="hero.cta.note">Assessment de 2 min • <strong>Sem compromisso</strong></p>
-    
-    <div class="hero-links">
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="hero-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span data-i18n="hero.cta.call">Agendar call</span>
+    <div class="hero-cta fade-up fade-up-4">
+        <a href="assessment.html" class="btn-hero">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            <span data-i18n="hero.cta.assessment">Descubra se Sua Empresa se Qualifica</span>
         </a>
-        <a href="https://wa.me/5511975341961" target="_blank" class="hero-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            <span data-i18n="hero.cta.whatsapp">WhatsApp</span>
-        </a>
+        <p class="hero-cta-note" data-i18n="hero.cta.note">Assessment de 2 min • <strong>Sem compromisso</strong></p>
+        
+        <div class="hero-links">
+            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="hero-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <span data-i18n="hero.cta.call">Agendar call</span>
+            </a>
+            <a href="https://wa.me/5511975341961" target="_blank" class="hero-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                <span data-i18n="hero.cta.whatsapp">WhatsApp</span>
+            </a>
+        </div>
     </div>
-</div>
-```
-
 </section>
 
 <!-- Qualifier -->
-
 <section class="qualifier">
     <div class="qualifier-inner">
         <div class="qualifier-label" data-i18n="qualifier.label">Para quem é este serviço</div>
@@ -426,213 +681,194 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
 </section>
 
 <!-- Pain Section -->
-
 <section id="problema" class="pain-section">
     <div class="section-header">
         <h2 data-i18n="problem.title">A <span class="hl">Armadilha</span> da Estagnação</h2>
         <p data-i18n="problem.subtitle">Você construiu um produto que funciona. Clientes adoram. Mas a receita travou.</p>
     </div>
 
-```
-<div class="pain-intro">
-    <p data-i18n="problem.intro">Se você está gastando 60%+ do tempo apagando incêndio em vendas enquanto o board cobra crescimento, você não está sozinho.</p>
-</div>
-
-<div class="pain-grid">
-    <div class="pain-card">
-        <div class="pain-card-head">
-            <div class="pain-card-icon">😰</div>
-            <h3 class="pain-card-title" data-i18n="problem.card1.title">O Que o Founder Sente</h3>
-        </div>
-        <ul>
-            <li data-i18n="problem.card1.item1">Produto validado, clientes renovam — mas crescimento parou</li>
-            <li data-i18n="problem.card1.item2">Trabalhando 80h/semana, resultado flat há 6+ meses</li>
-            <li data-i18n="problem.card1.item3">Time de vendas não explica por que deals morrem</li>
-            <li data-i18n="problem.card1.item4">Board meetings viraram sessões de explicação</li>
-            <li data-i18n="problem.card1.item5">Runway diminuindo enquanto debate estratégia</li>
-        </ul>
+    <div class="pain-intro">
+        <p data-i18n="problem.intro">Se você está gastando 60%+ do tempo apagando incêndio em vendas enquanto o board cobra crescimento, você não está sozinho.</p>
     </div>
-    <div class="pain-card">
-        <div class="pain-card-head">
-            <div class="pain-card-icon">📉</div>
-            <h3 class="pain-card-title" data-i18n="problem.card2.title">O Que o VC Vê no Portfólio</h3>
-        </div>
-        <ul>
-            <li data-i18n="problem.card2.item1">Empresa na "zona zumbi" — não morre, mas não cresce</li>
-            <li data-i18n="problem.card2.item2">CEO em burnout, perdido entre produto e vendas</li>
-            <li data-i18n="problem.card2.item3">Milestone sempre escorregando (6 → 9 → 12 meses)</li>
-            <li data-i18n="problem.card2.item4">Follow-on em risco ou exigindo down-round</li>
-            <li data-i18n="problem.card2.item6">Múltiplo de exit comprimindo cada trimestre</li>
-        </ul>
-    </div>
-</div>
-```
 
+    <div class="pain-grid">
+        <div class="pain-card">
+            <div class="pain-card-head">
+                <div class="pain-card-icon">😰</div>
+                <h3 class="pain-card-title" data-i18n="problem.card1.title">O Que o Founder Sente</h3>
+            </div>
+            <ul>
+                <li data-i18n="problem.card1.item1">Produto validado, clientes renovam — mas crescimento parou</li>
+                <li data-i18n="problem.card1.item2">Trabalhando 80h/semana, resultado flat há 6+ meses</li>
+                <li data-i18n="problem.card1.item3">Time de vendas não explica por que deals morrem</li>
+                <li data-i18n="problem.card1.item4">Board meetings viraram sessões de explicação</li>
+                <li data-i18n="problem.card1.item5">Runway diminuindo enquanto debate estratégia</li>
+            </ul>
+        </div>
+        <div class="pain-card">
+            <div class="pain-card-head">
+                <div class="pain-card-icon">📉</div>
+                <h3 class="pain-card-title" data-i18n="problem.card2.title">O Que o VC Vê no Portfólio</h3>
+            </div>
+            <ul>
+                <li data-i18n="problem.card2.item1">Empresa na "zona zumbi" — não morre, mas não cresce</li>
+                <li data-i18n="problem.card2.item2">CEO em burnout, perdido entre produto e vendas</li>
+                <li data-i18n="problem.card2.item3">Milestone sempre escorregando (6 → 9 → 12 meses)</li>
+                <li data-i18n="problem.card2.item4">Follow-on em risco ou exigindo down-round</li>
+                <li data-i18n="problem.card2.item5">Múltiplo de exit comprimindo cada trimestre</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- Consequences -->
-
 <section class="consequences">
     <div class="section-header">
         <h2 data-i18n="consequences.title">O <span class="hl">Custo</span> de Não Agir</h2>
         <p data-i18n="consequences.subtitle">Cada mês de estagnação tem um preço composto</p>
     </div>
 
-```
-<div class="consequence-grid">
-    <div class="consequence-card">
-        <div class="icon">💰</div>
-        <h4 data-i18n="consequences.card1.title">Capital Preso</h4>
-        <p data-i18n="consequences.card1.text">Investimento travado em ativo underperforming</p>
+    <div class="consequence-grid">
+        <div class="consequence-card">
+            <span class="icon">💰</span>
+            <h4 data-i18n="consequences.card1.title">Capital Preso</h4>
+            <p data-i18n="consequences.card1.text">Investimento travado em ativo underperforming</p>
+        </div>
+        <div class="consequence-card">
+            <span class="icon">📉</span>
+            <h4 data-i18n="consequences.card2.title">Valuation ↓</h4>
+            <p data-i18n="consequences.card2.text">Múltiplos caindo cada trimestre</p>
+        </div>
+        <div class="consequence-card">
+            <span class="icon">🚪</span>
+            <h4 data-i18n="consequences.card3.title">Talentos Saindo</h4>
+            <p data-i18n="consequences.card3.text">Top performers não ficam em empresas paradas</p>
+        </div>
+        <div class="consequence-card">
+            <span class="icon">⏰</span>
+            <h4 data-i18n="consequences.card4.title">Janela Fechando</h4>
+            <p data-i18n="consequences.card4.text">Concorrentes executando enquanto você debate</p>
+        </div>
+        <div class="consequence-card">
+            <span class="icon">🔥</span>
+            <h4 data-i18n="consequences.card5.title">Founder Burnout</h4>
+            <p data-i18n="consequences.card5.text">60% do tempo em vendas não é sustentável</p>
+        </div>
+        <div class="consequence-card">
+            <span class="icon">🎯</span>
+            <h4 data-i18n="consequences.card6.title">Credibilidade ↓</h4>
+            <p data-i18n="consequences.card6.text">Cada meta perdida erode confiança</p>
+        </div>
     </div>
-    <div class="consequence-card">
-        <div class="icon">📉</div>
-        <h4 data-i18n="consequences.card2.title">Valuation ↓</h4>
-        <p data-i18n="consequences.card2.text">Múltiplos caindo cada trimestre</p>
-    </div>
-    <div class="consequence-card">
-        <div class="icon">🚪</div>
-        <h4 data-i18n="consequences.card3.title">Talentos Saindo</h4>
-        <p data-i18n="consequences.card3.text">Top performers não ficam em empresas paradas</p>
-    </div>
-    <div class="consequence-card">
-        <div class="icon">⏱️</div>
-        <h4 data-i18n="consequences.card4.title">Janela Fechando</h4>
-        <p data-i18n="consequences.card4.text">Concorrentes executando enquanto você debate</p>
-    </div>
-    <div class="consequence-card">
-        <div class="icon">🔥</div>
-        <h4 data-i18n="consequences.card5.title">Founder Burnout</h4>
-        <p data-i18n="consequences.card5.text">60% do tempo em vendas não é sustentável</p>
-    </div>
-    <div class="consequence-card">
-        <div class="icon">🎯</div>
-        <h4 data-i18n="consequences.card6.title">Credibilidade ↓</h4>
-        <p data-i18n="consequences.card6.text">Cada meta perdida erode confiança</p>
-    </div>
-</div>
 
-<div class="urgency-box">
-    <h4 data-i18n="consequences.urgency.title">A matemática é cruel</h4>
-    <p data-i18n="consequences.urgency.text">Uma empresa de R$10M ARR com 0% crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em equity.</p>
-</div>
-```
-
+    <div class="urgency-box">
+        <h4 data-i18n="consequences.urgency.title">A matemática é cruel</h4>
+        <p data-i18n="consequences.urgency.text">Uma empresa de R$10M ARR com 0% crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em equity.</p>
+    </div>
 </section>
 
-<!-- Solution -->
-
-<section id="solucao" class="solution-section">
+<!-- Solution Comparison -->
+<section id="solucao" class="comparison-section">
     <div class="section-header">
         <h2 data-i18n="solution.title">Por Que Soluções <span class="hl">Tradicionais</span> Falham</h2>
     </div>
 
-```
-<div class="comparison-cards">
-    <div class="comp-card fail">
-        <span class="label" data-i18n="solution.traditional.label">❌ Opção tradicional</span>
-        <h4 data-i18n="solution.vp.title">Contratar VP Sales</h4>
-        <p data-i18n="solution.vp.text">12-18 meses de ramp. 50% taxa de falha. Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
+    <div class="comparison-grid">
+        <div class="comp-group">
+            <div class="comp-card bad">
+                <div class="comp-label" data-i18n="solution.traditional.label">❌ Opção tradicional</div>
+                <h4 data-i18n="solution.vp.title">Contratar VP Sales</h4>
+                <p data-i18n="solution.vp.text">12-18 meses de ramp. 50% taxa de falha. Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
+            </div>
+            <div class="comp-card good">
+                <div class="comp-label" data-i18n="solution.fractional.label">✓ Fractional CRO</div>
+                <h4 data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h4>
+                <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
+            </div>
+        </div>
+        <div class="comp-group">
+            <div class="comp-card bad">
+                <div class="comp-label" data-i18n="solution.traditional.label">❌ Opção tradicional</div>
+                <h4 data-i18n="solution.consulting.title">Consultoria Big 4</h4>
+                <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
+            </div>
+            <div class="comp-card good">
+                <div class="comp-label" data-i18n="solution.fractional.label">✓ Fractional CRO</div>
+                <h4 data-i18n="solution.consulting.better.title">Execução hands-on</h4>
+                <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
+            </div>
+        </div>
     </div>
-    <div class="comp-card highlight">
-        <span class="label" data-i18n="solution.fractional.label">✓ Fractional CRO</span>
-        <h4 data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h4>
-        <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
-    </div>
-    <div class="comp-card fail">
-        <span class="label" data-i18n="solution.traditional.label">❌ Opção tradicional</span>
-        <h4 data-i18n="solution.consulting.title">Consultoria Big 4</h4>
-        <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
-    </div>
-    <div class="comp-card highlight">
-        <span class="label" data-i18n="solution.fractional.label">✓ Fractional CRO</span>
-        <h4 data-i18n="solution.consulting.better.title">Execução hands-on</h4>
-        <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
-    </div>
-</div>
-```
-
 </section>
 
-<!-- Why Alavanka -->
-
+<!-- Why Section -->
 <section id="porque" class="why-section">
     <div class="section-header">
         <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
         <p data-i18n="why.subtitle">Não somos consultores. Somos operadores que já construíram o que você quer construir.</p>
     </div>
 
-```
-<div class="why-hero">
-    <div class="big-stat" data-i18n="why.track.stat">$3M → $240M</div>
-    <div class="stat-label" data-i18n="why.track.label">construído pessoalmente, não aconselhado</div>
-    <div class="stat-detail" data-i18n="why.track.detail">
-        Oracle Brasil: Presidente (5x em 5 anos)<br>
-        AT&T LATAM: CEO (15x em 2 anos)<br>
-        Informatica: VP LATAM (150% YoY)
+    <div class="why-track">
+        <div class="stat" data-i18n="why.track.stat">$3M → $240M</div>
+        <div class="label" data-i18n="why.track.label">construído pessoalmente, não aconselhado</div>
+        <p class="detail" data-i18n="why.track.detail">Oracle Brasil: Presidente (5x em 5 anos)<br>AT&T LATAM: CEO (15x em 2 anos)<br>Informatica: VP LATAM (150% YoY)</p>
     </div>
-</div>
 
-<div class="credentials-grid">
-    <div class="credential-card">
-        <h4 data-i18n="why.cred.pnl">P&L Leadership</h4>
-        <ul>
-            <li>Oracle Brasil President</li>
-            <li>AT&T LATAM CEO</li>
-            <li>Informatica VP LATAM</li>
-        </ul>
+    <div class="credentials-grid">
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.pnl">P&L Leadership</h4>
+            <ul>
+                <li>Oracle Brasil President</li>
+                <li>AT&T LATAM CEO</li>
+                <li>Informatica VP LATAM</li>
+                <li>PeopleSoft MD</li>
+            </ul>
+        </div>
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.founder">Founder Experience</h4>
+            <ul>
+                <li data-i18n="why.cred.loysci">LoySci Co-Founder (9 anos)</li>
+                <li data-i18n="why.cred.loyalty">Pioneiro Loyalty LATAM</li>
+            </ul>
+        </div>
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.board">Board & Advisory</h4>
+            <ul>
+                <li data-i18n="why.cred.ibgc">Conselheiro IBGC</li>
+                <li data-i18n="why.cred.endeavor">Mentor Endeavor</li>
+                <li data-i18n="why.cred.insper">Professor INSPER</li>
+            </ul>
+        </div>
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.edu">Educação</h4>
+            <ul>
+                <li>Harvard Business School</li>
+                <li>Columbia Business School</li>
+            </ul>
+        </div>
     </div>
-    <div class="credential-card">
-        <h4 data-i18n="why.cred.founder">Founder Experience</h4>
-        <ul>
-            <li data-i18n="why.cred.loysci">LoySci Co-Founder (9 anos)</li>
-            <li data-i18n="why.cred.loyalty">Pioneiro Loyalty LATAM</li>
-        </ul>
-    </div>
-    <div class="credential-card">
-        <h4 data-i18n="why.cred.board">Board & Advisory</h4>
-        <ul>
-            <li data-i18n="why.cred.ibgc">Conselheiro IBGC</li>
-            <li data-i18n="why.cred.endeavor">Mentor Endeavor</li>
-            <li data-i18n="why.cred.insper">Professor INSPER</li>
-        </ul>
-    </div>
-    <div class="credential-card">
-        <h4 data-i18n="why.cred.edu">Educação</h4>
-        <ul>
-            <li>Harvard Business School</li>
-            <li>Columbia Business School</li>
-        </ul>
-    </div>
-</div>
 
-<div class="founder-profile">
-    <img src="assets/images/brand/carlos-andre.png" alt="Carlos André" class="founder-photo" width="120" height="120" loading="lazy">
-    <div class="founder-info">
-        <h3 data-i18n="why.founder.name">Carlos André</h3>
-        <p class="founder-title" data-i18n="why.founder.title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
-        <p class="founder-quote" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</p>
+    <div class="founder-card">
+        <img src="assets/images/carlos-andre.jpg" alt="Carlos André" class="founder-photo" width="120" height="120">
+        <div class="founder-info">
+            <h3 data-i18n="why.founder.name">Carlos André</h3>
+            <p class="title" data-i18n="why.founder.title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
+            <p class="quote" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</p>
+        </div>
     </div>
-</div>
-```
-
 </section>
 
 <!-- Process -->
-
 <section id="processo" class="process-section">
     <div class="section-header">
         <h2 data-i18n="process.title">Como <span class="hl">Funciona</span> na Prática</h2>
         <p data-i18n="process.subtitle">Programa estruturado de 6 meses com checkpoints claros</p>
     </div>
 
-```
-<div class="timeline">
-    <div class="timeline-item">
-        <div class="timeline-dot">1</div>
-        <div class="timeline-content">
-            <h4 data-i18n="process.phase1.title">Diagnóstico</h4>
-            <p class="duration" data-i18n="process.phase1.duration">30 dias</p>
+    <div class="timeline">
+        <div class="timeline-item" data-phase="1">
+            <h3 data-i18n="process.phase1.title">Diagnóstico</h3>
+            <span class="duration" data-i18n="process.phase1.duration">30 dias</span>
             <ul>
                 <li data-i18n="process.phase1.item1">Deep-dive em 25+ KPIs de GTM</li>
                 <li data-i18n="process.phase1.item2">Entrevistas 360° (time, clientes, lost deals)</li>
@@ -640,12 +876,9 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
                 <li data-i18n="process.phase1.item4">Kill-criteria definidos desde o início</li>
             </ul>
         </div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-dot">2</div>
-        <div class="timeline-content">
-            <h4 data-i18n="process.phase2.title">Transformação</h4>
-            <p class="duration" data-i18n="process.phase2.duration">90 dias</p>
+        <div class="timeline-item" data-phase="2">
+            <h3 data-i18n="process.phase2.title">Transformação</h3>
+            <span class="duration" data-i18n="process.phase2.duration">90 dias</span>
             <ul>
                 <li data-i18n="process.phase2.item1">ICP, posicionamento e messaging reconstruídos</li>
                 <li data-i18n="process.phase2.item2">Processo de vendas com critérios de stage</li>
@@ -653,12 +886,9 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
                 <li data-i18n="process.phase2.item4">Dashboards funcionando + quick wins</li>
             </ul>
         </div>
-    </div>
-    <div class="timeline-item">
-        <div class="timeline-dot">3</div>
-        <div class="timeline-content">
-            <h4 data-i18n="process.phase3.title">Aceleração</h4>
-            <p class="duration" data-i18n="process.phase3.duration">+60 dias</p>
+        <div class="timeline-item" data-phase="3">
+            <h3 data-i18n="process.phase3.title">Aceleração</h3>
+            <span class="duration" data-i18n="process.phase3.duration">+60 dias</span>
             <ul>
                 <li data-i18n="process.phase3.item1">Hiring/ajuste de liderança se necessário</li>
                 <li data-i18n="process.phase3.item2">Playbooks documentados e rodando</li>
@@ -667,558 +897,278 @@ section{padding:96px 10%;max-width:1200px;margin:0 auto}
             </ul>
         </div>
     </div>
-</div>
-```
-
 </section>
 
-<!-- Fit -->
-
+<!-- Fit Section -->
 <section class="fit-section">
     <div class="section-header">
         <h2 data-i18n="fit.title">Este Serviço <span class="hl">Não É</span> Para Todo Mundo</h2>
         <p data-i18n="fit.subtitle">Somos muito específicos sobre com quem trabalhamos</p>
     </div>
 
-```
-<div class="fit-cards">
-    <div class="fit-card positive">
-        <h3 data-i18n="fit.positive.title">✓ Trabalhamos Com Empresas Que...</h3>
-        <ul>
-            <li data-i18n="fit.positive.item1">Têm receita anual de pelo menos R$10M</li>
-            <li data-i18n="fit.positive.item2">Já captaram Série B ou posterior</li>
-            <li data-i18n="fit.positive.item3">Produto validado — o problema é GTM</li>
-            <li data-i18n="fit.positive.item4">Estagnaram no crescimento há 6+ meses</li>
-            <li data-i18n="fit.positive.item5">CEO coachable e board alinhado</li>
-            <li data-i18n="fit.positive.item6">Runway de pelo menos 12 meses</li>
-            <li data-i18n="fit.positive.item7">Disposição para tomar decisões difíceis</li>
-        </ul>
+    <div class="fit-grid">
+        <div class="fit-card positive">
+            <h3 data-i18n="fit.positive.title">✓ Trabalhamos Com Empresas Que...</h3>
+            <ul>
+                <li data-i18n="fit.positive.item1">Têm receita anual de pelo menos R$10M</li>
+                <li data-i18n="fit.positive.item2">Já captaram Série B ou posterior</li>
+                <li data-i18n="fit.positive.item3">Produto validado — o problema é GTM</li>
+                <li data-i18n="fit.positive.item4">Estagnaram no crescimento há 6+ meses</li>
+                <li data-i18n="fit.positive.item5">CEO coachable e board alinhado</li>
+                <li data-i18n="fit.positive.item6">Runway de pelo menos 12 meses</li>
+                <li data-i18n="fit.positive.item7">Disposição para tomar decisões difíceis</li>
+            </ul>
+        </div>
+        <div class="fit-card negative">
+            <h3 data-i18n="fit.negative.title">✗ Não Trabalhamos Com Empresas Que...</h3>
+            <ul>
+                <li data-i18n="fit.negative.item1">Ainda buscam product-market fit</li>
+                <li data-i18n="fit.negative.item2">Receita abaixo de R$10M/ano</li>
+                <li data-i18n="fit.negative.item3">Runway menor que 9 meses</li>
+                <li data-i18n="fit.negative.item4">Founder não quer mudar abordagem</li>
+                <li data-i18n="fit.negative.item5">Querem "só estratégia" sem execução</li>
+                <li data-i18n="fit.negative.item6">Esperam resultados mágicos em 30 dias</li>
+            </ul>
+        </div>
     </div>
-    <div class="fit-card negative">
-        <h3 data-i18n="fit.negative.title">✗ Não Trabalhamos Com Empresas Que...</h3>
-        <ul>
-            <li data-i18n="fit.negative.item1">Ainda buscam product-market fit</li>
-            <li data-i18n="fit.negative.item2">Receita abaixo de R$10M/ano</li>
-            <li data-i18n="fit.negative.item3">Runway menor que 9 meses</li>
-            <li data-i18n="fit.negative.item4">Founder não quer mudar abordagem</li>
-            <li data-i18n="fit.negative.item5">Querem "só estratégia" sem execução</li>
-            <li data-i18n="fit.negative.item6">Esperam resultados mágicos em 30 dias</li>
-        </ul>
-    </div>
-</div>
-```
-
 </section>
 
 <!-- CTA Final -->
-
-<section id="contato" class="cta-final">
+<section id="contato" class="cta-section">
     <div class="section-header">
         <h2 data-i18n="cta.title">Próximo <span class="hl">Passo</span></h2>
         <p data-i18n="cta.subtitle">Uma conversa de 30 minutos para entender sua situação</p>
     </div>
 
-```
-<div class="cta-box">
-    <h3 data-i18n="cta.box.title">Diagnóstico Inicial</h3>
-    <p data-i18n="cta.box.text">Conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer.</p>
-    <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa de 30min →</a>
-    <div class="secondary-options">
-        <a href="https://wa.me/5511975341961" target="_blank" class="sec-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            WhatsApp
-        </a>
-        <a href="/cdn-cgi/l/email-protection#ec8f8d9e80839fac8d808d9a8d82878dc28f8381c28e9e" class="sec-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Email
-        </a>
+    <div class="cta-box">
+        <h3 data-i18n="cta.box.title">Diagnóstico Inicial</h3>
+        <p data-i18n="cta.box.text">Conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer.</p>
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa de 30min →</a>
     </div>
-</div>
 
-<div class="contact-info">
-    <p><span>📧</span> <a href="/cdn-cgi/l/email-protection#f69597849a9985b6979a978097989d97d895999bd89484"><span class="__cf_email__" data-cfemail="016260736d6e7241606d6077606f6a602f626e6c2f6373">[email&#160;protected]</span></a></p>
-    <p><span>📱</span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
-    <p><span>💼</span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
-</div>
-```
-
+    <div class="contact-info">
+        <a href="mailto:carlos@alavanka.com.br">📧 carlos@alavanka.com.br</a>
+        <a href="https://wa.me/5511975341961" target="_blank">📱 +55 11 97534-1961</a>
+        <a href="https://linkedin.com/in/carlosandre" target="_blank">💼 LinkedIn</a>
+    </div>
 </section>
 
 <!-- FAQ -->
-
 <section id="faq" class="faq-section">
     <div class="section-header">
         <h2 data-i18n="faq.title">Perguntas <span class="hl">Frequentes</span></h2>
     </div>
 
-```
-<div class="faq-container">
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faq.q1">O que é um Fractional CRO?</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <div class="faq-answer-content">
-                <p data-i18n="faq.a1">Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO <strong>executa</strong>: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados.</p>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q1">O que é um Fractional CRO?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a1">Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO <strong>executa</strong>: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q2">Quanto custa um Fractional CRO no Brasil?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a2">Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês. O modelo fracionário oferece <strong>70-80% do impacto por 30-40% do custo</strong>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q3">Quando devo contratar um Fractional CRO?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a3">Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q4">Qual a diferença entre Fractional CRO e consultoria?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a4">Consultoria entrega PowerPoints. Fractional CRO <strong>executa</strong>: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q5">E se não funcionar?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a5">Temos <strong>kill-switch</strong> no Dia 30 e Dia 90. Se não estiver funcionando, encerramos sem drama. Você não fica preso a contrato longo se os resultados não aparecerem.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faq.q2">Quanto custa um Fractional CRO no Brasil?</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <div class="faq-answer-content">
-                <p data-i18n="faq.a2">Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. O modelo fracionário oferece <strong>70-80% do impacto por 30-40% do custo</strong>.</p>
-            </div>
-        </div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faq.q3">Quando devo contratar um Fractional CRO?</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <div class="faq-answer-content">
-                <p data-i18n="faq.a3">Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot.</p>
-            </div>
-        </div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faq.q4">Qual a diferença entre Fractional CRO e consultoria?</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <div class="faq-answer-content">
-                <p data-i18n="faq.a4">Consultoria entrega PowerPoints. Fractional CRO <strong>executa</strong>: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real.</p>
-            </div>
-        </div>
-    </div>
-    <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-            <span data-i18n="faq.q5">E se não funcionar?</span>
-            <span class="icon">+</span>
-        </button>
-        <div class="faq-answer">
-            <div class="faq-answer-content">
-                <p data-i18n="faq.a5">Temos <strong>kill-switch</strong> no Dia 30 e Dia 90. Se não estiver funcionando, encerramos sem drama. Você não fica preso a contrato longo se os resultados não aparecerem. Parte da compensação é success fee — só ganhamos mais se você crescer.</p>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
 </section>
 
-<!-- ===== INVESTORS JOURNEY - ENHANCED ===== -->
-
+<!-- Investors Section -->
 <section id="investidores" class="investors-section">
+    <div class="inv-hero">
+        <div class="inv-badge" data-i18n="investors.badge">📊 Para GPs, Partners e Investment Teams</div>
+        <h2 data-i18n="investors.title">Sua Portfolio Company Está na <span class="hl-light">Zona de Risco</span>?</h2>
+        <p class="inv-subtitle" data-i18n="investors.subtitle">Empresas B2B Tech travadas no crescimento destroem valor silenciosamente.</p>
+    </div>
 
-```
-<!-- Hero for Investors -->
-<div class="inv-hero">
-    <div class="inv-hero-badge" data-i18n="investors.badge">📊 Para GPs, Partners e Investment Teams</div>
-    <h2 data-i18n="investors.title">Sua Portfolio Company Está na <span class="hl-light">Zona de Risco</span>?</h2>
-    <p class="inv-hero-sub" data-i18n="investors.subtitle">Empresas B2B Tech travadas no crescimento destroem valor silenciosamente. Cada trimestre de estagnação comprime múltiplos e queima runway — enquanto o mercado não espera.</p>
-    
-    <div class="inv-hero-stats">
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat1.number">67%</span>
-            <span class="inv-stat-label" data-i18n="investors.stat1.label">das Série B falham em atingir métricas de follow-on</span>
-        </div>
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat2.number">18 meses</span>
-            <span class="inv-stat-label" data-i18n="investors.stat2.label">tempo médio para perceber que o VP Sales contratado não funciona</span>
-        </div>
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat3.number">4-6h/mês</span>
-            <span class="inv-stat-label" data-i18n="investors.stat3.label">do GP em "modo bombeiro" por empresa problemática</span>
-        </div>
+    <div class="inv-cta">
+        <h3 data-i18n="investors.cta.title">Vamos Conversar Sobre Seu Portfólio</h3>
+        <p data-i18n="investors.cta.text">30 minutos para entender sua situação. Sem pitch, sem pressão.</p>
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="investors.cta.button">Agendar Conversa com Carlos André</a>
     </div>
-</div>
-
-<!-- Red Flags Scorecard -->
-<div class="inv-scorecard">
-    <div class="inv-scorecard-header">
-        <h3 data-i18n="investors.scorecard.title">🚨 Scorecard: Sua Portfolio Company Apresenta Esses Sinais?</h3>
-        <p data-i18n="investors.scorecard.subtitle">Marque quantos se aplicam. 3+ sinais = intervenção urgente recomendada.</p>
-    </div>
-    
-    <div class="inv-scorecard-grid">
-        <div class="inv-flag">
-            <div class="inv-flag-icon">📉</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag1.title">Crescimento Flat 6+ Meses</h4>
-                <p data-i18n="investors.flag1.text">ARR estagnado apesar de produto validado e clientes satisfeitos</p>
-            </div>
-        </div>
-        <div class="inv-flag">
-            <div class="inv-flag-icon">🔥</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag2.title">CEO em Burnout de Vendas</h4>
-                <p data-i18n="investors.flag2.text">Founder gastando 50%+ do tempo apagando incêndio comercial</p>
-            </div>
-        </div>
-        <div class="inv-flag">
-            <div class="inv-flag-icon">📊</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag3.title">Forecast Sempre Errado</h4>
-                <p data-i18n="investors.flag3.text">Previsões erram 25%+ consistentemente, surpresas negativas no quarter</p>
-            </div>
-        </div>
-        <div class="inv-flag">
-            <div class="inv-flag-icon">🚪</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag4.title">Churn de Vendedores Alto</h4>
-                <p data-i18n="investors.flag4.text">Turnover de reps acima de 30%/ano, dificuldade de reter talentos</p>
-            </div>
-        </div>
-        <div class="inv-flag">
-            <div class="inv-flag-icon">⏰</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag5.title">Milestones Escorregando</h4>
-                <p data-i18n="investors.flag5.text">Metas de 6 meses virando 9, depois 12 — sem explicação clara</p>
-            </div>
-        </div>
-        <div class="inv-flag">
-            <div class="inv-flag-icon">💰</div>
-            <div class="inv-flag-content">
-                <h4 data-i18n="investors.flag6.title">Unit Economics Deteriorando</h4>
-                <p data-i18n="investors.flag6.text">CAC subindo, LTV caindo, payback period aumentando</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="inv-scorecard-result">
-        <p data-i18n="investors.scorecard.result"><strong>Resultado:</strong> Se 3+ flags se aplicam, sua portfolio company provavelmente tem um problema de <strong>arquitetura de GTM</strong>, não de produto ou mercado.</p>
-    </div>
-</div>
-
-<!-- The Real Cost -->
-<div class="inv-cost-section">
-    <h3>💸 O Custo Real da Inação</h3>
-    <p class="inv-cost-intro">Cada mês de estagnação tem impacto composto no seu retorno.</p>
-    
-    <div class="inv-cost-grid">
-        <div class="inv-cost-card">
-            <div class="inv-cost-icon">📉</div>
-            <h4>Compressão de Múltiplo</h4>
-            <p>Empresa de R$10M ARR com 0% growth vale <strong>3-4x receita</strong>. Com 30%+ growth, vale <strong>8-12x</strong>. Diferença: <strong>R$40-80M em equity</strong>.</p>
-        </div>
-        <div class="inv-cost-card">
-            <div class="inv-cost-icon">⏱️</div>
-            <h4>Runway Queimando</h4>
-            <p>Cada mês de burn sem crescimento aproxima a empresa de um <strong>down-round forçado</strong> ou <strong>bridge emergencial</strong> que dilui todos.</p>
-        </div>
-        <div class="inv-cost-card">
-            <div class="inv-cost-icon">🎯</div>
-            <h4>Janela de Exit Fechando</h4>
-            <p>Mercado de M&A e IPO não espera. Compradores e public markets premiam <strong>crescimento consistente</strong>, não turnarounds.</p>
-        </div>
-        <div class="inv-cost-card">
-            <div class="inv-cost-icon">⚡</div>
-            <h4>Custo de Oportunidade</h4>
-            <p>Horas do GP em modo crise são horas <strong>não gastas</strong> em empresas que estão performando e precisam de apoio estratégico.</p>
-        </div>
-    </div>
-</div>
-
-<!-- Solution for Funds -->
-<div class="inv-solution">
-    <div class="inv-solution-header">
-        <h3>🎯 A Solução: Fractional CRO para Portfolio Companies</h3>
-        <p>Intervenção cirúrgica de 6 meses com accountability real</p>
-    </div>
-    
-    <div class="inv-solution-comparison">
-        <div class="inv-comp-card bad">
-            <h4>❌ O Que Não Funciona</h4>
-            <ul>
-                <li><strong>Conselho do board:</strong> 2h/mês não muda cadência operacional</li>
-                <li><strong>Consultoria Big 4:</strong> R$500k por slides sem execução</li>
-                <li><strong>Contratar VP às pressas:</strong> 50% de chance de mis-hire, 12-18 meses de ramp</li>
-                <li><strong>Esperar mais um quarter:</strong> Problema se agrava, runway diminui</li>
-            </ul>
-        </div>
-        <div class="inv-comp-card good">
-            <h4>✓ Fractional CRO Funciona Porque</h4>
-            <ul>
-                <li><strong>Execução hands-on:</strong> 2 dias/semana na operação, não em reuniões</li>
-                <li><strong>Skin in the game:</strong> Success fee atrelado a crescimento real</li>
-                <li><strong>Kill-switch:</strong> Dia 30 e 90 — não funcionou, encerramos</li>
-                <li><strong>Track record:</strong> $3M → $240M construído, não aconselhado</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- Model for Funds -->
-<div class="inv-model">
-    <h3>🤝 Modelo de Parceria com Fundos</h3>
-    
-    <div class="inv-model-options">
-        <div class="inv-model-card">
-            <div class="inv-model-badge">Mais Comum</div>
-            <h4>Empresa Individual</h4>
-            <p class="inv-model-desc">Intervenção em uma portfolio company específica</p>
-            <ul>
-                <li>Diagnóstico de 30 dias</li>
-                <li>Transformação de 90 dias</li>
-                <li>Report mensal ao board</li>
-                <li>Handover estruturado</li>
-            </ul>
-            <p class="inv-model-price">Retainer + Success Fee</p>
-        </div>
-        <div class="inv-model-card featured">
-            <div class="inv-model-badge">Maior ROI</div>
-            <h4>Parceria de Portfólio</h4>
-            <p class="inv-model-desc">Acordo para múltiplas empresas do fundo</p>
-            <ul>
-                <li>Diagnóstico rápido em 3-5 empresas</li>
-                <li>Priorização por impacto/urgência</li>
-                <li>Condições preferenciais</li>
-                <li>Playbook replicável no portfólio</li>
-            </ul>
-            <p class="inv-model-price">Volume Discount + Success Fee</p>
-        </div>
-        <div class="inv-model-card">
-            <div class="inv-model-badge">Preventivo</div>
-            <h4>GTM Advisory Retainer</h4>
-            <p class="inv-model-desc">Suporte contínuo para múltiplas empresas</p>
-            <ul>
-                <li>4-8h/mês por empresa</li>
-                <li>Participação em board meetings</li>
-                <li>Early warning system</li>
-                <li>Coaching de founders</li>
-            </ul>
-            <p class="inv-model-price">Retainer Mensal Fixo</p>
-        </div>
-    </div>
-</div>
-
-<!-- What VCs Get -->
-<div class="inv-deliverables">
-    <h3>📋 O Que o Fundo Recebe</h3>
-    <div class="inv-del-grid">
-        <div class="inv-del-item">
-            <span class="inv-del-icon">📊</span>
-            <span>Report mensal com métricas de GTM</span>
-        </div>
-        <div class="inv-del-item">
-            <span class="inv-del-icon">🎯</span>
-            <span>Metas D30/D60/D90 acordadas previamente</span>
-        </div>
-        <div class="inv-del-item">
-            <span class="inv-del-icon">⚠️</span>
-            <span>Early warning de riscos antes do board</span>
-        </div>
-        <div class="inv-del-item">
-            <span class="inv-del-icon">📞</span>
-            <span>Linha direta GP ↔ Fractional CRO</span>
-        </div>
-        <div class="inv-del-item">
-            <span class="inv-del-icon">📝</span>
-            <span>Documentação de processos instalados</span>
-        </div>
-        <div class="inv-del-item">
-            <span class="inv-del-icon">🔄</span>
-            <span>Playbook transferível para outras empresas</span>
-        </div>
-    </div>
-</div>
-
-<!-- CTA for Investors -->
-<div class="inv-cta-section">
-    <div class="inv-cta-box">
-        <div class="inv-cta-content">
-            <h3>Vamos Conversar Sobre Seu Portfólio</h3>
-            <p>30 minutos para entender sua situação e identificar se faz sentido trabalharmos juntos. Sem pitch, sem pressão.</p>
-            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="inv-cta-btn primary">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                Agendar Conversa com Carlos André
-            </a>
-        </div>
-        
-        <div class="inv-cta-divider">
-            <span>ou</span>
-        </div>
-        
-        <div class="inv-cta-guide">
-            <h4>📥 Baixe o Guia Gratuito</h4>
-            <p class="inv-guide-title">"Os 7 Sinais de Alerta de uma Portfolio Company Travada"</p>
-            <ul class="inv-guide-features">
-                <li>Checklist prático para board meetings</li>
-                <li>Benchmarks de mercado B2B Tech</li>
-                <li>Framework de diagnóstico rápido</li>
-            </ul>
-            <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener" class="inv-cta-btn secondary">
-                Baixar Guia (PDF) →
-            </a>
-            <p class="inv-guide-note">Leitura de 8 min • Sem cadastro</p>
-        </div>
-    </div>
-</div>
-
-<!-- Trust Signals for VCs -->
-<div class="inv-trust">
-    <p class="inv-trust-text">
-        <strong>Sobre Carlos André:</strong> Ex-Presidente Oracle Brasil ($48M→$240M), Ex-CEO AT&T LATAM ($3M→$47M). 
-        Mentor Endeavor. Conselheiro IBGC. Harvard & Columbia Business School. 
-        Atende no <strong>máximo 3 empresas</strong> simultaneamente.
-    </p>
-</div>
-```
-
 </section>
 
 </main>
 
 <!-- Footer -->
-
 <footer>
-    <div data-i18n="footer.rights">© 2025 Alavanka. Todos os direitos reservados.</div>
-    <div>
+    <p data-i18n="footer.rights">© 2025 Alavanka. Todos os direitos reservados.</p>
+    <div class="footer-links">
         <a href="https://alavanka.com.br">Fractional CRO</a>
         <a href="https://alavanka.com">Market Entry LATAM</a>
     </div>
 </footer>
 
 <!-- WhatsApp Float -->
-
 <a href="https://wa.me/5511975341961" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-
+<!-- JavaScript -->
+<script>
 // Mobile Menu
 function toggleMenu() {
-document.getElementById(‘hamburger’).classList.toggle(‘active’);
-document.getElementById(‘navLinks’).classList.toggle(‘active’);
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
 }
 
-// Fecha menu ao clicar em link
-document.querySelectorAll(’.nav-links a’).forEach(function(link) {
-link.addEventListener(‘click’, function() {
-document.getElementById(‘hamburger’).classList.remove(‘active’);
-document.getElementById(‘navLinks’).classList.remove(‘active’);
-});
-});
-
-// Fecha menu ao redimensionar para desktop
-window.addEventListener(‘resize’, function() {
-if (window.innerWidth >= 1024) {
-document.getElementById(‘hamburger’).classList.remove(‘active’);
-document.getElementById(‘navLinks’).classList.remove(‘active’);
-}
+// Close menu when clicking links
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
+    });
 });
 
-// Language Toggle - Load from external translations.json
-let currentLang = ‘pt’;
+// Close menu on resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 1024) {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
+    }
+});
+
+// Language Toggle
+let currentLang = 'pt';
 let translations = { pt: {}, en: {} };
 
-// Load translations from external file
-fetch(‘translations.json’)
-.then(response => response.json())
-.then(data => {
-translations = data;
-// Apply saved language preference
-const saved = localStorage.getItem(‘alavanka-lang’);
-if (saved && saved !== currentLang) {
-currentLang = saved;
-applyTranslations();
-}
-})
-.catch(err => console.warn(‘Could not load translations:’, err));
+fetch('translations.json')
+    .then(response => response.json())
+    .then(data => {
+        translations = data;
+        const saved = localStorage.getItem('alavanka-lang');
+        if (saved && saved !== currentLang) {
+            currentLang = saved;
+            applyTranslations();
+        }
+    })
+    .catch(err => console.warn('Could not load translations:', err));
 
 function toggleLang() {
-currentLang = currentLang === ‘pt’ ? ‘en’ : ‘pt’;
-applyTranslations();
-localStorage.setItem(‘alavanka-lang’, currentLang);
+    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+    applyTranslations();
+    localStorage.setItem('alavanka-lang', currentLang);
 }
 
 function applyTranslations() {
-const t = translations[currentLang];
-if (!t) return;
+    const t = translations[currentLang];
+    if (!t) return;
+    
+    const btnText = currentLang === 'pt' ? 'EN' : 'PT';
+    document.getElementById('langToggle').textContent = btnText;
+    document.getElementById('langToggleMobile').textContent = btnText;
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            el.innerHTML = t[key];
+        }
+    });
+}
 
-```
-const btnText = currentLang === 'pt' ? 'EN' : 'PT';
-document.getElementById('langToggle').textContent = btnText;
-document.getElementById('langToggleMobile').textContent = btnText;
-
-document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-        el.innerHTML = t[key];
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('alavanka-lang');
+    if (saved) {
+        currentLang = saved;
+        const btnText = currentLang === 'pt' ? 'EN' : 'PT';
+        document.getElementById('langToggle').textContent = btnText;
+        document.getElementById('langToggleMobile').textContent = btnText;
     }
-});
-```
-
-}
-
-document.addEventListener(‘DOMContentLoaded’, () => {
-const saved = localStorage.getItem(‘alavanka-lang’);
-if (saved) {
-currentLang = saved;
-const btnText = currentLang === ‘pt’ ? ‘EN’ : ‘PT’;
-document.getElementById(‘langToggle’).textContent = btnText;
-document.getElementById(‘langToggleMobile’).textContent = btnText;
-}
 });
 
 // Audience Selector
 function setAudience(audience) {
-document.querySelectorAll(’.audience-btn’).forEach(btn => {
-btn.classList.toggle(‘active’, btn.dataset.audience === audience);
-});
-if (audience === ‘investor’) {
-const el = document.getElementById(‘investidores’);
-if (el) setTimeout(() => el.scrollIntoView({ behavior: ‘smooth’, block: ‘start’ }), 100);
-}
+    document.querySelectorAll('.audience-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.audience === audience);
+    });
+    if (audience === 'investor') {
+        const el = document.getElementById('investidores');
+        if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    }
 }
 
 // FAQ Toggle
 function toggleFaq(button) {
-const item = button.parentElement;
-const wasActive = item.classList.contains(‘active’);
-document.querySelectorAll(’.faq-item’).forEach(i => i.classList.remove(‘active’));
-if (!wasActive) item.classList.add(‘active’);
+    const item = button.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
 }
 
 // Smooth Scroll
-document.querySelectorAll(‘a[href^=”#”]’).forEach(anchor => {
-anchor.addEventListener(‘click’, function(e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute(‘href’));
-if (target) {
-const offset = 130;
-const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
-window.scrollTo({ top: pos, behavior: ‘smooth’ });
-}
-});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 130;
+            const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+    });
 });
 
 // Intersection Observer for animations
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add(‘animate-in’);
-observer.unobserve(entry.target);
-}
-});
-}, { threshold: 0.1, rootMargin: ‘0px 0px -50px 0px’ });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll(’.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item’).forEach(el => observer.observe(el));
+document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item').forEach(el => observer.observe(el));
 </script>
 
-<!-- Third-party scripts - deferred for better TBT -->
-
+<!-- Third-party scripts -->
 <script>
 function loadThirdPartyScripts() {
-    // LinkedIn Insight Tag
     window._linkedin_partner_id = "9076865";
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
@@ -1235,6 +1185,21 @@ function loadThirdPartyScripts() {
     s.parentNode.insertBefore(b, s);
 }
 
-// Load after page is interactive
 if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadThirdPartyScripts
+    requestIdleCallback(loadThirdPartyScripts, { timeout: 3000 });
+} else {
+    setTimeout(loadThirdPartyScripts, 2000);
+}
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
+</noscript>
+
+<!-- Vercel Speed Insights -->
+<script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+
+</body>
+</html>
