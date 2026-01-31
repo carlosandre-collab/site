@@ -569,21 +569,6 @@
     color:rgba(255,255,255,0.5);
 }
 
-.footer-investors-section{
-    margin-top:1.5rem;
-    padding-top:1rem;
-    border-top:1px solid rgba(255,255,255,0.1);
-}
-
-.footer-investors-link{
-    color:var(--accent-light);
-    text-decoration:none;
-    font-size:0.9rem;
-    transition:color 0.2s;
-}
-
-.footer-investors-link:hover{color:#fff}
-
 @media (max-width:900px){
     .investors-content{
         grid-template-columns:1fr;
@@ -979,15 +964,57 @@
 
 /* ===== FOOTER ===== */
 footer{
-    background:#fff;
-    border-top:1px solid var(--border);
-    padding:28px 20px;
+    background-color:var(--bg-dark,#12121A);
+    color:#fff;
+    padding:40px 20px;
     text-align:center;
+    font-size:0.9rem;
 }
-footer>div:first-child{font-size:13px;color:var(--text-muted);margin-bottom:14px}
-footer>div:last-child{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
-footer a{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600;transition:color 0.2s}
-footer a:hover{color:var(--accent-dark)}
+footer .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin:0 auto;
+}
+footer p{
+    margin:5px 0;
+    color:rgba(255,255,255,0.6);
+    font-size:14px;
+}
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-top:16px;
+}
+.footer-links a{
+    color:rgba(255,255,255,0.8);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:color 0.2s;
+}
+.footer-links a:hover{
+    color:var(--accent-light,#8B7EF0);
+}
+.footer-investors-section{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+.footer-investors-link{
+    color:var(--accent-light,#8B7EF0);
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:600;
+    transition:all 0.2s;
+}
+.footer-investors-link:hover{
+    color:#fff;
+}
 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float{
