@@ -102,8 +102,8 @@
     color:#fff;
     box-shadow:0 8px 32px rgba(239,68,68,0.3);
 }
-.urgency-box h4{font-size:17px;font-weight:700;margin-bottom:8px}
-.urgency-box p{font-size:14px;opacity:0.95;line-height:1.7;margin:0}
+.urgency-box h4{font-size:17px;font-weight:700;margin-bottom:8px;color:#fff}
+.urgency-box p{font-size:14px;opacity:0.95;line-height:1.7;margin:0;color:#fff}
 
 /* ===== SOLUTION SECTION ===== */
 .solution-section{background:var(--bg)}
@@ -476,7 +476,7 @@
     overflow:hidden;
     transition:max-height 0.4s ease;
 }
-.faq-item.active .faq-answer{max-height:400px}
+.faq-item.active .faq-answer{/* max-height set by JS for accurate fit */}
 .faq-answer-content{
     padding:0 20px 20px;
     font-size:14px;
@@ -490,7 +490,7 @@
 .investors-section{
     background:linear-gradient(180deg,#0F0F1A 0%,#12121A 50%,#0D0D14 100%);
     color:#fff;
-    padding:80px 10% !important;
+    padding:80px 10%;
 }
 
 .investors-section .section-header{margin-bottom:3rem}
@@ -498,83 +498,8 @@
 .investors-section .section-header h2 .hl{color:var(--accent-light)}
 .investors-section .section-header p{color:rgba(255,255,255,0.7)}
 
-.investors-content{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:3rem;
-    align-items:center;
-    max-width:1000px;
-    margin:0 auto;
-}
-
-.investors-text p{
-    font-size:1.1rem;
-    color:rgba(255,255,255,0.85);
-    line-height:1.8;
-    margin-bottom:1.5rem;
-}
-
-.investors-benefits{
-    list-style:none;
-    padding:0;
-    margin:0;
-}
-
-.investors-benefits li{
-    padding:0.75rem 0;
-    padding-left:2rem;
-    position:relative;
-    color:rgba(255,255,255,0.8);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.investors-benefits li::before{
-    content:'✓';
-    position:absolute;
-    left:0;
-    color:var(--accent-light);
-    font-weight:700;
-}
-
-.investors-benefits li:last-child{border-bottom:none}
-
-.investors-cta-box{
-    background:linear-gradient(135deg,rgba(107,92,231,0.15),rgba(107,92,231,0.05));
-    border:1px solid rgba(107,92,231,0.3);
-    border-radius:16px;
-    padding:2.5rem;
-    text-align:center;
-}
-
-.investors-cta-box h3{
-    font-size:1.5rem;
-    color:#fff;
-    margin-bottom:0.75rem;
-}
-
-.investors-cta-box .subtitle{
-    color:rgba(255,255,255,0.7);
-    font-size:1rem;
-    margin-bottom:1.5rem;
-}
-
-.investors-cta-box .btn-primary{
-    display:inline-block;
-    text-decoration:none;
-    margin-bottom:1rem;
-}
-
-.investors-cta-box .reading-time{
-    font-size:0.85rem;
-    color:rgba(255,255,255,0.5);
-}
-
 @media (max-width:900px){
-    .investors-content{
-        grid-template-columns:1fr;
-        gap:2rem;
-    }
-    .investors-cta-box{padding:2rem}
+    .investors-section{padding:60px 5%}
 }
 
 /* Investor Hero */
@@ -970,53 +895,27 @@ footer{
     text-align:center;
     font-size:0.9rem;
 }
-footer .container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    max-width:1200px;
-    margin:0 auto;
-}
 footer p{
     margin:5px 0;
     color:rgba(255,255,255,0.6);
     font-size:14px;
 }
-.footer-links{
-    display:flex;
-    justify-content:center;
-    gap:24px;
-    flex-wrap:wrap;
-    margin-top:16px;
-}
-.footer-links a{
-    color:rgba(255,255,255,0.8);
+footer a{
+    color:var(--accent-light,#8B7EF0);
     text-decoration:none;
-    font-size:14px;
+    margin:0 12px;
     font-weight:500;
     transition:color 0.2s;
 }
-.footer-links a:hover{
-    color:var(--accent-light,#8B7EF0);
-}
-.footer-investors-section{
-    margin-top:20px;
-    padding-top:20px;
-    border-top:1px solid rgba(255,255,255,0.1);
-}
-.footer-investors-link{
-    color:var(--accent-light,#8B7EF0);
-    text-decoration:none;
-    font-size:0.9rem;
-    font-weight:600;
-    transition:all 0.2s;
-}
-.footer-investors-link:hover{
-    color:#fff;
+footer a:hover{
+    text-decoration:underline;
 }
 
 /* ===== WHATSAPP FLOAT ===== */
+/* Scroll-reveal animation for observed elements */
+[data-observe]{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+[data-observe].animate-in{opacity:1;transform:translateY(0)}
+
 .whatsapp-float{
     position:fixed;
     bottom:20px;right:20px;
