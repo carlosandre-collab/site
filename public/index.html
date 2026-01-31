@@ -1020,30 +1020,260 @@ section{padding:56px 20px}
 
 <!-- Investors Section -->
 <section id="investidores" class="investors-section">
-    <div class="section-header">
-        <h2 data-i18n="investors.title">Para <span class="hl">Fundos de Investimento</span></h2>
-        <p data-i18n="investors.subtitle">Sua portfolio company está travada no crescimento?</p>
-    </div>
     
-    <div class="investors-content">
-        <div class="investors-text">
-            <p data-i18n="investors.description">Criamos um guia prático para ajudar GPs e Partners a identificar os 7 sinais mais comuns de problemas de GTM em empresas B2B Tech — antes que virem crise.</p>
-            
-            <ul class="investors-benefits">
-                <li data-i18n="investors.benefit1">Os 7 padrões mais comuns de estagnação em B2B Tech</li>
-                <li data-i18n="investors.benefit2">Red flags para identificar em board meetings</li>
-                <li data-i18n="investors.benefit3">Scorecard prático para avaliação rápida de GTM</li>
-                <li data-i18n="investors.benefit4">O custo real de cada mês de inação</li>
-            </ul>
+    <!-- Hero for Investors -->
+    <div class="inv-hero">
+        <div class="inv-hero-badge" data-i18n="investors.badge">📊 Para GPs, Partners e Investment Teams</div>
+        <h2 data-i18n="investors.title">Sua Portfolio Company Está na <span class="hl-light">Zona de Risco</span>?</h2>
+        <p class="inv-hero-sub" data-i18n="investors.subtitle">Empresas B2B Tech travadas no crescimento destroem valor silenciosamente. Cada trimestre de estagnação comprime múltiplos e queima runway — enquanto o mercado não espera.</p>
+        
+        <div class="inv-hero-stats">
+            <div class="inv-stat">
+                <span class="inv-stat-number" data-i18n="investors.stat1.number">67%</span>
+                <span class="inv-stat-label" data-i18n="investors.stat1.label">das Série B falham em atingir métricas de follow-on</span>
+            </div>
+            <div class="inv-stat">
+                <span class="inv-stat-number" data-i18n="investors.stat2.number">18 meses</span>
+                <span class="inv-stat-label" data-i18n="investors.stat2.label">tempo médio para perceber que o VP Sales contratado não funciona</span>
+            </div>
+            <div class="inv-stat">
+                <span class="inv-stat-number" data-i18n="investors.stat3.number">4-6h/mês</span>
+                <span class="inv-stat-label" data-i18n="investors.stat3.label">do GP em "modo bombeiro" por empresa problemática</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Red Flags Scorecard -->
+    <div class="inv-scorecard">
+        <div class="inv-scorecard-header">
+            <h3 data-i18n="investors.scorecard.title">🚨 Scorecard: Sua Portfolio Company Apresenta Esses Sinais?</h3>
+            <p data-i18n="investors.scorecard.subtitle">Marque quantos se aplicam. 3+ sinais = intervenção urgente recomendada.</p>
         </div>
         
-        <div class="investors-cta-box">
-            <h3 data-i18n="investors.cta.title">Guia Gratuito</h3>
-            <p class="subtitle" data-i18n="investors.cta.subtitle">Os 7 Sinais de Alerta de uma Portfolio Company Travada no Crescimento</p>
-            <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="investors.cta.button">Baixar Guia Gratuito →</a>
-            <p class="reading-time" data-i18n="investors.cta.time">Leitura de 8 minutos. Baseado em 25+ anos de experiência.</p>
+        <div class="inv-scorecard-grid">
+            <div class="inv-flag">
+                <div class="inv-flag-icon">📉</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag1.title">Crescimento Flat 6+ Meses</h4>
+                    <p data-i18n="investors.flag1.text">ARR estagnado apesar de produto validado e clientes satisfeitos</p>
+                </div>
+            </div>
+            <div class="inv-flag">
+                <div class="inv-flag-icon">🔥</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag2.title">CEO em Burnout de Vendas</h4>
+                    <p data-i18n="investors.flag2.text">Founder gastando 50%+ do tempo apagando incêndio comercial</p>
+                </div>
+            </div>
+            <div class="inv-flag">
+                <div class="inv-flag-icon">📊</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag3.title">Forecast Sempre Errado</h4>
+                    <p data-i18n="investors.flag3.text">Previsões erram 25%+ consistentemente, surpresas negativas no quarter</p>
+                </div>
+            </div>
+            <div class="inv-flag">
+                <div class="inv-flag-icon">🚪</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag4.title">Churn de Vendedores Alto</h4>
+                    <p data-i18n="investors.flag4.text">Turnover de reps acima de 30%/ano, dificuldade de reter talentos</p>
+                </div>
+            </div>
+            <div class="inv-flag">
+                <div class="inv-flag-icon">⏰</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag5.title">Milestones Escorregando</h4>
+                    <p data-i18n="investors.flag5.text">Metas de 6 meses virando 9, depois 12 — sem explicação clara</p>
+                </div>
+            </div>
+            <div class="inv-flag">
+                <div class="inv-flag-icon">💰</div>
+                <div class="inv-flag-content">
+                    <h4 data-i18n="investors.flag6.title">Unit Economics Deteriorando</h4>
+                    <p data-i18n="investors.flag6.text">CAC subindo, LTV caindo, payback period aumentando</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="inv-scorecard-result">
+            <p data-i18n="investors.scorecard.result"><strong>Resultado:</strong> Se 3+ flags se aplicam, sua portfolio company provavelmente tem um problema de <strong>arquitetura de GTM</strong>, não de produto ou mercado.</p>
         </div>
     </div>
+
+    <!-- The Real Cost -->
+    <div class="inv-cost-section">
+        <h3 data-i18n="investors.cost.title">💸 O Custo Real da Inação</h3>
+        <p class="inv-cost-intro" data-i18n="investors.cost.intro">Cada mês de estagnação tem impacto composto no seu retorno.</p>
+        
+        <div class="inv-cost-grid">
+            <div class="inv-cost-card">
+                <div class="inv-cost-icon">📉</div>
+                <h4 data-i18n="investors.cost1.title">Compressão de Múltiplo</h4>
+                <p data-i18n="investors.cost1.text">Empresa de R$10M ARR com 0% growth vale <strong>3-4x receita</strong>. Com 30%+ growth, vale <strong>8-12x</strong>. Diferença: <strong>R$40-80M em equity</strong>.</p>
+            </div>
+            <div class="inv-cost-card">
+                <div class="inv-cost-icon">⏱️</div>
+                <h4 data-i18n="investors.cost2.title">Runway Queimando</h4>
+                <p data-i18n="investors.cost2.text">Cada mês de burn sem crescimento aproxima a empresa de um <strong>down-round forçado</strong> ou <strong>bridge emergencial</strong> que dilui todos.</p>
+            </div>
+            <div class="inv-cost-card">
+                <div class="inv-cost-icon">🎯</div>
+                <h4 data-i18n="investors.cost3.title">Janela de Exit Fechando</h4>
+                <p data-i18n="investors.cost3.text">Mercado de M&A e IPO não espera. Compradores e public markets premiam <strong>crescimento consistente</strong>, não turnarounds.</p>
+            </div>
+            <div class="inv-cost-card">
+                <div class="inv-cost-icon">⚡</div>
+                <h4 data-i18n="investors.cost4.title">Custo de Oportunidade</h4>
+                <p data-i18n="investors.cost4.text">Horas do GP em modo crise são horas <strong>não gastas</strong> em empresas que estão performando e precisam de apoio estratégico.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution for Funds -->
+    <div class="inv-solution">
+        <div class="inv-solution-header">
+            <h3 data-i18n="investors.solution.title">🎯 A Solução: Fractional CRO para Portfolio Companies</h3>
+            <p data-i18n="investors.solution.subtitle">Intervenção cirúrgica de 6 meses com accountability real</p>
+        </div>
+        
+        <div class="inv-solution-comparison">
+            <div class="inv-comp-card bad">
+                <h4 data-i18n="investors.notworks.title">❌ O Que Não Funciona</h4>
+                <ul>
+                    <li data-i18n="investors.notworks.item1"><strong>Conselho do board:</strong> 2h/mês não muda cadência operacional</li>
+                    <li data-i18n="investors.notworks.item2"><strong>Consultoria Big 4:</strong> R$500k por slides sem execução</li>
+                    <li data-i18n="investors.notworks.item3"><strong>Contratar VP às pressas:</strong> 50% de chance de mis-hire, 12-18 meses de ramp</li>
+                    <li data-i18n="investors.notworks.item4"><strong>Esperar mais um quarter:</strong> Problema se agrava, runway diminui</li>
+                </ul>
+            </div>
+            <div class="inv-comp-card good">
+                <h4 data-i18n="investors.works.title">✓ Fractional CRO Funciona Porque</h4>
+                <ul>
+                    <li data-i18n="investors.works.item1"><strong>Execução hands-on:</strong> 2 dias/semana na operação, não em reuniões</li>
+                    <li data-i18n="investors.works.item2"><strong>Skin in the game:</strong> Success fee atrelado a crescimento real</li>
+                    <li data-i18n="investors.works.item3"><strong>Kill-switch:</strong> Dia 30 e 90 — não funcionou, encerramos</li>
+                    <li data-i18n="investors.works.item4"><strong>Track record:</strong> $3M → $240M construído, não aconselhado</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model for Funds -->
+    <div class="inv-model">
+        <h3 data-i18n="investors.model.title">🤝 Modelo de Parceria com Fundos</h3>
+        
+        <div class="inv-model-options">
+            <div class="inv-model-card">
+                <div class="inv-model-badge" data-i18n="investors.model1.badge">Mais Comum</div>
+                <h4 data-i18n="investors.model1.title">Empresa Individual</h4>
+                <p class="inv-model-desc" data-i18n="investors.model1.desc">Intervenção em uma portfolio company específica</p>
+                <ul>
+                    <li data-i18n="investors.model1.item1">Diagnóstico de 30 dias</li>
+                    <li data-i18n="investors.model1.item2">Transformação de 90 dias</li>
+                    <li data-i18n="investors.model1.item3">Report mensal ao board</li>
+                    <li data-i18n="investors.model1.item4">Handover estruturado</li>
+                </ul>
+                <p class="inv-model-price" data-i18n="investors.model1.price">Retainer + Success Fee</p>
+            </div>
+            <div class="inv-model-card featured">
+                <div class="inv-model-badge" data-i18n="investors.model2.badge">Maior ROI</div>
+                <h4 data-i18n="investors.model2.title">Parceria de Portfólio</h4>
+                <p class="inv-model-desc" data-i18n="investors.model2.desc">Acordo para múltiplas empresas do fundo</p>
+                <ul>
+                    <li data-i18n="investors.model2.item1">Diagnóstico rápido em 3-5 empresas</li>
+                    <li data-i18n="investors.model2.item2">Priorização por impacto/urgência</li>
+                    <li data-i18n="investors.model2.item3">Condições preferenciais</li>
+                    <li data-i18n="investors.model2.item4">Playbook replicável no portfólio</li>
+                </ul>
+                <p class="inv-model-price" data-i18n="investors.model2.price">Volume Discount + Success Fee</p>
+            </div>
+            <div class="inv-model-card">
+                <div class="inv-model-badge" data-i18n="investors.model3.badge">Preventivo</div>
+                <h4 data-i18n="investors.model3.title">GTM Advisory Retainer</h4>
+                <p class="inv-model-desc" data-i18n="investors.model3.desc">Suporte contínuo para múltiplas empresas</p>
+                <ul>
+                    <li data-i18n="investors.model3.item1">4-8h/mês por empresa</li>
+                    <li data-i18n="investors.model3.item2">Participação em board meetings</li>
+                    <li data-i18n="investors.model3.item3">Early warning system</li>
+                    <li data-i18n="investors.model3.item4">Coaching de founders</li>
+                </ul>
+                <p class="inv-model-price" data-i18n="investors.model3.price">Retainer Mensal Fixo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What VCs Get -->
+    <div class="inv-deliverables">
+        <h3 data-i18n="investors.deliverables.title">📋 O Que o Fundo Recebe</h3>
+        <div class="inv-del-grid">
+            <div class="inv-del-item">
+                <span class="inv-del-icon">📊</span>
+                <span data-i18n="investors.del1">Report mensal com métricas de GTM</span>
+            </div>
+            <div class="inv-del-item">
+                <span class="inv-del-icon">🎯</span>
+                <span data-i18n="investors.del2">Metas D30/D60/D90 acordadas previamente</span>
+            </div>
+            <div class="inv-del-item">
+                <span class="inv-del-icon">⚠️</span>
+                <span data-i18n="investors.del3">Early warning de riscos antes do board</span>
+            </div>
+            <div class="inv-del-item">
+                <span class="inv-del-icon">📞</span>
+                <span data-i18n="investors.del4">Linha direta GP ↔ Fractional CRO</span>
+            </div>
+            <div class="inv-del-item">
+                <span class="inv-del-icon">📝</span>
+                <span data-i18n="investors.del5">Documentação de processos instalados</span>
+            </div>
+            <div class="inv-del-item">
+                <span class="inv-del-icon">🔄</span>
+                <span data-i18n="investors.del6">Playbook transferível para outras empresas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA for Investors -->
+    <div class="inv-cta-section">
+        <div class="inv-cta-box">
+            <div class="inv-cta-content">
+                <h3 data-i18n="investors.cta.title">Vamos Conversar Sobre Seu Portfólio</h3>
+                <p data-i18n="investors.cta.text">30 minutos para entender sua situação e identificar se faz sentido trabalharmos juntos. Sem pitch, sem pressão.</p>
+                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="inv-cta-btn primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    <span data-i18n="investors.cta.button">Agendar Conversa com Carlos André</span>
+                </a>
+            </div>
+            
+            <div class="inv-cta-divider">
+                <span data-i18n="investors.cta.or">ou</span>
+            </div>
+            
+            <div class="inv-cta-guide">
+                <h4 data-i18n="investors.guide.title">📥 Baixe o Guia Gratuito</h4>
+                <p class="inv-guide-title" data-i18n="investors.guide.name">"Os 7 Sinais de Alerta de uma Portfolio Company Travada"</p>
+                <ul class="inv-guide-features">
+                    <li data-i18n="investors.guide.feature1">Checklist prático para board meetings</li>
+                    <li data-i18n="investors.guide.feature2">Benchmarks de mercado B2B Tech</li>
+                    <li data-i18n="investors.guide.feature3">Framework de diagnóstico rápido</li>
+                </ul>
+                <a href="https://guia.alavanka.com.br" target="_blank" rel="noopener" class="inv-cta-btn secondary">
+                    <span data-i18n="investors.guide.button">Baixar Guia (PDF) →</span>
+                </a>
+                <p class="inv-guide-note" data-i18n="investors.guide.note">Leitura de 8 min • Sem cadastro</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Signals for VCs -->
+    <div class="inv-trust">
+        <p class="inv-trust-text" data-i18n="investors.trust">
+            <strong>Sobre Carlos André:</strong> Ex-Presidente Oracle Brasil ($48M→$240M), Ex-CEO AT&T LATAM ($3M→$47M). 
+            Mentor Endeavor. Conselheiro IBGC. Harvard & Columbia Business School. 
+            Atende no <strong>máximo 3 empresas</strong> simultaneamente.
+        </p>
+    </div>
+
 </section>
 
 </main>
