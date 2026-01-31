@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Alavanka — Insights sobre GTM e Revenue Operations</title>
-    <meta name="description" content="Artigos sobre Go-to-Market, Revenue Operations e crescimento para empresas B2B Tech. Insights práticos de quem construiu operações de $3M a $240M.">
+    <title>Blog | Alavanka â€” Insights sobre GTM e Revenue Operations</title>
+    <meta name="description" content="Artigos sobre Go-to-Market, Revenue Operations e crescimento para empresas B2B Tech. Insights prÃ¡ticos de quem construiu operaÃ§Ãµes de $3M a $240M.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/blog-article.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -440,16 +441,16 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+    <a href="#main-content" class="skip-link">Pular para o conteÃºdo</a>
 
     <div class="redirect-banner" id="redirectBanner">
-        <span>🌎 Looking to expand your company into Latin America?</span>
-        <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com →</a>
-        <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Fechar banner">×</button>
+        <span>ðŸŒŽ Looking to expand your company into Latin America?</span>
+        <a href="https://alavanka.com" target="_blank" rel="noopener noreferrer">Visit Alavanka.com â†’</a>
+        <button class="close-banner" onclick="document.getElementById('redirectBanner').style.display='none'" aria-label="Fechar banner">Ã—</button>
     </div>
 
-    <nav role="navigation" aria-label="Navegação principal">
-        <a href="index.html" class="logo" aria-label="Alavanka - Página inicial">
+    <nav role="navigation" aria-label="NavegaÃ§Ã£o principal">
+        <a href="index.html" class="logo" aria-label="Alavanka - PÃ¡gina inicial">
             <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40">
         </a>
         
@@ -466,8 +467,8 @@
                     </svg>
                 </a>
                 <a href="index.html#problema" data-i18n="nav.problem">O Problema</a>
-                <a href="index.html#solucao" data-i18n="nav.solution">A Solução</a>
-                <a href="index.html#porque" data-i18n="nav.why">Por Que Nós</a>
+                <a href="index.html#solucao" data-i18n="nav.solution">A SoluÃ§Ã£o</a>
+                <a href="index.html#porque" data-i18n="nav.why">Por Que NÃ³s</a>
                 <a href="index.html#processo" data-i18n="nav.process">Como Funciona</a>
                 <a href="guia-fractional-cro-brasil.html" data-i18n="nav.playbook">Playbook</a>
                 <a href="blog.html" class="active" data-i18n="nav.blog">Blog</a>
@@ -482,7 +483,7 @@
     <main id="main-content">
         <section class="blog-header">
             <h1 id="blogTitle">Insights de <span>GTM & Revenue</span></h1>
-            <p id="blogSubtitle">Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.</p>
+            <p id="blogSubtitle">Artigos prÃ¡ticos sobre Go-to-Market, operaÃ§Ãµes de receita e crescimento para B2B Tech â€” de quem construiu operaÃ§Ãµes de $3M a $240M.</p>
         </section>
 
         <div class="blog-container">
@@ -498,7 +499,7 @@
             <a href="index.html#contato">Contato</a>
             <a href="https://www.linkedin.com/company/alavankacro" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
+        <p class="footer-copy">Â© 2025 Alavanka. Todos os direitos reservados.</p>
     </footer>
 
     <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
@@ -522,9 +523,9 @@
             star: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>'
         };
 
-        // Navegação traduções
+        // NavegaÃ§Ã£o traduÃ§Ãµes
         const navTranslations = {
-            pt: { problem: 'O Problema', solution: 'A Solução', why: 'Por Que Nós', process: 'Como Funciona', contact: 'Contato' },
+            pt: { problem: 'O Problema', solution: 'A SoluÃ§Ã£o', why: 'Por Que NÃ³s', process: 'Como Funciona', contact: 'Contato' },
             en: { problem: 'The Problem', solution: 'The Solution', why: 'Why Us', process: 'How It Works', contact: 'Contact' }
         };
 
@@ -546,7 +547,7 @@
             const lang = currentLang;
             const isFeatured = article.featured;
             
-            // Slug - usa slug específico do idioma se existir, senão usa o padrão
+            // Slug - usa slug especÃ­fico do idioma se existir, senÃ£o usa o padrÃ£o
             const slug = (article.slugs && article.slugs[lang]) ? article.slugs[lang] : article.slug;
             
             // Thumbnail
@@ -613,7 +614,7 @@
             document.getElementById('langToggleMobile').textContent = newLabel;
             document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 
-            // Atualizar navegação
+            // Atualizar navegaÃ§Ã£o
             const nav = navTranslations[currentLang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n').replace('nav.', '');
