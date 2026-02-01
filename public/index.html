@@ -28,8 +28,8 @@
     <link rel="preload" href="assets/images/brand/logo-preto.png" as="image" fetchpriority="high">
     
     <!-- Fonts - optimized loading -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- CRITICAL CSS (Above the fold: Nav, Hero, Qualifier) -->
     <style>
@@ -40,16 +40,21 @@
 html{scroll-behavior:smooth}
 
 :root{
-    --accent:#6B5CE7;
-    --accent-dark:#5245C7;
-    --accent-light:#8B7EF0;
-    --accent-glow:rgba(107,92,231,0.25);
-    --accent-bg:rgba(107,92,231,0.06);
+    --accent:#1B3A5C;
+    --accent-dark:#142D48;
+    --accent-light:#2D5F8A;
+    --accent-glow:rgba(27,58,92,0.25);
+    --accent-bg:rgba(27,58,92,0.06);
+    --warm:#C8965A;
+    --warm-dark:#B07D42;
+    --warm-light:#D4A96F;
+    --warm-glow:rgba(200,150,90,0.25);
+    --warm-bg:rgba(200,150,90,0.08);
     --bg:#FAFBFD;
     --bg-card:#FFFFFF;
-    --bg-dark:#12121A;
-    --text:#12121A;
-    --text-secondary:#5A5A72;
+    --bg-dark:#0D1B2A;
+    --text:#0D1B2A;
+    --text-secondary:#4A5568;
     --text-muted:#8C8CA1;
     --text-inverse:#FFFFFF;
     --success:#10B981;
@@ -58,11 +63,11 @@ html{scroll-behavior:smooth}
     --danger-bg:rgba(239,68,68,0.08);
     --warning:#F59E0B;
     --border:#E5E7EB;
-    --border-accent:rgba(107,92,231,0.2);
+    --border-accent:rgba(27,58,92,0.2);
     --shadow-sm:0 1px 2px rgba(0,0,0,0.04);
     --shadow-md:0 4px 16px rgba(0,0,0,0.08);
     --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
-    --shadow-glow:0 8px 32px rgba(107,92,231,0.3);
+    --shadow-glow:0 8px 32px rgba(200,150,90,0.3);
     --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
 }
 
@@ -72,7 +77,8 @@ body{
     color:var(--text);background:var(--bg);
     -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em}
+h1,h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.15;letter-spacing:-0.01em}
+h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em}
 
 /* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -82,7 +88,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1
 /* Audience Bar */
 .audience-bar{
     position:fixed;top:0;left:0;right:0;height:44px;
-    background:linear-gradient(90deg,var(--bg-dark) 0%,#1E1E2A 100%);
+    background:linear-gradient(90deg,var(--bg-dark) 0%,#162636 100%);
     display:flex;align-items:center;justify-content:center;gap:8px;z-index:1100;padding:0 16px;
 }
 .audience-label{color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;margin-right:4px}
@@ -92,7 +98,7 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1
     font-family:inherit;cursor:pointer;transition:all 0.2s;
 }
 .audience-btn:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.25)}
-.audience-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.audience-btn.active{background:var(--warm);border-color:var(--warm);color:#fff}
 .audience-btn span{margin-right:6px}
 
 /* Navigation */
@@ -109,7 +115,7 @@ body{padding-top:108px}
     display:flex;flex-direction:column;gap:6px;padding:12px;
     background:none;border:none;cursor:pointer;z-index:9999;
 }
-.hamburger span{display:block;width:22px;height:2px;background:#1a1a2e;border-radius:2px;transition:0.25s}
+.hamburger span{display:block;width:22px;height:2px;background:#0D1B2A;border-radius:2px;transition:0.25s}
 .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
 .hamburger.active span:nth-child(2){opacity:0}
 .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
@@ -134,7 +140,7 @@ body{padding-top:108px}
 .nav-links a{
     display:block;
     padding:16px 24px;
-    color:#1a1a2e;
+    color:#0D1B2A;
     text-decoration:none;
     font-size:16px;
     font-weight:500;
@@ -143,8 +149,8 @@ body{padding-top:108px}
 }
 .nav-links a:active,
 .nav-links a:hover{
-    background:#f5f3ff;
-    color:#6B5CE7;
+    background:#f0f4f8;
+    color:#1B3A5C;
 }
 
 .nav-links .lang-toggle{
@@ -183,10 +189,10 @@ body{padding-top:108px}
     align-items:center;justify-content:center;text-align:center;
     padding:32px 20px 48px;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);position:relative;
 }
-.hero::before{content:'';position:absolute;top:0;right:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(107,92,231,0.06) 0%,transparent 70%);pointer-events:none}
+.hero::before{content:'';position:absolute;top:0;right:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(27,58,92,0.06) 0%,transparent 70%);pointer-events:none}
 .hero-badge{
     display:inline-flex;align-items:center;gap:12px;padding:10px 20px;
-    background:linear-gradient(135deg,rgba(107,92,231,0.08),rgba(107,92,231,0.03));
+    background:linear-gradient(135deg,rgba(27,58,92,0.08),rgba(200,150,90,0.05));
     border:1px solid var(--border-accent);border-radius:var(--r-full);margin-bottom:24px;
 }
 .hero-badge .stat{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--accent);font-weight:600}
@@ -203,21 +209,21 @@ body{padding-top:108px}
 .track-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 8px;text-align:center;transition:all 0.3s}
 .track-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .track-card .company{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
-.track-card .growth{font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,4vw,17px);font-weight:700;color:var(--accent)}
+.track-card .growth{font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,4vw,17px);font-weight:700;color:var(--warm)}
 .track-card .growth small{display:block;font-size:10px;font-weight:600;color:var(--success);margin-top:4px}
 
 /* Hero CTA */
 .hero-cta{display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px}
 .btn-hero{
     display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-    padding:16px 24px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));
+    padding:16px 24px;background:linear-gradient(135deg,var(--warm),var(--warm-dark));
     color:#fff;border:none;border-radius:var(--r-md);font-family:inherit;
     font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;
-    box-shadow:var(--shadow-glow);transition:all 0.3s;position:relative;overflow:hidden;
+    box-shadow:0 8px 32px rgba(200,150,90,0.35);transition:all 0.3s;position:relative;overflow:hidden;
 }
 .btn-hero::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:0.5s}
 .btn-hero:hover::before{left:100%}
-.btn-hero:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(107,92,231,0.4)}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,150,90,0.45)}
 .btn-hero svg{width:20px;height:20px;flex-shrink:0}
 .hero-cta-note{margin-top:12px;font-size:13px;color:var(--text-muted)}
 .hero-cta-note strong{color:var(--warning)}
@@ -233,7 +239,7 @@ body{padding-top:108px}
 .qualifier h2{font-size:clamp(20px,5vw,26px);color:var(--text-inverse);margin-bottom:20px}
 .qualifier-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
 .qualifier-tag{padding:8px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-full);font-size:13px;font-weight:500;color:rgba(255,255,255,0.85)}
-.qualifier-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:#fff;color:var(--bg-dark);border-radius:var(--r-md);font-weight:700;text-decoration:none;transition:0.3s}
+.qualifier-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:var(--warm);color:#fff;border-radius:var(--r-md);font-weight:700;text-decoration:none;transition:0.3s}
 .qualifier-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
 
 /* Sections Base */
@@ -288,7 +294,7 @@ section{padding:56px 20px}
         background:transparent;
         border:1px solid #e0e0e0;
     }
-    .nav-links .lang-toggle:hover{border-color:#6B5CE7;color:#6B5CE7}
+    .nav-links .lang-toggle:hover{border-color:#1B3A5C;color:#1B3A5C}
     
     section{padding:96px 10%;max-width:1200px;margin:0 auto}
     .hero{min-height:calc(100vh - 124px);padding:64px 10%}
@@ -302,8 +308,8 @@ section{padding:56px 20px}
 /* =====================================================
    BELOW-FOLD CSS - Minimal inline (deferred CSS handles full styling)
    ===================================================== */
-.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#fff;border:none;border-radius:var(--r-md);font-family:inherit;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:var(--shadow-glow);transition:all 0.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(107,92,231,0.4)}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;background:linear-gradient(135deg,var(--warm),var(--warm-dark));color:#fff;border:none;border-radius:var(--r-md);font-family:inherit;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 8px 32px rgba(200,150,90,0.35);transition:all 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,150,90,0.45)}
 footer{background:var(--bg-dark);color:rgba(255,255,255,0.6);padding:32px 20px;text-align:center;font-size:14px}
 footer a{color:var(--accent-light);text-decoration:none;margin:0 12px}
 footer a:hover{text-decoration:underline}
@@ -311,10 +317,7 @@ footer a:hover{text-decoration:underline}
 .whatsapp-float:hover{transform:scale(1.1)}
 .whatsapp-float svg{width:28px;height:28px;fill:#fff}
 
-/* IntersectionObserver animation targets */
-.animate-in{animation:fadeUp 0.6s ease forwards}
-[data-observe]{opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
-[data-observe].animate-in{opacity:1;transform:translateY(0)}
+/* IntersectionObserver - styled in deferred CSS */
 
 /* Utility */
 .hl{color:var(--accent)}
@@ -548,11 +551,37 @@ footer a:hover{text-decoration:underline}
     </div>
 </section>
 
+<!-- Logo Bar - Career Credibility Bridge -->
+<section class="logo-bar-section">
+    <div class="logo-bar-label" data-i18n="logobar.label">Construí Receita Em</div>
+    <div class="logo-bar">
+        <div class="logo-bar-item">
+            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" height="32" loading="lazy">
+        </div>
+        <div class="logo-bar-item">
+            <img src="assets/images/brand/logo-att.png" alt="AT&T" height="32" loading="lazy">
+        </div>
+        <div class="logo-bar-item">
+            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" height="28" loading="lazy">
+        </div>
+    </div>
+</section>
+
 <!-- Why Alavanka -->
 <section id="porque" class="why-section">
     <div class="section-header">
         <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
         <p data-i18n="why.subtitle">Não somos consultores. Somos operadores que já construíram o que você quer construir.</p>
+    </div>
+    
+    <!-- Founder Photo Prominent + Quote Block -->
+    <div class="founder-hero">
+        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Fractional CRO" class="founder-photo-large" width="200" height="200" loading="lazy">
+        <div class="founder-hero-content">
+            <h3 data-i18n="why.founder.name">Carlos André</h3>
+            <p class="founder-title" data-i18n="why.founder.title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
+            <blockquote class="founder-quote-block" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</blockquote>
+        </div>
     </div>
     
     <div class="why-hero">
@@ -598,12 +627,22 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
     
-    <div class="founder-profile">
-        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André" class="founder-photo" width="120" height="120" loading="lazy">
-        <div class="founder-info">
-            <h3 data-i18n="why.founder.name">Carlos André</h3>
-            <p class="founder-title" data-i18n="why.founder.title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
-            <p class="founder-quote" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</p>
+    <!-- Authority Badges -->
+    <div class="authority-badges">
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-harvard.png" alt="Harvard Business School" height="28" loading="lazy">
+        </div>
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-columbia.png" alt="Columbia Business School" height="28" loading="lazy">
+        </div>
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" height="28" loading="lazy">
+        </div>
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-ibgc.png" alt="IBGC" height="28" loading="lazy">
+        </div>
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-insper.png" alt="INSPER" height="28" loading="lazy">
         </div>
     </div>
 </section>
@@ -626,6 +665,7 @@ footer a:hover{text-decoration:underline}
                     <li data-i18n="process.phase1.item2">Entrevistas 360° (time, clientes, lost deals)</li>
                     <li data-i18n="process.phase1.item3">Baseline documentado + metas D30/D60/D90</li>
                     <li data-i18n="process.phase1.item4">Kill-criteria definidos desde o início</li>
+                    <li class="phase-delivery" data-i18n="process.phase1.delivery">Entrega: Baseline Report com 25+ KPIs documentados</li>
                 </ul>
             </div>
         </div>
@@ -639,6 +679,7 @@ footer a:hover{text-decoration:underline}
                     <li data-i18n="process.phase2.item2">Processo de vendas com critérios de stage</li>
                     <li data-i18n="process.phase2.item3">RevOps e rituais semanais instalados</li>
                     <li data-i18n="process.phase2.item4">Dashboards funcionando + quick wins</li>
+                    <li class="phase-delivery" data-i18n="process.phase2.delivery">Entrega: GTM Playbook + Pipeline operacional</li>
                 </ul>
             </div>
         </div>
@@ -652,6 +693,7 @@ footer a:hover{text-decoration:underline}
                     <li data-i18n="process.phase3.item2">Playbooks documentados e rodando</li>
                     <li data-i18n="process.phase3.item3">Handover estruturado para time interno</li>
                     <li data-i18n="process.phase3.item4">Growth committee mensal (opcional)</li>
+                    <li class="phase-delivery" data-i18n="process.phase3.delivery">Entrega: Time autônomo + documentação completa</li>
                 </ul>
             </div>
         </div>
@@ -702,6 +744,7 @@ footer a:hover{text-decoration:underline}
     <div class="cta-box">
         <h3 data-i18n="cta.box.title">Diagnóstico Inicial</h3>
         <p data-i18n="cta.box.text">Conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer.</p>
+        <p class="cta-micro" data-i18n="cta.micro">Conversa direta com Carlos André — não com um SDR</p>
         <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa de 30min →</a>
         <div class="secondary-options">
             <a href="https://wa.me/5511975341961" target="_blank" class="sec-link">
@@ -770,6 +813,17 @@ footer a:hover{text-decoration:underline}
             <div class="faq-answer">
                 <div class="faq-answer-content">
                     <p data-i18n="faq.a4">Consultoria entrega PowerPoints. Fractional CRO <strong>executa</strong>: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq.q6">Qual o investimento?</span>
+                <span class="icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p data-i18n="faq.a6">Retainer mensal + success fee atrelado a resultados. O modelo exato depende do diagnóstico inicial. Em geral, o investimento representa <strong>20-30% do custo de um VP Sales full-time</strong>, com ROI mensurável desde o primeiro quarter. Parte da compensação é variável — só ganhamos mais se você crescer.</p>
                 </div>
             </div>
         </div>
@@ -1049,7 +1103,7 @@ footer a:hover{text-decoration:underline}
 
 <!-- Footer -->
 <footer>
-    <div data-i18n="footer.rights">© 2025 Alavanka. Todos os direitos reservados.</div>
+    <div data-i18n="footer.rights">© 2026 Alavanka. Todos os direitos reservados.</div>
     <div>
         <a href="https://alavanka.com.br">Fractional CRO</a>
         <a href="https://alavanka.com">Market Entry LATAM</a>
@@ -1198,7 +1252,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item').forEach(el => {
+document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item, .logo-bar-item, .badge-item, .founder-hero').forEach(el => {
     el.setAttribute('data-observe', '');
     observer.observe(el);
 });
@@ -1232,14 +1286,4 @@ if ('requestIdleCallback' in window) {
 }
 </script>
 <noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
-</noscript>
-
-<!-- Vercel Speed Insights -->
-<script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
-
-</body>
-</html>
+<img height="1" width="1" style="display:none;" alt="" src="https:
