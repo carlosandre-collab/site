@@ -8,31 +8,20 @@
     <link rel="canonical" href="https://www.alavanka.com.br/assessment.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
-        :root { --bg-primary: #ffffff; --bg-secondary: #f8f9fc; --accent: #6B5CE7; --accent-dark: #5648c7; --accent-bg: rgba(107, 92, 231, 0.08); --text-primary: #1a1a2e; --text-secondary: #4a4a68; --border: #e8e8f0; --success: #22c55e; --success-bg: rgba(34, 197, 94, 0.1); --warning: #fbbf24; --warning-bg: rgba(251, 191, 36, 0.1); --danger: #ef4444; --danger-bg: rgba(239, 68, 68, 0.1); }
+        :root { --bg-primary: #ffffff; --bg-secondary: #f8f9fc; --accent: #1B3A5C; --accent-dark: #142D48; --accent-light: #2D5F8A; --accent-bg: rgba(27, 58, 92, 0.08); --warm: #C8965A; --warm-dark: #B07D42; --warm-light: #D4A96F; --warm-bg: rgba(200, 150, 90, 0.08); --text-primary: #1a1a2e; --text-secondary: #4a4a68; --border: #e8e8f0; --success: #22c55e; --success-bg: rgba(34, 197, 94, 0.1); --warning: #fbbf24; --warning-bg: rgba(251, 191, 36, 0.1); --danger: #ef4444; --danger-bg: rgba(239, 68, 68, 0.1); }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-secondary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
-        nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid var(--border); }
-        .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 40px; }
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--accent); }
-        .lang-toggle { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: transparent; cursor: pointer; font-size: 0.85rem; }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-        .hamburger span { width: 24px; height: 2px; background: var(--text-primary); transition: all 0.3s; }
-        .lang-toggle-mobile { display: none; }
-        .mobile-menu-content { display: contents; }
-        main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 100px 1rem 2rem; }
+main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 100px 1rem 2rem; }
         .assessment-container { background: white; border-radius: 16px; max-width: 640px; width: 100%; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); overflow: hidden; }
         .assessment-header { padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
-        .assessment-header h1 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3; }
+        .assessment-header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3; }
         .assessment-header p { color: var(--text-secondary); font-size: 0.95rem; }
         .assessment-progress { padding: 1rem 2rem; background: var(--bg-secondary); }
         .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.3s; width: 0%; }
+        .progress-fill { height: 100%; background: var(--warm); border-radius: 3px; transition: width 0.3s; width: 0%; }
         .progress-text { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
         .assessment-body { padding: 2rem; }
         .question-slide { display: none; }
@@ -42,18 +31,18 @@
         .question-text { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.5rem; line-height: 1.4; }
         .question-options { display: flex; flex-direction: column; gap: 0.75rem; }
         .option-btn { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; color: var(--text-primary); font-family: inherit; }
-        .option-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
-        .option-btn.selected { border-color: var(--accent); background: var(--accent-bg); }
+        .option-btn:hover { border-color: var(--warm); background: var(--warm-bg); }
+        .option-btn.selected { border-color: var(--warm); background: var(--warm-bg); }
         .option-indicator { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-        .option-btn.selected .option-indicator { background: var(--accent); border-color: var(--accent); }
+        .option-btn.selected .option-indicator { background: var(--warm); border-color: var(--warm); }
         .option-btn.selected .option-indicator::after { content: '✓'; color: white; font-size: 0.8rem; font-weight: bold; }
         .assessment-nav { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
         .nav-btn { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; font-family: inherit; }
         .nav-btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
         .nav-btn-back:hover:not(:disabled) { border-color: var(--text-secondary); }
         .nav-btn-back:disabled { opacity: 0.5; cursor: not-allowed; }
-        .nav-btn-next { background: var(--accent); border: none; color: white; }
-        .nav-btn-next:hover:not(:disabled) { background: var(--accent-dark); }
+        .nav-btn-next { background: var(--warm); border: none; color: white; }
+        .nav-btn-next:hover:not(:disabled) { background: var(--warm-dark); }
         .nav-btn-next:disabled { background: var(--border); cursor: not-allowed; }
         .result-screen { display: none; text-align: center; padding: 2rem; }
         .result-screen.active { display: block; animation: fadeIn 0.3s ease; }
@@ -66,7 +55,7 @@
         .result-score.medium .score-number { color: var(--warning); }
         .result-score.low .score-number { color: var(--danger); }
         .score-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
-        .result-title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .result-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.75rem; }
         .result-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; }
         .result-form { background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; }
         .result-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
@@ -74,8 +63,8 @@
         .form-row { display: flex; gap: 0.75rem; }
         .form-row input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
         .form-row input:focus { outline: none; border-color: var(--accent); }
-        .form-row button { padding: 0.75rem 1.5rem; background: var(--accent); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; display: flex; align-items: center; gap: 0.5rem; }
-        .form-row button:hover { background: var(--accent-dark); }
+        .form-row button { padding: 0.75rem 1.5rem; background: var(--warm); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; display: flex; align-items: center; gap: 0.5rem; }
+        .form-row button:hover { background: var(--warm-dark); }
         .form-row button:disabled { background: var(--border); cursor: not-allowed; }
         .form-row button svg { width: 18px; height: 18px; }
         .form-success { display: none; text-align: center; }
@@ -86,8 +75,8 @@
         .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.2s; }
         .btn-download:hover { background: #1aa34a; transform: translateY(-1px); }
         .btn-download svg { width: 20px; height: 20px; }
-        .result-cta-main { display: inline-block; padding: 1rem 2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s; }
-        .result-cta-main:hover { background: var(--accent-dark); }
+        .result-cta-main { display: inline-block; padding: 1rem 2rem; background: var(--warm); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s; }
+        .result-cta-main:hover { background: var(--warm-dark); }
         .result-back { display: block; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; }
         .result-back:hover { color: var(--accent); }
         .divider-text { display: flex; align-items: center; gap: 1rem; color: var(--text-secondary); font-size: 0.85rem; margin: 1.5rem 0; }
@@ -95,17 +84,11 @@
         footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.85rem; }
         footer a { color: var(--accent); text-decoration: none; }
         @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links { display: none; }
-            .lang-toggle-mobile { display: block; margin-left: auto; margin-right: 1rem; }
-            .nav-links .lang-toggle { display: none; }
-            .nav-links.active { display: flex; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-primary); flex-direction: column; padding: 1rem 5%; border-bottom: 1px solid var(--border); gap: 0; }
-            .nav-links.active .mobile-menu-content { display: flex; flex-direction: column; width: 100%; }
-            .nav-links.active a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-            .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-            main { padding: 80px 1rem 1rem; }
+.nav-links
+.nav-links.active
+
+
+main { padding: 80px 1rem 1rem; }
             .assessment-header { padding: 1.5rem 1.5rem 1rem; }
             .assessment-header h1 { font-size: 1.25rem; }
             .assessment-body { padding: 1.5rem; }
@@ -117,27 +100,11 @@
             .score-number { font-size: 2rem; }
         }
     </style>
+    <link rel="stylesheet" href="styles/nav-unified.css">
+    <script src="components/nav.js" defer></script>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo"><img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="40"></a>
-        <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
-        <div class="nav-links" id="navLinks">
-            <div class="mobile-menu-content">
-                <a href="index.html" title="Home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
-                <a href="index.html#problema">O Problema</a>
-                <a href="index.html#solucao">A Solução</a>
-                <a href="index.html#porque">Por Que Nós</a>
-                <a href="index.html#processo">Como Funciona</a>
-                <a href="guia-fractional-cro-brasil.html">Playbook</a>
-                <a href="blog.html">Blog</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#contato">Contato</a>
-            </div>
-            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
-        </div>
-        <button class="lang-toggle-mobile" id="langToggleMobile" onclick="toggleLanguage()">EN</button>
-    </nav>
+    <nav id="main-nav"></nav>
     
     <main>
         <div class="assessment-container">
@@ -281,8 +248,7 @@
         const total = 5;
         function toggleLanguage() { lang = lang === 'pt' ? 'en' : 'pt'; document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT'; document.getElementById('langToggleMobile').textContent = lang === 'pt' ? 'EN' : 'PT'; applyLang(); }
         function applyLang() { const t = T[lang]; document.getElementById('headerTitle').textContent = t.title; document.getElementById('headerSubtitle').textContent = t.subtitle; document.getElementById('q1text').textContent = t.q1; document.getElementById('q2text').textContent = t.q2; document.getElementById('q3text').textContent = t.q3; document.getElementById('q4text').textContent = t.q4; document.getElementById('q5text').textContent = t.q5; document.getElementById('formTitle').textContent = t.formT; document.getElementById('formSubtitle').textContent = t.formS; document.querySelector('#formBtn span').textContent = t.formBtn; document.getElementById('successTitle').textContent = t.successT; document.getElementById('successText').textContent = t.successS; document.querySelector('#btnDownload span').textContent = t.downloadBtn; document.getElementById('dividerText').textContent = t.divider; document.getElementById('resultCta').textContent = t.cta; document.getElementById('resultBack').textContent = t.backSite; updateUI(); }
-        function toggleMobileMenu() { document.getElementById('hamburger').classList.toggle('active'); document.getElementById('navLinks').classList.toggle('active'); }
-        function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; document.getElementById('progressFill').style.width = pct + '%'; document.getElementById('progressPercent').textContent = Math.round(pct) + '%'; document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur); document.querySelectorAll('.question-number').forEach((el, i) => { el.textContent = t.qOf.replace('{n}', i + 1); }); document.getElementById('btnBack').disabled = cur === 1; document.getElementById('btnBack').textContent = t.back; document.getElementById('btnNext').disabled = !ans[cur]; document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next; }
+function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; document.getElementById('progressFill').style.width = pct + '%'; document.getElementById('progressPercent').textContent = Math.round(pct) + '%'; document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur); document.querySelectorAll('.question-number').forEach((el, i) => { el.textContent = t.qOf.replace('{n}', i + 1); }); document.getElementById('btnBack').disabled = cur === 1; document.getElementById('btnBack').textContent = t.back; document.getElementById('btnNext').disabled = !ans[cur]; document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next; }
         document.addEventListener('click', function(e) { const btn = e.target.closest('.option-btn'); if (!btn) return; btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); ans[cur] = parseInt(btn.dataset.value); const labelKey = lang === 'pt' ? 'labelPt' : 'labelEn'; answerLabels[cur] = btn.dataset[labelKey] || btn.querySelector('span:last-child').textContent; updateUI(); });
         function nextQuestion() { if (cur === total) { showResults(); return; } if (!ans[cur]) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur++; const slide = document.querySelector('.question-slide[data-question="'+cur+'"]'); slide.classList.add('active'); if (ans[cur]) { const b = slide.querySelector('.option-btn[data-value="'+ans[cur]+'"]'); if (b) b.classList.add('selected'); } updateUI(); }
         function prevQuestion() { if (cur === 1) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur--; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.add('active'); updateUI(); }
@@ -335,11 +301,11 @@
             const pageWidth = doc.internal.pageSize.getWidth();
             const margin = 20;
             let y = 20;
-            const purple = [107, 92, 231], darkText = [26, 26, 46], grayText = [74, 74, 104];
+            const navy = [27, 58, 92], warmAmber = [200, 150, 90], darkText = [26, 26, 46], grayText = [74, 74, 104];
             const green = [34, 197, 94], yellow = [251, 191, 36], red = [239, 68, 68], lightGray = [248, 249, 252];
             
             // PAGE 1 - Header
-            doc.setFillColor(...purple);
+            doc.setFillColor(...navy);
             doc.rect(0, 0, pageWidth, 32, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(20);
@@ -407,7 +373,7 @@
             doc.setTextColor(...grayText);
             const analysisLines = level === 'high' ? pdf.highAnalysis : level === 'medium' ? pdf.mediumAnalysis : pdf.lowAnalysis;
             analysisLines.forEach(line => {
-                if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); }
+                if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...warmAmber); }
                 doc.text(line, margin, y);
                 doc.setFont('helvetica', 'normal');
                 doc.setTextColor(...grayText);
@@ -428,7 +394,7 @@
             insights.forEach((ins, idx) => {
                 doc.setFillColor(...lightGray);
                 doc.roundedRect(margin, y, pageWidth - 2*margin, 18, 2, 2, 'F');
-                doc.setFillColor(...purple);
+                doc.setFillColor(...warmAmber);
                 doc.circle(margin + 6, y + 5, 3, 'F');
                 doc.setTextColor(255, 255, 255);
                 doc.setFontSize(7);
@@ -443,7 +409,7 @@
                 const lines = doc.splitTextToSize(ins.content, pageWidth - 2*margin - 16);
                 doc.text(lines[0], margin + 12, y + 11);
                 if (lines[1]) doc.text(lines[1], margin + 12, y + 14.5);
-                doc.setTextColor(...purple);
+                doc.setTextColor(...navy);
                 doc.setFontSize(6);
                 doc.text('Fonte: ' + ins.source, margin + 12, y + 17);
                 y += 20;
@@ -454,7 +420,7 @@
             y = 20;
             
             // Stats box
-            doc.setFillColor(...purple);
+            doc.setFillColor(...navy);
             doc.roundedRect(margin, y, pageWidth - 2*margin, 48, 3, 3, 'F');
             doc.setTextColor(255, 255, 255);
             doc.setFontSize(10);
@@ -479,7 +445,7 @@
             doc.setFont('helvetica', 'normal');
             doc.setTextColor(...grayText);
             getSteps(level, lang).forEach(step => {
-                if (step.startsWith('->') || step.startsWith('→')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...purple); }
+                if (step.startsWith('->') || step.startsWith('→')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...warmAmber); }
                 doc.text(step, margin, y);
                 doc.setFont('helvetica', 'normal');
                 doc.setTextColor(...grayText);
@@ -490,7 +456,7 @@
             // CTA Box
             doc.setFillColor(...lightGray);
             doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'F');
-            doc.setDrawColor(...purple);
+            doc.setDrawColor(...warmAmber);
             doc.setLineWidth(0.5);
             doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'S');
             doc.setTextColor(...darkText);
@@ -499,7 +465,7 @@
             doc.text(lang === 'pt' ? 'Pronto para destravar seu crescimento?' : 'Ready to unlock your growth?', margin + 8, y + 9);
             doc.setFontSize(9);
             doc.setFont('helvetica', 'normal');
-            doc.setTextColor(...purple);
+            doc.setTextColor(...navy);
             doc.text('calendly.com/carlos-andre-alavanka/30min', margin + 8, y + 17);
             
             // Footer
