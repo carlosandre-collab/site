@@ -1366,7 +1366,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Audience Selector
 // Audience Gate - selection from overlay popup
 function selectAudience(audience) {
-    localStorage.setItem('alavanka-audience', audience);
     var gate = document.getElementById('audienceGate');
     if (gate) {
         gate.classList.add('closing');
@@ -1393,16 +1392,9 @@ function setAudience(audience) {
     }
 }
 
-// Gate initialization - check localStorage on load
+// Gate initialization - always show gate on page load
 (function() {
-    var saved = localStorage.getItem('alavanka-audience');
-    if (saved) {
-        var gate = document.getElementById('audienceGate');
-        if (gate) gate.remove();
-        setAudience(saved);
-    } else {
-        document.body.style.overflow = 'hidden';
-    }
+    document.body.style.overflow = 'hidden';
 })();
 
 // FAQ Toggle - Improved with proper height calculation
