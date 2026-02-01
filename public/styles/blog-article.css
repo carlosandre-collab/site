@@ -1,7 +1,9 @@
 /* ============================================
    ALAVANKA - Blog Article Shared Styles
-   VERSION: 1.0.0 | 2025-01-31
+   VERSION: 2.0.0 | 2026-02-01
    PURPOSE: Unified styles for all blog posts
+   PALETTE: Navy (#1B3A5C) + Amber (#C8965A)
+   NAV: Moved to nav-unified.css
    ============================================ */
 
 /* ===== RESET & VARIABLES ===== */
@@ -14,18 +16,22 @@
 :root {
     /* Colors */
     --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fc;
+    --bg-secondary: #FAFBFD;
     --bg-card: #ffffff;
-    --bg-dark: #12121A;
-    --accent: #6B5CE7;
-    --accent-dark: #5648c7;
-    --accent-light: #8879ed;
-    --accent-bg: rgba(107, 92, 231, 0.08);
-    --text-primary: #1a1a2e;
-    --text-secondary: #4a4a68;
-    --text-muted: #8888a0;
-    --border: #e8e8f0;
-    --border-accent: rgba(107, 92, 231, 0.25);
+    --bg-dark: #0D1B2A;
+    --accent: #1B3A5C;
+    --accent-dark: #142D48;
+    --accent-light: #2D5F8A;
+    --accent-bg: rgba(27, 58, 92, 0.06);
+    --text-primary: #0D1B2A;
+    --text-secondary: #4A5568;
+    --text-muted: #8C8CA1;
+    --border: #E5E7EB;
+    --border-accent: rgba(27, 58, 92, 0.2);
+    --warm: #C8965A;
+    --warm-dark: #B07D42;
+    --warm-light: #D4A96F;
+    --warm-bg: rgba(200, 150, 90, 0.08);
     --danger: #e53e3e;
     --danger-bg: rgba(229, 62, 62, 0.08);
     --success: #38a169;
@@ -34,8 +40,8 @@
     --warning-bg: rgba(214, 158, 46, 0.08);
     
     /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-heading: 'Montserrat', sans-serif;
+    --font-primary: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
     
     /* Spacing */
     --radius-sm: 6px;
@@ -69,126 +75,7 @@ body {
     top: 0;
 }
 
-/* ===== NAVIGATION ===== */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 64px;
-    padding: 0 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-    transition: opacity 0.3s ease;
-}
-
-.logo:hover img {
-    opacity: 0.8;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--accent);
-}
-
-.nav-links a svg {
-    vertical-align: middle;
-}
-
-.mobile-menu-content {
-    display: contents;
-}
-
-/* Language Toggle */
-.lang-toggle,
-.lang-toggle-mobile {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: transparent;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font-primary);
-}
-
-.lang-toggle:hover,
-.lang-toggle-mobile:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-bg);
-}
-
-.lang-toggle-mobile {
-    display: none;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 5px;
-    z-index: 1001;
-}
-
-.hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
+/* Navigation styles now in nav-unified.css */
 
 /* ===== ARTICLE CONTAINER ===== */
 .article-container {
@@ -469,13 +356,13 @@ nav {
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(107, 92, 231, 0.35);
+    box-shadow: 0 4px 14px rgba(27, 58, 92, 0.35);
 }
 
 .article-footer .cta-button:hover {
     background: var(--accent-dark);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(107, 92, 231, 0.4);
+    box-shadow: 0 6px 20px rgba(27, 58, 92, 0.4);
 }
 
 /* ===== SITE FOOTER ===== */
@@ -544,38 +431,6 @@ footer p {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 900px) {
-    /* Navigation Mobile */
-    .hamburger {
-        display: flex;
-    }
-    
-    .lang-toggle-mobile {
-        display: block;
-        margin-left: auto;
-        margin-right: 1rem;
-    }
-    
-    .nav-links .lang-toggle {
-        display: none;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .nav-links.active {
-        display: flex;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--bg-primary);
-        flex-direction: column;
-        padding: 1rem 5%;
-        border-bottom: 1px solid var(--border);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        gap: 0;
-    }
     
     .nav-links.active .mobile-menu-content {
         display: flex;
