@@ -32,7 +32,20 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- CRITICAL CSS (Above the fold: Nav, Hero, Qualifier) -->
+    <script>
+    // Early gate check - prevents flash when returning from internal pages
+    (function(){
+        var s = sessionStorage.getItem('alavanka-audience');
+        var r = document.referrer || '';
+        if (s || r.indexOf('alavanka.com') !== -1) {
+            document.documentElement.classList.add('gate-skip');
+        }
+    })();
+    </script>
     <style>
+/* Gate hidden instantly when returning user */
+html.gate-skip .audience-gate{display:none!important}
+
 /* =====================================================
    CRITICAL CSS - Above the Fold Only
    ===================================================== */
