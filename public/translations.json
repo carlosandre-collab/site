@@ -230,7 +230,13 @@
     "investors.guide.note": "Leitura de 8 min • Sem cadastro",
     "investors.trust": "<strong>Sobre Carlos André:</strong> Ex-Presidente Oracle Brasil ($48M→$240M), Ex-CEO AT&T LATAM ($3M→$47M). Mentor Endeavor. Conselheiro IBGC. Harvard & Columbia Business School. Atende no <strong>máximo 3 empresas</strong> simultaneamente.",
     "footer.rights": "© 2025 Alavanka. Todos os direitos reservados.",
-    "footer.investors": "📊 Guia para Investidores: 7 Sinais de Alerta →"
+    "footer.investors": "📊 Guia para Investidores: 7 Sinais de Alerta →",
+    "gate.question": "Dois caminhos, um objetivo:<br><span style=\"color:var(--warm)\">crescimento estruturado</span>",
+    "gate.sub": "O conteúdo será personalizado para o seu perfil",
+    "gate.founderLabel": "Founder / CEO",
+    "gate.founderDesc": "Preciso estruturar minha operação de receita",
+    "gate.investorLabel": "Investidor / VC",
+    "gate.investorDesc": "Quero destravar o crescimento das minhas investidas"
   },
   "en": {
     "nav.problem": "The Problem",
@@ -463,6 +469,12 @@
     "investors.guide.note": "8 min read • No signup",
     "investors.trust": "<strong>About Carlos André:</strong> Former Oracle Brazil President ($48M→$240M), Former AT&T LATAM CEO ($3M→$47M). Endeavor Mentor. IBGC Board Member. Harvard & Columbia Business School. Works with <strong>max 3 companies</strong> simultaneously.",
     "footer.rights": "© 2025 Alavanka. All rights reserved.",
-    "footer.investors": "📊 Guide for Investors: 7 Warning Signs →"
+    "footer.investors": "📊 Guide for Investors: 7 Warning Signs →",
+    "gate.question": "Two paths, one goal:<br><span style=\"color:var(--warm)\">structured growth</span>",
+    "gate.sub": "Content will be personalized to your profile",
+    "gate.founderLabel": "Founder / CEO",
+    "gate.founderDesc": "I need to structure my revenue operation",
+    "gate.investorLabel": "Investor / VC",
+    "gate.investorDesc": "I want to unlock growth for my portfolio companies"
   }
 }
