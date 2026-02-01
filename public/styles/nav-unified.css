@@ -1,0 +1,203 @@
+/* ============================================
+   Alavanka — Unified Navigation CSS
+   SOURCE: index.html (reference design)
+   APPLIES TO: All pages (root + blog/posts/)
+   UPDATED: 2026-01-31
+   ============================================ */
+
+/* ── Body offset for fixed nav ── */
+body {
+    padding-top: 64px;
+}
+
+/* ── Base Nav Bar ── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border, #e8e8f0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+/* ── Logo ── */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo img {
+    height: 36px;
+    width: auto;
+}
+
+/* ── Hamburger (mobile — visible by default) ── */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary, #0D1B2A);
+    border-radius: 2px;
+    transition: 0.25s;
+}
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ── Mobile Sidebar Menu ── */
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    border-left: 1px solid #e5e5e5;
+}
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links a {
+    display: block;
+    padding: 16px 24px;
+    color: var(--text-primary, #0D1B2A);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+.nav-links a:active,
+.nav-links a:hover {
+    background: #f0f4f8;
+    color: var(--accent, #1B3A5C);
+}
+.nav-links a.active {
+    color: var(--accent, #1B3A5C);
+    font-weight: 600;
+}
+
+/* ── Language Toggle (inside sidebar) ── */
+.nav-links .lang-toggle {
+    display: block;
+    margin: 20px 24px;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* ── Language Toggle (mobile — next to hamburger) ── */
+.lang-toggle-mobile {
+    padding: 8px 14px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 12px;
+}
+
+/* ── mobile-menu-content wrapper (legacy compat) ── */
+.mobile-menu-content {
+    display: contents;
+}
+
+/* ── Tablet ── */
+@media (min-width: 768px) {
+    body {
+        padding-top: 72px;
+    }
+    nav {
+        height: 72px;
+        padding: 0 32px;
+    }
+}
+
+/* ── Desktop — horizontal nav ── */
+@media (min-width: 1024px) {
+    body {
+        padding-top: 80px;
+    }
+    .hamburger {
+        display: none;
+    }
+    .lang-toggle-mobile {
+        display: none;
+    }
+    nav {
+        height: 80px;
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        position: static;
+        right: auto;
+        width: auto;
+        height: auto;
+        background: transparent;
+        flex-direction: row;
+        padding: 0;
+        gap: 28px;
+        border-left: none;
+        align-items: center;
+    }
+    .nav-links a {
+        padding: 8px 0;
+        font-size: 14px;
+        border-bottom: none;
+        display: inline;
+    }
+    .nav-links a:hover {
+        background: transparent;
+    }
+    .nav-links .lang-toggle {
+        display: inline-block;
+        margin: 0;
+        padding: 8px 16px;
+        background: transparent;
+        border: 1px solid #e0e0e0;
+    }
+    .nav-links .lang-toggle:hover {
+        border-color: var(--accent, #1B3A5C);
+        color: var(--accent, #1B3A5C);
+    }
+}
