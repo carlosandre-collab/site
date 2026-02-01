@@ -346,6 +346,52 @@ footer a:hover{text-decoration:underline}
 .hl{color:var(--accent)}
 .text-center{text-align:center}
 .mb-0{margin-bottom:0}
+
+/* Case Study - Investor Section */
+.inv-case-study{padding:56px 20px;border-top:1px solid rgba(107,92,231,0.15)}
+.inv-case-header{text-align:center;margin-bottom:40px}
+.inv-case-badge{display:inline-block;padding:6px 16px;background:rgba(107,92,231,0.15);border:1px solid rgba(107,92,231,0.25);border-radius:20px;font-size:13px;font-weight:600;color:var(--accent-light);margin-bottom:16px}
+.inv-case-header h3{font-size:clamp(20px,5vw,28px);color:#fff;margin-bottom:12px;line-height:1.3}
+.inv-case-sub{font-size:15px;color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto;line-height:1.6}
+.inv-case-timeline{max-width:640px;margin:0 auto 36px;position:relative;padding-left:40px}
+.inv-case-timeline::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--accent-light),rgba(107,92,231,0.2))}
+.inv-case-step{position:relative;margin-bottom:28px}
+.inv-case-step:last-child{margin-bottom:0}
+.inv-case-step-marker{position:absolute;left:-40px;top:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent-light),var(--accent));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-shadow:0 4px 16px rgba(107,92,231,0.35);z-index:1}
+.inv-case-step-content h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+.inv-case-step-content p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;margin:0}
+.inv-case-proof{max-width:640px;margin:0 auto 24px;padding:20px 24px;background:rgba(107,92,231,0.08);border:1px solid rgba(107,92,231,0.2);border-radius:12px}
+.inv-case-book{display:flex;align-items:flex-start;gap:14px}
+.inv-case-book-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.inv-case-book strong{display:block;font-size:14px;color:#fff;margin-bottom:4px}
+.inv-case-book p{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;margin:0}
+.inv-case-takeaway{max-width:640px;margin:0 auto;padding:16px 20px;background:rgba(200,150,90,0.08);border-left:3px solid var(--warm);border-radius:0 8px 8px 0}
+.inv-case-takeaway p{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0}
+.inv-case-takeaway strong{color:var(--warm)}
+
+/* Founder Case Study - Light Theme */
+.founder-case-study{margin:48px auto 40px;max-width:720px;padding:40px 32px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px}
+.founder-case-header{text-align:center;margin-bottom:32px}
+.founder-case-badge{display:inline-block;padding:6px 16px;background:rgba(107,92,231,0.1);border:1px solid rgba(107,92,231,0.2);border-radius:20px;font-size:13px;font-weight:600;color:var(--accent,#6B5CE7);margin-bottom:14px}
+.founder-case-header h3{font-size:clamp(18px,4vw,24px);color:var(--text-primary);line-height:1.3}
+.founder-case-timeline{max-width:580px;margin:0 auto 28px;position:relative;padding-left:40px}
+.founder-case-timeline::before{content:'';position:absolute;left:15px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#6B5CE7,rgba(107,92,231,0.15))}
+.founder-case-step{position:relative;margin-bottom:24px}
+.founder-case-step:last-child{margin-bottom:0}
+.founder-case-marker{position:absolute;left:-40px;top:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6B5CE7,#5648c7);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;box-shadow:0 4px 12px rgba(107,92,231,0.25);z-index:1}
+.founder-case-content h4{font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:4px}
+.founder-case-content p{font-size:13px;color:var(--text-secondary);line-height:1.7;margin:0}
+.founder-case-proof{max-width:580px;margin:0 auto 20px;padding:16px 20px;background:rgba(107,92,231,0.06);border:1px solid rgba(107,92,231,0.15);border-radius:10px;display:flex;align-items:flex-start;gap:12px}
+.founder-case-book{display:flex;align-items:flex-start;gap:12px}
+.founder-case-book span{font-size:24px;flex-shrink:0;margin-top:2px}
+.founder-case-book strong{display:block;font-size:13px;color:var(--text-primary);margin-bottom:3px}
+.founder-case-book p{font-size:12px;color:var(--text-secondary);line-height:1.5;margin:0}
+.founder-case-takeaway{max-width:580px;margin:0 auto;padding:14px 18px;background:rgba(200,150,90,0.08);border-left:3px solid var(--warm,#C8965A);border-radius:0 8px 8px 0}
+.founder-case-takeaway p{font-size:13px;color:var(--text-primary);line-height:1.7;margin:0}
+.founder-case-takeaway strong{color:var(--warm,#C8965A)}
+
+/* Audience-based visibility */
+.investors-section.audience-hidden{display:none}
     </style>
     
     <!-- Deferred CSS - Below the fold sections -->
@@ -620,12 +666,12 @@ footer a:hover{text-decoration:underline}
     </div>
     
     <!-- Founder Photo Prominent + Quote Block -->
-    <div class="founder-hero">
-        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Fractional CRO" class="founder-photo-large" width="200" height="200" loading="lazy">
-        <div class="founder-hero-content">
+    <div class="founder-profile">
+        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Fractional CRO" class="founder-photo" width="200" height="200" loading="lazy">
+        <div class="founder-info">
             <h3 data-i18n="why.founder.name">Carlos André</h3>
             <p class="founder-title" data-i18n="why.founder.title">Fractional CRO | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
-            <blockquote class="founder-quote-block" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</blockquote>
+            <blockquote class="founder-quote" data-i18n="why.founder.quote">"Eu pessoalmente construí organizações B2B de $3M para $240M+ — não aconselhei, construí. Como co-founder e operador, sei o que funciona por dentro."</blockquote>
         </div>
     </div>
     
@@ -639,47 +685,74 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
     
+    <!-- Condensed Credentials -->
     <div class="credentials-grid">
         <div class="credential-card">
-            <h4 data-i18n="why.cred.pnl">P&L Leadership</h4>
+            <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
             <ul>
-                <li>Oracle Brasil President</li>
-                <li>AT&T LATAM CEO</li>
-                <li>Informatica VP LATAM</li>
+                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $48M para $240M</li>
+                <li data-i18n="why.cred.att">CEO AT&T LATAM — de $3M para $47M em 2 anos</li>
+                <li data-i18n="why.cred.loysci">Co-Founder LoySci (9 anos como empreendedor)</li>
             </ul>
         </div>
         <div class="credential-card">
-            <h4 data-i18n="why.cred.founder">Founder Experience</h4>
+            <h4 data-i18n="why.cred.ecosystem">Impacto no Ecossistema</h4>
             <ul>
-                <li data-i18n="why.cred.loysci">LoySci Co-Founder (9 anos)</li>
-                <li data-i18n="why.cred.loyalty">Pioneiro Loyalty LATAM</li>
-            </ul>
-        </div>
-        <div class="credential-card">
-            <h4 data-i18n="why.cred.board">Board & Advisory</h4>
-            <ul>
-                <li data-i18n="why.cred.ibgc">Conselheiro IBGC</li>
-                <li data-i18n="why.cred.endeavor">Mentor Endeavor</li>
-                <li data-i18n="why.cred.insper">Professor INSPER</li>
-            </ul>
-        </div>
-        <div class="credential-card">
-            <h4 data-i18n="why.cred.edu">Educação</h4>
-            <ul>
-                <li>Harvard Business School</li>
-                <li>Columbia Business School</li>
+                <li data-i18n="why.cred.endeavorAward">🏆 Premiado Mentor de Impacto — Endeavor Brasil (2013)</li>
+                <li data-i18n="why.cred.endeavorMentoring">Mentorias de alto impacto em 10+ empresas da rede Endeavor</li>
+                <li data-i18n="why.cred.ibgc">Conselheiro certificado IBGC</li>
             </ul>
         </div>
     </div>
-    
+
+    <!-- ClearSale Case Study -->
+    <div class="founder-case-study">
+        <div class="founder-case-header">
+            <div class="founder-case-badge" data-i18n="why.case.badge">📖 Case Documentado</div>
+            <h3 data-i18n="why.case.title">ClearSale: De Estruturação Comercial a <span class="hl">R$2 Bilhões</span></h3>
+        </div>
+
+        <div class="founder-case-timeline">
+            <div class="founder-case-step">
+                <div class="founder-case-marker">1</div>
+                <div class="founder-case-content">
+                    <h4 data-i18n="why.case.step1.title">O Desafio</h4>
+                    <p data-i18n="why.case.step1.text">ClearSale tinha produto validado, mas precisava estruturar a operação comercial para escalar. Carlos André foi contratado como mentor e consultor de vendas.</p>
+                </div>
+            </div>
+            <div class="founder-case-step">
+                <div class="founder-case-marker">2</div>
+                <div class="founder-case-content">
+                    <h4 data-i18n="why.case.step2.title">A Intervenção</h4>
+                    <p data-i18n="why.case.step2.text">Estruturação da arquitetura comercial: processos, pipeline, métricas e cadência. O trabalho que transforma bons vendedores em máquina de receita previsível.</p>
+                </div>
+            </div>
+            <div class="founder-case-step">
+                <div class="founder-case-marker">3</div>
+                <div class="founder-case-content">
+                    <h4 data-i18n="why.case.step3.title">A Trajetória</h4>
+                    <p data-i18n="why.case.step3.text">ClearSale se tornou líder de antifraude no Brasil, fez IPO na B3 em 2021 e foi adquirida pela Serasa Experian por R$2 bilhões em 2025.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="founder-case-proof">
+            <div class="founder-case-book">
+                <span>📚</span>
+                <div>
+                    <strong data-i18n="why.case.book.title">Documentado no livro #VQD — Vai Que Dá!</strong>
+                    <p data-i18n="why.case.book.detail">Endeavor Brasil / Portfolio Penguin, 2014. Capítulo ClearSale, com prefácios de Jorge Paulo Lemann e Beto Sicupira.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="founder-case-takeaway">
+            <p data-i18n="why.case.takeaway"><strong>O que isso significa pra você:</strong> O gap entre produto validado e crescimento escalável é quase sempre um problema de <strong>arquitetura comercial</strong>. Já resolvi isso antes — e posso resolver pra sua empresa.</p>
+        </div>
+    </div>
+
     <!-- Authority Badges -->
     <div class="authority-badges">
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-harvard.png" alt="Harvard Business School" height="28" loading="lazy">
-        </div>
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-columbia.png" alt="Columbia Business School" height="28" loading="lazy">
-        </div>
         <div class="badge-item">
             <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" height="28" loading="lazy">
         </div>
@@ -687,7 +760,10 @@ footer a:hover{text-decoration:underline}
             <img src="assets/images/brand/logo-ibgc.png" alt="IBGC" height="28" loading="lazy">
         </div>
         <div class="badge-item">
-            <img src="assets/images/brand/logo-insper.png" alt="INSPER" height="28" loading="lazy">
+            <img src="assets/images/brand/logo-harvard.png" alt="Harvard Business School" height="28" loading="lazy">
+        </div>
+        <div class="badge-item">
+            <img src="assets/images/brand/logo-columbia.png" alt="Columbia Business School" height="28" loading="lazy">
         </div>
     </div>
 </section>
@@ -997,6 +1073,60 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
 
+    <!-- Case Study: ClearSale -->
+    <div class="inv-case-study">
+        <div class="inv-case-header">
+            <div class="inv-case-badge" data-i18n="investors.case.badge">📖 Case Documentado</div>
+            <h3 data-i18n="investors.case.title">ClearSale: De Estruturação Comercial a <span class="hl-light">R$2 Bilhões</span></h3>
+            <p class="inv-case-sub" data-i18n="investors.case.subtitle">Como a estruturação de vendas no início da jornada plantou a semente para um dos maiores exits de tech do Brasil</p>
+        </div>
+
+        <div class="inv-case-timeline">
+            <div class="inv-case-step">
+                <div class="inv-case-step-marker">1</div>
+                <div class="inv-case-step-content">
+                    <h4 data-i18n="investors.case.step1.title">O Desafio</h4>
+                    <p data-i18n="investors.case.step1.text">ClearSale tinha produto validado e mercado, mas precisava estruturar a operação comercial para escalar. Carlos André foi contratado como mentor e consultor de estruturação de vendas — indo além da mentoria Endeavor.</p>
+                </div>
+            </div>
+            <div class="inv-case-step">
+                <div class="inv-case-step-marker">2</div>
+                <div class="inv-case-step-content">
+                    <h4 data-i18n="investors.case.step2.title">A Intervenção</h4>
+                    <p data-i18n="investors.case.step2.text">Estruturação da arquitetura comercial: processos de venda, pipeline, métricas e cadência operacional. O trabalho que transforma uma empresa com bons vendedores em uma máquina de receita previsível.</p>
+                </div>
+            </div>
+            <div class="inv-case-step">
+                <div class="inv-case-step-marker">3</div>
+                <div class="inv-case-step-content">
+                    <h4 data-i18n="investors.case.step3.title">A Trajetória</h4>
+                    <p data-i18n="investors.case.step3.text">Com a base comercial estruturada, a ClearSale se tornou líder de antifraude no Brasil, fez IPO na B3 em 2021 e foi adquirida pela Serasa Experian por R$2 bilhões em 2025.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="inv-case-proof">
+            <div class="inv-case-book">
+                <span class="inv-case-book-icon">📚</span>
+                <div>
+                    <strong data-i18n="investors.case.book.title">Documentado no livro #VQD — Vai Que Dá!</strong>
+                    <p data-i18n="investors.case.book.detail">Endeavor Brasil / Portfolio Penguin, 2014. Capítulo ClearSale, com prefácios de Jorge Paulo Lemann e Beto Sicupira.</p>
+                </div>
+            </div>
+            <div class="inv-case-book" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(107,92,231,0.15)">
+                <span class="inv-case-book-icon">🏆</span>
+                <div>
+                    <strong data-i18n="investors.case.award.title">Premiado Mentor de Impacto — Endeavor Brasil, 2013</strong>
+                    <p data-i18n="investors.case.award.detail">Reconhecimento após mentorias de alto impacto em mais de 10 empresas da rede Endeavor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="inv-case-takeaway">
+            <p data-i18n="investors.case.takeaway"><strong>A lição para fundos:</strong> O gap entre produto validado e crescimento escalável é quase sempre um problema de <strong>arquitetura comercial</strong>. Resolver isso cedo muda a trajetória inteira da empresa.</p>
+        </div>
+    </div>
+
     <!-- Solution for Funds -->
     <div class="inv-solution">
         <div class="inv-solution-header">
@@ -1137,7 +1267,7 @@ footer a:hover{text-decoration:underline}
     <div class="inv-trust">
         <p class="inv-trust-text" data-i18n="investors.trust">
             <strong>Sobre Carlos André:</strong> Ex-Presidente Oracle Brasil ($48M→$240M), Ex-CEO AT&T LATAM ($3M→$47M). 
-            Mentor Endeavor. Conselheiro IBGC. Harvard & Columbia Business School. 
+            Premiado Mentor de Impacto Endeavor (2013) após mentorias em 10+ empresas. Conselheiro IBGC. Harvard & Columbia Business School. 
             Atende no <strong>máximo 3 empresas</strong> simultaneamente.
         </p>
     </div>
@@ -1250,11 +1380,16 @@ function selectAudience(audience) {
     }
 }
 
-// Apply audience choice (scroll to investor section if investor)
+// Apply audience choice
 function setAudience(audience) {
+    var invSection = document.getElementById('investidores');
     if (audience === 'investor') {
-        var el = document.getElementById('investidores');
-        if (el) setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+        if (invSection) {
+            invSection.classList.remove('audience-hidden');
+            setTimeout(function() { invSection.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+        }
+    } else {
+        if (invSection) invSection.classList.add('audience-hidden');
     }
 }
 
@@ -1321,7 +1456,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item, .logo-bar-item, .badge-item, .founder-hero').forEach(el => {
+document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item, .logo-bar-item, .badge-item, .founder-profile, .founder-case-study, .founder-case-step').forEach(el => {
     el.setAttribute('data-observe', '');
     observer.observe(el);
 });
