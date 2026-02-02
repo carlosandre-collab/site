@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "quando-demitir-ae-vendedor-b2b",
+      "slug": "quando-demitir-ae-vendedor-b2b",
+      "slugs": {
+        "pt": "quando-demitir-ae-vendedor-b2b",
+        "en": "when-to-fire-b2b-sales-rep"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Diagnóstico",
+        "en": "Diagnostics"
+      },
+      "title": {
+        "pt": "Não É (Sempre) o Vendedor: Como Diagnosticar Onde Sua Receita Está Travando",
+        "en": "It's Not (Always) the Rep: How to Diagnose Where Your Revenue Is Stuck"
+      },
+      "excerpt": {
+        "pt": "Antes de trocar o vendedor, descarte proposta de valor, preço, segmento e geração de demanda. Framework de eliminação para founders pós-Série B.",
+        "en": "Before replacing the rep, rule out value proposition, pricing, segment, and demand generation. Elimination framework for post-Series B founders."
+      },
+      "readTime": {
+        "pt": "14 min de leitura",
+        "en": "14 min read"
+      },
+      "date": "2025-02-02",
+      "dateLabel": {
+        "pt": "Fev 2025",
+        "en": "Feb 2025"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/quando-demitir-ae-vendedor-b2b-thumb.jpg",
+        "alt": {
+          "pt": "Framework diagnóstico para receita travada em startups B2B",
+          "en": "Diagnostic framework for stalled revenue in B2B startups"
+        }
+      }
+    },
+    {
       "id": "quotas-vendas-b2b-startups",
       "slug": "quotas-vendas-b2b-startups",
       "slugs": {
         "pt": "quotas-vendas-b2b-startups",
         "en": "b2b-sales-quotas-startups"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Operações",
         "en": "Operations"
