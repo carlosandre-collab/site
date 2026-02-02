@@ -270,10 +270,10 @@
     margin-top:4px;
     border-bottom:none !important;
 }
-.phase-delivery::before{content:'📦 ' !important;position:static !important}
+.phase-delivery::before{content:'→ ' !important;position:static !important}
 
 /* ===== WHY SECTION ===== */
-.why-section{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+.why-section{background:linear-gradient(180deg,#fff 0%,rgba(27,58,92,0.03) 100%)}
 .why-hero{
     background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
     border-radius:var(--r-xl);
@@ -363,7 +363,7 @@
 }
 
 /* ===== PROCESS SECTION ===== */
-.process-section{background:linear-gradient(180deg,var(--bg) 0%,#fff 100%)}
+.process-section{background:linear-gradient(180deg,rgba(200,150,90,0.04) 0%,#fff 100%)}
 .timeline{position:relative;padding-left:44px}
 .timeline::before{
     content:'';
@@ -431,7 +431,7 @@
 }
 
 /* ===== FIT SECTION ===== */
-.fit-section{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+.fit-section{background:linear-gradient(180deg,#fff 0%,rgba(27,58,92,0.03) 100%)}
 .fit-cards{display:flex;flex-direction:column;gap:16px}
 .fit-card{
     background:var(--bg-card);
@@ -470,7 +470,7 @@
 
 /* ===== CTA FINAL ===== */
 .cta-final{
-    background:linear-gradient(180deg,var(--bg) 0%,#fff 50%,var(--bg) 100%);
+    background:linear-gradient(180deg,rgba(27,58,92,0.03) 0%,#fff 50%,rgba(200,150,90,0.04) 100%);
     text-align:center;
 }
 .cta-box{
@@ -562,7 +562,7 @@
 .contact-info a:hover{color:var(--accent-dark);text-decoration:underline}
 
 /* ===== FAQ SECTION ===== */
-.faq-section{background:linear-gradient(180deg,var(--bg) 0%,#fff 100%)}
+.faq-section{background:linear-gradient(180deg,rgba(200,150,90,0.04) 0%,#fff 100%)}
 .faq-container{max-width:700px;margin:0 auto}
 .faq-item{
     background:var(--bg-card);
