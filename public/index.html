@@ -127,6 +127,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-arrow{position:absolute;bottom:16px;right:16px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-4px);transition:all 0.3s ease}
 .gate-option[data-audience="founder"] .gate-arrow{background:rgba(200,150,90,0.2);color:var(--warm)}
 .gate-option[data-audience="investor"] .gate-arrow{background:rgba(45,95,138,0.2);color:var(--accent-light)}
+.gate-skip{display:block;margin:20px auto 0;padding:10px 20px;background:none;border:none;color:var(--text-muted,#8C8CA1);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;opacity:0.7;transition:all 0.3s;text-decoration:none;letter-spacing:0.3px}
+.gate-skip:hover{opacity:1;color:var(--warm,#C8965A)}
 .gate-option:hover .gate-arrow{opacity:1;transform:translateX(0)}
 @media(max-width:560px){
 .gate-card{padding:36px 24px;border-radius:20px}
@@ -140,7 +142,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 }
 
 /* Remove overlay - não usar */
-.menu-overlay{display:none !important}
+.menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:9997;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+.menu-overlay.active{opacity:1;visibility:visible}
 
 /* Hero */
 .hero{
@@ -240,7 +243,7 @@ section{padding:56px 20px}
 footer{background:var(--bg-dark);color:rgba(255,255,255,0.6);padding:32px 20px;text-align:center;font-size:14px}
 footer a{color:var(--accent-light);text-decoration:none;margin:0 12px}
 footer a:hover{text-decoration:underline}
-.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:transform 0.3s}
+.whatsapp-float{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom, 0px));right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);z-index:999;transition:transform 0.3s}
 .whatsapp-float:hover{transform:scale(1.1)}
 .whatsapp-float svg{width:28px;height:28px;fill:#fff}
 
@@ -370,7 +373,7 @@ footer a:hover{text-decoration:underline}
 .inv-model-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.18)}
 
 /* G) MOBILE CTA FAB — fixed bottom bar on mobile */
-.mobile-fab{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:10px 16px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border);box-shadow:0 -2px 16px rgba(0,0,0,.06);transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.mobile-fab{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--border);box-shadow:0 -2px 16px rgba(0,0,0,.06);transform:translateY(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
 .mobile-fab.is-visible{transform:translateY(0)}
 .mobile-fab-row{display:flex;gap:8px;max-width:480px;margin:0 auto}
 .mobile-fab .fab-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 12px;border-radius:var(--r-md);font-family:inherit;font-size:14px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:transform .15s}
@@ -468,6 +471,108 @@ footer a:hover{text-decoration:underline}
     <noscript><link rel="stylesheet" href="styles/styles-deferred.css"></noscript>
     <link rel="stylesheet" href="styles/nav-unified.css">
     <script src="components/nav.js" defer></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.alavanka.com.br/#organization",
+          "name": "Alavanka",
+          "url": "https://www.alavanka.com.br",
+          "logo": "https://www.alavanka.com.br/assets/images/brand/logo-preto.png",
+          "description": "Fractional CRO para empresas B2B tech brasileiras. Execução de GTM com accountability.",
+          "founder": {
+            "@type": "Person",
+            "name": "Carlos André",
+            "jobTitle": "Fractional CRO",
+            "sameAs": "https://linkedin.com/in/carlosandre"
+          },
+          "sameAs": [
+            "https://linkedin.com/in/carlosandre"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-11-97534-1961",
+            "contactType": "sales",
+            "availableLanguage": ["Portuguese", "English"]
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://www.alavanka.com.br/#service",
+          "name": "Fractional CRO para B2B Tech",
+          "description": "Executivo sênior de receita em modelo fracionário (2-3 dias/semana) para empresas B2B tech com receita acima de R$10M/ano. Programa estruturado de 6 meses: Diagnóstico (30d), Transformação (90d) e Aceleração (60d).",
+          "provider": { "@id": "https://www.alavanka.com.br/#organization" },
+          "serviceType": "Fractional CRO / Revenue Operations",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brazil"
+          },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "B2B Tech Startups, Série B+"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.alavanka.com.br/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "O que é um Fractional CRO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO executa: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanto custa um Fractional CRO no Brasil?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. O modelo fracionário oferece 70-80% do impacto por 30-40% do custo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quando devo contratar um Fractional CRO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Qual a diferença entre Fractional CRO e consultoria?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultoria entrega PowerPoints. Fractional CRO executa: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Qual o investimento?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Retainer mensal + success fee atrelado a resultados. O modelo exato depende do diagnóstico inicial. Em geral, o investimento representa 20-30% do custo de um VP Sales full-time, com ROI mensurável desde o primeiro quarter. Parte da compensação é variável — só ganhamos mais se você crescer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "E se não funcionar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Temos kill-switch no Dia 30 e Dia 90. Se não estiver funcionando, encerramos sem drama. Você não fica preso a contrato longo se os resultados não aparecerem. Parte da compensação é success fee — só ganhamos mais se você crescer."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -504,6 +609,7 @@ footer a:hover{text-decoration:underline}
                 <div class="gate-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
         </div>
+        <button class="gate-skip" onclick="selectAudience('founder')" data-i18n="gate.skip" aria-label="Pular seleção">Pular e ver como Founder →</button>
     </div>
 </div>
 
@@ -555,11 +661,7 @@ footer a:hover{text-decoration:underline}
         <div class="hero-links">
             <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="hero-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                <span data-i18n="hero.cta.call">Agendar call</span>
-            </a>
-            <a href="https://wa.me/5511975341961" target="_blank" class="hero-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                <span data-i18n="hero.cta.whatsapp">WhatsApp</span>
+                <span data-i18n="hero.cta.call">Ou agende direto</span>
             </a>
         </div>
     </div>
@@ -935,17 +1037,13 @@ footer a:hover{text-decoration:underline}
         <div class="secondary-options">
             <a href="https://wa.me/5511975341961" target="_blank" class="sec-link">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                WhatsApp
-            </a>
-            <a href="/cdn-cgi/l/email-protection#86e5e7f4eae9f5c6e7eae7f0e7e8ede7a8e5e9eba8e4f4" class="sec-link">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                Email
+                <span data-i18n="cta.whatsapp">Prefere WhatsApp?</span>
             </a>
         </div>
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#f79496859b9884b7969b968196999c96d994989ad99585"><span class="__cf_email__" data-cfemail="b6d5d7c4dad9c5f6d7dad7c0d7d8ddd798d5d9db98d4c4">[email&#160;protected]</span></a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="mailto:carlos@alavanka.com.br">carlos@alavanka.com.br</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
