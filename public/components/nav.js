@@ -46,11 +46,13 @@
     var isGuia = currentPath.indexOf('guia-fractional-cro-brasil') !== -1;
     var isAssessment = currentPath.indexOf('assessment') !== -1;
     var isPrecificacao = currentPath.indexOf('guia-precificacao') !== -1;
+    var isInvestidores = currentPath.indexOf('investidores') !== -1;
 
     // ── Build navigation HTML ──
     var indexUrl = basePath ? basePath + 'index.html' : 'index.html';
     var blogUrl = basePath ? basePath + 'blog.html' : 'blog.html';
     var guiaUrl = basePath ? basePath + 'guia-fractional-cro-brasil.html' : 'guia-fractional-cro-brasil.html';
+    var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var logoSrc = basePath + 'assets/images/brand/logo-preto.png';
     
     // For root-level pages, use anchor links; for sub-pages, use full paths
@@ -62,6 +64,7 @@
     // Active class helper
     var blogActive = (isBlog || isBlogPost || isPrecificacao) ? ' active' : '';
     var guiaActive = isGuia ? ' active' : '';
+    var investidoresActive = isInvestidores ? ' active' : '';
 
     var navHTML = ''
         + '<nav role="navigation" aria-label="Navegação principal">'
@@ -80,6 +83,7 @@
         + '    <a href="' + sectionLink('processo') + '" data-i18n="nav.process">Como Funciona</a>'
         + '    <a href="' + guiaUrl + '" data-i18n="nav.playbook" class="' + guiaActive + '">Playbook</a>'
         + '    <a href="' + blogUrl + '" data-i18n="nav.blog" class="' + blogActive + '">Blog</a>'
+        + '    <a href="' + investidoresUrl + '" data-i18n="nav.investors" class="' + investidoresActive + '">Para VCs</a>'
         + '    <a href="' + sectionLink('faq') + '" data-i18n="nav.faq">FAQ</a>'
         + '    <a href="' + sectionLink('contato') + '" data-i18n="nav.contact">Contato</a>'
         + '    <button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">EN</button>'
