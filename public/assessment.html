@@ -271,7 +271,7 @@ function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; 
         function prevQuestion() { if (cur === 1) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur--; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.add('active'); updateUI(); }
         var assessmentCompleted = false;
         function showResults() { var t = T[lang]; var score = Object.values(ans).reduce(function(a,b){return a+b}, 0); if (typeof gtag === 'function') { gtag('event', 'assessment_step_completed', { step: 5, step_name: 'process_maturity' }); } assessmentCompleted = true; document.getElementById('questionsBody').style.display = 'none'; document.getElementById('progressSection').style.display = 'none'; document.getElementById('resultScreen').classList.add('active'); document.getElementById('scoreNumber').textContent = score; var rs = document.getElementById('resultScore'); rs.className = 'result-score'; var level; if (score >= 14) { rs.classList.add('high'); level = 'high'; } else if (score >= 9) { rs.classList.add('medium'); level = 'medium'; } else { rs.classList.add('low'); level = 'low'; } document.getElementById('resultTitle').textContent = t[level].t; document.getElementById('resultDescription').textContent = t[level].d; if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score }); }
-        async function submitAndDownload() { const t = T[lang]; const email = document.getElementById('assessmentEmail').value; if (!email || !email.includes('@')) { alert(t.formInv); return; } userEmail = email; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const btn = document.getElementById('formBtn'); btn.disabled = true; btn.querySelector('span').textContent = '...'; try { await fetch('https://formspree.io/f/xgoynqbk', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() }) }); document.getElementById('formInput').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level }); } catch (e) { console.error(e); btn.disabled = false; btn.querySelector('span').textContent = t.formBtn; alert(t.formErr); } }
+        async function submitAndDownload() { const t = T[lang]; const email = document.getElementById('assessmentEmail').value; if (!email || !email.includes('@')) { alert(t.formInv); return; } userEmail = email; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low'; const btn = document.getElementById('formBtn'); btn.disabled = true; btn.querySelector('span').textContent = '...'; try { await fetch('https://formspree.io/f/xgoynqbk', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), timestamp: new Date().toISOString() }) }); document.getElementById('formInput').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level }); if (typeof lintrk === 'function') lintrk('track', { conversion_id: 19814748 }); } catch (e) { console.error(e); btn.disabled = false; btn.querySelector('span').textContent = t.formBtn; alert(t.formErr); } }
         
         function getInsights(answers, lang) {
             const insights = [];
@@ -512,5 +512,25 @@ function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; 
             });
         });
     </script>
+
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+    window._linkedin_partner_id = "9076865";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+    if (!window.lintrk) {
+        window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript"; b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
+</noscript>
+
 </body>
 </html>

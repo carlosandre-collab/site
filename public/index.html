@@ -1937,6 +1937,16 @@ window.addEventListener('resize', checkPDBreakpoint);
 
         if (params) {
             gtag('event', 'cta_click', params);
+            // LinkedIn Conversion Tracking — fire for high-value CTAs
+            if (typeof lintrk === 'function') {
+                if (params.cta_type === 'calendly') {
+                    lintrk('track', { conversion_id: 19814700 });
+                } else if (params.cta_type === 'whatsapp') {
+                    lintrk('track', { conversion_id: 19814716 });
+                } else if (params.cta_type === 'guia_download') {
+                    lintrk('track', { conversion_id: 19814732 });
+                }
+            }
         }
     });
 })();
