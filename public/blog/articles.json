@@ -9,16 +9,16 @@
       },
       "featured": true,
       "category": {
-        "pt": "Diagnóstico",
-        "en": "Diagnostics"
+        "pt": "Gestão de Vendas",
+        "en": "Sales Management"
       },
       "title": {
-        "pt": "Não É (Sempre) o Vendedor: Como Diagnosticar Onde Sua Receita Está Travando",
-        "en": "It's Not (Always) the Rep: How to Diagnose Where Your Revenue Is Stuck"
+        "pt": "Quando É Hora de Trocar o Vendedor: O Diagnóstico Que Vem Antes da Decisão",
+        "en": "When It's Time to Replace the Rep: The Diagnosis Before the Decision"
       },
       "excerpt": {
-        "pt": "Antes de trocar o vendedor, descarte proposta de valor, preço, segmento e geração de demanda. Framework de eliminação para founders pós-Série B.",
-        "en": "Before replacing the rep, rule out value proposition, pricing, segment, and demand generation. Elimination framework for post-Series B founders."
+        "pt": "Trocar o vendedor custa R$ 500-800K. Antes de decidir, descarte problemas de sistema. Framework completo com diagnóstico, tipos de gap, plano de melhoria e protocolo de desligamento.",
+        "en": "Replacing a rep costs $100-150K. Before you decide, rule out system problems. Complete framework with diagnosis, gap types, improvement plan, and separation protocol."
       },
       "readTime": {
         "pt": "14 min de leitura",
@@ -33,8 +33,8 @@
         "type": "image",
         "src": "assets/images/blog/quando-demitir-ae-vendedor-b2b-thumb.jpg",
         "alt": {
-          "pt": "Framework diagnóstico para receita travada em startups B2B",
-          "en": "Diagnostic framework for stalled revenue in B2B startups"
+          "pt": "Framework para decidir quando trocar o vendedor em startups B2B",
+          "en": "Framework for deciding when to replace a sales rep in B2B startups"
         }
       }
     },
