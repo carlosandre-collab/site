@@ -91,7 +91,7 @@
     }
     </script>
     
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -126,7 +126,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.8;
@@ -166,13 +166,14 @@
 
         .article-category {
             display: inline-block;
-            background: var(--accent-bg);
-            color: var(--accent);
+            background: rgba(37,99,235,0.08);
+            color: #2563EB;
             padding: 0.5rem 1rem;
-            border-radius: 20px;
+            border-radius: 4px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
+            border: 1px solid rgba(37,99,235,0.3);
         }
 
         .article-title {
@@ -229,10 +230,12 @@
             font-weight: 700;
             margin: 3rem 0 1.5rem;
             color: var(--text-primary);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(200, 150, 90, 0.25);
         }
 
         .article-content h3 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.4rem;
             font-weight: 600;
             margin: 2rem 0 1rem;
@@ -274,14 +277,14 @@
             background: var(--bg-secondary);
             border-radius: 12px;
             margin: 2rem 0;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--warm, #C8965A);
         }
 
         .data-point-number {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--warm, #C8965A);
             line-height: 1;
         }
 
@@ -350,7 +353,7 @@
 
         /* Quote */
         blockquote {
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--warm, #C8965A);
             padding: 1.5rem 2rem;
             margin: 2rem 0;
             background: var(--bg-secondary);
@@ -417,7 +420,7 @@
         }
 
         .formula-box .formula {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -444,10 +447,10 @@
         }
 
         .stat-number {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--warm, #C8965A);
             margin-bottom: 0.5rem;
         }
 
@@ -459,7 +462,7 @@
         /* Highlight Box */
         .highlight-box {
             background: var(--accent-bg);
-            border: 1px solid var(--border-accent);
+            border: 1px solid rgba(200, 150, 90, 0.3);
             border-radius: 12px;
             padding: 1.5rem;
             margin: 2rem 0;
@@ -479,7 +482,7 @@
         .article-footer {
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border);
+            border-top: 3px solid var(--warm, #C8965A);
             text-align: center;
         }
 
@@ -496,17 +499,18 @@
 
         .cta-button {
             display: inline-block;
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--warm, #C8965A), var(--warm-dark, #B07D42));
             color: white;
             padding: 1rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
+            box-shadow: 0 8px 32px rgba(200, 150, 90, 0.35);
             transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: var(--accent-dark);
+            background: linear-gradient(135deg, var(--warm-dark, #B07D42), var(--warm, #C8965A));
             transform: translateY(-2px);
         }
 
