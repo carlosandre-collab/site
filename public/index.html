@@ -1847,6 +1847,77 @@ checkPDBreakpoint();
 window.addEventListener('resize', checkPDBreakpoint);
 </script>
 
+<!-- GA4: CTA Click Tracking — Tags 4-14 -->
+<script>
+(function() {
+    if (typeof gtag !== 'function') return;
+
+    // Helper: find the closest <a> ancestor (or self)
+    function closestLink(el) {
+        while (el && el.tagName !== 'A') el = el.parentElement;
+        return el;
+    }
+
+    document.addEventListener('click', function(e) {
+        var link = closestLink(e.target);
+        if (!link) return;
+
+        var href = (link.getAttribute('href') || '').toLowerCase();
+        var cls = ' ' + (link.className || '') + ' ';
+        var params = null;
+
+        // --- Assessment CTAs (Tags 4, 5) ---
+        if (href.indexOf('assessment.html') !== -1) {
+            if (cls.indexOf(' btn-hero') !== -1) {
+                params = { cta_type: 'assessment', location: 'hero' };            // Tag 4
+            } else if (cls.indexOf(' qualifier-cta') !== -1) {
+                params = { cta_type: 'assessment', location: 'qualifier' };       // Tag 5
+            } else {
+                params = { cta_type: 'assessment', location: 'other' };
+            }
+        }
+        // --- Calendly CTAs (Tags 6, 7, 8, 9) ---
+        else if (href.indexOf('calendly') !== -1) {
+            if (cls.indexOf(' hero-link') !== -1) {
+                params = { cta_type: 'calendly', location: 'hero' };             // Tag 6
+            } else if (cls.indexOf(' btn-primary') !== -1) {
+                params = { cta_type: 'calendly', location: 'cta_final' };        // Tag 7
+            } else if (cls.indexOf(' inv-cta-btn') !== -1 && cls.indexOf(' primary') !== -1) {
+                params = { cta_type: 'calendly', location: 'investor' };         // Tag 8
+            } else if (cls.indexOf(' fab-primary') !== -1) {
+                params = { cta_type: 'calendly', location: 'fab_mobile' };       // Tag 9
+            } else {
+                params = { cta_type: 'calendly', location: 'other' };
+            }
+        }
+        // --- WhatsApp CTAs (Tags 10, 11, 12) ---
+        else if (href.indexOf('wa.me') !== -1) {
+            if (cls.indexOf(' sec-link') !== -1) {
+                params = { cta_type: 'whatsapp', location: 'cta_final' };        // Tag 10
+            } else if (cls.indexOf(' fab-ghost') !== -1) {
+                params = { cta_type: 'whatsapp', location: 'fab_mobile' };       // Tag 11
+            } else if (cls.indexOf(' whatsapp-float') !== -1) {
+                params = { cta_type: 'whatsapp', location: 'float' };            // Tag 12
+            } else {
+                params = { cta_type: 'whatsapp', location: 'contact_info' };
+            }
+        }
+        // --- Email CTA (Tag 13) ---
+        else if (href.indexOf('mailto:') !== -1 || href.indexOf('email-protection') !== -1) {
+            params = { cta_type: 'email', location: 'contact_info' };            // Tag 13
+        }
+        // --- Guia Download — Investor (Tag 14) ---
+        else if (href.indexOf('guia.alavanka') !== -1) {
+            params = { cta_type: 'guia_download', location: 'investor' };        // Tag 14
+        }
+
+        if (params) {
+            gtag('event', 'cta_click', params);
+        }
+    });
+})();
+</script>
+
 <!-- Third-party scripts - deferred for better TBT -->
 <script>
 function loadThirdPartyScripts() {
