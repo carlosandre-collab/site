@@ -1521,6 +1521,10 @@ function toggleLang() {
     currentLang = currentLang === 'pt' ? 'en' : 'pt';
     applyTranslations();
     localStorage.setItem('alavanka-lang', currentLang);
+    // GA4: Track language switch (Tag 18)
+    if (typeof gtag === 'function') {
+        gtag('event', 'language_changed', { language: currentLang });
+    }
 }
 
 function applyTranslations() {
@@ -1625,6 +1629,12 @@ function toggleFaq(button) {
     if (!wasActive && answer && content) {
         item.classList.add('active');
         answer.style.maxHeight = content.scrollHeight + 24 + 'px';
+        // GA4: Track FAQ opened (Tag 16)
+        if (typeof gtag === 'function') {
+            var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+            var idx = items.indexOf(item) + 1;
+            gtag('event', 'faq_opened', { question: String(idx) });
+        }
     }
 }
 
@@ -1824,6 +1834,11 @@ function togglePD(btn) {
     if (label) {
         label.textContent = isCollapsed ? (btn.getAttribute('data-less') || 'Mostrar menos ↑') : (btn.getAttribute('data-more') || 'Ver mais ↓');
     }
+    // GA4: Track progressive disclosure expand (Tag 19) — only on expand
+    if (isCollapsed && typeof gtag === 'function') {
+        var section = container.classList.contains('inv-scorecard-grid') ? 'scorecard' : 'deliverables';
+        gtag('event', 'pd_expanded', { section: section });
+    }
 }
 
 // Only enable PD on mobile — remove pd-collapsed on desktop
@@ -1914,6 +1929,57 @@ window.addEventListener('resize', checkPDBreakpoint);
         if (params) {
             gtag('event', 'cta_click', params);
         }
+    });
+})();
+</script>
+
+<!-- GA4: Engagement Tracking — Tags 15-20 -->
+<script>
+(function() {
+    if (typeof gtag !== 'function') return;
+
+    // --- Tag 15: Section Viewed (IntersectionObserver) ---
+    var sectionIds = ['problema','solucao','porque','processo','contato','faq','investidores'];
+    var viewedSections = {};
+    var sectionObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var id = entry.target.id;
+                if (!viewedSections[id]) {
+                    viewedSections[id] = true;
+                    gtag('event', 'section_viewed', { section: id });
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+
+    sectionIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) sectionObs.observe(el);
+    });
+
+    // --- Tag 17: Scroll Depth Milestones ---
+    var scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) return;
+        var percent = Math.round((scrollTop / docHeight) * 100);
+
+        [25, 50, 75, 100].forEach(function(milestone) {
+            if (percent >= milestone && !scrollMilestones[milestone]) {
+                scrollMilestones[milestone] = true;
+                gtag('event', 'scroll_depth', { depth: milestone });
+            }
+        });
+    }, { passive: true });
+
+    // --- Tag 20: Time on Page (30s, 60s, 120s, 300s) ---
+    var timeIntervals = [30, 60, 120, 300];
+    timeIntervals.forEach(function(seconds) {
+        setTimeout(function() {
+            gtag('event', 'time_on_page', { seconds: seconds });
+        }, seconds * 1000);
     });
 })();
 </script>
