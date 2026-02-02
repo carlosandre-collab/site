@@ -76,13 +76,13 @@ html{scroll-behavior:smooth}
     --accent:#1B3A5C;
     --accent-dark:#142D48;
     --accent-light:#2D5F8A;
-    --accent-glow:rgba(27,58,92,0.25);
-    --accent-bg:rgba(27,58,92,0.06);
-    --warm:#C8965A;
-    --warm-dark:#B07D42;
-    --warm-light:#D4A96F;
-    --warm-glow:rgba(200,150,90,0.25);
-    --warm-bg:rgba(200,150,90,0.08);
+    --accent-glow:rgba(27,58,92,0.35);
+    --accent-bg:rgba(27,58,92,0.10);
+    --warm:#D4883A;
+    --warm-dark:#C17A32;
+    --warm-light:#E0A050;
+    --warm-glow:rgba(212,136,58,0.4);
+    --warm-bg:rgba(212,136,58,0.12);
     --bg:#FAFBFD;
     --bg-card:#FFFFFF;
     --bg-dark:#0D1B2A;
@@ -95,12 +95,12 @@ html{scroll-behavior:smooth}
     --danger:#EF4444;
     --danger-bg:rgba(239,68,68,0.08);
     --warning:#F59E0B;
-    --border:#E5E7EB;
+    --border:#CBD5E1;
     --border-accent:rgba(27,58,92,0.2);
-    --shadow-sm:0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md:0 4px 16px rgba(0,0,0,0.08);
-    --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
-    --shadow-glow:0 8px 32px rgba(200,150,90,0.3);
+    --shadow-sm:0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md:0 6px 20px rgba(27,58,92,0.12);
+    --shadow-lg:0 16px 48px rgba(27,58,92,0.18);
+    --shadow-glow:0 8px 32px rgba(212,136,58,0.45);
     --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
 }
 
@@ -215,7 +215,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 /* Qualifier */
 .qualifier{padding:40px 20px;background:var(--bg-dark);color:var(--text-inverse)}
 .qualifier-inner{max-width:600px;margin:0 auto;text-align:center}
-.qualifier-label{font-size:11px;font-weight:700;color:var(--accent-light);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.qualifier-label{font-size:11px;font-weight:700;color:var(--warm-light);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
 .qualifier h2{font-size:clamp(20px,5vw,26px);color:var(--text-inverse);margin-bottom:20px}
 .qualifier-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
 .qualifier-tag{padding:8px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-full);font-size:13px;font-weight:500;color:rgba(255,255,255,0.85)}
@@ -482,11 +482,821 @@ footer a:hover{text-decoration:underline}
 
 /* H) SECTION DIVIDER — subtle gradient bar */
 .section-hr{width:48px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--warm),var(--accent-light));margin:0 auto 20px;opacity:.6}
-    </style>
+    
+
+/* ClearSale Case Study — Enhanced */
+.founder-case-hero-number{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(48px,12vw,72px);font-weight:700;
+    background:linear-gradient(135deg,var(--warm-light),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    margin:20px 0 8px;line-height:1;letter-spacing:-2px;
+}
+.founder-case-hero-label{font-size:14px;color:var(--text-muted);margin-bottom:32px}
+.founder-case-sources{
+    margin-top:20px;padding:16px 20px;
+    background:rgba(27,58,92,0.04);border:1px solid rgba(27,58,92,0.08);border-radius:12px;
+    font-size:13px;
+}
+.founder-case-sources-title{font-weight:700;color:var(--text);margin-bottom:8px}
+.founder-case-sources ul{list-style:none;padding:0;margin:0}
+.founder-case-sources li{padding:4px 0}
+.founder-case-sources a{color:var(--accent);text-decoration:none;transition:color 0.2s}
+.founder-case-sources a:hover{color:var(--warm);text-decoration:underline}
+
+
+/* Sources Section */
+.sources-section{
+    padding:48px 24px;background:#F5F7FA;border-top:1px solid var(--border);
+}
+.sources-inner{max-width:800px;margin:0 auto}
+.sources-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px}
+.sources-list{list-style:none;padding:0;margin:0 0 16px 0}
+.sources-list li{font-size:13px;color:var(--text-secondary);padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+.sources-list li:last-child{border-bottom:none}
+.sources-list strong{color:var(--text);font-weight:600}
+.sources-list a{color:var(--accent);text-decoration:none}
+.sources-list a:hover{text-decoration:underline}
+.sources-note{font-size:12px;color:var(--text-muted);font-style:italic}
+
+
+
+
+
+/* ============================================================
+   COMPREHENSIVE COLOR FIX - All dark sections
+   ============================================================ */
+
+/* QUALIFIER SECTION (dark background) */
+.qualifier {
+    background: var(--bg-dark) !important;
+}
+.qualifier * {
+    color: var(--text-inverse) !important;
+}
+.qualifier-label {
+    color: var(--warm-light) !important;
+}
+.qualifier .hl {
+    color: var(--warm-light) !important;
+}
+.qualifier-tag {
+    background: rgba(255,255,255,0.1) !important;
+    border-color: rgba(255,255,255,0.2) !important;
+    color: var(--text-inverse) !important;
+}
+.qualifier-cta {
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark)) !important;
+    color: #FFFFFF !important;
+}
+
+/* WHY SECTION - keep light background, ensure proper contrast */
+.why-section {
+    background: var(--bg) !important;
+}
+.why-section h2, .why-section h3 {
+    color: var(--text) !important;
+}
+.why-section p {
+    color: var(--text-secondary) !important;
+}
+.why-section .hl {
+    color: var(--warm) !important;
+}
+
+/* FOUNDER PROFILE */
+.founder-profile, .founder-info {
+    color: var(--text) !important;
+}
+.founder-info h3 {
+    color: var(--text) !important;
+}
+.founder-info p, .founder-title {
+    color: var(--text-secondary) !important;
+}
+
+/* CREDENTIALS */
+.credential-item {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+}
+.credential-item h4, .credential-item strong {
+    color: var(--text) !important;
+}
+.credential-item p, .credential-item span {
+    color: var(--text-secondary) !important;
+}
+
+/* CASE STUDY */
+.founder-case-study {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+}
+.founder-case-study h3, .founder-case-study h4 {
+    color: var(--text) !important;
+}
+.founder-case-study p {
+    color: var(--text-secondary) !important;
+}
+.founder-case-study .hl {
+    color: var(--warm) !important;
+}
+.founder-case-hero-number {
+    color: var(--warm) !important;
+    -webkit-text-fill-color: var(--warm) !important;
+}
+
+/* CTA SECTION (dark background with white box inside) */
+.cta-final, #contato {
+    background: var(--bg-dark) !important;
+}
+.cta-final > .section-header h2,
+.cta-final > .section-header p,
+#contato > .section-header h2,
+#contato > .section-header p {
+    color: var(--text-inverse) !important;
+}
+.cta-final .hl, #contato .hl {
+    color: var(--warm-light) !important;
+}
+.cta-final .contact-info, 
+.cta-final .contact-info p,
+.cta-final .contact-info a,
+#contato .contact-info,
+#contato .contact-info p,
+#contato .contact-info a {
+    color: var(--text-inverse) !important;
+}
+
+/* CTA BOX (white box inside dark section) */
+.cta-box {
+    background: #FFFFFF !important;
+    border-radius: 16px;
+    padding: 32px;
+}
+.cta-box h3 {
+    color: var(--text) !important;
+}
+.cta-box p {
+    color: var(--text-secondary) !important;
+}
+.cta-box .cta-micro {
+    color: var(--text-muted) !important;
+}
+.cta-box .btn-primary {
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark)) !important;
+    color: #FFFFFF !important;
+}
+.cta-box .secondary-options a,
+.cta-box .sec-link {
+    color: var(--accent) !important;
+}
+
+/* FOOTER (dark) */
+footer, .footer {
+    background: var(--bg-dark) !important;
+}
+footer *, .footer * {
+    color: var(--text-inverse) !important;
+}
+footer a, .footer a {
+    color: var(--warm-light) !important;
+}
+
+/* PAIN SECTION - light */
+.pain-section {
+    background: #FFFFFF !important;
+}
+.pain-section h2, .pain-section h3, .pain-section h4 {
+    color: var(--text) !important;
+}
+.pain-section p {
+    color: var(--text-secondary) !important;
+}
+
+/* CONSEQUENCES - slight gray */
+.consequences {
+    background: #F8FAFC !important;
+}
+
+/* SOLUTION - light */
+.solution-section {
+    background: #FFFFFF !important;
+}
+
+/* PROCESS - light */
+.process-section {
+    background: var(--bg) !important;
+}
+
+/* FIT SECTION - warm tint */
+.fit-section {
+    background: #FFFBF5 !important;
+}
+
+/* SOURCES SECTION */
+.sources-section {
+    background: #F5F7FA !important;
+}
+.sources-section * {
+    color: var(--text-secondary) !important;
+}
+.sources-section strong {
+    color: var(--text) !important;
+}
+.sources-section a {
+    color: var(--accent) !important;
+}
+
+/* FAQ */
+#faq, .faq-section {
+    background: var(--bg) !important;
+}
+
+/* Ensure no blue text on dark backgrounds anywhere */
+[class*="dark"] h1, [class*="dark"] h2, [class*="dark"] h3, 
+[class*="dark"] h4, [class*="dark"] p, [class*="dark"] span,
+[class*="dark"] li, [class*="dark"] a {
+    color: var(--text-inverse) !important;
+}
+[class*="dark"] .hl {
+    color: var(--warm-light) !important;
+}
+</style>
     
     <!-- Deferred CSS - Below the fold sections -->
     <link rel="stylesheet" href="styles/styles-deferred.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles/styles-deferred.css"></noscript>
+    
+    <!-- Investor page overrides — MUST load after deferred CSS to win cascade -->
+    <style id="inv-overrides">
+/* ====================================================
+   INVESTIDORES PAGE — OVERRIDE STYLES
+   Loads AFTER styles-deferred.css to win cascade.
+   Design: dark hero, alternating light/dark rhythm,
+   each section with distinct visual character.
+   ==================================================== */
+
+/* --- WRAPPER RESET (deferred sets dark bg on .investors-section) --- */
+.investors-section{
+    background:#FAFBFD !important;
+    color:var(--text) !important;
+    padding:0 !important;
+}
+.investors-section .section-header h2{color:var(--text) !important}
+.investors-section .section-header p{color:var(--text-secondary) !important}
+
+/* ====================================================
+   1. HERO — Full-bleed dark with depth
+   ==================================================== */
+.inv-hero{
+    padding:96px 24px 84px;
+    text-align:center;position:relative;overflow:hidden;
+    background:linear-gradient(170deg,#0D1B2A 0%,#122740 55%,#1B3A5C 100%);
+}
+.inv-hero::before{
+    content:'';position:absolute;top:5%;right:-8%;width:45%;height:75%;
+    background:radial-gradient(ellipse,rgba(200,150,90,0.09) 0%,transparent 60%);pointer-events:none;
+}
+.inv-hero::after{
+    content:'';position:absolute;bottom:-15%;left:-5%;width:35%;height:55%;
+    background:radial-gradient(ellipse,rgba(27,58,92,0.15) 0%,transparent 55%);pointer-events:none;
+}
+.inv-hero-badge{
+    display:inline-block;padding:10px 24px;border-radius:9999px;
+    background:linear-gradient(135deg,rgba(200,150,90,0.15),rgba(200,150,90,0.04));
+    border:1px solid rgba(200,150,90,0.25);
+    font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+    color:var(--warm-light);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:28px;
+}
+.inv-hero h1{
+    font-family:'DM Serif Display',Georgia,serif;
+    font-size:clamp(32px,8vw,54px);color:#fff !important;
+    margin-bottom:24px;max-width:760px;margin-left:auto;margin-right:auto;
+    line-height:1.08;letter-spacing:-0.025em;font-weight:400;
+}
+.inv-hero h1 .hl-light{color:var(--warm-light)}
+.inv-hero-sub{
+    font-size:clamp(15px,3.5vw,18px);color:rgba(255,255,255,0.65);
+    max-width:600px;margin:0 auto 48px;line-height:1.75;
+}
+.inv-hero-sub strong{color:var(--warm-light)}
+.inv-hero-stats{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    max-width:880px;margin:0 auto;
+}
+.inv-stat{
+    background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;padding:28px 24px;text-align:center;
+    backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+    transition:all 0.3s cubic-bezier(.16,1,.3,1);
+}
+.inv-stat:hover{border-color:rgba(200,150,90,0.3);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.2)}
+.inv-stat-number{
+    display:block;font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(36px,9vw,48px);font-weight:700;
+    color:var(--warm-light);letter-spacing:-1.5px;margin-bottom:6px;
+}
+.inv-stat-label{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.55}
+.inv-hero-cta{
+    display:inline-flex;align-items:center;gap:12px;margin-top:48px;padding:18px 42px;
+    background:linear-gradient(135deg,var(--warm),var(--warm-dark));color:#fff;border:none;
+    border-radius:16px;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;
+    text-decoration:none;cursor:pointer;letter-spacing:-0.01em;
+    box-shadow:0 4px 24px rgba(200,150,90,0.4);transition:all 0.3s cubic-bezier(.16,1,.3,1);
+}
+.inv-hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,150,90,0.5)}
+.inv-hero-cta svg{width:18px;height:18px;stroke:currentColor;stroke-width:2;fill:none}
+
+/* ====================================================
+   2. SCORECARD — Warm off-white with interactive depth
+   ==================================================== */
+.inv-scorecard{
+    padding:80px 24px;
+    background:linear-gradient(180deg,#F1ECE5 0%,#F8F5F0 100%) !important;
+    border-top:3px solid var(--warm) !important;
+    border-bottom:none !important;
+}
+.inv-scorecard-header{text-align:center;max-width:640px;margin:0 auto 40px}
+.inv-scorecard-header h3{font-size:clamp(22px,5vw,28px);color:var(--text) !important;margin-bottom:12px}
+.inv-scorecard-header p{font-size:15px;color:var(--text-secondary) !important;line-height:1.6}
+.inv-scorecard-grid{
+    display:grid;grid-template-columns:1fr;gap:12px;max-width:880px;margin:0 auto;
+}
+.inv-flag{
+    display:flex;align-items:center;gap:16px;cursor:pointer;user-select:none;
+    border-radius:14px;padding:20px;
+    background:#fff !important;border:1px solid #D1C7B8 !important;
+    box-shadow:0 2px 6px rgba(160,130,90,0.06) !important;
+    transition:all 0.25s ease;
+}
+.inv-flag:hover{transform:translateX(4px);border-color:rgba(239,68,68,0.35) !important;box-shadow:0 4px 16px rgba(239,68,68,0.08) !important}
+.inv-flag-check{
+    width:22px;height:22px;border-radius:6px;border:2px solid #C5BAA8;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;
+}
+.inv-flag-check svg{width:14px;height:14px;stroke:#fff;stroke-width:2.5;fill:none;opacity:0;transform:scale(0.5);transition:all 0.25s}
+.inv-flag.checked .inv-flag-check{background:var(--danger);border-color:var(--danger);box-shadow:0 2px 8px rgba(239,68,68,0.3)}
+.inv-flag.checked .inv-flag-check svg{opacity:1;transform:scale(1)}
+.inv-flag-content h4{font-size:15px;color:var(--text) !important;margin-bottom:4px}
+.inv-flag-content p{font-size:13px;line-height:1.55;color:var(--text-secondary) !important}
+.inv-scorecard-counter{
+    text-align:center;margin:28px auto 0;padding:20px 24px;max-width:880px;
+    background:#fff !important;border:1px solid #D1C7B8 !important;border-radius:16px;
+    box-shadow:0 2px 8px rgba(160,130,90,0.06);transition:all 0.4s;
+}
+.inv-scorecard-counter.urgent{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02)) !important;border-color:rgba(239,68,68,0.3) !important}
+.inv-scorecard-count{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--warm) !important;margin-bottom:4px}
+.inv-scorecard-counter.urgent .inv-scorecard-count{color:var(--danger) !important}
+.inv-scorecard-verdict{font-size:13px;color:var(--text-secondary) !important;line-height:1.5}
+.inv-scorecard-verdict strong{color:var(--text) !important}
+.inv-scorecard-result{
+    margin-top:28px;padding:22px;
+    background:linear-gradient(135deg,rgba(239,68,68,0.06),rgba(239,68,68,0.02)) !important;
+    border:1px solid rgba(239,68,68,0.15) !important;border-radius:16px;
+}
+.inv-scorecard-result p{font-size:14px;color:var(--text-secondary) !important;line-height:1.7;margin:0}
+.inv-scorecard-result strong{color:var(--text) !important}
+
+/* ====================================================
+   3. COST — Stark white with red accent cards
+   ==================================================== */
+.inv-cost-section{
+    padding:80px 24px;background:#fff !important;text-align:center;
+    border-top:none !important;
+}
+.inv-cost-section h3{font-size:clamp(22px,5vw,28px);color:var(--text) !important;margin-bottom:10px}
+.inv-cost-intro{font-size:16px;color:var(--text-secondary) !important;margin-bottom:40px;line-height:1.6}
+.inv-cost-grid{
+    display:grid;grid-template-columns:1fr;gap:16px;max-width:880px;margin:0 auto;text-align:left;
+}
+.inv-cost-card{
+    border-radius:20px;padding:28px 24px;
+    background:#FAFBFD !important;border:1px solid #E2E5EB !important;border-left:4px solid var(--danger) !important;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04) !important;transition:all 0.3s;
+}
+.inv-cost-card:hover{border-color:var(--danger) !important;transform:translateY(-3px);box-shadow:0 8px 32px rgba(239,68,68,0.08) !important}
+.inv-cost-card h4{font-size:16px;margin-bottom:10px;color:var(--text) !important}
+.inv-cost-card p{font-size:14px;line-height:1.75;color:var(--text-secondary) !important}
+.inv-cost-card strong{color:var(--danger) !important}
+
+/* ====================================================
+   4. CASE STUDY — Deep navy with amber accents
+   ==================================================== */
+.inv-case-study{
+    padding:96px 24px;
+    background:linear-gradient(180deg,#0D1B2A 0%,#101E30 55%,#142D48 100%) !important;
+    text-align:center;position:relative;
+}
+.inv-case-study::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:80px;height:3px;background:linear-gradient(90deg,transparent,var(--warm),transparent);
+}
+.inv-case-header{margin-bottom:48px}
+.inv-case-badge{
+    display:inline-block;padding:8px 20px;
+    background:linear-gradient(135deg,rgba(200,150,90,0.18),rgba(200,150,90,0.06));
+    border:1px solid rgba(200,150,90,0.3);border-radius:9999px;
+    font-size:12px;font-weight:700;color:var(--warm-light);
+    letter-spacing:0.5px;text-transform:uppercase;margin-bottom:20px;
+}
+.inv-case-header h3{font-size:clamp(22px,5vw,30px);color:#fff;margin-bottom:16px;line-height:1.25}
+.inv-case-sub{font-size:15px;color:rgba(255,255,255,0.6);max-width:600px;margin:0 auto}
+.inv-case-hero-number{
+    font-family:'Space Grotesk',sans-serif;font-size:clamp(60px,15vw,88px);font-weight:700;
+    background:linear-gradient(135deg,var(--warm-light),var(--warm));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    margin:24px 0 8px;line-height:1;letter-spacing:-3px;
+}
+.inv-case-hero-label{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:48px}
+.inv-case-timeline{max-width:640px;margin:0 auto 44px;position:relative;padding-left:52px;text-align:left}
+.inv-case-timeline::before{content:'';position:absolute;left:18px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--warm),var(--accent-light),rgba(255,255,255,0.1))}
+.inv-case-step{position:relative;margin-bottom:36px}
+.inv-case-step:last-child{margin-bottom:0}
+.inv-case-step-marker{
+    position:absolute;left:-52px;top:0;width:38px;height:38px;border-radius:50%;
+    background:linear-gradient(135deg,var(--warm),var(--warm-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:#fff;
+    box-shadow:0 4px 20px rgba(200,150,90,0.35),0 0 0 4px rgba(200,150,90,0.1);z-index:1;
+}
+.inv-case-step-content h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.inv-case-step-content p{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.75;margin:0}
+.inv-case-proof{
+    max-width:640px;margin:0 auto 28px;padding:24px 28px;text-align:left;
+    background:rgba(27,58,92,0.12);border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+}
+.inv-case-book{display:flex;align-items:flex-start;gap:16px}
+.inv-case-book-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.inv-case-book strong{display:block;font-size:14px;color:#fff;margin-bottom:4px}
+.inv-case-book p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0}
+.inv-case-takeaway{
+    max-width:640px;margin:0 auto;padding:20px 24px;text-align:left;
+    background:linear-gradient(135deg,rgba(200,150,90,0.08),rgba(200,150,90,0.02));
+    border-left:3px solid var(--warm);border-radius:0 12px 12px 0;
+}
+.inv-case-takeaway p{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.75;margin:0}
+.inv-case-takeaway strong{color:var(--warm-light)}
+
+/* ====================================================
+   5. WHO LEADS — Warm cream, photo-centric
+   ==================================================== */
+.inv-who{
+    padding:96px 24px;
+    background:linear-gradient(180deg,#F5F0E8 0%,#FDFBF7 40%,#FDFBF7 60%,#F5F0E8 100%) !important;
+    position:relative;
+}
+.inv-who::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:80px;height:3px;background:linear-gradient(90deg,transparent,var(--warm),transparent);
+}
+.inv-who-inner{max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center}
+.inv-who-photo{
+    width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center top;
+    border:5px solid #fff;box-shadow:0 16px 56px rgba(160,120,60,0.15),0 0 0 1px rgba(200,150,90,0.1);flex-shrink:0;
+}
+.inv-who-text h3{font-size:clamp(24px,5vw,32px);color:var(--text);margin-bottom:4px}
+.inv-who-role{font-size:16px;color:var(--warm-dark);font-weight:600;margin-bottom:20px}
+.inv-who-bio{font-size:16px;color:var(--text-secondary);line-height:1.75;margin-bottom:24px;max-width:560px}
+.inv-who-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px}
+.inv-who-tag{
+    padding:8px 16px;border-radius:9999px;font-size:12px;font-weight:700;letter-spacing:0.3px;
+    background:#fff;color:var(--accent);border:1px solid rgba(27,58,92,0.12);box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
+.inv-who-tag.warm{background:var(--warm-bg);color:var(--warm-dark);border-color:rgba(200,150,90,0.2)}
+.inv-who-quote{
+    font-family:'DM Serif Display',Georgia,serif;font-size:clamp(17px,4vw,21px);
+    color:var(--text);line-height:1.65;font-style:italic;
+    padding:24px 28px;max-width:520px;
+    border-left:4px solid var(--warm);text-align:left;
+    background:linear-gradient(135deg,rgba(200,150,90,0.06),rgba(200,150,90,0.01));
+    border-radius:0 16px 16px 0;
+}
+
+/* ====================================================
+   6. 90 DAYS — Dark navy, colored phase cards
+   ==================================================== */
+.inv-timeline-section{
+    padding:96px 24px;
+    background:linear-gradient(180deg,#0B1726 0%,#0F2237 50%,#0B1726 100%) !important;
+    position:relative;
+}
+.inv-timeline-section::before{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:80px;height:3px;background:linear-gradient(90deg,transparent,var(--warm),transparent);
+}
+.inv-timeline-header{text-align:center;margin-bottom:48px}
+.inv-timeline-header h3{font-size:clamp(22px,5vw,30px);color:#fff;margin-bottom:12px}
+.inv-timeline-header p{font-size:15px;color:rgba(255,255,255,0.5)}
+.inv-timeline-phases{display:grid;grid-template-columns:1fr;gap:16px;max-width:960px;margin:0 auto}
+.inv-phase{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;padding:28px 24px;position:relative;overflow:hidden;
+    transition:all 0.35s cubic-bezier(.16,1,.3,1);
+}
+.inv-phase::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.inv-phase:nth-child(1)::before{background:linear-gradient(90deg,#3B82F6,transparent)}
+.inv-phase:nth-child(2)::before{background:linear-gradient(90deg,var(--warm),transparent)}
+.inv-phase:nth-child(3)::before{background:linear-gradient(90deg,var(--success),transparent)}
+.inv-phase:nth-child(4)::before{background:linear-gradient(90deg,#8B5CF6,transparent)}
+.inv-phase:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.25)}
+.inv-phase-tag{
+    display:inline-block;padding:5px 14px;border-radius:9999px;
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;
+}
+.inv-phase-tag.diag{background:rgba(59,130,246,0.12);color:#60A5FA}
+.inv-phase-tag.build{background:rgba(200,150,90,0.12);color:var(--warm-light)}
+.inv-phase-tag.exec{background:rgba(16,185,129,0.12);color:#34D399}
+.inv-phase-tag.hand{background:rgba(139,92,246,0.12);color:#A78BFA}
+.inv-phase h4{font-size:17px;color:#fff;margin-bottom:8px}
+.inv-phase p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.75;margin:0}
+.inv-phase-deliverables{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.4);font-weight:600}
+
+/* ====================================================
+   7. SOLUTION — Cool gray, side-by-side contrast
+   ==================================================== */
+.inv-solution{
+    padding:80px 24px;
+    background:linear-gradient(180deg,#E8EBF0 0%,#F1F3F7 100%) !important;
+    text-align:center;border-top:none !important;
+}
+.inv-solution-header{max-width:640px;margin:0 auto 40px}
+.inv-solution-header h3{font-size:clamp(22px,5vw,28px);color:var(--text) !important;margin-bottom:10px}
+.inv-solution-header p{font-size:15px;color:var(--text-muted) !important;line-height:1.6}
+.inv-solution-comparison{
+    display:grid;grid-template-columns:1fr;gap:20px;max-width:880px;margin:0 auto;text-align:left;
+}
+.inv-comp-card{
+    border-radius:20px;padding:32px 28px;
+    background:#fff !important;border:1px solid #D1D5DB !important;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04) !important;
+}
+.inv-comp-card.bad{opacity:0.85}
+.inv-comp-card.good{
+    border-color:var(--warm) !important;
+    background:linear-gradient(160deg,rgba(200,150,90,0.06),#fff) !important;
+    box-shadow:0 4px 24px rgba(200,150,90,0.1) !important;
+    opacity:1;
+}
+.inv-comp-card h4{font-size:17px;margin-bottom:16px}
+.inv-comp-card.bad h4{color:var(--text-muted) !important}
+.inv-comp-card.good h4{color:var(--warm-dark) !important}
+.inv-comp-card ul{list-style:none;padding:0;margin:0}
+.inv-comp-card li{
+    font-size:14px;padding:10px 0;padding-left:24px;line-height:1.6;
+    color:var(--text-secondary) !important;border-bottom:1px solid var(--border);position:relative;
+}
+.inv-comp-card li:last-child{border-bottom:none}
+.inv-comp-card li::before{
+    content:'';position:absolute;left:0;top:17px;width:8px;height:8px;border-radius:50%;
+}
+.inv-comp-card.bad li::before{background:var(--text-muted) !important}
+.inv-comp-card.good li::before{background:var(--warm) !important}
+.inv-comp-card li strong{color:var(--text) !important}
+
+/* ====================================================
+   8. MODEL — White with featured card pop
+   ==================================================== */
+.inv-model{padding:80px 24px;background:#fff !important;text-align:center}
+.inv-model h3{font-size:clamp(22px,5vw,28px);color:var(--text) !important;margin-bottom:40px}
+.inv-model-options{
+    display:grid;grid-template-columns:1fr;gap:20px;max-width:960px;margin:0 auto;text-align:left;
+}
+.inv-model-card{
+    border-radius:20px;padding:32px 28px;position:relative;
+    background:#FAFBFD !important;border:1px solid #D1D5DB !important;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04) !important;transition:all 0.3s;
+}
+.inv-model-card:hover{border-color:var(--accent-light) !important;transform:translateY(-3px);box-shadow:var(--shadow-lg) !important}
+.inv-model-card.featured{
+    border-color:var(--warm) !important;
+    background:linear-gradient(160deg,rgba(200,150,90,0.05),#fff) !important;
+    box-shadow:0 4px 24px rgba(200,150,90,0.12) !important;
+    transform:scale(1.02);
+}
+.inv-model-badge{
+    display:inline-block;padding:5px 14px;border-radius:9999px;
+    font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;
+    background:var(--warm);color:#fff;
+}
+.inv-model-card h4{font-size:18px;margin:12px 0 6px;color:var(--text) !important}
+.inv-model-desc{font-size:14px;margin-bottom:16px;color:var(--text-secondary) !important;line-height:1.6}
+.inv-model-card ul{list-style:none;padding:0;margin:0 0 14px}
+.inv-model-card li{
+    font-size:14px;padding:7px 0;color:var(--text-secondary) !important;padding-left:20px;position:relative;
+}
+.inv-model-card li::before{content:'→';position:absolute;left:0;color:var(--warm) !important;font-weight:700}
+.inv-model-price{
+    margin-top:16px;padding-top:16px;border-top:1px solid var(--border) !important;
+    font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--warm-dark) !important;
+}
+
+/* ====================================================
+   9. DELIVERABLES — Navy tinted light
+   ==================================================== */
+.inv-deliverables{
+    padding:80px 24px;
+    background:linear-gradient(180deg,#E6EAF0 0%,#EDF0F5 100%) !important;
+    text-align:center;border-top:none !important;
+}
+.inv-deliverables h3{font-size:clamp(22px,5vw,28px);color:var(--text) !important;margin-bottom:40px}
+.inv-del-grid{
+    display:grid;grid-template-columns:1fr;gap:12px;max-width:880px;margin:0 auto;text-align:left;
+}
+.inv-del-item{
+    display:flex;align-items:center;gap:16px;
+    border-radius:14px;padding:18px 22px;font-size:14px;
+    background:#fff !important;border:1px solid #C8CED8 !important;
+    color:var(--text-secondary) !important;
+    box-shadow:0 2px 6px rgba(27,58,92,0.04) !important;transition:all 0.25s;
+}
+.inv-del-item:hover{border-color:var(--accent-light) !important;box-shadow:var(--shadow-md) !important;transform:translateX(4px)}
+
+/* ====================================================
+   10. CTA — Dark amber glow
+   ==================================================== */
+.inv-cta-section{
+    padding:96px 24px;
+    background:linear-gradient(180deg,#0D1B2A 0%,#0F2237 100%) !important;
+    text-align:center;
+}
+.inv-cta-box{
+    max-width:720px;margin:0 auto;border-radius:24px;padding:48px 32px;
+    background:linear-gradient(160deg,rgba(200,150,90,0.06),rgba(255,255,255,0.03)) !important;
+    border:1px solid rgba(200,150,90,0.15) !important;
+}
+.inv-cta-content{margin-bottom:24px}
+.inv-cta-content h3{font-size:clamp(24px,5vw,32px);color:#fff;margin-bottom:16px}
+.inv-cta-content p{font-size:16px;color:rgba(255,255,255,0.65);margin-bottom:28px;line-height:1.75;max-width:540px;margin-left:auto;margin-right:auto}
+.inv-cta-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:18px 36px;border-radius:16px;
+    font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;
+    text-decoration:none;cursor:pointer;transition:all 0.3s;border:none;
+}
+.inv-cta-btn.primary{
+    background:linear-gradient(135deg,var(--warm),var(--warm-dark));color:#fff;
+    box-shadow:0 6px 32px rgba(200,150,90,0.45);
+}
+.inv-cta-btn.primary:hover{transform:translateY(-3px);box-shadow:0 12px 48px rgba(200,150,90,0.55)}
+.inv-cta-btn.primary svg{stroke:currentColor;fill:none}
+.inv-cta-btn.secondary{
+    background:rgba(200,150,90,0.08);color:var(--warm-light);border:1px solid rgba(200,150,90,0.2);
+}
+.inv-cta-btn.secondary:hover{background:rgba(200,150,90,0.15)}
+.inv-cta-divider{display:flex;align-items:center;gap:16px;margin:24px 0}
+.inv-cta-divider::before,.inv-cta-divider::after{
+    content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+}
+.inv-cta-divider span{font-size:12px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px}
+.inv-cta-guide{
+    margin-top:32px;padding:28px 24px;
+    background:linear-gradient(135deg,rgba(200,150,90,0.08),rgba(200,150,90,0.02)) !important;
+    border:1px solid rgba(200,150,90,0.15) !important;border-radius:16px;text-align:center;
+}
+.inv-cta-guide h4{font-size:17px;color:#fff;margin-bottom:10px}
+.inv-guide-title{font-size:15px;margin-bottom:20px;line-height:1.7;color:var(--warm-light)}
+.inv-guide-features li{font-size:13px;color:rgba(255,255,255,0.7);padding:5px 0;padding-left:20px;position:relative}
+.inv-guide-features li::before{content:'✓';position:absolute;left:0;color:var(--warm-light);font-size:12px}
+.inv-guide-note{font-size:13px;color:rgba(255,255,255,0.35);margin-top:12px}
+
+/* ====================================================
+   11. TRUST — Light with icon cards
+   ==================================================== */
+.inv-trust{padding:56px 24px 72px;background:#FAFBFD !important;text-align:center}
+.inv-trust-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:880px;margin:0 auto 28px}
+.inv-trust-card{
+    display:flex;align-items:center;gap:16px;padding:18px 22px;
+    background:#fff !important;border:1px solid #D1D5DB !important;border-radius:16px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.04) !important;transition:all 0.25s;
+}
+.inv-trust-card:hover{border-color:var(--accent-light) !important;transform:translateY(-2px);box-shadow:var(--shadow-md) !important}
+.inv-trust-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.inv-trust-icon.oracle{background:rgba(239,68,68,0.08)}
+.inv-trust-icon.att{background:rgba(59,130,246,0.08)}
+.inv-trust-icon.endeavor{background:rgba(200,150,90,0.08)}
+.inv-trust-icon.academic{background:rgba(16,185,129,0.08)}
+.inv-trust-icon svg{width:20px;height:20px;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.inv-trust-card-text strong{display:block;font-size:14px;color:var(--text) !important;margin-bottom:2px}
+.inv-trust-card-text span{font-size:12px;color:var(--text-muted) !important}
+.inv-trust-text{font-size:13px;color:var(--text-muted) !important;max-width:500px;margin:0 auto;line-height:1.6}
+.inv-trust-text strong{color:var(--text) !important}
+.inv-trust-note{text-align:center;font-size:13px;color:var(--text-muted);max-width:500px;margin:0 auto;line-height:1.6;padding-top:20px;border-top:1px solid var(--border)}
+.inv-trust-note strong{color:var(--warm-dark)}
+
+/* ====================================================
+   12. FOOTER — Dark
+   ==================================================== */
+footer.inv-footer{
+    background:linear-gradient(180deg,#0A1525,#060D17);
+    padding:48px 20px 32px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);
+}
+footer.inv-footer .footer-brand{font-family:'DM Serif Display',Georgia,serif;font-size:20px;color:rgba(255,255,255,0.7);margin-bottom:16px}
+footer.inv-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap}
+footer.inv-footer .footer-links a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s}
+footer.inv-footer .footer-links a:hover{color:var(--warm-light)}
+footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+
+/* ====================================================
+   BREADCRUMB
+   ==================================================== */
+.inv-breadcrumb{padding:14px 24px;background:var(--bg);border-bottom:1px solid var(--border)}
+.inv-breadcrumb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted)}
+.inv-breadcrumb a{color:var(--text-secondary);text-decoration:none}
+.inv-breadcrumb a:hover{color:var(--warm)}
+.inv-breadcrumb svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
+.inv-breadcrumb-current{color:var(--text);font-weight:500}
+
+/* ====================================================
+   RESPONSIVE
+   ==================================================== */
+@media(min-width:768px){
+    .inv-hero{padding:112px 40px 100px}
+    .inv-hero-stats{grid-template-columns:repeat(3,1fr)}
+    .inv-scorecard{padding:96px 40px}
+    .inv-scorecard-grid{grid-template-columns:1fr 1fr}
+    .inv-cost-section{padding:96px 40px}
+    .inv-cost-grid{grid-template-columns:1fr 1fr}
+    .inv-case-study{padding:100px 40px}
+    .inv-who{padding:100px 40px}
+    .inv-who-inner{flex-direction:row;text-align:left;gap:48px}
+    .inv-who-photo{width:200px;height:200px}
+    .inv-who-tags{justify-content:flex-start}
+    .inv-timeline-section{padding:100px 40px}
+    .inv-timeline-phases{grid-template-columns:repeat(2,1fr);gap:20px}
+    .inv-solution{padding:96px 40px}
+    .inv-solution-comparison{grid-template-columns:repeat(2,1fr)}
+    .inv-model{padding:96px 40px}
+    .inv-model-options{grid-template-columns:repeat(3,1fr)}
+    .inv-deliverables{padding:96px 40px}
+    .inv-del-grid{grid-template-columns:1fr 1fr}
+    .inv-cta-section{padding:100px 40px}
+    .inv-cta-box{padding:56px 48px}
+    .inv-trust-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
+    .inv-hero{padding:136px 10% 116px}
+    .inv-scorecard{padding:100px 10%}
+    .inv-cost-section{padding:100px 10%}
+    .inv-cost-grid{grid-template-columns:repeat(4,1fr)}
+    .inv-case-study{padding:108px 10%}
+    .inv-who{padding:120px 10%}
+    .inv-who-photo{width:220px;height:220px}
+    .inv-timeline-section{padding:108px 10%}
+    .inv-timeline-phases{grid-template-columns:repeat(4,1fr)}
+    .inv-solution{padding:100px 10%}
+    .inv-model{padding:100px 10%}
+    .inv-deliverables{padding:100px 10%}
+    .inv-del-grid{grid-template-columns:repeat(3,1fr)}
+    .inv-cta-section{padding:108px 10%}
+    .inv-trust-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+    
+
+/* ============================================
+   ACCESSIBILITY: Focus States (WCAG 2.1 AA)
+   ============================================ */
+:focus {
+    outline: none;
+}
+:focus-visible {
+    outline: 3px solid var(--warm);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid var(--warm);
+    outline-offset: 2px;
+}
+.btn-primary:focus-visible,
+.cta:focus-visible,
+[class*="cta"]:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px rgba(212,136,58,0.4);
+}
+
+/* Skip to main link */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--warm);
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    z-index: 99999;
+    transition: top 0.3s;
+}
+.skip-link:focus {
+    top: 16px;
+}
+</style>
     <link rel="stylesheet" href="styles/nav-unified.css">
     <script src="components/nav.js" defer></script>
     
@@ -634,7 +1444,7 @@ footer a:hover{text-decoration:underline}
 <!-- Navigation -->
 <nav id="main-nav"></nav>
 
-<main>
+<main id="main-content">
 
 <!-- Hero -->
 <section class="hero">
@@ -672,7 +1482,7 @@ footer a:hover{text-decoration:underline}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
             </svg>
-            <span data-i18n="hero.cta.assessment">Descubra se Sua Empresa se Qualifica</span>
+            <span data-i18n="hero.cta.assessment">Fazer Assessment Gratuito</span>
         </a>
         <p class="hero-cta-note" data-i18n="hero.cta.note">Assessment de 2 min • <strong>Sem compromisso</strong></p>
         
@@ -801,7 +1611,7 @@ footer a:hover{text-decoration:underline}
         <div class="comp-card fail">
             <span class="label" data-i18n="solution.traditional.label"><span class="ic ic-danger" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Opção tradicional</span>
             <h4 data-i18n="solution.vp.title">Contratar VP Sales</h4>
-            <p data-i18n="solution.vp.text">12-18 meses de ramp. 50% taxa de falha. Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
+            <p data-i18n="solution.vp.text">12-18 meses de ramp. ~50% taxa de falha em startups SaaS.* Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
         </div>
         <div class="comp-card highlight">
             <span class="label" data-i18n="solution.fractional.label"><span class="ic ic-success" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg></span> Fractional CRO</span>
@@ -886,33 +1696,42 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
 
-    <!-- ClearSale Case Study -->
+    <!-- ClearSale Case Study — Detailed with sources -->
     <div class="founder-case-study">
         <div class="founder-case-header">
             <div class="founder-case-badge" data-i18n="why.case.badge">Case Documentado</div>
-            <h3 data-i18n="why.case.title">ClearSale: De Estruturação Comercial a <span class="hl">R$2 Bilhões</span></h3>
+            <h3 data-i18n="why.case.title">ClearSale: Estruturação Comercial no <span class="hl">Início da Jornada</span></h3>
+            
+            
         </div>
 
         <div class="founder-case-timeline">
             <div class="founder-case-step">
                 <div class="founder-case-marker">1</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step1.title">O Desafio</h4>
-                    <p data-i18n="why.case.step1.text">ClearSale tinha produto validado, mas precisava estruturar a operação comercial para escalar. Carlos André foi contratado como mentor e consultor de vendas.</p>
+                    <h4 data-i18n="why.case.step1.title">O Cenário</h4>
+                    <p data-i18n="why.case.step1.text">ClearSale tinha o melhor produto de antifraude do Brasil e clientes satisfeitos — mas literalmente não tinha área de vendas. A equipe de compras era quem vendia. Não existia pipeline, processo comercial, gestão de vendas nem metas estruturadas.</p>
                 </div>
             </div>
             <div class="founder-case-step">
                 <div class="founder-case-marker">2</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step2.title">A Intervenção</h4>
-                    <p data-i18n="why.case.step2.text">Estruturação da arquitetura comercial: processos, pipeline, métricas e cadência. O trabalho que transforma bons vendedores em máquina de receita previsível.</p>
+                    <h4 data-i18n="why.case.step2.title">A Intervenção (~2 anos)</h4>
+                    <p data-i18n="why.case.step2.text">Carlos André atuou como mentor próximo, indo além da mentoria Endeavor, para apoiar a estruturação da operação comercial. O trabalho incluiu orientar: a contratação e treinamento dos primeiros vendedores, criação de processos de pipeline e forecast, implementação de cadência operacional e métricas de gestão.</p>
                 </div>
             </div>
             <div class="founder-case-step">
                 <div class="founder-case-marker">3</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step3.title">A Trajetória</h4>
-                    <p data-i18n="why.case.step3.text">ClearSale se tornou líder de antifraude no Brasil, fez IPO na B3 em 2021 e foi adquirida pela Serasa Experian por R$2 bilhões em 2025.</p>
+                    <h4 data-i18n="why.case.step3.title">A Internacionalização</h4>
+                    <p data-i18n="why.case.step3.text">Um dos vendedores contratados durante a estruturação foi enviado para os EUA para abrir o mercado americano — a primeira iniciativa de internacionalização da ClearSale, que nasceu diretamente do time comercial criado nesse processo.</p>
+                </div>
+            </div>
+            <div class="founder-case-step">
+                <div class="founder-case-marker">4</div>
+                <div class="founder-case-content">
+                    <h4 data-i18n="why.case.step4.title">A Trajetória</h4>
+                    <p data-i18n="why.case.step4.text">Com essa fundação comercial, a ClearSale escalou para líder absoluta de antifraude no Brasil, fez IPO na B3 em 2021 (captando R$1 bilhão a valuation de R$4,7 bi), e foi adquirida pela Serasa Experian por R$2 bilhões em 2025.</p>
                 </div>
             </div>
         </div>
@@ -925,33 +1744,30 @@ footer a:hover{text-decoration:underline}
                     <p data-i18n="why.case.book.detail">Endeavor Brasil / Portfolio Penguin, 2014. Capítulo ClearSale, com prefácios de Jorge Paulo Lemann e Beto Sicupira.</p>
                 </div>
             </div>
+            <div class="founder-case-book" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(200,150,90,0.15)">
+                <span class="ic ic-warm"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span>
+                <div>
+                    <strong data-i18n="why.case.award.title">Premiado Mentor de Impacto — Endeavor Brasil, 2013</strong>
+                    <p data-i18n="why.case.award.detail">Reconhecimento após mentorias de alto impacto em mais de 10 empresas da rede Endeavor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="founder-case-sources">
+            <p class="founder-case-sources-title">Fontes verificáveis:</p>
+            <ul>
+                <li><a href="https://www.bloomberglinea.com.br/negocios/serasa-experian-acerta-aquisicao-da-clearsale-por-r-21-bi-e-avanca-em-antifraude/" target="_blank" rel="noopener">Bloomberg Línea — Aquisição ClearSale R$2,1 bi (Out/2024)</a></li>
+                <li><a href="https://www.seudinheiro.com/2021/empresas/acoes-da-clearsale-estreiam-na-bolsa-com-disparada-de-20-apos-ipo/" target="_blank" rel="noopener">Seu Dinheiro — IPO ClearSale R$1 bi (Jul/2021)</a></li>
+                <li><a href="https://endeavor.org.br/sobre-a-endeavor/endeavor-lanca-livro-com-10-historias-de-empreendedores-de-alto-impacto/" target="_blank" rel="noopener">Endeavor Brasil — Livro #VQD (2014)</a></li>
+            </ul>
         </div>
 
         <div class="founder-case-takeaway">
-            <p data-i18n="why.case.takeaway"><strong>O que isso significa pra você:</strong> O gap entre produto validado e crescimento escalável é quase sempre um problema de <strong>arquitetura comercial</strong>. Já resolvemos isso antes — e podemos resolver pra sua empresa.</p>
+            <p data-i18n="why.case.takeaway"><strong>O que isso significa pra você:</strong> O gap entre produto validado e crescimento escalável é quase sempre um problema de <strong>arquitetura comercial</strong>. Não fiz o exit acontecer — muita gente brilhante construiu a ClearSale ao longo de uma década. O que fiz foi <strong>apoiar a criação da operação de vendas que não existia</strong>: participar da definição de contratações, orientar a instalação de processos, e preparar a base que permitiu tudo que veio depois.</p>
         </div>
     </div>
 
-    <!-- Authority Badges -->
-    <div class="authority-badges">
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" height="28" loading="lazy">
-        </div>
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-ibgc.png" alt="IBGC" height="28" loading="lazy">
-        </div>
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-harvard.png" alt="Harvard Business School" height="28" loading="lazy">
-        </div>
-        <div class="badge-item">
-            <img src="assets/images/brand/logo-columbia.png" alt="Columbia Business School" height="28" loading="lazy">
-        </div>
-    </div>
-</section>
-
-<div class="section-hr" aria-hidden="true"></div>
-
-<!-- Process -->
+    <!-- Process -->
 <section id="processo" class="process-section">
     <div class="section-header">
         <h2 data-i18n="process.title">Como <span class="hl">Funciona</span> na Prática</h2>
@@ -1051,7 +1867,7 @@ footer a:hover{text-decoration:underline}
         <h3 data-i18n="cta.box.title">Diagnóstico Inicial</h3>
         <p data-i18n="cta.box.text">Conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer.</p>
         <p class="cta-micro" data-i18n="cta.micro">Conversa direta com Carlos André — não com um SDR</p>
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa de 30min →</a>
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa →</a>
         <div class="secondary-options">
             <a href="https://wa.me/5511975341961" target="_blank" class="sec-link">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
@@ -1242,30 +2058,33 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
 
-    <!-- The Real Cost -->
+    <!-- The Real Cost — Impact numbers layout -->
     <div class="inv-cost-section">
         <h3 data-i18n="investors.cost.title">O Custo Real da Inação</h3>
         <p class="inv-cost-intro" data-i18n="investors.cost.intro">Cada mês de estagnação tem impacto composto no seu retorno.</p>
         
-        <div class="inv-cost-grid">
-            <div class="inv-cost-card">
-                <div class="inv-cost-icon"><span class="ic ic-danger"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span></div>
-                <h4 data-i18n="investors.cost1.title">Compressão de Múltiplo</h4>
+        <div class="inv-cost-metrics">
+            <div class="inv-cost-metric">
+                <span class="inv-cost-number">R$40-80M</span>
+                <span class="inv-cost-label">equity destruído</span>
                 <p data-i18n="investors.cost1.text">Empresa de R$10M ARR com 0% growth vale <strong>3-4x receita</strong>. Com 30%+ growth, vale <strong>8-12x</strong>. Diferença: <strong>R$40-80M em equity</strong>.</p>
             </div>
-            <div class="inv-cost-card">
-                <div class="inv-cost-icon"><span class="ic ic-warn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span></div>
-                <h4 data-i18n="investors.cost2.title">Runway Queimando</h4>
+            <div class="inv-cost-divider-v"></div>
+            <div class="inv-cost-metric">
+                <span class="inv-cost-number">-15%</span>
+                <span class="inv-cost-label">valor a cada mês parado</span>
                 <p data-i18n="investors.cost2.text">Cada mês de burn sem crescimento aproxima a empresa de um <strong>down-round forçado</strong> ou <strong>bridge emergencial</strong> que dilui todos.</p>
             </div>
-            <div class="inv-cost-card">
-                <div class="inv-cost-icon"><span class="ic ic-danger"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span></div>
-                <h4 data-i18n="investors.cost3.title">Janela de Exit Fechando</h4>
+            <div class="inv-cost-divider-v"></div>
+            <div class="inv-cost-metric">
+                <span class="inv-cost-number">18 meses</span>
+                <span class="inv-cost-label">janela de exit média</span>
                 <p data-i18n="investors.cost3.text">Mercado de M&A e IPO não espera. Compradores e public markets premiam <strong>crescimento consistente</strong>, não turnarounds.</p>
             </div>
-            <div class="inv-cost-card">
-                <div class="inv-cost-icon"><span class="ic ic-warn"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span></div>
-                <h4 data-i18n="investors.cost4.title">Custo de Oportunidade</h4>
+            <div class="inv-cost-divider-v"></div>
+            <div class="inv-cost-metric">
+                <span class="inv-cost-number">200h+</span>
+                <span class="inv-cost-label">do GP em modo crise/ano</span>
                 <p data-i18n="investors.cost4.text">Horas do GP em modo crise são horas <strong>não gastas</strong> em empresas que estão performando e precisam de apoio estratégico.</p>
             </div>
         </div>
@@ -1284,13 +2103,13 @@ footer a:hover{text-decoration:underline}
                 <div class="inv-case-step-marker">1</div>
                 <div class="inv-case-step-content">
                     <h4 data-i18n="investors.case.step1.title">O Desafio</h4>
-                    <p data-i18n="investors.case.step1.text">ClearSale tinha produto validado e mercado, mas precisava estruturar a operação comercial para escalar. Carlos André foi contratado como mentor e consultor de estruturação de vendas — indo além da mentoria Endeavor.</p>
+                    <p data-i18n="investors.case.step1.text">ClearSale tinha produto validado e mercado, mas precisava estruturar a operação comercial para escalar. Carlos André participou da definição e seleção da liderança comercial, atuando como mentor próximo da operação — indo além da mentoria Endeavor.</p>
                 </div>
             </div>
             <div class="inv-case-step">
                 <div class="inv-case-step-marker">2</div>
                 <div class="inv-case-step-content">
-                    <h4 data-i18n="investors.case.step2.title">A Intervenção</h4>
+                    <h4 data-i18n="investors.case.step2.title">A Mentoria</h4>
                     <p data-i18n="investors.case.step2.text">Estruturação da arquitetura comercial: processos de venda, pipeline, métricas e cadência operacional. O trabalho que transforma uma empresa com bons vendedores em uma máquina de receita previsível.</p>
                 </div>
             </div>
@@ -1398,38 +2217,16 @@ footer a:hover{text-decoration:underline}
         </div>
     </div>
 
-    <!-- What VCs Get -->
+        <!-- What VCs Get — Numbered list -->
     <div class="inv-deliverables">
         <h3 data-i18n="investors.deliverables.title">O Que o Fundo Recebe</h3>
-        <div class="inv-del-grid pd-container pd-collapsed">
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-warm"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span></span>
-                <span data-i18n="investors.del1">Report mensal com métricas de GTM</span>
-            </div>
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-warm"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span></span>
-                <span data-i18n="investors.del2">Metas D30/D60/D90 acordadas previamente</span>
-            </div>
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-danger"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span></span>
-                <span data-i18n="investors.del3">Early warning de riscos antes do board</span>
-            </div>
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-accent"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span></span>
-                <span data-i18n="investors.del4">Linha direta GP ↔ Fractional CRO</span>
-            </div>
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-accent"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span></span>
-                <span data-i18n="investors.del5">Documentação de processos instalados</span>
-            </div>
-            <div class="inv-del-item pd-item">
-                <span class="inv-del-icon"><span class="ic ic-success"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg></span></span>
-                <span data-i18n="investors.del6">Playbook transferível para outras empresas</span>
-            </div>
-            <button class="pd-toggle" onclick="togglePD(this)" data-more="Ver todos os entregáveis ↓" data-less="Mostrar menos ↑">
-                <span data-i18n="investors.del.more">Ver todos os entregáveis</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+        <div class="inv-del-list">
+            <div class="inv-del-row"><span class="inv-del-num">01</span><span data-i18n="investors.del1">Report mensal com métricas de GTM</span></div>
+            <div class="inv-del-row"><span class="inv-del-num">02</span><span data-i18n="investors.del2">Metas D30/D60/D90 acordadas previamente</span></div>
+            <div class="inv-del-row"><span class="inv-del-num">03</span><span data-i18n="investors.del3">Early warning de riscos antes do board</span></div>
+            <div class="inv-del-row"><span class="inv-del-num">04</span><span data-i18n="investors.del4">Linha direta GP ↔ Fractional CRO</span></div>
+            <div class="inv-del-row"><span class="inv-del-num">05</span><span data-i18n="investors.del5">Documentação de processos instalados</span></div>
+            <div class="inv-del-row"><span class="inv-del-num">06</span><span data-i18n="investors.del6">Playbook transferível para outras empresas</span></div>
         </div>
     </div>
 
@@ -1467,16 +2264,46 @@ footer a:hover{text-decoration:underline}
 
     <!-- Trust Signals for VCs -->
     <div class="inv-trust">
-        <p class="inv-trust-text" data-i18n="investors.trust">
-            <strong>Sobre Carlos André:</strong> Ex-Presidente Oracle Brasil ($48M→$240M), Ex-CEO AT&T LATAM ($3M→$47M). 
-            Premiado Mentor de Impacto Endeavor (2013) após mentorias em 10+ empresas. Conselheiro IBGC. Harvard & Columbia Business School. 
-            Atende no <strong>máximo 3 empresas</strong> simultaneamente.
-        </p>
+        <div class="inv-trust-bar">
+            <div class="inv-trust-item">
+                <div class="inv-trust-icon oracle"><svg viewBox="0 0 24 24" stroke="#EF4444" fill="none" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 21V7M16 21V7"/></svg></div>
+                <div><strong>Oracle Brasil</strong><span>Ex-Presidente · $48M → $240M</span></div>
+            </div>
+            <div class="inv-trust-item">
+                <div class="inv-trust-icon att"><svg viewBox="0 0 24 24" stroke="#3B82F6" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg></div>
+                <div><strong>AT&T LATAM</strong><span>Ex-CEO · $3M → $47M</span></div>
+            </div>
+            <div class="inv-trust-item">
+                <div class="inv-trust-icon endeavor"><svg viewBox="0 0 24 24" stroke="#C8965A" fill="none" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></div>
+                <div><strong>Endeavor Brasil</strong><span>Mentor de Impacto Premiado</span></div>
+            </div>
+            <div class="inv-trust-item">
+                <div class="inv-trust-icon academic"><svg viewBox="0 0 24 24" stroke="#10B981" fill="none" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                <div><strong>Harvard & Columbia</strong><span>Business School · MBA</span></div>
+            </div>
+        </div>
+        <p class="inv-trust-note" data-i18n="investors.trust.note">Atende no <strong>máximo 3 empresas</strong> simultaneamente para garantir profundidade de execução.</p>
     </div>
 
 </section>
 
 </main>
+
+
+    <!-- Sources & References -->
+    <div class="sources-section">
+        <div class="sources-inner">
+            <p class="sources-title">Fontes e referências:</p>
+            <ul class="sources-list">
+                <li><strong>Taxa de falha VP Sales:</strong> <a href="https://www.saastr.com/if-your-vp-sales-isnt-going-to-work-out-youll-know-in-30-days/" target="_blank" rel="noopener">SaaStr</a> — "majority of first VP Sales in SaaS companies don't make it 12 months"</li>
+                <li><strong>Ramp time VP Sales:</strong> <a href="https://www.scalewithstrive.com/blog/how-to-hire-a-successful-sales-leader-avoiding-the-18-month-failure-trap" target="_blank" rel="noopener">Scale with Strive</a> — "The average SaaS VP Sales fails within 18 months"</li>
+                <li><strong>ClearSale Exit R$2,1 bi:</strong> <a href="https://www.bloomberglinea.com.br/negocios/serasa-experian-acerta-aquisicao-da-clearsale-por-r-21-bi-e-avanca-em-antifraude/" target="_blank" rel="noopener">Bloomberg Línea (Out/2024)</a></li>
+                <li><strong>ClearSale IPO R$1 bi:</strong> <a href="https://www.seudinheiro.com/2021/empresas/acoes-da-clearsale-estreiam-na-bolsa-com-disparada-de-20-apos-ipo/" target="_blank" rel="noopener">Seu Dinheiro (Jul/2021)</a></li>
+                <li><strong>Livro #VQD - Vai Que Dá:</strong> <a href="https://endeavor.org.br/sobre-a-endeavor/endeavor-lanca-livro-com-10-historias-de-empreendedores-de-alto-impacto/" target="_blank" rel="noopener">Endeavor Brasil (2014)</a></li>
+            </ul>
+            <p class="sources-note">*Dados de track record pessoal (Oracle, AT&T, Informatica) são verificáveis via LinkedIn do fundador.</p>
+        </div>
+    </div>
 
 <!-- Footer -->
 <footer>
@@ -1492,7 +2319,7 @@ footer a:hover{text-decoration:underline}
     <div class="mobile-fab-row">
         <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="fab-btn fab-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span data-i18n="fab.call">Agendar Call</span>
+            <span data-i18n="fab.call">Agendar Conversa →</span>
         </a>
         <a href="https://wa.me/5511975341961" target="_blank" class="fab-btn fab-ghost">
             <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
@@ -2031,7 +2858,7 @@ if (document.readyState === 'complete') {
 }
 </script>
 <noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
+<img height="1" width="1" style="display:none;" alt="?Pid=9076865&Fmt=Gif" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
 </noscript>
 
 </body>
