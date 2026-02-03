@@ -1,6 +1,7 @@
 /* ============================================
    Alavanka — Navigation CSS
-   Criado do zero em 2026-02-03
+   CORRIGIDO: 2026-02-03
+   - Fix logo cortado/distorcido
    ============================================ */
 
 /* ══════════════════════════════════════════════
@@ -33,18 +34,24 @@ nav {
 }
 
 /* ══════════════════════════════════════════════
-   3. LOGO
+   3. LOGO - CORRIGIDO
    ══════════════════════════════════════════════ */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
-/* Logo SVG - viewBox otimizado (210x95), proporção ~2.2:1 */
+/* Logo SVG - FIX: usar aspect-ratio para manter proporção */
 .nav-logo-svg {
-    height: 52px;   /* Com viewBox otimizado, isso dá ~115px de largura */
+    height: 44px;
     width: auto;
+    display: block;
+    /* Proporção do viewBox: 210/95 ≈ 2.21 */
+    aspect-ratio: 210 / 95;
+    /* Garantir que não seja cortado */
+    overflow: visible;
 }
 
 .logo:hover .nav-logo-svg {
@@ -53,7 +60,6 @@ nav {
 
 /* ══════════════════════════════════════════════
    4. CONTROLES MOBILE (lang + hamburger)
-   Ficam lado a lado à direita
    ══════════════════════════════════════════════ */
 .lang-toggle-mobile {
     padding: 6px 12px;
@@ -251,7 +257,7 @@ nav {
     }
     
     .nav-logo-svg {
-        height: 58px;
+        height: 50px;
     }
 }
 
@@ -269,7 +275,7 @@ nav {
     }
     
     .nav-logo-svg {
-        height: 64px;
+        height: 56px;
     }
     
     /* Esconde controles mobile */
@@ -350,7 +356,7 @@ nav {
         font-size: 14px;
     }
     
-    /* Lang toggle desktop (dentro do sidebar vira inline) */
+    /* Lang toggle desktop */
     .nav-links .lang-toggle {
         display: inline-block;
         margin: 0;
@@ -370,4 +376,20 @@ nav {
    ══════════════════════════════════════════════ */
 .mobile-menu-content {
     display: contents;
+}
+
+/* Nav home icon */
+.nav-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-home svg {
+    stroke: #4A5568;
+    transition: stroke 0.2s;
+}
+
+.nav-home:hover svg {
+    stroke: #1B3A5C;
 }
