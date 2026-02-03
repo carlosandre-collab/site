@@ -262,7 +262,7 @@
     "gate.founderDesc": "Preciso estruturar minha operação de receita",
     "gate.investorLabel": "Investidor / VC",
     "gate.investorDesc": "Quero destravar o crescimento das minhas investidas",
-    "nav.investors": "Para VCs"
+    "nav.investors": "Para Fundos"
   },
   "en": {
     "nav.problem": "The Problem",
@@ -527,6 +527,6 @@
     "gate.founderDesc": "I need to structure my revenue operation",
     "gate.investorLabel": "Investor / VC",
     "gate.investorDesc": "I want to unlock growth for my portfolio companies",
-    "nav.investors": "For VCs"
+    "nav.investors": "For Funds"
   }
 }
