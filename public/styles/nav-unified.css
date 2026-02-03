@@ -316,8 +316,10 @@ nav {
         visibility: hidden;
         transition: opacity 0.2s, visibility 0.2s;
         z-index: 1001;
+        display: none;
     }
     
+    .nav-dropdown:hover .nav-dropdown-menu,
     .nav-dropdown.open .nav-dropdown-menu {
         display: block;
         opacity: 1;
