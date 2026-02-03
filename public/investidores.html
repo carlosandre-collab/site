@@ -138,114 +138,9 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
 .inv-breadcrumb svg{width:12px;height:12px;stroke:currentColor;stroke-width:2;fill:none}
 .inv-breadcrumb-current{color:var(--text);font-weight:500}
 
-/* ====================================================
-
 /* ============================================================
-   INVESTORS PAGE - Color contrast fixes
+   INVESTORS PAGE - Color Overrides (consolidated)
    ============================================================ */
-
-/* Hero section (dark) - ensure white text */
-.inv-hero h1, .inv-hero p, .inv-hero .inv-hero-stats {
-    color: var(--text-inverse) !important;
-}
-.inv-hero .hl {
-    color: var(--warm-light) !important;
-}
-
-/* Scorecard section */
-.inv-scorecard-item label {
-    color: var(--text) !important;
-}
-
-/* Cost section */
-.inv-cost-number {
-    color: var(--danger) !important;
-}
-.inv-cost-label, .inv-cost-desc {
-    color: var(--text-secondary) !important;
-}
-
-/* Case study (dark) */
-.inv-case-study {
-    background: linear-gradient(165deg, #0D1B2A, #1B3A5C) !important;
-}
-.inv-case-study h2, .inv-case-study h3, .inv-case-study h4,
-.inv-case-study p, .inv-case-study li {
-    color: var(--text-inverse) !important;
-}
-.inv-case-study .hl {
-    color: var(--warm-light) !important;
-}
-.inv-case-badge {
-    background: rgba(212,136,58,0.2) !important;
-    color: var(--warm-light) !important;
-}
-
-/* Who leads section */
-.inv-who h3, .inv-who h4 {
-    color: var(--text) !important;
-}
-.inv-who p {
-    color: var(--text-secondary) !important;
-}
-
-/* 90 days section */
-.inv-90-phase h4 {
-    color: var(--text) !important;
-}
-.inv-90-phase p, .inv-90-phase li {
-    color: var(--text-secondary) !important;
-}
-
-/* Solution comparison */
-.inv-solution-wrong h4 {
-    color: var(--danger) !important;
-}
-.inv-solution-right h4 {
-    color: var(--success) !important;
-}
-.inv-solution-wrong p, .inv-solution-right p {
-    color: var(--text-secondary) !important;
-}
-
-/* Model/pricing cards */
-.inv-model-card h4 {
-    color: var(--text) !important;
-}
-.inv-model-card p {
-    color: var(--text-secondary) !important;
-}
-.inv-model-card.featured {
-    border-color: var(--warm) !important;
-}
-
-/* Deliverables */
-.inv-del-num {
-    color: var(--warm) !important;
-}
-.inv-del-text {
-    color: var(--text) !important;
-}
-
-/* Trust bar */
-.inv-trust-bar {
-    background: #FFFFFF !important;
-}
-.inv-trust-item span {
-    color: var(--text) !important;
-}
-
-/* Footer */
-.inv-footer {
-    background: var(--bg-dark) !important;
-}
-.inv-footer * {
-    color: var(--text-inverse) !important;
-}
-.inv-footer a {
-    color: var(--warm-light) !important;
-}
-
 
 /* Simplified Case Study */
 .inv-case-study h2 {
@@ -258,52 +153,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
 
 
 
-/* DELIVERABLES - light background */
-.inv-deliverables {
-    background: #FFFFFF !important;
-    padding: 60px 24px;
-}
-.inv-deliverables h3 {
-    color: var(--text) !important;
-}
-.inv-del-row {
-    background: var(--bg) !important;
-    border: 1px solid var(--border) !important;
-}
-.inv-del-row span {
-    color: var(--text) !important;
-}
-.inv-del-num {
-    color: var(--warm) !important;
-}
-
-
-
-/* TRUST SECTION - light background */
-.inv-trust {
-    background: #FFFFFF !important;
-    padding: 48px 24px;
-}
-.inv-trust-bar {
-    background: var(--bg) !important;
-    border: 1px solid var(--border) !important;
-}
-.inv-trust-item div strong {
-    color: var(--text) !important;
-}
-.inv-trust-item div span {
-    color: var(--text-secondary) !important;
-}
-.inv-trust-note {
-    color: var(--text-muted) !important;
-}
-
-/* FOOTER - dark is fine but ensure proper contrast */
-.inv-footer {
-    background: var(--bg-dark) !important;
-}
-
-
 /* ══════════════════════════════════════════════════════════════════════════
    FINAL CONTRAST FIX - SINGLE SOURCE OF TRUTH
    ══════════════════════════════════════════════════════════════════════════ */
@@ -313,8 +162,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
 .inv-case-study {
     background: linear-gradient(165deg, #0D1B2A, #1B3A5C) !important;
 }
-.inv-hero *,
-.inv-case-study * {
+.inv-hero h1, .inv-hero h2, .inv-hero h3, .inv-hero h4, .inv-hero p, .inv-hero span, .inv-hero li, .inv-hero a,
+.inv-case-study h1, .inv-case-study h2, .inv-case-study h3, .inv-case-study h4, .inv-case-study p, .inv-case-study span, .inv-case-study li, .inv-case-study a {
     color: #FFFFFF !important;
 }
 .inv-hero .hl,
@@ -330,7 +179,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
 .inv-footer {
     background: #0D1B2A !important;
 }
-.inv-footer * {
+.inv-footer p, .inv-footer span, .inv-footer li, .inv-footer div {
     color: #FFFFFF !important;
 }
 .inv-footer a {
@@ -347,12 +196,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
     padding: 48px 40px !important;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3) !important;
 }
-.inv-cta-box *,
-.inv-cta-box h2,
-.inv-cta-box h3,
-.inv-cta-box h4,
-.inv-cta-content h2,
-.inv-cta-content h3 {
+.inv-cta-box h2, .inv-cta-box h3, .inv-cta-box h4,
+.inv-cta-content h2, .inv-cta-content h3 {
     color: #0D1B2A !important;
 }
 .inv-cta-box p,
@@ -393,14 +238,14 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;let
     background: linear-gradient(180deg, #FFFBF5, #FFF8ED) !important;
 }
 
-/* All text in light sections = DARK */
-.inv-scorecard *,
-.inv-solution *,
-.inv-who *,
-.inv-90-days *,
-.inv-models *,
-.inv-deliverables *,
-.inv-trust * {
+/* All text in light sections = DARK (specific selectors to avoid affecting nav) */
+.inv-scorecard h2, .inv-scorecard h3, .inv-scorecard h4, .inv-scorecard p, .inv-scorecard span, .inv-scorecard li,
+.inv-solution h2, .inv-solution h3, .inv-solution h4, .inv-solution p, .inv-solution span, .inv-solution li,
+.inv-who h2, .inv-who h3, .inv-who h4, .inv-who p, .inv-who span, .inv-who li,
+.inv-90-days h2, .inv-90-days h3, .inv-90-days h4, .inv-90-days p, .inv-90-days span, .inv-90-days li,
+.inv-models h2, .inv-models h3, .inv-models h4, .inv-models p, .inv-models span, .inv-models li,
+.inv-deliverables h2, .inv-deliverables h3, .inv-deliverables h4, .inv-deliverables p, .inv-deliverables span, .inv-deliverables li,
+.inv-trust h2, .inv-trust h3, .inv-trust h4, .inv-trust p, .inv-trust span, .inv-trust li {
     color: #0D1B2A !important;
 }
 
@@ -1333,7 +1178,8 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 .inv-hero {
     background: linear-gradient(165deg, #0D1B2A, #1B3A5C) !important;
 }
-.inv-hero * {
+.inv-hero h1, .inv-hero h2, .inv-hero h3, .inv-hero h4, 
+.inv-hero p, .inv-hero span, .inv-hero li, .inv-hero a, .inv-hero strong {
     color: #FFFFFF !important;
 }
 .inv-hero .hl,
@@ -1350,7 +1196,8 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 .inv-case-study {
     background: linear-gradient(165deg, #0D1B2A, #1B3A5C) !important;
 }
-.inv-case-study * {
+.inv-case-study h1, .inv-case-study h2, .inv-case-study h3, .inv-case-study h4,
+.inv-case-study p, .inv-case-study span, .inv-case-study li, .inv-case-study a, .inv-case-study strong {
     color: #FFFFFF !important;
 }
 .inv-case-study .hl {
@@ -1379,10 +1226,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     box-shadow: 0 20px 60px rgba(0,0,0,0.3) !important;
 }
 
-/* ALL text inside white box = DARK */
-.inv-cta-box * {
-    color: var(--text) !important;
-}
+/* Text inside white box = DARK */
 .inv-cta-box h2,
 .inv-cta-box h3,
 .inv-cta-box h4 {
@@ -1429,7 +1273,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 .inv-footer {
     background: var(--bg-dark) !important;
 }
-.inv-footer * {
+.inv-footer p, .inv-footer span, .inv-footer div, .inv-footer li {
     color: #FFFFFF !important;
 }
 .inv-footer a {
@@ -1449,13 +1293,13 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     background: linear-gradient(180deg, #FFFBF5, #FFF8ED) !important;
 }
 
-.inv-scorecard *,
-.inv-solution *,
-.inv-who *,
-.inv-90-days *,
-.inv-models *,
-.inv-deliverables *,
-.inv-trust * {
+.inv-scorecard h2, .inv-scorecard h3, .inv-scorecard h4, .inv-scorecard span, .inv-scorecard li, .inv-scorecard strong,
+.inv-solution h2, .inv-solution h3, .inv-solution h4, .inv-solution span, .inv-solution li, .inv-solution strong,
+.inv-who h2, .inv-who h3, .inv-who h4, .inv-who span, .inv-who li, .inv-who strong,
+.inv-90-days h2, .inv-90-days h3, .inv-90-days h4, .inv-90-days span, .inv-90-days li, .inv-90-days strong,
+.inv-models h2, .inv-models h3, .inv-models h4, .inv-models span, .inv-models li, .inv-models strong,
+.inv-deliverables h2, .inv-deliverables h3, .inv-deliverables h4, .inv-deliverables span, .inv-deliverables li, .inv-deliverables strong,
+.inv-trust h2, .inv-trust h3, .inv-trust h4, .inv-trust span, .inv-trust li, .inv-trust strong {
     color: var(--text) !important;
 }
 
@@ -2412,7 +2256,13 @@ function toggleFaq(button) {
     // Open clicked item if it wasn't active
     if (!wasActive && answer && content) {
         item.classList.add('active');
-        answer.style.maxHeight = content.scrollHeight + 'px';
+        answer.style.maxHeight = content.scrollHeight + 24 + 'px';
+        // GA4: Track FAQ opened
+        if (typeof gtag === 'function') {
+            var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
+            var idx = items.indexOf(item) + 1;
+            gtag('event', 'faq_opened', { question: String(idx), page: 'investidores' });
+        }
     }
 }
 
@@ -2430,6 +2280,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== Set audience as investor (so index.html knows) =====
 sessionStorage.setItem('alavanka-audience', 'investor');
+
+// ===== Smooth Scroll with nav offset =====
+(function() {
+    function getScrollOffset() {
+        var nav = document.querySelector('nav');
+        return nav ? nav.offsetHeight + 16 : 16;
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            var href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            var target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                window.scrollTo({ 
+                    top: target.getBoundingClientRect().top + window.pageYOffset - getScrollOffset(), 
+                    behavior: 'smooth' 
+                });
+            }
+        });
+    });
+})();
 
 // ===== INTERACTIVE SCORECARD =====
 (function() {

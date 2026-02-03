@@ -1,6 +1,6 @@
 /* ============================================
    Alavanka — Navigation CSS
-   Criado do zero em 2026-02-03
+   CORRIGIDO: 2026-02-03
    ============================================ */
 
 /* ══════════════════════════════════════════════
@@ -24,8 +24,6 @@ nav {
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid #E5E7EB;
     z-index: 1000;
-    
-    /* Layout: logo à esquerda, controles à direita */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,27 +31,32 @@ nav {
 }
 
 /* ══════════════════════════════════════════════
-   3. LOGO
+   3. LOGO - CORRIGIDO
+   viewBox: 105 60 230 105 → aspect-ratio: 230/105 ≈ 2.19
    ══════════════════════════════════════════════ */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
-/* Logo SVG - viewBox otimizado (210x95), proporção ~2.2:1 */
 .nav-logo-svg {
-    height: 52px;   /* Com viewBox otimizado, isso dá ~115px de largura */
+    height: 40px;
     width: auto;
+    display: block;
+    /* Proporção correta do viewBox: 230/105 */
+    aspect-ratio: 230 / 105;
+    overflow: visible;
 }
 
 .logo:hover .nav-logo-svg {
     opacity: 0.8;
+    transition: opacity 0.2s;
 }
 
 /* ══════════════════════════════════════════════
-   4. CONTROLES MOBILE (lang + hamburger)
-   Ficam lado a lado à direita
+   4. CONTROLES MOBILE
    ══════════════════════════════════════════════ */
 .lang-toggle-mobile {
     padding: 6px 12px;
@@ -115,7 +118,6 @@ nav {
     padding-top: 80px;
     overflow-y: auto;
     transition: right 0.3s ease;
-    
     display: flex;
     flex-direction: column;
 }
@@ -124,7 +126,6 @@ nav {
     right: 0;
 }
 
-/* Links diretos */
 .nav-links > a {
     display: block;
     padding: 16px 24px;
@@ -178,7 +179,6 @@ nav {
     transform: rotate(180deg);
 }
 
-/* Submenu - ESCONDIDO por padrão */
 .nav-dropdown-menu {
     display: none;
     background: #f8f9fa;
@@ -203,7 +203,7 @@ nav {
 }
 
 /* ══════════════════════════════════════════════
-   7. LANG TOGGLE DENTRO DO SIDEBAR
+   7. LANG TOGGLE SIDEBAR
    ══════════════════════════════════════════════ */
 .nav-links .lang-toggle {
     display: block;
@@ -251,7 +251,7 @@ nav {
     }
     
     .nav-logo-svg {
-        height: 58px;
+        height: 48px;
     }
 }
 
@@ -269,16 +269,14 @@ nav {
     }
     
     .nav-logo-svg {
-        height: 64px;
+        height: 52px;
     }
     
-    /* Esconde controles mobile */
     .hamburger,
     .lang-toggle-mobile {
         display: none;
     }
     
-    /* Nav links vira horizontal */
     .nav-links {
         position: static;
         width: auto;
@@ -287,7 +285,6 @@ nav {
         border: none;
         padding: 0;
         overflow: visible;
-        
         flex-direction: row;
         align-items: center;
         gap: 24px;
@@ -304,7 +301,6 @@ nav {
         color: #1B3A5C;
     }
     
-    /* Dropdowns desktop */
     .nav-dropdown {
         position: relative;
         border: none;
@@ -320,7 +316,6 @@ nav {
         background: transparent;
     }
     
-    /* Submenu aparece no hover */
     .nav-dropdown-menu {
         position: absolute;
         top: 100%;
@@ -332,8 +327,6 @@ nav {
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         padding: 8px 0;
-        
-        /* Escondido por padrão */
         display: none;
         opacity: 0;
         visibility: hidden;
@@ -350,7 +343,6 @@ nav {
         font-size: 14px;
     }
     
-    /* Lang toggle desktop (dentro do sidebar vira inline) */
     .nav-links .lang-toggle {
         display: inline-block;
         margin: 0;
@@ -370,4 +362,19 @@ nav {
    ══════════════════════════════════════════════ */
 .mobile-menu-content {
     display: contents;
+}
+
+.nav-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-home svg {
+    stroke: #4A5568;
+    transition: stroke 0.2s;
+}
+
+.nav-home:hover svg {
+    stroke: #1B3A5C;
 }
