@@ -1,6 +1,6 @@
 /* ============================================
    Alavanka — Unified Navigation CSS
-   UPDATED: 2026-02-03 - Logo grande no mobile
+   UPDATED: 2026-02-03 - Logo grande, nav compacta, padding ajustado
    ============================================ */
 
 /* ── Body offset for fixed nav ── */
@@ -31,18 +31,21 @@ nav {
     display: flex;
     align-items: center;
     text-decoration: none;
+    padding: 0;
+    margin: 0;
 }
 .logo img {
-    height: 60px;
+    height: 100px;
     width: auto;
 }
 
-/* ── Logo SVG ── */
+/* ── Logo SVG - GRANDE ── */
 .nav-logo-svg {
-    height: 60px;
+    height: 100px;
     width: auto;
     display: block;
     transition: transform 0.2s ease;
+    max-height: none;
 }
 
 .logo:hover .nav-logo-svg {
@@ -244,16 +247,16 @@ nav {
 /* ── Mobile pequeno ── */
 @media (max-width: 480px) {
     body {
-        padding-top: 75px;
+        padding-top: 70px;
     }
     nav {
-        height: 75px;
+        height: 70px;
     }
     .nav-links {
-        padding-top: 75px;
+        padding-top: 70px;
     }
     .nav-logo-svg { 
-        height: 55px; 
+        height: 65px; 
     }
 }
 
@@ -270,7 +273,7 @@ nav {
         padding-top: 80px;
     }
     .nav-logo-svg {
-        height: 60px;
+        height: 90px;
     }
 }
 
@@ -291,7 +294,7 @@ nav {
     }
     
     .nav-logo-svg {
-        height: 60px;
+        height: 100px;
     }
 
     .nav-links {
