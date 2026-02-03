@@ -1,6 +1,7 @@
 /* ============================================
    Alavanka — Navigation CSS
    CORRIGIDO: 2026-02-03
+   - Logo usando imagem PNG
    ============================================ */
 
 /* ══════════════════════════════════════════════
@@ -31,8 +32,7 @@ nav {
 }
 
 /* ══════════════════════════════════════════════
-   3. LOGO - CORRIGIDO
-   viewBox: 105 60 230 105 → aspect-ratio: 230/105 ≈ 2.19
+   3. LOGO - IMAGEM PNG
    ══════════════════════════════════════════════ */
 .logo {
     display: flex;
@@ -41,16 +41,13 @@ nav {
     flex-shrink: 0;
 }
 
-.nav-logo-svg {
-    height: 40px;
+.nav-logo-img {
+    height: 44px;
     width: auto;
     display: block;
-    /* Proporção correta do viewBox: 230/105 */
-    aspect-ratio: 230 / 105;
-    overflow: visible;
 }
 
-.logo:hover .nav-logo-svg {
+.logo:hover .nav-logo-img {
     opacity: 0.8;
     transition: opacity 0.2s;
 }
@@ -250,8 +247,8 @@ nav {
         padding: 0 32px;
     }
     
-    .nav-logo-svg {
-        height: 48px;
+    .nav-logo-img {
+        height: 50px;
     }
 }
 
@@ -268,8 +265,8 @@ nav {
         padding: 0 5%;
     }
     
-    .nav-logo-svg {
-        height: 52px;
+    .nav-logo-img {
+        height: 56px;
     }
     
     .hamburger,
