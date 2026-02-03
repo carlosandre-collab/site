@@ -1,17 +1,18 @@
 /* ============================================
-   Alavanka — Unified Navigation CSS
-   UPDATED: 2026-02-03 - VERSÃO DEFINITIVA
-   - Logo grande (ocupa altura máxima)
-   - Botão EN junto ao hamburger
-   - Logo alinhado à esquerda
+   Alavanka — Navigation CSS
+   Criado do zero em 2026-02-03
    ============================================ */
 
-/* ── Body offset for fixed nav ── */
+/* ══════════════════════════════════════════════
+   1. RESET & BODY
+   ══════════════════════════════════════════════ */
 body {
     padding-top: 72px;
 }
 
-/* ── Base Nav Bar ── */
+/* ══════════════════════════════════════════════
+   2. NAV BAR
+   ══════════════════════════════════════════════ */
 nav {
     position: fixed;
     top: 0;
@@ -21,38 +22,41 @@ nav {
     background: rgba(255,255,255,0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border, #E5E7EB);
+    border-bottom: 1px solid #E5E7EB;
+    z-index: 1000;
+    
+    /* Layout: logo à esquerda, controles à direita */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
-    z-index: 1000;
 }
 
-/* ── Logo ── */
+/* ══════════════════════════════════════════════
+   3. LOGO
+   ══════════════════════════════════════════════ */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-    flex-shrink: 0;
-    height: 100%;
-    padding: 4px 0;
+    height: 64px; /* nav 72px - 8px margem */
 }
 
-/* Logo SVG - ocupa altura máxima */
 .nav-logo-svg {
     height: 100%;
     width: auto;
-    display: block;
 }
 
 .logo:hover .nav-logo-svg {
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
-/* ── Language Toggle (mobile — JUNTO ao hamburger) ── */
+/* ══════════════════════════════════════════════
+   4. CONTROLES MOBILE (lang + hamburger)
+   Ficam lado a lado à direita
+   ══════════════════════════════════════════════ */
 .lang-toggle-mobile {
-    padding: 8px 14px;
+    padding: 6px 12px;
     background: #f5f5f5;
     border: 1px solid #e0e0e0;
     border-radius: 6px;
@@ -60,81 +64,86 @@ nav {
     font-weight: 600;
     color: #666;
     cursor: pointer;
-    /* SEM margin-left:auto - fica na posição natural */
-    margin-right: 8px;
 }
 
-/* ── Hamburger (mobile) ── */
 .hamburger {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 12px;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    margin-left: 8px;
     background: none;
     border: none;
     cursor: pointer;
     z-index: 9999;
-    margin-right: -12px;
 }
+
 .hamburger span {
     display: block;
-    width: 22px;
+    width: 24px;
     height: 2px;
-    background: var(--text-primary, #0D1B2A);
+    background: #0D1B2A;
     border-radius: 2px;
-    transition: 0.25s;
+    transition: transform 0.3s, opacity 0.3s;
 }
+
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 .hamburger.active span:nth-child(2) {
     opacity: 0;
 }
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ── Mobile Sidebar Menu ── */
+/* ══════════════════════════════════════════════
+   5. SIDEBAR MENU (Mobile)
+   ══════════════════════════════════════════════ */
 .nav-links {
     position: fixed;
     top: 0;
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: #ffffff;
+    background: #fff;
+    border-left: 1px solid #e5e5e5;
     z-index: 9998;
+    padding-top: 80px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
-    transition: right 0.3s ease;
-    border-left: 1px solid #e5e5e5;
-    overflow-y: auto;
 }
+
 .nav-links.active {
     right: 0;
 }
 
+/* Links diretos */
 .nav-links > a {
     display: block;
     padding: 16px 24px;
-    color: var(--text-primary, #0D1B2A);
+    color: #0D1B2A;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
     border-bottom: 1px solid #f0f0f0;
-    transition: background 0.2s;
-}
-.nav-links > a:active,
-.nav-links > a:hover {
-    background: #f0f4f8;
-    color: var(--accent, #1B3A5C);
-}
-.nav-links > a.active {
-    color: var(--accent, #1B3A5C);
-    font-weight: 600;
 }
 
-/* ── Dropdown Menu (Mobile) ── */
+.nav-links > a:hover,
+.nav-links > a.active {
+    background: #f0f4f8;
+    color: #1B3A5C;
+}
+
+/* ══════════════════════════════════════════════
+   6. DROPDOWNS (Mobile)
+   ══════════════════════════════════════════════ */
 .nav-dropdown {
     border-bottom: 1px solid #f0f0f0;
 }
@@ -147,42 +156,35 @@ nav {
     padding: 16px 24px;
     background: none;
     border: none;
-    color: var(--text-primary, #0D1B2A);
+    color: #0D1B2A;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     text-align: left;
 }
+
 .nav-dropdown-trigger:hover {
     background: #f0f4f8;
-    color: var(--accent, #1B3A5C);
-}
-.nav-dropdown.active > .nav-dropdown-trigger {
-    color: var(--accent, #1B3A5C);
-    font-weight: 600;
+    color: #1B3A5C;
 }
 
 .dropdown-chevron {
-    transition: transform 0.2s;
-    margin-left: auto;
-    flex-shrink: 0;
     width: 16px;
     height: 16px;
-}
-.nav-dropdown-trigger .dropdown-chevron {
-    stroke: var(--text-secondary, #4A5568);
-}
-.nav-dropdown.open .dropdown-chevron,
-.nav-dropdown-trigger:hover .dropdown-chevron {
-    transform: rotate(180deg);
-    stroke: var(--accent, #1B3A5C);
+    transition: transform 0.2s;
 }
 
+.nav-dropdown.open .dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+/* Submenu - ESCONDIDO por padrão */
 .nav-dropdown-menu {
     display: none;
     background: #f8f9fa;
     padding: 8px 0;
 }
+
 .nav-dropdown.open .nav-dropdown-menu {
     display: block;
 }
@@ -190,22 +192,19 @@ nav {
 .nav-dropdown-menu a {
     display: block;
     padding: 12px 24px 12px 40px;
-    color: var(--text-secondary, #4A5568);
+    color: #4A5568;
     text-decoration: none;
     font-size: 15px;
-    font-weight: 400;
-    transition: background 0.2s, color 0.2s;
-}
-.nav-dropdown-menu a:hover {
-    background: #e8ecf0;
-    color: var(--accent, #1B3A5C);
-}
-.nav-dropdown-menu a.active {
-    color: var(--accent, #1B3A5C);
-    font-weight: 500;
 }
 
-/* ── Language Toggle (inside sidebar) ── */
+.nav-dropdown-menu a:hover {
+    background: #e8ecf0;
+    color: #1B3A5C;
+}
+
+/* ══════════════════════════════════════════════
+   7. LANG TOGGLE DENTRO DO SIDEBAR
+   ══════════════════════════════════════════════ */
 .nav-links .lang-toggle {
     display: block;
     margin: 20px 24px;
@@ -220,125 +219,127 @@ nav {
     text-align: center;
 }
 
-/* ── mobile-menu-content wrapper (legacy compat) ── */
-.mobile-menu-content {
-    display: contents;
-}
-
-/* ── Menu Overlay ── */
+/* ══════════════════════════════════════════════
+   8. OVERLAY
+   ══════════════════════════════════════════════ */
 .menu-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0,0,0,0.4);
     z-index: 9997;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
 }
+
 .menu-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-/* ── Tablet (768px+) ── */
+/* ══════════════════════════════════════════════
+   9. TABLET (768px+)
+   ══════════════════════════════════════════════ */
 @media (min-width: 768px) {
     body {
         padding-top: 80px;
     }
+    
     nav {
         height: 80px;
         padding: 0 32px;
     }
+    
     .logo {
-        padding: 6px 0;
+        height: 72px;
     }
 }
 
-/* ── Desktop (1024px+) ── */
+/* ══════════════════════════════════════════════
+   10. DESKTOP (1024px+)
+   ══════════════════════════════════════════════ */
 @media (min-width: 1024px) {
     body {
         padding-top: 88px;
     }
+    
     nav {
         height: 88px;
         padding: 0 5%;
     }
+    
     .logo {
-        padding: 8px 0;
+        height: 80px;
     }
-    .hamburger {
-        display: none;
-    }
+    
+    /* Esconde controles mobile */
+    .hamburger,
     .lang-toggle-mobile {
         display: none;
     }
-
+    
+    /* Nav links vira horizontal */
     .nav-links {
         position: static;
-        right: auto;
         width: auto;
         height: auto;
         background: transparent;
-        flex-direction: row;
+        border: none;
         padding: 0;
-        gap: 24px;
-        border-left: none;
-        align-items: center;
         overflow: visible;
+        
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
     }
     
     .nav-links > a {
         padding: 8px 0;
         font-size: 14px;
-        border-bottom: none;
-        display: inline;
-    }
-    .nav-links > a:hover {
-        background: transparent;
+        border: none;
     }
     
-    /* ── Desktop Dropdown ── */
+    .nav-links > a:hover {
+        background: transparent;
+        color: #1B3A5C;
+    }
+    
+    /* Dropdowns desktop */
     .nav-dropdown {
         position: relative;
-        border-bottom: none;
+        border: none;
     }
     
     .nav-dropdown-trigger {
         padding: 8px 4px;
         font-size: 14px;
-        display: inline-flex;
-        align-items: center;
         gap: 4px;
-        white-space: nowrap;
-    }
-    .nav-dropdown-trigger:hover {
-        background: transparent;
-        color: var(--accent, #1B3A5C);
     }
     
+    .nav-dropdown-trigger:hover {
+        background: transparent;
+    }
+    
+    /* Submenu aparece no hover */
     .nav-dropdown-menu {
         position: absolute;
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        min-width: 180px;
-        background: #ffffff;
+        min-width: 200px;
+        background: #fff;
         border: 1px solid #e5e5e5;
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         padding: 8px 0;
+        
+        /* Escondido por padrão */
+        display: none;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.2s, visibility 0.2s;
-        z-index: 1001;
-        display: none;
     }
     
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown.open .nav-dropdown-menu {
+    .nav-dropdown:hover .nav-dropdown-menu {
         display: block;
         opacity: 1;
         visibility: visible;
@@ -347,12 +348,9 @@ nav {
     .nav-dropdown-menu a {
         padding: 10px 20px;
         font-size: 14px;
-        white-space: nowrap;
-    }
-    .nav-dropdown-menu a:hover {
-        background: #f0f4f8;
     }
     
+    /* Lang toggle desktop (dentro do sidebar vira inline) */
     .nav-links .lang-toggle {
         display: inline-block;
         margin: 0;
@@ -360,8 +358,16 @@ nav {
         background: transparent;
         border: 1px solid #e0e0e0;
     }
+    
     .nav-links .lang-toggle:hover {
-        border-color: var(--accent, #1B3A5C);
-        color: var(--accent, #1B3A5C);
+        border-color: #1B3A5C;
+        color: #1B3A5C;
     }
+}
+
+/* ══════════════════════════════════════════════
+   11. UTILITIES
+   ══════════════════════════════════════════════ */
+.mobile-menu-content {
+    display: contents;
 }
