@@ -2,7 +2,7 @@
    Alavanka — Unified Navigation CSS
    SOURCE: index.html (reference design)
    APPLIES TO: All pages (root + blog/posts/)
-   UPDATED: 2026-02-02 - Added dropdown menus
+   UPDATED: 2026-02-03 - Fixed logo responsive
    ============================================ */
 
 /* ── Body offset for fixed nav ── */
@@ -37,6 +37,18 @@ nav {
 .logo img {
     height: 36px;
     width: auto;
+}
+
+/* ── Logo SVG - Tamanho Responsivo ── */
+.nav-logo-svg {
+    height: 38px;
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover .nav-logo-svg {
+    transform: scale(1.02);
 }
 
 /* ── Hamburger (mobile — visible by default) ── */
@@ -231,6 +243,13 @@ nav {
     visibility: visible;
 }
 
+/* ── Mobile pequeno ── */
+@media (max-width: 480px) {
+    .nav-logo-svg { 
+        height: 32px; 
+    }
+}
+
 /* ── Tablet ── */
 @media (min-width: 768px) {
     body {
@@ -239,6 +258,9 @@ nav {
     nav {
         height: 72px;
         padding: 0 32px;
+    }
+    .nav-logo-svg {
+        height: 46px;
     }
 }
 
@@ -256,6 +278,10 @@ nav {
     nav {
         height: 80px;
         padding: 0 5%;
+    }
+    
+    .nav-logo-svg {
+        height: 52px;
     }
 
     .nav-links {
@@ -346,27 +372,4 @@ nav {
         border-color: var(--accent, #1B3A5C);
         color: var(--accent, #1B3A5C);
     }
-   /* Logo SVG - Tamanho Responsivo */
-.nav-logo-svg {
-    height: 52px;
-    width: auto;
-    display: block;
-    transition: transform 0.2s ease;
-}
-
-.logo:hover .nav-logo-svg {
-    transform: scale(1.02);
-}
-
-@media (max-width: 1024px) {
-    .nav-logo-svg { height: 46px; }
-}
-
-@media (max-width: 768px) {
-    .nav-logo-svg { height: 38px; }
-}
-
-@media (max-width: 480px) {
-    .nav-logo-svg { height: 32px; }
-}
 }
