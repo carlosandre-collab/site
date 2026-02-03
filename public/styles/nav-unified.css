@@ -1,11 +1,11 @@
 /* ============================================
    Alavanka — Unified Navigation CSS
-   UPDATED: 2026-02-03 - Logo BEM GRANDE
+   UPDATED: 2026-02-03 - Logo MUITO GRANDE + centralizado
    ============================================ */
 
 /* ── Body offset for fixed nav ── */
 body {
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 /* ── Base Nav Bar ── */
@@ -14,7 +14,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 100px;
     background: rgba(255,255,255,0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -30,16 +30,18 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
+    height: 100%;
 }
 .logo img {
-    height: 60px;
+    height: 78px;
     width: auto;
 }
 
-/* ── Logo SVG - BEM GRANDE ── */
+/* ── Logo SVG - MUITO GRANDE + CENTRALIZADO ── */
 .nav-logo-svg {
-    height: 60px;
+    height: 78px;
     width: auto;
     display: block;
     transition: transform 0.2s ease;
@@ -89,7 +91,7 @@ nav {
     z-index: 9998;
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 100px;
     transition: right 0.3s ease;
     border-left: 1px solid #e5e5e5;
     overflow-y: auto;
@@ -244,34 +246,40 @@ nav {
 /* ── Mobile pequeno ── */
 @media (max-width: 480px) {
     body {
-        padding-top: 70px;
+        padding-top: 85px;
     }
     nav {
-        height: 70px;
+        height: 85px;
+    }
+    .nav-links {
+        padding-top: 85px;
     }
     .nav-logo-svg { 
-        height: 50px; 
+        height: 65px; 
     }
 }
 
 /* ── Tablet ── */
 @media (min-width: 768px) {
     body {
-        padding-top: 90px;
+        padding-top: 115px;
     }
     nav {
-        height: 90px;
+        height: 115px;
         padding: 0 32px;
     }
+    .nav-links {
+        padding-top: 115px;
+    }
     .nav-logo-svg {
-        height: 70px;
+        height: 91px;
     }
 }
 
 /* ── Desktop — horizontal nav with dropdowns ── */
 @media (min-width: 1024px) {
     body {
-        padding-top: 100px;
+        padding-top: 130px;
     }
     .hamburger {
         display: none;
@@ -280,12 +288,12 @@ nav {
         display: none;
     }
     nav {
-        height: 100px;
+        height: 130px;
         padding: 0 5%;
     }
     
     .nav-logo-svg {
-        height: 80px;
+        height: 104px;
     }
 
     .nav-links {
