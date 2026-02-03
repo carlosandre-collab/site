@@ -1580,6 +1580,225 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 .whatsapp-float * {
     color: #FFFFFF !important;
 }
+
+
+/* ===== MOBILE RESPONSIVENESS FIXES ===== */
+@media (max-width: 767px) {
+    /* Hero */
+    .inv-hero { padding: 60px 20px 50px; }
+    .inv-hero h1 { font-size: 28px; line-height: 1.2; }
+    .inv-hero-sub { font-size: 15px; max-width: 100%; }
+    .inv-hero-stats { 
+        flex-direction: column; 
+        gap: 16px; 
+        max-width: 100%; 
+    }
+    .inv-stat { 
+        padding: 16px 20px; 
+        min-width: auto; 
+        width: 100%;
+        text-align: center;
+    }
+    .inv-stat-number { font-size: 28px; }
+    .inv-stat-label { font-size: 13px; }
+    .inv-hero-cta { 
+        padding: 16px 28px; 
+        font-size: 15px; 
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Scorecard */
+    .inv-scorecard { padding: 40px 16px; }
+    .inv-scorecard-header { max-width: 100%; }
+    .inv-scorecard-header h2 { font-size: 24px; }
+    .inv-scorecard-grid { 
+        grid-template-columns: 1fr; 
+        gap: 12px; 
+        max-width: 100%; 
+    }
+    .inv-flag { padding: 16px; }
+    .inv-flag-content h4 { font-size: 15px; }
+    .inv-flag-content p { font-size: 13px; }
+    .inv-scorecard-counter { 
+        flex-direction: column; 
+        gap: 12px; 
+        padding: 20px 16px;
+        max-width: 100%;
+    }
+    
+    /* Cost Section */
+    .inv-cost-section { padding: 40px 16px; }
+    .inv-cost-metrics { 
+        grid-template-columns: 1fr; 
+        gap: 12px;
+        max-width: 100%;
+    }
+    .inv-cost-card { padding: 20px 16px; }
+    
+    /* Case Study */
+    .inv-case-study { padding: 40px 16px; }
+    .inv-case-header h3 { font-size: 22px; }
+    .inv-case-sub { font-size: 14px; max-width: 100%; }
+    .inv-case-timeline { 
+        flex-direction: column; 
+        gap: 20px;
+        max-width: 100%;
+    }
+    .inv-case-step { min-width: auto; width: 100%; }
+    .inv-case-proof { 
+        flex-direction: column; 
+        gap: 12px;
+        max-width: 100%;
+    }
+    .inv-case-book { flex-direction: column; text-align: center; }
+    .inv-case-takeaway { 
+        padding: 20px 16px; 
+        font-size: 14px;
+        max-width: 100%;
+    }
+    
+    /* Who Section */
+    .inv-who { padding: 40px 16px; }
+    .inv-who-inner { 
+        flex-direction: column; 
+        text-align: center;
+        max-width: 100%;
+    }
+    .inv-who-photo { 
+        width: 120px; 
+        height: 120px; 
+        margin: 0 auto 20px; 
+    }
+    .inv-who-text { max-width: 100%; }
+    .inv-who-bio { font-size: 14px; max-width: 100%; }
+    .inv-who-tags { justify-content: center; flex-wrap: wrap; }
+    .inv-who-quote { 
+        font-size: 15px; 
+        padding: 16px;
+        max-width: 100%;
+    }
+    
+    /* Timeline/90 Days */
+    .inv-90-days { padding: 40px 16px; }
+    .inv-timeline-phases { 
+        flex-direction: column; 
+        gap: 16px;
+        max-width: 100%;
+    }
+    .inv-phase { padding: 20px 16px; }
+    .inv-phase h4 { font-size: 16px; }
+    
+    /* Solution Comparison */
+    .inv-solution { padding: 40px 16px; }
+    .inv-solution-header { max-width: 100%; }
+    .inv-solution-header h2 { font-size: 24px; }
+    .inv-solution-comparison { 
+        flex-direction: column; 
+        gap: 16px;
+        max-width: 100%;
+    }
+    .inv-solution-col { min-width: auto; width: 100%; }
+    
+    /* Model Options */
+    .inv-model { padding: 40px 16px; }
+    .inv-model-options { 
+        grid-template-columns: 1fr; 
+        gap: 16px;
+        max-width: 100%;
+    }
+    .inv-model-card { padding: 24px 20px; }
+    
+    /* Deliverables */
+    .inv-deliverables { padding: 40px 16px; }
+    .inv-del-list { max-width: 100%; }
+    .inv-del-item { 
+        padding: 16px; 
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    .inv-del-number { margin: 0 auto; }
+    
+    /* CTA Section */
+    .inv-cta-section { padding: 40px 16px; }
+    .inv-cta-box { 
+        padding: 32px 20px; 
+        max-width: 100%;
+    }
+    .inv-cta-box h3 { font-size: 22px; }
+    .inv-cta-content { flex-direction: column; gap: 16px; }
+    .inv-cta-btn { 
+        width: 100%; 
+        justify-content: center;
+        padding: 16px 24px;
+    }
+    .inv-cta-divider { margin: 20px 0; }
+    .inv-cta-guide { padding: 20px 16px; }
+    
+    /* Trust Bar */
+    .inv-trust { padding: 40px 16px; }
+    .inv-trust-bar { 
+        flex-direction: column; 
+        gap: 20px;
+        max-width: 100%;
+    }
+    .inv-trust-item { text-align: center; }
+    .inv-trust-note { 
+        font-size: 13px;
+        max-width: 100%;
+    }
+    
+    /* FAQ */
+    .faq-section { padding: 40px 16px; }
+    .faq-container { max-width: 100%; }
+    .faq-question { 
+        padding: 16px; 
+        font-size: 15px;
+    }
+    .faq-answer-content { 
+        padding: 0 16px 16px; 
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .inv-footer { padding: 32px 16px; }
+    .inv-footer-inner { 
+        flex-direction: column; 
+        gap: 24px;
+        text-align: center;
+    }
+    .inv-footer-links { 
+        flex-direction: column; 
+        gap: 12px; 
+    }
+    
+    /* Crosssell popup */
+    .crosssell-popup {
+        width: calc(100% - 32px);
+        max-width: 400px;
+        padding: 24px 20px;
+    }
+    
+    /* Section headers */
+    .section-header h2 { font-size: 24px; }
+    .section-header p { font-size: 14px; }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .inv-hero-stats { flex-wrap: wrap; justify-content: center; }
+    .inv-stat { min-width: 200px; }
+    .inv-scorecard-grid { grid-template-columns: repeat(2, 1fr); }
+    .inv-cost-metrics { grid-template-columns: repeat(2, 1fr); }
+    .inv-model-options { grid-template-columns: repeat(2, 1fr); }
+    .inv-case-timeline { flex-wrap: wrap; justify-content: center; }
+    .inv-case-step { min-width: 280px; }
+    .inv-timeline-phases { flex-wrap: wrap; justify-content: center; }
+    .inv-phase { min-width: 280px; }
+}
+
+
 </style>
     
     <!-- Nav JS -->
@@ -1956,6 +2175,90 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     </div>
 
         <!-- CTA for Investors -->
+
+    
+    <!-- FAQ for Investors - Same format as index.html -->
+    <section id="inv-faq" class="faq-section">
+        <div class="section-header">
+            <h2 data-i18n="investors.faq.title">Perguntas <span class="hl">Frequentes</span></h2>
+            <p data-i18n="investors.faq.subtitle">Respostas diretas para GPs, Partners e Investment Teams</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q1">Como funciona o modelo de engajamento com portfolio companies?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a1">Atuamos como Fractional CRO dedicado, com 2 dias por semana de envolvimento direto na operação. O engajamento típico é de 6-12 meses, tempo suficiente para instalar a arquitetura de receita e treinar o time interno para operar de forma autônoma. Diferente de consultoria tradicional, entramos na execução: participamos de calls com clientes, estruturamos o pipeline, definimos métricas e construímos os processos junto com o time.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q2">Qual o perfil ideal de portfolio company para este serviço?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a2"><strong>Melhor fit:</strong> B2B Tech com produto validado (clientes pagantes e renovando), receita entre R$5M-50M ARR, e crescimento estagnado há 6+ meses apesar de bom produto. <strong>Sinais claros:</strong> Founder sobrecarregado em vendas, pipeline inconsistente, ciclo de vendas alongando, CAC subindo sem explicação clara. <strong>Não é fit:</strong> Empresas pre-product-market-fit, B2C, ou que precisam de pivot de produto (não de GTM).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q3">Como é a estrutura de pricing e incentivos?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a3">Modelo híbrido: retainer mensal + success fee atrelado a métricas acordadas (tipicamente crescimento de pipeline qualificado ou receita). O retainer cobre o tempo dedicado; o success fee alinha incentivos. <strong>Kill-switch:</strong> Se não houver progresso mensurável em 90 dias, qualquer parte pode encerrar sem penalidade.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q4">Qual a diferença entre Fractional CRO e contratar um VP de Vendas?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a4"><strong>VP de Vendas:</strong> 12-18 meses de ramp, custo de R$800K-1.5M/ano all-in, 50%+ taxa de falha em startups. Ideal quando já existe arquitetura de receita funcionando. <strong>Fractional CRO:</strong> Resultado em 90 dias, ~30% do custo de um VP, traz playbook testado. Ideal para construir a arquitetura antes de contratar o VP. Na prática: Fractional CRO constrói a máquina, depois ajuda a contratar e fazer onboarding do VP que vai operar.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q5">Como funciona o reporting para o fundo?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a5">Relatório mensal estruturado com: métricas de pipeline (volume, velocidade, conversão), ações executadas, blockers identificados, e plano para próximo mês. Call trimestral com o board member responsável para alinhamento estratégico. <strong>Transparência total</strong> — o fundo tem visibilidade completa do que está sendo feito e dos resultados.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-i18n="investors.faq.q6">Vocês podem atuar em mais de uma portfolio company simultaneamente?</span>
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p data-i18n="investors.faq.a6">Sim, mas com limite. Máximo de 3 empresas simultâneas para garantir profundidade de execução. Para fundos com múltiplas portfolio companies precisando de suporte, podemos discutir um <strong>modelo de parceria</strong> com prioridade de alocação e condições especiais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="inv-cta-section" id="inv-cta">
         <div class="inv-cta-box">
             <div class="inv-cta-content">
@@ -2088,6 +2391,29 @@ function applyTranslations() {
     });
     // Re-render scorecard verdict in new lang
     if (typeof updateScorecardVerdict === 'function') updateScorecardVerdict();
+}
+
+
+
+// FAQ Toggle (same as index.html)
+function toggleFaq(button) {
+    const item = button.parentElement;
+    const wasActive = item.classList.contains('active');
+    const answer = item.querySelector('.faq-answer');
+    const content = item.querySelector('.faq-answer-content');
+    
+    // Close all items
+    document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0';
+    });
+    
+    // Open clicked item if it wasn't active
+    if (!wasActive && answer && content) {
+        item.classList.add('active');
+        answer.style.maxHeight = content.scrollHeight + 'px';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
