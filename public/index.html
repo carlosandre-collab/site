@@ -2067,7 +2067,8 @@ function setAudience(audience, shouldScroll) {
         // Already chose or came from internal page — skip gate
         if (gate) gate.remove();
         document.body.style.overflow = '';
-        if (savedAudience) setAudience(savedAudience);
+        // Only auto-apply founder audience; investors have their own page
+        if (savedAudience === 'founder') setAudience(savedAudience);
     } else {
         // First visit from external — show gate
         document.body.style.overflow = 'hidden';
