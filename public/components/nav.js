@@ -6,26 +6,20 @@
    
    Auto-detects page depth to fix relative paths.
    Replaces inline <nav> with unified version.
+   
+   UPDATED: Added dropdown menus for Founders & Investors
    ============================================ */
 
 (function () {
     'use strict';
 
     // ── Detect page depth based on nav.js script location ──
-    // If script src contains "../../" → page is 2 levels deep (blog/posts/)
-    // If script src contains "./" or just "components/" → page is at root
     var scripts = document.getElementsByTagName('script');
     var basePath = '';
     
     for (var i = 0; i < scripts.length; i++) {
         var src = scripts[i].src || '';
         if (src.indexOf('components/nav.js') !== -1) {
-            // Extract the path prefix before "components/nav.js"
-            var idx = src.indexOf('components/nav.js');
-            var prefix = src.substring(0, idx);
-            
-            // Get relative base from the HTML file's perspective
-            // by looking at how the script tag was written
             var scriptTag = scripts[i].getAttribute('src');
             if (scriptTag.indexOf('../../') === 0) {
                 basePath = '../../';
@@ -48,24 +42,35 @@
     var isPrecificacao = currentPath.indexOf('guia-precificacao') !== -1;
     var isInvestidores = currentPath.indexOf('investidores') !== -1;
 
-    // ── Build navigation HTML ──
+    // ── Build URLs ──
     var indexUrl = basePath ? basePath + 'index.html' : 'index.html';
     var blogUrl = basePath ? basePath + 'blog.html' : 'blog.html';
     var guiaUrl = basePath ? basePath + 'guia-fractional-cro-brasil.html' : 'guia-fractional-cro-brasil.html';
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var logoSrc = basePath + 'assets/images/brand/logo-preto.png';
     
-    // For root-level pages, use anchor links; for sub-pages, use full paths
+    // Section links helper
     var sectionLink = function (hash) {
         if (isIndex) return '#' + hash;
         return indexUrl + '#' + hash;
     };
+    
+    // Investor section links
+    var invSectionLink = function (hash) {
+        if (isInvestidores) return '#' + hash;
+        return investidoresUrl + '#' + hash;
+    };
 
-    // Active class helper
+    // Active class helpers
     var blogActive = (isBlog || isBlogPost || isPrecificacao) ? ' active' : '';
     var guiaActive = isGuia ? ' active' : '';
+    var founderActive = (isIndex || isGuia) ? ' active' : '';
     var investidoresActive = isInvestidores ? ' active' : '';
 
+    // ── Chevron SVG ──
+    var chevronSvg = '<svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>';
+
+    // ── Build navigation HTML with dropdowns ──
     var navHTML = ''
         + '<nav role="navigation" aria-label="Navegação principal">'
         + '  <a href="' + (isIndex ? '#' : indexUrl) + '" class="logo" aria-label="Alavanka - Home">'
@@ -76,31 +81,55 @@
         + '    <span></span><span></span><span></span>'
         + '  </button>'
         + '  <div class="nav-links" id="navLinks">'
-        + '    <a href="' + (isIndex ? '#' : indexUrl) + '" title="Home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>'
-        + '    <a href="' + sectionLink('problema') + '" data-i18n="nav.problem">O Problema</a>'
-        + '    <a href="' + sectionLink('solucao') + '" data-i18n="nav.solution">A Solução</a>'
-        + '    <a href="' + sectionLink('porque') + '" data-i18n="nav.why">Por Que Nós</a>'
-        + '    <a href="' + sectionLink('processo') + '" data-i18n="nav.process">Como Funciona</a>'
+        
+        // Home icon
+        + '    <a href="' + (isIndex ? '#' : indexUrl) + '" class="nav-home" title="Home"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>'
+        
+        // ── Founders Dropdown ──
+        + '    <div class="nav-dropdown' + founderActive + '">'
+        + '      <button class="nav-dropdown-trigger" data-i18n="nav.founders">Founders ' + chevronSvg + '</button>'
+        + '      <div class="nav-dropdown-menu">'
+        + '        <a href="' + sectionLink('problema') + '" data-i18n="nav.problem">O Problema</a>'
+        + '        <a href="' + sectionLink('solucao') + '" data-i18n="nav.solution">A Solução</a>'
+        + '        <a href="' + sectionLink('porque') + '" data-i18n="nav.why">Por Que Nós</a>'
+        + '        <a href="' + sectionLink('processo') + '" data-i18n="nav.process">Como Funciona</a>'
+        + '        <a href="' + sectionLink('faq') + '" data-i18n="nav.faq">FAQ</a>'
+        + '      </div>'
+        + '    </div>'
+        
+        // ── Investors Dropdown ──
+        + '    <div class="nav-dropdown' + investidoresActive + '">'
+        + '      <button class="nav-dropdown-trigger" data-i18n="nav.investors">Para Fundos ' + chevronSvg + '</button>'
+        + '      <div class="nav-dropdown-menu">'
+        + '        <a href="' + investidoresUrl + '" data-i18n="nav.investors.overview">Visão Geral</a>'
+        + '        <a href="' + investidoresUrl + '#inv-faq" data-i18n="nav.investors.faq">FAQ</a>'
+        + '        <a href="' + investidoresUrl + '#inv-cta" data-i18n="nav.investors.contact">Agendar Conversa</a>'
+        + '      </div>'
+        + '    </div>'
+        
+        // Playbook (standalone)
         + '    <a href="' + guiaUrl + '" data-i18n="nav.playbook" class="' + guiaActive + '">Playbook</a>'
+        
+        // Blog (standalone)
         + '    <a href="' + blogUrl + '" data-i18n="nav.blog" class="' + blogActive + '">Blog</a>'
-        + '    <a href="' + investidoresUrl + '" data-i18n="nav.investors" class="' + investidoresActive + '">Para VCs</a>'
-        + '    <a href="' + sectionLink('faq') + '" data-i18n="nav.faq">FAQ</a>'
+        
+        // Contact
         + '    <a href="' + sectionLink('contato') + '" data-i18n="nav.contact">Contato</a>'
+        
+        // Language toggle
         + '    <button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">EN</button>'
         + '  </div>'
         + '</nav>';
 
     // ── Inject nav ──
-    // Strategy: find existing <nav> and replace, OR inject at start of <body>
     var existingNav = document.querySelector('nav');
     if (existingNav) {
         existingNav.outerHTML = navHTML;
     } else {
-        // Insert at beginning of body
         document.body.insertAdjacentHTML('afterbegin', navHTML);
     }
 
-    // ── Nav Behavior (exposed as alavankaNav global) ──
+    // ── Nav Behavior ──
     window.alavankaNav = {
         toggleMenu: function () {
             var hamburger = document.getElementById('hamburger');
@@ -122,10 +151,25 @@
                 navLinks.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             }
+            // Also close all dropdowns
+            document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+                d.classList.remove('open');
+            });
+        },
+
+        toggleDropdown: function (dropdown) {
+            var wasOpen = dropdown.classList.contains('open');
+            // Close all dropdowns first
+            document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+                d.classList.remove('open');
+            });
+            // Toggle the clicked one
+            if (!wasOpen) {
+                dropdown.classList.add('open');
+            }
         },
 
         toggleLang: function () {
-            // If the page has its own translation system, delegate to it
             if (typeof window.toggleLang === 'function') {
                 window.toggleLang();
                 return;
@@ -135,7 +179,6 @@
                 return;
             }
 
-            // Fallback: basic toggle for pages without full i18n
             var currentLang = window._alavankaLang || 'pt';
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             window._alavankaLang = currentLang;
@@ -148,7 +191,6 @@
             
             localStorage.setItem('alavanka-lang', currentLang);
 
-            // Apply translations if available
             if (window.translations && window.translations[currentLang]) {
                 document.querySelectorAll('[data-i18n]').forEach(function(el) {
                     var key = el.getAttribute('data-i18n');
@@ -159,7 +201,6 @@
             }
         },
 
-        // Sync lang buttons with current language state
         syncLang: function () {
             var saved = localStorage.getItem('alavanka-lang') || 'pt';
             window._alavankaLang = saved;
@@ -171,7 +212,26 @@
         }
     };
 
-    // ── Event Listeners ──
+    // ── Dropdown Event Listeners ──
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alavankaNav.toggleDropdown(trigger.parentElement);
+        });
+    });
+
+    // Desktop: hover behavior
+    if (window.innerWidth >= 1024) {
+        document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+            dropdown.addEventListener('mouseenter', function () {
+                dropdown.classList.add('open');
+            });
+            dropdown.addEventListener('mouseleave', function () {
+                dropdown.classList.remove('open');
+            });
+        });
+    }
 
     // Close menu on link click
     document.querySelectorAll('.nav-links a').forEach(function (link) {
@@ -180,10 +240,19 @@
         });
     });
 
-    // Close menu on outside click
+    // Close menu/dropdowns on outside click
     document.addEventListener('click', function (e) {
         var navLinks = document.getElementById('navLinks');
         var hamburger = document.getElementById('hamburger');
+        
+        // Close dropdowns if clicked outside
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown').forEach(function(d) {
+                d.classList.remove('open');
+            });
+        }
+        
+        // Close mobile menu if clicked outside
         if (navLinks && hamburger &&
             !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
             alavankaNav.closeMenu();
