@@ -1153,3 +1153,166 @@ footer a:hover{
     .inv-cta-section{padding:88px 10%}
     .inv-cta-box{padding:48px}
 }
+
+/* ============================================
+   MOBILE FIXES - Overflow + Cards Centralizados
+   Data: 2026-02-03
+   ============================================ */
+
+/* ── Prevenir overflow horizontal global ── */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* ══════════════════════════════════════════════════════
+   MOBILE FIXES (até 767px)
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    
+    /* Container principal */
+    * {
+        box-sizing: border-box;
+    }
+    
+    section {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* ══════════════════════════════════════════
+       FOUNDER CASE PROOF - Cards lado a lado
+       (Documentado no livro / Premiado Mentor)
+       ══════════════════════════════════════════ */
+    .founder-case-proof {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 16px !important;
+        padding: 16px !important;
+        margin: 0 16px 20px !important;
+        max-width: calc(100% - 32px) !important;
+    }
+    
+    .founder-case-book {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 16px !important;
+        background: rgba(27,58,92,0.04);
+        border-radius: 12px;
+        margin: 0 !important;
+        border-top: none !important;
+        padding-top: 16px !important;
+    }
+    
+    /* Segundo card (Premiado Mentor) - remover margin-top inline */
+    .founder-case-book + .founder-case-book,
+    .founder-case-book[style*="margin-top"],
+    .founder-case-book[style*="border-top"] {
+        margin-top: 0 !important;
+        border-top: none !important;
+        padding-top: 16px !important;
+    }
+    
+    .founder-case-book span,
+    .founder-case-book .ic {
+        margin: 0 auto !important;
+    }
+    
+    .founder-case-book strong {
+        font-size: 14px !important;
+    }
+    
+    .founder-case-book p {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* ══════════════════════════════════════════
+       FOUNDER CASE SOURCES - Links verificáveis
+       ══════════════════════════════════════════ */
+    .founder-case-sources {
+        margin: 20px 16px !important;
+        padding: 16px !important;
+        max-width: calc(100% - 32px) !important;
+    }
+    
+    .founder-case-sources a {
+        word-break: break-word !important;
+        font-size: 13px !important;
+    }
+    
+    /* ══════════════════════════════════════════
+       FOUNDER CASE STUDY - Container principal
+       ══════════════════════════════════════════ */
+    .founder-case-study {
+        margin: 32px 16px !important;
+        padding: 24px 16px !important;
+        max-width: calc(100% - 32px) !important;
+    }
+    
+    .founder-case-header h3 {
+        font-size: 20px !important;
+        padding: 0 8px !important;
+    }
+    
+    .founder-case-timeline {
+        padding-left: 32px !important;
+        max-width: 100% !important;
+    }
+    
+    .founder-case-marker {
+        left: -32px !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 12px !important;
+    }
+    
+    .founder-case-takeaway {
+        margin: 0 !important;
+        padding: 14px 16px !important;
+        max-width: 100% !important;
+    }
+    
+    /* ══════════════════════════════════════════
+       CREDENTIALS GRID - 2 cards
+       ══════════════════════════════════════════ */
+    .credentials-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        padding: 0 16px !important;
+    }
+    
+    .credential-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* ══════════════════════════════════════════
+       WHY HERO - Big stat
+       ══════════════════════════════════════════ */
+    .why-hero {
+        padding: 0 16px !important;
+    }
+    
+    .big-stat {
+        font-size: 36px !important;
+    }
+    
+    /* ══════════════════════════════════════════
+       SECTION HEADERS
+       ══════════════════════════════════════════ */
+    .section-header {
+        padding: 0 16px !important;
+    }
+    
+    .section-header h2 {
+        font-size: 24px !important;
+    }
+    
+    .section-header p {
+        font-size: 15px !important;
+    }
+}
