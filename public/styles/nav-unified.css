@@ -1,6 +1,6 @@
 /* ============================================
    Alavanka — Unified Navigation CSS
-   UPDATED: 2026-02-03 - Logo grande, centralizado verticalmente
+   UPDATED: 2026-02-03 - Logo grande mobile + centralizado
    ============================================ */
 
 /* ── Body offset for fixed nav ── */
@@ -246,19 +246,30 @@ nav {
     visibility: visible;
 }
 
-/* ── Mobile pequeno ── */
-@media (max-width: 480px) {
+/* ── Mobile (até 767px) ── */
+@media (max-width: 767px) {
     body {
-        padding-top: 70px;
+        padding-top: 80px;
     }
     nav {
-        height: 70px;
+        height: 80px;
     }
     .nav-links {
-        padding-top: 70px;
+        padding-top: 80px;
     }
-    .nav-logo-svg { 
-        height: 65px; 
+    .logo {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .nav-logo-svg {
+        position: static;
+        top: auto;
+        transform: none;
+        height: 130px;
+    }
+    .logo:hover .nav-logo-svg {
+        transform: scale(1.02);
     }
 }
 
