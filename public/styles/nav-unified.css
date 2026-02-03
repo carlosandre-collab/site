@@ -39,7 +39,7 @@ nav {
     display: flex;
     align-items: center;
     text-decoration: none;
-    height: 64px; /* nav 72px - 8px margem */
+    height: 68px; /* nav 72px - 4px margem */
 }
 
 .nav-logo-svg {
@@ -251,7 +251,7 @@ nav {
     }
     
     .logo {
-        height: 72px;
+        height: 76px;
     }
 }
 
@@ -269,7 +269,7 @@ nav {
     }
     
     .logo {
-        height: 80px;
+        height: 84px;
     }
     
     /* Esconde controles mobile */
