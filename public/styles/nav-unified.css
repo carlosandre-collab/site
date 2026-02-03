@@ -1,6 +1,9 @@
 /* ============================================
    Alavanka — Unified Navigation CSS
-   UPDATED: 2026-02-03 - Logo no tamanho máximo da nav
+   UPDATED: 2026-02-03 - VERSÃO DEFINITIVA
+   - Logo grande (ocupa altura máxima)
+   - Botão EN junto ao hamburger
+   - Logo alinhado à esquerda
    ============================================ */
 
 /* ── Body offset for fixed nav ── */
@@ -33,12 +36,12 @@ nav {
     text-decoration: none;
     flex-shrink: 0;
     height: 100%;
-    padding: 6px 0;  /* 6px top + 6px bottom = 12px margem total */
+    padding: 4px 0;
 }
 
-/* Logo SVG - ocupa altura máxima disponível */
+/* Logo SVG - ocupa altura máxima */
 .nav-logo-svg {
-    height: 100%;  /* 72px - 12px padding = 60px */
+    height: 100%;
     width: auto;
     display: block;
 }
@@ -47,7 +50,7 @@ nav {
     opacity: 0.85;
 }
 
-/* ── Language Toggle (mobile — junto ao hamburger) ── */
+/* ── Language Toggle (mobile — JUNTO ao hamburger) ── */
 .lang-toggle-mobile {
     padding: 8px 14px;
     background: #f5f5f5;
@@ -57,10 +60,11 @@ nav {
     font-weight: 600;
     color: #666;
     cursor: pointer;
+    /* SEM margin-left:auto - fica na posição natural */
     margin-right: 8px;
 }
 
-/* ── Hamburger (mobile — visible by default) ── */
+/* ── Hamburger (mobile) ── */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -221,7 +225,7 @@ nav {
     display: contents;
 }
 
-/* ── Menu Overlay (close sidebar by tapping outside) ── */
+/* ── Menu Overlay ── */
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -239,7 +243,7 @@ nav {
     visibility: visible;
 }
 
-/* ── Tablet ── */
+/* ── Tablet (768px+) ── */
 @media (min-width: 768px) {
     body {
         padding-top: 80px;
@@ -249,27 +253,27 @@ nav {
         padding: 0 32px;
     }
     .logo {
-        padding: 8px 0;  /* 80px - 16px = 64px para o logo */
+        padding: 6px 0;
     }
 }
 
-/* ── Desktop — horizontal nav with dropdowns ── */
+/* ── Desktop (1024px+) ── */
 @media (min-width: 1024px) {
     body {
         padding-top: 88px;
-    }
-    .hamburger {
-        display: none;
-    }
-    .lang-toggle-mobile {
-        display: none;
     }
     nav {
         height: 88px;
         padding: 0 5%;
     }
     .logo {
-        padding: 10px 0;  /* 88px - 20px = 68px para o logo */
+        padding: 8px 0;
+    }
+    .hamburger {
+        display: none;
+    }
+    .lang-toggle-mobile {
+        display: none;
     }
 
     .nav-links {
