@@ -406,6 +406,9 @@
     "investors.guide.button": "Baixar Guia (PDF) →",
     "investors.guide.note": "Leitura de 8 min • Sem cadastro",
 
+    "investors.guiabanner.title": "📄 Guia: Os 7 Sinais de Alerta de uma Portfolio Company Travada",
+    "investors.guiabanner.button": "Ver Guia",
+
     "investors.trust.oracle": "Oracle Brasil",
     "investors.trust.oracle.detail": "Ex-Presidente · $48M → $240M",
     "investors.trust.att": "AT&T LATAM",
@@ -875,6 +878,9 @@
     "investors.guide.name": "Download the checklist \"7 Warning Signs of a Stuck Portfolio Company\"",
     "investors.guide.button": "Download Guide (PDF) →",
     "investors.guide.note": "8 min read • No registration",
+
+    "investors.guiabanner.title": "📄 Guide: 7 Warning Signs of a Stuck Portfolio Company",
+    "investors.guiabanner.button": "View Guide",
 
     "investors.trust.oracle": "Oracle Brazil",
     "investors.trust.oracle.detail": "Former President · $48M → $240M",
