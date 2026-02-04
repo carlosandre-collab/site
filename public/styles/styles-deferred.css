@@ -90,7 +90,7 @@
     box-shadow:0 8px 24px rgba(239,68,68,0.1);
 }
 .consequence-card .icon{font-size:28px;margin-bottom:10px;display:block}
-.consequence-card h4{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px}
+.consequence-card h3,.consequence-card .consequence-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;font-family:'Space Grotesk',sans-serif;line-height:1.15;letter-spacing:-0.02em}
 .consequence-card p{font-size:12px;color:var(--text-secondary);line-height:1.5;margin:0}
 
 .urgency-box{
@@ -102,7 +102,7 @@
     color:#fff;
     box-shadow:0 8px 32px rgba(239,68,68,0.3);
 }
-.urgency-box h4{font-size:17px;font-weight:700;margin-bottom:8px;color:#fff}
+.urgency-box h3,.urgency-box .urgency-title{font-size:17px;font-weight:700;margin-bottom:8px;color:#fff;font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .urgency-box p{font-size:14px;opacity:0.95;line-height:1.7;margin:0;color:#fff}
 
 /* ===== SOLUTION SECTION ===== */
@@ -133,7 +133,7 @@
 }
 .comp-card.fail .label{color:var(--danger);background:var(--danger-bg)}
 .comp-card.highlight .label{color:var(--accent);background:var(--accent-bg)}
-.comp-card h4{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.comp-card h3,.comp-card .comp-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;line-height:1.15}
 .comp-card p{font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0}
 
 /* ===== LOGO BAR - Career Credibility ===== */
