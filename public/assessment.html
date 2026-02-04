@@ -56,47 +56,6 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   HEADER
-   ══════════════════════════════════════════════════════════════════════════════ */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 16px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 32px;
-    width: auto;
-}
-
-.lang-toggle {
-    padding: 6px 14px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: var(--r-sm);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.lang-toggle:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-/* ══════════════════════════════════════════════════════════════════════════════
    MAIN CONTAINER
    ══════════════════════════════════════════════════════════════════════════════ */
 main {
@@ -838,16 +797,15 @@ footer a {
     }
 }
     </style>
+    
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="styles/nav-unified.css">
+    <script src="components/nav.js" defer></script>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-    <a href="index.html" class="logo">
-        <img src="assets/logo-completo-branco.png" alt="Alavanka" height="32">
-    </a>
-    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
-</header>
+<!-- Navigation -->
+<nav id="main-nav"></nav>
 
 <!-- Main Content -->
 <main>
@@ -1132,11 +1090,26 @@ const T = {
 let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
 const total = 5;
 
+// Integrar com sistema de idioma global (nav.js)
 function toggleLanguage() {
     lang = lang === 'pt' ? 'en' : 'pt';
-    document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT';
     applyLang();
 }
+
+// Listener para mudança de idioma via nav
+window.addEventListener('languageChanged', function(e) {
+    lang = e.detail.lang;
+    applyLang();
+});
+
+// Detectar idioma inicial
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('alavanka_lang');
+    if (savedLang) {
+        lang = savedLang;
+        applyLang();
+    }
+});
 
 function applyLang() {
     const t = T[lang];
