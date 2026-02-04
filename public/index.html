@@ -911,6 +911,59 @@ footer a, .footer a {
     .slots-dot.available { animation: none; }
     .trust-ticker-item { transition: none; }
 }
+
+/* CTAs Contextuais Inline */
+.section-cta {
+    text-align: center;
+    margin-top: 32px;
+}
+.btn-section-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: #fff;
+    border: none;
+    border-radius: var(--r-md);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(200, 150, 90, 0.25);
+    transition: all 0.3s ease;
+}
+.btn-section-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200, 150, 90, 0.35);
+}
+.btn-section-cta svg {
+    flex-shrink: 0;
+}
+.btn-section-cta-secondary {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    box-shadow: none;
+}
+.btn-section-cta-secondary:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(27, 58, 92, 0.25);
+}
+
+@media (max-width: 767px) {
+    .section-cta {
+        margin-top: 24px;
+        padding: 0 16px;
+    }
+    .btn-section-cta {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
 </style>
     
     <!-- Deferred CSS - Below the fold sections -->
@@ -1652,7 +1705,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
             <span class="qualifier-tag" data-i18n="qualifier.tag3">Produto validado</span>
             <span class="qualifier-tag" data-i18n="qualifier.tag4">Crescimento travou 6+ meses</span>
         </div>
-        <a href="assessment.html" class="qualifier-cta" data-i18n="qualifier.cta">Fazer Assessment Gratuito →</a>
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="qualifier-cta" data-i18n="qualifier.cta">Já sabe que precisa? Agendar conversa →</a>
     </div>
 </section>
 
@@ -1743,6 +1796,16 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
         <h3 class="urgency-title" data-i18n="consequences.urgency.title">A matemática é cruel</h3>
         <p data-i18n="consequences.urgency.text">Uma empresa de R$10M ARR com 0% crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em equity.</p>
     </div>
+    
+    <!-- CTA Contextual - Após mostrar a dor -->
+    <div class="section-cta">
+        <a href="assessment.html" class="btn-section-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            <span data-i18n="cta.assessment.inline">Avaliar minha situação em 2 minutos →</span>
+        </a>
+    </div>
 </section>
 
 <div class="section-hr" aria-hidden="true"></div>
@@ -1774,6 +1837,16 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
             <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
             <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
         </div>
+    </div>
+    
+    <!-- CTA Contextual - Após mostrar a solução -->
+    <div class="section-cta">
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-section-cta btn-section-cta-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+            </svg>
+            <span data-i18n="cta.calendly.inline">Conversar sobre minha empresa →</span>
+        </a>
     </div>
 </section>
 
@@ -2594,8 +2667,8 @@ window.addEventListener('resize', checkPDBreakpoint);
         if (href.indexOf('assessment.html') !== -1) {
             if (cls.indexOf(' btn-hero') !== -1) {
                 params = { cta_type: 'assessment', location: 'hero' };            // Tag 4
-            } else if (cls.indexOf(' qualifier-cta') !== -1) {
-                params = { cta_type: 'assessment', location: 'qualifier' };       // Tag 5
+            } else if (cls.indexOf(' btn-section-cta') !== -1) {
+                params = { cta_type: 'assessment', location: 'inline_consequences' }; // NEW
             } else {
                 params = { cta_type: 'assessment', location: 'other' };
             }
@@ -2604,6 +2677,10 @@ window.addEventListener('resize', checkPDBreakpoint);
         else if (href.indexOf('calendly') !== -1) {
             if (cls.indexOf(' hero-link') !== -1) {
                 params = { cta_type: 'calendly', location: 'hero' };             // Tag 6
+            } else if (cls.indexOf(' qualifier-cta') !== -1) {
+                params = { cta_type: 'calendly', location: 'qualifier' };        // NEW - was assessment
+            } else if (cls.indexOf(' btn-section-cta') !== -1) {
+                params = { cta_type: 'calendly', location: 'inline_solution' };  // NEW
             } else if (cls.indexOf(' btn-primary') !== -1) {
                 params = { cta_type: 'calendly', location: 'cta_final' };        // Tag 7
             } else if (cls.indexOf(' inv-cta-btn') !== -1 && cls.indexOf(' primary') !== -1) {
