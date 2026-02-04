@@ -46,6 +46,7 @@
     --danger: #EF4444;
     --success: #10B981;
     --border: #CBD5E1;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
     --shadow-md: 0 8px 24px rgba(27,58,92,0.12);
     --shadow-lg: 0 16px 48px rgba(27,58,92,0.18);
     --shadow-glow: 0 8px 32px rgba(212,136,58,0.35);
@@ -75,15 +76,17 @@ h1, h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; line
 h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.2; }
 a { color: inherit; text-decoration: none; }
 
-/* HERO */
-.guia-hero {
-    background: linear-gradient(170deg, var(--bg-dark) 0%, #1B3A5C 100%);
-    padding: 140px 24px 80px;
+/* ══════════════════════════════════════════════════════════════════════════════
+   HERO - Compacto
+   ══════════════════════════════════════════════════════════════════════════════ */
+.hero {
+    background: linear-gradient(170deg, var(--bg-dark) 0%, var(--accent) 100%);
+    padding: 120px 24px 60px;
     text-align: center;
     position: relative;
 }
 
-.guia-hero::before {
+.hero::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -91,205 +94,20 @@ a { color: inherit; text-decoration: none; }
     pointer-events: none;
 }
 
-.guia-hero-content {
-    max-width: 900px;
+.hero-content {
+    max-width: 800px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
-.guia-badge {
+.hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: rgba(239, 68, 68, 0.15);
     border: 1px solid var(--danger);
     color: #fc8181;
-    padding: 10px 20px;
-    border-radius: var(--r-full);
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 32px;
-}
-
-.guia-hero h1 {
-    font-size: clamp(32px, 6vw, 52px);
-    color: var(--text-inverse);
-    margin-bottom: 24px;
-}
-
-.guia-hero h1 .hl-danger { color: var(--danger); }
-
-.guia-hero-sub {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: rgba(255,255,255,0.75);
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-}
-
-.guia-stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
-}
-
-.guia-stat { text-align: center; }
-
-.guia-stat-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(32px, 5vw, 42px);
-    font-weight: 700;
-    color: var(--warm-light);
-    display: block;
-}
-
-.guia-stat-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 4px;
-}
-
-/* SCROLL INDICATOR */
-.scroll-indicator {
-    text-align: center;
-    padding: 40px 24px 60px;
-    background: var(--bg-dark);
-}
-
-.scroll-indicator a {
-    color: rgba(255,255,255,0.7);
-    font-size: 15px;
-    font-weight: 500;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    transition: color var(--duration);
-}
-
-.scroll-indicator a:hover { color: var(--text-inverse); }
-
-.scroll-arrow {
-    width: 48px;
-    height: 48px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: pulse-bounce 2s infinite;
-}
-
-.scroll-arrow svg {
-    width: 24px;
-    height: 24px;
-    stroke: var(--warm-light);
-    fill: none;
-}
-
-@keyframes pulse-bounce {
-    0%, 100% { transform: translateY(0); border-color: rgba(255,255,255,0.3); }
-    50% { transform: translateY(8px); border-color: var(--warm-light); }
-}
-
-/* SIGNALS */
-.signals-section {
-    background: #FFFFFF;
-    padding: 80px 24px;
-}
-
-.signals-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.signals-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.signals-header h2 {
-    font-size: clamp(28px, 4vw, 36px);
-    color: var(--text);
-    margin-bottom: 16px;
-}
-
-.signals-header p {
-    color: var(--text-secondary);
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.signal-item {
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 24px;
-    padding: 32px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-}
-
-.signal-item:last-of-type { border-bottom: none; }
-
-.signal-number {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--text-inverse);
-    border-radius: var(--r-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.signal-content h3 {
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 12px;
-}
-
-.signal-content p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-.signal-red-flag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(239, 68, 68, 0.08);
-    color: var(--danger);
-    padding: 8px 16px;
-    border-radius: var(--r-sm);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* BONUS */
-.bonus-section {
-    background: var(--bg-dark);
-    padding: 60px 24px;
-    text-align: center;
-}
-
-.bonus-container { max-width: 700px; margin: 0 auto; }
-
-.bonus-badge {
-    display: inline-flex;
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid var(--success);
-    color: #68d391;
     padding: 8px 16px;
     border-radius: var(--r-full);
     font-size: 12px;
@@ -299,73 +117,391 @@ a { color: inherit; text-decoration: none; }
     margin-bottom: 24px;
 }
 
-.bonus-section h2 {
-    font-size: clamp(24px, 4vw, 28px);
+.hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
     color: var(--text-inverse);
     margin-bottom: 16px;
 }
 
-.bonus-section p {
+.hero h1 .hl { color: var(--danger); }
+
+.hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
     color: rgba(255,255,255,0.7);
-    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* FORM */
-.form-section {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #1B3A5C 100%);
+/* ══════════════════════════════════════════════════════════════════════════════
+   INTRO SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.intro {
+    background: #FFFFFF;
+    padding: 60px 24px;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.intro-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.intro-stat {
+    text-align: center;
+}
+
+.intro-stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+}
+
+.intro-stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SIGNALS GRID - Os 7 Sinais em Cards
+   ══════════════════════════════════════════════════════════════════════════════ */
+.signals {
+    background: var(--bg);
     padding: 80px 24px;
 }
 
-.form-container { max-width: 500px; margin: 0 auto; }
+.signals-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-.form-header {
+.signals-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.signals-header h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.signals-header p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.signal-card {
+    background: #FFFFFF;
+    border-radius: var(--r-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--duration) var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.signal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--warm);
+}
+
+.signal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    transition: background var(--duration);
+}
+
+.signal-card:hover::before {
+    background: var(--warm);
+}
+
+.signal-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.signal-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-inverse);
+    border-radius: var(--r-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.signal-title {
+    font-size: 18px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.signal-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.signal-quotes {
+    background: var(--bg);
+    border-radius: var(--r-md);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.signal-quotes-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.signal-quote {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+}
+
+.signal-quote:last-child {
+    border-bottom: none;
+}
+
+.signal-red-flag {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(239, 68, 68, 0.06);
+    color: var(--danger);
+    padding: 12px 14px;
+    border-radius: var(--r-sm);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.signal-red-flag svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SCORECARD SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.scorecard-section {
+    background: var(--bg-dark);
+    padding: 80px 24px;
+}
+
+.scorecard-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.scorecard-header {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.form-header h2 {
-    font-size: clamp(26px, 4vw, 32px);
+.scorecard-header h2 {
+    font-size: clamp(24px, 4vw, 32px);
     color: var(--text-inverse);
     margin-bottom: 12px;
 }
 
-.form-header p {
+.scorecard-header p {
     color: rgba(255,255,255,0.7);
     font-size: 16px;
 }
 
-.form-card {
+.scorecard-table {
     background: #FFFFFF;
     border-radius: var(--r-xl);
-    padding: 40px;
+    overflow: hidden;
     box-shadow: var(--shadow-lg);
 }
 
-.form-group { margin-bottom: 20px; }
+.scorecard-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scorecard-table th {
+    background: var(--accent);
+    color: var(--text-inverse);
+    padding: 16px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scorecard-table th:first-child {
+    text-align: left;
+    padding-left: 24px;
+}
+
+.scorecard-table td {
+    padding: 14px 12px;
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.scorecard-table td:first-child {
+    text-align: left;
+    padding-left: 24px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.scorecard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.scorecard-table tr:nth-child(even) {
+    background: var(--bg);
+}
+
+.col-green { background: rgba(16, 185, 129, 0.08) !important; color: var(--success); }
+.col-yellow { background: rgba(245, 158, 11, 0.08) !important; color: #D97706; }
+.col-red { background: rgba(239, 68, 68, 0.08) !important; color: var(--danger); }
+
+.scorecard-legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.green { background: var(--success); }
+.legend-dot.yellow { background: #F59E0B; }
+.legend-dot.red { background: var(--danger); }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   CTA DOWNLOAD SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.download-section {
+    background: linear-gradient(135deg, var(--warm) 0%, var(--warm-dark) 100%);
+    padding: 60px 24px;
+}
+
+.download-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.download-container h2 {
+    font-size: clamp(22px, 4vw, 28px);
+    color: var(--text-inverse);
+    margin-bottom: 12px;
+}
+
+.download-container p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+.download-form {
+    background: #FFFFFF;
+    border-radius: var(--r-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
 
 .form-group label {
     display: block;
     color: var(--text);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.form-group .optional {
-    color: var(--text-muted);
-    font-weight: 400;
+    margin-bottom: 6px;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 14px 16px;
+    padding: 12px 14px;
     border: 1px solid var(--border);
     border-radius: var(--r-md);
-    font-size: 15px;
+    font-size: 14px;
     font-family: inherit;
     transition: border-color var(--duration), box-shadow var(--duration);
-    background: #FFFFFF;
 }
 
 .form-group input:focus,
@@ -375,10 +511,10 @@ a { color: inherit; text-decoration: none; }
     box-shadow: 0 0 0 3px rgba(212, 136, 58, 0.15);
 }
 
-.btn-submit {
+.btn-download {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     color: var(--text-inverse);
     border: none;
     border-radius: var(--r-md);
@@ -386,130 +522,113 @@ a { color: inherit; text-decoration: none; }
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     transition: all var(--duration) var(--ease-out);
+    margin-top: 8px;
 }
 
-.btn-submit:hover {
+.btn-download:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
+    box-shadow: var(--shadow-md);
 }
 
-.btn-submit:disabled {
+.btn-download:disabled {
     background: var(--border);
     cursor: not-allowed;
     transform: none;
 }
 
 .form-footer {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 12px;
+    margin-top: 12px;
+    font-size: 11px;
     color: var(--text-muted);
-}
-
-.form-footer a { color: var(--warm); }
-
-.form-alternative {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    font-size: 14px;
-    color: var(--text-muted);
 }
-
-.form-alternative a {
-    color: var(--warm);
-    font-weight: 600;
-}
-
-.form-error {
-    background: rgba(239, 68, 68, 0.08);
-    color: var(--danger);
-    padding: 12px 16px;
-    border-radius: var(--r-md);
-    font-size: 14px;
-    margin-bottom: 20px;
-    display: none;
-}
-
-.form-error.visible { display: block; }
 
 .form-success {
     display: none;
     text-align: center;
-    padding: 40px 20px;
+    padding: 32px 16px;
 }
 
-.form-success.active { display: block; }
+.form-success.active {
+    display: block;
+}
 
 .form-success-icon {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     background: var(--success);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 24px;
-    font-size: 32px;
+    margin: 0 auto 20px;
+    font-size: 28px;
     color: white;
 }
 
 .form-success h3 {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .form-success p {
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
-.form-success .download-btn {
+.form-success .download-link {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 24px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: var(--text-inverse);
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--warm);
+    color: white;
     border-radius: var(--r-md);
-    font-weight: 700;
-    transition: all var(--duration) var(--ease-out);
+    font-weight: 600;
+    transition: all var(--duration);
 }
 
-.form-success .download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
+.form-success .download-link:hover {
+    background: var(--warm-dark);
 }
 
 .form-content.hidden { display: none; }
 
-/* CTA */
-.cta-section {
+/* ══════════════════════════════════════════════════════════════════════════════
+   FINAL CTA
+   ══════════════════════════════════════════════════════════════════════════════ */
+.final-cta {
     background: #FFFFFF;
     padding: 80px 24px;
     text-align: center;
 }
 
-.cta-container { max-width: 700px; margin: 0 auto; }
+.final-cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-.cta-container h2 {
-    font-size: clamp(24px, 4vw, 28px);
+.final-cta h2 {
+    font-size: clamp(22px, 4vw, 28px);
     color: var(--text);
     margin-bottom: 16px;
 }
 
-.cta-container p {
+.final-cta p {
     color: var(--text-secondary);
     font-size: 16px;
     margin-bottom: 32px;
     line-height: 1.7;
 }
 
-.cta-btn {
+.btn-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -521,15 +640,17 @@ a { color: inherit; text-decoration: none; }
     transition: all var(--duration) var(--ease-out);
 }
 
-.cta-btn:hover {
+.btn-cta:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
-/* FOOTER */
+/* ══════════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════════════════════ */
 .footer {
     background: var(--bg-dark);
-    padding: 40px 24px;
+    padding: 32px 24px;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.08);
 }
@@ -541,23 +662,168 @@ a { color: inherit; text-decoration: none; }
 
 .footer-copy a { color: var(--warm-light); }
 
-/* RESPONSIVE */
+/* ══════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
-    .guia-hero { padding: 120px 20px 60px; }
-    .guia-stats { gap: 32px; }
-    .signal-item { grid-template-columns: 1fr; gap: 16px; }
-    .signal-number { width: 48px; height: 48px; font-size: 20px; border-radius: var(--r-md); }
-    .form-card { padding: 32px 24px; }
+    .hero { padding: 100px 20px 50px; }
+    .signals { padding: 60px 20px; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .signal-card { padding: 24px; }
+    .scorecard-section { padding: 60px 20px; }
+    .scorecard-table { overflow-x: auto; }
+    .scorecard-table table { min-width: 500px; }
+    .download-section { padding: 50px 20px; }
+    .download-form { padding: 24px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .final-cta { padding: 60px 20px; }
+    .intro-stats { gap: 24px; }
 }
 
-@media (min-width: 768px) {
-    .guia-hero { padding: 160px 40px 100px; }
-    .signals-section { padding: 100px 40px; }
-    .form-section { padding: 100px 40px; }
-    .cta-section { padding: 100px 40px; }
+/* ══════════════════════════════════════════════════════════════════════════════
+   STICKY CTA BAR
+   ══════════════════════════════════════════════════════════════════════════════ */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-dark);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s var(--ease-out);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
 }
 
-/* ANIMATIONS */
+.sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    display: none;
+}
+
+.sticky-cta .btn-sticky {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: white;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 14px;
+    transition: all var(--duration) var(--ease-out);
+    white-space: nowrap;
+}
+
+.sticky-cta .btn-sticky:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-glow);
+}
+
+.sticky-cta .btn-sticky svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (min-width: 600px) {
+    .sticky-cta-text { display: block; }
+    .sticky-cta { gap: 24px; }
+}
+
+/* Espaço extra no footer quando sticky está visível */
+body.sticky-active .footer {
+    padding-bottom: 80px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   INLINE CTA (após sinais 3-4)
+   ══════════════════════════════════════════════════════════════════════════════ */
+.inline-cta {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    border-radius: var(--r-xl);
+    padding: 32px;
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.inline-cta-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.inline-cta h3 {
+    color: var(--text-inverse);
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.inline-cta p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin: 0;
+}
+
+.inline-cta .btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: var(--warm);
+    color: white;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 14px;
+    transition: all var(--duration) var(--ease-out);
+    white-space: nowrap;
+}
+
+.inline-cta .btn-inline:hover {
+    background: var(--warm-dark);
+    transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FLOATING DOWNLOAD BUTTON (mobile)
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .sticky-cta {
+        padding: 10px 16px;
+    }
+    
+    .sticky-cta .btn-sticky {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+    
+    .inline-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+    }
+    
+    .inline-cta .btn-inline {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════════════════════════════════ */
 .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -576,221 +842,449 @@ a { color: inherit; text-decoration: none; }
 
 <nav id="main-nav"></nav>
 
-<!-- HERO -->
-<section class="guia-hero">
-    <div class="guia-hero-content">
-        <span class="guia-badge" data-i18n="guia.badge">🚨 Alerta para Investidores</span>
-        <h1 data-i18n="guia.title">Sua Portfolio Company Está <span class="hl-danger">Travada</span>?</h1>
-        <p class="guia-hero-sub" data-i18n="guia.subtitle">Você já sabe que algo está errado. O board meeting vira interrogatório. As metas escorregam. O founder está em burnout. Mas ninguém consegue apontar exatamente <strong>onde</strong> está o problema.</p>
-        <div class="guia-stats">
-            <div class="guia-stat">
-                <span class="guia-stat-number">78%</span>
-                <span class="guia-stat-label" data-i18n="guia.stat1">das startups travam após PMF</span>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">🚨 Guia para Investidores</span>
+        <h1>Os 7 Sinais de Alerta de uma Portfolio Company <span class="hl">Travada</span></h1>
+        <p class="hero-sub">Como identificar problemas de GTM antes que virem crise — e o que fazer a respeito.</p>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     INTRO
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="intro">
+    <div class="intro-content reveal">
+        <p>Você investiu em uma empresa B2B Tech promissora. O produto foi validado, os primeiros clientes estão satisfeitos. Mas há meses a receita estacionou. O founder trabalha 80 horas por semana, os board meetings viraram sessões de explicação. <strong>O que está acontecendo?</strong></p>
+        
+        <div class="intro-stats">
+            <div class="intro-stat">
+                <span class="intro-stat-number">78%</span>
+                <span class="intro-stat-label">das startups travam após PMF</span>
             </div>
-            <div class="guia-stat">
-                <span class="guia-stat-number">6-12</span>
-                <span class="guia-stat-label" data-i18n="guia.stat2">meses para perceber o problema</span>
+            <div class="intro-stat">
+                <span class="intro-stat-number">6-12</span>
+                <span class="intro-stat-label">meses para perceber o problema</span>
             </div>
-            <div class="guia-stat">
-                <span class="guia-stat-number">$2M+</span>
-                <span class="guia-stat-label" data-i18n="guia.stat3">custo médio por trimestre parado</span>
+            <div class="intro-stat">
+                <span class="intro-stat-number">$2M+</span>
+                <span class="intro-stat-label">custo médio por quarter parado</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SCROLL -->
-<div class="scroll-indicator">
-    <a href="#sinais">
-        <span data-i18n="guia.scroll">Conheça os 7 sinais de alerta</span>
-        <div class="scroll-arrow">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-        </div>
-    </a>
-</div>
-
-<!-- SIGNALS -->
-<section class="signals-section" id="sinais">
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     OS 7 SINAIS - CARDS
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="signals" id="sinais">
     <div class="signals-container">
         <div class="signals-header reveal">
-            <h2 data-i18n="guia.signals.title">Os 7 Sinais de Alerta</h2>
-            <p data-i18n="guia.signals.subtitle">Padrões que se repetem em empresas B2B Tech que param de crescer.</p>
+            <h2>Os 7 Sinais de Alerta</h2>
+            <p>Padrões que identificamos repetidamente em empresas B2B Tech que pararam de crescer.</p>
         </div>
 
-        <div class="signal-item reveal">
-            <div class="signal-number">1</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal1.title">Pipeline Sempre "Quase Lá"</h3>
-                <p data-i18n="guia.signal1.text">O pipeline parece saudável no papel — 3x, 4x de cobertura. Mas os deals não fecham. O quarter termina sempre abaixo da meta.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal1.flag">🚩 Cobertura alta + conversão baixa = pipeline fake</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">2</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal2.title">Ciclo de Vendas Elástico</h3>
-                <p data-i18n="guia.signal2.text">Deals que deveriam fechar em 60 dias se arrastam por 120, 180. Cada deal vira um projeto especial.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal2.flag">🚩 Ciclo > 2x do benchmark = processo quebrado</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">3</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal3.title">Founder em Modo Bombeiro</h3>
-                <p data-i18n="guia.signal3.text">O CEO gasta 60%+ do tempo em vendas operacionais. A empresa vira refém da sua capacidade individual.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal3.flag">🚩 CEO em vendas = teto de crescimento</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">4</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal4.title">Time Vendendo Features</h3>
-                <p data-i18n="guia.signal4.text">O pitch é uma lista de funcionalidades. Ninguém articula o problema que resolve. Resultado: commoditização.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal4.flag">🚩 Pitch de features = corrida para o fundo</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">5</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal5.title">ICP Nebuloso</h3>
-                <p data-i18n="guia.signal5.text">"Nosso produto serve para qualquer empresa." O ICP é tão amplo que não significa nada.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal5.flag">🚩 ICP genérico = CAC insustentável</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">6</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal6.title">Métricas Sem Dono</h3>
-                <p data-i18n="guia.signal6.text">Ninguém sabe o win rate real ou o CAC por canal. Decisões são tomadas por intuição.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal6.flag">🚩 Sem dados = sem diagnóstico</span>
-            </div>
-        </div>
-
-        <div class="signal-item reveal">
-            <div class="signal-number">7</div>
-            <div class="signal-content">
-                <h3 data-i18n="guia.signal7.title">NRR Estagnado</h3>
-                <p data-i18n="guia.signal7.text">Net Revenue Retention abaixo de 100%. A base de clientes está vazando receita todo mês.</p>
-                <span class="signal-red-flag" data-i18n="guia.signal7.flag">🚩 NRR < 100% = empresa encolhendo</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- BONUS -->
-<section class="bonus-section">
-    <div class="bonus-container reveal">
-        <span class="bonus-badge" data-i18n="guia.bonus.badge">+ Bônus no Guia</span>
-        <h2 data-i18n="guia.bonus.title">Scorecard de Diagnóstico Rápido</h2>
-        <p data-i18n="guia.bonus.text">Uma ferramenta prática para usar no próximo board meeting. Avalie cada sinal e tenha uma visão clara da saúde do GTM.</p>
-    </div>
-</section>
-
-<!-- FORM -->
-<section class="form-section" id="download">
-    <div class="form-container">
-        <div class="form-header reveal">
-            <h2 data-i18n="guia.form.title">Baixe o Guia Completo</h2>
-            <p data-i18n="guia.form.subtitle">PDF gratuito com os 7 sinais + scorecard de diagnóstico.</p>
-        </div>
-
-        <div class="form-card reveal">
-            <div class="form-content" id="formContent">
-                <div class="form-error" id="formError">Ocorreu um erro. Tente novamente.</div>
-                
-                <form id="leadForm">
-                    <div class="form-group">
-                        <label for="name" data-i18n="guia.form.name">Nome</label>
-                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email" data-i18n="guia.form.email">Email Corporativo</label>
-                        <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="role" data-i18n="guia.form.role">Cargo</label>
-                        <select id="role" name="role" required>
-                            <option value="">Selecione...</option>
-                            <option value="gp">General Partner / Managing Partner</option>
-                            <option value="partner">Partner</option>
-                            <option value="principal">Principal / Director</option>
-                            <option value="ceo">CEO / Founder</option>
-                            <option value="cro">CRO / VP Sales</option>
-                            <option value="board">Board Member</option>
-                            <option value="other">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="fund"><span data-i18n="guia.form.fund">Nome do Fundo</span> <span class="optional">(opcional)</span></label>
-                        <input type="text" id="fund" name="fund" placeholder="Ex: Kaszek, Monashees...">
-                    </div>
-                    
-                    <button type="submit" class="btn-submit" id="submitBtn" data-i18n="guia.form.submit">Baixar Guia Gratuito</button>
-                </form>
-                
-                <p class="form-footer">
-                    <span data-i18n="guia.form.privacy">Ao baixar, você concorda com nossa</span> <a href="privacidade.html">Política de Privacidade</a>.
-                </p>
-                
-                <div class="form-alternative">
-                    <span data-i18n="guia.form.alternative">Prefere conversar antes?</span> <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank">Agendar 30min →</a>
+        <div class="signals-grid">
+            <!-- Sinal 1 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">1</div>
+                    <h3 class="signal-title">Pipeline Sempre "Quase Lá"</h3>
+                </div>
+                <p class="signal-description">O pipeline parece saudável no papel — 3x, 4x de cobertura. Mas os deals não fecham. O quarter termina sempre abaixo da meta.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Temos R$5M em pipeline para meta de R$1M"</div>
+                    <div class="signal-quote">"O deal X está 90% fechado"</div>
+                    <div class="signal-quote">"Perdemos por timing, não por produto"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Pipeline coverage > 4x com win rate < 20%
                 </div>
             </div>
 
-            <div class="form-success" id="formSuccess">
-                <div class="form-success-icon">✓</div>
-                <h3 data-i18n="guia.form.success.title">Guia Enviado!</h3>
-                <p data-i18n="guia.form.success.text">Clique abaixo para baixar diretamente.</p>
-                <a href="assets/7_sinais_alerta.pdf" download class="download-btn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+            <!-- Sinal 2 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">2</div>
+                    <h3 class="signal-title">Ciclo de Vendas Elástico</h3>
+                </div>
+                <p class="signal-description">O ciclo médio deveria ser 90 dias, mas metade dos deals está aberta há 6 meses. "Decisões se arrastando" virou explicação padrão.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"O cliente ainda está avaliando"</div>
+                    <div class="signal-quote">"Esperando aprovação do board deles"</div>
+                    <div class="signal-quote">"Procurement está demorando"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    40%+ dos deals abertos há > 1.5x o ciclo médio
+                </div>
+            </div>
+
+            <!-- Sinal 3 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">3</div>
+                    <h3 class="signal-title">Founder em Modo Bombeiro</h3>
+                </div>
+                <p class="signal-description">O CEO deveria focar em estratégia. Em vez disso, está em todas as calls de vendas, salvando deals, virando gargalo da operação.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Só eu consigo explicar a visão"</div>
+                    <div class="signal-quote">"Os clientes querem falar com o CEO"</div>
+                    <div class="signal-quote">"Se eu não entrar, não fecha"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    CEO em > 50% das reuniões após Série A
+                </div>
+            </div>
+
+            <!-- Sinal 4 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">4</div>
+                    <h3 class="signal-title">Time Vendendo Features</h3>
+                </div>
+                <p class="signal-description">Nas calls, a equipe passa 80% do tempo em funcionalidades. Quando perguntam sobre ROI, as respostas são vagas.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Nossa integração é melhor"</div>
+                    <div class="signal-quote">"Temos mais features que todos"</div>
+                    <div class="signal-quote">"O cliente adorou a demo"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Win rate vs concorrente < 30%
+                </div>
+            </div>
+
+            <!-- INLINE CTA - Após 4 sinais -->
+            <div class="inline-cta reveal" style="grid-column: 1 / -1;">
+                <div class="inline-cta-content">
+                    <h3>📥 Quer a versão PDF para o board meeting?</h3>
+                    <p>Guia completo + scorecard pronto para imprimir</p>
+                </div>
+                <a href="#download" class="btn-inline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
                         <polyline points="7 10 12 15 17 10"/>
                         <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
-                    <span data-i18n="guia.form.success.download">Baixar PDF Agora</span>
+                    Baixar PDF Gratuito
+                </a>
+            </div>
+
+            <!-- Sinal 5 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">5</div>
+                    <h3 class="signal-title">ICP Nebuloso</h3>
+                </div>
+                <p class="signal-description">"Nosso produto serve para qualquer empresa de médio porte." O ICP é tão amplo que não significa nada.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Serve para qualquer empresa"</div>
+                    <div class="signal-quote">"Não queremos limitar mercado"</div>
+                    <div class="signal-quote">"Cada vertical tem oportunidade"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Churn concentrado em segmento específico
+                </div>
+            </div>
+
+            <!-- Sinal 6 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">6</div>
+                    <h3 class="signal-title">Métricas Sem Dono</h3>
+                </div>
+                <p class="signal-description">Ninguém sabe o CAC real, o LTV, ou conversão por estágio. Dados em planilhas dispersas, cada gestor tem sua versão.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Estamos implementando CRM novo"</div>
+                    <div class="signal-quote">"Dados ainda não consolidados"</div>
+                    <div class="signal-quote">"É responsabilidade de todos"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Não responde unit economics em 24h
+                </div>
+            </div>
+
+            <!-- Sinal 7 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">7</div>
+                    <h3 class="signal-title">NRR Estagnado ou Caindo</h3>
+                </div>
+                <p class="signal-description">Net Revenue Retention abaixo de 100%. A base existente está encolhendo. Você corre só para ficar no lugar.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Mercado difícil para upsell"</div>
+                    <div class="signal-quote">"Clientes cortando custos"</div>
+                    <div class="signal-quote">"Focando em aquisição primeiro"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    NRR < 90% por dois quarters seguidos
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     SCORECARD
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="scorecard-section">
+    <div class="scorecard-container">
+        <div class="scorecard-header reveal">
+            <h2>Scorecard: Avaliação Rápida</h2>
+            <p>Use esta tabela no próximo board meeting para avaliar a saúde do GTM.</p>
+        </div>
+
+        <div class="scorecard-table reveal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Métrica</th>
+                        <th>🟢 Saudável</th>
+                        <th>🟡 Atenção</th>
+                        <th>🔴 Crítico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pipeline Coverage</td>
+                        <td class="col-green">> 3x com WR > 25%</td>
+                        <td class="col-yellow">2-3x ou WR 15-25%</td>
+                        <td class="col-red">< 2x ou WR < 15%</td>
+                    </tr>
+                    <tr>
+                        <td>Ciclo de Vendas</td>
+                        <td class="col-green">Dentro do benchmark</td>
+                        <td class="col-yellow">Até 1.5x benchmark</td>
+                        <td class="col-red">> 1.5x benchmark</td>
+                    </tr>
+                    <tr>
+                        <td>Envolvimento CEO</td>
+                        <td class="col-green">< 20% das calls</td>
+                        <td class="col-yellow">20-50% das calls</td>
+                        <td class="col-red">> 50% das calls</td>
+                    </tr>
+                    <tr>
+                        <td>Win Rate vs Concorrente</td>
+                        <td class="col-green">> 40%</td>
+                        <td class="col-yellow">30-40%</td>
+                        <td class="col-red">< 30%</td>
+                    </tr>
+                    <tr>
+                        <td>ICP Definido</td>
+                        <td class="col-green">Documentado</td>
+                        <td class="col-yellow">Existe mas flexível</td>
+                        <td class="col-red">Vago ou inexistente</td>
+                    </tr>
+                    <tr>
+                        <td>Tempo para Dados</td>
+                        <td class="col-green">< 24h</td>
+                        <td class="col-yellow">24-72h</td>
+                        <td class="col-red">> 72h ou impreciso</td>
+                    </tr>
+                    <tr>
+                        <td>NRR</td>
+                        <td class="col-green">> 110%</td>
+                        <td class="col-yellow">100-110%</td>
+                        <td class="col-red">< 100%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="scorecard-legend reveal">
+            <div class="legend-item"><span class="legend-dot green"></span> 0-2 críticos: Administrável</div>
+            <div class="legend-item"><span class="legend-dot yellow"></span> 3-4 críticos: Alerta</div>
+            <div class="legend-item"><span class="legend-dot red"></span> 5+ críticos: Urgente</div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     DOWNLOAD PDF
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="download-section" id="download">
+    <div class="download-container">
+        <h2>📥 Baixe o Guia Completo em PDF</h2>
+        <p>Versão para imprimir com análise detalhada de cada sinal + scorecard pronto para usar.</p>
+
+        <div class="download-form reveal">
+            <div class="form-content" id="formContent">
+                <form id="leadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email corporativo</label>
+                            <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Cargo</label>
+                            <select id="role" name="role" required>
+                                <option value="">Selecione...</option>
+                                <option value="gp">GP / Managing Partner</option>
+                                <option value="partner">Partner</option>
+                                <option value="principal">Principal / Director</option>
+                                <option value="ceo">CEO / Founder</option>
+                                <option value="cro">CRO / VP Sales</option>
+                                <option value="board">Board Member</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fund">Fundo / Empresa (opcional)</label>
+                            <input type="text" id="fund" name="fund" placeholder="Ex: Kaszek, Monashees...">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-download" id="submitBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Baixar PDF Gratuito
+                    </button>
+                </form>
+                <p class="form-footer">Seus dados estão seguros. Não fazemos spam.</p>
+            </div>
+
+            <div class="form-success" id="formSuccess">
+                <div class="form-success-icon">✓</div>
+                <h3>Guia Enviado!</h3>
+                <p>Também enviamos para seu email. Baixe diretamente:</p>
+                <a href="assets/7_sinais_alerta.pdf" download class="download-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Baixar PDF Agora
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-    <div class="cta-container reveal">
-        <h2 data-i18n="guia.cta.title">Identificou sinais na sua portfolio?</h2>
-        <p data-i18n="guia.cta.text">A Alavanka oferece Fractional CRO para empresas B2B Tech que precisam destravar crescimento — sem o custo e risco de uma contratação executiva tradicional.</p>
-        <a href="investidores.html" class="cta-btn" data-i18n="guia.cta.button">Conhecer a Solução para Investidores →</a>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="final-cta">
+    <div class="final-cta-container reveal">
+        <h2>Identificou sinais na sua portfolio?</h2>
+        <p>A Alavanka oferece Fractional CRO para empresas B2B Tech que precisam destravar crescimento — sem o custo e risco de uma contratação executiva tradicional.</p>
+        <a href="investidores.html" class="btn-cta">Conhecer a Solução para Investidores →</a>
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════════════════════ -->
 <footer class="footer">
-    <p class="footer-copy">© 2025 Alavanka. <span data-i18n="footer.rights">Todos os direitos reservados.</span> <a href="privacidade.html">Privacidade</a></p>
+    <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados. <a href="privacidade.html">Privacidade</a></p>
 </footer>
 
-<!-- SCRIPTS -->
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     STICKY CTA BAR
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="sticky-cta" id="stickyCta">
+    <span class="sticky-cta-text">📄 Baixe o guia completo em PDF</span>
+    <a href="#download" class="btn-sticky">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Baixar PDF Gratuito
+    </a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════════════════════════════════════ -->
 <script>
-// Form
+// ══════════════════════════════════════════════════════════════════════════════
+// FORM DATA PERSISTENCE - Salva dados para reutilizar entre páginas
+// ══════════════════════════════════════════════════════════════════════════════
+const FormPersist = {
+    STORAGE_KEY: 'alavanka_lead_data',
+    
+    save: function(data) {
+        try {
+            const existing = this.load() || {};
+            const merged = { ...existing, ...data, lastUpdated: Date.now() };
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(merged));
+        } catch (e) { console.warn('Could not save form data:', e); }
+    },
+    
+    load: function() {
+        try {
+            const data = localStorage.getItem(this.STORAGE_KEY);
+            return data ? JSON.parse(data) : null;
+        } catch (e) { return null; }
+    },
+    
+    fillForm: function() {
+        const data = this.load();
+        if (!data) return;
+        
+        // Preencher campos se existirem
+        const fields = ['name', 'email', 'role', 'fund', 'company'];
+        fields.forEach(field => {
+            const el = document.getElementById(field);
+            if (el && data[field]) {
+                el.value = data[field];
+            }
+        });
+    },
+    
+    collectFromForm: function() {
+        const data = {};
+        const fields = ['name', 'email', 'role', 'fund', 'company'];
+        fields.forEach(field => {
+            const el = document.getElementById(field);
+            if (el && el.value) {
+                data[field] = el.value;
+            }
+        });
+        return data;
+    }
+};
+
+// Preencher formulário ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    FormPersist.fillForm();
+});
+
+// Form Submission
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const submitBtn = document.getElementById('submitBtn');
-    const formError = document.getElementById('formError');
     const formContent = document.getElementById('formContent');
     const formSuccess = document.getElementById('formSuccess');
     
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
-    formError.classList.remove('visible');
+    submitBtn.innerHTML = '<span>Enviando...</span>';
     
-    const roleLabels = {'gp':'General Partner','partner':'Partner','principal':'Principal / Director','ceo':'CEO / Founder','cro':'CRO / VP Sales','board':'Board Member','other':'Outro'};
+    const roleLabels = {'gp':'GP / Managing Partner','partner':'Partner','principal':'Principal / Director','ceo':'CEO / Founder','cro':'CRO / VP Sales','board':'Board Member','other':'Outro'};
     const role = document.getElementById('role').value;
     
     const formData = {
@@ -803,6 +1297,15 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         timestamp: new Date().toISOString()
     };
     
+    // Salvar dados para reutilizar em outros formulários
+    FormPersist.save({
+        name: formData.name,
+        email: formData.email,
+        role: role,
+        fund: formData.company,
+        company: formData.company
+    });
+    
     try {
         const response = await fetch('https://formspree.io/f/xgoynqbk', {
             method: 'POST',
@@ -812,72 +1315,83 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         if (!response.ok) throw new Error('Failed');
         
         if (typeof gtag === 'function') {
-            gtag('event', 'generate_lead', {event_category:'lead_generation',lead_source:'guia_7_sinais',user_role:formData.profile});
+            gtag('event', 'generate_lead', {event_category:'lead_generation',lead_source:'guia_7_sinais'});
         }
         
         formContent.classList.add('hidden');
         formSuccess.classList.add('active');
-        document.querySelector('.form-card').scrollIntoView({behavior:'smooth',block:'center'});
     } catch (error) {
-        formError.classList.add('visible');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Baixar Guia Gratuito';
+        submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar PDF Gratuito';
+        alert('Erro ao enviar. Tente novamente.');
     }
 });
 
-document.querySelectorAll('#leadForm input, #leadForm select').forEach(function(el) {
-    el.addEventListener('input', function() { document.getElementById('formError').classList.remove('visible'); });
-});
-
-// Reveal
+// Scroll Reveal
 (function() {
     var reveals = document.querySelectorAll('.reveal');
     function checkReveal() {
         reveals.forEach(function(el) {
-            if (el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add('visible');
+            if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('visible');
         });
     }
     window.addEventListener('scroll', checkReveal, {passive:true});
     checkReveal();
 })();
 
+// Sticky CTA Bar
+(function() {
+    var stickyCta = document.getElementById('stickyCta');
+    var downloadSection = document.getElementById('download');
+    var hero = document.querySelector('.hero');
+    var formSuccess = document.getElementById('formSuccess');
+    
+    function updateSticky() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var downloadTop = downloadSection.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var hasSubmitted = formSuccess.classList.contains('active');
+        
+        // Mostrar após passar o hero e esconder quando chegar no download ou após submit
+        if (heroBottom < 0 && downloadTop > windowHeight && !hasSubmitted) {
+            stickyCta.classList.add('visible');
+            document.body.classList.add('sticky-active');
+        } else {
+            stickyCta.classList.remove('visible');
+            document.body.classList.remove('sticky-active');
+        }
+    }
+    
+    window.addEventListener('scroll', updateSticky, {passive: true});
+    updateSticky();
+    
+    // Smooth scroll to download
+    stickyCta.querySelector('a').addEventListener('click', function(e) {
+        e.preventDefault();
+        downloadSection.scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+    
+    // Também para o inline CTA
+    var inlineCta = document.querySelector('.inline-cta a');
+    if (inlineCta) {
+        inlineCta.addEventListener('click', function(e) {
+            e.preventDefault();
+            downloadSection.scrollIntoView({behavior: 'smooth', block: 'center'});
+        });
+    }
+})();
+
 // i18n
 (function() {
-    var currentLang = 'pt', translations = null, pendingLang = null;
+    var currentLang = 'pt', translations = null;
     
     fetch('translations.json').then(r => r.json()).then(data => {
         translations = data;
-        if (pendingLang) { currentLang = pendingLang; pendingLang = null; }
-        applyTranslations();
-    }).catch(err => console.warn('Translations error:', err));
-    
-    function applyTranslations() {
-        if (!translations) return;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            var key = el.getAttribute('data-i18n');
-            if (translations[currentLang] && translations[currentLang][key]) el.innerHTML = translations[currentLang][key];
-        });
-    }
-    
-    window.toggleLang = function() {
-        var newLang = currentLang === 'pt' ? 'en' : 'pt';
-        if (!translations) { pendingLang = newLang; currentLang = newLang; }
-        else { currentLang = newLang; applyTranslations(); }
-        
-        var newLabel = currentLang === 'pt' ? 'EN' : 'PT';
-        var langBtn = document.getElementById('langToggle');
-        var langBtnMobile = document.getElementById('langToggleMobile');
-        if (langBtn) langBtn.textContent = newLabel;
-        if (langBtnMobile) langBtnMobile.textContent = newLabel;
-        document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-    };
+        // Apply if needed
+    }).catch(err => {});
     
     window.addEventListener('langChange', function(e) {
-        if (e.detail && e.detail.lang) {
-            var newLang = e.detail.lang;
-            if (!translations) { pendingLang = newLang; currentLang = newLang; }
-            else { currentLang = newLang; applyTranslations(); }
-        }
+        if (e.detail && e.detail.lang) currentLang = e.detail.lang;
     });
 })();
 </script>

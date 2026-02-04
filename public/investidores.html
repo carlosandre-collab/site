@@ -2021,6 +2021,125 @@ footer {
     .section { padding: 100px 10%; max-width: 1200px; }
     .inv-hero { padding: 140px 10% 120px; }
 }
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗
+   ║  GUIA 7 SINAIS BANNER                                                    ║
+   ╚══════════════════════════════════════════════════════════════════════════╝ */
+.guia-banner-section {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    padding: 0;
+}
+
+.guia-banner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.guia-banner-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+    min-width: 300px;
+}
+
+.guia-banner-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--r-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.guia-banner-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--warm-light);
+}
+
+.guia-banner-text {
+    flex: 1;
+}
+
+.guia-banner-badge {
+    display: inline-block;
+    background: rgba(212,136,58,0.2);
+    color: var(--warm-light);
+    padding: 4px 12px;
+    border-radius: var(--r-full);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.guia-banner h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.guia-banner p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.guia-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--warm);
+    color: #fff;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 15px;
+    transition: all var(--duration) var(--ease-out);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.guia-banner-btn:hover {
+    background: var(--warm-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.guia-banner-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 768px) {
+    .guia-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px 20px;
+    }
+    
+    .guia-banner-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .guia-banner-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
     </style>
     
     <script src="components/nav.js" defer></script>
@@ -2064,6 +2183,34 @@ footer {
         <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
         <span data-i18n="investors.hero.cta">Conversar Sobre Meu Portfólio</span>
     </a>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════════
+     GUIA 7 SINAIS - Banner Destacado (após hero)
+     ════════════════════════════════════════════════════════════════════════════ -->
+<section class="guia-banner-section">
+    <div class="guia-banner reveal">
+        <div class="guia-banner-content">
+            <div class="guia-banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+                    <polyline points="16 17 21 12 16 7"/>
+                    <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+            </div>
+            <div class="guia-banner-text">
+                <span class="guia-banner-badge">📄 Guia Gratuito</span>
+                <h3 data-i18n="investors.guiabanner.title">Os 7 Sinais de Alerta de uma Portfolio Company Travada</h3>
+                <p data-i18n="investors.guiabanner.text">Checklist para identificar problemas de GTM antes que virem crise. Com scorecard prático para board meetings.</p>
+            </div>
+        </div>
+        <a href="guia-7-sinais.html" class="guia-banner-btn">
+            <span data-i18n="investors.guiabanner.button">Ver o Guia Completo</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════════════
@@ -2893,6 +3040,58 @@ footer {
     'use strict';
     
     // ══════════════════════════════════════════════════════════════════════════
+    // FORM DATA PERSISTENCE - Salva dados para reutilizar entre páginas
+    // ══════════════════════════════════════════════════════════════════════════
+    window.FormPersist = {
+        STORAGE_KEY: 'alavanka_lead_data',
+        
+        save: function(data) {
+            try {
+                var existing = this.load() || {};
+                var merged = Object.assign({}, existing, data, { lastUpdated: Date.now() });
+                localStorage.setItem(this.STORAGE_KEY, JSON.stringify(merged));
+            } catch (e) { console.warn('Could not save form data:', e); }
+        },
+        
+        load: function() {
+            try {
+                var data = localStorage.getItem(this.STORAGE_KEY);
+                return data ? JSON.parse(data) : null;
+            } catch (e) { return null; }
+        },
+        
+        fillForm: function() {
+            var data = this.load();
+            if (!data) return;
+            
+            // Mapear IDs diferentes entre páginas
+            var fieldMappings = {
+                'reportEmail': 'email',
+                'reportProfile': 'profile',
+                'reportCompany': 'company',
+                'email': 'email',
+                'name': 'name',
+                'role': 'profile',
+                'fund': 'company',
+                'company': 'company'
+            };
+            
+            Object.keys(fieldMappings).forEach(function(fieldId) {
+                var el = document.getElementById(fieldId);
+                var dataKey = fieldMappings[fieldId];
+                if (el && data[dataKey]) {
+                    el.value = data[dataKey];
+                }
+            });
+        }
+    };
+    
+    // Preencher formulário ao carregar
+    document.addEventListener('DOMContentLoaded', function() {
+        FormPersist.fillForm();
+    });
+    
+    // ══════════════════════════════════════════════════════════════════════════
     // 1. SCROLL PROGRESS BAR
     // ══════════════════════════════════════════════════════════════════════════
     var progressBar = document.getElementById('scrollProgress');
@@ -3373,6 +3572,15 @@ async function generateReport() {
     
     btn.disabled = true;
     btn.innerHTML = '<span>Enviando...</span>';
+    
+    // Salvar dados para reutilizar em outros formulários
+    if (typeof FormPersist !== 'undefined') {
+        FormPersist.save({
+            email: email,
+            profile: profile,
+            company: company
+        });
+    }
     
     try {
         await fetch('https://formspree.io/f/xgoynqbk', {
