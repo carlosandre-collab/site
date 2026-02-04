@@ -4,565 +4,1217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assessment: Sua Empresa Está Pronta para um Fractional CRO? | Alavanka</title>
-    <meta name="description" content="Responda 5 perguntas rápidas e descubra se sua empresa B2B tech está pronta para um Fractional CRO. Assessment gratuito da Alavanka.">
+    <meta name="description" content="Responda 5 perguntas rápidas e descubra se sua empresa B2B tech está pronta para um Fractional CRO.">
     <link rel="canonical" href="https://www.alavanka.com.br/assessment.html">
     
-    <!-- Google Analytics (GA4) -->
+    <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D8LLY1L1Z3');
-    </script>
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vb4dciqpnm");
-    </script>
-
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-D8LLY1L1Z3');</script>
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","vb4dciqpnm");</script>
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
     <style>
-        :root { --bg-primary: #ffffff; --bg-secondary: #f8f9fc; --accent: #1B3A5C; --accent-dark: #142D48; --accent-light: #2D5F8A; --accent-bg: rgba(27, 58, 92, 0.08); --warm: #C8965A; --warm-dark: #B07D42; --warm-light: #D4A96F; --warm-bg: rgba(200, 150, 90, 0.08); --text-primary: #1a1a2e; --text-secondary: #4a4a68; --border: #e8e8f0; --success: #22c55e; --success-bg: rgba(34, 197, 94, 0.1); --warning: #fbbf24; --warning-bg: rgba(251, 191, 36, 0.1); --danger: #ef4444; --danger-bg: rgba(239, 68, 68, 0.1); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-secondary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 100px 1rem 2rem; }
-        .assessment-container { background: white; border-radius: 16px; max-width: 640px; width: 100%; box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08); overflow: hidden; }
-        .assessment-header { padding: 2rem 2rem 1.5rem; text-align: center; border-bottom: 1px solid var(--border); }
-        .assessment-header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3; }
-        .assessment-header p { color: var(--text-secondary); font-size: 0.95rem; }
-        .assessment-progress { padding: 1rem 2rem; background: var(--bg-secondary); }
-        .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--warm); border-radius: 3px; transition: width 0.3s; width: 0%; }
-        .progress-text { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
-        .assessment-body { padding: 2rem; }
-        .question-slide { display: none; }
-        .question-slide.active { display: block; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .question-number { display: inline-block; background: var(--accent-bg); color: var(--accent); font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 20px; margin-bottom: 1rem; }
-        .question-text { font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.4; }
-        .question-why { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem; padding: 0.5rem 0.75rem; background: var(--accent-bg); border-radius: 6px; border-left: 3px solid var(--warm); }
-        .question-options { display: flex; flex-direction: column; gap: 0.75rem; }
-        .option-btn { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; color: var(--text-primary); font-family: inherit; }
-        .option-btn:hover { border-color: var(--warm); background: var(--warm-bg); }
-        .option-btn.selected { border-color: var(--warm); background: var(--warm-bg); }
-        .option-indicator { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-        .option-btn.selected .option-indicator { background: var(--warm); border-color: var(--warm); }
-        .option-btn.selected .option-indicator::after { content: '✓'; color: white; font-size: 0.8rem; font-weight: bold; }
-        .assessment-nav { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-        .nav-btn { padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; font-family: inherit; }
-        .nav-btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
-        .nav-btn-back:hover:not(:disabled) { border-color: var(--text-secondary); }
-        .nav-btn-back:disabled { opacity: 0.5; cursor: not-allowed; }
-        .nav-btn-next { background: var(--warm); border: none; color: white; }
-        .nav-btn-next:hover:not(:disabled) { background: var(--warm-dark); }
-        .nav-btn-next:disabled { background: var(--border); cursor: not-allowed; }
-        .result-screen { display: none; text-align: center; padding: 2rem; }
-        .result-screen.active { display: block; animation: fadeIn 0.3s ease; }
-        .result-score { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 4px solid; }
-        .result-score.high { background: var(--success-bg); border-color: var(--success); }
-        .result-score.medium { background: var(--warning-bg); border-color: var(--warning); }
-        .result-score.low { background: var(--danger-bg); border-color: var(--danger); }
-        .score-number { font-size: 2.5rem; font-weight: 700; line-height: 1; }
-        .result-score.high .score-number { color: var(--success); }
-        .result-score.medium .score-number { color: var(--warning); }
-        .result-score.low .score-number { color: var(--danger); }
-        .score-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
-        .result-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; color: var(--text-primary); margin-bottom: 0.75rem; }
-        .result-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; max-width: 450px; margin-left: auto; margin-right: auto; }
-        .result-form { background: var(--bg-secondary); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; }
-        .result-form h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-        .result-form p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; }
-        .form-row { display: flex; gap: 0.75rem; }
-        .form-row input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
-        .form-row input:focus { outline: none; border-color: var(--accent); }
-        .form-row select.profile-select { padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; font-family: inherit; background: white; cursor: pointer; min-width: 140px; }
-        .form-row select.profile-select:focus { outline: none; border-color: var(--accent); }
-        .form-row button { padding: 0.75rem 1.5rem; background: var(--warm); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; white-space: nowrap; font-family: inherit; display: flex; align-items: center; gap: 0.5rem; }
-        .form-row button:hover { background: var(--warm-dark); }
-        .form-row button:disabled { background: var(--border); cursor: not-allowed; }
-        .form-row button svg { width: 18px; height: 18px; }
-        .form-success { display: none; text-align: center; }
-        .form-success.show { display: block; animation: fadeIn 0.3s ease; }
-        .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .form-success h4 { font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem; }
-        .form-success p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
-        .btn-download { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; background: var(--success); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; font-family: inherit; transition: all 0.2s; }
-        .btn-download:hover { background: #1aa34a; transform: translateY(-1px); }
-        .btn-download svg { width: 20px; height: 20px; }
-        .result-cta-main { display: inline-block; padding: 1rem 2rem; background: var(--warm); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.2s; }
-        .result-cta-main:hover { background: var(--warm-dark); }
-        .result-back { display: block; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; }
-        .result-back:hover { color: var(--accent); }
-        .divider-text { display: flex; align-items: center; gap: 1rem; color: var(--text-secondary); font-size: 0.85rem; margin: 1.5rem 0; }
-        .divider-text::before, .divider-text::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-        footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.85rem; }
-        footer a { color: var(--accent); text-decoration: none; }
-        @media (max-width: 768px) {
+:root {
+    --accent: #1B3A5C;
+    --accent-dark: #142D48;
+    --accent-light: #2D5F8A;
+    --warm: #D4883A;
+    --warm-dark: #C17A32;
+    --warm-light: #E8A355;
+    --bg: #FAFBFD;
+    --bg-dark: #0D1B2A;
+    --text: #0D1B2A;
+    --text-secondary: #4A5568;
+    --text-muted: #8C8CA1;
+    --border: #E2E8F0;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-xl: 24px;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 24px rgba(27,58,92,0.08);
+    --shadow-lg: 0 16px 48px rgba(27,58,92,0.12);
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-main { padding: 80px 1rem 1rem; }
-            .assessment-header { padding: 1.5rem 1.5rem 1rem; }
-            .assessment-header h1 { font-size: 1.25rem; }
-            .assessment-body { padding: 1.5rem; }
-            .question-text { font-size: 1.05rem; }
-            .option-btn { padding: 0.875rem 1rem; font-size: 0.9rem; }
-            .form-row { flex-direction: column; }
-            .form-row button { width: 100%; justify-content: center; }
-            .result-score { width: 120px; height: 120px; }
-            .score-number { font-size: 2rem; }
-        }
+body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--accent) 50%, var(--bg) 50%);
+    min-height: 100vh;
+    color: var(--text);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════════════════════════════════════════════ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
+.lang-toggle {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--r-sm);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-toggle:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   MAIN CONTAINER
+   ══════════════════════════════════════════════════════════════════════════════ */
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 40px;
+}
+
+.assessment-card {
+    background: #fff;
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 560px;
+    overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   PROGRESS
+   ══════════════════════════════════════════════════════════════════════════════ */
+.progress-section {
+    padding: 20px 28px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.progress-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.progress-percent {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--warm);
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--warm), var(--warm-light));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   QUESTION SLIDES
+   ══════════════════════════════════════════════════════════════════════════════ */
+.questions-body {
+    padding: 32px 28px;
+}
+
+.question-slide {
+    display: none;
+    animation: slideIn 0.35s ease;
+}
+
+.question-slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.question-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.question-text {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.question-why {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(212,136,58,0.08), rgba(212,136,58,0.03));
+    border-radius: var(--r-md);
+    border-left: 3px solid var(--warm);
+}
+
+.question-why svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--warm);
+    margin-top: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   OPTIONS
+   ══════════════════════════════════════════════════════════════════════════════ */
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.option-btn:hover {
+    border-color: var(--warm);
+    background: rgba(212,136,58,0.04);
+}
+
+.option-btn.selected {
+    border-color: var(--warm);
+    background: rgba(212,136,58,0.08);
+}
+
+.option-radio {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.option-btn:hover .option-radio {
+    border-color: var(--warm);
+}
+
+.option-btn.selected .option-radio {
+    border-color: var(--warm);
+    background: var(--warm);
+}
+
+.option-btn.selected .option-radio::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.option-label {
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-back:hover:not(:disabled) {
+    border-color: var(--text-secondary);
+    color: var(--text);
+}
+
+.btn-back:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-back svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-next {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    border: none;
+    border-radius: var(--r-md);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-next:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(27,58,92,0.25);
+}
+
+.btn-next:disabled {
+    background: var(--border);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-next svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   RESULT SCREEN
+   ══════════════════════════════════════════════════════════════════════════════ */
+.result-screen {
+    display: none;
+    padding: 40px 28px;
+    text-align: center;
+}
+
+.result-screen.active {
+    display: block;
+    animation: slideIn 0.4s ease;
+}
+
+.result-score-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.result-score-circle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 5px solid currentColor;
+    opacity: 0.2;
+}
+
+.result-score-circle.high { color: var(--success); background: rgba(16,185,129,0.1); }
+.result-score-circle.medium { color: var(--warning); background: rgba(245,158,11,0.1); }
+.result-score-circle.low { color: var(--danger); background: rgba(239,68,68,0.1); }
+
+.score-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.score-max {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.result-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 26px;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.result-description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto 32px;
+}
+
+/* Result Form */
+.result-form {
+    background: var(--bg);
+    border-radius: var(--r-lg);
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.result-form h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.result-form > p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-field {
+    flex: 1;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--warm);
+}
+
+.btn-generate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    border: none;
+    border-radius: var(--r-md);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    margin-top: 4px;
+}
+
+.btn-generate:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(212,136,58,0.3);
+}
+
+.btn-generate:disabled {
+    background: var(--border);
+    cursor: not-allowed;
+}
+
+.btn-generate svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Form Success */
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.form-success.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+.success-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(16,185,129,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--success);
+}
+
+.success-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.form-success h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.form-success p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--success);
+    border: none;
+    border-radius: var(--r-md);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-download:hover {
+    background: #0ea271;
+    transform: translateY(-1px);
+}
+
+.btn-download svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* CTA */
+.result-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.result-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(27,58,92,0.25);
+}
+
+.result-back {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.result-back:hover {
+    color: var(--accent);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════════════════════ */
+footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+    main {
+        padding: 70px 16px 24px;
+    }
+    
+    .assessment-card {
+        border-radius: var(--r-lg);
+    }
+    
+    .progress-section {
+        padding: 16px 20px;
+    }
+    
+    .questions-body {
+        padding: 24px 20px;
+    }
+    
+    .question-text {
+        font-size: 19px;
+    }
+    
+    .option-btn {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    
+    .nav-buttons {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+    
+    .btn-back, .btn-next {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .result-screen {
+        padding: 32px 20px;
+    }
+    
+    .result-score-circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .score-value {
+        font-size: 36px;
+    }
+    
+    .result-title {
+        font-size: 22px;
+    }
+    
+    .result-form {
+        padding: 20px 16px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+}
     </style>
-    <link rel="stylesheet" href="styles/nav-unified.css">
-    <script src="components/nav.js" defer></script>
 </head>
 <body>
-    <nav id="main-nav"></nav>
-    
-    <main>
-        <div class="assessment-container">
-            <div class="assessment-header">
-                <h1 id="headerTitle">Sua Empresa Está Pronta para um Fractional CRO?</h1>
-                <p id="headerSubtitle">Responda 5 perguntas rápidas e descubra</p>
+
+<!-- Header -->
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="assets/logo-completo-branco-transparente.png" alt="Alavanka" height="32">
+    </a>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">EN</button>
+</header>
+
+<!-- Main Content -->
+<main>
+    <div class="assessment-card">
+        <!-- Progress -->
+        <div class="progress-section" id="progressSection">
+            <div class="progress-header">
+                <span class="progress-label" id="progressLabel">Pergunta 1 de 5</span>
+                <span class="progress-percent" id="progressPercent">0%</span>
             </div>
-            <div class="assessment-progress" id="progressSection">
-                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-                <div class="progress-text"><span id="progressCurrent">Pergunta 1 de 5</span><span id="progressPercent">0%</span></div>
-            </div>
-            <div class="assessment-body" id="questionsBody">
-                <!-- Q1: Tempo de estagnação (era Q2) - Pergunta suave para começar -->
-                <div class="question-slide active" data-question="1">
-                    <span class="question-number">Pergunta 1 de 5</span>
-                    <p class="question-text" id="q1text">Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?</p>
-                    <p class="question-why">💡 Isso nos ajuda a entender a urgência e o tipo de intervenção necessária.</p>
-                    <div class="question-options">
-                        <button class="option-btn" data-value="1" data-label-pt="Menos de 3 meses" data-label-en="Less than 3 months"><span class="option-indicator"></span><span>Menos de 3 meses</span></button>
-                        <button class="option-btn" data-value="2" data-label-pt="3 a 6 meses" data-label-en="3 to 6 months"><span class="option-indicator"></span><span>3 a 6 meses</span></button>
-                        <button class="option-btn" data-value="3" data-label-pt="6 a 12 meses" data-label-en="6 to 12 months"><span class="option-indicator"></span><span>6 a 12 meses</span></button>
-                        <button class="option-btn" data-value="4" data-label-pt="Mais de 12 meses" data-label-en="More than 12 months"><span class="option-indicator"></span><span>Mais de 12 meses</span></button>
-                    </div>
-                </div>
-                
-                <!-- Q2: Tempo do CEO em vendas (era Q3) -->
-                <div class="question-slide" data-question="2">
-                    <span class="question-number">Pergunta 2 de 5</span>
-                    <p class="question-text" id="q2text">Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?</p>
-                    <p class="question-why">💡 CEOs que gastam mais de 40% do tempo em vendas geralmente precisam de ajuda para escalar.</p>
-                    <div class="question-options">
-                        <button class="option-btn" data-value="1" data-label-pt="Menos de 20%" data-label-en="Less than 20%"><span class="option-indicator"></span><span>Menos de 20%</span></button>
-                        <button class="option-btn" data-value="2" data-label-pt="20% a 40%" data-label-en="20% to 40%"><span class="option-indicator"></span><span>20% a 40%</span></button>
-                        <button class="option-btn" data-value="3" data-label-pt="40% a 60%" data-label-en="40% to 60%"><span class="option-indicator"></span><span>40% a 60%</span></button>
-                        <button class="option-btn" data-value="4" data-label-pt="Mais de 60%" data-label-en="More than 60%"><span class="option-indicator"></span><span>Mais de 60%</span></button>
-                    </div>
-                </div>
-                
-                <!-- Q3: Líder comercial (era Q4) -->
-                <div class="question-slide" data-question="3">
-                    <span class="question-number">Pergunta 3 de 5</span>
-                    <p class="question-text" id="q3text">Você tem um líder comercial (VP Sales, CRO) dedicado full-time?</p>
-                    <p class="question-why">💡 Entender a estrutura atual nos ajuda a recomendar o modelo certo.</p>
-                    <div class="question-options">
-                        <button class="option-btn" data-value="1" data-label-pt="Sim, com resultados consistentes" data-label-en="Yes, with consistent results"><span class="option-indicator"></span><span>Sim, com resultados consistentes</span></button>
-                        <button class="option-btn" data-value="2" data-label-pt="Sim, mas abaixo do esperado" data-label-en="Yes, but below expectations"><span class="option-indicator"></span><span>Sim, mas resultados abaixo do esperado</span></button>
-                        <button class="option-btn" data-value="3" data-label-pt="Não, o founder lidera vendas" data-label-en="No, the founder leads sales"><span class="option-indicator"></span><span>Não, o founder lidera vendas</span></button>
-                        <button class="option-btn" data-value="4" data-label-pt="Não, buscando contratar" data-label-en="No, looking to hire"><span class="option-indicator"></span><span>Não, e estamos buscando contratar</span></button>
-                    </div>
-                </div>
-                
-                <!-- Q4: Processo comercial (era Q5) -->
-                <div class="question-slide" data-question="4">
-                    <span class="question-number">Pergunta 4 de 5</span>
-                    <p class="question-text" id="q4text">Como você descreveria seu processo comercial atual?</p>
-                    <p class="question-why">💡 A maturidade do processo indica onde focar esforços primeiro.</p>
-                    <div class="question-options">
-                        <button class="option-btn" data-value="1" data-label-pt="Estruturado com métricas claras" data-label-en="Structured with clear metrics"><span class="option-indicator"></span><span>Estruturado com métricas e playbooks claros</span></button>
-                        <button class="option-btn" data-value="2" data-label-pt="Parcialmente documentado" data-label-en="Partially documented"><span class="option-indicator"></span><span>Parcialmente documentado, mas inconsistente</span></button>
-                        <button class="option-btn" data-value="3" data-label-pt="Depende de pessoas específicas" data-label-en="Dependent on specific people"><span class="option-indicator"></span><span>Depende muito de pessoas específicas</span></button>
-                        <button class="option-btn" data-value="4" data-label-pt="Praticamente inexistente" data-label-en="Virtually nonexistent"><span class="option-indicator"></span><span>Praticamente inexistente, vendemos por intuição</span></button>
-                    </div>
-                </div>
-                
-                <!-- Q5: Faturamento (era Q1) - Agora no final com faixas mais amplas -->
-                <div class="question-slide" data-question="5">
-                    <span class="question-number">Pergunta 5 de 5</span>
-                    <p class="question-text" id="q5text">Em qual estágio de receita sua empresa está?</p>
-                    <p class="question-why">💡 Última pergunta! Isso ajuda a calibrar as recomendações para seu momento.</p>
-                    <div class="question-options">
-                        <button class="option-btn" data-value="1" data-label-pt="Estágio inicial (até R$5M)" data-label-en="Early stage (up to R$5M)"><span class="option-indicator"></span><span>Estágio inicial (até R$5M/ano)</span></button>
-                        <button class="option-btn" data-value="2" data-label-pt="Em crescimento (R$5M-20M)" data-label-en="Growing (R$5M-20M)"><span class="option-indicator"></span><span>Em crescimento (R$5M - R$20M/ano)</span></button>
-                        <button class="option-btn" data-value="3" data-label-pt="Escalando (acima de R$20M)" data-label-en="Scaling (above R$20M)"><span class="option-indicator"></span><span>Escalando (acima de R$20M/ano)</span></button>
-                    </div>
-                </div>
-                
-                <div class="assessment-nav">
-                    <button class="nav-btn nav-btn-back" id="btnBack" onclick="prevQuestion()" disabled>← Voltar</button>
-                    <button class="nav-btn nav-btn-next" id="btnNext" onclick="nextQuestion()" disabled>Próxima →</button>
-                </div>
-            </div>
-            <div class="result-screen" id="resultScreen">
-                <div class="result-score" id="resultScore"><span class="score-number" id="scoreNumber">0</span><span class="score-label">/19</span></div>
-                <h2 class="result-title" id="resultTitle">Alta Compatibilidade!</h2>
-                <p class="result-description" id="resultDescription">Seu perfil indica forte alinhamento com o modelo de Fractional CRO.</p>
-                <div class="result-form" id="resultForm">
-                    <div id="formInput">
-                        <h3 id="formTitle">Baixe seu diagnóstico personalizado</h3>
-                        <p id="formSubtitle">PDF com análise detalhada, estatísticas de mercado e próximos passos</p>
-                        <div class="form-row" id="formRow">
-                            <input type="email" id="assessmentEmail" placeholder="seu@email.com">
-                            <select id="assessmentProfile" class="profile-select">
-                                <option value="" disabled selected>Eu sou...</option>
-                                <option value="founder">Founder / CEO</option>
-                                <option value="investor">Investidor / VC</option>
-                            </select>
-                            <button onclick="submitAndDownload()" id="formBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Gerar PDF</span></button>
-                        </div>
-                    </div>
-                    <div class="form-success" id="formSuccess">
-                        <div class="form-success-icon">📄</div>
-                        <h4 id="successTitle">Seu diagnóstico está pronto!</h4>
-                        <p id="successText">Clique abaixo para baixar o PDF personalizado.</p>
-                        <button class="btn-download" onclick="downloadPDF()" id="btnDownload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span>Baixar Diagnóstico PDF</span></button>
-                    </div>
-                </div>
-                <div class="divider-text" id="dividerText">ou converse diretamente</div>
-                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="result-cta-main" id="resultCta">Agendar Conversa com Carlos André →</a>
-                <a href="index.html" class="result-back" id="resultBack">← Voltar ao site</a>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
             </div>
         </div>
-    </main>
-    <footer>© 2025 <a href="index.html">Alavanka</a>. Todos os direitos reservados.</footer>
-    
-    <script>
-        const { jsPDF } = window.jspdf;
-        const T = {
-            pt: {
-                title: "Sua Empresa Está Pronta para um Fractional CRO?", subtitle: "Responda 5 perguntas rápidas e descubra",
-                q1: "Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?",
-                q2: "Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais/vendas?",
-                q3: "Você tem um líder comercial (VP Sales, CRO) dedicado full-time?",
-                q4: "Como você descreveria seu processo comercial atual?",
-                q5: "Em qual estágio de receita sua empresa está?",
-                back: "← Voltar", next: "Próxima →", see: "Ver Resultado →", qOf: "Pergunta {n} de 5",
-                high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o modelo de Fractional CRO. Você tem a maturidade e os desafios certos para se beneficiar de liderança de receita fracionada." },
-                medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar de um Fractional CRO, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
-                low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, um Fractional CRO pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo para quando o momento chegar." },
-                formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada, estatísticas de mercado e próximos passos", formBtn: "Gerar PDF",
-                successT: "Seu diagnóstico está pronto!", successS: "Clique abaixo para baixar o PDF personalizado.", downloadBtn: "Baixar Diagnóstico PDF",
-                formInv: "Por favor, insira um email válido.", formErr: "Erro ao processar. Tente novamente.",
-                divider: "ou converse diretamente", cta: "Agendar Conversa com Carlos André →", backSite: "← Voltar ao site",
-                pdf: { title: "Diagnostico GTM Readiness", subtitle: "Assessment Personalizado", preparedFor: "Preparado para:", date: "Data:", scoreLabel: "Pontuacao Total", yourAnswers: "Suas Respostas",
-                    questions: ["Tempo de estagnacao", "Tempo do CEO em vendas", "Lider comercial dedicado", "Maturidade do processo comercial", "Estagio de receita"], analysis: "Analise do Resultado",
-                    highAnalysis: ["Sua empresa apresenta o perfil ideal para um Fractional CRO:", "", "- Receita e maturidade adequadas para investir em lideranca de revenue", "- Desafios de crescimento que exigem expertise operacional senior", "- Timing correto para estruturar processos antes de escalar", "", "RECOMENDACAO: Agende uma conversa para discutir um plano de acao."],
-                    mediumAnalysis: ["Sua empresa tem potencial para se beneficiar de um Fractional CRO,", "mas alguns pontos merecem atencao:", "", "- Avalie se o momento e de estruturar processos ou crescer receita", "- Considere o runway disponivel para implementar mudancas", "- Uma conversa pode ajudar a clarificar o timing ideal", "", "RECOMENDACAO: Agende uma conversa exploratororia sem compromisso."],
-                    lowAnalysis: ["Com base nas suas respostas, o timing pode nao ser ideal para um", "Fractional CRO neste momento. Possiveis razoes:", "", "- A empresa pode precisar primeiro validar product-market fit", "- O estagio atual pode exigir foco em outras prioridades", "- Recursos podem ser melhor alocados em outras areas", "", "RECOMENDACAO: Reavalie em 6 meses."],
-                    insightsTitle: "Insights Baseados nas Suas Respostas", statsTitle: "Estatisticas de Mercado", nextSteps: "Proximos Passos Recomendados",
-                    footer: "Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br", sources: "Fontes: SaaS Capital, ICONIQ, Frak Report, Gartner, SaaStr, OpenView, Bessemer" }
-            },
-            en: {
-                title: "Is Your Company Ready for a Fractional CRO?", subtitle: "Answer 5 quick questions and find out",
-                q1: "How long has revenue growth been stagnant or below expectations?",
-                q2: "How much of your time (CEO/Founder) is spent on sales activities?",
-                q3: "Do you have a dedicated full-time sales leader (VP Sales, CRO)?",
-                q4: "How would you describe your current sales process?",
-                q5: "What revenue stage is your company at?",
-                back: "← Back", next: "Next →", see: "See Results →", qOf: "Question {n} of 5",
-                high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with the Fractional CRO model. You have the right maturity and challenges to benefit from fractional revenue leadership." },
-                medium: { t: "Good Compatibility", d: "Your company could benefit from a Fractional CRO, but there are some points to consider. A conversation can help understand if the timing is right." },
-                low: { t: "Timing May Not Be Ideal", d: "Based on your answers, a Fractional CRO may not be the best solution right now. But keep following our content for when the time comes." },
-                formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis, market statistics and next steps", formBtn: "Generate PDF",
-                successT: "Your diagnosis is ready!", successS: "Click below to download the personalized PDF.", downloadBtn: "Download Diagnosis PDF",
-                formInv: "Please enter a valid email.", formErr: "Error processing. Please try again.",
-                divider: "or talk directly", cta: "Schedule Call with Carlos Andre →", backSite: "← Back to site",
-                pdf: { title: "GTM Readiness Diagnosis", subtitle: "Personalized Assessment", preparedFor: "Prepared for:", date: "Date:", scoreLabel: "Total Score", yourAnswers: "Your Answers",
-                    questions: ["Stagnation duration", "CEO time on sales", "Dedicated sales leader", "Sales process maturity", "Revenue stage"], analysis: "Result Analysis",
-                    highAnalysis: ["Your company has the ideal profile for a Fractional CRO:", "", "- Adequate revenue and maturity to invest in revenue leadership", "- Growth challenges that require senior operational expertise", "- Right timing to structure processes before scaling", "", "RECOMMENDATION: Schedule a call to discuss a personalized action plan."],
-                    mediumAnalysis: ["Your company has potential to benefit from a Fractional CRO,", "but some points deserve attention:", "", "- Evaluate if its time to structure processes or grow revenue", "- Consider the runway available to implement changes", "- A conversation can help clarify the ideal timing", "", "RECOMMENDATION: Schedule an exploratory call with no commitment."],
-                    lowAnalysis: ["Based on your answers, the timing may not be ideal for a", "Fractional CRO at this moment. Possible reasons:", "", "- The company may need to first validate product-market fit", "- The current stage may require focus on other priorities", "- Resources may be better allocated in other areas", "", "RECOMMENDATION: Reassess in 6 months."],
-                    insightsTitle: "Insights Based on Your Answers", statsTitle: "Market Statistics", nextSteps: "Recommended Next Steps",
-                    footer: "Alavanka | Fractional CRO for B2B Tech | www.alavanka.com.br", sources: "Sources: SaaS Capital, ICONIQ, Frak Report, Gartner, SaaStr, OpenView, Bessemer" }
-            }
-        };
-        let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
-        const total = 5;
-        function toggleLanguage() { lang = lang === 'pt' ? 'en' : 'pt'; document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT'; document.getElementById('langToggleMobile').textContent = lang === 'pt' ? 'EN' : 'PT'; applyLang(); }
-        function applyLang() { const t = T[lang]; document.getElementById('headerTitle').textContent = t.title; document.getElementById('headerSubtitle').textContent = t.subtitle; document.getElementById('q1text').textContent = t.q1; document.getElementById('q2text').textContent = t.q2; document.getElementById('q3text').textContent = t.q3; document.getElementById('q4text').textContent = t.q4; document.getElementById('q5text').textContent = t.q5; document.getElementById('formTitle').textContent = t.formT; document.getElementById('formSubtitle').textContent = t.formS; document.querySelector('#formBtn span').textContent = t.formBtn; document.getElementById('successTitle').textContent = t.successT; document.getElementById('successText').textContent = t.successS; document.querySelector('#btnDownload span').textContent = t.downloadBtn; document.getElementById('dividerText').textContent = t.divider; document.getElementById('resultCta').textContent = t.cta; document.getElementById('resultBack').textContent = t.backSite; updateUI(); }
-function updateUI() { const t = T[lang]; const pct = ((cur - 1) / total) * 100; document.getElementById('progressFill').style.width = pct + '%'; document.getElementById('progressPercent').textContent = Math.round(pct) + '%'; document.getElementById('progressCurrent').textContent = t.qOf.replace('{n}', cur); document.querySelectorAll('.question-number').forEach((el, i) => { el.textContent = t.qOf.replace('{n}', i + 1); }); document.getElementById('btnBack').disabled = cur === 1; document.getElementById('btnBack').textContent = t.back; document.getElementById('btnNext').disabled = !ans[cur]; document.getElementById('btnNext').textContent = (cur === total && ans[cur]) ? t.see : t.next; }
-        document.addEventListener('click', function(e) { const btn = e.target.closest('.option-btn'); if (!btn) return; btn.closest('.question-options').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); ans[cur] = parseInt(btn.dataset.value); const labelKey = lang === 'pt' ? 'labelPt' : 'labelEn'; answerLabels[cur] = btn.dataset[labelKey] || btn.querySelector('span:last-child').textContent; updateUI(); });
-        function nextQuestion() { if (cur === total) { showResults(); return; } if (!ans[cur]) return; if (typeof gtag === 'function') { var stepNames = {1:'stagnation_time',2:'ceo_time_sales',3:'sales_leader',4:'process_maturity',5:'revenue_stage'}; gtag('event', 'assessment_step_completed', { step: cur, step_name: stepNames[cur] || 'step_'+cur }); } document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur++; var slide = document.querySelector('.question-slide[data-question="'+cur+'"]'); slide.classList.add('active'); if (ans[cur]) { var b = slide.querySelector('.option-btn[data-value="'+ans[cur]+'"]'); if (b) b.classList.add('selected'); } updateUI(); }
-        function prevQuestion() { if (cur === 1) return; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active'); cur--; document.querySelector('.question-slide[data-question="'+cur+'"]').classList.add('active'); updateUI(); }
-        var assessmentCompleted = false;
-        function showResults() { var t = T[lang]; var score = Object.values(ans).reduce(function(a,b){return a+b}, 0); if (typeof gtag === 'function') { gtag('event', 'assessment_step_completed', { step: 5, step_name: 'revenue_stage' }); } assessmentCompleted = true; document.getElementById('questionsBody').style.display = 'none'; document.getElementById('progressSection').style.display = 'none'; document.getElementById('resultScreen').classList.add('active'); document.getElementById('scoreNumber').textContent = score; var rs = document.getElementById('resultScore'); rs.className = 'result-score'; var level; if (score >= 13) { rs.classList.add('high'); level = 'high'; } else if (score >= 8) { rs.classList.add('medium'); level = 'medium'; } else { rs.classList.add('low'); level = 'low'; } document.getElementById('resultTitle').textContent = t[level].t; document.getElementById('resultDescription').textContent = t[level].d; if (typeof gtag === 'function') gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score }); }
-        async function submitAndDownload() { const t = T[lang]; const email = document.getElementById('assessmentEmail').value; const profile = document.getElementById('assessmentProfile').value; if (!email || !email.includes('@')) { alert(t.formInv); return; } if (!profile) { alert(lang === 'pt' ? 'Por favor, selecione seu perfil.' : 'Please select your profile.'); return; } userEmail = email; const score = Object.values(ans).reduce((a, b) => a + b, 0); const level = score >= 13 ? 'high' : score >= 8 ? 'medium' : 'low'; const btn = document.getElementById('formBtn'); btn.disabled = true; btn.querySelector('span').textContent = '...'; try { await fetch('https://formspree.io/f/xgoynqbk', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, profile, source: 'Assessment GTM Readiness', score, fit_level: level, answers: JSON.stringify(ans), answer_labels: JSON.stringify(answerLabels), timestamp: new Date().toISOString() }) }); document.getElementById('formInput').style.display = 'none'; document.getElementById('formSuccess').classList.add('show'); if (typeof gtag === 'function') gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level, profile: profile }); if (typeof lintrk === 'function') lintrk('track', { conversion_id: 19814748 }); } catch (e) { console.error(e); btn.disabled = false; btn.querySelector('span').textContent = t.formBtn; alert(t.formErr); } }
         
-        function getInsights(answers, lang) {
-            const insights = [];
-            // Q1: Tempo de estagnação
-            if (answers[1] >= 3) { insights.push(lang === 'pt' ? { title: 'Alerta: Estagnacao Prolongada', content: 'Empresas que estagnam por 6+ meses raramente se recuperam sem intervencao. 73% precisam de mudanca de lideranca GTM.', source: 'ICONIQ Capital Research 2024' } : { title: 'Alert: Prolonged Stagnation', content: 'Companies stagnant for 6+ months rarely recover without intervention. 73% need GTM leadership change.', source: 'ICONIQ Capital Research 2024' }); }
-            // Q2: Tempo do CEO em vendas
-            if (answers[2] >= 3) { insights.push(lang === 'pt' ? { title: 'CEO Sobrecarregado', content: 'Jason Lemkin recomenda founders gastarem minimo 20% do tempo com clientes. Acima de 40% indica falta de lideranca comercial estruturada.', source: 'Lennys Podcast / SaaStr' } : { title: 'CEO Overloaded', content: 'Jason Lemkin recommends founders spend minimum 20% of time with customers. Above 40% indicates lack of structured commercial leadership.', source: 'Lennys Podcast / SaaStr' }); }
-            // Q3: Líder comercial
-            if (answers[3] >= 3) { insights.push(lang === 'pt' ? { title: 'Momento Critico para Lideranca', content: 'Tenure medio de CROs e apenas 2 anos. Fractional CRO reduz risco de mis-hire que custa centenas de milhares em custo direto.', source: 'Blossom Street Ventures' } : { title: 'Critical Leadership Moment', content: 'Average CRO tenure is only 2 years. Fractional CRO reduces mis-hire risk costing hundreds of thousands in direct costs.', source: 'Blossom Street Ventures' }); }
-            // Q4: Processo comercial
-            if (answers[4] >= 3) { insights.push(lang === 'pt' ? { title: 'Processo Precisa Estrutura', content: 'Empresas top quartile mantem NRR de 100-110% gracas a processos estruturados. Crescimento e correlacionado com Net Revenue Retention.', source: 'OpenView / High Alpha 2024' } : { title: 'Process Needs Structure', content: 'Top quartile companies maintain NRR of 100-110% thanks to structured processes. Growth correlates with Net Revenue Retention.', source: 'OpenView / High Alpha 2024' }); }
-            // Q5: Estágio de receita
-            if (answers[5] >= 2) { insights.push(lang === 'pt' ? { title: 'Estagio Ideal para Fractional CRO', content: 'Empresas entre R$5M-R$20M ARR tem maturidade ideal para lideranca fracionada. Top performers crescem 51% ao ano vs mediana de 27%.', source: 'SaaS Capital Benchmarks 2025' } : { title: 'Ideal Stage for Fractional CRO', content: 'Companies between $5M-$20M ARR have ideal maturity for fractional leadership. Top performers grow 51% annually vs 27% median.', source: 'SaaS Capital Benchmarks 2025' }); }
-            return insights.slice(0, 4);
-        }
+        <!-- Questions -->
+        <div class="questions-body" id="questionsBody">
+            <!-- Q1: Tempo de estagnação -->
+            <div class="question-slide active" data-question="1">
+                <div class="question-number">1</div>
+                <h2 class="question-text" id="q1text">Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?</h2>
+                <div class="question-why">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    <span>Isso nos ajuda a entender a urgência e o tipo de intervenção necessária.</span>
+                </div>
+                <div class="options-grid">
+                    <button class="option-btn" data-value="1" data-label-pt="Menos de 3 meses" data-label-en="Less than 3 months">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Menos de 3 meses</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-label-pt="3 a 6 meses" data-label-en="3 to 6 months">
+                        <span class="option-radio"></span>
+                        <span class="option-label">3 a 6 meses</span>
+                    </button>
+                    <button class="option-btn" data-value="3" data-label-pt="6 a 12 meses" data-label-en="6 to 12 months">
+                        <span class="option-radio"></span>
+                        <span class="option-label">6 a 12 meses</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-label-pt="Mais de 12 meses" data-label-en="More than 12 months">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Mais de 12 meses</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Q2: Tempo do CEO -->
+            <div class="question-slide" data-question="2">
+                <div class="question-number">2</div>
+                <h2 class="question-text" id="q2text">Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais?</h2>
+                <div class="question-why">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    <span>CEOs que gastam mais de 40% do tempo em vendas geralmente precisam de ajuda para escalar.</span>
+                </div>
+                <div class="options-grid">
+                    <button class="option-btn" data-value="1" data-label-pt="Menos de 20%" data-label-en="Less than 20%">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Menos de 20%</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-label-pt="20% a 40%" data-label-en="20% to 40%">
+                        <span class="option-radio"></span>
+                        <span class="option-label">20% a 40%</span>
+                    </button>
+                    <button class="option-btn" data-value="3" data-label-pt="40% a 60%" data-label-en="40% to 60%">
+                        <span class="option-radio"></span>
+                        <span class="option-label">40% a 60%</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-label-pt="Mais de 60%" data-label-en="More than 60%">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Mais de 60%</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Q3: Líder comercial -->
+            <div class="question-slide" data-question="3">
+                <div class="question-number">3</div>
+                <h2 class="question-text" id="q3text">Você tem um líder comercial (VP Sales, CRO) dedicado full-time?</h2>
+                <div class="question-why">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    <span>Entender a estrutura atual nos ajuda a recomendar o modelo certo.</span>
+                </div>
+                <div class="options-grid">
+                    <button class="option-btn" data-value="1" data-label-pt="Sim, com resultados consistentes" data-label-en="Yes, with consistent results">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Sim, com resultados consistentes</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-label-pt="Sim, mas abaixo do esperado" data-label-en="Yes, but below expectations">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Sim, mas resultados abaixo do esperado</span>
+                    </button>
+                    <button class="option-btn" data-value="3" data-label-pt="Não, o founder lidera vendas" data-label-en="No, the founder leads sales">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Não, o founder lidera vendas</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-label-pt="Não, buscando contratar" data-label-en="No, looking to hire">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Não, e estamos buscando contratar</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Q4: Processo comercial -->
+            <div class="question-slide" data-question="4">
+                <div class="question-number">4</div>
+                <h2 class="question-text" id="q4text">Como você descreveria seu processo comercial atual?</h2>
+                <div class="question-why">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    <span>A maturidade do processo indica onde focar esforços primeiro.</span>
+                </div>
+                <div class="options-grid">
+                    <button class="option-btn" data-value="1" data-label-pt="Estruturado com métricas claras" data-label-en="Structured with clear metrics">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Estruturado com métricas e playbooks</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-label-pt="Parcialmente documentado" data-label-en="Partially documented">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Parcialmente documentado, mas inconsistente</span>
+                    </button>
+                    <button class="option-btn" data-value="3" data-label-pt="Depende de pessoas específicas" data-label-en="Dependent on specific people">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Depende muito de pessoas específicas</span>
+                    </button>
+                    <button class="option-btn" data-value="4" data-label-pt="Praticamente inexistente" data-label-en="Virtually nonexistent">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Praticamente inexistente</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Q5: Estágio de receita -->
+            <div class="question-slide" data-question="5">
+                <div class="question-number">5</div>
+                <h2 class="question-text" id="q5text">Em qual estágio de receita sua empresa está?</h2>
+                <div class="question-why">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    <span>Última pergunta! Isso ajuda a calibrar as recomendações para seu momento.</span>
+                </div>
+                <div class="options-grid">
+                    <button class="option-btn" data-value="1" data-label-pt="Estágio inicial (até R$5M)" data-label-en="Early stage (up to $1M)">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Estágio inicial (até R$5M/ano)</span>
+                    </button>
+                    <button class="option-btn" data-value="2" data-label-pt="Em crescimento (R$5M-20M)" data-label-en="Growing ($1M-5M)">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Em crescimento (R$5M - R$20M/ano)</span>
+                    </button>
+                    <button class="option-btn" data-value="3" data-label-pt="Escalando (acima de R$20M)" data-label-en="Scaling (above $5M)">
+                        <span class="option-radio"></span>
+                        <span class="option-label">Escalando (acima de R$20M/ano)</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <button class="btn-back" id="btnBack" onclick="prevQuestion()" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    <span>Voltar</span>
+                </button>
+                <button class="btn-next" id="btnNext" onclick="nextQuestion()" disabled>
+                    <span>Próxima</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
         
-        function getStats(lang) {
-            return lang === 'pt' ? [
-                '68% crescimento na demanda por executivos fracionados 2023-2024 (Frak Report)',
-                'Mercado global de executivos fracionados: $5.7B, crescendo 14%/ano (Fractionus)',
-                'Gartner: 1/3 das empresas mid-market terao executivos fracionados ate 2027',
-                'VCs como Bessemer e OpenView recomendam Fractional CROs para growth eficiente',
-                'Numero de fractional executives dobrou: 60K (2022) para 120K (2024)'
-            ] : [
-                '68% demand growth for fractional executives 2023-2024 (Frak Report)',
-                'Global fractional executive market: $5.7B, growing 14%/year (Fractionus)',
-                'Gartner: 1/3 of mid-market companies will have fractional execs by 2027',
-                'VCs like Bessemer and OpenView recommend Fractional CROs for efficient growth',
-                'Number of fractional executives doubled: 60K (2022) to 120K (2024)'
-            ];
-        }
-        
-        function getSteps(level, lang) {
-            if (level === 'high') {
-                return lang === 'pt' ? ['1. Agende uma conversa de diagnostico (30 min, sem compromisso)','   Vamos mapear seus desafios especificos de GTM','','2. Receba um plano de acao personalizado','   Baseado em frameworks testados em Oracle, AT&T e Informatica','','3. Defina o modelo de engajamento ideal','   Fractional (10-20h/semana) ou projeto especifico (90 dias)','','-> Capacidade limitada: maximo 3 empresas simultaneamente'] : ['1. Schedule a diagnostic conversation (30 min, no commitment)','   Well map your specific GTM challenges','','2. Receive a personalized action plan','   Based on frameworks tested at Oracle, AT&T and Informatica','','3. Define the ideal engagement model','   Fractional (10-20h/week) or specific project (90 days)','','-> Limited capacity: maximum 3 companies simultaneously'];
-            } else if (level === 'medium') {
-                return lang === 'pt' ? ['1. Agende uma conversa exploratoria (30 min)','   Vamos entender se o timing esta correto','','2. Baixe o Playbook Fractional CRO Brasil 2025','   guia.alavanka.com.br - conteudo gratuito','','3. Avalie internamente os gaps de GTM','   Use este diagnostico como base para discussao com socios','','-> Mesmo que nao seja o momento, mantenha contato'] : ['1. Schedule an exploratory conversation (30 min)','   Well understand if the timing is right','','2. Download the Fractional CRO Brazil 2025 Playbook','   guia.alavanka.com.br - free content','','3. Internally assess GTM gaps','   Use this diagnosis as basis for discussion with partners','','-> Even if not the right time, stay in touch'];
-            } else {
-                return lang === 'pt' ? ['1. Foque em validar product-market fit primeiro','   Founder-led sales e essencial neste estagio','','2. Acompanhe nosso conteudo no blog','   alavanka.com.br/blog - insights semanais sobre GTM','','3. Reavalie em 6 meses','   Quando atingir R$5-10M ARR, o cenario muda','','-> Dica: 20%+ do tempo do founder deve ser com clientes'] : ['1. Focus on validating product-market fit first','   Founder-led sales is essential at this stage','','2. Follow our blog content','   alavanka.com.br/blog - weekly GTM insights','','3. Reassess in 6 months','   When you reach $5-10M ARR, the scenario changes','','-> Tip: 20%+ of founder time should be with customers'];
-            }
-        }
-        
-        function downloadPDF() {
-            const t = T[lang];
-            const pdf = t.pdf;
-            const score = Object.values(ans).reduce((a, b) => a + b, 0);
-            const level = score >= 14 ? 'high' : score >= 9 ? 'medium' : 'low';
-            const doc = new jsPDF();
-            const pageWidth = doc.internal.pageSize.getWidth();
-            const margin = 20;
-            let y = 20;
-            const navy = [27, 58, 92], warmAmber = [200, 150, 90], darkText = [26, 26, 46], grayText = [74, 74, 104];
-            const green = [34, 197, 94], yellow = [251, 191, 36], red = [239, 68, 68], lightGray = [248, 249, 252];
+        <!-- Results Screen -->
+        <div class="result-screen" id="resultScreen">
+            <div class="result-score-circle" id="resultScoreCircle">
+                <span class="score-value" id="scoreValue">0</span>
+                <span class="score-max">/19</span>
+            </div>
             
-            // PAGE 1 - Header
-            doc.setFillColor(...navy);
-            doc.rect(0, 0, pageWidth, 32, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(20);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.title, margin, 16);
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'normal');
-            doc.text(pdf.subtitle, margin, 26);
-            y = 42;
+            <h2 class="result-title" id="resultTitle">Alta Compatibilidade!</h2>
+            <p class="result-description" id="resultDescription">Seu perfil indica forte alinhamento com o modelo de Fractional CRO.</p>
             
-            // Info row
-            doc.setTextColor(...grayText);
-            doc.setFontSize(9);
-            doc.text(pdf.preparedFor + ' ' + userEmail, margin, y);
-            doc.text(pdf.date + ' ' + new Date().toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'en-US'), pageWidth - margin - 40, y);
-            y += 10;
+            <!-- Form -->
+            <div class="result-form" id="resultForm">
+                <div id="formInput">
+                    <h3 id="formTitle">Baixe seu diagnóstico personalizado</h3>
+                    <p id="formSubtitle">PDF com análise detalhada e próximos passos</p>
+                    <div class="form-fields">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <input type="email" id="assessmentEmail" placeholder="seu@email.com">
+                            </div>
+                            <div class="form-field">
+                                <select id="assessmentProfile">
+                                    <option value="">Seu perfil...</option>
+                                    <option value="founder">Founder / CEO</option>
+                                    <option value="cro">CRO / VP Sales</option>
+                                    <option value="investor">Investidor / VC</option>
+                                    <option value="other">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-generate" id="formBtn" onclick="submitAndDownload()">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                            <span>Gerar PDF</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4 id="successTitle">Seu diagnóstico está pronto!</h4>
+                    <p id="successText">Clique abaixo para baixar o PDF.</p>
+                    <button class="btn-download" id="btnDownload" onclick="downloadPDF()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Baixar PDF</span>
+                    </button>
+                </div>
+            </div>
             
-            // Score box
-            const scoreColor = level === 'high' ? green : level === 'medium' ? yellow : red;
-            doc.setFillColor(...scoreColor);
-            doc.roundedRect(margin, y, pageWidth - 2*margin, 24, 3, 3, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(11);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.scoreLabel, margin + 8, y + 10);
-            doc.setFontSize(20);
-            doc.text(score + '/20', margin + 8, y + 20);
-            doc.setFontSize(13);
-            const levelText = t[level].t;
-            doc.text(levelText, pageWidth - margin - doc.getTextWidth(levelText) - 8, y + 16);
-            y += 32;
+            <div class="divider" id="dividerText">ou converse diretamente</div>
             
-            // Answers
-            doc.setTextColor(...darkText);
-            doc.setFontSize(11);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.yourAnswers, margin, y);
-            y += 5;
-            doc.setDrawColor(220, 220, 220);
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 6;
-            doc.setFontSize(8);
-            doc.setFont('helvetica', 'normal');
-            for (let i = 1; i <= 5; i++) {
-                doc.setTextColor(...grayText);
-                doc.text(pdf.questions[i-1] + ':', margin, y);
-                doc.setTextColor(...darkText);
-                doc.setFont('helvetica', 'bold');
-                doc.text(answerLabels[i] || 'Option ' + ans[i], margin + 58, y);
-                doc.setFont('helvetica', 'normal');
-                y += 5;
-            }
-            y += 6;
+            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="result-cta" id="resultCta">
+                Agendar Conversa →
+            </a>
             
-            // Analysis
-            doc.setTextColor(...darkText);
-            doc.setFontSize(11);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.analysis, margin, y);
-            y += 5;
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 6;
-            doc.setFontSize(8);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(...grayText);
-            const analysisLines = level === 'high' ? pdf.highAnalysis : level === 'medium' ? pdf.mediumAnalysis : pdf.lowAnalysis;
-            analysisLines.forEach(line => {
-                if (line.startsWith('RECOMENDA') || line.startsWith('RECOMMENDA')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...warmAmber); }
-                doc.text(line, margin, y);
-                doc.setFont('helvetica', 'normal');
-                doc.setTextColor(...grayText);
-                y += 4.5;
-            });
-            y += 6;
-            
-            // Insights
-            doc.setTextColor(...darkText);
-            doc.setFontSize(11);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.insightsTitle, margin, y);
-            y += 5;
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 6;
-            
-            const insights = getInsights(ans, lang);
-            insights.forEach((ins, idx) => {
-                doc.setFillColor(...lightGray);
-                doc.roundedRect(margin, y, pageWidth - 2*margin, 18, 2, 2, 'F');
-                doc.setFillColor(...warmAmber);
-                doc.circle(margin + 6, y + 5, 3, 'F');
-                doc.setTextColor(255, 255, 255);
-                doc.setFontSize(7);
-                doc.setFont('helvetica', 'bold');
-                doc.text(String(idx + 1), margin + 4.5, y + 6.5);
-                doc.setTextColor(...darkText);
-                doc.setFontSize(8);
-                doc.text(ins.title, margin + 12, y + 6);
-                doc.setTextColor(...grayText);
-                doc.setFontSize(7);
-                doc.setFont('helvetica', 'normal');
-                const lines = doc.splitTextToSize(ins.content, pageWidth - 2*margin - 16);
-                doc.text(lines[0], margin + 12, y + 11);
-                if (lines[1]) doc.text(lines[1], margin + 12, y + 14.5);
-                doc.setTextColor(...navy);
-                doc.setFontSize(6);
-                doc.text('Fonte: ' + ins.source, margin + 12, y + 17);
-                y += 20;
-            });
-            
-            // PAGE 2
-            doc.addPage();
-            y = 20;
-            
-            // Stats box
-            doc.setFillColor(...navy);
-            doc.roundedRect(margin, y, pageWidth - 2*margin, 48, 3, 3, 'F');
-            doc.setTextColor(255, 255, 255);
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.statsTitle, margin + 8, y + 10);
-            doc.setFontSize(7);
-            doc.setFont('helvetica', 'normal');
-            let statY = y + 17;
-            getStats(lang).forEach(stat => { doc.text('- ' + stat, margin + 8, statY); statY += 6; });
-            y += 55;
-            
-            // Next Steps
-            doc.setTextColor(...darkText);
-            doc.setFontSize(11);
-            doc.setFont('helvetica', 'bold');
-            doc.text(pdf.nextSteps, margin, y);
-            y += 5;
-            doc.setDrawColor(220, 220, 220);
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 7;
-            doc.setFontSize(8);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(...grayText);
-            getSteps(level, lang).forEach(step => {
-                if (step.startsWith('->') || step.startsWith('→')) { doc.setFont('helvetica', 'bold'); doc.setTextColor(...warmAmber); }
-                doc.text(step, margin, y);
-                doc.setFont('helvetica', 'normal');
-                doc.setTextColor(...grayText);
-                y += 5;
-            });
-            y += 10;
-            
-            // CTA Box
-            doc.setFillColor(...lightGray);
-            doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'F');
-            doc.setDrawColor(...warmAmber);
-            doc.setLineWidth(0.5);
-            doc.roundedRect(margin, y, pageWidth - 2*margin, 22, 3, 3, 'S');
-            doc.setTextColor(...darkText);
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'bold');
-            doc.text(lang === 'pt' ? 'Pronto para destravar seu crescimento?' : 'Ready to unlock your growth?', margin + 8, y + 9);
-            doc.setFontSize(9);
-            doc.setFont('helvetica', 'normal');
-            doc.setTextColor(...navy);
-            doc.text('calendly.com/carlos-andre-alavanka/30min', margin + 8, y + 17);
-            
-            // Footer
-            doc.setFillColor(...lightGray);
-            doc.rect(0, 275, pageWidth, 22, 'F');
-            doc.setFontSize(8);
-            doc.setTextColor(...grayText);
-            doc.text(pdf.footer, pageWidth / 2, 283, { align: 'center' });
-            doc.setFontSize(6);
-            doc.text(pdf.sources, pageWidth / 2, 290, { align: 'center' });
-            
-            doc.save(lang === 'pt' ? 'diagnostico-gtm-alavanka.pdf' : 'gtm-diagnosis-alavanka.pdf');
-            if (typeof gtag === 'function') gtag('event', 'assessment_pdf_downloaded', { event_category: 'lead_generation', event_label: level });
-        }
-        
-        var assessmentStartTime = Date.now();
-        document.addEventListener('DOMContentLoaded', function() {
-            updateUI();
-            if (typeof gtag === 'function') gtag('event', 'assessment_started', { event_category: 'engagement' });
-            // GA4: Track assessment abandonment (Tag 26)
-            window.addEventListener('beforeunload', function() {
-                if (!assessmentCompleted && typeof gtag === 'function') {
-                    var timeSpent = Math.round((Date.now() - assessmentStartTime) / 1000);
-                    gtag('event', 'assessment_abandoned', { last_step: cur, time_spent: timeSpent + 's' });
-                }
-            });
-        });
-    </script>
+            <a href="index.html" class="result-back" id="resultBack">← Voltar ao site</a>
+        </div>
+    </div>
+</main>
 
-<!-- LinkedIn Insight Tag -->
-<script type="text/javascript">
-    window._linkedin_partner_id = "9076865";
-    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
-    if (!window.lintrk) {
-        window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-        window.lintrk.q = [];
+<footer>
+    © 2025 <a href="index.html">Alavanka</a>. Todos os direitos reservados.
+</footer>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+// Translations
+const T = {
+    pt: {
+        q1: "Há quanto tempo o crescimento da receita está estagnado ou abaixo do esperado?",
+        q2: "Quanto do seu tempo (CEO/Founder) é gasto em atividades comerciais?",
+        q3: "Você tem um líder comercial (VP Sales, CRO) dedicado full-time?",
+        q4: "Como você descreveria seu processo comercial atual?",
+        q5: "Em qual estágio de receita sua empresa está?",
+        back: "Voltar", next: "Próxima", see: "Ver Resultado", qOf: "Pergunta {n} de 5",
+        high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o modelo de Fractional CRO. Você tem a maturidade e os desafios certos para se beneficiar de liderança de receita fracionada." },
+        medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar de um Fractional CRO, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
+        low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, um Fractional CRO pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo." },
+        formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada e próximos passos", formBtn: "Gerar PDF",
+        successT: "Seu diagnóstico está pronto!", successS: "Clique abaixo para baixar o PDF.", downloadBtn: "Baixar PDF",
+        divider: "ou converse diretamente", cta: "Agendar Conversa →", backSite: "← Voltar ao site"
+    },
+    en: {
+        q1: "How long has revenue growth been stagnant or below expectations?",
+        q2: "How much of your time (CEO/Founder) is spent on sales activities?",
+        q3: "Do you have a dedicated full-time sales leader (VP Sales, CRO)?",
+        q4: "How would you describe your current sales process?",
+        q5: "What revenue stage is your company at?",
+        back: "Back", next: "Next", see: "See Results", qOf: "Question {n} of 5",
+        high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with the Fractional CRO model. You have the right maturity and challenges to benefit from fractional revenue leadership." },
+        medium: { t: "Good Compatibility", d: "Your company could benefit from a Fractional CRO, but there are some points to consider. A conversation can help understand if the timing is right." },
+        low: { t: "Timing May Not Be Ideal", d: "Based on your answers, a Fractional CRO may not be the best solution right now. But keep following our content." },
+        formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis and next steps", formBtn: "Generate PDF",
+        successT: "Your diagnosis is ready!", successS: "Click below to download the PDF.", downloadBtn: "Download PDF",
+        divider: "or talk directly", cta: "Schedule Call →", backSite: "← Back to site"
     }
-    var s = document.getElementsByTagName("script")[0];
-    var b = document.createElement("script");
-    b.type = "text/javascript"; b.async = true;
-    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);
+};
+
+let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
+const total = 5;
+
+function toggleLanguage() {
+    lang = lang === 'pt' ? 'en' : 'pt';
+    document.getElementById('langToggle').textContent = lang === 'pt' ? 'EN' : 'PT';
+    applyLang();
+}
+
+function applyLang() {
+    const t = T[lang];
+    document.getElementById('q1text').textContent = t.q1;
+    document.getElementById('q2text').textContent = t.q2;
+    document.getElementById('q3text').textContent = t.q3;
+    document.getElementById('q4text').textContent = t.q4;
+    document.getElementById('q5text').textContent = t.q5;
+    document.getElementById('formTitle').textContent = t.formT;
+    document.getElementById('formSubtitle').textContent = t.formS;
+    document.querySelector('#formBtn span').textContent = t.formBtn;
+    document.getElementById('successTitle').textContent = t.successT;
+    document.getElementById('successText').textContent = t.successS;
+    document.querySelector('#btnDownload span').textContent = t.downloadBtn;
+    document.getElementById('dividerText').textContent = t.divider;
+    document.getElementById('resultCta').textContent = t.cta;
+    document.getElementById('resultBack').textContent = t.backSite;
+    updateUI();
+}
+
+function updateUI() {
+    const t = T[lang];
+    const pct = ((cur - 1) / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPercent').textContent = Math.round(pct) + '%';
+    document.getElementById('progressLabel').textContent = t.qOf.replace('{n}', cur);
+    
+    document.getElementById('btnBack').disabled = cur === 1;
+    document.querySelector('#btnBack span').textContent = t.back;
+    document.getElementById('btnNext').disabled = !ans[cur];
+    document.querySelector('#btnNext span').textContent = (cur === total && ans[cur]) ? t.see : t.next;
+}
+
+// Option selection
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.option-btn');
+    if (!btn) return;
+    
+    btn.closest('.options-grid').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    ans[cur] = parseInt(btn.dataset.value);
+    
+    const labelKey = lang === 'pt' ? 'labelPt' : 'labelEn';
+    answerLabels[cur] = btn.dataset[labelKey] || btn.querySelector('.option-label').textContent;
+    updateUI();
+});
+
+function nextQuestion() {
+    if (cur === total) { showResults(); return; }
+    if (!ans[cur]) return;
+    
+    if (typeof gtag === 'function') {
+        const stepNames = {1:'stagnation_time',2:'ceo_time_sales',3:'sales_leader',4:'process_maturity',5:'revenue_stage'};
+        gtag('event', 'assessment_step_completed', { step: cur, step_name: stepNames[cur] });
+    }
+    
+    document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active');
+    cur++;
+    const slide = document.querySelector('.question-slide[data-question="'+cur+'"]');
+    slide.classList.add('active');
+    
+    if (ans[cur]) {
+        const b = slide.querySelector('.option-btn[data-value="'+ans[cur]+'"]');
+        if (b) b.classList.add('selected');
+    }
+    updateUI();
+}
+
+function prevQuestion() {
+    if (cur === 1) return;
+    document.querySelector('.question-slide[data-question="'+cur+'"]').classList.remove('active');
+    cur--;
+    document.querySelector('.question-slide[data-question="'+cur+'"]').classList.add('active');
+    updateUI();
+}
+
+function showResults() {
+    const t = T[lang];
+    const score = Object.values(ans).reduce((a,b) => a+b, 0);
+    
+    if (typeof gtag === 'function') {
+        gtag('event', 'assessment_step_completed', { step: 5, step_name: 'revenue_stage' });
+    }
+    
+    document.getElementById('questionsBody').style.display = 'none';
+    document.getElementById('progressSection').style.display = 'none';
+    document.getElementById('resultScreen').classList.add('active');
+    document.getElementById('scoreValue').textContent = score;
+    
+    const circle = document.getElementById('resultScoreCircle');
+    circle.className = 'result-score-circle';
+    
+    let level;
+    if (score >= 13) { circle.classList.add('high'); level = 'high'; }
+    else if (score >= 8) { circle.classList.add('medium'); level = 'medium'; }
+    else { circle.classList.add('low'); level = 'low'; }
+    
+    document.getElementById('resultTitle').textContent = t[level].t;
+    document.getElementById('resultDescription').textContent = t[level].d;
+    
+    if (typeof gtag === 'function') {
+        gtag('event', 'assessment_completed', { event_category: 'engagement', event_label: level + '_fit', value: score });
+    }
+}
+
+async function submitAndDownload() {
+    const t = T[lang];
+    const email = document.getElementById('assessmentEmail').value;
+    const profile = document.getElementById('assessmentProfile').value;
+    
+    if (!email || !email.includes('@')) {
+        alert(lang === 'pt' ? 'Por favor, insira um email válido.' : 'Please enter a valid email.');
+        return;
+    }
+    if (!profile) {
+        alert(lang === 'pt' ? 'Por favor, selecione seu perfil.' : 'Please select your profile.');
+        return;
+    }
+    
+    userEmail = email;
+    const score = Object.values(ans).reduce((a, b) => a + b, 0);
+    const level = score >= 13 ? 'high' : score >= 8 ? 'medium' : 'low';
+    
+    const btn = document.getElementById('formBtn');
+    btn.disabled = true;
+    btn.querySelector('span').textContent = '...';
+    
+    try {
+        await fetch('https://formspree.io/f/xgoynqbk', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email, profile, source: 'Assessment GTM Readiness', score, fit_level: level,
+                answers: JSON.stringify(ans), answer_labels: JSON.stringify(answerLabels),
+                timestamp: new Date().toISOString()
+            })
+        });
+        
+        document.getElementById('formInput').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+        
+        if (typeof gtag === 'function') {
+            gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level, profile: profile });
+        }
+    } catch (e) {
+        console.error(e);
+        btn.disabled = false;
+        btn.querySelector('span').textContent = t.formBtn;
+        alert(lang === 'pt' ? 'Erro ao processar. Tente novamente.' : 'Error. Please try again.');
+    }
+}
+
+function downloadPDF() {
+    const doc = new jsPDF();
+    const score = Object.values(ans).reduce((a, b) => a + b, 0);
+    const level = score >= 13 ? 'high' : score >= 8 ? 'medium' : 'low';
+    
+    // Simple PDF generation
+    doc.setFontSize(20);
+    doc.setTextColor(27, 58, 92);
+    doc.text('Diagnóstico GTM Readiness', 20, 30);
+    
+    doc.setFontSize(12);
+    doc.setTextColor(100);
+    doc.text('Preparado para: ' + userEmail, 20, 45);
+    doc.text('Data: ' + new Date().toLocaleDateString('pt-BR'), 20, 52);
+    
+    doc.setFontSize(16);
+    doc.setTextColor(27, 58, 92);
+    doc.text('Pontuação: ' + score + '/19', 20, 70);
+    
+    const levelText = level === 'high' ? 'Alta Compatibilidade' : level === 'medium' ? 'Boa Compatibilidade' : 'Timing Pode Não Ser Ideal';
+    doc.text('Resultado: ' + levelText, 20, 80);
+    
+    doc.setFontSize(11);
+    doc.setTextColor(60);
+    let y = 100;
+    doc.text('Suas Respostas:', 20, y);
+    y += 10;
+    
+    const questions = ['Tempo de estagnação', 'Tempo do CEO em vendas', 'Líder comercial', 'Processo comercial', 'Estágio de receita'];
+    for (let i = 1; i <= 5; i++) {
+        doc.text(questions[i-1] + ': ' + (answerLabels[i] || '-'), 20, y);
+        y += 8;
+    }
+    
+    y += 10;
+    doc.setTextColor(27, 58, 92);
+    doc.text('Próximo Passo:', 20, y);
+    y += 8;
+    doc.setTextColor(60);
+    doc.text('Agende uma conversa: calendly.com/carlos-andre-alavanka/30min', 20, y);
+    
+    doc.setFontSize(9);
+    doc.setTextColor(150);
+    doc.text('Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br', 20, 280);
+    
+    doc.save('diagnostico-gtm-alavanka.pdf');
+    
+    if (typeof gtag === 'function') {
+        gtag('event', 'assessment_pdf_downloaded', { event_category: 'engagement', value: score });
+    }
+}
+
+// Initialize
+updateUI();
 </script>
-<noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
-</noscript>
 
 </body>
 </html>
