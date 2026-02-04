@@ -1316,3 +1316,116 @@ html, body {
         font-size: 15px !important;
     }
 }
+
+/* =====================================================
+   UX FIXES v2 - DEFERRED CSS
+   Mobile FAB, micro-interactions, FAQ auto-open
+   ===================================================== */
+
+/* Mobile FAB - CTA fixo após scroll */
+@media (max-width: 767px) {
+    .mobile-fab {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px 16px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid var(--border);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        z-index: 998;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-fab.visible {
+        transform: translateY(0);
+    }
+    
+    .mobile-fab-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 14px 20px;
+        background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+        color: white;
+        border: none;
+        border-radius: var(--r-md);
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 16px rgba(200, 150, 90, 0.3);
+    }
+    
+    .mobile-fab-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    
+    /* Esconder WhatsApp float quando FAB ativo */
+    body.fab-active .whatsapp-float {
+        transform: translateY(80px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+}
+
+/* FAQ - Primeira pergunta aberta por default */
+.faq-item:first-child .faq-content {
+    max-height: 500px;
+    padding-top: 16px;
+}
+.faq-item:first-child .faq-toggle svg {
+    transform: rotate(180deg);
+}
+
+/* Micro-interactions - Hover lift em cards */
+.track-card,
+.pain-card,
+.comp-card,
+.fit-card,
+.consequence-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.track-card:hover,
+.pain-card:hover,
+.comp-card:hover,
+.fit-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Button press effect */
+.btn-hero:active,
+.btn-primary:active,
+.qualifier-cta:active,
+.mobile-fab-btn:active {
+    transform: scale(0.98);
+}
+
+/* Focus states para acessibilidade */
+.btn-hero:focus-visible,
+.btn-primary:focus-visible,
+.qualifier-cta:focus-visible,
+.mobile-fab-btn:focus-visible {
+    outline: 2px solid var(--warm);
+    outline-offset: 2px;
+}
+
+/* Print - esconder elementos dinâmicos */
+@media print {
+    .mobile-fab,
+    .whatsapp-float,
+    .slots-indicator,
+    .trust-ticker {
+        display: none !important;
+    }
+}
