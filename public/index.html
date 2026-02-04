@@ -1,10 +1,62 @@
 <!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  ALAVANKA - Landing Page Principal (Founders)                                 ║
+║  Última atualização: Fevereiro 2026                                           ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  ESTRUTURA DO ARQUIVO:                                                        ║
+║  ├── HEAD                                                                     ║
+║  │   ├── SEO & Meta Tags                                                      ║
+║  │   ├── Analytics (GA4, Clarity)                                             ║
+║  │   ├── Preloads & Fonts                                                     ║
+║  │   ├── Critical CSS (above-the-fold)                                        ║
+║  │   └── Nav CSS (nav-unified.css)                                            ║
+║  ├── BODY                                                                     ║
+║  │   ├── Audience Gate (modal de seleção founder/investor)                    ║
+║  │   ├── Navigation (nav.js)                                                  ║
+║  │   ├── Hero Section                                                         ║
+║  │   ├── Qualifier Section                                                    ║
+║  │   ├── Problem Section (Pain Points)                                        ║
+║  │   ├── Consequences Section                                                 ║
+║  │   ├── Solution Section (Comparisons)                                       ║
+║  │   ├── Logo Bar (Career Credibility)                                        ║
+║  │   ├── Why Section (Founder Profile + Case Study)                           ║
+║  │   ├── Process Section (Timeline)                                           ║
+║  │   ├── Fit Section (Ideal vs Not Ideal)                                     ║
+║  │   ├── CTA Final                                                            ║
+║  │   ├── FAQ Section                                                          ║
+║  │   ├── Sources Section                                                      ║
+║  │   └── Footer                                                               ║
+║  └── SCRIPTS                                                                  ║
+║      ├── i18n (Internationalization)                                          ║
+║      ├── Audience Gate Logic                                                  ║
+║      ├── FAQ Toggle                                                           ║
+║      ├── Scroll Animations                                                    ║
+║      ├── GA4 Event Tracking                                                   ║
+║      └── Third-party Scripts (LinkedIn)                                       ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  DEPENDÊNCIAS:                                                                ║
+║  - styles/nav-unified.css (navegação compartilhada)                           ║
+║  - styles/styles-deferred.css (CSS below-the-fold)                            ║
+║  - components/nav.js (navegação compartilhada)                                ║
+║  - translations.json (i18n PT/EN)                                             ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║  CORREÇÕES LIGHTHOUSE (Fev 2026):                                             ║
+║  - ✓ Removido scripts Cloudflare duplicados (404 error)                       ║
+║  - ✓ Corrigida hierarquia de headings (H2→H3, não H2→H4)                      ║
+║  - ✓ Links na seção sources com underline (acessibilidade)                    ║
+║  - ✓ Race condition i18n corrigida (pendingLang pattern)                      ║
+║  - ✓ Removido CSS não utilizado (menu-overlay)                                ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Básico -->
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SEO & META TAGS
+         ══════════════════════════════════════════════════════════════════════ -->
     <title>Fractional CRO Brasil | Alavanka - De Estagnação para Crescimento</title>
     <meta name="description" content="Fractional CRO para empresas B2B tech brasileiras. Ex-Presidente Oracle Brasil e Ex-CEO AT&T LATAM. Destravar crescimento de receita sem contratar VP full-time.">
     
@@ -19,6 +71,9 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://www.alavanka.com.br">
     
+    <!-- ══════════════════════════════════════════════════════════════════════
+         ANALYTICS
+         ══════════════════════════════════════════════════════════════════════ -->
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
     <script>
@@ -158,10 +213,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-arrow{position:static;opacity:0.4;transform:none;flex-shrink:0}
 .gate-option:hover .gate-arrow{opacity:1}
 }
-
-/* Remove overlay - não usar */
-.menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);z-index:9997;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
-.menu-overlay.active{opacity:1;visibility:visible}
 
 /* Hero */
 .hero{
@@ -513,8 +564,8 @@ footer a:hover{text-decoration:underline}
 .sources-list li{font-size:13px;color:var(--text-secondary);padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
 .sources-list li:last-child{border-bottom:none}
 .sources-list strong{color:var(--text);font-weight:600}
-.sources-list a{color:var(--accent);text-decoration:none}
-.sources-list a:hover{text-decoration:underline}
+.sources-list a{color:var(--accent);text-decoration:underline}
+.sources-list a:hover{text-decoration:none;color:var(--warm)}
 .sources-note{font-size:12px;color:var(--text-muted);font-style:italic}
 
 
@@ -1518,38 +1569,38 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     <div class="consequence-grid">
         <div class="consequence-card">
             <span class="ic ic-danger"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
-            <h4 data-i18n="consequences.card1.title">Capital Preso</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card1.title">Capital Preso</h3>
             <p data-i18n="consequences.card1.text">Investimento travado em ativo underperforming</p>
         </div>
         <div class="consequence-card">
             <span class="ic ic-danger"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
-            <h4 data-i18n="consequences.card2.title">Valuation ↓</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card2.title">Valuation ↓</h3>
             <p data-i18n="consequences.card2.text">Múltiplos caindo cada trimestre</p>
         </div>
         <div class="consequence-card">
             <span class="ic ic-danger"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
-            <h4 data-i18n="consequences.card3.title">Talentos Saindo</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card3.title">Talentos Saindo</h3>
             <p data-i18n="consequences.card3.text">Top performers não ficam em empresas paradas</p>
         </div>
         <div class="consequence-card">
             <span class="ic ic-warn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-            <h4 data-i18n="consequences.card4.title">Janela Fechando</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card4.title">Janela Fechando</h3>
             <p data-i18n="consequences.card4.text">Concorrentes executando enquanto você debate</p>
         </div>
         <div class="consequence-card">
             <span class="ic ic-danger"><svg viewBox="0 0 24 24"><path d="M12 22c-4.97 0-9-2.69-9-6 0-4 5-11 9-14 4 3 9 10 9 14 0 3.31-4.03 6-9 6z"/><path d="M12 22c-1.66 0-3-1.12-3-2.5S10.34 15 12 13c1.66 2 3 5.02 3 6.5 0 1.38-1.34 2.5-3 2.5z"/></svg></span>
-            <h4 data-i18n="consequences.card5.title">Founder Burnout</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card5.title">Founder Burnout</h3>
             <p data-i18n="consequences.card5.text">60% do tempo em vendas não é sustentável</p>
         </div>
         <div class="consequence-card">
             <span class="ic ic-danger"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-            <h4 data-i18n="consequences.card6.title">Credibilidade ↓</h4>
+            <h3 class="consequence-title" data-i18n="consequences.card6.title">Credibilidade ↓</h3>
             <p data-i18n="consequences.card6.text">Cada meta perdida erode confiança</p>
         </div>
     </div>
     
     <div class="urgency-box">
-        <h4 data-i18n="consequences.urgency.title">A matemática é cruel</h4>
+        <h3 class="urgency-title" data-i18n="consequences.urgency.title">A matemática é cruel</h3>
         <p data-i18n="consequences.urgency.text">Uma empresa de R$10M ARR com 0% crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em equity.</p>
     </div>
 </section>
@@ -1565,22 +1616,22 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     <div class="comparison-cards">
         <div class="comp-card fail">
             <span class="label" data-i18n="solution.traditional.label"><span class="ic ic-danger" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Opção tradicional</span>
-            <h4 data-i18n="solution.vp.title">Contratar VP Sales</h4>
+            <h3 class="comp-title" data-i18n="solution.vp.title">Contratar VP Sales</h3>
             <p data-i18n="solution.vp.text">12-18 meses de ramp. ~50% taxa de falha em startups SaaS.* Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
         </div>
         <div class="comp-card highlight">
             <span class="label" data-i18n="solution.fractional.label"><span class="ic ic-success" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg></span> Fractional CRO</span>
-            <h4 data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h4>
+            <h3 class="comp-title" data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h3>
             <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
         </div>
         <div class="comp-card fail">
             <span class="label" data-i18n="solution.traditional.label"><span class="ic ic-danger" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Opção tradicional</span>
-            <h4 data-i18n="solution.consulting.title">Consultoria Big 4</h4>
+            <h3 class="comp-title" data-i18n="solution.consulting.title">Consultoria Big 4</h3>
             <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
         </div>
         <div class="comp-card highlight">
             <span class="label" data-i18n="solution.fractional.label"><span class="ic ic-success" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg></span> Fractional CRO</span>
-            <h4 data-i18n="solution.consulting.better.title">Execução hands-on</h4>
+            <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
             <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
         </div>
     </div>
@@ -1965,30 +2016,58 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
     <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Mobile Menu
-// Language Toggle - Load from external translations.json
+<script>
+/* ══════════════════════════════════════════════════════════════════════════════
+   i18n - Internationalization System
+   Fix: Race condition quando nav.js dispara langChange antes do JSON carregar
+   ══════════════════════════════════════════════════════════════════════════════ */
 let currentLang = 'pt';
-let translations = { pt: {}, en: {} };
+let translations = null; // null = não carregado ainda
+let pendingLang = null;  // armazena mudança de idioma enquanto carrega
 
 // Load translations from external file
 fetch('translations.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
-        // Apply saved language preference
-        const saved = localStorage.getItem('alavanka-lang');
-        if (saved && saved !== currentLang) {
-            currentLang = saved;
-            applyTranslations();
+        
+        // Se houve mudança de idioma enquanto carregava, aplica agora
+        if (pendingLang) {
+            currentLang = pendingLang;
+            pendingLang = null;
+        } else {
+            // Aplica idioma salvo se existir
+            const saved = localStorage.getItem('alavanka-lang');
+            if (saved && saved !== currentLang) {
+                currentLang = saved;
+            }
         }
+        
+        applyTranslations();
     })
     .catch(err => console.warn('Could not load translations:', err));
 
 function toggleLang() {
-    currentLang = currentLang === 'pt' ? 'en' : 'pt';
-    applyTranslations();
+    const newLang = currentLang === 'pt' ? 'en' : 'pt';
+    
+    if (!translations) {
+        // JSON ainda não carregou - armazena para aplicar depois
+        pendingLang = newLang;
+        currentLang = newLang;
+    } else {
+        currentLang = newLang;
+        applyTranslations();
+    }
+    
     localStorage.setItem('alavanka-lang', currentLang);
+    
+    // Atualiza botões de toggle
+    const btnText = currentLang === 'pt' ? 'EN' : 'PT';
+    const langBtn = document.getElementById('langToggle');
+    const langBtnMobile = document.getElementById('langToggleMobile');
+    if (langBtn) langBtn.textContent = btnText;
+    if (langBtnMobile) langBtnMobile.textContent = btnText;
+    
     // GA4: Track language switch (Tag 18)
     if (typeof gtag === 'function') {
         gtag('event', 'language_changed', { language: currentLang });
@@ -1996,12 +2075,16 @@ function toggleLang() {
 }
 
 function applyTranslations() {
+    if (!translations) return;
+    
     const t = translations[currentLang];
     if (!t) return;
     
     const btnText = currentLang === 'pt' ? 'EN' : 'PT';
-    document.getElementById('langToggle').textContent = btnText;
-    document.getElementById('langToggleMobile').textContent = btnText;
+    const langBtn = document.getElementById('langToggle');
+    const langBtnMobile = document.getElementById('langToggleMobile');
+    if (langBtn) langBtn.textContent = btnText;
+    if (langBtnMobile) langBtnMobile.textContent = btnText;
     
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -2009,15 +2092,37 @@ function applyTranslations() {
             el.innerHTML = t[key];
         }
     });
+    
+    // Atualiza atributo lang do HTML
+    document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 }
+
+// Listener para evento langChange da nav.js
+window.addEventListener('langChange', function(e) {
+    if (e.detail && e.detail.lang) {
+        const newLang = e.detail.lang;
+        
+        if (!translations) {
+            pendingLang = newLang;
+            currentLang = newLang;
+        } else {
+            currentLang = newLang;
+            applyTranslations();
+        }
+        
+        localStorage.setItem('alavanka-lang', currentLang);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const saved = localStorage.getItem('alavanka-lang');
     if (saved) {
         currentLang = saved;
         const btnText = currentLang === 'pt' ? 'EN' : 'PT';
-        document.getElementById('langToggle').textContent = btnText;
-        document.getElementById('langToggleMobile').textContent = btnText;
+        const langBtn = document.getElementById('langToggle');
+        const langBtnMobile = document.getElementById('langToggleMobile');
+        if (langBtn) langBtn.textContent = btnText;
+        if (langBtnMobile) langBtnMobile.textContent = btnText;
     }
 });
 
