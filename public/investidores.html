@@ -1701,25 +1701,53 @@ function toggleFaq(btn) {
 // ══════════════════════════════════════════════════════════════════════════════
 (function() {
     var currentLang = 'pt';
-    var translations = { pt: {}, en: {} };
+    var translations = null; // null = not loaded yet
+    var pendingLang = null; // store lang change requests while loading
     
     // Load translations
     fetch('translations.json')
-        .then(function(r) { return r.json(); })
+        .then(function(r) { 
+            console.log('[i18n] translations.json loaded');
+            return r.json(); 
+        })
         .then(function(data) {
             translations = data;
+            console.log('[i18n] PT keys count:', Object.keys(translations.pt || {}).length);
+            console.log('[i18n] EN keys count:', Object.keys(translations.en || {}).length);
+            
+            // If a language change was requested while loading, apply it now
+            if (pendingLang) {
+                console.log('[i18n] Applying pending lang:', pendingLang);
+                currentLang = pendingLang;
+                pendingLang = null;
+            }
+            
             applyTranslations();
-            updateScorecardVerdict(); // Apply verdict translation on load
+            updateScorecardVerdict();
         })
-        .catch(function(err) { console.warn('Could not load translations:', err); });
+        .catch(function(err) { console.error('[i18n] ERROR loading translations:', err); });
     
     function applyTranslations() {
+        if (!translations) {
+            console.log('[i18n] Translations not loaded yet, skipping');
+            return;
+        }
+        console.log('[i18n] Applying translations for lang:', currentLang);
+        var applied = 0;
+        var missing = [];
         document.querySelectorAll('[data-i18n]').forEach(function(el) {
             var key = el.getAttribute('data-i18n');
             if (translations[currentLang] && translations[currentLang][key]) {
                 el.innerHTML = translations[currentLang][key];
+                applied++;
+            } else {
+                missing.push(key);
             }
         });
+        console.log('[i18n] Applied:', applied, '| Missing:', missing.length);
+        if (missing.length > 0 && missing.length < 20) {
+            console.log('[i18n] Missing keys:', missing);
+        }
     }
     
     // Scorecard verdict translation helper
@@ -1765,9 +1793,19 @@ function toggleFaq(btn) {
     
     // Global toggle function
     window.toggleLang = function() {
-        currentLang = currentLang === 'pt' ? 'en' : 'pt';
-        applyTranslations();
-        updateScorecardVerdict(); // Update verdict on language change
+        console.log('[i18n] toggleLang called, current:', currentLang);
+        var newLang = currentLang === 'pt' ? 'en' : 'pt';
+        
+        if (!translations) {
+            console.log('[i18n] Translations not loaded, storing pending:', newLang);
+            pendingLang = newLang;
+            currentLang = newLang; // Update anyway for button state
+        } else {
+            currentLang = newLang;
+            console.log('[i18n] Switching to:', currentLang);
+            applyTranslations();
+            updateScorecardVerdict();
+        }
         
         // Update toggle buttons
         var newLabel = currentLang === 'pt' ? 'EN' : 'PT';
@@ -1782,10 +1820,19 @@ function toggleFaq(btn) {
     
     // Listen for lang change from nav
     window.addEventListener('langChange', function(e) {
+        console.log('[i18n] langChange event received:', e.detail);
         if (e.detail && e.detail.lang) {
-            currentLang = e.detail.lang;
-            applyTranslations();
-            updateScorecardVerdict();
+            var newLang = e.detail.lang;
+            
+            if (!translations) {
+                console.log('[i18n] Translations not loaded, storing pending:', newLang);
+                pendingLang = newLang;
+                currentLang = newLang;
+            } else {
+                currentLang = newLang;
+                applyTranslations();
+                updateScorecardVerdict();
+            }
         }
     });
 })();
