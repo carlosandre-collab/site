@@ -771,6 +771,146 @@ footer a, .footer a {
 [class*="dark"] .hl {
     color: var(--warm-light) !important;
 }
+
+/* =====================================================
+   UX FIXES v2 - CRITICAL CSS (Above-the-fold)
+   Problema: CTA não visível no mobile (3.3% CTR)
+   ===================================================== */
+
+/* Hero Mobile - CTA Above the Fold */
+@media (max-width: 767px) {
+    .hero {
+        min-height: auto;
+        padding: 24px 20px 32px;
+    }
+    
+    .hero-badge {
+        padding: 8px 14px;
+        margin-bottom: 16px;
+        gap: 8px;
+    }
+    .hero-badge .stat { font-size: 11px; }
+    .hero-badge .stat strong { font-size: 13px; }
+    
+    .hero h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+    
+    .hero-sub {
+        font-size: 15px;
+        margin-bottom: 16px;
+        line-height: 1.5;
+    }
+    
+    .track-record {
+        margin-bottom: 16px;
+        gap: 8px;
+    }
+    .track-card {
+        flex: 0 0 48%;
+        padding: 10px 8px;
+    }
+    .track-card .company { font-size: 9px; margin-bottom: 4px; }
+    .track-card .growth { font-size: 13px; }
+    .track-card .growth small { font-size: 9px; margin-top: 2px; }
+    
+    /* Esconder Calendly link no hero mobile - foco no assessment */
+    .hero-links { display: none; }
+}
+
+/* CTA Enhanced - Mostrar valor do resultado */
+.btn-hero {
+    flex-direction: column;
+    padding: 16px 24px 14px;
+    gap: 4px;
+}
+.btn-hero-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.btn-hero-value {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.85;
+    letter-spacing: 0.3px;
+}
+
+/* Indicador de Vagas */
+.slots-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--warning);
+    margin-top: 12px;
+}
+.slots-dots { display: flex; gap: 4px; }
+.slots-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--warning);
+    opacity: 0.3;
+}
+.slots-dot.filled { opacity: 1; }
+.slots-dot.available {
+    opacity: 1;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+    50% { box-shadow: 0 0 0 4px rgba(245, 158, 11, 0); }
+}
+
+/* Trust Ticker */
+.trust-ticker {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto 16px;
+    padding: 0 20px;
+    height: 36px;
+    overflow: hidden;
+}
+.trust-ticker-item {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+.trust-ticker-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.trust-ticker-quote {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.4;
+}
+.trust-ticker-source {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+    opacity: 0.7;
+    margin-top: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .slots-dot.available { animation: none; }
+    .trust-ticker-item { transition: none; }
+}
 </style>
     
     <!-- Deferred CSS - Below the fold sections -->
@@ -2593,6 +2733,178 @@ if (document.readyState === 'complete') {
 <noscript>
 <img height="1" width="1" style="display:none;" alt="?Pid=9076865&Fmt=Gif" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
 </noscript>
+
+<!-- UX FIXES v2 - Melhorias de conversão -->
+<script>
+(function() {
+    'use strict';
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initUXFixes);
+    } else {
+        initUXFixes();
+    }
+    
+    function initUXFixes() {
+        enhanceHeroCTA();
+        createSlotsIndicator();
+        createTrustTicker();
+        createMobileFAB();
+        setupEnhancedTracking();
+    }
+    
+    // 1. Melhorar copy do CTA - mostrar valor do resultado
+    function enhanceHeroCTA() {
+        var btnHero = document.querySelector('.btn-hero[href*="assessment"]');
+        if (!btnHero) return;
+        
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+        var copy = {
+            pt: { main: 'Descubra seu Score de GTM', value: '2 min • 5 perguntas • Resultado imediato' },
+            en: { main: 'Discover your GTM Score', value: '2 min • 5 questions • Instant result' }
+        };
+        
+        var svg = btnHero.querySelector('svg');
+        var svgHTML = svg ? svg.outerHTML : '';
+        
+        btnHero.innerHTML = '<span class="btn-hero-main">' + svgHTML + '<span>' + copy[lang].main + '</span></span><span class="btn-hero-value">' + copy[lang].value + '</span>';
+        
+        if (typeof gtag === 'function') {
+            gtag('event', 'enhanced_cta_view', { event_category: 'ux_experiment', event_label: 'hero_cta_v2' });
+        }
+    }
+    
+    // 2. Indicador de vagas disponíveis
+    function createSlotsIndicator() {
+        var heroCta = document.querySelector('.hero-cta');
+        if (!heroCta || document.querySelector('.slots-indicator')) return;
+        
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+        var copy = { pt: '1 vaga disponível Q1', en: '1 slot available Q1' };
+        
+        var indicator = document.createElement('div');
+        indicator.className = 'slots-indicator';
+        indicator.innerHTML = '<span class="slots-dots"><span class="slots-dot filled"></span><span class="slots-dot filled"></span><span class="slots-dot available"></span></span><span>' + copy[lang] + '</span>';
+        
+        var ctaNote = heroCta.querySelector('.hero-cta-note');
+        if (ctaNote) { ctaNote.after(indicator); } else { heroCta.appendChild(indicator); }
+    }
+    
+    // 3. Trust ticker com citações rotativas
+    function createTrustTicker() {
+        var heroSub = document.querySelector('.hero-sub');
+        if (!heroSub || document.querySelector('.trust-ticker')) return;
+        
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+        var quotes = {
+            pt: [
+                { text: '"70% dos VPs de Sales não completam 12 meses"', source: '— SaaStr' },
+                { text: '"Empresas com CRO crescem 1.8x mais rápido"', source: '— McKinsey' },
+                { text: '"CAC Payback > 18 meses = sinal de alerta"', source: '— Bessemer' }
+            ],
+            en: [
+                { text: '"70% of Sales VPs don\'t complete 12 months"', source: '— SaaStr' },
+                { text: '"Companies with CRO grow 1.8x faster"', source: '— McKinsey' },
+                { text: '"CAC Payback > 18 months = warning sign"', source: '— Bessemer' }
+            ]
+        };
+        
+        var ticker = document.createElement('div');
+        ticker.className = 'trust-ticker';
+        ticker.setAttribute('aria-live', 'polite');
+        
+        quotes[lang].forEach(function(quote, index) {
+            var item = document.createElement('div');
+            item.className = 'trust-ticker-item' + (index === 0 ? ' active' : '');
+            item.innerHTML = '<div class="trust-ticker-quote">' + quote.text + '</div><div class="trust-ticker-source">' + quote.source + '</div>';
+            ticker.appendChild(item);
+        });
+        
+        var trackRecord = document.querySelector('.track-record');
+        if (trackRecord) { trackRecord.before(ticker); } else { heroSub.after(ticker); }
+        
+        var currentIndex = 0;
+        var items = ticker.querySelectorAll('.trust-ticker-item');
+        setInterval(function() {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+        }, 5000);
+    }
+    
+    // 4. Mobile FAB - CTA fixo após scroll
+    function createMobileFAB() {
+        if (window.innerWidth > 767 || document.querySelector('.mobile-fab')) return;
+        
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+        var copy = { pt: 'Fazer Assessment Gratuito', en: 'Take Free Assessment' };
+        
+        var fab = document.createElement('div');
+        fab.className = 'mobile-fab';
+        fab.innerHTML = '<a href="assessment.html" class="mobile-fab-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>' + copy[lang] + '</span></a>';
+        document.body.appendChild(fab);
+        
+        var fabShown = false;
+        function showFAB() {
+            if (fabShown) return;
+            fab.classList.add('visible');
+            document.body.classList.add('fab-active');
+            fabShown = true;
+            if (typeof gtag === 'function') {
+                gtag('event', 'mobile_fab_shown', { event_category: 'ux_experiment' });
+            }
+        }
+        
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 25) showFAB();
+        }, { passive: true });
+        
+        setTimeout(showFAB, 3000);
+        
+        fab.querySelector('.mobile-fab-btn').addEventListener('click', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'cta_click', { cta_type: 'assessment', location: 'mobile_fab' });
+            }
+        });
+    }
+    
+    // 5. Enhanced tracking
+    function setupEnhancedTracking() {
+        if (typeof gtag !== 'function') return;
+        
+        var heroCtaObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    gtag('event', 'hero_cta_visible', { event_category: 'visibility', viewport_width: window.innerWidth });
+                    heroCtaObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        var heroCta = document.querySelector('.btn-hero');
+        if (heroCta) heroCtaObserver.observe(heroCta);
+    }
+    
+    // Re-apply on language change
+    var langObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'lang') {
+                setTimeout(function() {
+                    var si = document.querySelector('.slots-indicator'); if (si) si.remove();
+                    var tt = document.querySelector('.trust-ticker'); if (tt) tt.remove();
+                    var mf = document.querySelector('.mobile-fab'); if (mf) mf.remove();
+                    enhanceHeroCTA();
+                    createSlotsIndicator();
+                    createTrustTicker();
+                    createMobileFAB();
+                }, 100);
+            }
+        });
+    });
+    langObserver.observe(document.documentElement, { attributes: true });
+})();
+</script>
 
 </body>
 </html>
