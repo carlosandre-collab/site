@@ -3569,8 +3569,9 @@ async function generateReport() {
     }
     
     try {
-        await fetch('https://formspree.io/f/xgoynqbk', {
+        await fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
             method: 'POST',
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
