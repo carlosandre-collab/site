@@ -1114,7 +1114,6 @@ function applyLang() {
     document.querySelector('#formBtn span').textContent = t.formBtn;
     document.getElementById('successTitle').textContent = t.successT;
     document.getElementById('successText').textContent = t.successS;
-    document.querySelector('#btnDownload span').textContent = t.downloadBtn;
     document.getElementById('dividerText').textContent = t.divider;
     document.getElementById('resultCta').textContent = t.cta;
     document.getElementById('resultBack').textContent = t.backSite;
@@ -1324,23 +1323,31 @@ async function submitAndDownload() {
     // Gerar indicadores para enviar
     const indicators = getIndicators(ans, lang);
     
-    // Enviar dados para Google Apps Script usando FormData
-    const formData = new FormData();
-    formData.append('source', 'assessment');
-    formData.append('email', email);
-    formData.append('profile', profile);
-    formData.append('score', score);
-    formData.append('fit_level', level);
-    formData.append('answers', JSON.stringify(ans));
-    formData.append('answer_labels', JSON.stringify(answerLabels));
-    formData.append('indicators', JSON.stringify(indicators));
-    formData.append('timestamp', new Date().toISOString());
+    // ═══════════════════════════════════════════════════════════════════════
+    // FIX: Enviar como JSON (não FormData) para Google Apps Script
+    // FormData cross-origin causa dados truncados/vazios no Apps Script
+    // Content-Type: text/plain evita preflight CORS
+    // ═══════════════════════════════════════════════════════════════════════
+    const payload = {
+        source: 'assessment',
+        email: email,
+        profile: profile,
+        score: score,
+        fit_level: level,
+        answers: JSON.stringify(ans),
+        answer_labels: JSON.stringify(answerLabels),
+        indicators: JSON.stringify(indicators),
+        timestamp: new Date().toISOString()
+    };
     
     fetch('https://script.google.com/macros/s/AKfycbzy9gfeEUrwYd0KNiPm4XcpDjiBs80tASd5yw56Itn_7RuSXYhtPKf2Cxny0Jfgxf0LhQ/exec', {
         method: 'POST',
-        body: formData
-    }).then(function() {
-        console.log('Dados enviados com sucesso');
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        console.log('Dados enviados com sucesso:', text);
     }).catch(function(err) {
         console.log('Erro no envio:', err);
     });
