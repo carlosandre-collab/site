@@ -1324,26 +1324,28 @@ async function submitAndDownload() {
     // Gerar indicadores para enviar
     const indicators = getIndicators(ans, lang);
     
-    // Enviar dados para Google Apps Script
-    // Com no-cors não conseguimos verificar resposta, então assumimos sucesso
+    // Enviar dados para Google Apps Script usando FormData
+    const formData = new FormData();
+    formData.append('source', 'assessment');
+    formData.append('email', email);
+    formData.append('profile', profile);
+    formData.append('score', score);
+    formData.append('fit_level', level);
+    formData.append('answers', JSON.stringify(ans));
+    formData.append('answer_labels', JSON.stringify(answerLabels));
+    formData.append('indicators', JSON.stringify(indicators));
+    formData.append('timestamp', new Date().toISOString());
+    
     fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            source: 'assessment',
-            email, 
-            profile, 
-            score, 
-            fit_level: level,
-            answers: JSON.stringify(ans), 
-            answer_labels: JSON.stringify(answerLabels),
-            indicators: JSON.stringify(indicators),
-            timestamp: new Date().toISOString()
-        })
+        body: formData
+    }).then(function() {
+        console.log('Dados enviados com sucesso');
+    }).catch(function(err) {
+        console.log('Erro no envio:', err);
     });
     
-    // Mostrar sucesso (não esperamos resposta com no-cors)
+    // Mostrar sucesso
     setTimeout(function() {
         document.getElementById('formInput').style.display = 'none';
         document.getElementById('formSuccess').classList.add('show');
@@ -1351,7 +1353,7 @@ async function submitAndDownload() {
         if (typeof gtag === 'function') {
             gtag('event', 'assessment_email_captured', { event_category: 'lead_generation', event_label: level, profile: profile });
         }
-    }, 500);
+    }, 1000);
 }
 
 // Initialize
