@@ -1053,8 +1053,6 @@ footer a {
 </footer>
 
 <script>
-const { jsPDF } = window.jspdf;
-
 // Translations
 const T = {
     pt: {
@@ -1366,54 +1364,132 @@ async function submitAndDownload() {
 }
 
 function downloadPDF() {
-    const doc = new jsPDF();
-    const score = Object.values(ans).reduce((a, b) => a + b, 0);
-    const level = score >= 13 ? 'high' : score >= 8 ? 'medium' : 'low';
-    
-    // Simple PDF generation
-    doc.setFontSize(20);
-    doc.setTextColor(27, 58, 92);
-    doc.text('Diagnóstico GTM Readiness', 20, 30);
-    
-    doc.setFontSize(12);
-    doc.setTextColor(100);
-    doc.text('Preparado para: ' + userEmail, 20, 45);
-    doc.text('Data: ' + new Date().toLocaleDateString('pt-BR'), 20, 52);
-    
-    doc.setFontSize(16);
-    doc.setTextColor(27, 58, 92);
-    doc.text('Pontuação: ' + score + '/19', 20, 70);
-    
-    const levelText = level === 'high' ? 'Alta Compatibilidade' : level === 'medium' ? 'Boa Compatibilidade' : 'Timing Pode Não Ser Ideal';
-    doc.text('Resultado: ' + levelText, 20, 80);
-    
-    doc.setFontSize(11);
-    doc.setTextColor(60);
-    let y = 100;
-    doc.text('Suas Respostas:', 20, y);
-    y += 10;
-    
-    const questions = ['Tempo de estagnação', 'Tempo do CEO em vendas', 'Líder comercial', 'Processo comercial', 'Estágio de receita'];
-    for (let i = 1; i <= 5; i++) {
-        doc.text(questions[i-1] + ': ' + (answerLabels[i] || '-'), 20, y);
+    try {
+        const jsPDF = window.jspdf.jsPDF;
+        const doc = new jsPDF();
+        const score = Object.values(ans).reduce((a, b) => a + b, 0);
+        const level = score >= 13 ? 'high' : score >= 8 ? 'medium' : 'low';
+        const indicators = getIndicators(ans, lang);
+        
+        // Cores
+        const navy = [27, 58, 92];
+        const warm = [212, 136, 58];
+        const gray = [100, 116, 139];
+        const lightGray = [148, 163, 184];
+        const danger = [220, 38, 38];
+        const warning = [217, 119, 6];
+        const success = [5, 150, 105];
+        
+        // Header
+        doc.setFillColor(...navy);
+        doc.rect(0, 0, 210, 45, 'F');
+        
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(24);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Diagnóstico GTM Readiness', 20, 25);
+        
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Assessment Personalizado | Alavanka', 20, 35);
+        
+        // Info box
+        doc.setFillColor(248, 250, 252);
+        doc.rect(0, 45, 210, 25, 'F');
+        
+        doc.setTextColor(...gray);
+        doc.setFontSize(10);
+        doc.text('Preparado para: ' + userEmail, 20, 57);
+        doc.text('Data: ' + new Date().toLocaleDateString('pt-BR'), 20, 64);
+        
+        // Score
+        doc.setTextColor(...navy);
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Pontuação: ' + score + '/19', 140, 57);
+        
+        const levelText = level === 'high' ? 'Muitos sinais de alerta' : level === 'medium' ? 'Alguns sinais' : 'Poucos sinais';
+        const levelColor = level === 'high' ? danger : level === 'medium' ? warning : success;
+        doc.setTextColor(...levelColor);
+        doc.setFontSize(11);
+        doc.text(levelText, 140, 64);
+        
+        // Indicadores
+        let y = 85;
+        doc.setTextColor(...navy);
+        doc.setFontSize(14);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Indicadores Analisados', 20, y);
+        y += 12;
+        
+        indicators.forEach((ind, i) => {
+            // Status color
+            const statusColor = ind.status === 'critical' ? danger : ind.status === 'warning' ? warning : success;
+            const statusText = ind.status === 'critical' ? 'CRÍTICO' : ind.status === 'warning' ? 'ATENÇÃO' : 'OK';
+            
+            // Background
+            doc.setFillColor(248, 250, 252);
+            doc.rect(15, y - 5, 180, 22, 'F');
+            
+            // Status badge
+            doc.setFillColor(...statusColor);
+            doc.rect(20, y - 2, 25, 8, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(7);
+            doc.setFont('helvetica', 'bold');
+            doc.text(statusText, 22, y + 3);
+            
+            // Title
+            doc.setTextColor(...navy);
+            doc.setFontSize(11);
+            doc.setFont('helvetica', 'bold');
+            doc.text(ind.title, 50, y + 3);
+            
+            // Value
+            doc.setTextColor(...gray);
+            doc.setFontSize(10);
+            doc.setFont('helvetica', 'normal');
+            doc.text(ind.value, 50, y + 12);
+            
+            y += 28;
+        });
+        
+        // Recomendação
+        y += 5;
+        doc.setFillColor(...warm);
+        doc.rect(15, y, 180, 1, 'F');
+        y += 10;
+        
+        doc.setTextColor(...navy);
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Próximo Passo Recomendado', 20, y);
         y += 8;
-    }
-    
-    y += 10;
-    doc.setTextColor(27, 58, 92);
-    doc.text('Próximo Passo:', 20, y);
-    y += 8;
-    doc.setTextColor(60);
-    doc.text('Agende uma conversa: calendly.com/carlos-andre-alavanka/30min', 20, y);
-    
-    doc.setFontSize(9);
-    doc.setTextColor(150);
-    doc.text('Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br', 20, 280);
-    
-    doc.save('diagnostico-gtm-alavanka.pdf');
-    
-    if (typeof gtag === 'function') {
-        gtag('event', 'assessment_pdf_downloaded', { event_category: 'engagement', value: score });
+        
+        doc.setTextColor(...gray);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Agende uma conversa gratuita para discutir seu diagnóstico:', 20, y);
+        y += 6;
+        doc.setTextColor(...warm);
+        doc.text('calendly.com/carlos-andre-alavanka/30min', 20, y);
+        
+        // Footer
+        doc.setFillColor(...navy);
+        doc.rect(0, 277, 210, 20, 'F');
+        
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(9);
+        doc.text('Alavanka | Fractional CRO para B2B Tech | www.alavanka.com.br', 105, 287, { align: 'center' });
+        
+        doc.save('diagnostico-gtm-alavanka.pdf');
+        
+        if (typeof gtag === 'function') {
+            gtag('event', 'assessment_pdf_downloaded', { event_category: 'engagement', value: score });
+        }
+    } catch (e) {
+        console.error('Erro ao gerar PDF:', e);
+        alert(lang === 'pt' ? 'Erro ao gerar PDF. Tente novamente.' : 'Error generating PDF. Please try again.');
     }
 }
 
