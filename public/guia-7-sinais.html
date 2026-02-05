@@ -1316,32 +1316,30 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         company: formData.company
     });
     
-    try {
-        await fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                source: 'guia_7_sinais',
-                email: formData.email,
-                name: formData.name,
-                profile: role,
-                company: formData.company,
-                timestamp: new Date().toISOString()
-            })
-        });
-        
+    // Enviar dados para Google Apps Script
+    fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+            source: 'guia_7_sinais',
+            email: formData.email,
+            name: formData.name,
+            profile: role,
+            company: formData.company,
+            timestamp: new Date().toISOString()
+        })
+    });
+    
+    // Mostrar sucesso após pequeno delay (no-cors não retorna resposta)
+    setTimeout(function() {
         if (typeof gtag === 'function') {
             gtag('event', 'generate_lead', {event_category:'lead_generation',lead_source:'guia_7_sinais'});
         }
         
         formContent.classList.add('hidden');
         formSuccess.classList.add('active');
-    } catch (error) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Baixar PDF Gratuito';
-        alert('Erro ao enviar. Tente novamente.');
-    }
+    }, 500);
 });
 
 // Scroll Reveal - Otimizado
