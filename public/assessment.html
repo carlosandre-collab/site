@@ -1330,13 +1330,23 @@ async function submitAndDownload() {
     btn.disabled = true;
     btn.querySelector('span').textContent = '...';
     
+    // Gerar indicadores para enviar
+    const indicators = getIndicators(ans, lang);
+    
     try {
-        await fetch('https://formspree.io/f/xgoynqbk', {
+        await fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
             method: 'POST',
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                email, profile, source: 'Assessment GTM Readiness', score, fit_level: level,
-                answers: JSON.stringify(ans), answer_labels: JSON.stringify(answerLabels),
+                source: 'assessment',
+                email, 
+                profile, 
+                score, 
+                fit_level: level,
+                answers: JSON.stringify(ans), 
+                answer_labels: JSON.stringify(answerLabels),
+                indicators: JSON.stringify(indicators),
                 timestamp: new Date().toISOString()
             })
         });
