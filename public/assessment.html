@@ -1324,9 +1324,11 @@ async function submitAndDownload() {
     const indicators = getIndicators(ans, lang);
     
     // ═══════════════════════════════════════════════════════════════════════
-    // FIX: Enviar como JSON (não FormData) para Google Apps Script
-    // FormData cross-origin causa dados truncados/vazios no Apps Script
-    // Content-Type: text/plain evita preflight CORS
+    // FIX: Enviar como URLSearchParams para Google Apps Script
+    // - URLSearchParams = application/x-www-form-urlencoded (simple request)
+    // - Sem preflight CORS, funciona cross-origin com Apps Script
+    // - Apps Script lê via e.parameter corretamente
+    // - Dados complexos (indicators) vão como campo 'json_payload' único
     // ═══════════════════════════════════════════════════════════════════════
     const payload = {
         source: 'assessment',
@@ -1340,10 +1342,13 @@ async function submitAndDownload() {
         timestamp: new Date().toISOString()
     };
     
+    // Enviar todo o payload como um único campo JSON para evitar truncamento
+    const params = new URLSearchParams();
+    params.append('json_payload', JSON.stringify(payload));
+    
     fetch('https://script.google.com/macros/s/AKfycbzy9gfeEUrwYd0KNiPm4XcpDjiBs80tASd5yw56Itn_7RuSXYhtPKf2Cxny0Jfgxf0LhQ/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
+        body: params
     }).then(function(response) {
         return response.text();
     }).then(function(text) {
