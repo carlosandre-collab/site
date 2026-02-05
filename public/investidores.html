@@ -3568,15 +3568,18 @@ async function generateReport() {
         });
     }
     
-    // Enviar dados para Google Apps Script
+    // Enviar dados para Google Apps Script usando FormData
+    var sendData = new FormData();
+    for (var key in payload) {
+        sendData.append(key, payload[key]);
+    }
+    
     fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: sendData
     });
     
-    // Mostrar sucesso após pequeno delay (no-cors não retorna resposta)
+    // Mostrar sucesso
     setTimeout(function() {
         // Mostrar sucesso
         document.getElementById('reportFormInput').style.display = 'none';
@@ -3597,7 +3600,7 @@ async function generateReport() {
         if (typeof lintrk === 'function') {
             lintrk('track', { conversion_id: 19814748 });
         }
-    }, 500);
+    }, 1000);
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
