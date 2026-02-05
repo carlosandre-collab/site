@@ -12,7 +12,16 @@
     <meta property="og:url" content="https://www.alavanka.com.br/guia-7-sinais.html">
     <link rel="canonical" href="https://www.alavanka.com.br/guia-7-sinais.html">
     
-    <!-- Analytics -->
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="styles/nav-unified.css">
+    
+    <!-- Analytics - defer to not block render -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -20,14 +29,6 @@
       gtag('js', new Date());
       gtag('config', 'G-D8LLY1L1Z3');
     </script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Nav -->
-    <link rel="stylesheet" href="styles/nav-unified.css">
     
     <style>
 :root {
@@ -745,18 +746,19 @@ body.sticky-active .footer {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   INLINE CTA (após sinais 3-4)
+   INLINE CTA (após sinais 3-4) - Design com contraste
    ══════════════════════════════════════════════════════════════════════════════ */
 .inline-cta {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(135deg, var(--warm) 0%, var(--warm-dark) 100%);
     border-radius: var(--r-xl);
-    padding: 32px;
+    padding: 28px 32px;
     margin: 24px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
     flex-wrap: wrap;
+    box-shadow: 0 8px 32px rgba(212,136,58,0.25);
 }
 
 .inline-cta-content {
@@ -766,12 +768,13 @@ body.sticky-active .footer {
 
 .inline-cta h3 {
     color: var(--text-inverse);
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 4px;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .inline-cta p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.85);
     font-size: 14px;
     margin: 0;
 }
@@ -781,7 +784,7 @@ body.sticky-active .footer {
     align-items: center;
     gap: 8px;
     padding: 14px 24px;
-    background: var(--warm);
+    background: var(--bg-dark);
     color: white;
     border-radius: var(--r-md);
     font-weight: 700;
@@ -791,8 +794,9 @@ body.sticky-active .footer {
 }
 
 .inline-cta .btn-inline:hover {
-    background: var(--warm-dark);
+    background: var(--accent);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -822,17 +826,23 @@ body.sticky-active .footer {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   ANIMATIONS
+   ANIMATIONS - Otimizadas para performance
    ══════════════════════════════════════════════════════════════════════════════ */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transform: translateY(16px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Mostrar hero e intro imediatamente sem animação */
+.hero, .hero * {
+    opacity: 1 !important;
+    transform: none !important;
 }
     </style>
     
@@ -1307,12 +1317,19 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     });
     
     try {
-        const response = await fetch('https://formspree.io/f/xgoynqbk', {
+        await fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
             method: 'POST',
-            headers: {'Content-Type':'application/json','Accept':'application/json'},
-            body: JSON.stringify(formData)
+            mode: 'no-cors',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                source: 'guia_7_sinais',
+                email: formData.email,
+                name: formData.name,
+                profile: role,
+                company: formData.company,
+                timestamp: new Date().toISOString()
+            })
         });
-        if (!response.ok) throw new Error('Failed');
         
         if (typeof gtag === 'function') {
             gtag('event', 'generate_lead', {event_category:'lead_generation',lead_source:'guia_7_sinais'});
@@ -1327,16 +1344,35 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     }
 });
 
-// Scroll Reveal
+// Scroll Reveal - Otimizado
 (function() {
     var reveals = document.querySelectorAll('.reveal');
+    
+    // Ativar elementos já visíveis imediatamente
     function checkReveal() {
+        var viewHeight = window.innerHeight;
         reveals.forEach(function(el) {
-            if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('visible');
+            var rect = el.getBoundingClientRect();
+            if (rect.top < viewHeight - 40) {
+                el.classList.add('visible');
+            }
         });
     }
-    window.addEventListener('scroll', checkReveal, {passive:true});
+    
+    // Executar imediatamente
     checkReveal();
+    
+    // E depois no scroll
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                checkReveal();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, {passive: true});
 })();
 
 // Sticky CTA Bar
