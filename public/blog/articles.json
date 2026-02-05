@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "crencas-fundador-limitam-crescimento",
+      "slug": "crencas-fundador-limitam-crescimento",
+      "slugs": {
+        "pt": "crencas-fundador-limitam-crescimento",
+        "en": "founder-beliefs-limiting-growth-en"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Liderança",
+        "en": "Leadership"
+      },
+      "title": {
+        "pt": "O Que Funcionou Até Aqui Pode Ser o Que Trava a Próxima Fase",
+        "en": "What Got You Here May Be What's Holding You Back"
+      },
+      "excerpt": {
+        "pt": "78% das startups com product-market fit travam na hora de escalar. As 6 crenças que fizeram sentido no início — e que agora são âncoras disfarçadas de princípios.",
+        "en": "78% of startups with product-market fit stall when it's time to scale. The 6 beliefs that made sense early on — and are now anchors disguised as principles."
+      },
+      "readTime": {
+        "pt": "16 min de leitura",
+        "en": "16 min read"
+      },
+      "date": "2026-02-05",
+      "dateLabel": {
+        "pt": "Fev 2026",
+        "en": "Feb 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/crencas-fundador-limitam-crescimento-thumb.jpg",
+        "alt": {
+          "pt": "As 6 crenças de fundadores que limitam o crescimento de startups B2B",
+          "en": "The 6 founder beliefs that limit B2B startup growth"
+        }
+      }
+    },
+    {
       "id": "quando-demitir-ae-vendedor-b2b",
       "slug": "quando-demitir-ae-vendedor-b2b",
       "slugs": {
         "pt": "quando-demitir-ae-vendedor-b2b",
         "en": "when-to-fire-b2b-sales-rep"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Gestão de Vendas",
         "en": "Sales Management"
