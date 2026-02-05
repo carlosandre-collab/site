@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ══════════════════════════════════════════════════════════════════
-         SEO & META
-         ══════════════════════════════════════════════════════════════════ -->
-    <title>Fractional CRO para Investidores & VCs | Alavanka</title>
-    <meta name="description" content="Destravar o crescimento das suas portfolio companies B2B Tech. Fractional CRO com track record de $3M a $240M.">
-    <meta property="og:title" content="Fractional CRO para Investidores & VCs | Alavanka">
-    <meta property="og:description" content="Intervenção cirúrgica de GTM em portfolio companies travadas.">
+    <title data-i18n="guia.meta.title">Os 7 Sinais de Alerta de uma Portfolio Company Travada | Alavanka</title>
+    <meta name="description" content="Guia gratuito para investidores: como identificar problemas de GTM antes que virem crise.">
+    <meta property="og:title" content="Os 7 Sinais de Alerta de uma Portfolio Company Travada">
+    <meta property="og:description" content="Guia gratuito para investidores: como identificar problemas de GTM antes que virem crise.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.alavanka.com.br/investidores.html">
-    <link rel="canonical" href="https://www.alavanka.com.br/investidores.html">
+    <meta property="og:url" content="https://www.alavanka.com.br/guia-7-sinais.html">
+    <link rel="canonical" href="https://www.alavanka.com.br/guia-7-sinais.html">
     
-    <!-- ══════════════════════════════════════════════════════════════════
-         ANALYTICS
-         ══════════════════════════════════════════════════════════════════ -->
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="styles/nav-unified.css">
+    
+    <!-- Analytics - defer to not block render -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -26,69 +30,36 @@
       gtag('config', 'G-D8LLY1L1Z3');
     </script>
     
-    <!-- ══════════════════════════════════════════════════════════════════
-         FONTS
-         ══════════════════════════════════════════════════════════════════ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- ══════════════════════════════════════════════════════════════════
-         NAV (shared component)
-         ══════════════════════════════════════════════════════════════════ -->
-    <link rel="stylesheet" href="styles/nav-unified.css">
-    
     <style>
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  1. CSS VARIABLES                                                        ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
 :root {
-    /* Primary - Navy */
     --accent: #1B3A5C;
     --accent-dark: #142D48;
     --accent-light: #2D5F8A;
-    
-    /* Secondary - Warm Amber */
     --warm: #D4883A;
     --warm-dark: #C17A32;
     --warm-light: #E0A050;
-    
-    /* Backgrounds */
     --bg: #FAFBFD;
     --bg-dark: #0D1B2A;
-    --bg-warm: linear-gradient(180deg, #FFFBF5, #FFF8ED);
-    
-    /* Text */
     --text: #0D1B2A;
     --text-secondary: #4A5568;
     --text-muted: #8C8CA1;
-    
-    /* Status */
+    --text-inverse: #FFFFFF;
     --danger: #EF4444;
     --success: #10B981;
-    --warning: #F59E0B;
-    
-    /* Effects */
     --border: #CBD5E1;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
     --shadow-md: 0 8px 24px rgba(27,58,92,0.12);
+    --shadow-lg: 0 16px 48px rgba(27,58,92,0.18);
     --shadow-glow: 0 8px 32px rgba(212,136,58,0.35);
-    
-    /* Radius */
     --r-sm: 8px;
     --r-md: 12px;
     --r-lg: 16px;
-    --r-xl: 20px;
+    --r-xl: 24px;
     --r-full: 9999px;
-    
-    /* Transitions */
+    --duration: 0.25s;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --duration: 0.3s;
 }
 
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  2. RESET & BASE                                                         ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -98,2045 +69,780 @@ body {
     line-height: 1.6;
     color: var(--text);
     background: var(--bg);
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
 
 h1, h2 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; line-height: 1.15; }
 h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height: 1.2; }
-.hl { color: var(--accent); }
-.hl-warm { color: var(--warm-light); }
+a { color: inherit; text-decoration: none; }
 
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  3. UTILITY & EFFECTS                                                    ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
+/* ══════════════════════════════════════════════════════════════════════════════
+   HERO - Compacto
+   ══════════════════════════════════════════════════════════════════════════════ */
+.hero {
+    background: linear-gradient(170deg, var(--bg-dark) 0%, var(--accent) 100%);
+    padding: 120px 24px 60px;
+    text-align: center;
+    position: relative;
+}
 
-/* --- Scroll Progress Bar --- */
-.scroll-progress {
-    position: fixed;
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(212,136,58,0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger);
+    color: #fc8181;
+    padding: 8px 16px;
+    border-radius: var(--r-full);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    color: var(--text-inverse);
+    margin-bottom: 16px;
+}
+
+.hero h1 .hl { color: var(--danger); }
+
+.hero-sub {
+    font-size: clamp(15px, 2vw, 18px);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   INTRO SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.intro {
+    background: #FFFFFF;
+    padding: 60px 24px;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.intro-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.intro-stat {
+    text-align: center;
+}
+
+.intro-stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+}
+
+.intro-stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SIGNALS GRID - Os 7 Sinais em Cards
+   ══════════════════════════════════════════════════════════════════════════════ */
+.signals {
+    background: var(--bg);
+    padding: 80px 24px;
+}
+
+.signals-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.signals-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.signals-header h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.signals-header p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.signal-card {
+    background: #FFFFFF;
+    border-radius: var(--r-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--duration) var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.signal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--warm);
+}
+
+.signal-card::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    height: 3px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--warm), var(--accent-light));
-    z-index: 10001;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+    transition: background var(--duration);
 }
 
-/* --- Reveal on Scroll Animation --- */
+.signal-card:hover::before {
+    background: var(--warm);
+}
+
+.signal-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.signal-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-inverse);
+    border-radius: var(--r-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.signal-title {
+    font-size: 18px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.signal-description {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.signal-quotes {
+    background: var(--bg);
+    border-radius: var(--r-md);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.signal-quotes-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.signal-quote {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+}
+
+.signal-quote:last-child {
+    border-bottom: none;
+}
+
+.signal-red-flag {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(239, 68, 68, 0.06);
+    color: var(--danger);
+    padding: 12px 14px;
+    border-radius: var(--r-sm);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.signal-red-flag svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   SCORECARD SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.scorecard-section {
+    background: var(--bg-dark);
+    padding: 80px 24px;
+}
+
+.scorecard-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.scorecard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.scorecard-header h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    color: var(--text-inverse);
+    margin-bottom: 12px;
+}
+
+.scorecard-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+}
+
+.scorecard-table {
+    background: #FFFFFF;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.scorecard-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scorecard-table th {
+    background: var(--accent);
+    color: var(--text-inverse);
+    padding: 16px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.scorecard-table th:first-child {
+    text-align: left;
+    padding-left: 24px;
+}
+
+.scorecard-table td {
+    padding: 14px 12px;
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.scorecard-table td:first-child {
+    text-align: left;
+    padding-left: 24px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.scorecard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.scorecard-table tr:nth-child(even) {
+    background: var(--bg);
+}
+
+.col-green { background: rgba(16, 185, 129, 0.08) !important; color: var(--success); }
+.col-yellow { background: rgba(245, 158, 11, 0.08) !important; color: #D97706; }
+.col-red { background: rgba(239, 68, 68, 0.08) !important; color: var(--danger); }
+
+.scorecard-legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.green { background: var(--success); }
+.legend-dot.yellow { background: #F59E0B; }
+.legend-dot.red { background: var(--danger); }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   CTA DOWNLOAD SECTION
+   ══════════════════════════════════════════════════════════════════════════════ */
+.download-section {
+    background: linear-gradient(135deg, var(--warm) 0%, var(--warm-dark) 100%);
+    padding: 60px 24px;
+}
+
+.download-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.download-container h2 {
+    font-size: clamp(22px, 4vw, 28px);
+    color: var(--text-inverse);
+    margin-bottom: 12px;
+}
+
+.download-container p {
+    color: rgba(255,255,255,0.9);
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+.download-form {
+    background: #FFFFFF;
+    border-radius: var(--r-xl);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color var(--duration), box-shadow var(--duration);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--warm);
+    box-shadow: 0 0 0 3px rgba(212, 136, 58, 0.15);
+}
+
+.btn-download {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-inverse);
+    border: none;
+    border-radius: var(--r-md);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all var(--duration) var(--ease-out);
+    margin-top: 8px;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-download:disabled {
+    background: var(--border);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-footer {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.form-success.active {
+    display: block;
+}
+
+.form-success-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--success);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    color: white;
+}
+
+.form-success h3 {
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.form-success p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-success .download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--warm);
+    color: white;
+    border-radius: var(--r-md);
+    font-weight: 600;
+    transition: all var(--duration);
+}
+
+.form-success .download-link:hover {
+    background: var(--warm-dark);
+}
+
+.form-content.hidden { display: none; }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FINAL CTA
+   ══════════════════════════════════════════════════════════════════════════════ */
+.final-cta {
+    background: #FFFFFF;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.final-cta-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.final-cta h2 {
+    font-size: clamp(22px, 4vw, 28px);
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.final-cta p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: var(--text-inverse);
+    border-radius: var(--r-md);
+    font-weight: 700;
+    transition: all var(--duration) var(--ease-out);
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════════════════════ */
+.footer {
+    background: var(--bg-dark);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-copy {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+}
+
+.footer-copy a { color: var(--warm-light); }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .hero { padding: 100px 20px 50px; }
+    .signals { padding: 60px 20px; }
+    .signals-grid { grid-template-columns: 1fr; }
+    .signal-card { padding: 24px; }
+    .scorecard-section { padding: 60px 20px; }
+    .scorecard-table { overflow-x: auto; }
+    .scorecard-table table { min-width: 500px; }
+    .download-section { padding: 50px 20px; }
+    .download-form { padding: 24px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .final-cta { padding: 60px 20px; }
+    .intro-stats { gap: 24px; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   STICKY CTA BAR
+   ══════════════════════════════════════════════════════════════════════════════ */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-dark);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    z-index: 1000;
+    transform: translateY(100%);
+    transition: transform 0.3s var(--ease-out);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    display: none;
+}
+
+.sticky-cta .btn-sticky {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: white;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 14px;
+    transition: all var(--duration) var(--ease-out);
+    white-space: nowrap;
+}
+
+.sticky-cta .btn-sticky:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-glow);
+}
+
+.sticky-cta .btn-sticky svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (min-width: 600px) {
+    .sticky-cta-text { display: block; }
+    .sticky-cta { gap: 24px; }
+}
+
+/* Espaço extra no footer quando sticky está visível */
+body.sticky-active .footer {
+    padding-bottom: 80px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   INLINE CTA (após sinais 3-4) - Design com contraste
+   ══════════════════════════════════════════════════════════════════════════════ */
+.inline-cta {
+    background: linear-gradient(135deg, var(--warm) 0%, var(--warm-dark) 100%);
+    border-radius: var(--r-xl);
+    padding: 28px 32px;
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 32px rgba(212,136,58,0.25);
+}
+
+.inline-cta-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.inline-cta h3 {
+    color: var(--text-inverse);
+    font-size: 17px;
+    margin-bottom: 4px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.inline-cta p {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    margin: 0;
+}
+
+.inline-cta .btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: var(--bg-dark);
+    color: white;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 14px;
+    transition: all var(--duration) var(--ease-out);
+    white-space: nowrap;
+}
+
+.inline-cta .btn-inline:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   FLOATING DOWNLOAD BUTTON (mobile)
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+    .sticky-cta {
+        padding: 10px 16px;
+    }
+    
+    .sticky-cta .btn-sticky {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+    }
+    
+    .inline-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+    }
+    
+    .inline-cta .btn-inline {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   ANIMATIONS - Otimizadas para performance
+   ══════════════════════════════════════════════════════════════════════════════ */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transform: translateY(16px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
+
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* --- Stagger delays for children --- */
-.stagger > *:nth-child(1) { transition-delay: 0.05s; }
-.stagger > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger > *:nth-child(3) { transition-delay: 0.15s; }
-.stagger > *:nth-child(4) { transition-delay: 0.2s; }
-.stagger > *:nth-child(5) { transition-delay: 0.25s; }
-.stagger > *:nth-child(6) { transition-delay: 0.3s; }
-
-/* --- Hover Lift Effect --- */
-.lift {
-    transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
-}
-.lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-/* --- Pulse Animation (for CTAs) --- */
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(212,136,58,0.4); }
-    50% { box-shadow: 0 0 0 12px rgba(212,136,58,0); }
-}
-.pulse:hover { animation: pulse 1.5s infinite; }
-
-/* --- Gradient Text --- */
-.gradient-text {
-    background: linear-gradient(135deg, var(--warm), var(--warm-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  4. HERO SECTION                                                         ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.inv-hero {
-    padding: 100px 24px 80px;
-    text-align: center;
-    background: linear-gradient(170deg, #0D1B2A 0%, #1B3A5C 100%);
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Subtle animated background gradient */
-.inv-hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 70%, rgba(212,136,58,0.08) 0%, transparent 50%);
-    animation: float 20s ease-in-out infinite;
-}
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(30px, -30px); }
-}
-
-.inv-hero-badge {
-    display: inline-block;
-    padding: 10px 24px;
-    border-radius: var(--r-full);
-    background: rgba(212,136,58,0.15);
-    border: 1px solid rgba(212,136,58,0.3);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--warm-light);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    position: relative;
-}
-
-.inv-hero h1 {
-    font-size: clamp(28px, 7vw, 52px);
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-
-.inv-hero-sub {
-    font-size: clamp(15px, 3vw, 18px);
-    color: rgba(255,255,255,0.65);
-    max-width: 600px;
-    margin: 0 auto 40px;
-    line-height: 1.7;
-    position: relative;
-}
-.inv-hero-sub strong { color: var(--warm-light); }
-
-/* Stats Grid */
-.inv-hero-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    max-width: 900px;
-    margin: 0 auto 40px;
-    position: relative;
-}
-
-.inv-stat {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--r-xl);
-    padding: 24px 20px;
-    text-align: center;
-    backdrop-filter: blur(8px);
-    transition: all var(--duration) var(--ease-out);
-}
-.inv-stat:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(212,136,58,0.3);
-    transform: translateY(-4px);
-}
-
-.inv-stat-number {
-    display: block;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(24px, 5vw, 36px);
-    font-weight: 700;
-    color: var(--warm-light);
-    margin-bottom: 6px;
-}
-
-.inv-stat-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.5;
-}
-
-/* Hero CTA */
-.inv-hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 36px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-lg);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: var(--shadow-glow);
-    position: relative;
-    overflow: hidden;
-    transition: all var(--duration) var(--ease-out);
-}
-.inv-hero-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(212,136,58,0.5);
-}
-/* Shine effect on hover */
-.inv-hero-cta::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-.inv-hero-cta:hover::after { left: 100%; }
-
-.inv-hero-cta svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  5. SECTION BASE STYLES                                                  ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.section {
-    padding: 80px 24px;
-    max-width: 960px;
-    margin: 0 auto;
-}
-
-.section-dark {
-    background: linear-gradient(180deg, #0D1B2A, #142D48);
-    color: #fff;
-    max-width: 100%;
-}
-.section-dark .section-inner { max-width: 960px; margin: 0 auto; }
-
-.section-warm { background: var(--bg-warm); }
-.section-white { background: #fff; }
-
-.section-header {
-    text-align: center;
-    margin-bottom: 48px;
-}
-.section-header h2 {
-    font-size: clamp(24px, 5vw, 36px);
-    margin-bottom: 12px;
-}
-.section-header p {
-    font-size: 16px;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto;
-}
-.section-dark .section-header p { color: rgba(255,255,255,0.6); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  6. SCORECARD (Interactive Flags) - EXPANDED VERSION                     ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.scorecard-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.flag {
-    background: #fff;
-    border: 1px solid rgba(212,136,58,0.15);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    transition: all var(--duration) var(--ease-out);
-}
-.flag:hover {
-    border-color: var(--warm);
-    box-shadow: var(--shadow-sm);
-}
-.flag.checked {
-    border-color: var(--danger);
-    background: rgba(239,68,68,0.02);
-}
-
-.flag-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 20px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.flag-check {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #C5BAA8;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all var(--duration) var(--ease-out);
-}
-.flag-check svg {
-    width: 14px;
-    height: 14px;
-    stroke: #fff;
-    stroke-width: 2.5;
-    fill: none;
-    opacity: 0;
-    transform: scale(0.5);
-    transition: all var(--duration) var(--ease-out);
-}
-.flag.checked .flag-check {
-    background: var(--danger);
-    border-color: var(--danger);
-    box-shadow: 0 2px 8px rgba(239,68,68,0.3);
-}
-.flag.checked .flag-check svg {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.flag-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--r-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.flag-icon.danger { background: rgba(239,68,68,0.1); }
-.flag-icon.danger svg { stroke: var(--danger); }
-.flag-icon.warn { background: rgba(245,158,11,0.1); }
-.flag-icon.warn svg { stroke: var(--warning); }
-.flag-icon svg { width: 20px; height: 20px; fill: none; }
-
-.flag-content {
-    flex: 1;
-    min-width: 0;
-}
-.flag-content h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-}
-.flag-content > p {
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-.flag-expand-btn {
-    padding: 6px 12px;
-    border-radius: var(--r-full);
-    background: rgba(212,136,58,0.08);
-    border: 1px solid rgba(212,136,58,0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-    transition: all var(--duration);
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--warm-dark);
-}
-.flag-expand-btn:hover {
-    background: rgba(212,136,58,0.15);
-    border-color: var(--warm);
-}
-.flag-expand-btn svg {
-    width: 14px;
-    height: 14px;
-    stroke: var(--warm-dark);
-    fill: none;
-    transition: transform var(--duration);
-}
-.flag.expanded .flag-expand-btn svg {
-    transform: rotate(180deg);
-}
-.flag-expand-btn span {
-    display: none;
-}
-@media (min-width: 500px) {
-    .flag-expand-btn span {
-        display: inline;
-    }
-}
-
-/* Flag Explanation Panel */
-.flag-explanation {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s var(--ease-out);
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(250,251,253,0) 100%);
-}
-.flag.expanded .flag-explanation {
-    max-height: 400px;
-}
-
-.flag-explanation-inner {
-    padding: 0 20px 20px;
-    border-top: 1px solid var(--border);
-}
-
-.flag-why {
-    margin-top: 16px;
-}
-.flag-why-label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--warm-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-}
-.flag-why-label svg {
-    width: 14px;
-    height: 14px;
-    stroke: var(--warm);
-    fill: none;
-}
-.flag-why-text {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.flag-stat {
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
-    background: #fff;
-    border-radius: var(--r-md);
-    border: 1px solid var(--border);
-}
-.flag-stat-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(27,58,92,0.05);
-    border-radius: var(--r-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.flag-stat-icon svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--accent);
-    fill: none;
-}
-.flag-stat-content {
-    flex: 1;
-}
-.flag-stat-value {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--accent);
-}
-.flag-stat-label {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-.flag-stat-source {
-    font-size: 10px;
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-.flag-impact {
-    margin-top: 12px;
-    padding: 10px 12px;
-    background: rgba(239,68,68,0.05);
-    border-radius: var(--r-sm);
-    border-left: 3px solid var(--danger);
-}
-.flag-impact-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--danger);
-    margin-bottom: 4px;
-}
-.flag-impact-text {
-    font-size: 13px;
-    color: var(--text-secondary);
-}
-
-/* Scorecard Counter - Redesigned */
-.scorecard-counter {
-    margin-top: 32px;
-    padding: 24px;
-    background: #fff;
-    border-radius: var(--r-xl);
-    border: 1px solid var(--border);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: var(--shadow-sm);
-}
-
-.scorecard-counter-top {
-    text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-}
-
-.scorecard-count-wrapper {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.scorecard-count-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-    transition: color 0.3s;
-}
-.scorecard-counter.urgent .scorecard-count-number {
-    color: var(--danger);
-}
-
-.scorecard-count-label {
-    font-size: 16px;
-    color: var(--text-secondary);
-}
-
-.scorecard-verdict {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin: 0;
-}
-
-.scorecard-result-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 24px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all var(--duration) var(--ease-out);
-}
-.scorecard-result-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-}
-.scorecard-result-btn:disabled {
-    background: var(--border);
-    color: var(--text-muted);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-.scorecard-result-btn svg {
-    transition: transform 0.2s;
-}
-.scorecard-result-btn:hover:not(:disabled) svg {
-    transform: translateX(4px);
-}
-
-/* Scorecard Result Screen */
-.scorecard-result {
-    display: none;
-    max-width: 800px;
-    margin: 32px auto 0;
-    background: #fff;
-    border-radius: var(--r-xl);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-}
-.scorecard-result.visible {
-    display: block;
-    animation: fadeSlideIn 0.5s var(--ease-out);
-}
-@keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.scorecard-result-header {
-    padding: 32px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-}
-.scorecard-result-header.level-low {
-    background: linear-gradient(180deg, rgba(16,185,129,0.05), transparent);
-}
-.scorecard-result-header.level-medium {
-    background: linear-gradient(180deg, rgba(245,158,11,0.08), transparent);
-}
-.scorecard-result-header.level-high {
-    background: linear-gradient(180deg, rgba(239,68,68,0.08), transparent);
-}
-
-.result-score-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: var(--r-full);
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-.level-low .result-score-badge {
-    background: rgba(16,185,129,0.1);
-    color: var(--success);
-}
-.level-medium .result-score-badge {
-    background: rgba(245,158,11,0.1);
-    color: var(--warning);
-}
-.level-high .result-score-badge {
-    background: rgba(239,68,68,0.1);
-    color: var(--danger);
-}
-.result-score-badge svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-}
-
-.scorecard-result-header h3 {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-.scorecard-result-header p {
-    font-size: 15px;
-    color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-/* Result Impact Summary */
-.result-impact-summary {
-    padding: 24px 32px;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-}
-.result-impact-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 16px;
-}
-.result-impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-}
-.result-impact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px;
-    background: #fff;
-    border-radius: var(--r-md);
-    border: 1px solid var(--border);
-}
-.result-impact-item.highlighted {
-    border-color: var(--danger);
-    background: rgba(239,68,68,0.02);
-}
-.result-impact-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--r-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.result-impact-icon.danger { background: rgba(239,68,68,0.1); }
-.result-impact-icon.danger svg { stroke: var(--danger); }
-.result-impact-icon.warn { background: rgba(245,158,11,0.1); }
-.result-impact-icon.warn svg { stroke: var(--warning); }
-.result-impact-icon svg { width: 16px; height: 16px; fill: none; }
-.result-impact-content h5 {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-.result-impact-content p {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-/* Result Actions */
-.result-actions {
-    padding: 32px;
-    text-align: center;
-}
-.result-actions-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-.result-actions-subtitle {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-}
-.result-actions-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 400px;
-    margin: 0 auto;
-}
-@media (min-width: 500px) {
-    .result-actions-btns {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-.btn-calc-impact {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-calc-impact:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-}
-.btn-calc-impact svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-}
-.btn-talk-now {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 24px;
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-talk-now:hover {
-    border-color: var(--accent);
-    background: rgba(27,58,92,0.03);
-}
-.btn-talk-now svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-}
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.flag-icon.danger { background: rgba(239,68,68,0.1); color: var(--danger); }
-.flag-icon.warn { background: rgba(245,158,11,0.1); color: var(--warning); }
-.flag-icon svg { width: 20px; height: 20px; stroke: currentColor; fill: none; }
-
-.flag-content h4 { font-size: 15px; color: var(--text); margin-bottom: 4px; }
-.flag-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
-
-/* Counter */
-.scorecard-counter {
-    margin-top: 24px;
-    padding: 20px 24px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    text-align: center;
-    transition: all 0.4s var(--ease-out);
-}
-.scorecard-counter.urgent {
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02));
-    border-color: rgba(239,68,68,0.3);
-    animation: shake 0.5s ease-in-out;
-}
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-.scorecard-count {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--warm);
-    transition: color var(--duration);
-}
-.scorecard-counter.urgent .scorecard-count { color: var(--danger); }
-
-.scorecard-verdict {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-top: 6px;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  7. COST METRICS                                                         ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.cost-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    text-align: center;
-}
-
-.cost-item {
-    padding: 24px 16px;
-    border-radius: var(--r-lg);
-    background: rgba(239,68,68,0.03);
-    border: 1px solid rgba(239,68,68,0.1);
-    transition: all var(--duration) var(--ease-out);
-}
-.cost-item:hover {
-    background: rgba(239,68,68,0.06);
-    transform: translateY(-4px);
-}
-
-.cost-item h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 700;
-    color: var(--danger);
-    margin-bottom: 4px;
-}
-
-.cost-item span {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-}
-
-.cost-item p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.5;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  8. CASE STUDY (Dark Section)                                            ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.case-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    background: rgba(212,136,58,0.2);
-    border: 1px solid rgba(212,136,58,0.3);
-    border-radius: var(--r-full);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--warm-light);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.case-timeline {
-    max-width: 640px;
-    margin: 40px auto;
-    position: relative;
-    padding-left: 50px;
-    text-align: left;
-}
-.case-timeline::before {
-    content: '';
-    position: absolute;
-    left: 17px;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background: linear-gradient(180deg, var(--warm), var(--accent-light));
-}
-
-.case-step {
-    position: relative;
-    margin-bottom: 32px;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.5s var(--ease-out);
-}
-.case-step.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-.case-step:nth-child(2) { transition-delay: 0.15s; }
-.case-step:nth-child(3) { transition-delay: 0.3s; }
-.case-step:last-child { margin-bottom: 0; }
-
-.case-marker {
-    position: absolute;
-    left: -50px;
-    top: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    box-shadow: 0 4px 16px rgba(212,136,58,0.4);
-}
-
-.case-step h4 { font-size: 16px; color: #fff; margin-bottom: 8px; }
-.case-step p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
-
-.case-takeaway {
-    max-width: 640px;
-    margin: 32px auto 0;
-    padding: 20px 24px;
-    background: rgba(212,136,58,0.08);
-    border-left: 3px solid var(--warm);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-    text-align: left;
-}
-.case-takeaway p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
-.case-takeaway strong { color: var(--warm-light); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  9. WHO SECTION                                                          ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.who-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    text-align: center;
-}
-@media (min-width: 768px) {
-    .who-inner { flex-direction: row; text-align: left; }
-}
-
-.who-photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-    transition: transform var(--duration) var(--ease-out);
-}
-.who-photo:hover { transform: scale(1.05); }
-
-.who-text h3 { font-size: clamp(24px, 5vw, 32px); margin-bottom: 4px; }
-.who-role { font-size: 16px; color: var(--warm-dark); font-weight: 600; margin-bottom: 16px; }
-.who-bio { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
-
-.who-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-@media (min-width: 768px) { .who-tags { justify-content: flex-start; } }
-
-.who-tag {
-    padding: 6px 14px;
-    border-radius: var(--r-full);
-    font-size: 12px;
-    font-weight: 700;
-    background: #fff;
-    color: var(--accent);
-    border: 1px solid var(--border);
-    transition: all var(--duration) var(--ease-out);
-}
-.who-tag:hover {
-    background: var(--accent);
-    color: #fff;
-}
-.who-tag.warm {
-    background: rgba(212,136,58,0.1);
-    color: var(--warm-dark);
-    border-color: rgba(212,136,58,0.2);
-}
-.who-tag.warm:hover {
-    background: var(--warm);
-    color: #fff;
-}
-
-.who-quote {
-    font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(16px, 3vw, 20px);
-    font-style: italic;
-    color: var(--text);
-    padding: 20px 24px;
-    border-left: 4px solid var(--warm);
-    background: rgba(212,136,58,0.05);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-    max-width: 500px;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  10. TIMELINE / 90 DAYS                                                  ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-}
-
-.phase {
-    background: #fff;
-    border: 1px solid rgba(212,136,58,0.15);
-    border-radius: var(--r-lg);
-    padding: 24px 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all var(--duration) var(--ease-out);
-}
-.phase::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    transition: height var(--duration);
-}
-.phase:hover::before { height: 5px; }
-.phase:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-
-.phase:nth-child(1)::before { background: #3B82F6; }
-.phase:nth-child(2)::before { background: var(--warm); }
-.phase:nth-child(3)::before { background: var(--success); }
-.phase:nth-child(4)::before { background: #8B5CF6; }
-
-.phase-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: var(--r-full);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-.phase-tag.diag { background: rgba(59,130,246,0.1); color: #3B82F6; }
-.phase-tag.build { background: rgba(212,136,58,0.1); color: var(--warm-dark); }
-.phase-tag.exec { background: rgba(16,185,129,0.1); color: var(--success); }
-.phase-tag.hand { background: rgba(139,92,246,0.1); color: #8B5CF6; }
-
-.phase h4 { font-size: 16px; color: var(--text); margin-bottom: 8px; }
-.phase p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
-.phase-del { margin-top: 12px; font-size: 12px; color: var(--text-muted); font-weight: 600; }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  11. COMPARISON CARDS                                                    ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-@media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; } }
-
-.comp-card {
-    border-radius: var(--r-lg);
-    padding: 28px 24px;
-    background: #fff;
-    border: 1px solid var(--border);
-    transition: all var(--duration) var(--ease-out);
-}
-.comp-card.bad { opacity: 0.85; }
-.comp-card.bad:hover { opacity: 0.75; }
-.comp-card.good {
-    border-color: var(--warm);
-    background: linear-gradient(160deg, rgba(212,136,58,0.05), #fff);
-}
-.comp-card.good:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(212,136,58,0.15);
-}
-
-.comp-card h4 { font-size: 17px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.comp-card.bad h4 { color: var(--text-muted); }
-.comp-card.good h4 { color: var(--warm-dark); }
-
-.comp-card ul { list-style: none; }
-.comp-card li {
-    font-size: 14px;
-    padding: 10px 0;
-    padding-left: 20px;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border);
-    position: relative;
-}
-.comp-card li:last-child { border-bottom: none; }
-.comp-card li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 16px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-}
-.comp-card.bad li::before { background: var(--text-muted); }
-.comp-card.good li::before { background: var(--warm); }
-.comp-card li strong { color: var(--text); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  12. MODEL OPTIONS                                                       ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.model-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-.model-card {
-    background: var(--bg);
-    border: 1px solid rgba(212,136,58,0.15);
-    border-radius: var(--r-lg);
-    padding: 28px 24px;
-    transition: all var(--duration) var(--ease-out);
-}
-.model-card:hover {
-    border-color: var(--accent-light);
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-.model-card.featured {
-    border: 2px solid var(--warm);
-    background: linear-gradient(160deg, #FFFBF5, #fff);
-    transform: scale(1.02);
-    box-shadow: 0 8px 32px rgba(212,136,58,0.15);
-}
-.model-card.featured:hover { transform: scale(1.04); }
-
-.model-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: var(--r-full);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: var(--warm);
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-.model-card h4 { font-size: 18px; margin-bottom: 6px; }
-.model-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
-.model-card ul { list-style: none; margin-bottom: 16px; }
-.model-card li {
-    font-size: 14px;
-    padding: 6px 0;
-    padding-left: 20px;
-    color: var(--text-secondary);
-    position: relative;
-}
-.model-card li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--warm);
-    font-weight: 700;
-}
-.model-price {
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--warm-dark);
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  13. DELIVERABLES LIST                                                   ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.del-list { max-width: 600px; margin: 0 auto; }
-
-.del-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 18px 20px;
-    border-radius: var(--r-md);
-    margin-bottom: 8px;
-    transition: all var(--duration) var(--ease-out);
-}
-.del-row:nth-child(odd) { background: #fff; border: 1px solid rgba(212,136,58,0.12); }
-.del-row:nth-child(even) { background: rgba(212,136,58,0.06); }
-.del-row:hover {
-    transform: translateX(8px);
-    box-shadow: var(--shadow-sm);
-}
-
-.del-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--warm);
-    min-width: 28px;
-}
-.del-row span:last-child { font-size: 15px; color: var(--text); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  14. FAQ                                                                 ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.faq-container { max-width: 720px; margin: 0 auto; }
-
-.faq-item {
-    margin-bottom: 12px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    transition: border-color var(--duration);
-}
-.faq-item:hover { border-color: var(--warm); }
-.faq-item.active { border-color: var(--warm); box-shadow: var(--shadow-sm); }
-
-.faq-question {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    text-align: left;
-    cursor: pointer;
-    transition: background var(--duration);
-}
-.faq-question:hover { background: rgba(27,58,92,0.02); }
-
-.faq-question .icon {
-    font-size: 20px;
-    color: var(--warm);
-    transition: transform var(--duration);
-}
-.faq-item.active .faq-question .icon { transform: rotate(45deg); }
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s var(--ease-out);
-}
-.faq-answer-content {
-    padding: 0 20px 18px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-.faq-answer-content strong { color: var(--text); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  15. CTA SECTION                                                         ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.cta-section {
-    padding: 80px 24px;
-    background: var(--bg-dark);
-}
-
-.cta-box {
-    background: #fff;
-    border-radius: var(--r-xl);
-    padding: 48px 32px;
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-.cta-box h2 { font-size: clamp(22px, 4vw, 28px); margin-bottom: 12px; }
-.cta-box > p { font-size: 15px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7; }
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: var(--shadow-glow);
-    position: relative;
-    overflow: hidden;
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(212,136,58,0.5);
-}
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-.btn-primary:hover::after { left: 100%; }
-.btn-primary svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
-
-.cta-divider {
-    position: relative;
-    margin: 28px 0;
-    text-align: center;
-}
-.cta-divider::before, .cta-divider::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 40%;
-    height: 1px;
-    background: var(--border);
-}
-.cta-divider::before { left: 0; }
-.cta-divider::after { right: 0; }
-.cta-divider span { background: #fff; padding: 0 16px; color: var(--text-muted); font-size: 13px; }
-
-.cta-guide {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    padding: 24px;
-    text-align: center;
-}
-.cta-guide h4 { font-size: 16px; margin-bottom: 8px; }
-.cta-guide p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
-
-.btn-secondary {
-    display: inline-block;
-    padding: 14px 28px;
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-secondary:hover {
-    border-color: var(--accent);
-    background: rgba(27,58,92,0.05);
-}
-
-.guide-note { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  16. TRUST BAR                                                           ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.trust-section { padding: 48px 24px; background: #FFFBF5; text-align: center; }
-
-.trust-bar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0;
-    max-width: 900px;
-    margin: 0 auto 24px;
-    background: #fff;
-    border: 1px solid rgba(212,136,58,0.15);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-}
-
-.trust-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 24px 16px;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-    transition: background var(--duration);
-}
-.trust-item:hover { background: rgba(212,136,58,0.03); }
-@media (min-width: 768px) {
-    .trust-item { border-bottom: none; border-right: 1px solid var(--border); }
-    .trust-item:last-child { border-right: none; }
-}
-
-.trust-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--r-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.trust-icon.oracle { background: rgba(239,68,68,0.08); }
-.trust-icon.att { background: rgba(59,130,246,0.08); }
-.trust-icon.endeavor { background: rgba(212,136,58,0.08); }
-.trust-icon svg { width: 20px; height: 20px; }
-
-.trust-item strong { font-size: 14px; color: var(--text); }
-.trust-item span { font-size: 12px; color: var(--text-muted); }
-
-.trust-note { font-size: 13px; color: var(--text-muted); max-width: 500px; margin: 0 auto; }
-.trust-note strong { color: var(--warm-dark); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  17. FOOTER                                                              ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-footer {
-    padding: 48px 24px 32px;
-    background: linear-gradient(180deg, #0A1525, #060D17);
-    text-align: center;
-}
-.footer-brand { font-family: 'DM Serif Display', serif; font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
-.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
-.footer-links a {
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color var(--duration);
-}
-.footer-links a:hover { color: var(--warm-light); }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  18. WHATSAPP FLOAT                                                      ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.whatsapp-float {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    z-index: 999;
-    transition: all var(--duration) var(--ease-out);
-}
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
-}
-.whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  19. CTAs CONTEXTUAIS                                                    ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.btn-contextual {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 28px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 16px rgba(212,136,58,0.25);
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-contextual:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(212,136,58,0.35);
-}
-.btn-contextual svg { flex-shrink: 0; }
-
-.btn-contextual-dark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 28px;
-    background: rgba(255,255,255,0.1);
-    border: 2px solid var(--warm-light);
-    color: var(--warm-light);
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all var(--duration) var(--ease-out);
-}
-.btn-contextual-dark:hover {
-    background: var(--warm-light);
-    color: var(--bg-dark);
-    transform: translateY(-2px);
-}
-
-/* Case CTA */
-.case-cta {
-    text-align: center;
-    margin-top: 32px;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  20. CALCULADORA DE IMPACTO                                              ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.calc-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--r-xl);
-    padding: 32px;
-    box-shadow: var(--shadow-sm);
-}
-
-.calc-inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 24px;
-}
-
-.calc-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.calc-field label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-}
-.calc-field input {
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 16px;
-    transition: border-color var(--duration);
-}
-.calc-field input:focus {
-    outline: none;
-    border-color: var(--warm);
-}
-.calc-hint {
-    font-size: 12px;
-    color: var(--text-muted);
-}
-
-.calc-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all var(--duration) var(--ease-out);
-}
-.calc-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(27,58,92,0.3);
-}
-
-.calc-results {
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-}
-.calc-results.hidden { display: none; }
-
-.calc-result-header h3 {
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.calc-result-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 24px;
-}
-@media (min-width: 500px) {
-    .calc-result-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-.calc-result-card {
-    padding: 20px 16px;
-    border-radius: var(--r-md);
-    text-align: center;
-}
-.calc-result-card.danger {
-    background: rgba(239,68,68,0.08);
-    border: 1px solid rgba(239,68,68,0.2);
-}
-.calc-result-card.warn {
-    background: rgba(245,158,11,0.08);
-    border: 1px solid rgba(245,158,11,0.2);
-}
-.calc-result-card.info {
-    background: rgba(27,58,92,0.05);
-    border: 1px solid rgba(27,58,92,0.15);
-}
-
-.calc-result-label {
-    display: block;
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-.calc-result-value {
-    display: block;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-}
-.calc-result-card.danger .calc-result-value { color: var(--danger); }
-.calc-result-card.warn .calc-result-value { color: var(--warning); }
-.calc-result-card.info .calc-result-value { color: var(--accent); }
-
-.calc-sources {
-    background: var(--bg);
-    border-radius: var(--r-md);
-    padding: 16px;
-    margin-bottom: 24px;
-}
-.calc-sources-title {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.calc-sources ul {
-    list-style: none;
-    font-size: 12px;
-    color: var(--text-secondary);
-}
-.calc-sources li {
-    padding: 4px 0;
-    padding-left: 16px;
-    position: relative;
-}
-.calc-sources li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--warm);
-}
-.calc-sources a {
-    color: var(--accent);
-    text-decoration: none;
-}
-.calc-sources a:hover {
-    text-decoration: underline;
-}
-
-.calc-cta {
-    text-align: center;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  21. RESPONSIVE ADJUSTMENTS                                               ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-@media (max-width: 767px) {
-    .btn-contextual,
-    .btn-contextual-dark {
-        width: 100%;
-        padding: 14px 20px;
-        font-size: 14px;
-    }
-    
-    .calc-container {
-        padding: 24px 20px;
-    }
-    
-    .calc-result-value {
-        font-size: 20px;
-    }
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  22. REPORT GENERATOR                                                    ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.report-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-@media (min-width: 768px) {
-    .report-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-}
-
-.report-preview {
-    background: linear-gradient(135deg, rgba(27,58,92,0.03), rgba(27,58,92,0.08));
-    border: 1px solid rgba(27,58,92,0.1);
-    border-radius: var(--r-xl);
-    padding: 28px;
-}
-
-.report-preview-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.report-badge {
-    background: var(--danger);
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-}
-
-.report-preview-header h4 {
-    font-size: 16px;
-    color: var(--text);
-}
-
-.report-features {
-    list-style: none;
-}
-.report-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    font-size: 14px;
-    color: var(--text-secondary);
-    border-bottom: 1px solid rgba(27,58,92,0.08);
-}
-.report-features li:last-child {
-    border-bottom: none;
-}
-.report-features svg {
-    width: 18px;
-    height: 18px;
-    stroke: var(--success);
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.report-form {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--r-xl);
-    padding: 28px;
-    box-shadow: var(--shadow-sm);
-}
-
-.report-form h4 {
-    font-size: 18px;
-    margin-bottom: 6px;
-}
-.report-form > div > p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-}
-
-.report-form-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.report-field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.report-field label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-}
-.report-field input,
-.report-field select {
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 15px;
-    transition: border-color var(--duration);
-}
-.report-field input:focus,
-.report-field select:focus {
-    outline: none;
-    border-color: var(--warm);
-}
-
-.report-note {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--text-muted);
-    background: var(--bg);
-    padding: 12px;
-    border-radius: var(--r-md);
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-.report-note svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-}
-
-.report-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-    color: #fff;
-    border: none;
-    border-radius: var(--r-md);
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all var(--duration) var(--ease-out);
-}
-.report-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-}
-.report-btn:disabled {
-    background: var(--border);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.report-success {
-    text-align: center;
-    padding: 20px 0;
-}
-.report-success.hidden { display: none; }
-.report-success-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-}
-.report-success h4 {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-.report-success p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  19. RESPONSIVE                                                          ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-@media (min-width: 768px) {
-    .section { padding: 100px 40px; }
-    .inv-hero { padding: 120px 40px 100px; }
-}
-
-@media (min-width: 1024px) {
-    .section { padding: 100px 10%; max-width: 1200px; }
-    .inv-hero { padding: 140px 10% 120px; }
-}
-
-/* ╔══════════════════════════════════════════════════════════════════════════╗
-   ║  GUIA 7 SINAIS BANNER - Compacto com contraste                          ║
-   ╚══════════════════════════════════════════════════════════════════════════╝ */
-.guia-banner-section {
-    background: var(--warm);
-    padding: 0;
-}
-
-.guia-banner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.guia-banner-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex: 1;
-}
-
-.guia-banner-icon {
-    display: none;
-}
-
-.guia-banner-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.guia-banner-badge {
-    display: none;
-}
-
-.guia-banner h3 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    margin: 0;
-    line-height: 1.3;
-}
-
-.guia-banner p {
-    display: none;
-}
-
-.guia-banner-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--bg-dark);
-    color: #fff;
-    border-radius: var(--r-md);
-    font-weight: 700;
-    font-size: 13px;
-    transition: all var(--duration) var(--ease-out);
-    white-space: nowrap;
-    text-decoration: none;
-}
-
-.guia-banner-btn:hover {
-    background: var(--accent);
-    transform: translateY(-1px);
-}
-
-.guia-banner-btn svg {
-    width: 16px;
-    height: 16px;
-}
-
-@media (max-width: 600px) {
-    .guia-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 14px 20px;
-        gap: 12px;
-    }
-    .guia-banner h3 {
-        font-size: 14px;
-    }
-    .guia-banner-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-.guia-banner-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-@media (max-width: 768px) {
-    .guia-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 28px 20px;
-    }
-    
-    .guia-banner-content {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .guia-banner-btn {
-        width: 100%;
-        justify-content: center;
-    }
+/* Mostrar hero e intro imediatamente sem animação */
+.hero, .hero * {
+    opacity: 1 !important;
+    transform: none !important;
 }
     </style>
     
@@ -2144,1575 +850,600 @@ footer {
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     SCROLL PROGRESS BAR
-     ════════════════════════════════════════════════════════════════════════════ -->
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     NAVIGATION
-     ════════════════════════════════════════════════════════════════════════════ -->
 <nav id="main-nav"></nav>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════════════════════
      HERO
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="inv-hero">
-    <div class="inv-hero-badge" data-i18n="investors.badge">Para GPs, Partners e Investment Teams</div>
-    <h1 data-i18n="investors.title">Quanto de Valor Está <span class="hl-warm">Travado</span> no Seu Portfólio?</h1>
-    <p class="inv-hero-sub" data-i18n="investors.subtitle">Portfolio companies B2B Tech com produto validado mas crescimento estagnado estão sentadas em valor que pode ser destravado. A diferença entre estagnação e crescimento composto é quase sempre <strong>arquitetura de receita</strong>.</p>
-    
-    <div class="inv-hero-stats reveal stagger" id="heroStats">
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat1.number">$283M</span>
-            <span class="inv-stat-label" data-i18n="investors.stat1.label">em receita total construída (Oracle, AT&T, ClearSale)</span>
-        </div>
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat2.number">90 dias</span>
-            <span class="inv-stat-label" data-i18n="investors.stat2.label">para primeiro resultado — com kill-switch</span>
-        </div>
-        <div class="inv-stat">
-            <span class="inv-stat-number" data-i18n="investors.stat3.number">3 max</span>
-            <span class="inv-stat-label" data-i18n="investors.stat3.label">empresas simultâneas</span>
-        </div>
-    </div>
-    
-    <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="inv-hero-cta pulse">
-        <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <span data-i18n="investors.hero.cta">Conversar Sobre Meu Portfólio</span>
-    </a>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     GUIA 7 SINAIS - Banner Compacto
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="guia-banner-section">
-    <div class="guia-banner">
-        <div class="guia-banner-content">
-            <div class="guia-banner-text">
-                <h3 data-i18n="investors.guiabanner.title">📄 Guia: Os 7 Sinais de Alerta de uma Portfolio Company Travada</h3>
-            </div>
-        </div>
-        <a href="guia-7-sinais.html" class="guia-banner-btn">
-            <span data-i18n="investors.guiabanner.button">Ver Guia</span> →
-        </a>
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">🚨 Guia para Investidores</span>
+        <h1>Os 7 Sinais de Alerta de uma Portfolio Company <span class="hl">Travada</span></h1>
+        <p class="hero-sub">Como identificar problemas de GTM antes que virem crise — e o que fazer a respeito.</p>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     SCORECARD - EXPANDED VERSION
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-warm" id="diagnostico">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.scorecard.title">Diagnóstico Rápido</h2>
-        <p data-i18n="investors.scorecard.subtitle">Selecione os sinais que se aplicam à portfolio company. Clique em "Por que isso importa" para entender o impacto.</p>
-    </div>
-    
-    <div class="scorecard-grid reveal" id="scorecardGrid">
-        <!-- FLAG 1: Crescimento Flat -->
-        <div class="flag" data-flag="1">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon danger"><svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag1.title">Crescimento Flat 6+ Meses</h4>
-                    <p data-i18n="investors.flag1.text">ARR estagnado apesar de produto validado</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-            </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag1.why">Empresas B2B SaaS enfrentam um "Growth Plateau" típico entre $20-25M ARR. Estagnação por 6+ meses indica que o problema não é o produto — é a arquitetura de go-to-market. Sem intervenção, a estagnação se torna o novo normal.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">73%</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag1.stat">das empresas que estagnam por 6+ meses não se recuperam sem mudança de liderança de GTM</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: ICONIQ Capital Growth Research 2024</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag1.impact">-30% no valuation após 2 quarters flat. Cada mês adicional de estagnação compõe a perda.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     INTRO
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="intro">
+    <div class="intro-content reveal">
+        <p>Você investiu em uma empresa B2B Tech promissora. O produto foi validado, os primeiros clientes estão satisfeitos. Mas há meses a receita estacionou. O founder trabalha 80 horas por semana, os board meetings viraram sessões de explicação. <strong>O que está acontecendo?</strong></p>
         
-        <!-- FLAG 2: Ciclo de Vendas Alongando -->
-        <div class="flag" data-flag="2">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon warn"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag2.title">Ciclo de Vendas Alongando</h4>
-                    <p data-i18n="investors.flag2.text">Deals demorando mais para fechar</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
+        <div class="intro-stats">
+            <div class="intro-stat">
+                <span class="intro-stat-number">78%</span>
+                <span class="intro-stat-label">das startups travam após PMF</span>
             </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag2.why">Ciclo de vendas alongando é sintoma de três problemas: (1) qualificação fraca gerando leads ruins, (2) falta de playbook para acelerar decisão, ou (3) proposta de valor não ressonando. Cada dia a mais no ciclo aumenta o CAC e reduz a eficiência do capital.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">+15%</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag2.stat">de aumento no ciclo = +22% no CAC (relação não-linear)</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: OpenView SaaS Benchmarks 2024</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag2.impact">Ciclo alongando queima runway mais rápido. Uma empresa com 18 meses de runway pode ter apenas 12 meses efetivos.</p>
-                    </div>
-                </div>
+            <div class="intro-stat">
+                <span class="intro-stat-number">6-12</span>
+                <span class="intro-stat-label">meses para perceber o problema</span>
             </div>
-        </div>
-        
-        <!-- FLAG 3: CAC Subindo -->
-        <div class="flag" data-flag="3">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon danger"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag3.title">CAC Subindo Sem Controle</h4>
-                    <p data-i18n="investors.flag3.text">Custo de aquisição aumentando</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-            </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag3.why">CAC subindo indica que os canais estão saturando ou que a operação comercial está ineficiente. O benchmark saudável é CAC Payback < 18 meses. Quando passa de 24 meses, a unit economics quebra e crescimento vira destruição de valor.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">< 18 meses</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag3.stat">CAC Payback ideal. Mediana do mercado: 22 meses</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: SaaS Capital Benchmarks 2025</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag3.impact">CAC descontrolado = necessidade de mais capital para atingir mesmos milestones. Diluição desnecessária para o fundo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- FLAG 4: Founder Preso em Vendas -->
-        <div class="flag" data-flag="4">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon warn"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag4.title">Founder Preso em Vendas</h4>
-                    <p data-i18n="investors.flag4.text">CEO ainda fecha a maioria dos deals</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-            </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag4.why">Se o founder ainda fecha a maioria dos deals, a empresa não escalou a função comercial. Jason Lemkin recomenda que founders gastem mínimo 20% do tempo com clientes — mas como estratégia, não execução. Founder vendendo é gargalo de crescimento.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">70%</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag4.stat">dos primeiros VPs de Sales em SaaS não completam 12 meses</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: SaaStr / Jason Lemkin</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag4.impact">Founder no operacional = produto e estratégia negligenciados. Risco de perder diferenciação competitiva.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- FLAG 5: Pipeline Inconsistente -->
-        <div class="flag" data-flag="5">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon danger"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag5.title">Pipeline Inconsistente</h4>
-                    <p data-i18n="investors.flag5.text">Previsibilidade baixa, forecast errado</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-            </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag5.why">Pipeline inconsistente significa que não existe processo comercial repetível. Quando cada vendedor faz do seu jeito, não dá para prever receita, identificar gargalos, ou escalar o que funciona. É o sinal mais claro de imaturidade de GTM.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">3-4x</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag5.stat">pipeline coverage ideal para previsibilidade de receita</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: Bessemer Venture Partners</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag5.impact">Sem previsibilidade, não dá para planejar fundraising, contratações, ou investimentos. Board meetings viram exercício de frustração.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- FLAG 6: Não Sabe Por Que Perde Deals -->
-        <div class="flag" data-flag="6">
-            <div class="flag-header">
-                <div class="flag-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-                <div class="flag-icon warn"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-                <div class="flag-content">
-                    <h4 data-i18n="investors.flag6.title">Não Sabe Por Que Perde Deals</h4>
-                    <p data-i18n="investors.flag6.text">Falta visibilidade sobre motivos de perda</p>
-                </div>
-                <button class="flag-expand-btn" onclick="toggleFlagExpand(event, this)" aria-label="Expandir">
-                    <span data-i18n="investors.flag.expand">Por quê?</span>
-                    <svg viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-            </div>
-            <div class="flag-explanation">
-                <div class="flag-explanation-inner">
-                    <div class="flag-why">
-                        <div class="flag-why-label">
-                            <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-                            <span data-i18n="investors.flag.whylabel">Por que isso importa</span>
-                        </div>
-                        <p class="flag-why-text" data-i18n="investors.flag6.why">Se a empresa não sabe por que perde deals, está voando às cegas. Motivos de perda são a fonte primária de inteligência competitiva e de produto. Sem esse dado, ajustes são baseados em achismo — e achismo não escala.</p>
-                    </div>
-                    <div class="flag-stat">
-                        <div class="flag-stat-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-                        <div class="flag-stat-content">
-                            <span class="flag-stat-value">67%</span>
-                            <span class="flag-stat-label" data-i18n="investors.flag6.stat">dos deals perdidos poderiam ser recuperados com follow-up estruturado</span>
-                        </div>
-                    </div>
-                    <p class="flag-stat-source">Fonte: Gartner Sales Research 2024</p>
-                    <div class="flag-impact">
-                        <p class="flag-impact-label" data-i18n="investors.flag.impactlabel">Impacto no portfólio:</p>
-                        <p class="flag-impact-text" data-i18n="investors.flag6.impact">Cada deal perdido sem análise é dinheiro e aprendizado jogados fora. Win rate cai progressivamente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Counter com botão integrado -->
-    <div class="scorecard-counter reveal" id="scorecardCounter">
-        <div class="scorecard-counter-top">
-            <div class="scorecard-count-wrapper">
-                <span class="scorecard-count-number" id="flagCount">0</span>
-                <span class="scorecard-count-label" data-i18n="investors.scorecard.countlabel">de 6 sinais selecionados</span>
-            </div>
-            <p class="scorecard-verdict" id="scorecardVerdict" data-i18n="investors.scorecard.verdict.default">Selecione os sinais que se aplicam à sua portfolio company</p>
-        </div>
-        <button class="scorecard-result-btn" id="scorecardResultBtn" onclick="showScorecardResult()" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
-            <span data-i18n="investors.scorecard.btnresult">Ver Diagnóstico Completo</span>
-        </button>
-    </div>
-    
-    <!-- Tela de Resultado do Scorecard -->
-    <div class="scorecard-result" id="scorecardResult">
-        <div class="scorecard-result-header" id="scorecardResultHeader">
-            <div class="result-score-badge" id="resultScoreBadge">
-                <svg viewBox="0 0 24 24" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                <span id="resultScoreLabel">3/6 sinais identificados</span>
-            </div>
-            <h3 id="resultTitle" data-i18n="investors.result.title.medium">Padrão de Problema de GTM Identificado</h3>
-            <p id="resultDescription" data-i18n="investors.result.desc.medium">Os sinais selecionados indicam que a portfolio company tem desafios estruturais de go-to-market que estão travando o crescimento.</p>
-        </div>
-        
-        <div class="result-impact-summary" id="resultImpactSummary">
-            <p class="result-impact-title" data-i18n="investors.result.impacttitle">Sinais selecionados e seus impactos:</p>
-            <div class="result-impact-grid" id="resultImpactGrid">
-                <!-- Preenchido via JS -->
-            </div>
-        </div>
-        
-        <div class="result-actions">
-            <p class="result-actions-title" data-i18n="investors.result.nextstep">Próximo passo:</p>
-            <p class="result-actions-subtitle" data-i18n="investors.result.nextstepdesc">Calcule o impacto financeiro exato ou converse diretamente</p>
-            <div class="result-actions-btns">
-                <a href="#calculator" class="btn-calc-impact" onclick="scrollToCalculator()">
-                    <svg viewBox="0 0 24 24" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/></svg>
-                    <span data-i18n="investors.result.btncalc">Calcular Impacto Financeiro</span>
-                </a>
-                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-talk-now">
-                    <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                    <span data-i18n="investors.result.btntalk">Conversar Agora</span>
-                </a>
+            <div class="intro-stat">
+                <span class="intro-stat-number">$2M+</span>
+                <span class="intro-stat-label">custo médio por quarter parado</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     COST
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-white">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.cost.title">O Custo da Inação</h2>
-        <p data-i18n="investors.cost.subtitle">Cada mês de crescimento estagnado tem impacto composto no valuation</p>
-    </div>
-    
-    <div class="cost-grid reveal stagger">
-        <div class="cost-item">
-            <h3 data-i18n="investors.cost.item1.number">12-18</h3>
-            <span data-i18n="investors.cost.item1.label">meses</span>
-            <p data-i18n="investors.cost.item1.text">Tempo médio para VP de Vendas atingir performance</p>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     OS 7 SINAIS - CARDS
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="signals" id="sinais">
+    <div class="signals-container">
+        <div class="signals-header reveal">
+            <h2>Os 7 Sinais de Alerta</h2>
+            <p>Padrões que identificamos repetidamente em empresas B2B Tech que pararam de crescer.</p>
         </div>
-        <div class="cost-item">
-            <h3 data-i18n="investors.cost.item2.number">50%+</h3>
-            <span data-i18n="investors.cost.item2.label">mis-hire rate</span>
-            <p data-i18n="investors.cost.item2.text">Taxa de erro em contratações de VP</p>
-        </div>
-        <div class="cost-item">
-            <h3 data-i18n="investors.cost.item3.number">R$1.5M</h3>
-            <span data-i18n="investors.cost.item3.label">custo total</span>
-            <p data-i18n="investors.cost.item3.text">All-in de um VP (salário + equity + ramp)</p>
-        </div>
-        <div class="cost-item">
-            <h3 data-i18n="investors.cost.item4.number">-30%</h3>
-            <span data-i18n="investors.cost.item4.label">valuation</span>
-            <p data-i18n="investors.cost.item4.text">Impacto após 2 quarters flat</p>
-        </div>
-    </div>
-</section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     IMPACT CALCULATOR - Baseado em dados de mercado
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-warm" id="calculator">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.calc.title">Calculadora de <span class="hl">Impacto</span></h2>
-        <p data-i18n="investors.calc.subtitle">Estime quanto valor está travado na sua portfolio company</p>
-    </div>
-    
-    <div class="calc-container reveal">
-        <div class="calc-inputs">
-            <div class="calc-field">
-                <label for="calcArr" data-i18n="investors.calc.arr">ARR Atual (R$)</label>
-                <input type="text" id="calcArr" placeholder="Ex: 10000000" inputmode="numeric">
-                <span class="calc-hint" data-i18n="investors.calc.arr.hint">Receita recorrente anual</span>
-            </div>
-            <div class="calc-field">
-                <label for="calcGrowth" data-i18n="investors.calc.growth">Crescimento Atual (%)</label>
-                <input type="number" id="calcGrowth" placeholder="Ex: 5" min="0" max="100">
-                <span class="calc-hint" data-i18n="investors.calc.growth.hint">YoY growth rate</span>
-            </div>
-            <div class="calc-field">
-                <label for="calcTarget" data-i18n="investors.calc.target">Meta de Crescimento (%)</label>
-                <input type="number" id="calcTarget" placeholder="Ex: 30" min="0" max="200" value="30">
-                <span class="calc-hint" data-i18n="investors.calc.target.hint">Growth rate desejado</span>
-            </div>
-        </div>
-        
-        <button class="calc-btn" onclick="calculateImpact()" data-i18n="investors.calc.btn">Calcular Impacto</button>
-        
-        <div class="calc-results hidden" id="calcResults">
-            <div class="calc-result-header">
-                <h3 data-i18n="investors.calc.results.title">Impacto Estimado em 12 Meses</h3>
-            </div>
-            
-            <div class="calc-result-grid">
-                <div class="calc-result-card danger">
-                    <span class="calc-result-label" data-i18n="investors.calc.results.lost">Receita Não Capturada</span>
-                    <span class="calc-result-value" id="resultLostRevenue">-</span>
+        <div class="signals-grid">
+            <!-- Sinal 1 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">1</div>
+                    <h3 class="signal-title">Pipeline Sempre "Quase Lá"</h3>
                 </div>
-                <div class="calc-result-card warn">
-                    <span class="calc-result-label" data-i18n="investors.calc.results.valuation">Impacto no Valuation</span>
-                    <span class="calc-result-value" id="resultValuation">-</span>
+                <p class="signal-description">O pipeline parece saudável no papel — 3x, 4x de cobertura. Mas os deals não fecham. O quarter termina sempre abaixo da meta.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Temos R$5M em pipeline para meta de R$1M"</div>
+                    <div class="signal-quote">"O deal X está 90% fechado"</div>
+                    <div class="signal-quote">"Perdemos por timing, não por produto"</div>
                 </div>
-                <div class="calc-result-card info">
-                    <span class="calc-result-label" data-i18n="investors.calc.results.multiple">Múltiplo Aplicado</span>
-                    <span class="calc-result-value" id="resultMultiple">-</span>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Pipeline coverage > 4x com win rate < 20%
                 </div>
             </div>
-            
-            <div class="calc-sources">
-                <p class="calc-sources-title" data-i18n="investors.calc.sources.title">Fontes dos dados:</p>
-                <ul>
-                    <li><a href="https://www.saas-capital.com/blog-posts/private-saas-company-valuations-multiples/" target="_blank" rel="noopener">SaaS Capital Index (Jan 2025)</a>: <span data-i18n="investors.calc.sources.saascapital">Múltiplo mediano privado 4.8x-5.3x ARR</span></li>
-                    <li><a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors (2025)</a>: <span data-i18n="investors.calc.sources.aventis">Múltiplo M&A mediano 3.8x ARR</span></li>
-                    <li><a href="https://www.saastr.com/if-your-vp-sales-isnt-going-to-work-out-youll-know-in-30-days/" target="_blank" rel="noopener">SaaStr / Jason Lemkin</a>: <span data-i18n="investors.calc.sources.saastr">70% dos VPs de Sales não completam 12 meses</span></li>
-                </ul>
+
+            <!-- Sinal 2 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">2</div>
+                    <h3 class="signal-title">Ciclo de Vendas Elástico</h3>
+                </div>
+                <p class="signal-description">O ciclo médio deveria ser 90 dias, mas metade dos deals está aberta há 6 meses. "Decisões se arrastando" virou explicação padrão.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"O cliente ainda está avaliando"</div>
+                    <div class="signal-quote">"Esperando aprovação do board deles"</div>
+                    <div class="signal-quote">"Procurement está demorando"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    40%+ dos deals abertos há > 1.5x o ciclo médio
+                </div>
             </div>
-            
-            <div class="calc-cta">
-                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-contextual">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+
+            <!-- Sinal 3 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">3</div>
+                    <h3 class="signal-title">Founder em Modo Bombeiro</h3>
+                </div>
+                <p class="signal-description">O CEO deveria focar em estratégia. Em vez disso, está em todas as calls de vendas, salvando deals, virando gargalo da operação.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Só eu consigo explicar a visão"</div>
+                    <div class="signal-quote">"Os clientes querem falar com o CEO"</div>
+                    <div class="signal-quote">"Se eu não entrar, não fecha"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    CEO em > 50% das reuniões após Série A
+                </div>
+            </div>
+
+            <!-- Sinal 4 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">4</div>
+                    <h3 class="signal-title">Time Vendendo Features</h3>
+                </div>
+                <p class="signal-description">Nas calls, a equipe passa 80% do tempo em funcionalidades. Quando perguntam sobre ROI, as respostas são vagas.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Nossa integração é melhor"</div>
+                    <div class="signal-quote">"Temos mais features que todos"</div>
+                    <div class="signal-quote">"O cliente adorou a demo"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Win rate vs concorrente < 30%
+                </div>
+            </div>
+
+            <!-- INLINE CTA - Após 4 sinais -->
+            <div class="inline-cta reveal" style="grid-column: 1 / -1;">
+                <div class="inline-cta-content">
+                    <h3>📥 Quer a versão PDF para o board meeting?</h3>
+                    <p>Guia completo + scorecard pronto para imprimir</p>
+                </div>
+                <a href="#download" class="btn-inline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
-                    <span data-i18n="investors.calc.cta">Discutir como recuperar esse valor →</span>
+                    Baixar PDF Gratuito
                 </a>
+            </div>
+
+            <!-- Sinal 5 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">5</div>
+                    <h3 class="signal-title">ICP Nebuloso</h3>
+                </div>
+                <p class="signal-description">"Nosso produto serve para qualquer empresa de médio porte." O ICP é tão amplo que não significa nada.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Serve para qualquer empresa"</div>
+                    <div class="signal-quote">"Não queremos limitar mercado"</div>
+                    <div class="signal-quote">"Cada vertical tem oportunidade"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Churn concentrado em segmento específico
+                </div>
+            </div>
+
+            <!-- Sinal 6 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">6</div>
+                    <h3 class="signal-title">Métricas Sem Dono</h3>
+                </div>
+                <p class="signal-description">Ninguém sabe o CAC real, o LTV, ou conversão por estágio. Dados em planilhas dispersas, cada gestor tem sua versão.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Estamos implementando CRM novo"</div>
+                    <div class="signal-quote">"Dados ainda não consolidados"</div>
+                    <div class="signal-quote">"É responsabilidade de todos"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    Não responde unit economics em 24h
+                </div>
+            </div>
+
+            <!-- Sinal 7 -->
+            <div class="signal-card reveal">
+                <div class="signal-header">
+                    <div class="signal-number">7</div>
+                    <h3 class="signal-title">NRR Estagnado ou Caindo</h3>
+                </div>
+                <p class="signal-description">Net Revenue Retention abaixo de 100%. A base existente está encolhendo. Você corre só para ficar no lugar.</p>
+                <div class="signal-quotes">
+                    <div class="signal-quotes-label">O que você ouve no board:</div>
+                    <div class="signal-quote">"Mercado difícil para upsell"</div>
+                    <div class="signal-quote">"Clientes cortando custos"</div>
+                    <div class="signal-quote">"Focando em aquisição primeiro"</div>
+                </div>
+                <div class="signal-red-flag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h14l1 2v13l-1 2H4l-1-2V4l1-2zm0 2v13h14V4H4zm2 2h10v2H6V6z"/></svg>
+                    NRR < 90% por dois quarters seguidos
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     REPORT GENERATOR - Relatório personalizado por email
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-white" id="report">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.report.title">Receba um <span class="hl">Relatório Detalhado</span></h2>
-        <p data-i18n="investors.report.subtitle">Análise completa do impacto no seu portfólio com benchmarks de mercado e fontes</p>
-    </div>
-    
-    <div class="report-container reveal">
-        <div class="report-preview">
-            <div class="report-preview-header">
-                <span class="report-badge">PDF</span>
-                <h4 data-i18n="investors.report.preview.title">O que você vai receber:</h4>
-            </div>
-            <ul class="report-features">
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="investors.report.feature1">Diagnóstico baseado nos sinais selecionados</span>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="investors.report.feature2">Cálculo detalhado de impacto no valuation</span>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="investors.report.feature3">Benchmarks de mercado com fontes (SaaS Capital, Aventis, SaaStr)</span>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="investors.report.feature4">Plano de ação recomendado para os primeiros 90 dias</span>
-                </li>
-                <li>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="investors.report.feature5">Comparativo: Fractional CRO vs VP Sales vs Consultoria</span>
-                </li>
-            </ul>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     SCORECARD
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="scorecard-section">
+    <div class="scorecard-container">
+        <div class="scorecard-header reveal">
+            <h2>Scorecard: Avaliação Rápida</h2>
+            <p>Use esta tabela no próximo board meeting para avaliar a saúde do GTM.</p>
         </div>
-        
-        <div class="report-form" id="reportFormContainer">
-            <div id="reportFormInput">
-                <h4 data-i18n="investors.report.form.title">Gerar relatório personalizado</h4>
-                <p data-i18n="investors.report.form.subtitle">Preencha os dados abaixo para receber o PDF</p>
-                
-                <div class="report-form-fields">
-                    <div class="report-field">
-                        <label for="reportEmail" data-i18n="investors.report.form.email">Email corporativo</label>
-                        <input type="email" id="reportEmail" placeholder="seu@fundo.com">
+
+        <div class="scorecard-table reveal">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Métrica</th>
+                        <th>🟢 Saudável</th>
+                        <th>🟡 Atenção</th>
+                        <th>🔴 Crítico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pipeline Coverage</td>
+                        <td class="col-green">> 3x com WR > 25%</td>
+                        <td class="col-yellow">2-3x ou WR 15-25%</td>
+                        <td class="col-red">< 2x ou WR < 15%</td>
+                    </tr>
+                    <tr>
+                        <td>Ciclo de Vendas</td>
+                        <td class="col-green">Dentro do benchmark</td>
+                        <td class="col-yellow">Até 1.5x benchmark</td>
+                        <td class="col-red">> 1.5x benchmark</td>
+                    </tr>
+                    <tr>
+                        <td>Envolvimento CEO</td>
+                        <td class="col-green">< 20% das calls</td>
+                        <td class="col-yellow">20-50% das calls</td>
+                        <td class="col-red">> 50% das calls</td>
+                    </tr>
+                    <tr>
+                        <td>Win Rate vs Concorrente</td>
+                        <td class="col-green">> 40%</td>
+                        <td class="col-yellow">30-40%</td>
+                        <td class="col-red">< 30%</td>
+                    </tr>
+                    <tr>
+                        <td>ICP Definido</td>
+                        <td class="col-green">Documentado</td>
+                        <td class="col-yellow">Existe mas flexível</td>
+                        <td class="col-red">Vago ou inexistente</td>
+                    </tr>
+                    <tr>
+                        <td>Tempo para Dados</td>
+                        <td class="col-green">< 24h</td>
+                        <td class="col-yellow">24-72h</td>
+                        <td class="col-red">> 72h ou impreciso</td>
+                    </tr>
+                    <tr>
+                        <td>NRR</td>
+                        <td class="col-green">> 110%</td>
+                        <td class="col-yellow">100-110%</td>
+                        <td class="col-red">< 100%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="scorecard-legend reveal">
+            <div class="legend-item"><span class="legend-dot green"></span> 0-2 críticos: Administrável</div>
+            <div class="legend-item"><span class="legend-dot yellow"></span> 3-4 críticos: Alerta</div>
+            <div class="legend-item"><span class="legend-dot red"></span> 5+ críticos: Urgente</div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     DOWNLOAD PDF
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="download-section" id="download">
+    <div class="download-container">
+        <h2>📥 Baixe o Guia Completo em PDF</h2>
+        <p>Versão para imprimir com análise detalhada de cada sinal + scorecard pronto para usar.</p>
+
+        <div class="download-form reveal">
+            <div class="form-content" id="formContent">
+                <form id="leadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email corporativo</label>
+                            <input type="email" id="email" name="email" placeholder="nome@empresa.com" required>
+                        </div>
                     </div>
-                    <div class="report-field">
-                        <label for="reportProfile" data-i18n="investors.report.form.profile">Perfil</label>
-                        <select id="reportProfile">
-                            <option value="" disabled selected data-i18n="investors.report.form.select">Selecione...</option>
-                            <option value="gp" data-i18n="investors.report.form.gp">GP / Partner</option>
-                            <option value="principal" data-i18n="investors.report.form.principal">Principal / Director</option>
-                            <option value="analyst" data-i18n="investors.report.form.analyst">Analyst / Associate</option>
-                            <option value="founder" data-i18n="investors.report.form.founder">Founder / CEO (portfolio)</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Cargo</label>
+                            <select id="role" name="role" required>
+                                <option value="">Selecione...</option>
+                                <option value="gp">GP / Managing Partner</option>
+                                <option value="partner">Partner</option>
+                                <option value="principal">Principal / Director</option>
+                                <option value="ceo">CEO / Founder</option>
+                                <option value="cro">CRO / VP Sales</option>
+                                <option value="board">Board Member</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fund">Fundo / Empresa (opcional)</label>
+                            <input type="text" id="fund" name="fund" placeholder="Ex: Kaszek, Monashees...">
+                        </div>
                     </div>
-                    <div class="report-field">
-                        <label for="reportCompany" data-i18n="investors.report.form.company">Nome do Fundo (opcional)</label>
-                        <input type="text" id="reportCompany" placeholder="Ex: Kaszek, Valor Capital">
-                    </div>
-                </div>
-                
-                <p class="report-note" data-i18n="investors.report.form.note">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v-4M12 8h.01"/></svg>
-                    O relatório inclui os dados do scorecard e calculadora acima. Complete essas seções para um diagnóstico mais preciso.
-                </p>
-                
-                <button class="report-btn" onclick="generateReport()" id="reportBtn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                    <button type="submit" class="btn-download" id="submitBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Baixar PDF Gratuito
+                    </button>
+                </form>
+                <p class="form-footer">Seus dados estão seguros. Não fazemos spam.</p>
+            </div>
+
+            <div class="form-success" id="formSuccess">
+                <div class="form-success-icon">✓</div>
+                <h3>Guia Enviado!</h3>
+                <p>Também enviamos para seu email. Baixe diretamente:</p>
+                <a href="assets/7_sinais_alerta.pdf" download class="download-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
                     </svg>
-                    <span data-i18n="investors.report.form.btn">Gerar e Enviar Relatório</span>
-                </button>
-            </div>
-            
-            <div class="report-success hidden" id="reportSuccess">
-                <div class="report-success-icon">✅</div>
-                <h4 data-i18n="investors.report.success.title">Relatório enviado!</h4>
-                <p data-i18n="investors.report.success.text">Verifique sua caixa de entrada. O PDF será gerado e enviado em até 5 minutos.</p>
-                <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-contextual">
-                    <span data-i18n="investors.report.success.cta">Enquanto isso, agende uma conversa →</span>
+                    Baixar PDF Agora
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     CASE STUDY
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-dark">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <span class="case-badge" data-i18n="investors.case.badge">Case: De Vendas Zero a IPO</span>
-            <h2 style="color:#fff" data-i18n="investors.case.title">ClearSale: Construindo a Operação do Zero</h2>
-            <p data-i18n="investors.case.subtitle">Como criei a estrutura comercial que preparou a empresa para o IPO</p>
-        </div>
-        
-        <div class="case-timeline" id="caseTimeline">
-            <div class="case-step">
-                <div class="case-marker">1</div>
-                <h4 data-i18n="investors.case.step1.title">Entrada: Empresa sem vendas estruturadas</h4>
-                <p data-i18n="investors.case.step1.text">Produto validado de prevenção a fraudes, mas zero estrutura comercial. Founders técnicos brilhantes, vendas reativas.</p>
-            </div>
-            <div class="case-step">
-                <div class="case-marker">2</div>
-                <h4 data-i18n="investors.case.step2.title">Construção: Arquitetura de vendas do zero</h4>
-                <p data-i18n="investors.case.step2.text">Contratei e treinei o primeiro time comercial. Criei processos, implementei CRM e métricas de gestão.</p>
-            </div>
-            <div class="case-step">
-                <div class="case-marker">3</div>
-                <h4 data-i18n="investors.case.step3.title">Resultado: Fundação para crescimento</h4>
-                <p data-i18n="investors.case.step3.text">A estrutura comercial se tornou a base para todo o crescimento. Anos depois, IPO na B3.</p>
-            </div>
-        </div>
-        
-        <div class="case-takeaway reveal">
-            <p data-i18n="investors.case.takeaway"><strong>A lição para fundos:</strong> O que fiz foi criar a operação de vendas que não existia — contratar o time, instalar os processos, e preparar a base. É esse tipo de fundação que transforma uma empresa com bom produto em uma empresa com <strong>receita escalável</strong>.</p>
-        </div>
-        
-        <!-- CTA Contextual - Após prova social -->
-        <div class="case-cta">
-            <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-contextual-dark">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-                </svg>
-                <span data-i18n="investors.case.cta">Quero esse resultado para minha portfolio →</span>
-            </a>
-        </div>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<section class="final-cta">
+    <div class="final-cta-container reveal">
+        <h2>Identificou sinais na sua portfolio?</h2>
+        <p>A Alavanka oferece Fractional CRO para empresas B2B Tech que precisam destravar crescimento — sem o custo e risco de uma contratação executiva tradicional.</p>
+        <a href="investidores.html" class="btn-cta">Conhecer a Solução para Investidores →</a>
     </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     WHO
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-warm">
-    <div class="who-inner reveal">
-        <img src="assets/images/brand/carlos-andre-investidores.jpg" alt="Carlos André" class="who-photo" loading="lazy">
-        <div class="who-text">
-            <h3 data-i18n="investors.who.name">Carlos André</h3>
-            <p class="who-role" data-i18n="investors.who.role">Partner & Founder · Alavanka</p>
-            <p class="who-bio" data-i18n="investors.who.bio">25+ anos construindo operações de receita B2B Tech. Na Oracle, levei de $48M a $240M. Na AT&T LATAM, de $3M a $47M. Não aconselho crescimento — entro na operação, crio a estrutura, e saio quando roda sozinha.</p>
-            <div class="who-tags">
-                <span class="who-tag" data-i18n="investors.who.tag1">Ex-Presidente Oracle Brasil</span>
-                <span class="who-tag" data-i18n="investors.who.tag2">Ex-CEO AT&T LATAM</span>
-                <span class="who-tag warm" data-i18n="investors.who.tag3">Mentor Endeavor</span>
-            </div>
-            <blockquote class="who-quote" data-i18n="investors.who.quote">
-                "Quando um GP me liga, o diagnóstico geralmente já está feito. O que falta é alguém que entre na operação e execute."
-            </blockquote>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     90 DAYS
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-dark">
-    <div class="section-inner">
-        <div class="section-header reveal">
-            <h2 style="color:#fff" data-i18n="investors.timeline.title">Os Primeiros 90 Dias</h2>
-            <p data-i18n="investors.timeline.subtitle">Framework estruturado com entregáveis concretos</p>
-        </div>
-        
-        <div class="timeline-grid reveal stagger">
-            <div class="phase lift">
-                <span class="phase-tag diag" data-i18n="investors.phase1.tag">D1–D30 · Diagnóstico</span>
-                <h4 data-i18n="investors.phase1.title">Raio-X Completo</h4>
-                <p data-i18n="investors.phase1.text">Imersão na operação: pipeline, métricas, processos, time. Entrevistas com founder, vendedores e clientes.</p>
-                <p class="phase-del" data-i18n="investors.phase1.del">→ Diagnóstico + plano ao board</p>
-            </div>
-            <div class="phase lift">
-                <span class="phase-tag build" data-i18n="investors.phase2.tag">D30–D60 · Arquitetura</span>
-                <h4 data-i18n="investors.phase2.title">Instalar a Estrutura</h4>
-                <p data-i18n="investors.phase2.text">Processos de venda, cadência de pipeline, playbook, métricas. Se precisa contratar, contrato.</p>
-                <p class="phase-del" data-i18n="investors.phase2.del">→ Processos + primeiras métricas</p>
-            </div>
-            <div class="phase lift">
-                <span class="phase-tag exec" data-i18n="investors.phase3.tag">D60–D90 · Execução</span>
-                <h4 data-i18n="investors.phase3.title">Operar e Ajustar</h4>
-                <p data-i18n="investors.phase3.text">Execução junto ao time, ajustes em tempo real, coaching de vendedores e gestores.</p>
-                <p class="phase-del" data-i18n="investors.phase3.del">→ Resultado ou kill-switch</p>
-            </div>
-            <div class="phase lift">
-                <span class="phase-tag hand" data-i18n="investors.phase4.tag">D90+ · Handover</span>
-                <h4 data-i18n="investors.phase4.title">Transferir e Sair</h4>
-                <p data-i18n="investors.phase4.text">Documentação completa, playbook transferível, liderança comercial capacitada.</p>
-                <p class="phase-del" data-i18n="investors.phase4.del">→ Operação autônoma</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     SOLUTION
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.solution.title">A Solução: Fractional CRO</h2>
-        <p data-i18n="investors.solution.subtitle">Intervenção cirúrgica de 6 meses com accountability real</p>
-    </div>
-    
-    <div class="comparison-grid reveal">
-        <div class="comp-card bad">
-            <h4 data-i18n="investors.notworks.title">✗ O Que Não Funciona</h4>
-            <ul>
-                <li data-i18n="investors.notworks.item1"><strong>Conselho do board:</strong> 2h/mês não muda cadência</li>
-                <li data-i18n="investors.notworks.item2"><strong>Consultoria Big 4:</strong> R$500k por slides</li>
-                <li data-i18n="investors.notworks.item3"><strong>VP às pressas:</strong> 50% de mis-hire, 12-18 meses de ramp</li>
-                <li data-i18n="investors.notworks.item4"><strong>Esperar:</strong> Problema se agrava</li>
-            </ul>
-        </div>
-        <div class="comp-card good lift">
-            <h4 data-i18n="investors.works.title">✓ Fractional CRO Funciona</h4>
-            <ul>
-                <li data-i18n="investors.works.item1"><strong>Execução hands-on:</strong> 2 dias/semana na operação</li>
-                <li data-i18n="investors.works.item2"><strong>Skin in the game:</strong> Success fee atrelado a resultado</li>
-                <li data-i18n="investors.works.item3"><strong>Kill-switch:</strong> Dia 30 e 90</li>
-                <li data-i18n="investors.works.item4"><strong>Track record:</strong> $3M → $240M construído</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     MODELS
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-white">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.model.title">Modelo de Parceria com Fundos</h2>
-    </div>
-    
-    <div class="model-grid reveal stagger">
-        <div class="model-card lift">
-            <span class="model-badge" data-i18n="investors.model1.badge">Mais Comum</span>
-            <h4 data-i18n="investors.model1.title">Empresa Individual</h4>
-            <p class="model-desc" data-i18n="investors.model1.desc">Intervenção em uma portfolio company específica</p>
-            <ul>
-                <li data-i18n="investors.model1.item1">Diagnóstico de 30 dias</li>
-                <li data-i18n="investors.model1.item2">Transformação de 90 dias</li>
-                <li data-i18n="investors.model1.item3">Report mensal ao board</li>
-                <li data-i18n="investors.model1.item4">Handover estruturado</li>
-            </ul>
-            <p class="model-price" data-i18n="investors.model1.price">Retainer + Success Fee</p>
-        </div>
-        <div class="model-card featured">
-            <span class="model-badge" data-i18n="investors.model2.badge">Maior ROI</span>
-            <h4 data-i18n="investors.model2.title">Parceria de Portfólio</h4>
-            <p class="model-desc" data-i18n="investors.model2.desc">Acordo para múltiplas empresas do fundo</p>
-            <ul>
-                <li data-i18n="investors.model2.item1">Diagnóstico rápido em 3-5 empresas</li>
-                <li data-i18n="investors.model2.item2">Priorização por impacto</li>
-                <li data-i18n="investors.model2.item3">Condições preferenciais</li>
-                <li data-i18n="investors.model2.item4">Playbook replicável</li>
-            </ul>
-            <p class="model-price" data-i18n="investors.model2.price">Volume Discount + Success Fee</p>
-        </div>
-        <div class="model-card lift">
-            <span class="model-badge" data-i18n="investors.model3.badge">Preventivo</span>
-            <h4 data-i18n="investors.model3.title">GTM Advisory Retainer</h4>
-            <p class="model-desc" data-i18n="investors.model3.desc">Suporte contínuo para múltiplas empresas</p>
-            <ul>
-                <li data-i18n="investors.model3.item1">4-8h/mês por empresa</li>
-                <li data-i18n="investors.model3.item2">Participação em boards</li>
-                <li data-i18n="investors.model3.item3">Early warning system</li>
-                <li data-i18n="investors.model3.item4">Coaching de founders</li>
-            </ul>
-            <p class="model-price" data-i18n="investors.model3.price">Retainer Mensal Fixo</p>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     DELIVERABLES
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section section-warm">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.deliverables.title">O Que o Fundo Recebe</h2>
-    </div>
-    
-    <div class="del-list reveal stagger">
-        <div class="del-row"><span class="del-num">01</span><span data-i18n="investors.del1">Report mensal com métricas de GTM</span></div>
-        <div class="del-row"><span class="del-num">02</span><span data-i18n="investors.del2">Metas D30/D60/D90 acordadas previamente</span></div>
-        <div class="del-row"><span class="del-num">03</span><span data-i18n="investors.del3">Early warning de riscos antes do board</span></div>
-        <div class="del-row"><span class="del-num">04</span><span data-i18n="investors.del4">Linha direta GP ↔ Fractional CRO</span></div>
-        <div class="del-row"><span class="del-num">05</span><span data-i18n="investors.del5">Documentação de processos instalados</span></div>
-        <div class="del-row"><span class="del-num">06</span><span data-i18n="investors.del6">Playbook transferível para outras empresas</span></div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     FAQ
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="faq">
-    <div class="section-header reveal">
-        <h2 data-i18n="investors.faq.title">Perguntas <span class="hl">Frequentes</span></h2>
-        <p data-i18n="investors.faq.subtitle">Respostas diretas para GPs e Partners</p>
-    </div>
-    
-    <div class="faq-container reveal">
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="investors.faq.q1">Como funciona o modelo de engajamento?</span>
-                <span class="icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p data-i18n="investors.faq.a1">Atuamos como Fractional CRO dedicado, com 2 dias/semana na operação. Engajamento típico de 6-12 meses, tempo suficiente para instalar a arquitetura e treinar o time.</p>
-                </div>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="investors.faq.q2">Qual o perfil ideal de portfolio company?</span>
-                <span class="icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p data-i18n="investors.faq.a2"><strong>Melhor fit:</strong> B2B Tech com produto validado, R$5M-50M ARR, crescimento estagnado há 6+ meses. <strong>Não é fit:</strong> Pre-PMF, B2C, ou que precisa de pivot de produto.</p>
-                </div>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="investors.faq.q3">Como é a estrutura de pricing?</span>
-                <span class="icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p data-i18n="investors.faq.a3">Modelo híbrido: retainer mensal + success fee atrelado a métricas acordadas. <strong>Kill-switch:</strong> Se não houver progresso em 90 dias, encerramos sem penalidade.</p>
-                </div>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="investors.faq.q4">Diferença entre Fractional CRO e VP de Vendas?</span>
-                <span class="icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p data-i18n="investors.faq.a4"><strong>VP:</strong> 12-18 meses de ramp, ~R$1.5M/ano, 50% mis-hire. <strong>Fractional CRO:</strong> Resultado em 90 dias, ~30% do custo, ideal para construir a arquitetura antes de contratar o VP.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     CTA
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="cta-section" id="cta">
-    <div class="cta-box reveal">
-        <h2 data-i18n="investors.cta.title">Vamos Conversar Sobre Seu Portfólio</h2>
-        <p data-i18n="investors.cta.text">30 minutos para entender sua situação. Sem pitch, sem pressão — se não for fit, indico quem pode ajudar.</p>
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary">
-            <svg viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span data-i18n="investors.cta.button">Agendar Conversa</span>
-        </a>
-        
-        <div class="cta-divider"><span data-i18n="investors.cta.or">ou</span></div>
-        
-        <div class="cta-guide">
-            <h4 data-i18n="investors.guide.title">Prefere analisar antes?</h4>
-            <p data-i18n="investors.guide.name">Baixe o checklist "7 Sinais de Alerta de Portfolio Company Travada"</p>
-            <a href="guia-7-sinais.html" class="btn-secondary" data-i18n="investors.guide.button">Baixar Guia (PDF) →</a>
-            <p class="guide-note" data-i18n="investors.guide.note">Leitura de 8 min • Sem cadastro</p>
-        </div>
-    </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
-     TRUST
-     ════════════════════════════════════════════════════════════════════════════ -->
-<section class="trust-section">
-    <div class="trust-bar reveal">
-        <div class="trust-item">
-            <div class="trust-icon oracle"><svg viewBox="0 0 24 24" stroke="#EF4444" fill="none" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 21V7M16 21V7"/></svg></div>
-            <strong data-i18n="investors.trust.oracle">Oracle Brasil</strong>
-            <span data-i18n="investors.trust.oracle.detail">Ex-Presidente · $48M → $240M</span>
-        </div>
-        <div class="trust-item">
-            <div class="trust-icon att"><svg viewBox="0 0 24 24" stroke="#3B82F6" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-            <strong data-i18n="investors.trust.att">AT&T LATAM</strong>
-            <span data-i18n="investors.trust.att.detail">Ex-CEO · $3M → $47M</span>
-        </div>
-        <div class="trust-item">
-            <div class="trust-icon endeavor"><svg viewBox="0 0 24 24" stroke="#C8965A" fill="none" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16M18 2H6v7a6 6 0 0012 0V2z"/></svg></div>
-            <strong data-i18n="investors.trust.endeavor">Endeavor Brasil</strong>
-            <span data-i18n="investors.trust.endeavor.detail">Mentor de Impacto Premiado</span>
-        </div>
-    </div>
-    <p class="trust-note" data-i18n="investors.trust.note">Atende no <strong>máximo 3 empresas</strong> simultaneamente para garantir profundidade.</p>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════════════════════
+<!-- ══════════════════════════════════════════════════════════════════════════════
      FOOTER
-     ════════════════════════════════════════════════════════════════════════════ -->
-<footer>
-    <div class="footer-brand">Alavanka</div>
-    <div class="footer-links">
-        <a href="index.html" data-i18n="investors.footer.founders">Founders</a>
-        <a href="blog.html" data-i18n="investors.footer.blog">Blog</a>
-        <a href="guia-fractional-cro-brasil.html" data-i18n="investors.footer.guide">Guia</a>
-        <a href="https://wa.me/5511975341961" target="_blank">WhatsApp</a>
-    </div>
-    <div class="footer-copy" data-i18n="footer.rights">© 2026 Alavanka. Todos os direitos reservados.</div>
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+    <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados. <a href="privacidade.html">Privacidade</a></p>
 </footer>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     WHATSAPP FLOAT
-     ════════════════════════════════════════════════════════════════════════════ -->
-<a href="https://wa.me/5511975341961" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
-</a>
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     STICKY CTA BAR
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="sticky-cta" id="stickyCta">
+    <span class="sticky-cta-text">📄 Baixe o guia completo em PDF</span>
+    <a href="#download" class="btn-sticky">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Baixar PDF Gratuito
+    </a>
+</div>
 
-<!-- ════════════════════════════════════════════════════════════════════════════
-     JAVASCRIPT
-     ════════════════════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════════════════════════════════════ -->
 <script>
-(function() {
-    'use strict';
+// ══════════════════════════════════════════════════════════════════════════════
+// FORM DATA PERSISTENCE - Salva dados para reutilizar entre páginas
+// ══════════════════════════════════════════════════════════════════════════════
+const FormPersist = {
+    STORAGE_KEY: 'alavanka_lead_data',
     
-    // ══════════════════════════════════════════════════════════════════════════
-    // FORM DATA PERSISTENCE - Salva dados para reutilizar entre páginas
-    // ══════════════════════════════════════════════════════════════════════════
-    window.FormPersist = {
-        STORAGE_KEY: 'alavanka_lead_data',
-        
-        save: function(data) {
-            try {
-                var existing = this.load() || {};
-                var merged = Object.assign({}, existing, data, { lastUpdated: Date.now() });
-                localStorage.setItem(this.STORAGE_KEY, JSON.stringify(merged));
-            } catch (e) { console.warn('Could not save form data:', e); }
-        },
-        
-        load: function() {
-            try {
-                var data = localStorage.getItem(this.STORAGE_KEY);
-                return data ? JSON.parse(data) : null;
-            } catch (e) { return null; }
-        },
-        
-        fillForm: function() {
-            var data = this.load();
-            if (!data) return;
-            
-            // Mapear IDs diferentes entre páginas
-            var fieldMappings = {
-                'reportEmail': 'email',
-                'reportProfile': 'profile',
-                'reportCompany': 'company',
-                'email': 'email',
-                'name': 'name',
-                'role': 'profile',
-                'fund': 'company',
-                'company': 'company'
-            };
-            
-            Object.keys(fieldMappings).forEach(function(fieldId) {
-                var el = document.getElementById(fieldId);
-                var dataKey = fieldMappings[fieldId];
-                if (el && data[dataKey]) {
-                    el.value = data[dataKey];
-                }
-            });
-        }
-    };
+    save: function(data) {
+        try {
+            const existing = this.load() || {};
+            const merged = { ...existing, ...data, lastUpdated: Date.now() };
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(merged));
+        } catch (e) { console.warn('Could not save form data:', e); }
+    },
     
-    // Preencher formulário ao carregar
-    document.addEventListener('DOMContentLoaded', function() {
-        FormPersist.fillForm();
-    });
+    load: function() {
+        try {
+            const data = localStorage.getItem(this.STORAGE_KEY);
+            return data ? JSON.parse(data) : null;
+        } catch (e) { return null; }
+    },
     
-    // ══════════════════════════════════════════════════════════════════════════
-    // 1. SCROLL PROGRESS BAR
-    // ══════════════════════════════════════════════════════════════════════════
-    var progressBar = document.getElementById('scrollProgress');
-    if (progressBar) {
-        window.addEventListener('scroll', function() {
-            var h = document.documentElement.scrollHeight - window.innerHeight;
-            progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-        }, { passive: true });
-    }
-    
-    // ══════════════════════════════════════════════════════════════════════════
-    // 2. REVEAL ON SCROLL (IntersectionObserver)
-    // ══════════════════════════════════════════════════════════════════════════
-    var revealElements = document.querySelectorAll('.reveal');
-    if (revealElements.length && 'IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Also reveal staggered children
-                    entry.target.querySelectorAll('.stagger > *').forEach(function(child) {
-                        child.classList.add('visible');
-                    });
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    fillForm: function() {
+        const data = this.load();
+        if (!data) return;
         
-        revealElements.forEach(function(el) {
-            revealObserver.observe(el);
-        });
-    } else {
-        // Fallback: show all if no IntersectionObserver
-        revealElements.forEach(function(el) { el.classList.add('visible'); });
-    }
-    
-    // ══════════════════════════════════════════════════════════════════════════
-    // 3. CASE STUDY TIMELINE ANIMATION
-    // ══════════════════════════════════════════════════════════════════════════
-    var caseTimeline = document.getElementById('caseTimeline');
-    if (caseTimeline && 'IntersectionObserver' in window) {
-        var caseSteps = caseTimeline.querySelectorAll('.case-step');
-        var caseObserver = new IntersectionObserver(function(entries) {
-            if (entries[0].isIntersecting) {
-                caseSteps.forEach(function(step) {
-                    step.classList.add('visible');
-                });
-            }
-        }, { threshold: 0.2 });
-        caseObserver.observe(caseTimeline);
-    }
-    
-    // ══════════════════════════════════════════════════════════════════════════
-    // 4. SCORECARD FLAGS (Interactive) - EXPANDED VERSION
-    // ══════════════════════════════════════════════════════════════════════════
-    var flags = document.querySelectorAll('.flag');
-    var counter = document.getElementById('scorecardCounter');
-    var countEl = document.getElementById('flagCount');
-    var resultBtn = document.getElementById('scorecardResultBtn');
-    var total = flags.length;
-    
-    // Dados dos impactos por flag (para a tela de resultado)
-    var flagImpactData = {
-        1: { title: 'Crescimento Flat', impact: '-30% valuation após 2 quarters', icon: 'danger' },
-        2: { title: 'Ciclo Alongando', impact: '+22% CAC, runway reduzido', icon: 'warn' },
-        3: { title: 'CAC Descontrolado', impact: 'Unit economics quebrada', icon: 'danger' },
-        4: { title: 'Founder em Vendas', impact: 'Produto e estratégia negligenciados', icon: 'warn' },
-        5: { title: 'Pipeline Inconsistente', impact: 'Impossível planejar growth', icon: 'danger' },
-        6: { title: 'Sem Análise de Perdas', impact: 'Win rate cai progressivamente', icon: 'warn' }
-    };
-    
-    flags.forEach(function(flag) {
-        var header = flag.querySelector('.flag-header');
-        if (header) {
-            header.addEventListener('click', function(e) {
-                // Não toggle se clicou no botão de expandir
-                if (e.target.closest('.flag-expand-btn')) return;
-                
-                flag.classList.toggle('checked');
-                var checked = document.querySelectorAll('.flag.checked').length;
-                
-                // Atualizar contador (só o número agora)
-                countEl.textContent = checked;
-                
-                // Esconder resultado se estava visível (usuário mudou seleção)
-                var resultDiv = document.getElementById('scorecardResult');
-                if (resultDiv) resultDiv.classList.remove('visible');
-                
-                // Habilitar/desabilitar botão
-                if (resultBtn) {
-                    resultBtn.disabled = checked === 0;
-                }
-                
-                // Atualizar classe urgent no contador
-                if (counter) {
-                    if (checked >= 3) {
-                        counter.classList.add('urgent');
-                    } else {
-                        counter.classList.remove('urgent');
-                    }
-                }
-                
-                // Atualizar verdict
-                if (typeof window.updateScorecardVerdict === 'function') {
-                    window.updateScorecardVerdict();
-                }
-                
-                // Track no GA4
-                if (typeof gtag === 'function') {
-                    gtag('event', 'scorecard_flag_toggled', {
-                        flag_number: flag.dataset.flag,
-                        total_checked: checked
-                    });
-                }
-            });
-        }
-    });
-    
-    // Função global para expandir/colapsar explicação
-    window.toggleFlagExpand = function(e, btn) {
-        e.stopPropagation();
-        var flag = btn.closest('.flag');
-        
-        // Fechar outras flags expandidas
-        document.querySelectorAll('.flag.expanded').forEach(function(f) {
-            if (f !== flag) f.classList.remove('expanded');
-        });
-        
-        flag.classList.toggle('expanded');
-        
-        // Track
-        if (flag.classList.contains('expanded') && typeof gtag === 'function') {
-            gtag('event', 'scorecard_explanation_viewed', {
-                flag_number: flag.dataset.flag
-            });
-        }
-    };
-    
-    // Função para mostrar tela de resultado
-    window.showScorecardResult = function() {
-        var checkedFlags = document.querySelectorAll('.flag.checked');
-        var count = checkedFlags.length;
-        var resultDiv = document.getElementById('scorecardResult');
-        var header = document.getElementById('scorecardResultHeader');
-        var badge = document.getElementById('resultScoreBadge');
-        var labelEl = document.getElementById('resultScoreLabel');
-        var titleEl = document.getElementById('resultTitle');
-        var descEl = document.getElementById('resultDescription');
-        var gridEl = document.getElementById('resultImpactGrid');
-        
-        if (!resultDiv) return;
-        
-        // Definir nível
-        var level = count <= 2 ? 'low' : count <= 4 ? 'medium' : 'high';
-        header.className = 'scorecard-result-header level-' + level;
-        
-        // Atualizar badge
-        labelEl.textContent = count + '/6 sinais identificados';
-        
-        // Atualizar título e descrição baseado no nível
-        var titles = {
-            low: 'Sinais Iniciais Detectados',
-            medium: 'Padrão de Problema de GTM Identificado',
-            high: 'Alerta: Múltiplos Sinais de Arquitetura Travada'
-        };
-        var descs = {
-            low: 'Poucos sinais detectados, mas vale monitorar. Problemas de GTM tendem a se agravar com o tempo se não forem endereçados.',
-            medium: 'Os sinais selecionados indicam que a portfolio company tem desafios estruturais de go-to-market que estão travando o crescimento.',
-            high: 'A combinação de sinais indica problema sistêmico de arquitetura de receita. Intervenção urgente recomendada antes que o valor seja destruído.'
-        };
-        
-        titleEl.textContent = titles[level];
-        descEl.textContent = descs[level];
-        
-        // Preencher grid de impactos
-        gridEl.innerHTML = '';
-        checkedFlags.forEach(function(flag) {
-            var flagNum = flag.dataset.flag;
-            var data = flagImpactData[flagNum];
-            if (!data) return;
-            
-            var item = document.createElement('div');
-            item.className = 'result-impact-item' + (data.icon === 'danger' ? ' highlighted' : '');
-            item.innerHTML = '<div class="result-impact-icon ' + data.icon + '"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div>' +
-                '<div class="result-impact-content"><h5>' + data.title + '</h5><p>' + data.impact + '</p></div>';
-            gridEl.appendChild(item);
-        });
-        
-        // Mostrar resultado com animação
-        resultDiv.classList.add('visible');
-        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Track
-        if (typeof gtag === 'function') {
-            gtag('event', 'scorecard_result_viewed', {
-                flags_count: count,
-                level: level
-            });
-        }
-    };
-    
-    // Função para scroll suave para calculadora
-    window.scrollToCalculator = function() {
-        var calc = document.getElementById('calculator');
-        if (calc) {
-            calc.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
-    
-    // ══════════════════════════════════════════════════════════════════════════
-    // 5. SMOOTH SCROLL
-    // ══════════════════════════════════════════════════════════════════════════
-    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-        a.addEventListener('click', function(e) {
-            var target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
+        // Preencher campos se existirem
+        const fields = ['name', 'email', 'role', 'fund', 'company'];
+        fields.forEach(field => {
+            const el = document.getElementById(field);
+            if (el && data[field]) {
+                el.value = data[field];
             }
         });
-    });
-})();
-
-// ══════════════════════════════════════════════════════════════════════════════
-// FAQ TOGGLE (Global function for onclick)
-// ══════════════════════════════════════════════════════════════════════════════
-function toggleFaq(btn) {
-    var item = btn.closest('.faq-item');
-    var answer = item.querySelector('.faq-answer');
-    var isOpen = item.classList.contains('active');
+    },
     
-    // Close all
-    document.querySelectorAll('.faq-item.active').forEach(function(el) {
-        el.classList.remove('active');
-        el.querySelector('.faq-answer').style.maxHeight = null;
-    });
-    
-    // Open clicked if wasn't open
-    if (!isOpen) {
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-}
-
-// ══════════════════════════════════════════════════════════════════════════════
-// IMPACT CALCULATOR - Baseado em dados de mercado reais
-// Fontes: SaaS Capital, Aventis Advisors, SaaStr
-// ══════════════════════════════════════════════════════════════════════════════
-function calculateImpact() {
-    var arrInput = document.getElementById('calcArr');
-    var growthInput = document.getElementById('calcGrowth');
-    var targetInput = document.getElementById('calcTarget');
-    var resultsDiv = document.getElementById('calcResults');
-    
-    // Parse ARR (remove formatação)
-    var arrRaw = arrInput.value.replace(/[^\d]/g, '');
-    var arr = parseFloat(arrRaw);
-    var currentGrowth = parseFloat(growthInput.value) || 0;
-    var targetGrowth = parseFloat(targetInput.value) || 30;
-    
-    if (!arr || arr <= 0) {
-        arrInput.style.borderColor = 'var(--danger)';
-        return;
-    }
-    arrInput.style.borderColor = '';
-    
-    // Cálculos baseados em dados de mercado
-    // Fonte: SaaS Capital Index Jan 2025 - múltiplos variam por growth rate
-    // 0-10% growth: ~3.5x | 10-20%: ~4.5x | 20-30%: ~5.5x | 30%+: ~6.5x
-    
-    function getMultiple(growth) {
-        if (growth <= 10) return 3.5;
-        if (growth <= 20) return 4.5;
-        if (growth <= 30) return 5.5;
-        if (growth <= 50) return 6.5;
-        return 7.5;
-    }
-    
-    var currentMultiple = getMultiple(currentGrowth);
-    var targetMultiple = getMultiple(targetGrowth);
-    
-    // ARR em 12 meses com crescimento atual vs target
-    var arrCurrent12m = arr * (1 + currentGrowth / 100);
-    var arrTarget12m = arr * (1 + targetGrowth / 100);
-    
-    // Receita não capturada
-    var lostRevenue = arrTarget12m - arrCurrent12m;
-    
-    // Valuation atual vs potencial
-    var valuationCurrent = arr * currentMultiple;
-    var valuationTarget = arrTarget12m * targetMultiple;
-    var valuationDelta = valuationTarget - valuationCurrent;
-    
-    // Formatar números
-    function formatBRL(num) {
-        if (num >= 1000000000) {
-            return 'R$' + (num / 1000000000).toFixed(1) + 'B';
-        }
-        if (num >= 1000000) {
-            return 'R$' + (num / 1000000).toFixed(1) + 'M';
-        }
-        return 'R$' + (num / 1000).toFixed(0) + 'K';
-    }
-    
-    // Exibir resultados
-    document.getElementById('resultLostRevenue').textContent = formatBRL(lostRevenue);
-    document.getElementById('resultValuation').textContent = formatBRL(valuationDelta);
-    document.getElementById('resultMultiple').textContent = currentMultiple.toFixed(1) + 'x → ' + targetMultiple.toFixed(1) + 'x';
-    
-    resultsDiv.classList.remove('hidden');
-    resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
-    // Track no GA4
-    if (typeof gtag === 'function') {
-        gtag('event', 'calculator_used', {
-            event_category: 'engagement',
-            arr_range: arr < 5000000 ? 'under_5M' : arr < 20000000 ? '5M_20M' : 'over_20M',
-            growth_gap: targetGrowth - currentGrowth
+    collectFromForm: function() {
+        const data = {};
+        const fields = ['name', 'email', 'role', 'fund', 'company'];
+        fields.forEach(field => {
+            const el = document.getElementById(field);
+            if (el && el.value) {
+                data[field] = el.value;
+            }
         });
+        return data;
     }
-}
+};
 
-// Formatar input de ARR enquanto digita
+// Preencher formulário ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
-    var arrInput = document.getElementById('calcArr');
-    if (arrInput) {
-        arrInput.addEventListener('blur', function() {
-            var val = this.value.replace(/[^\d]/g, '');
-            if (val) {
-                this.value = 'R$ ' + parseInt(val).toLocaleString('pt-BR');
-            }
-        });
-        arrInput.addEventListener('focus', function() {
-            this.value = this.value.replace(/[^\d]/g, '');
-        });
-    }
+    FormPersist.fillForm();
 });
 
-// ══════════════════════════════════════════════════════════════════════════════
-// REPORT GENERATOR - Envia dados estruturados para Formspree/Zapier
-// ══════════════════════════════════════════════════════════════════════════════
-async function generateReport() {
-    var email = document.getElementById('reportEmail').value;
-    var profile = document.getElementById('reportProfile').value;
-    var company = document.getElementById('reportCompany').value;
-    var btn = document.getElementById('reportBtn');
+// Form Submission
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    const formContent = document.getElementById('formContent');
+    const formSuccess = document.getElementById('formSuccess');
     
-    // Validação
-    if (!email || !email.includes('@')) {
-        alert('Por favor, insira um email válido.');
-        document.getElementById('reportEmail').focus();
-        return;
-    }
-    if (!profile) {
-        alert('Por favor, selecione seu perfil.');
-        document.getElementById('reportProfile').focus();
-        return;
-    }
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>Enviando...</span>';
     
-    // Profile labels
-    var profileLabels = {
-        'gp': 'GP / Partner',
-        'principal': 'Principal / Director',
-        'analyst': 'Analyst / Associate',
-        'founder': 'Founder / CEO (portfolio)'
+    const roleLabels = {'gp':'GP / Managing Partner','partner':'Partner','principal':'Principal / Director','ceo':'CEO / Founder','cro':'CRO / VP Sales','board':'Board Member','other':'Outro'};
+    const role = document.getElementById('role').value;
+    
+    const formData = {
+        email: document.getElementById('email').value,
+        name: document.getElementById('name').value,
+        profile: role,
+        profile_label: roleLabels[role] || role,
+        company: document.getElementById('fund').value || '',
+        source: 'guia_7_sinais',
+        timestamp: new Date().toISOString()
     };
-    
-    // Coletar dados do scorecard
-    var flagsChecked = [];
-    var flagTitles = [];
-    document.querySelectorAll('.flag.checked').forEach(function(flag) {
-        var title = flag.querySelector('h4');
-        if (title) {
-            flagTitles.push(title.textContent);
-            flagsChecked.push(flag.dataset.flag);
-        }
-    });
-    
-    // Coletar dados da calculadora (se preenchidos)
-    var arrInput = document.getElementById('calcArr');
-    var growthInput = document.getElementById('calcGrowth');
-    var targetInput = document.getElementById('calcTarget');
-    
-    var arrRaw = arrInput ? arrInput.value.replace(/[^\d]/g, '') : '';
-    var currentGrowth = growthInput ? parseFloat(growthInput.value) || 0 : 0;
-    var targetGrowth = targetInput ? parseFloat(targetInput.value) || 30 : 30;
-    
-    // Calcular valores se ARR foi preenchido
-    var calcData = {
-        arr: arrRaw ? parseInt(arrRaw) : null,
-        arr_formatted: arrRaw ? 'R$ ' + parseInt(arrRaw).toLocaleString('pt-BR') : null,
-        current_growth: currentGrowth,
-        target_growth: targetGrowth,
-        lost_revenue: null,
-        lost_revenue_formatted: null,
-        valuation_impact: null,
-        valuation_impact_formatted: null,
-        multiple_before: null,
-        multiple_after: null
-    };
-    
-    if (arrRaw) {
-        var arr = parseInt(arrRaw);
-        
-        // Função para calcular múltiplo baseado no growth
-        function getMultiple(growth) {
-            if (growth <= 10) return 3.5;
-            if (growth <= 20) return 4.5;
-            if (growth <= 30) return 5.5;
-            if (growth <= 50) return 6.5;
-            return 7.5;
-        }
-        
-        var arrCurrent12m = arr * (1 + currentGrowth / 100);
-        var arrTarget12m = arr * (1 + targetGrowth / 100);
-        var lostRevenue = arrTarget12m - arrCurrent12m;
-        
-        var multipleBefore = getMultiple(currentGrowth);
-        var multipleAfter = getMultiple(targetGrowth);
-        
-        var valuationCurrent = arr * multipleBefore;
-        var valuationTarget = arrTarget12m * multipleAfter;
-        var valuationImpact = valuationTarget - valuationCurrent;
-        
-        calcData.lost_revenue = Math.round(lostRevenue);
-        calcData.lost_revenue_formatted = 'R$ ' + Math.round(lostRevenue).toLocaleString('pt-BR');
-        calcData.valuation_impact = Math.round(valuationImpact);
-        calcData.valuation_impact_formatted = 'R$ ' + Math.round(valuationImpact).toLocaleString('pt-BR');
-        calcData.multiple_before = multipleBefore + 'x';
-        calcData.multiple_after = multipleAfter + 'x';
-    }
-    
-    // Determinar nível do diagnóstico
-    var diagnosisLevel = flagsChecked.length <= 2 ? 'low' : flagsChecked.length <= 4 ? 'medium' : 'high';
-    var diagnosisLabels = {
-        'low': 'Sinais Iniciais',
-        'medium': 'Problema de GTM Identificado',
-        'high': 'Arquitetura Travada - Urgente'
-    };
-    
-    // Detectar idioma
-    var lang = document.documentElement.lang || 'pt-BR';
-    var language = lang.startsWith('en') ? 'en' : 'pt';
-    
-    // Montar payload estruturado
-    var payload = {
-        // Identificação
-        email: email,
-        profile: profile,
-        profile_label: profileLabels[profile] || profile,
-        company: company || '',
-        source: 'investidores_report',
-        
-        // Diagnóstico
-        diagnosis_score: flagsChecked.length,
-        diagnosis_total: 6,
-        diagnosis_level: diagnosisLevel,
-        diagnosis_level_label: diagnosisLabels[diagnosisLevel],
-        diagnosis_flags: flagTitles.join(' | '),
-        diagnosis_flag_ids: flagsChecked.join(','),
-        
-        // Calculadora
-        calc_completed: calcData.arr !== null,
-        calc_arr: calcData.arr,
-        calc_arr_formatted: calcData.arr_formatted,
-        calc_current_growth: calcData.current_growth,
-        calc_target_growth: calcData.target_growth,
-        calc_lost_revenue: calcData.lost_revenue,
-        calc_lost_revenue_formatted: calcData.lost_revenue_formatted,
-        calc_valuation_impact: calcData.valuation_impact,
-        calc_valuation_impact_formatted: calcData.valuation_impact_formatted,
-        calc_multiple_before: calcData.multiple_before,
-        calc_multiple_after: calcData.multiple_after,
-        
-        // Meta
-        timestamp: new Date().toISOString(),
-        language: language
-    };
-    
-    btn.disabled = true;
-    btn.innerHTML = '<span>Enviando...</span>';
     
     // Salvar dados para reutilizar em outros formulários
-    if (typeof FormPersist !== 'undefined') {
-        FormPersist.save({
-            email: email,
-            profile: profile,
-            company: company
-        });
-    }
+    FormPersist.save({
+        name: formData.name,
+        email: formData.email,
+        role: role,
+        fund: formData.company,
+        company: formData.company
+    });
     
     // Enviar dados para Google Apps Script
     fetch('https://script.google.com/macros/s/AKfycbwPCcqjmg5hHZQjZiNhL6Jvt6m9sMul_XZApLLujdu6dYOcHg000oT_QQv1Evoh8B0MKg/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+            source: 'guia_7_sinais',
+            email: formData.email,
+            name: formData.name,
+            profile: role,
+            company: formData.company,
+            timestamp: new Date().toISOString()
+        })
     });
     
     // Mostrar sucesso após pequeno delay (no-cors não retorna resposta)
     setTimeout(function() {
-        // Mostrar sucesso
-        document.getElementById('reportFormInput').style.display = 'none';
-        document.getElementById('reportSuccess').classList.remove('hidden');
-        
-        // Track no GA4
         if (typeof gtag === 'function') {
-            gtag('event', 'report_requested', {
-                event_category: 'lead_generation',
-                profile: profile,
-                diagnosis_score: flagsChecked.length,
-                diagnosis_level: diagnosisLevel,
-                calculator_used: calcData.arr !== null ? 'yes' : 'no'
-            });
+            gtag('event', 'generate_lead', {event_category:'lead_generation',lead_source:'guia_7_sinais'});
         }
         
-        // LinkedIn tracking
-        if (typeof lintrk === 'function') {
-            lintrk('track', { conversion_id: 19814748 });
-        }
+        formContent.classList.add('hidden');
+        formSuccess.classList.add('active');
     }, 500);
-}
+});
 
-// ══════════════════════════════════════════════════════════════════════════════
-// i18n - Internationalization
-// ══════════════════════════════════════════════════════════════════════════════
+// Scroll Reveal - Otimizado
 (function() {
-    var currentLang = 'pt';
-    var translations = null;
-    var pendingLang = null;
+    var reveals = document.querySelectorAll('.reveal');
     
-    // Load translations
-    fetch('translations.json')
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-            translations = data;
-            if (pendingLang) {
-                currentLang = pendingLang;
-                pendingLang = null;
-            }
-            applyTranslations();
-            updateScorecardVerdict();
-        })
-        .catch(function(err) { console.warn('Could not load translations:', err); });
-    
-    function applyTranslations() {
-        if (!translations) return;
-        document.querySelectorAll('[data-i18n]').forEach(function(el) {
-            var key = el.getAttribute('data-i18n');
-            if (translations[currentLang] && translations[currentLang][key]) {
-                el.innerHTML = translations[currentLang][key];
+    // Ativar elementos já visíveis imediatamente
+    function checkReveal() {
+        var viewHeight = window.innerHeight;
+        reveals.forEach(function(el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < viewHeight - 40) {
+                el.classList.add('visible');
             }
         });
     }
     
-    // Scorecard verdict translation helper
-    function getVerdictText(key) {
-        if (translations[currentLang] && translations[currentLang][key]) {
-            return translations[currentLang][key];
+    // Executar imediatamente
+    checkReveal();
+    
+    // E depois no scroll
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                checkReveal();
+                ticking = false;
+            });
+            ticking = true;
         }
-        // Fallback PT
-        var fallbacks = {
-            'investors.scorecard.verdict.default': 'Selecione os sinais que se aplicam',
-            'investors.scorecard.verdict.low': '<strong>Sinais iniciais.</strong> Vale monitorar.',
-            'investors.scorecard.verdict.medium': '<strong>⚠️ Atenção:</strong> Padrão de problemas de GTM.',
-            'investors.scorecard.verdict.high': '<strong>🚨 Urgente:</strong> Múltiplos sinais de arquitetura travada.'
-        };
-        return fallbacks[key] || '';
+    }, {passive: true});
+})();
+
+// Sticky CTA Bar
+(function() {
+    var stickyCta = document.getElementById('stickyCta');
+    var downloadSection = document.getElementById('download');
+    var hero = document.querySelector('.hero');
+    var formSuccess = document.getElementById('formSuccess');
+    
+    function updateSticky() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var downloadTop = downloadSection.getBoundingClientRect().top;
+        var windowHeight = window.innerHeight;
+        var hasSubmitted = formSuccess.classList.contains('active');
+        
+        // Mostrar após passar o hero e esconder quando chegar no download ou após submit
+        if (heroBottom < 0 && downloadTop > windowHeight && !hasSubmitted) {
+            stickyCta.classList.add('visible');
+            document.body.classList.add('sticky-active');
+        } else {
+            stickyCta.classList.remove('visible');
+            document.body.classList.remove('sticky-active');
+        }
     }
     
-    // Update scorecard verdict based on current selection
-    function updateScorecardVerdict() {
-        var verdictEl = document.getElementById('scorecardVerdict');
-        var counter = document.getElementById('scorecardCounter');
-        if (!verdictEl) return;
-        
-        var checked = document.querySelectorAll('.flag.checked').length;
-        
-        if (checked === 0) {
-            verdictEl.innerHTML = getVerdictText('investors.scorecard.verdict.default');
-            if (counter) counter.classList.remove('urgent');
-        } else if (checked < 3) {
-            verdictEl.innerHTML = getVerdictText('investors.scorecard.verdict.low');
-            if (counter) counter.classList.remove('urgent');
-        } else if (checked < 5) {
-            verdictEl.innerHTML = getVerdictText('investors.scorecard.verdict.medium');
-            if (counter) counter.classList.add('urgent');
-        } else {
-            verdictEl.innerHTML = getVerdictText('investors.scorecard.verdict.high');
-            if (counter) counter.classList.add('urgent');
-        }
+    window.addEventListener('scroll', updateSticky, {passive: true});
+    updateSticky();
+    
+    // Smooth scroll to download
+    stickyCta.querySelector('a').addEventListener('click', function(e) {
+        e.preventDefault();
+        downloadSection.scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+    
+    // Também para o inline CTA
+    var inlineCta = document.querySelector('.inline-cta a');
+    if (inlineCta) {
+        inlineCta.addEventListener('click', function(e) {
+            e.preventDefault();
+            downloadSection.scrollIntoView({behavior: 'smooth', block: 'center'});
+        });
     }
+})();
+
+// i18n
+(function() {
+    var currentLang = 'pt', translations = null;
     
-    // Expose function globally for scorecard to use
-    window.updateScorecardVerdict = updateScorecardVerdict;
+    fetch('translations.json').then(r => r.json()).then(data => {
+        translations = data;
+        // Apply if needed
+    }).catch(err => {});
     
-    // Global toggle function
-    window.toggleLang = function() {
-        var newLang = currentLang === 'pt' ? 'en' : 'pt';
-        
-        if (!translations) {
-            pendingLang = newLang;
-            currentLang = newLang;
-        } else {
-            currentLang = newLang;
-            applyTranslations();
-            updateScorecardVerdict();
-        }
-        
-        // Update toggle buttons
-        var newLabel = currentLang === 'pt' ? 'EN' : 'PT';
-        var langBtn = document.getElementById('langToggle');
-        var langBtnMobile = document.getElementById('langToggleMobile');
-        if (langBtn) langBtn.textContent = newLabel;
-        if (langBtnMobile) langBtnMobile.textContent = newLabel;
-        
-        // Update html lang attribute
-        document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-    };
-    
-    // Listen for lang change from nav
     window.addEventListener('langChange', function(e) {
-        if (e.detail && e.detail.lang) {
-            var newLang = e.detail.lang;
-            
-            if (!translations) {
-                pendingLang = newLang;
-                currentLang = newLang;
-            } else {
-                currentLang = newLang;
-                applyTranslations();
-                updateScorecardVerdict();
-            }
-        }
+        if (e.detail && e.detail.lang) currentLang = e.detail.lang;
     });
 })();
+</script>
+
+<!-- LinkedIn -->
+<script type="text/javascript">
+_linkedin_partner_id = "9076865";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
 </script>
 
 </body>
