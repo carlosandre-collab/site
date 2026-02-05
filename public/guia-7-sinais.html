@@ -1316,18 +1316,20 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         company: formData.company
     });
     
-    // Enviar dados para Google Apps Script usando FormData
-    var sendData = new FormData();
-    sendData.append('source', 'guia_7_sinais');
-    sendData.append('email', formData.email);
-    sendData.append('name', formData.name);
-    sendData.append('profile', role);
-    sendData.append('company', formData.company);
-    sendData.append('timestamp', new Date().toISOString());
+    // Enviar dados para Google Apps Script como JSON via URLSearchParams
+    var params = new URLSearchParams();
+    params.append('json_payload', JSON.stringify({
+        source: 'guia_7_sinais',
+        email: formData.email,
+        name: formData.name,
+        profile: role,
+        company: formData.company,
+        timestamp: new Date().toISOString()
+    }));
     
-    fetch('https://script.google.com/macros/s/AKfycbzy9gfeEUrwYd0KNiPm4XcpDjiBs80tASd5yw56Itn_7RuSXYhtPKf2Cxny0Jfgxf0LhQ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyoyTIHzqi1Fx0X0ZgOA5Lz7ZWf9Bp8sWYdtVZW54-tJvBFsEuwq_nBAZTGI1vCjr7aSA/exec', {
         method: 'POST',
-        body: sendData
+        body: params
     });
     
     // Mostrar sucesso

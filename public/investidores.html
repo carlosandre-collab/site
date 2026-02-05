@@ -3568,15 +3568,13 @@ async function generateReport() {
         });
     }
     
-    // Enviar dados para Google Apps Script usando FormData
-    var sendData = new FormData();
-    for (var key in payload) {
-        sendData.append(key, payload[key]);
-    }
+    // Enviar dados para Google Apps Script como JSON via URLSearchParams
+    var params = new URLSearchParams();
+    params.append('json_payload', JSON.stringify(payload));
     
-    fetch('https://script.google.com/macros/s/AKfycbzy9gfeEUrwYd0KNiPm4XcpDjiBs80tASd5yw56Itn_7RuSXYhtPKf2Cxny0Jfgxf0LhQ/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyoyTIHzqi1Fx0X0ZgOA5Lz7ZWf9Bp8sWYdtVZW54-tJvBFsEuwq_nBAZTGI1vCjr7aSA/exec', {
         method: 'POST',
-        body: sendData
+        body: params
     });
     
     // Mostrar sucesso
