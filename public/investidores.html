@@ -3568,12 +3568,18 @@ async function generateReport() {
         });
     }
     
-    // Enviar dados para Google Apps Script como JSON via URLSearchParams
+    // Enviar dados para Google Apps Script - campos individuais + no-cors
     var params = new URLSearchParams();
-    params.append('json_payload', JSON.stringify(payload));
+    for (var key in payload) {
+        if (payload.hasOwnProperty(key)) {
+            var val = payload[key];
+            params.append(key, val === null || val === undefined ? '' : String(val));
+        }
+    }
     
     fetch('https://script.google.com/macros/s/AKfycbyoyTIHzqi1Fx0X0ZgOA5Lz7ZWf9Bp8sWYdtVZW54-tJvBFsEuwq_nBAZTGI1vCjr7aSA/exec', {
         method: 'POST',
+        mode: 'no-cors',
         body: params
     });
     

@@ -1324,35 +1324,29 @@ async function submitAndDownload() {
     const indicators = getIndicators(ans, lang);
     
     // ═══════════════════════════════════════════════════════════════════════
-    // FIX: Enviar como URLSearchParams para Google Apps Script
-    // - URLSearchParams = application/x-www-form-urlencoded (simple request)
-    // - Sem preflight CORS, funciona cross-origin com Apps Script
-    // - Apps Script lê via e.parameter corretamente
-    // - Dados complexos (indicators) vão como campo 'json_payload' único
+    // FIX DEFINITIVO: Campos individuais via URLSearchParams
+    // - Cada campo é enviado separadamente (não json_payload wrapper)
+    // - Apps Script lê via e.parameter.email, e.parameter.score, etc.
+    // - indicators vai como JSON string em campo individual
+    // - mode: 'no-cors' = fire-and-forget (não tenta ler resposta do redirect)
     // ═══════════════════════════════════════════════════════════════════════
-    const payload = {
-        source: 'assessment',
-        email: email,
-        profile: profile,
-        score: score,
-        fit_level: level,
-        answers: JSON.stringify(ans),
-        answer_labels: JSON.stringify(answerLabels),
-        indicators: JSON.stringify(indicators),
-        timestamp: new Date().toISOString()
-    };
-    
-    // Enviar todo o payload como um único campo JSON para evitar truncamento
     const params = new URLSearchParams();
-    params.append('json_payload', JSON.stringify(payload));
+    params.append('source', 'assessment');
+    params.append('email', email);
+    params.append('profile', profile);
+    params.append('score', String(score));
+    params.append('fit_level', level);
+    params.append('answers', JSON.stringify(ans));
+    params.append('answer_labels', JSON.stringify(answerLabels));
+    params.append('indicators', JSON.stringify(indicators));
+    params.append('timestamp', new Date().toISOString());
     
     fetch('https://script.google.com/macros/s/AKfycbyoyTIHzqi1Fx0X0ZgOA5Lz7ZWf9Bp8sWYdtVZW54-tJvBFsEuwq_nBAZTGI1vCjr7aSA/exec', {
         method: 'POST',
+        mode: 'no-cors',
         body: params
-    }).then(function(response) {
-        return response.text();
-    }).then(function(text) {
-        console.log('Dados enviados com sucesso:', text);
+    }).then(function() {
+        console.log('Dados enviados com sucesso');
     }).catch(function(err) {
         console.log('Erro no envio:', err);
     });
