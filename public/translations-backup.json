@@ -481,12 +481,7 @@
     "guia.obrigado.step2": "Identifique quais sinais estão presentes nas suas portfolio companies",
     "guia.obrigado.step3": "Se encontrar 3+ sinais críticos, considere uma conversa estratégica",
     "guia.obrigado.cta": "Quer discutir os sinais que identificou no seu portfólio?",
-    "guia.obrigado.ctalink": "Agendar 30min de Conversa →",
-    "gate.skipLink": "Pular esta etapa →",
-    "hero.trustBadge": "$240M+ construído",
-    "hero.ticker.item1": "$240M+ construído",
-    "hero.ticker.item2": "25+ anos B2B",
-    "hero.ticker.item3": "Endeavor Mentor de Impacto"
+    "guia.obrigado.ctalink": "Agendar 30min de Conversa →"
   },
   "en": {
     "nav.problem": "The Problem",
@@ -959,11 +954,6 @@
     "guia.obrigado.step2": "Identify which signs are present in your portfolio companies",
     "guia.obrigado.step3": "If you find 3+ critical signs, consider a strategic conversation",
     "guia.obrigado.cta": "Want to discuss the signs you identified in your portfolio?",
-    "guia.obrigado.ctalink": "Schedule 30min Conversation →",
-    "gate.skipLink": "Skip this step →",
-    "hero.trustBadge": "$240M+ built",
-    "hero.ticker.item1": "$240M+ built",
-    "hero.ticker.item2": "25+ years B2B",
-    "hero.ticker.item3": "Endeavor Impact Mentor"
+    "guia.obrigado.ctalink": "Schedule 30min Conversation →"
   }
 }

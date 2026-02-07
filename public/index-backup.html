@@ -108,14 +108,11 @@
     
     <!-- CRITICAL CSS (Above the fold: Nav, Hero, Qualifier) -->
     <script>
-    // Early gate check - prevents flash (ENHANCED: localStorage + cookie + session)
+    // Early gate check - prevents flash when returning from internal pages
     (function(){
-        var hasLocal = localStorage.getItem('alavanka-audience');
-        var hasCookie = document.cookie.indexOf('alavanka-pref=') !== -1;
-        var hasSession = sessionStorage.getItem('alavanka-audience');
-        var isInternal = (document.referrer || '').indexOf('alavanka.com') !== -1;
-        
-        if (hasLocal || hasCookie || hasSession || isInternal) {
+        var s = sessionStorage.getItem('alavanka-audience');
+        var r = document.referrer || '';
+        if (s || r.indexOf('alavanka.com') !== -1) {
             document.documentElement.classList.add('gate-skip');
         }
     })();
@@ -973,9 +970,6 @@ footer a, .footer a {
     <link rel="stylesheet" href="styles/styles-deferred.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="styles/styles-deferred.css"></noscript>
     
-    <!-- UX Enhanced Styles - P0 + P1 improvements -->
-    <link rel="stylesheet" href="styles/styles-ux-enhanced.css">
-    
     <!-- Investor page overrides — MUST load after deferred CSS to win cascade -->
     <style id="inv-overrides">
 /* ====================================================
@@ -1618,12 +1612,6 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
         <div class="gate-logo">
             <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="32">
         </div>
-        
-        <!-- UX P0: Skip link for returning visitors -->
-        <a href="#" class="gate-skip-link" onclick="selectAudience('founder', 'skip'); return false;" data-i18n="gate.skipLink">
-            Pular esta etapa →
-        </a>
-        
         <h2 class="gate-question" id="gateQuestion" data-i18n="gate.question">Dois caminhos, um objetivo:<br><span style="color:var(--warm)">crescimento estruturado</span></h2>
         <p class="gate-sub" id="gateSub" data-i18n="gate.sub">O conteúdo será personalizado para o seu perfil</p>
         <div class="gate-options">
@@ -1659,18 +1647,6 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 
 <!-- Hero -->
 <section class="hero">
-    <!-- UX P1: Trust strip above hero -->
-    <div class="hero-trust-strip" data-reveal>
-        <span class="trust-badge">
-            <span data-i18n="hero.trustBadge">$240M+ construído</span>
-        </span>
-        <div class="logo-mini-bar">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" height="24">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" height="24">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" height="24">
-        </div>
-    </div>
-    
     <div class="hero-badge fade-up">
         <div class="stat"><strong>$240M+</strong> <span data-i18n="hero.badge.built">construído</span></div>
         <span class="divider"></span>
@@ -1715,13 +1691,6 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
                 <span data-i18n="hero.cta.call">Ou agende direto</span>
             </a>
         </div>
-    </div>
-    
-    <!-- UX P1: Trust ticker for credibility reinforcement -->
-    <div class="trust-ticker" data-reveal>
-        <span class="ticker-item active" data-i18n="hero.ticker.item1">$240M+ construído</span>
-        <span class="ticker-item" data-i18n="hero.ticker.item2">25+ anos B2B</span>
-        <span class="ticker-item" data-i18n="hero.ticker.item3">Endeavor Mentor de Impacto</span>
     </div>
 </section>
 
@@ -3013,19 +2982,6 @@ if (document.readyState === 'complete') {
     langObserver.observe(document.documentElement, { attributes: true });
 })();
 </script>
-
-<!-- UX P0: Mobile Sticky CTA -->
-<div class="mobile-sticky-cta">
-    <a href="assessment.html" class="btn-mobile-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-        </svg>
-        <span data-i18n="hero.cta.assessment">Fazer Assessment Gratuito</span>
-    </a>
-</div>
-
-<!-- UX Enhancements JavaScript -->
-<script src="components/ux-enhancements.js" defer></script>
 
 </body>
 </html>
