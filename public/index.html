@@ -58,11 +58,11 @@
          SEO & META TAGS
          ══════════════════════════════════════════════════════════════════════ -->
     <title>Fractional CRO Brasil | Alavanka - De Estagnação para Crescimento</title>
-    <meta name="description" content="Fractional CRO para empresas B2B tech brasileiras. Ex-Presidente Oracle Brasil e Ex-CEO AT&T LATAM. Destravar crescimento de receita sem contratar VP full-time.">
+    <meta name="description" content="Fractional CRO para empresas B2B brasileiras. Ex-Presidente Oracle Brasil e Ex-CEO AT&T LATAM. Destravar crescimento de receita sem contratar VP full-time.">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Fractional CRO Brasil | Alavanka">
-    <meta property="og:description" content="Execução de GTM com accountability para B2B tech. Track record: $3M → $240M.">
+    <meta property="og:description" content="Execução de GTM com accountability para empresas B2B. Track record: $300M+ construído.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.alavanka.com.br">
     <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
@@ -224,27 +224,33 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     padding:32px 20px 48px;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);position:relative;
 }
 .hero::before{content:'';position:absolute;top:0;right:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(27,58,92,0.06) 0%,transparent 70%);pointer-events:none}
-.hero-badge{
-    display:inline-flex;align-items:center;gap:12px;padding:10px 20px;
-    background:linear-gradient(135deg,rgba(27,58,92,0.08),rgba(200,150,90,0.05));
-    border:1px solid var(--border-accent);border-radius:var(--r-full);margin-bottom:24px;
-}
-.hero-badge .stat{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--accent);font-weight:600}
-.hero-badge .stat strong{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700}
-.hero-badge .divider{width:1px;height:16px;background:var(--border-accent)}
 .hero h1{font-size:clamp(28px,7vw,48px);color:var(--text);margin-bottom:16px;max-width:600px}
 .hero h1 .highlight{color:var(--accent);position:relative}
 .hero h1 .highlight::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:8px;background:var(--accent-glow);border-radius:4px;z-index:-1}
-.hero-sub{font-size:clamp(16px,4vw,19px);color:var(--text-secondary);max-width:520px;margin-bottom:28px;line-height:1.7}
+.hero-sub{font-size:clamp(16px,4vw,19px);color:var(--text-secondary);max-width:520px;margin-bottom:32px;line-height:1.7}
 .hero-sub strong{color:var(--text);font-weight:600}
 
 /* Track Record */
-.track-record{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:420px;margin-bottom:32px}
-.track-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 8px;text-align:center;transition:all 0.3s}
-.track-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.track-card .company{font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
-.track-card .growth{font-family:'Space Grotesk',sans-serif;font-size:clamp(14px,4vw,17px);font-weight:700;color:var(--warm)}
+.track-record{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;max-width:680px;margin-bottom:32px}
+.track-card{
+    background:var(--bg-card);border:2px solid var(--border);border-radius:var(--r-lg);
+    padding:16px 12px;text-align:center;transition:all 0.3s;position:relative;
+}
+.track-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.track-icon{
+    width:32px;height:32px;margin:0 auto 8px;
+    color:var(--accent);display:flex;align-items:center;justify-content:center;
+}
+.track-icon svg{width:100%;height:100%}
+.track-role{
+    font-size:10px;font-weight:700;color:var(--accent);
+    text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;
+}
+.track-card .company{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.track-card .growth{font-family:'Space Grotesk',sans-serif;font-size:clamp(16px,4vw,18px);font-weight:700;color:var(--warm);line-height:1.2}
 .track-card .growth small{display:block;font-size:10px;font-weight:600;color:var(--success);margin-top:4px}
+.track-additional{margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.track-extra{font-size:9px;font-weight:600;color:var(--text-muted)}
 
 /* Hero CTA */
 .hero-cta{display:flex;flex-direction:column;align-items:center;width:100%;max-width:380px}
@@ -471,18 +477,14 @@ footer a:hover{text-decoration:underline}
     /* Transition banner responsive margins */
     .audience-transition{margin:-56px -20px 32px !important;padding:28px 16px !important}
     
-    /* HERO ABOVE-THE-FOLD (P0): Compactar hero para mobile-first 
-       Garante headline + 1 métrica + CTA visíveis sem scroll */
+    /* HERO ABOVE-THE-FOLD (P0): Compactar hero para mobile-first */
     .hero{
         min-height:auto !important;
         padding:20px 16px 32px !important;
         justify-content:flex-start !important;
     }
-    .hero-badge{margin-bottom:16px;padding:8px 14px;gap:8px}
-    .hero-badge .stat{font-size:12px}
-    .hero-badge .stat strong{font-size:13px}
     .hero h1{margin-bottom:10px}
-    .hero-sub{font-size:15px;margin-bottom:16px;line-height:1.6}
+    .hero-sub{font-size:15px;margin-bottom:20px;line-height:1.6}
     
     /* Track-record: scroll horizontal mostrando ~1.5 cards para indicar swipe */
     .track-record{
@@ -490,7 +492,7 @@ footer a:hover{text-decoration:underline}
         overflow-x:auto;
         scroll-snap-type:x mandatory;
         -webkit-overflow-scrolling:touch;
-        gap:8px;
+        gap:12px;
         max-width:100%;
         margin-bottom:20px;
         padding-bottom:4px;
@@ -557,19 +559,19 @@ footer a:hover{text-decoration:underline}
 .founder-case-sources a:hover{color:var(--warm);text-decoration:underline}
 
 
-/* Sources Section */
+/* Sources Section - Sutil e compacta */
 .sources-section{
-    padding:48px 24px;background:#F5F7FA;border-top:1px solid var(--border);
+    padding:20px 24px;background:transparent;border-top:1px solid rgba(0,0,0,0.06);
 }
 .sources-inner{max-width:800px;margin:0 auto}
-.sources-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:16px}
-.sources-list{list-style:none;padding:0;margin:0 0 16px 0}
-.sources-list li{font-size:13px;color:var(--text-secondary);padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+.sources-title{font-size:11px;font-weight:600;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.sources-list{list-style:none;padding:0;margin:0 0 8px 0;display:flex;flex-wrap:wrap;gap:12px}
+.sources-list li{font-size:11px;color:var(--text-muted);padding:0;border:none}
 .sources-list li:last-child{border-bottom:none}
-.sources-list strong{color:var(--text);font-weight:600}
-.sources-list a{color:var(--accent);text-decoration:underline}
-.sources-list a:hover{text-decoration:none;color:var(--warm)}
-.sources-note{font-size:12px;color:var(--text-muted);font-style:italic}
+.sources-list strong{color:var(--text-secondary);font-weight:600}
+.sources-list a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+.sources-list a:hover{text-decoration:none;color:var(--warm);border-bottom-color:var(--warm)}
+.sources-note{font-size:10px;color:var(--text-muted);font-style:italic;opacity:0.7}
 
 
 
@@ -788,12 +790,12 @@ footer a, .footer a {
     }
     
     .hero-badge {
-        padding: 8px 14px;
+        padding: 10px 18px;
         margin-bottom: 16px;
-        gap: 8px;
+        gap: 10px;
     }
-    .hero-badge .stat { font-size: 11px; }
-    .hero-badge .stat strong { font-size: 13px; }
+    .hero-badge .stat { font-size: 13px; }
+    .hero-badge .stat strong { font-size: 16px; }
     
     .hero h1 {
         font-size: 26px;
@@ -874,45 +876,9 @@ footer a, .footer a {
     50% { box-shadow: 0 0 0 4px rgba(245, 158, 11, 0); }
 }
 
-/* Trust Ticker */
-.trust-ticker {
-    position: relative;
-    max-width: 480px;
-    margin: 0 auto 16px;
-    padding: 0 20px;
-    height: 36px;
-    overflow: hidden;
-}
-.trust-ticker-item {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s ease;
-}
-.trust-ticker-item.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-.trust-ticker-quote {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-style: italic;
-    line-height: 1.4;
-}
-.trust-ticker-source {
-    font-size: 10px;
-    color: var(--text-muted);
-    font-weight: 600;
-    opacity: 0.7;
-    margin-top: 2px;
-}
-
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     .slots-dot.available { animation: none; }
-    .trust-ticker-item { transition: none; }
 }
 
 /* CTAs Contextuais Inline */
@@ -1516,7 +1482,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
           "name": "Alavanka",
           "url": "https://www.alavanka.com.br",
           "logo": "https://www.alavanka.com.br/assets/images/brand/logo-preto.png",
-          "description": "Fractional CRO para empresas B2B tech brasileiras. Execução de GTM com accountability.",
+          "description": "Fractional CRO para empresas B2B brasileiras. Execução de GTM com accountability.",
           "founder": {
             "@type": "Person",
             "name": "Carlos André",
@@ -1536,8 +1502,8 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
         {
           "@type": "Service",
           "@id": "https://www.alavanka.com.br/#service",
-          "name": "Fractional CRO para B2B Tech",
-          "description": "Executivo sênior de receita em modelo fracionário (2-3 dias/semana) para empresas B2B tech com receita acima de R$10M/ano. Programa estruturado de 6 meses: Diagnóstico (30d), Transformação (90d) e Aceleração (60d).",
+          "name": "Fractional CRO para B2B",
+          "description": "Executivo sênior de receita em modelo fracionário (2-3 dias/semana) para empresas B2B com receita acima de R$10M/ano. Programa estruturado de 6 meses: Diagnóstico (30d), Transformação (90d) e Aceleração (60d).",
           "provider": { "@id": "https://www.alavanka.com.br/#organization" },
           "serviceType": "Fractional CRO / Revenue Operations",
           "areaServed": {
@@ -1546,7 +1512,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
           },
           "audience": {
             "@type": "BusinessAudience",
-            "audienceType": "B2B Tech Startups, Série B+"
+            "audienceType": "B2B Empresas, Série B+"
           }
         },
         {
@@ -1659,44 +1625,55 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 
 <!-- Hero -->
 <section class="hero">
-    <!-- UX P1: Trust strip above hero -->
-    <div class="hero-trust-strip" data-reveal>
-        <span class="trust-badge">
-            <span data-i18n="hero.trustBadge">$240M+ construído</span>
-        </span>
-        <div class="logo-mini-bar">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" height="24">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" height="24">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" height="24">
-        </div>
-    </div>
-    
-    <div class="hero-badge fade-up">
-        <div class="stat"><strong>$240M+</strong> <span data-i18n="hero.badge.built">construído</span></div>
-        <span class="divider"></span>
-        <div class="stat"><strong>25+</strong> <span data-i18n="hero.badge.years">anos B2B</span></div>
-        <span class="divider"></span>
-        <div class="stat"><strong>3</strong> <span data-i18n="hero.badge.slots">vagas max</span></div>
-    </div>
-    
     <h1 class="fade-up fade-up-1" data-i18n="hero.title">De estagnação para<br><span class="highlight">crescimento estruturado</span></h1>
     
     <p class="hero-sub fade-up fade-up-2" data-i18n="hero.subtitle">
-        <strong>Fractional CRO</strong> para B2B Tech. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
+        <strong>Fractional CRO</strong> para B2B. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
     </p>
     
     <div class="track-record fade-up fade-up-3">
         <div class="track-card">
-            <div class="company">Oracle Brasil</div>
-            <div class="growth">$48M→$240M<small>5x em 5 anos</small></div>
+            <div class="track-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <div class="track-role" data-i18n="hero.track.role1">Fundador</div>
+            <div class="company">LoySci</div>
+            <div class="growth">0→Exit<small>9 anos</small></div>
         </div>
         <div class="track-card">
-            <div class="company">AT&T LATAM</div>
-            <div class="growth">$3M→$47M<small>15x em 2 anos</small></div>
+            <div class="track-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                    <circle cx="8.5" cy="7" r="4"/>
+                    <path d="M20 8v6M23 11h-6"/>
+                </svg>
+            </div>
+            <div class="track-role" data-i18n="hero.track.role2">Operador</div>
+            <div class="company" data-i18n="hero.track.operator.total">$300M+ gerados</div>
+            <div class="growth">12.5x growth<small data-i18n="hero.track.operator.detail">médio em 5 anos</small></div>
+            <div class="track-additional">
+                <div class="track-extra" data-i18n="hero.track.operator.companies">Oracle • Informatica • AT&T LATAM</div>
+            </div>
         </div>
         <div class="track-card">
-            <div class="company">Informatica</div>
-            <div class="growth">150% YoY<small>VP LATAM</small></div>
+            <div class="track-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 00-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+            </div>
+            <div class="track-role" data-i18n="hero.track.role3">Mentor / Professor</div>
+            <div class="company" data-i18n="hero.track.mentor.startups">20+ startups mentoradas</div>
+            <div class="growth">High Impact<small data-i18n="hero.track.mentor.award">Endeavor 2013</small></div>
+            <div class="track-additional">
+                <div class="track-extra" data-i18n="hero.track.mentor.institutions">Endeavor • Insper</div>
+            </div>
         </div>
     </div>
     
@@ -1716,20 +1693,13 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
             </a>
         </div>
     </div>
-    
-    <!-- UX P1: Trust ticker for credibility reinforcement -->
-    <div class="trust-ticker" data-reveal>
-        <span class="ticker-item active" data-i18n="hero.ticker.item1">$240M+ construído</span>
-        <span class="ticker-item" data-i18n="hero.ticker.item2">25+ anos B2B</span>
-        <span class="ticker-item" data-i18n="hero.ticker.item3">Endeavor Mentor de Impacto</span>
-    </div>
 </section>
 
 <!-- Qualifier -->
 <section class="qualifier">
     <div class="qualifier-inner">
         <div class="qualifier-label" data-i18n="qualifier.label">Para quem é este serviço</div>
-        <h2 data-i18n="qualifier.title">Sua empresa B2B tech tem esses sinais?</h2>
+        <h2 data-i18n="qualifier.title">Sua empresa B2B tem esses sinais?</h2>
         <div class="qualifier-tags">
             <span class="qualifier-tag" data-i18n="qualifier.tag1">Receita ≥ R$10M/ano</span>
             <span class="qualifier-tag" data-i18n="qualifier.tag2">Série B+</span>
@@ -1903,7 +1873,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
 <section id="porque" class="why-section">
     <div class="section-header">
         <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
-        <p data-i18n="why.subtitle">Primeira empresa especializada em Fractional CRO na América Latina. Fundada por Carlos André, a Alavanka reúne operadores sêniores com track record comprovado em B2B Tech.</p>
+        <p data-i18n="why.subtitle">Primeira empresa especializada em Fractional CRO na América Latina. Fundada por Carlos André, a Alavanka reúne operadores sêniores com track record comprovado em B2B.</p>
     </div>
     
     <!-- Founder Photo Prominent + Quote Block -->
@@ -1912,17 +1882,17 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
         <div class="founder-info">
             <h3 data-i18n="why.founder.name">Carlos André</h3>
             <p class="founder-title" data-i18n="why.founder.title">Founding Partner | Ex-Presidente Oracle Brasil | Ex-CEO AT&T LATAM</p>
-            <blockquote class="founder-quote" data-i18n="why.founder.quote">Organizações B2B de $3M para $240M+ — construídas, não aconselhadas. Com experiência de founder e operador, montei a Alavanka para entregar isso em escala.</blockquote>
+            <blockquote class="founder-quote" data-i18n="why.founder.quote">Mais de $300M construídos como operador — não aconselhados. Com experiência de founder e operador, montei a Alavanka para entregar isso em escala.</blockquote>
         </div>
     </div>
     
     <div class="why-hero">
-        <div class="big-stat" data-i18n="why.track.stat">$3M → $240M</div>
-        <div class="stat-label" data-i18n="why.track.label">track record do founding partner</div>
+        <div class="big-stat" data-i18n="why.track.stat">$300M+</div>
+        <div class="stat-label" data-i18n="why.track.label">construídos como operador</div>
         <div class="stat-detail" data-i18n="why.track.detail">
-            Oracle Brasil: Presidente (5x em 5 anos)<br>
+            Oracle Brasil: Presidente (12.5x em 5 anos)<br>
             AT&T LATAM: CEO (15x em 2 anos)<br>
-            Informatica: VP LATAM (150% YoY)
+            Informatica: VP LATAM (20x em 5 anos)
         </div>
     </div>
     
@@ -1931,7 +1901,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
         <div class="credential-card">
             <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
             <ul>
-                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $48M para $240M</li>
+                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $12M para $150M</li>
                 <li data-i18n="why.cred.att">CEO AT&T LATAM — de $3M para $47M em 2 anos</li>
                 <li data-i18n="why.cred.loysci">Co-Founder LoySci (9 anos como empreendedor)</li>
             </ul>
@@ -1940,7 +1910,7 @@ footer.inv-footer .footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
             <h4 data-i18n="why.cred.ecosystem">Impacto no Ecossistema</h4>
             <ul>
                 <li data-i18n="why.cred.endeavorAward"><span class="badge-ic"><span class="ic ic-warm"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span></span> Premiado Mentor de Impacto — Endeavor Brasil (2013)</li>
-                <li data-i18n="why.cred.endeavorMentoring">Mentorias de alto impacto em 10+ empresas da rede Endeavor</li>
+                <li data-i18n="why.cred.endeavorMentoring">Mentorias de alto impacto em 20+ empresas da rede Endeavor</li>
                 <li data-i18n="why.cred.ibgc">Conselheiro certificado IBGC</li>
             </ul>
         </div>
@@ -2856,7 +2826,7 @@ if (document.readyState === 'complete') {
     function initUXFixes() {
         enhanceHeroCTA();
         createSlotsIndicator();
-        createTrustTicker();
+        // createTrustTicker(); // REMOVIDO - redundante com hero badge
         createMobileFAB();
         setupEnhancedTracking();
     }
@@ -2896,48 +2866,6 @@ if (document.readyState === 'complete') {
         
         var ctaNote = heroCta.querySelector('.hero-cta-note');
         if (ctaNote) { ctaNote.after(indicator); } else { heroCta.appendChild(indicator); }
-    }
-    
-    // 3. Trust ticker com citações rotativas
-    function createTrustTicker() {
-        var heroSub = document.querySelector('.hero-sub');
-        if (!heroSub || document.querySelector('.trust-ticker')) return;
-        
-        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
-        var quotes = {
-            pt: [
-                { text: '"70% dos VPs de Sales não completam 12 meses"', source: '— SaaStr' },
-                { text: '"Empresas com CRO crescem 1.8x mais rápido"', source: '— McKinsey' },
-                { text: '"CAC Payback > 18 meses = sinal de alerta"', source: '— Bessemer' }
-            ],
-            en: [
-                { text: '"70% of Sales VPs don\'t complete 12 months"', source: '— SaaStr' },
-                { text: '"Companies with CRO grow 1.8x faster"', source: '— McKinsey' },
-                { text: '"CAC Payback > 18 months = warning sign"', source: '— Bessemer' }
-            ]
-        };
-        
-        var ticker = document.createElement('div');
-        ticker.className = 'trust-ticker';
-        ticker.setAttribute('aria-live', 'polite');
-        
-        quotes[lang].forEach(function(quote, index) {
-            var item = document.createElement('div');
-            item.className = 'trust-ticker-item' + (index === 0 ? ' active' : '');
-            item.innerHTML = '<div class="trust-ticker-quote">' + quote.text + '</div><div class="trust-ticker-source">' + quote.source + '</div>';
-            ticker.appendChild(item);
-        });
-        
-        var trackRecord = document.querySelector('.track-record');
-        if (trackRecord) { trackRecord.before(ticker); } else { heroSub.after(ticker); }
-        
-        var currentIndex = 0;
-        var items = ticker.querySelectorAll('.trust-ticker-item');
-        setInterval(function() {
-            items[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % items.length;
-            items[currentIndex].classList.add('active');
-        }, 5000);
     }
     
     // 4. Mobile FAB - CTA fixo após scroll
@@ -3000,11 +2928,11 @@ if (document.readyState === 'complete') {
             if (mutation.attributeName === 'lang') {
                 setTimeout(function() {
                     var si = document.querySelector('.slots-indicator'); if (si) si.remove();
-                    var tt = document.querySelector('.trust-ticker'); if (tt) tt.remove();
+                    // var tt = document.querySelector('.trust-ticker'); if (tt) tt.remove(); // REMOVIDO
                     var mf = document.querySelector('.mobile-fab'); if (mf) mf.remove();
                     enhanceHeroCTA();
                     createSlotsIndicator();
-                    createTrustTicker();
+                    // createTrustTicker(); // REMOVIDO
                     createMobileFAB();
                 }, 100);
             }
