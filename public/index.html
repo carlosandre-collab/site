@@ -1674,21 +1674,6 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
         }
     }
     
-    // Make closeExitModal global so onclick can access it
-    window.closeExitModal = function() {
-        var modal = document.getElementById('exitModal');
-        if (modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-            document.removeEventListener('keydown', handleEscKey);
-            setTimeout(function() { modal.remove(); }, 300);
-            
-            // Track decline
-            if (typeof gtag === 'function') {
-                gtag('event', 'exit_intent_declined');
-            }
-        }
-    };
     
     // Desktop: mouse leave
     document.addEventListener('mouseleave', function(e) {
