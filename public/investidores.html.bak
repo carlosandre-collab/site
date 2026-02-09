@@ -37,9 +37,9 @@
          NAV (shared component)
          ══════════════════════════════════════════════════════════════════ -->
     <link rel="stylesheet" href="styles/nav-unified.css">
-    <link rel="stylesheet" href="styles/styles-main.css">
     
     <!-- UX Enhanced Styles -->
+    <link rel="stylesheet" href="styles/styles-ux-enhanced.css">
     
     <style>
 /* ╔══════════════════════════════════════════════════════════════════════════╗
@@ -882,8 +882,7 @@ h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height
     stroke: currentColor;
     fill: none;
 }
-    .flag-icon {
-        width: 40px;
+    width: 40px;
     height: 40px;
     border-radius: 10px;
     display: flex;
@@ -2546,7 +2545,7 @@ footer {
         <div class="calc-inputs">
             <div class="calc-field">
                 <label for="calcArr" data-i18n="investors.calc.arr">ARR Atual (R$)</label>
-                <input type="text" id="calcArr" placeholder="Ex: 10000000" inputmode="decimal" pattern="[0-9]*">
+                <input type="text" id="calcArr" placeholder="Ex: 10000000" inputmode="numeric">
                 <span class="calc-hint" data-i18n="investors.calc.arr.hint">Receita recorrente anual</span>
             </div>
             <div class="calc-field">
@@ -3585,10 +3584,7 @@ async function generateReport() {
         method: 'POST',
         mode: 'no-cors',
         body: params
-    })
-            .catch(function(error) {
-                console.error('Form submission failed:', error);
-            });
+    });
     
     // Mostrar sucesso
     setTimeout(function() {
@@ -3663,7 +3659,6 @@ async function generateReport() {
     
     // Update scorecard verdict based on current selection
     function updateScorecardVerdict() {
-        if (!translations || Object.keys(translations).length === 0) return;
         var verdictEl = document.getElementById('scorecardVerdict');
         var counter = document.getElementById('scorecardCounter');
         if (!verdictEl) return;

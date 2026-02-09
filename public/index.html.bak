@@ -108,6 +108,9 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-desc{font-size:13px;color:rgba(255,255,255,0.5)}
 .gate-arrow{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:18px;color:rgba(255,255,255,0.6);position:relative;z-index:1;transition:all 0.3s ease}
 .gate-option:hover .gate-arrow{background:rgba(255,255,255,0.15);transform:translateX(4px)}
+.gate-skip-link{margin-top:24px;opacity:0;animation:gateFade 0.5s ease 0.6s both}
+.gate-skip-link button{background:none;border:none;color:rgba(255,255,255,0.35);font-size:13px;cursor:pointer;text-decoration:underline;padding:8px 16px;transition:color 0.2s;font-family:inherit}
+.gate-skip-link button:hover{color:rgba(255,255,255,0.6)}
 @media(max-width:640px){
 .gate-card{padding:32px 24px}
 .gate-options{grid-template-columns:1fr;gap:12px}
@@ -151,7 +154,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     
     <!-- EXTERNAL CSS FILES DO REPOSITÓRIO -->
     <link rel="stylesheet" href="styles/nav-unified.css">
-    <link rel="stylesheet" href="styles/styles-main.css">
+    <link rel="stylesheet" href="styles/styles-deferred.css">
+    <link rel="stylesheet" href="styles/styles-ux-enhanced.css">
     
     <!-- Navigation Toggle Script -->
     <script src="components/nav.js" defer></script>
@@ -168,7 +172,14 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="gate-card">
         <div class="gate-logo">
             <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="32">
-        </div>        <h2 class="gate-question" id="gateQuestion" data-i18n="gate.question">Dois caminhos, um objetivo:<br><span style="color:var(--warm)">crescimento estruturado</span></h2>
+        </div>
+        
+        <!-- UX P0: Skip link for returning visitors -->
+        <a href="#" class="gate-skip-link" onclick="selectAudience('founder', 'skip'); return false;" data-i18n="gate.skipLink">
+            Pular esta etapa →
+        </a>
+        
+        <h2 class="gate-question" id="gateQuestion" data-i18n="gate.question">Dois caminhos, um objetivo:<br><span style="color:var(--warm)">crescimento estruturado</span></h2>
         <p class="gate-sub" id="gateSub" data-i18n="gate.sub">O conteúdo será personalizado para o seu perfil</p>
         <div class="gate-options">
             <button class="gate-option" data-audience="founder" onclick="selectAudience(&apos;founder&apos;)">
@@ -211,7 +222,14 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 </div>
 
 <!-- Navigation -->
-<nav id="main-nav"></nav><main id="main-content">
+<nav id="main-nav"></nav>
+
+<!-- P1: Scroll Progress Indicator -->
+<div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+</div>
+
+<main id="main-content">
 
 <!-- Hero -->
 <section class="hero">
@@ -709,7 +727,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#0c6f6d7e60637f4c6d606d7a6d62676d226f6361226e7e"><span class="__cf_email__" data-cfemail="2e4d4f5c42415d6e4f424f584f40454f004d4143004c5c">contato@alavanka.com</span></a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#0c6f6d7e60637f4c6d606d7a6d62676d226f6361226e7e"><span class="__cf_email__" data-cfemail="2e4d4f5c42415d6e4f424f584f40454f004d4143004c5c">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -1130,7 +1148,23 @@ document.querySelectorAll('.consequence-grid, .inv-scorecard-grid, .inv-cost-gri
     cardRevealObs.observe(el);
 });
 
-// C) Scroll Progress Bar — single handler at section D
+// C) Scroll Progress Bar
+(function() {
+    const bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                const h = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+
 // D) Mobile FAB: show after scrolling past hero
 (function() {
     const fab = document.getElementById('mobileFab');
@@ -1497,8 +1531,6 @@ if (document.readyState === 'complete') {
     
     // 4. Mobile FAB - CTA fixo após scroll
     function createMobileFAB() {
-        // DISABLED: FAB is now static HTML element (#mobileFab)
-        return;
         if (window.innerWidth > 767 || document.querySelector('.mobile-fab')) return;
         
         var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
@@ -1727,7 +1759,24 @@ function submitExitForm(e) {
     }, 4000);
     
     return false;
-}</script>
+}
+
+// P1: Scroll Progress Indicator
+(function() {
+    var progressBar = document.getElementById('scrollProgress');
+    if (!progressBar) return;
+    
+    function updateProgress() {
+        var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    }
+    
+    window.addEventListener('scroll', updateProgress);
+    updateProgress(); // Initial call
+})();
+</script>
 
 </body>
 </html>
