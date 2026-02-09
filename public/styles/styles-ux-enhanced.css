@@ -105,13 +105,6 @@
     height: 32px !important; /* Increased from 26px */
 }
 
-/* Ensure all clickable elements meet 44px */
-a, button, input[type="submit"], .clickable {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-}
-
 /* P1-1: Condensed Founder Trust Module */
 .founder-trust-micro {
     display: flex;
