@@ -1637,22 +1637,27 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
         var modal = document.createElement('div');
         modal.className = 'exit-modal';
         modal.id = 'exitModal';
-        modal.innerHTML = '<div class="exit-overlay" onclick="closeExitModal()"></div>' +
+        modal.innerHTML = '<div class="exit-overlay"></div>' +
             '<div class="exit-content">' +
-            '<button class="exit-close" onclick="closeExitModal()" aria-label="Fechar">&times;</button>' +
+            '<button class="exit-close" aria-label="Fechar">&times;</button>' +
             '<h3 data-i18n="exit.title">Antes de ir...</h3>' +
             '<p data-i18n="exit.subtitle">Receba o <strong>Playbook Fractional CRO 2025</strong> (gratuito)</p>' +
-            '<form class="exit-form" onsubmit="return submitExitForm(event)">' +
+            '<form class="exit-form">' +
             '<input type="email" name="email" placeholder="Seu melhor email" required autocomplete="email">' +
             '<button type="submit" class="exit-btn-primary" data-i18n="exit.cta">Enviar Playbook</button>' +
             '</form>' +
-            '<button class="exit-btn-secondary" onclick="closeExitModal()" data-i18n="exit.decline">Não, obrigado</button>' +
-            '<span class="exit-disclaimer" data-i18n="exit.disclaimer">1 email/mês • Sem spam</span>' +
+            '<button class="exit-btn-secondary" data-i18n="exit.decline">Não, obrigado</button>' +
+            '<span class="exit-disclaimer" data-i18n="exit.disclaimer">1 email/mês &bull; Sem spam</span>' +
             '</div>';
         
         document.body.appendChild(modal);
         document.body.style.overflow = 'hidden';
         setTimeout(function() { modal.classList.add('active'); }, 10);
+        
+        modal.querySelector('.exit-overlay').addEventListener('click', function() { window.closeExitModal(); });
+        modal.querySelector('.exit-close').addEventListener('click', function() { window.closeExitModal(); });
+        modal.querySelector('.exit-btn-secondary').addEventListener('click', function() { window.closeExitModal(); });
+        modal.querySelector('.exit-form').addEventListener('submit', function(e) { submitExitForm(e); });
         
         // ESC key to close
         document.addEventListener('keydown', handleEscKey);
