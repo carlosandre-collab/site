@@ -120,7 +120,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 /* Hero - critical above-the-fold */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;background:linear-gradient(180deg,var(--bg) 0%,rgba(250,251,253,0.5) 100%);position:relative}
 .hero-title{font-size:clamp(32px,6vw,56px);margin-bottom:20px;color:var(--text)}
-.hero-subtitle{font-size:clamp(18px,2.5vw,22px);color:var(--text-secondary);margin-bottom:40px;max-width:680px}
+.hero-sub,.hero-subtitle{font-size:clamp(18px,2.5vw,22px);color:var(--text-secondary);margin-bottom:40px;max-width:680px}
+.hero h1 .highlight{color:var(--warm);position:relative;display:inline;background:linear-gradient(180deg,transparent 60%,var(--warm-bg) 60%)}
 .track-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:48px auto;width:100%}
 .track-card{background:var(--bg-card);border:2px solid var(--border);border-radius:var(--r-lg);padding:24px;text-align:center;transition:all 0.3s ease}
 .track-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
