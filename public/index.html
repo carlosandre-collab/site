@@ -1632,6 +1632,7 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
     if (exitShown) return;
     
     function showExitModal() {
+        if (document.getElementById('exitModal')) return;
         sessionStorage.setItem('alavanka-exit-shown', 'true');
         
         var modal = document.createElement('div');
