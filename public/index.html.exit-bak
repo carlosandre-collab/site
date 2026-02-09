@@ -1707,26 +1707,12 @@ function submitExitForm(e) {
     e.preventDefault();
     var email = e.target.email.value;
     
+    // Track conversion
     if (typeof gtag === 'function') {
         gtag('event', 'exit_email_capture', { email: email });
     }
     
-    // Send email to Google Apps Script backend
-    var payload = {
-        source: 'exit_intent',
-        email: email,
-        timestamp: new Date().toISOString(),
-        page: window.location.pathname
-    };
-    
-    fetch('https://script.google.com/macros/s/AKfycbzy9gfeEUrwYd0KNiPm4XcpDjiBs80tASd5yw56Itn_7RuSXYhtPKf2Cxny0Jfgxf0LhQ/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-    }).then(function(r) { return r.text(); })
-    .then(function(t) { console.log('Exit email sent:', t); })
-    .catch(function(e) { console.error('Exit email failed:', e); });
-    
+    // Success message
     var form = e.target;
     form.parentElement.innerHTML = '<div style="text-align:center;padding:40px 20px">' +
         '<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="margin:0 auto 16px;display:block">' +
@@ -1736,7 +1722,10 @@ function submitExitForm(e) {
         '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer">Fechar</button>' +
         '</div>';
     
-    setTimeout(function() { closeExitModal(); }, 5000);
+    setTimeout(function() {
+        closeExitModal();
+    }, 4000);
+    
     return false;
 }</script>
 
