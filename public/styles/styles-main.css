@@ -464,11 +464,11 @@
 .urgency-box {
     margin-top: 28px;
     padding: 28px 24px;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
     border-radius: var(--r-xl);
     text-align: center;
     color: #fff;
-    box-shadow: 0 8px 32px rgba(27, 58, 92, 0.25);
+    box-shadow: 0 8px 32px rgba(185, 28, 28, 0.2);
 }
 
 .urgency-box h3,
@@ -603,7 +603,7 @@
 }
 
 .why-hero {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
     border-radius: var(--r-xl);
     padding: 36px 24px;
     text-align: center;
@@ -1693,7 +1693,7 @@ footer a:hover { text-decoration: underline; }
    ═══════════════════════════════════════════════════════ */
 .qualifier {
     padding: 40px 20px;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
     color: #fff;
     text-align: center;
 }
