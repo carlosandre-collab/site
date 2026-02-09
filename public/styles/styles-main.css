@@ -1925,3 +1925,176 @@ html, body {
         display: none !important;
     }
 }
+
+/* ═══════════════════════════════════════════════════════
+   38. DESKTOP UX — Content Width Constraints
+   ═══════════════════════════════════════════════════════ */
+
+/* Base section padding (all screen sizes) */
+.pain-section,
+.consequences,
+.solution-section,
+.why-section,
+.process-section,
+.fit-section,
+.cta-final,
+.faq-section {
+    padding: 60px 20px;
+}
+
+/* Constrain all direct children to readable width */
+.pain-section > *,
+.consequences > *,
+.solution-section > *,
+.why-section > *,
+.process-section > *,
+.fit-section > *,
+.cta-final > *,
+.faq-section > *,
+.logo-bar-section > * {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wider elements that benefit from extra space */
+.consequence-grid,
+.credentials-grid,
+.logo-bar {
+    max-width: 1000px;
+}
+
+/* Tablet refinements (768px+) */
+@media (min-width: 768px) {
+    .pain-section,
+    .consequences,
+    .solution-section,
+    .why-section,
+    .process-section,
+    .fit-section,
+    .cta-final,
+    .faq-section {
+        padding: 72px 32px;
+    }
+}
+
+/* Desktop refinements (1024px+) */
+@media (min-width: 1024px) {
+    .pain-section,
+    .consequences,
+    .solution-section,
+    .why-section,
+    .process-section,
+    .fit-section,
+    .cta-final,
+    .faq-section {
+        padding: 88px 48px;
+    }
+
+    .hero {
+        padding: 140px 48px 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 5vw, 56px);
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-sub, .hero-subtitle {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header {
+        margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(30px, 4vw, 40px);
+    }
+
+    .section-header p {
+        max-width: 640px;
+        font-size: 17px;
+    }
+
+    /* Cards grids get proper desktop layouts */
+    .pain-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .comparison-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .fit-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .credentials-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .consequence-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+    }
+
+    /* Timeline breathing room */
+    .timeline {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* CTA box wider on desktop */
+    .cta-box {
+        max-width: 600px;
+        padding: 56px 48px;
+    }
+
+    /* FAQ wider on desktop */
+    .faq-container {
+        max-width: 780px;
+    }
+}
+
+/* Large desktop (1280px+) — extra breathing room */
+@media (min-width: 1280px) {
+    .pain-section,
+    .consequences,
+    .solution-section,
+    .why-section,
+    .process-section,
+    .fit-section,
+    .cta-final,
+    .faq-section {
+        padding: 100px 80px;
+    }
+
+    .hero {
+        padding: 160px 80px 100px;
+    }
+}
+
+/* Ultra-wide screens (1600px+) — prevent excessive stretch */
+@media (min-width: 1600px) {
+    .pain-section > *,
+    .consequences > *,
+    .solution-section > *,
+    .why-section > *,
+    .process-section > *,
+    .fit-section > *,
+    .cta-final > *,
+    .faq-section > *,
+    .logo-bar-section > * {
+        max-width: 1080px;
+    }
+}
