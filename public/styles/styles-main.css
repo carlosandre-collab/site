@@ -464,11 +464,11 @@
 .urgency-box {
     margin-top: 28px;
     padding: 28px 24px;
-    background: linear-gradient(135deg, var(--danger) 0%, #DC2626 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
     border-radius: var(--r-xl);
     text-align: center;
     color: #fff;
-    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 8px 32px rgba(27, 58, 92, 0.25);
 }
 
 .urgency-box h3,
