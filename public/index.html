@@ -1622,6 +1622,9 @@ if (document.readyState === 'complete') {
     fabObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 })();
 
+// Global close function - always available regardless of sessionStorage
+window.closeExitModal = function() { var m = document.getElementById("exitModal"); if (m) { m.classList.remove("active"); document.body.style.overflow = ""; setTimeout(function() { m.remove(); }, 300); if (typeof gtag === "function") { gtag("event", "exit_intent_declined"); } } };
+
 // P1: Exit-Intent Modal (FIXED: Close buttons working)
 (function() {
     var exitShown = sessionStorage.getItem('alavanka-exit-shown');
