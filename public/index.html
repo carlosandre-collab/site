@@ -1678,7 +1678,7 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
     
     // Desktop: mouse leave
     document.addEventListener('mouseleave', function(e) {
-        if (e.clientY <= 0 && !exitShown && window.scrollY > 800) {
+        if (e.clientY <= 0 && !sessionStorage.getItem('alavanka-exit-shown') && window.scrollY > 800) {
             showExitModal();
         }
     });
