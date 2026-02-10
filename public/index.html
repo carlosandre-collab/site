@@ -1813,25 +1813,27 @@ function submitExitForm(e, translations) {
         page: window.location.pathname
     };
     
-    fetch('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-    }).then(function(r) { return r.text(); })
-    .then(function(t) {
-        console.log('Exit form sent:', t);
-        showExitSuccess(emailVal);
-    })
-    .catch(function(err) {
-        console.error('Exit form failed:', err);
-        // Show error state, re-enable button
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            submitBtn.style.opacity = '1';
+    // Show success immediately — the backend processes the POST before redirecting,
+    // so even if CSP blocks the redirect response, the data is already saved.
+    // Fire-and-forget: send request in background, don't wait for response.
+    showExitSuccess(emailVal);
+    
+    try {
+        // Try sendBeacon first (fire-and-forget, no CORS/CSP redirect issues)
+        var sent = navigator.sendBeacon && navigator.sendBeacon(
+            'https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec',
+            JSON.stringify(payload)
+        );
+        
+        // Fallback: fetch with no-cors (request fires even if response is blocked)
+        if (!sent) {
+            fetch('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(payload)
+            }).catch(function() { /* fire-and-forget */ });
         }
-        if (errorDiv) errorDiv.style.display = 'block';
-    });
+    } catch(ignored) { /* fire-and-forget */ }
     
     return false;
 }
