@@ -34,15 +34,17 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   2. MOBILE STICKY CTA
+   2. UNIFIED MOBILE BOTTOM BAR
+   Replaces: mobile-sticky-cta + whatsapp-float overlap
+   Single bar with Assessment CTA + WhatsApp icon button
    ═══════════════════════════════════════════════════════ */
-.mobile-sticky-cta {
+.mobile-bottom-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 12px 16px;
-    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -51,21 +53,29 @@
     z-index: 998;
     transform: translateY(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: none;
+    display: none; /* shown via media query */
 }
 
-.mobile-sticky-cta.visible {
+.mobile-bottom-bar.visible {
     transform: translateY(0);
 }
 
-.btn-mobile-sticky {
+.mobile-bottom-inner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.mobile-bottom-primary {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
     min-height: 48px;
-    padding: 14px 20px;
+    padding: 12px 20px;
     background: linear-gradient(135deg, var(--warm), var(--warm-dark));
     color: white;
     border: none;
@@ -79,20 +89,54 @@
     transition: all 0.2s ease;
 }
 
-.btn-mobile-sticky:active {
+.mobile-bottom-primary:active {
     transform: scale(0.98);
 }
 
+.mobile-bottom-primary svg {
+    flex-shrink: 0;
+}
+
+.mobile-bottom-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    border-radius: var(--r-md);
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+}
+
+.mobile-bottom-whatsapp:active {
+    transform: scale(0.95);
+}
+
 @media (max-width: 767px) {
-    .mobile-sticky-cta {
+    .mobile-bottom-bar {
         display: block;
     }
 
-    body.sticky-cta-active .whatsapp-float {
-        transform: translateY(100px);
-        opacity: 0;
-        pointer-events: none;
+    /* Hide the standalone WhatsApp float on mobile — it's now in the bar */
+    .whatsapp-float {
+        display: none !important;
     }
+    
+    /* Add bottom padding to body so content isn't hidden behind bar */
+    body {
+        padding-bottom: 72px;
+    }
+}
+
+/* Keep old class name as hidden fallback in case any JS references it */
+.mobile-sticky-cta {
+    display: none !important;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -161,12 +205,7 @@
         border: 1px solid var(--border);
     }
 
-    body.fab-active .whatsapp-float {
-        transform: translateY(80px);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
-    }
+    /* FAB-to-WhatsApp coordination removed — unified bar handles this */
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -218,6 +257,118 @@
 @keyframes pulse-subtle {
     0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2); }
     50% { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0); }
+}
+
+/* ═══════════════════════════════════════════════════════
+   5b. HERO CREDENTIALS STRIP (Fix #4: Reduced above-fold)
+   Compact one-line strip replaces 3 full track cards above fold.
+   Cards still exist but are collapsed by default.
+   ═══════════════════════════════════════════════════════ */
+.hero-credentials {
+    text-align: center;
+    margin: 32px auto 8px;
+    max-width: 700px;
+}
+
+.credentials-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 4px;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.cred-chip {
+    font-size: 14px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.cred-chip strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.cred-divider {
+    color: var(--border);
+    font-size: 10px;
+    margin: 0 4px;
+}
+
+.credentials-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 6px 14px;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-light);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.credentials-expand-btn:hover {
+    color: var(--accent);
+}
+
+.cred-chevron {
+    transition: transform 0.3s ease;
+}
+
+.credentials-expand-btn.is-open .cred-chevron {
+    transform: rotate(180deg);
+}
+
+/* Expandable panel: hidden by default, smooth reveal */
+.track-record-expandable {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease;
+}
+
+.track-record-expandable.is-open {
+    max-height: 600px; /* generous max to accommodate content */
+    opacity: 1;
+}
+
+/* On desktop (1024px+): show cards by default, hide expand button */
+@media (min-width: 1024px) {
+    .credentials-expand-btn {
+        display: none;
+    }
+    
+    .track-record-expandable {
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+    }
+}
+
+/* Mobile strip adjustments */
+@media (max-width: 640px) {
+    .credentials-strip {
+        padding: 12px 16px;
+        gap: 4px 2px;
+    }
+
+    .cred-chip {
+        font-size: 13px;
+    }
+
+    .cred-divider {
+        margin: 0 2px;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1434,7 +1585,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   23. EXIT MODAL
+   23. EXIT MODAL (IMPROVED: value preview, loading/error states)
    ═══════════════════════════════════════════════════════ */
 .exit-modal {
     position: fixed;
@@ -1464,12 +1615,48 @@
     position: relative;
     background: #fff;
     border-radius: var(--r-xl);
-    padding: 40px 32px;
+    padding: 36px 28px 28px;
     max-width: 440px;
     width: 90%;
     box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
     text-align: center;
     z-index: 1;
+}
+
+.exit-content h3 {
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.exit-content > p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.exit-book-icon {
+    margin-bottom: 12px;
+}
+
+.exit-book-icon svg {
+    display: inline-block;
+}
+
+/* Value bullets showing playbook contents */
+.exit-value-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+    text-align: left;
+}
+
+.exit-value-list li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 5px 0;
+    line-height: 1.4;
 }
 
 .exit-close {
@@ -1483,13 +1670,19 @@
     cursor: pointer;
     padding: 8px;
     line-height: 1;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.exit-close:hover {
+    color: var(--text);
 }
 
 .exit-form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 16px;
+    gap: 10px;
+    margin-top: 0;
 }
 
 .exit-form input {
@@ -1498,6 +1691,13 @@
     border-radius: var(--r-md);
     font-family: inherit;
     font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.exit-form input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(27, 58, 92, 0.1);
 }
 
 .exit-btn-primary {
@@ -1510,6 +1710,30 @@
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    min-height: 48px;
+}
+
+.exit-btn-primary:hover {
+    opacity: 0.95;
+}
+
+.exit-btn-primary:active {
+    transform: scale(0.98);
+}
+
+.exit-btn-primary:disabled {
+    cursor: not-allowed;
+}
+
+/* Error state */
+.exit-error {
+    font-size: 13px;
+    color: var(--danger);
+    padding: 8px 12px;
+    background: var(--danger-bg);
+    border-radius: var(--r-sm);
+    text-align: center;
 }
 
 .exit-btn-secondary {
@@ -1519,9 +1743,10 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
-    margin-top: 8px;
+    margin-top: 4px;
     font-family: inherit;
     text-decoration: underline;
+    min-height: 44px;
 }
 
 .exit-btn-secondary:hover {
@@ -1532,7 +1757,22 @@
 .exit-disclaimer {
     font-size: 12px;
     color: var(--text-muted);
-    margin-top: 8px;
+    margin-top: 4px;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .exit-content {
+        padding: 28px 20px 20px;
+    }
+    
+    .exit-content h3 {
+        font-size: 20px;
+    }
+    
+    .exit-value-list li {
+        font-size: 12px;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1749,6 +1989,7 @@ footer a:hover { text-decoration: underline; }
 .btn-primary:active,
 .qualifier-cta:active,
 .btn-mobile-sticky:active,
+.mobile-bottom-primary:active,
 .fab-primary:active {
     transform: scale(0.98);
 }
@@ -1756,7 +1997,8 @@ footer a:hover { text-decoration: underline; }
 .btn-hero:focus-visible,
 .btn-primary:focus-visible,
 .qualifier-cta:focus-visible,
-.btn-mobile-sticky:focus-visible {
+.btn-mobile-sticky:focus-visible,
+.mobile-bottom-primary:focus-visible {
     outline: 2px solid var(--warm);
     outline-offset: 2px;
 }
@@ -1810,6 +2052,7 @@ html, body {
     .whatsapp-float { width: 60px; height: 60px; bottom: 28px; right: 28px; }
     .whatsapp-float svg { width: 30px; height: 30px; }
     .mobile-sticky-cta { display: none !important; }
+    .mobile-bottom-bar { display: none !important; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1917,6 +2160,7 @@ html, body {
 @media print {
     .mobile-fab,
     .mobile-sticky-cta,
+    .mobile-bottom-bar,
     .whatsapp-float,
     .scroll-progress,
     .audience-gate,
