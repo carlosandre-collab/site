@@ -518,7 +518,9 @@
     "why.case.step4.text": "Com essa fundação comercial, a ClearSale escalou para líder absoluta de antifraude no Brasil, fez IPO na B3 em 2021 (captando R$1 bilhão a valuation de R$4,7 bi), e foi adquirida pela Serasa Experian por R$2 bilhões em 2025.",
     "why.case.award.title": "Premiado Mentor de Impacto — Endeavor Brasil, 2013",
     "why.case.award.detail": "Reconhecimento após mentorias de alto impacto em mais de 10 empresas da rede Endeavor.",
-    "fab.call": "Agendar"
+    "fab.call": "Agendar",
+    "secnav.process": "Processo",
+    "secnav.contact": "Contato"
   },
   "en": {
     "nav.problem": "The Problem",
@@ -1039,6 +1041,8 @@
     "why.case.step4.text": "With this commercial foundation, ClearSale scaled to become the absolute leader in anti-fraud in Brazil, IPO'd on B3 in 2021 (raising R$1 billion at R$4.7B valuation), and was acquired by Serasa Experian for R$2 billion in 2025.",
     "why.case.award.title": "Awarded High-Impact Mentor — Endeavor Brazil, 2013",
     "why.case.award.detail": "Recognition after high-impact mentoring of 10+ companies in the Endeavor network.",
-    "fab.call": "Schedule"
+    "fab.call": "Schedule",
+    "secnav.process": "Process",
+    "secnav.contact": "Contact"
   }
 }
