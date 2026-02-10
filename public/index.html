@@ -505,26 +505,51 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <h2 data-i18n="solution.title">Por Que Soluções <span class="hl">Tradicionais</span> Falham</h2>
     </div>
     
-    <div class="comparison-cards">
-        <div class="comp-card fail">
-            <span class="label" data-i18n="solution.traditional.label"><span class="ic ic-danger" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Opção tradicional</span>
-            <h3 class="comp-title" data-i18n="solution.vp.title">Contratar VP Sales</h3>
-            <p data-i18n="solution.vp.text">12-18 meses de ramp. ~50% taxa de falha em startups SaaS.* Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
+    <div class="comparison-table">
+        <!-- Row 1: VP Sales vs Fractional -->
+        <div class="comp-row">
+            <div class="comp-cell comp-old">
+                <span class="comp-label comp-label-fail">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    <span data-i18n="solution.traditional.label">Opção tradicional</span>
+                </span>
+                <h3 class="comp-title" data-i18n="solution.vp.title">Contratar VP Sales</h3>
+                <p data-i18n="solution.vp.text">12-18 meses de ramp. ~50% taxa de falha em startups SaaS.* Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
+            </div>
+            <div class="comp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="comp-cell comp-new">
+                <span class="comp-label comp-label-win">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="solution.fractional.label">Fractional CRO</span>
+                </span>
+                <h3 class="comp-title" data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h3>
+                <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
+            </div>
         </div>
-        <div class="comp-card highlight">
-            <span class="label" data-i18n="solution.fractional.label"><span class="ic ic-success" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg></span> Fractional CRO</span>
-            <h3 class="comp-title" data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h3>
-            <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
-        </div>
-        <div class="comp-card fail">
-            <span class="label" data-i18n="solution.traditional.label"><span class="ic ic-danger" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Opção tradicional</span>
-            <h3 class="comp-title" data-i18n="solution.consulting.title">Consultoria Big 4</h3>
-            <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
-        </div>
-        <div class="comp-card highlight">
-            <span class="label" data-i18n="solution.fractional.label"><span class="ic ic-success" style="width:18px;height:18px;display:inline-flex;vertical-align:middle;margin-right:4px"><svg viewBox="0 0 24 24" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg></span> Fractional CRO</span>
-            <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
-            <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
+        
+        <!-- Row 2: Consultoria vs Fractional -->
+        <div class="comp-row">
+            <div class="comp-cell comp-old">
+                <span class="comp-label comp-label-fail">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    <span data-i18n="solution.traditional.label">Opção tradicional</span>
+                </span>
+                <h3 class="comp-title" data-i18n="solution.consulting.title">Consultoria Big 4</h3>
+                <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
+            </div>
+            <div class="comp-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="comp-cell comp-new">
+                <span class="comp-label comp-label-win">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span data-i18n="solution.fractional.label">Fractional CRO</span>
+                </span>
+                <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
+                <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
+            </div>
         </div>
     </div>
     
@@ -609,8 +634,21 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <div class="founder-case-header">
             <div class="founder-case-badge" data-i18n="why.case.badge">Case Documentado</div>
             <h3 data-i18n="why.case.title">ClearSale: Estruturação Comercial no <span class="hl">Início da Jornada</span></h3>
-            
-            
+        </div>
+        
+        <!-- Fix #9: Hero metric callout -->
+        <div class="case-metric-hero">
+            <div class="case-metric-item">
+                <span class="case-metric-value" data-i18n="why.case.metric.before">Sem área de vendas</span>
+                <span class="case-metric-label" data-i18n="why.case.metric.beforeLabel">Cenário inicial</span>
+            </div>
+            <div class="case-metric-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <div class="case-metric-item case-metric-result">
+                <span class="case-metric-value" data-i18n="why.case.metric.after">IPO + Exit R$2B</span>
+                <span class="case-metric-label" data-i18n="why.case.metric.afterLabel">B3 2021 → Serasa Experian 2025</span>
+            </div>
         </div>
 
         <div class="founder-case-timeline">
@@ -663,11 +701,35 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 
         <div class="founder-case-sources">
             <p class="founder-case-sources-title">Fontes verificáveis:</p>
-            <ul>
-                <li><a href="https://www.bloomberglinea.com.br/negocios/serasa-experian-acerta-aquisicao-da-clearsale-por-r-21-bi-e-avanca-em-antifraude/" target="_blank" rel="noopener">Bloomberg Línea — Aquisição ClearSale R$2,1 bi (Out/2024)</a></li>
-                <li><a href="https://www.seudinheiro.com/2021/empresas/acoes-da-clearsale-estreiam-na-bolsa-com-disparada-de-20-apos-ipo/" target="_blank" rel="noopener">Seu Dinheiro — IPO ClearSale R$1 bi (Jul/2021)</a></li>
-                <li><a href="https://endeavor.org.br/sobre-a-endeavor/endeavor-lanca-livro-com-10-historias-de-empreendedores-de-alto-impacto/" target="_blank" rel="noopener">Endeavor Brasil — Livro #VQD (2014)</a></li>
-            </ul>
+            <div class="source-badges">
+                <a href="https://www.bloomberglinea.com.br/negocios/serasa-experian-acerta-aquisicao-da-clearsale-por-r-21-bi-e-avanca-em-antifraude/" target="_blank" rel="noopener" class="source-badge">
+                    <span class="source-badge-icon">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </span>
+                    <span class="source-badge-text">
+                        <strong>Bloomberg Línea</strong>
+                        <span>Exit R$2,1 bi (Out/2024)</span>
+                    </span>
+                </a>
+                <a href="https://www.seudinheiro.com/2021/empresas/acoes-da-clearsale-estreiam-na-bolsa-com-disparada-de-20-apos-ipo/" target="_blank" rel="noopener" class="source-badge">
+                    <span class="source-badge-icon">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </span>
+                    <span class="source-badge-text">
+                        <strong>Seu Dinheiro</strong>
+                        <span>IPO R$1 bi (Jul/2021)</span>
+                    </span>
+                </a>
+                <a href="https://endeavor.org.br/sobre-a-endeavor/endeavor-lanca-livro-com-10-historias-de-empreendedores-de-alto-impacto/" target="_blank" rel="noopener" class="source-badge">
+                    <span class="source-badge-icon">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                    </span>
+                    <span class="source-badge-text">
+                        <strong>Endeavor Brasil</strong>
+                        <span>Livro #VQD (2014)</span>
+                    </span>
+                </a>
+            </div>
         </div>
 
         <div class="founder-case-takeaway">
@@ -1166,7 +1228,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.pain-card, .consequence-card, .comp-card, .credential-card, .timeline-item, .fit-card, .faq-item, .logo-bar-item, .badge-item, .founder-profile, .founder-case-study, .founder-case-step').forEach(el => {
+document.querySelectorAll('.pain-card, .consequence-card, .comp-row, .credential-card, .timeline-item, .fit-card, .faq-item, .logo-bar-item, .badge-item, .founder-profile, .founder-case-study, .founder-case-step').forEach(el => {
     el.setAttribute('data-observe', '');
     observer.observe(el);
 });
@@ -1189,7 +1251,7 @@ const cardRevealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) {
             const parent = e.target;
-            const cards = parent.querySelectorAll('.consequence-card, .inv-flag, .inv-cost-card, .inv-del-item, .inv-model-card, .comp-card, .credential-card');
+            const cards = parent.querySelectorAll('.consequence-card, .inv-flag, .inv-cost-card, .inv-del-item, .inv-model-card, .comp-row, .credential-card');
             cards.forEach((card, i) => {
                 card.classList.add('reveal');
                 setTimeout(() => card.classList.add('is-visible'), 80 * i);
@@ -1198,7 +1260,7 @@ const cardRevealObs = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.consequence-grid, .inv-scorecard-grid, .inv-cost-grid, .inv-del-grid, .inv-model-options, .comparison-cards, .credentials-grid').forEach(el => {
+document.querySelectorAll('.consequence-grid, .inv-scorecard-grid, .inv-cost-grid, .inv-del-grid, .inv-model-options, .comparison-table, .credentials-grid').forEach(el => {
     cardRevealObs.observe(el);
 });
 
