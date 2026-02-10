@@ -1725,7 +1725,7 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
             '<li>' + t.bullet3 + '</li>' +
             '</ul>' +
             '<form class="exit-form" id="exitForm">' +
-            '<input type="email" name="email" placeholder="' + t.placeholder + '" required autocomplete="email">' +
+            '<input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput">' +
             '<button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button>' +
             '<div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div>' +
             '</form>' +
@@ -1780,17 +1780,24 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
 })();
 
 // Exit form submission (IMPROVED: loading state, error handling, no PII in GA4)
+// NOTE: Uses getElementById instead of e.target.email to avoid Cloudflare email obfuscation
 function submitExitForm(e, translations) {
     e.preventDefault();
-    var email = e.target.email.value;
+    var emailInput = document.getElementById('exitEmailInput');
+    if (!emailInput) return false;
+    var emailVal = emailInput.value;
+    if (!emailVal) return false;
+    
     var submitBtn = document.getElementById('exitSubmitBtn');
     var errorDiv = document.getElementById('exitError');
-    var originalText = submitBtn.textContent;
+    var originalText = submitBtn ? submitBtn.textContent : '';
     
     // Loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = translations ? translations.sending : 'Enviando...';
-    submitBtn.style.opacity = '0.7';
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = translations ? translations.sending : 'Enviando...';
+        submitBtn.style.opacity = '0.7';
+    }
     if (errorDiv) errorDiv.style.display = 'none';
     
     // Track conversion (NO email in GA4 — LGPD compliance)
@@ -1798,10 +1805,10 @@ function submitExitForm(e, translations) {
         gtag('event', 'exit_email_capture', { event_category: 'conversion', event_label: 'playbook' });
     }
     
-    // Send email to Google Apps Script backend
+    // Send to Google Apps Script backend
     var payload = {
         source: 'exit_intent',
-        email: email,
+        email: emailVal,
         timestamp: new Date().toISOString(),
         page: window.location.pathname
     };
@@ -1812,15 +1819,17 @@ function submitExitForm(e, translations) {
         body: JSON.stringify(payload)
     }).then(function(r) { return r.text(); })
     .then(function(t) {
-        console.log('Exit email sent:', t);
-        showExitSuccess(email);
+        console.log('Exit form sent:', t);
+        showExitSuccess(emailVal);
     })
     .catch(function(err) {
-        console.error('Exit email failed:', err);
+        console.error('Exit form failed:', err);
         // Show error state, re-enable button
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        submitBtn.style.opacity = '1';
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            submitBtn.style.opacity = '1';
+        }
         if (errorDiv) errorDiv.style.display = 'block';
     });
     
