@@ -157,6 +157,64 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <!-- Navigation Toggle Script -->
     <script src="components/nav.js" defer></script>
     <script src="components/ux-enhancements.js" defer></script>
+    
+    <!-- FAQPage Schema (Fix #7: SEO rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O que é um Fractional CRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO executa: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto custa um Fractional CRO no Brasil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. O modelo fracionário oferece 70-80% do impacto por 30-40% do custo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quando devo contratar um Fractional CRO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre Fractional CRO e consultoria?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Consultoria entrega PowerPoints. Fractional CRO executa: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual o investimento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Retainer mensal + success fee atrelado a resultados. O modelo exato depende do diagnóstico inicial. Em geral, o investimento representa 20-30% do custo de um VP Sales full-time, com ROI mensurável desde o primeiro quarter. Parte da compensação é variável — só ganhamos mais se você crescer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E se não funcionar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Temos kill-switch no Dia 30 e Dia 90. Se não estiver funcionando, encerramos sem drama. Você não fica preso a contrato longo se os resultados não aparecerem. Parte da compensação é success fee — só ganhamos mais se você crescer."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -817,6 +875,36 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 
 
 </main>
+
+<!-- Fix #6: Floating Section Nav (reduces scroll fatigue) -->
+<nav class="section-nav" id="sectionNav" aria-label="Seções da página">
+    <div class="section-nav-inner">
+        <a href="#problema" class="section-nav-item" data-section="problema">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label" data-i18n="nav.problem">Problema</span>
+        </a>
+        <a href="#solucao" class="section-nav-item" data-section="solucao">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label" data-i18n="nav.solution">Solução</span>
+        </a>
+        <a href="#porque" class="section-nav-item" data-section="porque">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label" data-i18n="nav.why">Por Quê</span>
+        </a>
+        <a href="#processo" class="section-nav-item" data-section="processo">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label" data-i18n="secnav.process">Processo</span>
+        </a>
+        <a href="#contato" class="section-nav-item" data-section="contato">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label" data-i18n="secnav.contact">Contato</span>
+        </a>
+        <a href="#faq" class="section-nav-item" data-section="faq">
+            <span class="section-nav-dot"></span>
+            <span class="section-nav-label">FAQ</span>
+        </a>
+    </div>
+</nav>
 
 
     <!-- Sources & References -->
@@ -1599,6 +1687,94 @@ if (document.readyState === 'complete') {
         </a>
     </div>
 </div>
+
+<script>
+// Fix #6: Floating Section Nav — show/hide + active section tracking
+(function() {
+    'use strict';
+    var nav = document.getElementById('sectionNav');
+    if (!nav) return;
+    
+    var hero = document.querySelector('.hero');
+    var footer = document.querySelector('footer');
+    var items = nav.querySelectorAll('.section-nav-item');
+    var sections = [];
+    
+    // Build section list from nav items
+    for (var i = 0; i < items.length; i++) {
+        var id = items[i].getAttribute('data-section');
+        var el = document.getElementById(id);
+        if (el) sections.push({ id: id, el: el, navItem: items[i] });
+    }
+    
+    var navVisible = false;
+    var activeId = '';
+    
+    function updateNav() {
+        var scrollY = window.pageYOffset || window.scrollY;
+        var viewH = window.innerHeight;
+        
+        // Show after hero, hide near footer
+        var pastHero = hero ? scrollY > hero.offsetHeight * 0.6 : scrollY > 500;
+        var nearFooter = footer ? footer.getBoundingClientRect().top < viewH : false;
+        
+        if (pastHero && !nearFooter) {
+            if (!navVisible) { nav.classList.add('visible'); navVisible = true; }
+        } else {
+            if (navVisible) { nav.classList.remove('visible'); navVisible = false; }
+        }
+        
+        // Determine active section (first one whose top is above viewport center)
+        var newActive = '';
+        var center = scrollY + viewH * 0.4;
+        for (var i = sections.length - 1; i >= 0; i--) {
+            if (sections[i].el.offsetTop <= center) {
+                newActive = sections[i].id;
+                break;
+            }
+        }
+        
+        if (newActive !== activeId) {
+            activeId = newActive;
+            for (var j = 0; j < sections.length; j++) {
+                if (sections[j].id === activeId) {
+                    sections[j].navItem.classList.add('active');
+                } else {
+                    sections[j].navItem.classList.remove('active');
+                }
+            }
+        }
+    }
+    
+    // Throttled scroll
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() { updateNav(); ticking = false; });
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Smooth scroll on click
+    for (var k = 0; k < items.length; k++) {
+        items[k].addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.getElementById(this.getAttribute('data-section'));
+            if (target) {
+                var offset = 100; // account for fixed nav
+                var top = target.offsetTop - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'section_nav_click', { event_category: 'engagement', event_label: this.getAttribute('data-section') });
+            }
+        });
+    }
+    
+    // Initial check
+    updateNav();
+})();
+</script>
 
 <script>
 // UNIFIED Mobile Bottom Bar Logic (replaces old mobileCTA + FAB coordination)
