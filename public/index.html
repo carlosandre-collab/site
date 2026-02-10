@@ -876,35 +876,22 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 
 </main>
 
-<!-- Fix #6: Floating Section Nav (reduces scroll fatigue) -->
-<nav class="section-nav" id="sectionNav" aria-label="Seções da página">
-    <div class="section-nav-inner">
-        <a href="#problema" class="section-nav-item" data-section="problema">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label" data-i18n="nav.problem">Problema</span>
-        </a>
-        <a href="#solucao" class="section-nav-item" data-section="solucao">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label" data-i18n="nav.solution">Solução</span>
-        </a>
-        <a href="#porque" class="section-nav-item" data-section="porque">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label" data-i18n="nav.why">Por Quê</span>
-        </a>
-        <a href="#processo" class="section-nav-item" data-section="processo">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label" data-i18n="secnav.process">Processo</span>
-        </a>
-        <a href="#contato" class="section-nav-item" data-section="contato">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label" data-i18n="secnav.contact">Contato</span>
-        </a>
-        <a href="#faq" class="section-nav-item" data-section="faq">
-            <span class="section-nav-dot"></span>
-            <span class="section-nav-label">FAQ</span>
-        </a>
+<!-- Fix #6: Jump-To Section Dropdown (compact, zero footprint when closed) -->
+<div class="jump-to" id="jumpTo">
+    <button class="jump-to-trigger" id="jumpToTrigger" aria-expanded="false" aria-controls="jumpToMenu" aria-label="Ir para seção">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <span class="jump-to-current" id="jumpToCurrent"></span>
+        <svg class="jump-to-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="jump-to-menu" id="jumpToMenu" aria-hidden="true">
+        <a href="#problema" class="jump-to-item" data-section="problema" data-i18n="nav.problem">O Problema</a>
+        <a href="#solucao" class="jump-to-item" data-section="solucao" data-i18n="nav.solution">A Solução</a>
+        <a href="#porque" class="jump-to-item" data-section="porque" data-i18n="nav.why">Por Que Nós</a>
+        <a href="#processo" class="jump-to-item" data-section="processo" data-i18n="secnav.process">Processo</a>
+        <a href="#contato" class="jump-to-item" data-section="contato" data-i18n="secnav.contact">Contato</a>
+        <a href="#faq" class="jump-to-item" data-section="faq">FAQ</a>
     </div>
-</nav>
+</div>
 
 
     <!-- Sources & References -->
@@ -1689,42 +1676,99 @@ if (document.readyState === 'complete') {
 </div>
 
 <script>
-// Fix #6: Floating Section Nav — show/hide + active section tracking
+// Fix #6: Jump-To Section Dropdown
 (function() {
     'use strict';
-    var nav = document.getElementById('sectionNav');
-    if (!nav) return;
+    var jumpTo = document.getElementById('jumpTo');
+    var trigger = document.getElementById('jumpToTrigger');
+    var menu = document.getElementById('jumpToMenu');
+    var currentLabel = document.getElementById('jumpToCurrent');
+    if (!jumpTo || !trigger || !menu) return;
     
     var hero = document.querySelector('.hero');
     var footer = document.querySelector('footer');
-    var items = nav.querySelectorAll('.section-nav-item');
+    var items = menu.querySelectorAll('.jump-to-item');
     var sections = [];
+    var isOpen = false;
+    var isVisible = false;
     
-    // Build section list from nav items
+    // Build section list
     for (var i = 0; i < items.length; i++) {
         var id = items[i].getAttribute('data-section');
         var el = document.getElementById(id);
-        if (el) sections.push({ id: id, el: el, navItem: items[i] });
+        if (el) sections.push({ id: id, el: el, menuItem: items[i], label: items[i].textContent });
     }
     
-    var navVisible = false;
+    // Toggle menu
+    function toggleMenu() {
+        isOpen = !isOpen;
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        menu.setAttribute('aria-hidden', String(!isOpen));
+        if (isOpen) {
+            menu.classList.add('open');
+            trigger.classList.add('open');
+        } else {
+            menu.classList.remove('open');
+            trigger.classList.remove('open');
+        }
+    }
+    
+    function closeMenu() {
+        if (!isOpen) return;
+        isOpen = false;
+        trigger.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        menu.classList.remove('open');
+        trigger.classList.remove('open');
+    }
+    
+    trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', function() { closeMenu(); });
+    menu.addEventListener('click', function(e) { e.stopPropagation(); });
+    
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+        if ((e.key === 'Escape' || e.keyCode === 27) && isOpen) closeMenu();
+    });
+    
+    // Smooth scroll on item click
+    for (var k = 0; k < items.length; k++) {
+        items[k].addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMenu();
+            var target = document.getElementById(this.getAttribute('data-section'));
+            if (target) {
+                var offset = 100;
+                window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', 'jump_to_click', { event_category: 'engagement', event_label: this.getAttribute('data-section') });
+            }
+        });
+    }
+    
     var activeId = '';
     
-    function updateNav() {
+    function updateJumpTo() {
         var scrollY = window.pageYOffset || window.scrollY;
         var viewH = window.innerHeight;
         
-        // Show after hero, hide near footer
+        // Show/hide based on scroll position
         var pastHero = hero ? scrollY > hero.offsetHeight * 0.6 : scrollY > 500;
-        var nearFooter = footer ? footer.getBoundingClientRect().top < viewH : false;
+        var nearFooter = footer ? footer.getBoundingClientRect().top < viewH * 0.5 : false;
         
         if (pastHero && !nearFooter) {
-            if (!navVisible) { nav.classList.add('visible'); navVisible = true; }
+            if (!isVisible) { jumpTo.classList.add('visible'); isVisible = true; }
         } else {
-            if (navVisible) { nav.classList.remove('visible'); navVisible = false; }
+            if (isVisible) { jumpTo.classList.remove('visible'); isVisible = false; closeMenu(); }
         }
         
-        // Determine active section (first one whose top is above viewport center)
+        // Update current section label + active highlight
         var newActive = '';
         var center = scrollY + viewH * 0.4;
         for (var i = sections.length - 1; i >= 0; i--) {
@@ -1738,9 +1782,10 @@ if (document.readyState === 'complete') {
             activeId = newActive;
             for (var j = 0; j < sections.length; j++) {
                 if (sections[j].id === activeId) {
-                    sections[j].navItem.classList.add('active');
+                    sections[j].menuItem.classList.add('active');
+                    if (currentLabel) currentLabel.textContent = sections[j].label;
                 } else {
-                    sections[j].navItem.classList.remove('active');
+                    sections[j].menuItem.classList.remove('active');
                 }
             }
         }
@@ -1750,29 +1795,12 @@ if (document.readyState === 'complete') {
     var ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
-            window.requestAnimationFrame(function() { updateNav(); ticking = false; });
+            window.requestAnimationFrame(function() { updateJumpTo(); ticking = false; });
             ticking = true;
         }
     }, { passive: true });
     
-    // Smooth scroll on click
-    for (var k = 0; k < items.length; k++) {
-        items[k].addEventListener('click', function(e) {
-            e.preventDefault();
-            var target = document.getElementById(this.getAttribute('data-section'));
-            if (target) {
-                var offset = 100; // account for fixed nav
-                var top = target.offsetTop - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
-            }
-            if (typeof gtag === 'function') {
-                gtag('event', 'section_nav_click', { event_category: 'engagement', event_label: this.getAttribute('data-section') });
-            }
-        });
-    }
-    
-    // Initial check
-    updateNav();
+    updateJumpTo();
 })();
 </script>
 
