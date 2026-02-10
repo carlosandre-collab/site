@@ -645,49 +645,71 @@
    ═══════════════════════════════════════════════════════ */
 .solution-section { background: var(--bg); }
 
-.comparison-cards {
+/* Fix #8: Side-by-side comparison rows */
+.comparison-table {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
-.comp-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+.comp-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     border-radius: var(--r-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+}
+
+.comp-cell {
     padding: 24px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.3s ease;
+    position: relative;
 }
 
-.comp-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+.comp-old {
+    background: rgba(239, 68, 68, 0.03);
+    border-bottom: 1px solid var(--border);
 }
 
-.comp-card.highlight {
-    border: 2px solid var(--accent);
-    background: linear-gradient(135deg, rgba(27, 58, 92, 0.04), #fff);
-    box-shadow: 0 4px 20px rgba(27, 58, 92, 0.15);
+.comp-old .comp-title {
+    text-decoration: line-through;
+    text-decoration-color: rgba(239, 68, 68, 0.4);
+    color: var(--text-muted);
 }
 
-.comp-card .label {
-    display: inline-block;
-    font-size: 11px;
+.comp-new {
+    background: linear-gradient(135deg, rgba(27, 58, 92, 0.04), rgba(27, 58, 92, 0.01));
+}
+
+.comp-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
-    padding: 4px 10px;
+    padding: 3px 10px;
     border-radius: var(--r-full);
 }
 
-.comp-card.fail .label { color: var(--danger); background: var(--danger-bg); }
-.comp-card.highlight .label { color: var(--accent); background: var(--accent-bg); }
+.comp-label-fail {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.08);
+}
 
-.comp-card h3,
-.comp-card .comp-title {
+.comp-label-win {
+    color: var(--accent);
+    background: var(--accent-bg);
+}
+
+.comp-label svg {
+    flex-shrink: 0;
+}
+
+.comp-title {
     font-size: 16px;
     font-weight: 700;
     color: var(--text);
@@ -696,11 +718,37 @@
     line-height: 1.15;
 }
 
-.comp-card p {
+.comp-new .comp-title {
+    color: var(--accent);
+}
+
+.comp-cell p {
     font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
+}
+
+.comp-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--warm);
+    background: var(--bg-card);
+    height: 0;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.comp-arrow svg {
+    background: var(--bg-card);
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 0 0 4px var(--bg-card);
+    position: relative;
+    top: -1px;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1584,6 +1632,103 @@
     margin: 0;
 }
 
+/* Fix #9: Case Study hero metric callout */
+.case-metric-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 20px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, rgba(27, 58, 92, 0.06), rgba(200, 150, 90, 0.06));
+    border-radius: var(--r-lg);
+    border: 1px solid rgba(200, 150, 90, 0.15);
+}
+
+.case-metric-item {
+    text-align: center;
+    flex: 1;
+}
+
+.case-metric-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-muted);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.case-metric-result .case-metric-value {
+    font-size: 22px;
+    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent), var(--warm));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.case-metric-label {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.case-metric-arrow {
+    color: var(--warm);
+    flex-shrink: 0;
+}
+
+/* Fix #9: Branded source badges */
+.source-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.source-badge:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+}
+
+.source-badge-icon {
+    color: var(--accent);
+    flex-shrink: 0;
+    display: flex;
+}
+
+.source-badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.source-badge-text strong {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.source-badge-text span {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
 /* ═══════════════════════════════════════════════════════
    23. EXIT MODAL (IMPROVED: value preview, loading/error states)
    ═══════════════════════════════════════════════════════ */
@@ -2025,7 +2170,12 @@ html, body {
     .logo-bar-item img { height: 36px; }
     .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .consequence-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .comparison-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .comparison-table { gap: 24px; }
+    .comp-row { flex-direction: row; }
+    .comp-cell { flex: 1; }
+    .comp-old { border-bottom: none; border-right: 1px solid var(--border); }
+    .comp-arrow { height: auto; width: 0; overflow: visible; padding: 0; }
+    .comp-arrow svg { position: relative; left: -14px; top: 0; }
     .credentials-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .founder-profile { flex-direction: row; text-align: left; gap: 32px; padding: 40px; }
     .founder-photo { width: 200px; height: 200px; flex-shrink: 0; }
@@ -2267,11 +2417,6 @@ html, body {
 
     /* Cards grids get proper desktop layouts */
     .pain-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-
-    .comparison-cards {
         grid-template-columns: 1fr 1fr;
         gap: 24px;
     }
