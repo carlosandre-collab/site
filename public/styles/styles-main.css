@@ -35,8 +35,8 @@
 
 /* ═══════════════════════════════════════════════════════
    1b. FLOATING SECTION NAV (Fix #6: Scroll fatigue)
-   Desktop: vertical pill on left side
-   Mobile: horizontal pill at bottom (above mobile bar)
+   Desktop: compact dot rail on far left, labels appear on hover
+   Mobile: small top-right pill with abbreviated labels
    ═══════════════════════════════════════════════════════ */
 .section-nav {
     position: fixed;
@@ -53,16 +53,113 @@
     pointer-events: auto;
 }
 
-/* Default: hide on very small screens */
-.section-nav { display: none; }
-
-/* Desktop: vertical pill on left */
+/* ---- Desktop (1024px+): vertical dots, far left ---- */
 @media (min-width: 1024px) {
     .section-nav {
         display: block;
-        left: 20px;
+        left: 8px;
         top: 50%;
-        transform: translateY(-50%) translateX(-20px);
+        transform: translateY(-50%) translateX(-10px);
+    }
+    
+    .section-nav.visible {
+        transform: translateY(-50%) translateX(0);
+    }
+    
+    .section-nav-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border);
+        border-radius: var(--r-full);
+        padding: 6px;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .section-nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    
+    .section-nav-item:hover {
+        background: var(--accent-bg);
+    }
+    
+    .section-nav-item.active {
+        background: var(--accent-bg);
+    }
+    
+    .section-nav-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--text-muted);
+        opacity: 0.4;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+    }
+    
+    .section-nav-item:hover .section-nav-dot {
+        opacity: 0.8;
+        background: var(--accent);
+    }
+    
+    .section-nav-item.active .section-nav-dot {
+        width: 8px;
+        height: 8px;
+        opacity: 1;
+        background: var(--warm);
+        box-shadow: 0 0 0 3px rgba(212, 136, 58, 0.2);
+    }
+    
+    /* Label appears as tooltip on hover */
+    .section-nav-label {
+        position: absolute;
+        left: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--bg-dark);
+        color: var(--text-inverse);
+        font-size: 11px;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 4px 10px;
+        border-radius: var(--r-sm);
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+    }
+    
+    .section-nav-item:hover .section-nav-label {
+        opacity: 1;
+    }
+}
+
+/* ---- Large desktop (1440px+): more breathing room ---- */
+@media (min-width: 1440px) {
+    .section-nav {
+        left: 16px;
+    }
+}
+
+/* ---- Tablet (768-1023px): dots only, very compact ---- */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .section-nav {
+        display: block;
+        left: 6px;
+        top: 50%;
+        transform: translateY(-50%) translateX(-10px);
     }
     
     .section-nav.visible {
@@ -73,175 +170,52 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--border);
-        border-radius: var(--r-xl);
-        padding: 8px;
-        box-shadow: var(--shadow-md);
-    }
-    
-    .section-nav-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border-radius: var(--r-lg);
-        text-decoration: none;
-        color: var(--text-muted);
-        font-size: 12px;
-        font-weight: 600;
-        font-family: 'Space Grotesk', sans-serif;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-    }
-    
-    .section-nav-item:hover {
-        color: var(--accent);
-        background: var(--accent-bg);
-    }
-    
-    .section-nav-item.active {
-        color: var(--accent);
-        background: var(--accent-bg);
-    }
-    
-    .section-nav-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--border);
-        flex-shrink: 0;
-        transition: all 0.2s ease;
-    }
-    
-    .section-nav-item.active .section-nav-dot {
-        background: var(--warm);
-        box-shadow: 0 0 0 3px rgba(212, 136, 58, 0.2);
-    }
-    
-    .section-nav-label {
-        /* always visible on desktop */
-    }
-}
-
-/* Tablet: dots only, no labels */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .section-nav {
-        display: block;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%) translateX(-15px);
-    }
-    
-    .section-nav.visible {
-        transform: translateY(-50%) translateX(0);
-    }
-    
-    .section-nav-inner {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         border: 1px solid var(--border);
         border-radius: var(--r-full);
-        padding: 8px;
-        box-shadow: var(--shadow-md);
+        padding: 6px;
+        box-shadow: var(--shadow-sm);
     }
     
     .section-nav-item {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 28px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         text-decoration: none;
         transition: all 0.2s ease;
     }
     
-    .section-nav-item:hover {
-        background: var(--accent-bg);
-    }
-    
-    .section-nav-item.active {
-        background: var(--accent-bg);
-    }
-    
     .section-nav-dot {
-        width: 8px;
-        height: 8px;
+        width: 5px;
+        height: 5px;
         border-radius: 50%;
-        background: var(--border);
+        background: var(--text-muted);
+        opacity: 0.4;
         transition: all 0.2s ease;
     }
     
     .section-nav-item.active .section-nav-dot {
+        width: 7px;
+        height: 7px;
+        opacity: 1;
         background: var(--warm);
-        box-shadow: 0 0 0 3px rgba(212, 136, 58, 0.2);
+        box-shadow: 0 0 0 2px rgba(212, 136, 58, 0.2);
     }
     
     .section-nav-label {
-        display: none; /* dots only on tablet */
+        display: none;
     }
 }
 
-/* Mobile: horizontal bar above bottom CTA bar */
+/* ---- Mobile (≤767px): hidden entirely — mobile bottom bar is sufficient ---- */
 @media (max-width: 767px) {
     .section-nav {
-        display: block;
-        bottom: 72px; /* above mobile bottom bar */
-        left: 50%;
-        transform: translateX(-50%) translateY(20px);
-    }
-    
-    .section-nav.visible {
-        transform: translateX(-50%) translateY(0);
-    }
-    
-    .section-nav-inner {
-        display: flex;
-        flex-direction: row;
-        gap: 2px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--border);
-        border-radius: var(--r-full);
-        padding: 4px;
-        box-shadow: var(--shadow-md);
-    }
-    
-    .section-nav-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 6px 10px;
-        border-radius: var(--r-full);
-        text-decoration: none;
-        color: var(--text-muted);
-        font-size: 10px;
-        font-weight: 600;
-        font-family: 'Space Grotesk', sans-serif;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-    }
-    
-    .section-nav-item:hover,
-    .section-nav-item.active {
-        color: var(--accent);
-        background: var(--accent-bg);
-    }
-    
-    .section-nav-dot {
-        display: none; /* hide dots on mobile, show labels */
-    }
-    
-    .section-nav-item.active .section-nav-label {
-        color: var(--accent);
+        display: none;
     }
 }
 
