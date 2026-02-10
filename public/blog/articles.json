@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "perfil-vendedor-hunter-farmer-challenger",
+      "slug": "perfil-vendedor-hunter-farmer-challenger",
+      "slugs": {
+        "pt": "perfil-vendedor-hunter-farmer-challenger",
+        "en": "sales-profile-hunter-farmer-challenger"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Operações",
+        "en": "Operations"
+      },
+      "title": {
+        "pt": "Hunter, Farmer ou Challenger: Qual Perfil de Vendedor Sua Operação Precisa?",
+        "en": "Hunter, Farmer, or Challenger: Which Sales Profile Does Your Operation Really Need?"
+      },
+      "excerpt": {
+        "pt": "Descubra qual perfil de vendedor (Hunter, Farmer ou Challenger) traz mais resultados para cada tipo de operação B2B. Framework prático para founders estruturarem times comerciais vencedores.",
+        "en": "Discover which sales profile (Hunter, Farmer, or Challenger) delivers the best results for each type of B2B operation. Practical framework for founders building winning sales teams."
+      },
+      "readTime": {
+        "pt": "9 min de leitura",
+        "en": "9 min read"
+      },
+      "date": "2025-02-10",
+      "dateLabel": {
+        "pt": "Fev 2025",
+        "en": "Feb 2025"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/perfil-vendedor-hunter-farmer-challenger-thumb.jpg",
+        "alt": {
+          "pt": "Três arquétipos de vendedores: Hunter (caçador), Farmer (agricultor) e Challenger (desafiador) representados visualmente",
+          "en": "Three sales archetypes: Hunter, Farmer, and Challenger represented visually"
+        }
+      }
+    },
+    {
       "id": "crencas-fundador-limitam-crescimento",
       "slug": "crencas-fundador-limitam-crescimento",
       "slugs": {
         "pt": "crencas-fundador-limitam-crescimento",
         "en": "founder-beliefs-limiting-growth-en"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Liderança",
         "en": "Leadership"
