@@ -222,48 +222,67 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <strong>Fractional CRO</strong> para B2B. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
     </p>
     
-    <div class="track-record fade-up fade-up-3">
-        <div class="track-card">
-            <div class="track-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5"/>
-                    <path d="M2 12l10 5 10-5"/>
-                </svg>
-            </div>
-            <div class="track-role" data-i18n="hero.track.role1">Fundador</div>
-            <div class="company">LoySci</div>
-            <div class="growth">0→Exit<small>9 anos</small></div>
+    <!-- Track Record: Compact strip (always visible) + expandable detail cards -->
+    <div class="hero-credentials fade-up fade-up-3">
+        <!-- Compact strip: visible by default, scannable in <2 seconds -->
+        <div class="credentials-strip">
+            <span class="cred-chip"><strong>$300M+</strong> construídos</span>
+            <span class="cred-divider" aria-hidden="true">•</span>
+            <span class="cred-chip"><strong>12.5x</strong> growth médio</span>
+            <span class="cred-divider" aria-hidden="true">•</span>
+            <span class="cred-chip"><strong>20+</strong> startups mentoradas</span>
         </div>
-        <div class="track-card">
-            <div class="track-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                    <circle cx="8.5" cy="7" r="4"/>
-                    <path d="M20 8v6M23 11h-6"/>
-                </svg>
+        <button class="credentials-expand-btn" id="credExpandBtn" aria-expanded="false" aria-controls="credExpandPanel">
+            <span data-i18n="hero.track.expand">Ver track record completo</span>
+            <svg class="cred-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+    </div>
+
+    <!-- Expandable detail cards (hidden by default, revealed on click) -->
+    <div class="track-record-expandable" id="credExpandPanel" aria-hidden="true">
+        <div class="track-record">
+            <div class="track-card">
+                <div class="track-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="track-role" data-i18n="hero.track.role1">Fundador</div>
+                <div class="company">LoySci</div>
+                <div class="growth">0→Exit<small>9 anos</small></div>
             </div>
-            <div class="track-role" data-i18n="hero.track.role2">Operador</div>
-            <div class="company" data-i18n="hero.track.operator.total">$300M+ gerados</div>
-            <div class="growth">12.5x growth<small data-i18n="hero.track.operator.detail">médio em 5 anos</small></div>
-            <div class="track-additional">
-                <div class="track-extra" data-i18n="hero.track.operator.companies">Oracle • Informatica • AT&T LATAM</div>
+            <div class="track-card">
+                <div class="track-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="8.5" cy="7" r="4"/>
+                        <path d="M20 8v6M23 11h-6"/>
+                    </svg>
+                </div>
+                <div class="track-role" data-i18n="hero.track.role2">Operador</div>
+                <div class="company" data-i18n="hero.track.operator.total">$300M+ gerados</div>
+                <div class="growth">12.5x growth<small data-i18n="hero.track.operator.detail">médio em 5 anos</small></div>
+                <div class="track-additional">
+                    <div class="track-extra" data-i18n="hero.track.operator.companies">Oracle • Informatica • AT&T LATAM</div>
+                </div>
             </div>
-        </div>
-        <div class="track-card">
-            <div class="track-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                    <circle cx="9" cy="7" r="4"/>
-                    <path d="M22 21v-2a4 4 0 00-3-3.87"/>
-                    <path d="M16 3.13a4 4 0 010 7.75"/>
-                </svg>
-            </div>
-            <div class="track-role" data-i18n="hero.track.role3">Mentor / Professor</div>
-            <div class="company" data-i18n="hero.track.mentor.startups">20+ startups mentoradas</div>
-            <div class="growth">High Impact<small data-i18n="hero.track.mentor.award">Endeavor 2013</small></div>
-            <div class="track-additional">
-                <div class="track-extra" data-i18n="hero.track.mentor.institutions">Endeavor • Insper</div>
+            <div class="track-card">
+                <div class="track-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 00-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                </div>
+                <div class="track-role" data-i18n="hero.track.role3">Mentor / Professor</div>
+                <div class="company" data-i18n="hero.track.mentor.startups">20+ startups mentoradas</div>
+                <div class="growth">High Impact<small data-i18n="hero.track.mentor.award">Endeavor 2013</small></div>
+                <div class="track-additional">
+                    <div class="track-extra" data-i18n="hero.track.mentor.institutions">Endeavor • Insper</div>
+                </div>
             </div>
         </div>
     </div>
@@ -710,7 +729,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="mailto:contato@alavanka.com">contato@alavanka.com</a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#3e5d51504a5f4a517e5f525f485f50555f105d5153"><span class="__cf_email__" data-cfemail="0f6c60617b6e7b604f6e636e796e61646e216c6062">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -837,7 +856,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══════════════════════════════════════════════════════════════════════════════
    i18n - Internationalization System
    Fix: Race condition quando nav.js dispara langChange antes do JSON carregar
@@ -1451,44 +1470,42 @@ if (document.readyState === 'complete') {
         // createTrustTicker(); // REMOVIDO - redundante com hero badge
         createMobileFAB();
         setupEnhancedTracking();
+        initCredentialsExpand();
     }
     
-    // 1. Melhorar copy do CTA - mostrar valor do resultado
-    function enhanceHeroCTA() {
-        var btnHero = document.querySelector('.btn-hero[href*="assessment"]');
-        if (!btnHero) return;
+    // 0. Credentials strip expand/collapse
+    function initCredentialsExpand() {
+        var btn = document.getElementById('credExpandBtn');
+        var panel = document.getElementById('credExpandPanel');
+        if (!btn || !panel) return;
         
-        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
-        var copy = {
-            pt: { main: 'Descubra seu Score de GTM', value: '2 min • 5 perguntas • Resultado imediato' },
-            en: { main: 'Discover your GTM Score', value: '2 min • 5 questions • Instant result' }
-        };
-        
-        var svg = btnHero.querySelector('svg');
-        var svgHTML = svg ? svg.outerHTML : '';
-        
-        btnHero.innerHTML = '<span class="btn-hero-main">' + svgHTML + '<span>' + copy[lang].main + '</span></span><span class="btn-hero-value">' + copy[lang].value + '</span>';
-        
-        if (typeof gtag === 'function') {
-            gtag('event', 'enhanced_cta_view', { event_category: 'ux_experiment', event_label: 'hero_cta_v2' });
-        }
+        btn.addEventListener('click', function() {
+            var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!isExpanded));
+            panel.setAttribute('aria-hidden', String(isExpanded));
+            
+            if (!isExpanded) {
+                panel.classList.add('is-open');
+                btn.classList.add('is-open');
+                if (typeof gtag === 'function') {
+                    gtag('event', 'track_record_expanded', { event_category: 'engagement' });
+                }
+            } else {
+                panel.classList.remove('is-open');
+                btn.classList.remove('is-open');
+            }
+        });
     }
     
-    // 2. Indicador de vagas disponíveis
-    function createSlotsIndicator() {
-        var heroCta = document.querySelector('.hero-cta');
-        if (!heroCta || document.querySelector('.slots-indicator')) return;
-        
-        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
-        var copy = { pt: '1 vaga disponível Q1', en: '1 slot available Q1' };
-        
-        var indicator = document.createElement('div');
-        indicator.className = 'slots-indicator';
-        indicator.innerHTML = '<span class="slots-dots"><span class="slots-dot filled"></span><span class="slots-dot filled"></span><span class="slots-dot available"></span></span><span>' + copy[lang] + '</span>';
-        
-        var ctaNote = heroCta.querySelector('.hero-cta-note');
-        if (ctaNote) { ctaNote.after(indicator); } else { heroCta.appendChild(indicator); }
-    }
+    // 1. REMOVED: enhanceHeroCTA() — was overriding HTML CTA copy with conflicting text
+    //    Original "Fazer Assessment Gratuito" is clearer and matches page context.
+    //    The data-i18n attribute handles language switching natively.
+    function enhanceHeroCTA() { /* noop — preserved to avoid breaking initUXFixes call */ }
+    
+    // 2. REMOVED: createSlotsIndicator() — was injecting "1 vaga disponível Q1" which
+    //    contradicted the HTML scarcity badge showing "3 vagas disponíveis para Q1 2026".
+    //    The single source of truth is now the HTML .scarcity-badge element.
+    function createSlotsIndicator() { /* noop — preserved to avoid breaking initUXFixes call */ }
     
     // 4. Mobile FAB - CTA fixo após scroll
     function createMobileFAB() {
@@ -1566,60 +1583,93 @@ if (document.readyState === 'complete') {
 })();
 </script>
 
-<!-- UX P0: Mobile Sticky CTA (Thumb-Zone Optimization) -->
-<div class="mobile-sticky-cta" id="mobileCTA">
-    <button class="btn-mobile-sticky" onclick="location.href=&apos;assessment.html&apos;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 11l3 3L22 4"/>
-            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-        </svg>
-        <span data-i18n="mobile.cta">Assessment Gratuito</span>
-    </button>
+<!-- UX FIX: Unified Mobile Bottom Bar (replaces 3 competing fixed elements) -->
+<!-- Combines: mobile-sticky-cta + whatsapp-float into one coordinated bar on mobile -->
+<div class="mobile-bottom-bar" id="mobileBottomBar">
+    <div class="mobile-bottom-inner">
+        <a href="assessment.html" class="mobile-bottom-primary" id="mobileBottomCTA">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            <span data-i18n="mobile.cta">Assessment Gratuito</span>
+        </a>
+        <a href="https://wa.me/5511975341961" target="_blank" rel="noopener" class="mobile-bottom-whatsapp" aria-label="WhatsApp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        </a>
+    </div>
 </div>
 
 <script>
-// P0: Mobile Sticky CTA Logic
+// UNIFIED Mobile Bottom Bar Logic (replaces old mobileCTA + FAB coordination)
 (function() {
-    var mobileCTA = document.getElementById('mobileCTA');
-    if (!mobileCTA) return;
+    'use strict';
+    var bar = document.getElementById('mobileBottomBar');
+    if (!bar) return;
     
     var hero = document.querySelector('.hero');
-    var ctaShown = false;
+    var ctaFinal = document.getElementById('contato');
+    var barVisible = false;
     
-    function showMobileCTA() {
-        if (!ctaShown && window.innerWidth <= 767) {
-            mobileCTA.classList.add('visible');
-            ctaShown = true;
+    function updateBarVisibility() {
+        if (window.innerWidth > 767) {
+            bar.classList.remove('visible');
+            return;
+        }
+        
+        var scrollY = window.pageYOffset || window.scrollY;
+        var pastHero = hero ? scrollY > hero.offsetHeight * 0.8 : scrollY > 400;
+        
+        // Hide when user reaches the final CTA section (avoid redundancy)
+        var nearFinalCTA = false;
+        if (ctaFinal) {
+            var ctaRect = ctaFinal.getBoundingClientRect();
+            nearFinalCTA = ctaRect.top < window.innerHeight * 0.7;
+        }
+        
+        if (pastHero && !nearFinalCTA) {
+            if (!barVisible) {
+                bar.classList.add('visible');
+                barVisible = true;
+            }
+        } else {
+            if (barVisible) {
+                bar.classList.remove('visible');
+                barVisible = false;
+            }
         }
     }
     
-    // Show after scrolling past hero
+    // Throttled scroll listener
+    var ticking = false;
     window.addEventListener('scroll', function() {
-        if (hero && window.pageYOffset > hero.offsetHeight) {
-            showMobileCTA();
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateBarVisibility();
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
     
-    // Fallback: show after 5 seconds
-    setTimeout(showMobileCTA, 5000);
+    // Also check on resize (orientation change)
+    window.addEventListener('resize', updateBarVisibility, { passive: true });
     
-    // Hide when FAB is active
-    var fabObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (document.body.classList.contains('fab-active')) {
-                mobileCTA.style.display = 'none';
-            } else if (window.innerWidth <= 767) {
-                mobileCTA.style.display = 'block';
+    // Track CTA clicks
+    var ctaBtn = document.getElementById('mobileBottomCTA');
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'cta_click', { cta_type: 'assessment', location: 'mobile_bottom_bar' });
             }
         });
-    });
-    fabObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    }
 })();
 
 // Global close function - always available regardless of sessionStorage
 window.closeExitModal = function() { var m = document.getElementById("exitModal"); if (m) { m.classList.remove("active"); document.body.style.overflow = ""; setTimeout(function() { m.remove(); }, 300); if (typeof gtag === "function") { gtag("event", "exit_intent_declined"); } } };
 
-// P1: Exit-Intent Modal (FIXED: Close buttons working)
+// P1: Exit-Intent Modal (IMPROVED: value preview, loading states, safer mobile trigger)
 (function() {
     var exitShown = sessionStorage.getItem('alavanka-exit-shown');
     
@@ -1629,20 +1679,58 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
         if (document.getElementById('exitModal')) return;
         sessionStorage.setItem('alavanka-exit-shown', 'true');
         
+        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
+        var copy = {
+            pt: {
+                title: 'Antes de ir...',
+                subtitle: 'Receba o <strong>Playbook Fractional CRO 2025</strong> grátis',
+                bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)',
+                bullet2: '✓ Checklist de contratação de VP Sales',
+                bullet3: '✓ Benchmarks de crescimento B2B Brasil',
+                placeholder: 'Seu melhor email',
+                cta: 'Enviar Playbook Gratuito',
+                decline: 'Não, obrigado',
+                disclaimer: '1 email/mês • Sem spam • Cancele quando quiser',
+                sending: 'Enviando...',
+                errorMsg: 'Erro ao enviar. Tente novamente.'
+            },
+            en: {
+                title: 'Before you go...',
+                subtitle: 'Get the <strong>Fractional CRO Playbook 2025</strong> free',
+                bullet1: '✓ GTM diagnostic framework (25+ KPIs)',
+                bullet2: '✓ VP Sales hiring checklist',
+                bullet3: '✓ B2B growth benchmarks for Brazil',
+                placeholder: 'Your best email',
+                cta: 'Send Free Playbook',
+                decline: 'No, thanks',
+                disclaimer: '1 email/month • No spam • Unsubscribe anytime',
+                sending: 'Sending...',
+                errorMsg: 'Failed to send. Please try again.'
+            }
+        };
+        var t = copy[lang];
+        
         var modal = document.createElement('div');
         modal.className = 'exit-modal';
         modal.id = 'exitModal';
         modal.innerHTML = '<div class="exit-overlay"></div>' +
             '<div class="exit-content">' +
             '<button class="exit-close" aria-label="Fechar">&times;</button>' +
-            '<h3 data-i18n="exit.title">Antes de ir...</h3>' +
-            '<p data-i18n="exit.subtitle">Receba o <strong>Playbook Fractional CRO 2025</strong> (gratuito)</p>' +
-            '<form class="exit-form">' +
-            '<input type="email" name="email" placeholder="Seu melhor email" required autocomplete="email">' +
-            '<button type="submit" class="exit-btn-primary" data-i18n="exit.cta">Enviar Playbook</button>' +
+            '<div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div>' +
+            '<h3>' + t.title + '</h3>' +
+            '<p>' + t.subtitle + '</p>' +
+            '<ul class="exit-value-list">' +
+            '<li>' + t.bullet1 + '</li>' +
+            '<li>' + t.bullet2 + '</li>' +
+            '<li>' + t.bullet3 + '</li>' +
+            '</ul>' +
+            '<form class="exit-form" id="exitForm">' +
+            '<input type="email" name="email" placeholder="' + t.placeholder + '" required autocomplete="email">' +
+            '<button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button>' +
+            '<div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div>' +
             '</form>' +
-            '<button class="exit-btn-secondary" data-i18n="exit.decline">Não, obrigado</button>' +
-            '<span class="exit-disclaimer" data-i18n="exit.disclaimer">1 email/mês &bull; Sem spam</span>' +
+            '<button class="exit-btn-secondary">' + t.decline + '</button>' +
+            '<span class="exit-disclaimer">' + t.disclaimer + '</span>' +
             '</div>';
         
         document.body.appendChild(modal);
@@ -1652,14 +1740,14 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
         modal.querySelector('.exit-overlay').addEventListener('click', function() { window.closeExitModal(); });
         modal.querySelector('.exit-close').addEventListener('click', function() { window.closeExitModal(); });
         modal.querySelector('.exit-btn-secondary').addEventListener('click', function() { window.closeExitModal(); });
-        modal.querySelector('.exit-form').addEventListener('submit', function(e) { submitExitForm(e); });
+        modal.querySelector('.exit-form').addEventListener('submit', function(e) { submitExitForm(e, t); });
         
         // ESC key to close
         document.addEventListener('keydown', handleEscKey);
         
-        // Track
+        // Track (no PII)
         if (typeof gtag === 'function') {
-            gtag('event', 'exit_intent_triggered');
+            gtag('event', 'exit_intent_triggered', { event_category: 'engagement' });
         }
     }
     
@@ -1669,35 +1757,45 @@ window.closeExitModal = function() { var m = document.getElementById("exitModal"
         }
     }
     
-    
-    // Desktop: mouse leave
+    // Desktop: mouse leave (only when cursor exits top of viewport)
     document.addEventListener('mouseleave', function(e) {
         if (e.clientY <= 0 && !sessionStorage.getItem('alavanka-exit-shown') && window.scrollY > 800) {
             showExitModal();
         }
     });
     
-    // Mobile: rapid scroll up
-    var lastScrollY = 0;
-    var scrollUpCount = 0;
+    // Mobile: FIXED — only trigger on back-button-like behavior (scroll to near top after deep scroll)
+    // Old logic fired on 2 rapid scroll-ups anywhere, causing accidental triggers.
+    // New logic: user must have scrolled past 60% of page, then scroll back to top 15%.
+    var maxScrollReached = 0;
     window.addEventListener('scroll', function() {
-        if (window.scrollY < lastScrollY - 100 && window.scrollY > 500) {
-            scrollUpCount++;
-            if (scrollUpCount >= 2 && !exitShown) {
-                showExitModal();
-            }
+        var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        if (scrollPercent > maxScrollReached) maxScrollReached = scrollPercent;
+        
+        // Only trigger if they scrolled past 60% and are now near top
+        if (maxScrollReached > 60 && scrollPercent < 15 && !sessionStorage.getItem('alavanka-exit-shown')) {
+            showExitModal();
         }
-        lastScrollY = window.scrollY;
-    });
+    }, { passive: true });
 })();
 
-// Exit form submission
-function submitExitForm(e) {
+// Exit form submission (IMPROVED: loading state, error handling, no PII in GA4)
+function submitExitForm(e, translations) {
     e.preventDefault();
     var email = e.target.email.value;
+    var submitBtn = document.getElementById('exitSubmitBtn');
+    var errorDiv = document.getElementById('exitError');
+    var originalText = submitBtn.textContent;
     
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = translations ? translations.sending : 'Enviando...';
+    submitBtn.style.opacity = '0.7';
+    if (errorDiv) errorDiv.style.display = 'none';
+    
+    // Track conversion (NO email in GA4 — LGPD compliance)
     if (typeof gtag === 'function') {
-        gtag('event', 'exit_email_capture', { email: email });
+        gtag('event', 'exit_email_capture', { event_category: 'conversion', event_label: 'playbook' });
     }
     
     // Send email to Google Apps Script backend
@@ -1713,21 +1811,32 @@ function submitExitForm(e) {
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload)
     }).then(function(r) { return r.text(); })
-    .then(function(t) { console.log('Exit email sent:', t); })
-    .catch(function(e) { console.error('Exit email failed:', e); });
+    .then(function(t) {
+        console.log('Exit email sent:', t);
+        showExitSuccess(email);
+    })
+    .catch(function(err) {
+        console.error('Exit email failed:', err);
+        // Show error state, re-enable button
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        submitBtn.style.opacity = '1';
+        if (errorDiv) errorDiv.style.display = 'block';
+    });
     
-    var form = e.target;
-    form.parentElement.innerHTML = '<div style="text-align:center;padding:40px 20px">' +
-        '<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="margin:0 auto 16px;display:block">' +
+    return false;
+}
+
+function showExitSuccess(email) {
+    var content = document.querySelector('#exitModal .exit-content');
+    if (!content) return;
+    content.innerHTML = '<div style="text-align:center;padding:40px 20px">' +
+        '<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="margin:0 auto 16px;display:block">' +
         '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>' +
-        '<h3 style="margin:0 0 8px;color:var(--accent);font-size:24px">Obrigado!</h3>' +
+        '<h3 style="margin:0 0 8px;color:var(--accent);font-size:22px;font-family:Space Grotesk,sans-serif">Obrigado!</h3>' +
         '<p style="margin:0 0 20px;font-size:15px;color:var(--text-secondary)">Playbook enviado para<br><strong>' + email + '</strong></p>' +
-        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer">Fechar</button>' +
+        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:14px">Fechar</button>' +
         '</div>';
     
-    setTimeout(function() { closeExitModal(); }, 5000);
-    return false;
-}</script>
-
-</body>
-</html>
+    setTimeout(function() { closeExitModal(); }, 6000);
+}
