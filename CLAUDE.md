@@ -1,308 +1,605 @@
-# CLAUDE.md - AI Assistant Guidelines for Alavanka Site
+# CLAUDE.md — Alavanka Site Guidelines
 
 ## Project Overview
 
-**Alavanka** is a static marketing and blog website for a Fractional CRO (Chief Revenue Officer) consulting service targeting B2B SaaS companies in Brazil and Latin America.
+**Alavanka** is a static marketing and blog website serving two distinct audiences from a single domain:
 
-- **Website:** https://www.alavanka.com.br
-- **Tech Stack:** Pure HTML, CSS, vanilla JavaScript (no frameworks or build tools beyond sitemap generation)
+| Section | Audience | Language | Path |
+|---------|----------|----------|------|
+| **Fractional CRO (BR)** | Founders & VCs of Brazilian B2B startups | PT-BR + EN | `alavanka.com.br/` |
+| **Market Entry Partnership (MEP)** | International companies entering LatAm | EN | `alavanka.com.br/market-entry` |
+
+- **Domain:** https://www.alavanka.com.br (alavanka.com redirects 301 here)
+- **Tech Stack:** Pure HTML, CSS, vanilla JavaScript (no frameworks)
 - **Hosting:** Vercel (static deployment from `/public` directory)
-- **Languages:** Bilingual (Portuguese-BR primary, English secondary)
+- **Build:** `node generate-sitemap.js` (only for sitemap regeneration)
 
-## Directory Structure
+---
+
+## Repository Structure
+
+The repository root contains config files + the `public/` deployment directory:
 
 ```
-/home/user/site/
-├── public/                          # Main deployment directory (Vercel output)
-│   ├── index.html                  # Main landing page (founders focus)
-│   ├── blog.html                   # Blog listing page
-│   ├── investidores.html           # Investor-focused landing page
-│   ├── assessment.html             # Assessment/qualification page
-│   ├── guia-fractional-cro-brasil.html  # Playbook/guide page
-│   │
-│   ├── blog/
-│   │   ├── posts/                  # Individual blog articles (PT + EN)
-│   │   │   ├── *.html             # Portuguese articles
-│   │   │   ├── *-en.html          # English translations
-│   │   │   └── articles.json      # Article metadata
-│   │   └── playbook-fractional-cro-brasil-2025.pdf
-│   │
-│   ├── assets/
-│   │   └── images/
-│   │       ├── brand/             # Logos and partner branding (PNG)
-│   │       ├── blog/              # Article thumbnails (JPG, 16:9)
-│   │       └── illustrations/     # SVG and HTML illustrations
-│   │
-│   ├── styles/                     # Modular CSS files
-│   │   ├── nav-unified.css        # Navigation component styles
-│   │   ├── blog-article.css       # Blog post template styles
-│   │   ├── footer.css             # Footer component styles
-│   │   └── styles-deferred.css    # Non-critical deferred styles
-│   │
-│   ├── components/                 # JavaScript modules
-│   │   ├── nav.js                 # Navigation component (injected)
-│   │   └── blog-tracking.js       # GA4 event tracking
-│   │
-│   ├── translations.json           # i18n strings (~2,500+ keys)
-│   ├── sitemap.xml                # Auto-generated SEO sitemap
-│   ├── robots.txt                 # Crawler directives
-│   └── llms.txt                   # LLM-friendly content index
+/                                               # Repository root
+├── public/                                     # ← Vercel deployment directory (all site files)
+│   └── (see Site Architecture below)
 │
-├── generate-sitemap.js             # Node.js sitemap builder (build script)
-├── vercel.json                     # Vercel deployment & security config
-├── package.json                    # Minimal NPM config
-├── CLAUDE.md                       # This file
+├── generate-sitemap.js                         # Node.js sitemap builder
+├── vercel.json                                 # Vercel config: headers, redirects, build
+├── package.json                                # NPM config (scripts.build → generate-sitemap.js)
+├── package-lock.json                           # Lockfile
+├── CLAUDE.md                                   # This file
+├── .gitignore                                  # .DS_Store
 └── .github/
-    └── copilot-instructions.md    # Legacy AI guidelines (see this file)
+    └── copilot-instructions.md                 # Legacy AI guidelines (superseded by this file)
 ```
 
-## Key Files Reference
+---
 
-| File | Purpose |
-|------|---------|
-| `public/index.html` | Main landing page with full design system (`:root` variables, hero, sections) |
-| `public/blog.html` | Blog listing with `.article-card` grid |
-| `public/investidores.html` | Investor-specific landing page |
-| `public/components/nav.js` | Shared navigation component (injected via JS) |
-| `public/styles/nav-unified.css` | Navigation styling (desktop + mobile) |
-| `public/translations.json` | All i18n strings for language switching |
-| `vercel.json` | Deployment config, security headers, redirects |
-| `generate-sitemap.js` | Build script that generates sitemap.xml |
+## Site Architecture (inside `public/`)
 
-## Technology Stack
+```
+public/
+│
+│── ─── ROOT PAGES ────
+│
+├── index.html                                  # Home BR — audience gate (3 options), i18n
+├── blog.html                                   # Blog listing BR (reads blog/articles.json)
+├── assessment.html                             # Assessment/qualification BR
+├── investidores.html                           # Investor landing page
+├── guia-fractional-cro-brasil.html             # Pillar page CRO (ALWAYS in root)
+├── market-entry.html                           # Landing page MEP (ALWAYS in root)
+│
+│── ─── BLOG BR (Fractional CRO) ────
+│
+├── blog/
+│   ├── articles.json                           # Article metadata (bilingual: pt+en objects)
+│   ├── posts/                                  # Individual articles
+│   │   ├── {slug-pt}.html                      # Portuguese version
+│   │   ├── {slug-en}.html                      # English translation
+│   │   └── ...
+│   └── playbook-fractional-cro-brasil-2025.pdf
+│
+│── ─── MARKET ENTRY (MEP) ────
+│
+├── market-entry/
+│   ├── blog.html                               # Blog listing MEP (reads market-entry/articles.json)
+│   ├── articles.json                           # Article metadata (English-only strings)
+│   └── posts/                                  # Individual articles (EN only)
+│       ├── {slug}.html
+│       └── ...
+│
+│── ─── SHARED ASSETS ────
+│
+├── assets/images/
+│   ├── brand/                                  # Logos, team photos, partner logos
+│   │   ├── logo-preto.png                      # Main Alavanka logo
+│   │   ├── carlos-andre.png                    # Team photo — used by both sections
+│   │   ├── miguel-velazquez.jpg                # Team photo — used by MEP
+│   │   ├── logo-oracle.png                     # Partner logos
+│   │   ├── logo-att.png
+│   │   ├── logo-informatica.png
+│   │   └── logo-endeavor.png
+│   │
+│   ├── blog/                                   # Thumbnails — BR articles ONLY
+│   │   ├── {slug-pt}-thumb.jpg                 # 1200×630, ≤200KB, JPG
+│   │   └── ...
+│   │
+│   ├── market-entry/                           # Thumbnails — MEP articles ONLY
+│   │   ├── {slug}-thumb.jpg                    # 1200×630, ≤200KB, JPG
+│   │   └── ...
+│   │
+│   └── illustrations/                          # SVGs, HTML illustrations
+│
+│── ─── SHARED STYLES & COMPONENTS ────
+│
+├── styles/
+│   ├── nav-unified.css                         # Navigation (all pages)
+│   ├── blog-article.css                        # Article template (typography, callouts, CTA)
+│   ├── footer.css                              # Footer
+│   └── styles-deferred.css                     # Below-the-fold index styles
+│
+├── components/
+│   ├── nav.js                                  # Shared nav — detects context (BR/MEP) & depth
+│   └── blog-tracking.js                        # GA4 event tracking
+│
+│── ─── CONFIG FILES ────
+│
+├── translations.json                           # i18n strings for index.html (~2500+ keys)
+├── sitemap.xml                                 # Auto-generated by generate-sitemap.js
+├── robots.txt                                  # Crawler directives
+└── llms.txt                                    # LLM-friendly content index
+```
 
-### Frontend
-- **HTML5:** Semantic markup, no templating engine
-- **CSS3:** CSS variables, Flexbox/Grid, responsive `@media` queries
-- **JavaScript:** Vanilla ES5 (no transpilation needed)
+### Key Principle: Shared Infrastructure, Separate Content
 
-### Fonts (Google Fonts)
-- **DM Sans:** Body text (400/500/600/700)
-- **DM Serif Display:** Headings (400)
-- **Space Grotesk:** UI elements (500/600/700)
+Assets, styles, and components live at the root level and are **shared** by both sections. Content (articles, metadata JSON) lives in its own section folder. **Never duplicate shared assets.**
 
-### Color System
+---
+
+## Relative Path Reference
+
+Every reference to assets, styles, and components uses **relative paths**. This is the definitive reference.
+
+### Assets (images)
+
+| File located in | Brand images | Blog BR thumbs | MEP thumbs |
+|---|---|---|---|
+| Root (`index.html`, `market-entry.html`, `blog.html`) | `assets/images/brand/` | `assets/images/blog/` | `assets/images/market-entry/` |
+| `blog/posts/*.html` | `../../assets/images/brand/` | `../../assets/images/blog/` | n/a |
+| `market-entry/blog.html` | `../assets/images/brand/` | n/a | `../assets/images/market-entry/` |
+| `market-entry/posts/*.html` | `../../assets/images/brand/` | n/a | `../../assets/images/market-entry/` |
+
+### Styles & Components
+
+| File located in | Styles | Components |
+|---|---|---|
+| Root | `styles/` | `components/` |
+| `blog/posts/*.html` | `../../styles/` | `../../components/` |
+| `market-entry/blog.html` | `../styles/` | `../components/` |
+| `market-entry/posts/*.html` | `../../styles/` | `../../components/` |
+
+### Internal Links Between Sections
+
+| From → To | Home | Blog BR | Market Entry | MEP Blog | Assessment |
+|---|---|---|---|---|---|
+| Root | `index.html` | `blog.html` | `market-entry.html` | `market-entry/blog.html` | `assessment.html` |
+| `blog/posts/` | `../../index.html` | `../../blog.html` | `../../market-entry.html` | `../../market-entry/blog.html` | `../../assessment.html` |
+| `market-entry/blog.html` | `../index.html` | `../blog.html` | `../market-entry.html` | `blog.html` | `../assessment.html` |
+| `market-entry/posts/` | `../../index.html` | `../../blog.html` | `../../market-entry.html` | `../blog.html` | `../../assessment.html` |
+
+### Thumbnail Paths in articles.json
+
+| JSON file | Thumbnail path format |
+|---|---|
+| `blog/articles.json` | `assets/images/blog/{slug-pt}-thumb.jpg` (no prefix — consumed by root `blog.html`) |
+| `market-entry/articles.json` | `../assets/images/market-entry/{slug}-thumb.jpg` (with `../` — consumed by `market-entry/blog.html`) |
+
+---
+
+## Public URLs (Vercel Clean URLs)
+
+Vercel serves clean URLs — `.html` extension is optional.
+
+| File | Public URL |
+|---|---|
+| `public/index.html` | `alavanka.com.br/` |
+| `public/blog.html` | `alavanka.com.br/blog` |
+| `public/market-entry.html` | `alavanka.com.br/market-entry` |
+| `public/market-entry/blog.html` | `alavanka.com.br/market-entry/blog` |
+| `public/blog/posts/artigo.html` | `alavanka.com.br/blog/posts/artigo` |
+| `public/market-entry/posts/artigo.html` | `alavanka.com.br/market-entry/posts/artigo` |
+
+---
+
+## Design System
+
+### Color Tokens
+
 ```css
---accent: #1B3A5C;     /* Navy blue - primary */
---warm: #C8965A;       /* Amber - secondary */
---bg-light: #FAFBFD;   /* Light backgrounds */
---text-primary: #0D1B2A; /* Dark text */
+:root {
+  /* Accent — Navy */
+  --accent: #1B3A5C;
+  --accent-dark: #142D48;
+  --accent-light: #2D5F8A;
+  --accent-glow: rgba(27,58,92,0.25);
+  --accent-bg: rgba(27,58,92,0.06);
+  /* Warm — Amber */
+  --warm: #C8965A;
+  --warm-dark: #B07D42;
+  --warm-light: #D4A96F;
+  --warm-glow: rgba(200,150,90,0.25);
+  --warm-bg: rgba(200,150,90,0.08);
+  /* Backgrounds */
+  --bg: #FAFBFD;
+  --bg-card: #FFFFFF;
+  --bg-dark: #0D1B2A;
+  /* Text */
+  --text: #0D1B2A;
+  --text-secondary: #4A5568;
+  --text-muted: #8C8CA1;
+  --text-inverse: #FFFFFF;
+  /* Status */
+  --success: #10B981;
+  --danger: #EF4444;
+  --warning: #F59E0B;
+  /* Borders & Shadows */
+  --border: #E5E7EB;
+  --border-accent: rgba(27,58,92,0.2);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --shadow-glow: 0 8px 32px rgba(200,150,90,0.3);
+  /* Radius */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px; --r-full: 9999px;
+}
 ```
 
-### Analytics & Tracking
-- Google Analytics 4 (GA4)
-- Microsoft Clarity
-- LinkedIn Conversion Pixel
-- Custom scroll/CTA tracking in `blog-tracking.js`
+**Usage:** Primary CTAs = amber gradient (`--warm` → `--warm-dark`). Links/badges = `--accent`. Hover = `--accent-light`. Header/footer = `--bg-dark`. CTA box-shadow = `--shadow-glow`.
 
-### External Integrations
-- Calendly (scheduling embeds)
-- Formspree (form handling)
-- WhatsApp Web API
-- YouTube/Vimeo (embedded videos)
+### Typography (Google Fonts)
+
+```
+DM Sans (400,500,600,700)       → Body, UI elements
+Space Grotesk (500,600,700)     → Headings, article titles
+DM Serif Display (400)          → Decorative titles (hero, gate overlay)
+```
+
+Import: `family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700`
+
+### CSS Architecture
+
+This project uses **two CSS approaches intentionally**:
+
+1. **Inline `<style>` blocks** in HTML `<head>` — critical above-the-fold CSS, page-specific styles, `:root` variables
+2. **External CSS files** in `styles/` — shared components (nav, footer, article template)
+
+**⚠️ Variable Duplication Warning:** CSS variables exist in both inline `:root` and `styles/` files. When changing global colors/spacing, update **BOTH** the inline `:root` blocks AND the relevant `styles/*.css` files.
+
+### Class Naming
+
+BEM-like readable names: `.article-card`, `.qualification-box`, `.founder-profile`, `.hero`, `.card`, `.two-col`. Reuse existing classes; avoid creating new ones unnecessarily.
+
+---
+
+## Navigation (nav.js)
+
+`components/nav.js` injects the navigation into any page with `<nav id="main-nav"></nav>`.
+
+### Integration (any page)
+
+```html
+<!-- In <head> -->
+<link rel="stylesheet" href="{prefix}styles/nav-unified.css">
+<script src="{prefix}components/nav.js" defer></script>
+<!-- In <body> -->
+<nav id="main-nav"></nav>
+```
+
+Prefix: `""` for root, `"../"` for 1-level deep, `"../../"` for 2-levels deep.
+
+### Context Detection
+
+nav.js auto-detects page depth for relative URLs and detects context (BR vs MEP) based on the URL path:
+
+- **BR context** (default): Home → O Problema → A Solução → Por Que Nós → Como Funciona → Playbook → Blog → FAQ → Contato → Toggle idioma
+- **MEP context** (path contains `/market-entry`): Adapted links for international audience
+
+If a page defines `window.toggleLang()`, nav.js delegates language toggle to that function.
+
+---
+
+## Audience Gate (index.html)
+
+The home page gate offers 3 options:
+
+| Option | Action | Destination |
+|---|---|---|
+| **Founder / CEO** | Closes gate, shows BR content | Stays on `index.html` |
+| **International Company** | Redirects | `market-entry.html` |
+| **Investidor / VC** | Closes gate, shows investor section | Stays on `index.html#investidores` |
+
+- Stores choice in `sessionStorage('alavanka-audience')`
+- Skips gate if: sessionStorage exists OR referrer contains `alavanka.com`
+- Anti-flash: inline `<script>` in `<head>` (before `<style>`) adds class `gate-skip` → CSS `html.gate-skip .audience-gate{display:none!important}`
+
+---
+
+## Content Rules by Section
+
+### BR (Fractional CRO)
+
+| Item | Rule |
+|---|---|
+| **Language** | PT-BR primary + EN translated |
+| **Articles** | ALWAYS create PT + EN pair |
+| **Slugs** | PT: `kebab-sem-acentos`, EN: `kebab-english` |
+| **Thumbnails** | `assets/images/blog/{slug-pt}-thumb.jpg` |
+| **Metadata** | `blog/articles.json` |
+| **Listing** | `blog.html` (root) |
+| **Categories** | Estratégia & Growth, Diagnóstico, Operações, Liderança, Casos |
+| **hreflang** | PT ↔ EN (both required) |
+| **CTAs** | Diagnóstico gratuito / Assessment / Agendar conversa |
+
+### MEP (Market Entry Partnership)
+
+| Item | Rule |
+|---|---|
+| **Language** | EN only |
+| **Articles** | EN only (no PT version required) |
+| **Slugs** | `kebab-english` |
+| **Thumbnails** | `assets/images/market-entry/{slug}-thumb.jpg` |
+| **Metadata** | `market-entry/articles.json` |
+| **Listing** | `market-entry/blog.html` |
+| **Categories** | Market Entry, AI & GTM, LATAM Operations |
+| **hreflang** | EN only |
+| **CTAs** | Schedule Strategy Call (Calendly) |
+
+---
+
+## articles.json Format
+
+### BR (`blog/articles.json`) — Bilingual Objects
+
+```json
+{
+  "id": "{slug-pt}",
+  "slug": "{slug-pt}",
+  "slugs": { "pt": "{slug-pt}", "en": "{slug-en}" },
+  "featured": true,
+  "category": { "pt": "Categoria", "en": "Category" },
+  "title": { "pt": "Título", "en": "Title" },
+  "excerpt": { "pt": "Resumo 150-200 chars", "en": "Summary 150-200 chars" },
+  "readTime": { "pt": "X min de leitura", "en": "X min read" },
+  "date": "YYYY-MM-DD",
+  "dateLabel": { "pt": "Mês Ano", "en": "Month Year" },
+  "thumbnail": {
+    "type": "image",
+    "src": "assets/images/blog/{slug-pt}-thumb.jpg",
+    "alt": { "pt": "Descrição", "en": "Description" }
+  }
+}
+```
+
+### MEP (`market-entry/articles.json`) — English-Only Strings
+
+```json
+{
+  "id": "{slug}",
+  "slug": "{slug}",
+  "featured": false,
+  "category": "Market Entry",
+  "title": "Article Title",
+  "excerpt": "Summary 150-200 chars",
+  "readTime": "X min read",
+  "date": "YYYY-MM-DD",
+  "dateLabel": "Month Year",
+  "thumbnail": {
+    "type": "image",
+    "src": "../assets/images/market-entry/{slug}-thumb.jpg",
+    "alt": "Image description"
+  }
+}
+```
+
+**Key differences:** BR uses bilingual `{ "pt": "...", "en": "..." }` objects. MEP uses plain strings. BR thumbnail path has no prefix (consumed by root `blog.html`). MEP thumbnail path has `../` prefix (consumed by `market-entry/blog.html`). Only 1 article can be `"featured": true` per JSON file.
+
+---
+
+## Checklist: New BR Article
+
+1. **Slugs:** PT `kebab-sem-acentos`, EN `kebab-english`
+2. **Thumbnail:** `assets/images/blog/{slug-pt}-thumb.jpg` (1200×630, ≤200KB)
+3. **HTML PT:** `blog/posts/{slug-pt}.html` — full meta tags, OG, hreflang, Schema.org (Article + FAQPage), nav placeholder, blog-article.css
+4. **HTML EN:** `blog/posts/{slug-en}.html` — translated, hreflang reversed
+5. **articles.json:** Add entry to `blog/articles.json`. Set `"featured": true`, change previous featured to `false`
+6. **Cross-links:** 2-4 internal links to other BR articles
+7. **Deploy:** `git add -A && git commit -m "Novo artigo: [título]" && git push`
+
+## Checklist: New MEP Article
+
+1. **Slug:** `kebab-english`
+2. **Thumbnail:** `assets/images/market-entry/{slug}-thumb.jpg` (1200×630, ≤200KB)
+3. **HTML EN:** `market-entry/posts/{slug}.html` — full meta tags, OG, Schema.org (Article + FAQPage), nav placeholder, inline CSS (article template pattern)
+4. **articles.json:** Add entry to `market-entry/articles.json`. Evaluate `"featured": true`
+5. **Cross-links:** 2-3 links to other MEP articles + link to `market-entry.html`
+6. **Deploy:** `git add -A && git commit -m "New MEP article: [title]" && git push`
+
+---
+
+## Article HTML Template (Head)
+
+### BR Articles (`blog/posts/`)
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{TÍTULO} | Alavanka</title>
+  <meta name="description" content="{150-160 chars}">
+  <!-- GA4 + Clarity scripts -->
+  <meta name="article:slug" content="{slug-pt}">
+  <meta name="article:category" content="{Category}">
+  <script src="../../components/blog-tracking.js" defer></script>
+  <meta property="og:title" content="{TÍTULO}">
+  <meta property="og:description" content="{DESCRIÇÃO}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alavanka.com.br/blog/posts/{slug-pt}.html">
+  <meta property="og:image" content="https://www.alavanka.com.br/assets/images/blog/{slug-pt}-thumb.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.alavanka.com.br/blog/posts/{slug-pt}.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.alavanka.com.br/blog/posts/{slug-pt}.html">
+  <link rel="alternate" hreflang="en" href="https://www.alavanka.com.br/blog/posts/{slug-en}.html">
+  <!-- Schema.org Article + FAQPage -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/nav-unified.css">
+  <script src="../../components/nav.js" defer></script>
+</head>
+<body>
+  <nav id="main-nav"></nav>
+```
+
+### MEP Articles (`market-entry/posts/`)
+
+Same structure but: `lang="en"`, `og:locale="en_US"`, paths use `../../styles/` and `../../components/`, thumbnail in `assets/images/market-entry/`, canonical and OG URLs point to `market-entry/posts/{slug}.html`, hreflang EN only (no PT alternate), inline `<style>` with full article CSS (no external blog-article.css dependency).
+
+---
+
+## Analytics & Tracking
+
+- Google Analytics 4 (GA4) — `G-D8LLY1L1Z3`
+- Microsoft Clarity — `vb4dciqpnm`
+- LinkedIn Conversion Pixel
+- Custom tracking in `blog-tracking.js`: `article_viewed`, `article_scroll_depth` (25/50/75/100%), `article_cta_click`, `article_language_switch`
+
+---
+
+## JavaScript Patterns
+
+- **IIFE pattern** for scope isolation
+- **`'use strict';`** enabled
+- **ES5 syntax** — no `const`/`let`, arrow functions only where safe (no transpilation)
+- **Graceful degradation** — check for `gtag`/`translations` before use
+- **`window.toggleLang()`** — if a page defines this function, nav.js delegates language toggle to it
+
+---
+
+## Security Configuration (vercel.json)
+
+Headers enforced on all routes:
+
+- **CSP:** Restricts script/style/frame sources (allowlisted: Google Analytics, GTM, Clarity, LinkedIn Pixel, Calendly, Formspree, YouTube, Vimeo, Google Fonts)
+- **HSTS:** 2-year max-age, includeSubDomains, preload
+- **X-Frame-Options:** SAMEORIGIN
+- **Permissions-Policy:** Blocks geolocation, microphone, camera, payment, USB
+
+Existing redirects handle legacy blog URL structure (`/blog/article.html` → `/blog/posts/article.html`).
+
+---
+
+## SEO Rules
+
+- 1 H1 per page
+- Title: 50-60 chars
+- Description: 150-160 chars
+- Alt text on all images
+- 2-3 internal links per article
+- Schema.org: Article + FAQPage (3 questions per article)
+- Pillar pages ALWAYS in root (`public/`), never in subfolders
+- YYYY-MM-DD date format in all articles.json files
+
+---
 
 ## Development Workflow
 
 ### Local Development
+
 ```bash
-# No build required for most changes
-# Serve the public directory locally:
+# Serve the public directory:
 python -m http.server 8000 -d public
 # or
 npx serve public
 ```
 
-### Build Process
+### Build (only for sitemap)
+
 ```bash
-# Only needed when adding/removing blog posts
-npm run build
-# This runs: node generate-sitemap.js
+npm run build    # runs: node generate-sitemap.js
 ```
 
 ### Deployment
-- Push to main branch triggers Vercel auto-deploy
+
+- Push to `main` triggers Vercel auto-deploy
 - Vercel runs `node generate-sitemap.js` as build command
 - Output directory: `public/`
-- Clean URLs enabled (no `.html` extension needed)
+- Clean URLs enabled
 
-## CSS Architecture
+### Git Workflow
 
-### Dual-Style Pattern
-This project uses **two CSS approaches intentionally**:
+- Keep PRs small and focused (1-3 files)
+- Commit messages: `Update [filename]` or `Novo artigo: [título]` or `New MEP article: [title]`
+- List modified files in PR description
 
-1. **Inline `<style>` blocks** in HTML `<head>`:
-   - Critical above-the-fold CSS
-   - Page-specific styles
-   - `:root` variables for each page
+---
 
-2. **External CSS files** in `styles/`:
-   - Shared components (nav, footer)
-   - Cross-page reusable patterns
+## Testing Checklist
 
-### Variable Duplication Warning
-CSS variables are duplicated between:
-- Inline `:root` in `index.html`, `blog.html`
-- `styles/` CSS files
+After making changes, preview:
 
-**When changing global colors/spacing:** Update BOTH the inline `:root` blocks AND the relevant `styles/*.css` files.
+| Change Type | Pages to Preview |
+|---|---|
+| Navigation | `index.html`, `blog.html`, `market-entry.html`, any blog post, any MEP post |
+| Footer | `index.html`, `blog.html` |
+| Colors/Typography | `index.html`, `blog.html`, blog posts, MEP posts |
+| BR blog post | `blog.html` + the new post |
+| MEP blog post | `market-entry/blog.html` + the new post |
+| Audience gate | `index.html` (clear sessionStorage first) |
+| Translations | All pages with `data-i18n` attributes |
 
-### Class Naming
-Use BEM-like readable names:
-- `.article-card`, `.qualification-box`, `.founder-profile`
-- `.hero`, `.card`, `.two-col`
-- Reuse existing classes; avoid creating new ones unnecessarily
+---
 
-## JavaScript Patterns
+## Absolute Prohibitions
 
-### Component Injection
-`nav.js` injects the navigation component by replacing `<nav>` tags:
-```javascript
-// Auto-detects page depth for relative URLs
-// Handles language toggle with localStorage
-// Mobile hamburger menu with slide-out sidebar
-```
+These apply to ALL pages and sections:
 
-### Event Tracking
-`blog-tracking.js` sends GA4 events:
-- `article_viewed` - on page load
-- `article_scroll_depth` - at 25%, 50%, 75%, 100%
-- `article_cta_click` - CTA interactions
-- `article_language_switch` - language changes
+- **NEVER** use `.webp` or `<picture>` with webp source → use `<img src="...png|jpg">`
+- **NEVER** create images outside `assets/images/` → centralized path always
+- **NEVER** use purple palette (#6B5CE7, #5648c7, etc.) → navy + amber only
+- **NEVER** use Inter or Montserrat fonts → DM Sans + Space Grotesk + DM Serif Display
+- **NEVER** put inline nav HTML → ALWAYS use nav.js + nav-unified.css
+- **NEVER** have more than 1 `"featured": true` per articles.json
+- **NEVER** use dates outside `YYYY-MM-DD` format in articles.json
+- **NEVER** place pillar pages inside subfolders (always root)
+- **ALWAYS** create PT + EN pair for BR articles
+- **ALWAYS** place MEP articles in `market-entry/posts/`, not `blog/posts/`
+- **ALWAYS** place MEP thumbnails in `assets/images/market-entry/`, not `assets/images/blog/`
 
-### Conventions
-- IIFE pattern for scope isolation
-- `'use strict';` enabled
-- Graceful degradation (check for `gtag`/`translations` before use)
-- ES5 syntax (no `const`/`let`, arrow functions only where safe)
+---
 
-## Common Tasks
-
-### Adding a New Blog Post
-
-1. **Copy an existing article:**
-   ```bash
-   cp public/blog/posts/existing-article.html public/blog/posts/new-article.html
-   ```
-
-2. **Update the new file:**
-   - `<title>` and `<meta name="description">`
-   - `<meta property="og:*">` tags
-   - `<link rel="canonical">` URL
-   - Hero section title and content
-   - Article body content
-
-3. **Add thumbnail image:**
-   ```
-   public/assets/images/blog/new-article-thumb.jpg  (16:9 ratio)
-   ```
-
-4. **Update blog.html:**
-   - Add new `.article-card` in the grid
-   - Follow existing card markup pattern
-
-5. **Regenerate sitemap:**
-   ```bash
-   npm run build
-   ```
-
-### Adding English Translation
-
-1. Copy the Portuguese article:
-   ```bash
-   cp public/blog/posts/article.html public/blog/posts/article-en.html
-   ```
-
-2. Add `hreflang` links to both versions:
-   ```html
-   <link rel="alternate" hreflang="pt-BR" href="article.html">
-   <link rel="alternate" hreflang="en" href="article-en.html">
-   ```
-
-3. Translate content and update metadata
-
-### Updating Navigation
-
-1. Edit `public/components/nav.js` for structure/behavior changes
-2. Edit `public/styles/nav-unified.css` for styling changes
-3. Test on multiple pages (nav is injected everywhere)
-
-### Updating Translations
-
-1. Edit `public/translations.json`
-2. Keys follow dot notation: `"nav.home"`, `"hero.title"`
-3. Both PT and EN values must be provided
-
-## Security Configuration
-
-`vercel.json` enforces strict security headers:
-
-- **CSP:** Restricts script/style/frame sources
-- **HSTS:** Forces HTTPS with 2-year max-age
-- **X-Frame-Options:** SAMEORIGIN only
-- **Permissions-Policy:** Blocks geolocation, microphone, camera, payment, USB
-
-### CSP Allowlisted Domains
-- Google Analytics/Tag Manager
-- LinkedIn Pixel
-- Calendly (frames)
-- Formspree (forms)
-- YouTube/Vimeo (embeds)
-- Google Fonts
-
-## Important Conventions for AI Assistants
+## AI Assistant Conventions
 
 ### DO:
 - Read files before editing them
-- Make minimal, focused changes (1-3 files per PR)
+- Make minimal, focused changes
 - Reuse existing CSS classes and patterns
-- Update both inline and external CSS when changing global variables
-- Test changes by listing which pages to preview
-- Follow existing code style and naming conventions
+- Update BOTH inline and external CSS when changing global variables
+- Follow the relative path reference tables above exactly
+- Verify which section (BR/MEP) a new file belongs to before creating it
 
 ### DON'T:
-- Create new files unless absolutely necessary
+- Create new files unless necessary
 - Add new CSS classes when existing ones work
 - Make sweeping refactors without explicit request
 - Change security headers without understanding implications
 - Modify `generate-sitemap.js` unless adding new page types
-- Use ES6+ syntax that might break in older browsers
+- Use ES6+ syntax
 
 ### When Uncertain:
-- Ask for clarification about which pages must match visually
-- Verify if a change should be page-specific or global
+- Ask which section (BR/MEP) the change targets
+- Verify the correct relative path using the tables above
 - Check if similar patterns exist elsewhere in the codebase
 
-## File Previews for Testing
+---
 
-After making changes, recommend previewing:
+## Quick Troubleshooting
 
-| Change Type | Files to Preview |
-|-------------|------------------|
-| Navigation | `index.html`, `blog.html`, any blog post |
-| Footer | `index.html`, `blog.html` |
-| Colors/Typography | `index.html`, `blog.html`, blog posts |
-| Blog post | `blog.html`, the new post itself |
-| Translations | All pages with `data-i18n` attributes |
+| Symptom | Fix |
+|---|---|
+| Article doesn't appear | Check articles.json (correct section?) + deploy |
+| Broken image | Check path (see relative path tables) and extension (.png/.jpg, never .webp) |
+| Nav doesn't appear | Missing nav.js or nav-unified.css in `<head>` (check prefix) |
+| Purple colors | Replace with navy/amber variables |
+| Gate flash on return | Missing gate-skip script in `<head>` (must be before `<style>`) |
+| MEP article in BR blog | Wrong articles.json — move entry to `market-entry/articles.json` |
+| Wrong thumbnail path | BR: `assets/images/blog/`, MEP: `../assets/images/market-entry/` in JSON |
+| Deploy stuck | Promote to Production in Vercel or push empty commit |
 
-## Git Workflow
-
-- Recent commits focus on: nav updates, translations, investor page
-- Commit messages: `Update [filename]` or descriptive change summary
-- Keep PRs small and focused
-- List modified files in PR description
+---
 
 ## Quick Commands
 
 ```bash
-# Local development server
+# Local dev server
 python -m http.server 8000 -d public
 
 # Build sitemap
 npm run build
 
-# Check file structure
+# Check structure
 ls -la public/
 ls -la public/blog/posts/
+ls -la public/market-entry/posts/
 ls -la public/styles/
 ls -la public/components/
+ls -la public/assets/images/blog/
+ls -la public/assets/images/market-entry/
+ls -la public/assets/images/brand/
 ```
+
+---
+
+*Updated: February 2026*
