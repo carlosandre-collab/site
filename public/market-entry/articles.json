@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ai-latam-gtm-strategies-en",
+    "slug": "ai-latam-gtm-strategies-en",
+    "featured": true,
+    "category": "Market Entry",
+    "title": "The Role of AI in LATAM GTM Strategies",
+    "excerpt": "How AI transforms go-to-market strategies for B2B tech companies expanding into Latin America — real-time intelligence, segmentation, and predictive analytics.",
+    "readTime": "4 min read",
+    "date": "2025-12-01",
+    "dateLabel": "December 2025",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg",
+      "alt": "AI analytics for LATAM market expansion"
+    }
+  },
+  {
+    "id": "ai-revolutionizes-sales-latam-en",
+    "slug": "ai-revolutionizes-sales-latam-en",
+    "featured": false,
+    "category": "Market Entry",
+    "title": "How AI Revolutionizes Sales in Latin America",
+    "excerpt": "AI-driven lead scoring, personalization, and predictive analytics are transforming B2B sales across LATAM.",
+    "readTime": "4 min read",
+    "date": "2025-11-24",
+    "dateLabel": "November 2025",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/ai-revolutionizes-sales-latam-en-thumb.jpg",
+      "alt": "AI-powered sales dashboard for Latin America"
+    }
+  },
+  {
+    "id": "mastering-market-entry-latam-en",
+    "slug": "mastering-market-entry-latam-en",
+    "featured": false,
+    "category": "Market Entry",
+    "title": "Mastering Market Entry in LATAM: Strategies for B2B Tech",
+    "excerpt": "Practical guide to entering Latin American markets: entry strategies, regulatory navigation, and how to accelerate with a local partner.",
+    "readTime": "4 min read",
+    "date": "2025-11-18",
+    "dateLabel": "November 2025",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/mastering-market-entry-latam-en-thumb.jpg",
+      "alt": "Modern office in a Latin American city"
+    }
+  },
+  {
+    "id": "reshape-gtm-ai-integration-en",
+    "slug": "reshape-gtm-ai-integration-en",
+    "featured": false,
+    "category": "Market Entry",
+    "title": "Reshape Your GTM: Integrating AI Into Your Offering",
+    "excerpt": "How high-tech startups can integrate AI into existing products and reshape their go-to-market strategy for new markets.",
+    "readTime": "3 min read",
+    "date": "2025-06-02",
+    "dateLabel": "June 2025",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/reshape-gtm-ai-integration-en-thumb.jpg",
+      "alt": "Data analytics dashboard with AI insights"
+    }
+  }
+]
