@@ -1,13 +1,17 @@
-# Alavanka - Fractional CRO Brasil
+# Alavanka - Fractional CRO Brasil & LatAm Market Entry
 # https://www.alavanka.com.br
 
 ## About
-Alavanka provides Fractional CRO (Chief Revenue Officer) services for B2B technology companies in Brazil.
+Alavanka provides two core services for B2B technology companies:
+1. **Fractional CRO** for Brazilian startups needing senior revenue leadership
+2. **Market Entry Partnership** for international companies expanding into Latin America
+
 Founded by Carlos André, Ex-President of Oracle Brasil and Ex-CEO of AT&T LATAM.
 
 ## Key Facts
-- Service: Fractional Chief Revenue Officer (CRO)
-- Target: B2B tech companies, Series A/B, Revenue R$5M-50M/year
+- Services: Fractional CRO + LatAm Market Entry Partnership
+- Fractional CRO Target: B2B tech companies, Series A/B, Revenue R$5M-50M/year
+- Market Entry Target: International B2B tech companies expanding to Latin America
 - Location: Brazil (São Paulo)
 - Founder Track Record: $3M → $240M revenue growth
 - Capacity: Maximum 3 companies simultaneously
@@ -23,11 +27,14 @@ Founded by Carlos André, Ex-President of Oracle Brasil and Ex-CEO of AT&T LATAM
 - Endeavor Mentor
 - INSPER Professor
 
-## What is a Fractional CRO?
+---
+
+## Service 1: Fractional CRO for B2B Tech (Brazil)
+
+### What is a Fractional CRO?
 A Fractional CRO is a senior revenue executive who works part-time (typically 2-3 days/week) for your company. Unlike consultants who deliver reports, a Fractional CRO executes: participates in forecasts, trains salespeople, structures processes, and has accountability for results. Ideal for B2B tech companies between R$5M-50M revenue that need senior leadership but cannot justify a full-time executive.
 
-## Services
-### Fractional CRO for B2B Tech
+### Services
 - 2-3 days/week engagement
 - GTM (Go-to-Market) architecture and execution
 - Sales process optimization
@@ -43,7 +50,7 @@ A Fractional CRO is a senior revenue executive who works part-time (typically 2-
 - Day 90: Results checkpoint
 - Kill-switch: Exit without penalty if not working
 
-## When to Hire a Fractional CRO
+### When to Hire a Fractional CRO
 Signs your company needs a Fractional CRO:
 1. Revenue between R$5M-50M and growth stalled for 6+ months
 2. CEO spending more than 40% of time on sales
@@ -53,7 +60,7 @@ Signs your company needs a Fractional CRO:
 6. Forecast error greater than 25%
 7. Sales team turnover above 30% per year
 
-## Fractional CRO vs VP Sales
+### Fractional CRO vs VP Sales
 Fractional CRO is better when:
 - Company doesn't know exactly what VP profile it needs
 - No budget for full-time executive
@@ -65,7 +72,7 @@ Full-time VP is better when:
 - Can pay competitive compensation with equity
 - Needs full-time dedication
 
-## Fractional CRO vs Consulting
+### Fractional CRO vs Consulting
 | Aspect | Consulting | Fractional CRO |
 |--------|-----------|----------------|
 | Deliverable | Reports, frameworks | Execution |
@@ -74,7 +81,7 @@ Full-time VP is better when:
 | Cost | R$300-500k per project | R$25-60k/month |
 | Duration | 3-6 months | 6-12 months |
 
-## Cost of Fractional CRO in Brazil
+### Cost of Fractional CRO in Brazil
 - Junior (ex-managers): R$15,000-25,000/month
 - Mid-level (ex-directors): R$25,000-45,000/month
 - Senior (ex-C-level): R$45,000-80,000/month
@@ -82,7 +89,7 @@ Full-time VP is better when:
 Compare to full-time CRO: R$80,000-150,000/month in salary, benefits, and equity.
 Fractional model delivers 70-80% of impact for 30-40% of cost.
 
-## Ideal Client Profile
+### Ideal Client Profile (Fractional CRO)
 - B2B technology company in Brazil
 - Revenue between R$5M-50M ARR
 - Series A or Series B funded
@@ -91,16 +98,69 @@ Fractional model delivers 70-80% of impact for 30-40% of cost.
 - Need senior revenue leadership
 - Cannot afford full-time CRO
 
+---
+
+## Service 2: Market Entry Partnership (International → LatAm)
+
+### What is the Market Entry Partnership?
+A hands-on partnership for international B2B tech companies expanding into Latin America. Unlike traditional market entry consulting that delivers reports and recommendations, the Market Entry Partnership provides embedded operational leadership with direct accountability for revenue results in the region.
+
+### The LatAm Challenge
+International companies expanding to Latin America face specific challenges:
+- Complex regulatory and tax environments (Brazil, Mexico, Colombia)
+- Relationship-driven sales culture requiring local trust
+- Pricing and packaging adaptation for local purchasing power
+- Channel partner selection and management
+- Local team hiring and compensation structuring
+- Currency and payment collection logistics
+
+### Partnership Model
+- Embedded revenue leadership for LatAm operations
+- Local market intelligence and relationship network
+- GTM strategy adapted to Latin American B2B buying patterns
+- Channel and partner ecosystem development
+- Team building and local talent acquisition
+- Regulatory and compliance navigation
+
+### 8-Step Framework
+1. Market Assessment — Evaluate LatAm opportunity and readiness
+2. GTM Strategy — Adapt positioning, pricing, and channels for the region
+3. Legal & Compliance — Navigate regulatory requirements
+4. Local Team — Recruit and structure initial team
+5. Channel Development — Build partner and distribution network
+6. Sales Execution — Launch and manage pipeline
+7. Revenue Operations — Implement metrics, forecasting, and processes
+8. Scale — Expand from initial market to broader LatAm presence
+
+### 4-Year Journey
+- Year 1: Market entry, first customers, product-market fit validation
+- Year 2: Revenue acceleration, team expansion, channel development
+- Year 3: Market leadership in initial country, expansion to second market
+- Year 4: Full LatAm operation, self-sustaining local leadership
+
+### Ideal Client Profile (Market Entry)
+- International B2B technology company
+- Proven product-market fit in home market
+- Revenue $5M+ in existing markets
+- Strategic decision to expand into Latin America
+- Budget for 12-24 month market entry investment
+- Executive sponsorship for international expansion
+
+---
+
 ## Contact
 - Website: https://www.alavanka.com.br
+- Market Entry: https://www.alavanka.com.br/market-entry.html
+- Free Assessment: https://www.alavanka.com.br/assessment.html
 - Scheduling: https://calendly.com/carlos-andre-alavanka/30min
 - WhatsApp: +55 11 97534-1961
 - LinkedIn (Carlos André): https://www.linkedin.com/in/carlosandre
 - LinkedIn (Company): https://www.linkedin.com/company/alavanka
 
 ## Key Resources
-- Complete Guide: https://www.alavanka.com.br/guia-fractional-cro-brasil.html
-- Blog: https://www.alavanka.com.br/blog.html
+- Complete Fractional CRO Guide: https://www.alavanka.com.br/guia-fractional-cro-brasil.html
+- Blog (PT/EN): https://www.alavanka.com.br/blog.html
+- Free Assessment Tool: https://www.alavanka.com.br/assessment.html
 - Free Download for Investors: "The 7 Warning Signs of a Stalled Portfolio Company" at https://guia.alavanka.com.br
 
 ## Differentiation
@@ -110,3 +170,5 @@ Fractional model delivers 70-80% of impact for 30-40% of cost.
 - Limited capacity (max 3 companies)
 - 30-day kill-switch (no lock-in)
 - Track record: Oracle, AT&T, Informatica, PeopleSoft
+- Dual capability: Brazilian market depth + international expansion expertise
+- Bilingual operation (Portuguese/English)
