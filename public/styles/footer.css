@@ -17,15 +17,15 @@
 .footer-container {
     max-width: 1140px;
     margin: 0 auto;
-    padding: 48px 24px 24px;
+    padding: 36px 24px 20px;
 }
 
 /* ── Top: brand + link columns ── */
 .footer-top {
     display: grid;
-    grid-template-columns: 1.2fr 2fr;
-    gap: 48px;
-    padding-bottom: 32px;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 32px;
+    padding-bottom: 24px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -36,8 +36,7 @@
 }
 
 .footer-logo {
-    max-height: 28px;
-    width: auto;
+    max-width: 160px;
     height: auto;
     opacity: 0.9;
 }
@@ -81,11 +80,11 @@
 
 /* ── Cross-link banner ── */
 .footer-cross {
-    padding: 16px 0;
-    margin-top: 24px;
+    padding: 12px 0;
+    margin-top: 16px;
     border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: rgba(255,255,255,0.5);
 }
 
@@ -108,10 +107,10 @@
 
 /* ── Bottom: copyright ── */
 .footer-bottom {
-    padding-top: 16px;
+    padding-top: 12px;
     text-align: center;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.25);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
 }
 
 /* ── Responsive ── */
