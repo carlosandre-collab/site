@@ -1,44 +1,149 @@
 /* ============================================
-   SECTION: Footer Styles
-   PURPOSE: Consistent styles for the main footer section
-   CREATED: 2025-12-02 | TASK: P2A-003
+   Alavanka — Footer Styles
+   UPDATED: 2026-02-15
+   - Redesigned for shared footer component
+   - Navy/amber design system
+   - BR + MEP contexts
    ============================================ */
-.footer {
-    background-color: var(--color-dark-gray);
-    color: var(--color-white);
-    padding: 40px 0;
-    text-align: center;
+
+.site-footer {
+    background: #0D1B2A;
+    color: rgba(255,255,255,0.7);
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
+    line-height: 1.6;
 }
 
-.footer .container {
+.footer-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 36px 24px 20px;
+}
+
+/* ── Top: brand + link columns ── */
+.footer-top {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-brand-col {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.footer p {
-    margin: 5px 0;
+.footer-logo {
+    max-width: 160px;
+    height: auto;
+    opacity: 0.9;
 }
 
-.footer-links a {
-    color: var(--color-white);
+.footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    max-width: 280px;
+}
+
+/* ── Link columns ── */
+.footer-links-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.footer-group h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+}
+
+.footer-group a {
+    display: block;
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
-    margin: 0 10px;
+    font-size: 0.85rem;
+    padding: 4px 0;
     transition: color 0.2s;
 }
 
-.footer-links a:hover {
-    color: var(--color-accent);
+.footer-group a:hover {
+    color: #C8965A;
 }
 
-/* Specific article footer style */
-.article-footer {
-    /* P2D-001: Moved from inline style in custo-invisivel-cro.html */
-    background-color: var(--text-primary); 
-    color: var(--color-white);
-    padding: 40px 0;
+/* ── Cross-link banner ── */
+.footer-cross {
+    padding: 12px 0;
+    margin-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-cross strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+}
+
+.footer-cross a {
+    color: #C8965A;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 6px;
+    transition: color 0.2s;
+}
+
+.footer-cross a:hover {
+    color: #D4A96F;
+}
+
+/* ── Bottom: copyright ── */
+.footer-bottom {
+    padding-top: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 36px 20px 20px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-brand-col {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-tagline {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .footer-links-col {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links-col {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }

@@ -37,6 +37,7 @@
          NAV (shared component)
          ══════════════════════════════════════════════════════════════════ -->
     <link rel="stylesheet" href="styles/nav-unified.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/styles-main.css">
     
     <!-- UX Enhanced Styles -->
@@ -1552,21 +1553,6 @@ h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height
 /* ╔══════════════════════════════════════════════════════════════════════════╗
    ║  17. FOOTER                                                              ║
    ╚══════════════════════════════════════════════════════════════════════════╝ */
-footer {
-    padding: 48px 24px 32px;
-    background: linear-gradient(180deg, #0A1525, #060D17);
-    text-align: center;
-}
-.footer-brand { font-family: 'DM Serif Display', serif; font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
-.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
-.footer-links a {
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color var(--duration);
-}
-.footer-links a:hover { color: var(--warm-light); }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
 
 /* ╔══════════════════════════════════════════════════════════════════════════╗
    ║  18. WHATSAPP FLOAT                                                      ║
@@ -2145,6 +2131,7 @@ footer {
     </style>
     
     <script src="components/nav.js" defer></script>
+    <script src="components/footer.js" defer></script>
 </head>
 <body>
 
@@ -3004,16 +2991,7 @@ footer {
 <!-- ════════════════════════════════════════════════════════════════════════════
      FOOTER
      ════════════════════════════════════════════════════════════════════════════ -->
-<footer>
-    <div class="footer-brand">Alavanka</div>
-    <div class="footer-links">
-        <a href="index.html" data-i18n="investors.footer.founders">Founders</a>
-        <a href="blog.html" data-i18n="investors.footer.blog">Blog</a>
-        <a href="guia-fractional-cro-brasil.html" data-i18n="investors.footer.guide">Guia</a>
-        <a href="https://wa.me/5511975341961" target="_blank">WhatsApp</a>
-    </div>
-    <div class="footer-copy" data-i18n="footer.rights">© 2026 Alavanka. Todos os direitos reservados.</div>
-</footer>
+<footer id="main-footer"></footer>
 
 <!-- ════════════════════════════════════════════════════════════════════════════
      WHATSAPP FLOAT

@@ -241,18 +241,6 @@
         nav { top: 42px !important; }
         body { padding-top: 42px; }
 
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 40px 10%;
-            text-align: center;
-        }
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
-        .footer-links a { color: var(--bg-secondary); text-decoration: none; font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--accent-light); }
-        .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
-
         /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
@@ -323,7 +311,9 @@
 }
     </style>
     <link rel="stylesheet" href="styles/nav-unified.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <script src="components/nav.js" defer></script>
+    <script src="components/footer.js" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
@@ -349,14 +339,7 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#contato">Contato</a>
-            <a href="https://www.linkedin.com/company/alavankacro" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-        <p class="footer-copy">© 2025 Alavanka. Todos os direitos reservados.</p>
-    </footer>
+    <footer id="main-footer"></footer>
 
     <a href="https://wa.me/5511975341961" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">

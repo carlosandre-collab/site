@@ -720,17 +720,6 @@ main {
 /* ══════════════════════════════════════════════════════════════════════════════
    FOOTER
    ══════════════════════════════════════════════════════════════════════════════ */
-footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-muted);
-    font-size: 13px;
-}
-
-footer a {
-    color: var(--accent);
-    text-decoration: none;
-}
 
 /* ══════════════════════════════════════════════════════════════════════════════
    RESPONSIVE
@@ -800,7 +789,9 @@ footer a {
     
     <!-- Nav CSS -->
     <link rel="stylesheet" href="styles/nav-unified.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <script src="components/nav.js" defer></script>
+    <script src="components/footer.js" defer></script>
 </head>
 <body>
 
@@ -1044,9 +1035,7 @@ footer a {
     </div>
 </main>
 
-<footer>
-    © 2025 <a href="index.html">Alavanka</a>. Todos os direitos reservados.
-</footer>
+<footer id="main-footer"></footer>
 
 <script>
 // Translations
