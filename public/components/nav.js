@@ -305,28 +305,35 @@
             if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         },
         toggleLang: function () {
+            // Delegate to page-level function if defined
             if (typeof window.toggleLang === 'function') {
                 window.toggleLang();
-            } else {
-                var langBtn = document.getElementById('langToggle');
-                var currentLang = (langBtn && langBtn.textContent === 'EN') ? 'en' : 'pt';
-                var newLang = currentLang === 'pt' ? 'en' : 'pt';
-                if (langBtn) langBtn.textContent = newLang === 'pt' ? 'EN' : 'PT';
-                
-                // Update mobile lang buttons
-                var mobileLangBtns = document.querySelectorAll('.nav-lang-btn');
-                mobileLangBtns.forEach(function (btn) {
-                    var isPT = btn.textContent === 'PT';
-                    var isEN = btn.textContent === 'EN';
-                    if (newLang === 'en') {
-                        btn.classList.toggle('nav-lang-active', isEN);
-                    } else {
-                        btn.classList.toggle('nav-lang-active', isPT);
-                    }
-                });
-                
-                window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: newLang } }));
+                return;
             }
+            if (typeof window.toggleLanguage === 'function') {
+                window.toggleLanguage();
+                return;
+            }
+            
+            // Fallback: own implementation
+            var langBtn = document.getElementById('langToggle');
+            var currentLang = (langBtn && langBtn.textContent === 'EN') ? 'en' : 'pt';
+            var newLang = currentLang === 'pt' ? 'en' : 'pt';
+            if (langBtn) langBtn.textContent = newLang === 'pt' ? 'EN' : 'PT';
+            
+            // Update mobile lang buttons
+            var mobileLangBtns = document.querySelectorAll('.nav-lang-btn');
+            mobileLangBtns.forEach(function (btn) {
+                var isPT = btn.textContent === 'PT';
+                var isEN = btn.textContent === 'EN';
+                if (newLang === 'en') {
+                    btn.classList.toggle('nav-lang-active', isEN);
+                } else {
+                    btn.classList.toggle('nav-lang-active', isPT);
+                }
+            });
+            
+            window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: newLang } }));
         }
     };
 
