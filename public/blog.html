@@ -449,8 +449,22 @@
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             const newLabel = currentLang === 'pt' ? 'EN' : 'PT';
             
-            document.getElementById('langToggle').textContent = newLabel;
-            document.getElementById('langToggleMobile').textContent = newLabel;
+            var langBtn = document.getElementById('langToggle');
+            var langBtnMobile = document.getElementById('langToggleMobile');
+            if (langBtn) langBtn.textContent = newLabel;
+            if (langBtnMobile) langBtnMobile.textContent = newLabel;
+            
+            // Update sidebar lang buttons (new nav v3)
+            document.querySelectorAll('.nav-lang-btn').forEach(function(btn) {
+                var isPT = btn.textContent === 'PT';
+                var isEN = btn.textContent === 'EN';
+                if (currentLang === 'en') {
+                    btn.classList.toggle('nav-lang-active', isEN);
+                } else {
+                    btn.classList.toggle('nav-lang-active', isPT);
+                }
+            });
+            
             document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 
             // Atualizar navegação
@@ -463,6 +477,8 @@
             // Re-renderizar artigos no novo idioma
             renderArticles();
         }
+        // Alias for nav.js compatibility
+        window.toggleLang = toggleLanguage;
 
         // Menu mobile
 function closeMobileMenu() {
