@@ -41,7 +41,7 @@
     var marketEntryUrl = basePath + 'market-entry.html';
     var assessmentUrl = basePath + 'assessment.html';
     var investidoresUrl = basePath + 'investidores.html';
-    var logoPath = basePath + 'assets/images/brand/logo-preto.png';
+    var logoPath = basePath + 'assets/images/brand/logo-completo-branco.png';
 
     // MEP blog URL
     var mepBlogUrl;

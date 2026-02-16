@@ -36,9 +36,9 @@
 }
 
 .footer-logo {
-    height: 32px;
+    max-height: 28px;
     width: auto;
-    filter: brightness(0) invert(1);
+    height: auto;
     opacity: 0.9;
 }
 
