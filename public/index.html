@@ -978,7 +978,7 @@ let translations = null; // null = não carregado ainda
 let pendingLang = null;  // armazena mudança de idioma enquanto carrega
 
 // Load translations from external file
-fetch('translations.json')
+fetch('/translations.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
