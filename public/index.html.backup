@@ -15,6 +15,8 @@
     <meta property="og:locale" content="pt_BR">
     <link rel="canonical" href="https://www.alavanka.com.br">
     
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -22,14 +24,19 @@
       gtag('config', 'G-D8LLY1L1Z3');
     </script>
     
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vb4dciqpnm");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Preload critical resources -->
-    <link rel="preload" href="styles/nav-unified.css" as="style">
-    <link rel="preload" href="components/nav.js" as="script">
-    <link rel="preload" href="styles-main.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Anti-flash script -->
     <script>
@@ -227,7 +234,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <div class="audience-gate" id="audienceGate">
     <div class="gate-card">
         <div class="gate-logo">
-            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="140" height="28">
+            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" height="28">
         </div>
         <h2 class="gate-question">Let's grow!</h2>
         <p class="gate-sub">Selecione seu perfil para uma experiência personalizada</p>
@@ -356,10 +363,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="trust-logos-compact fade-up fade-up-4">
         <span class="trust-label" data-i18n="hero.trust.label">Experiência em:</span>
         <div class="logo-row">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" width="80" height="24" loading="lazy">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" width="60" height="24" loading="lazy">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" width="100" height="20" loading="lazy">
-            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" width="90" height="22" loading="lazy">
+            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" height="24" loading="lazy">
+            <img src="assets/images/brand/logo-att.png" alt="AT&T" height="24" loading="lazy">
+            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" height="20" loading="lazy">
+            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" height="22" loading="lazy">
         </div>
     </div>
     
@@ -567,13 +574,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="logo-bar-label" data-i18n="logobar.label">Receita Construída Em</div>
     <div class="logo-bar">
         <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" width="100" height="32" loading="lazy">
+            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" height="32" loading="lazy">
         </div>
         <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" width="80" height="32" loading="lazy">
+            <img src="assets/images/brand/logo-att.png" alt="AT&T" height="32" loading="lazy">
         </div>
         <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" width="120" height="28" loading="lazy">
+            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" height="28" loading="lazy">
         </div>
     </div>
 </section>
@@ -847,7 +854,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#5a3935342e3b2e351a3b363b2c3b34313b74393537"><span class="__cf_email__" data-cfemail="12717d7c6673667d52737e7364737c79733c717d7f">[email&#160;protected]</span></a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="mailto:contato@alavanka.com">contato@alavanka.com</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -968,7 +975,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* ══════════════════════════════════════════════════════════════════════════════
    i18n - Internationalization System
    Fix: Race condition quando nav.js dispara langChange antes do JSON carregar
@@ -1964,22 +1971,11 @@ function showExitSuccess(email) {
         '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>' +
         '<h3 style="margin:0 0 8px;color:var(--accent);font-size:22px;font-family:Space Grotesk,sans-serif">Obrigado!</h3>' +
         '<p style="margin:0 0 20px;font-size:15px;color:var(--text-secondary)">Playbook enviado para<br><strong>' + email + '</strong></p>' +
-        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(
-
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:14px">Fechar</button>' +
+        '</div>';
     
-    
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vb4dciqpnm");
-    </script>
-
-    
+    setTimeout(function() { closeExitModal(); }, 6000);
+}</script>
 
 </body>
 </html>
