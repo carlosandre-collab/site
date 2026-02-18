@@ -11,6 +11,18 @@ body {
     padding-top: 72px;
 }
 
+/* CLS FIX (crítico): reserva o espaço da nav ANTES de nav.js injetar o HTML.
+   Sem isso, o conteúdo salta quando o JS injeta a nav — maior fonte de CLS. */
+#main-nav {
+    display: block;
+    min-height: 72px;
+    contain: layout style;
+}
+
+@media (min-width: 768px) {
+    #main-nav { min-height: 80px; }
+}
+
 /* ══════════════════════════════════════════════
    2. NAV BAR
    ══════════════════════════════════════════════ */
