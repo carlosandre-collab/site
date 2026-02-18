@@ -847,7 +847,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#99faf6f7edf8edf6d9f8f5f8eff8f7f2f8b7faf6f4"><span class="__cf_email__" data-cfemail="781b17160c190c17381914190e19161319561b1715">[email&#160;protected]</span></a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#5a3935342e3b2e351a3b363b2c3b34313b74393537"><span class="__cf_email__" data-cfemail="12717d7c6673667d52737e7364737c79733c717d7f">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -978,7 +978,7 @@ let translations = null; // null = não carregado ainda
 let pendingLang = null;  // armazena mudança de idioma enquanto carrega
 
 // Load translations from external file
-fetch('/translations.json')
+fetch('translations.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
@@ -1964,12 +1964,7 @@ function showExitSuccess(email) {
         '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>' +
         '<h3 style="margin:0 0 8px;color:var(--accent);font-size:22px;font-family:Space Grotesk,sans-serif">Obrigado!</h3>' +
         '<p style="margin:0 0 20px;font-size:15px;color:var(--text-secondary)">Playbook enviado para<br><strong>' + email + '</strong></p>' +
-        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:14px">Fechar</button>' +
-        '</div>';
-    
-    setTimeout(function() { closeExitModal(); }, 6000);
-}</script>
-
+        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
