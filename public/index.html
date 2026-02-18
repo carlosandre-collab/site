@@ -14,22 +14,23 @@
     <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
     <meta property="og:locale" content="pt_BR">
     <link rel="canonical" href="https://www.alavanka.com.br">
-    
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D8LLY1L1Z3');
-    </script>
+
+    <!-- PATCH 1: dataLayer init sem bloquear render (gtag movido para fim do body) -->
+    <script>window.dataLayer = window.dataLayer || [];</script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Preload critical resources -->
+    <!-- PATCH 2: Fontes em 2 estágios — DM Sans 400+700 crítico, resto deferido -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- PATCH 3: Preloads com caminhos corretos -->
     <link rel="preload" href="styles/nav-unified.css" as="style">
     <link rel="preload" href="components/nav.js" as="script">
-    <link rel="preload" href="styles-main.css" as="style">
+    <link rel="preload" href="styles/styles-main.css" as="style">
     
     <!-- Anti-flash script -->
     <script>
@@ -44,7 +45,7 @@
     })();
     </script>
     
-    <!-- CRITICAL CSS INLINE (apenas gate, reset, variables) -->
+    <!-- CRITICAL CSS INLINE -->
     <style>
 html.gate-skip .audience-gate{display:none!important}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -68,6 +69,14 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp 0.6s ease forwards;opacity:0}
 .fade-up-1{animation-delay:0.1s}.fade-up-2{animation-delay:0.2s}.fade-up-3{animation-delay:0.3s}.fade-up-4{animation-delay:0.4s}.fade-up-5{animation-delay:0.5s}
+
+/* PATCH 4: CLS fixes — reservar espaço antes de JS/CSS externo carregar */
+/* Nav: reserva altura ANTES de nav.js injetar HTML (maior fonte de CLS) */
+#main-nav{display:block;min-height:72px;contain:layout style}
+@media(min-width:768px){#main-nav{min-height:80px}}
+/* Scroll progress bar: reserva 3px antes de styles-main.css carregar */
+.scroll-progress{position:fixed;top:72px;left:0;width:0;height:3px;z-index:1001;pointer-events:none}
+@media(min-width:768px){.scroll-progress{top:80px}}
 
 /* Audience Gate — v3 Modern */
 .audience-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(13,27,42,0.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:1;transition:opacity 0.5s ease}
@@ -115,7 +124,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-desc{font-size:11.5px}
 }
 
-
 /* Hero - critical above-the-fold */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;background:linear-gradient(180deg,var(--bg) 0%,rgba(250,251,253,0.5) 100%);position:relative}
 .hero-title{font-size:clamp(32px,6vw,56px);margin-bottom:20px;color:var(--text)}
@@ -149,17 +157,17 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 @media(max-width:640px){.scarcity-badge{font-size:13px;padding:8px 16px}.audience-toast{bottom:100px;font-size:13px;padding:14px 20px}}
     </style>
     
-    <!-- EXTERNAL CSS FILES DO REPOSITÓRIO -->
+    <!-- EXTERNAL CSS FILES -->
     <link rel="stylesheet" href="styles/nav-unified.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/styles-main.css">
     
-    <!-- Navigation Toggle Script -->
+    <!-- JS Components -->
     <script src="components/nav.js" defer></script>
     <script src="components/footer.js" defer></script>
     <script src="components/ux-enhancements.js" defer></script>
     
-    <!-- FAQPage Schema (Fix #7: SEO rich results) -->
+    <!-- FAQPage Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -278,9 +286,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <strong>Fractional CRO</strong> para B2B. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
     </p>
     
-    <!-- Track Record: Compact strip (always visible) + expandable detail cards -->
     <div class="hero-credentials fade-up fade-up-3">
-        <!-- Compact strip: visible by default, scannable in <2 seconds -->
         <div class="credentials-strip">
             <span class="cred-chip"><strong>$300M+</strong> construídos</span>
             <span class="cred-divider" aria-hidden="true">•</span>
@@ -294,7 +300,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </button>
     </div>
 
-    <!-- Expandable detail cards (hidden by default, revealed on click) -->
     <div class="track-record-expandable" id="credExpandPanel" aria-hidden="true">
         <div class="track-record">
             <div class="track-card">
@@ -343,7 +348,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
     </div>
     
-    <!-- P0: Scarcity Indicator -->
     <div class="scarcity-badge fade-up fade-up-4">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -352,20 +356,20 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <span data-i18n="hero.scarcity"><strong>3 vagas disponíveis</strong> para Q1 2026</span>
     </div>
     
-    <!-- P1: Trust Signals - Compact Logo Bar -->
+    <!-- PATCH 5: Trust logos above-the-fold → loading="eager" (eram lazy, causavam CLS) -->
     <div class="trust-logos-compact fade-up fade-up-4">
         <span class="trust-label" data-i18n="hero.trust.label">Experiência em:</span>
         <div class="logo-row">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" width="80" height="24" loading="lazy">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" width="60" height="24" loading="lazy">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" width="100" height="20" loading="lazy">
-            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" width="90" height="22" loading="lazy">
+            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" width="80" height="24" loading="eager">
+            <img src="assets/images/brand/logo-att.png" alt="AT&T" width="60" height="24" loading="eager">
+            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" width="100" height="20" loading="eager">
+            <img src="assets/images/brand/logo-endeavor.png" alt="Endeavor" width="90" height="22" loading="eager">
         </div>
     </div>
     
     <div class="hero-cta fade-up fade-up-5">
         <a href="assessment.html" class="btn-hero">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
             </svg>
             <span data-i18n="hero.cta.assessment">Receber Diagnóstico Gratuito</span>
@@ -484,7 +488,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <p data-i18n="consequences.urgency.text">Uma empresa de R$10M ARR com 0% crescimento vale uma fração de uma com 30%. Cada trimestre estagnado custa milhões em equity.</p>
     </div>
     
-    <!-- CTA Contextual - Após mostrar a dor -->
     <div class="section-cta">
         <a href="assessment.html" class="btn-section-cta">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
@@ -504,7 +507,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="comparison-table">
-        <!-- Row 1: VP Sales vs Fractional -->
         <div class="comp-row">
             <div class="comp-cell comp-old">
                 <span class="comp-label comp-label-fail">
@@ -527,7 +529,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             </div>
         </div>
         
-        <!-- Row 2: Consultoria vs Fractional -->
         <div class="comp-row">
             <div class="comp-cell comp-old">
                 <span class="comp-label comp-label-fail">
@@ -551,7 +552,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
     </div>
     
-    <!-- CTA Contextual - Após mostrar a solução -->
     <div class="section-cta">
         <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-section-cta btn-section-cta-secondary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
@@ -562,7 +562,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
 </section>
 
-<!-- Logo Bar - Career Credibility Bridge -->
+<!-- Logo Bar -->
 <section class="logo-bar-section">
     <div class="logo-bar-label" data-i18n="logobar.label">Receita Construída Em</div>
     <div class="logo-bar">
@@ -587,7 +587,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <p data-i18n="why.subtitle">Primeira empresa especializada em Fractional CRO na América Latina. Fundada por Carlos André, a Alavanka reúne operadores sêniores com track record comprovado em B2B.</p>
     </div>
     
-    <!-- Founder Photo Prominent + Quote Block -->
     <div class="founder-profile">
         <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Fractional CRO" class="founder-photo" width="200" height="200" loading="lazy">
         <div class="founder-info">
@@ -607,7 +606,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
     </div>
     
-    <!-- Condensed Credentials -->
     <div class="credentials-grid">
         <div class="credential-card">
             <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
@@ -627,14 +625,12 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
     </div>
 
-    <!-- ClearSale Case Study — Detailed with sources -->
     <div class="founder-case-study">
         <div class="founder-case-header">
             <div class="founder-case-badge" data-i18n="why.case.badge">Case Documentado</div>
             <h3 data-i18n="why.case.title">ClearSale: De Zero em Vendas a uma <span class="hl">Operação Comercial Estruturada</span></h3>
         </div>
         
-        <!-- Fix #9: Hero metric callout -->
         <div class="case-metric-hero">
             <div class="case-metric-item">
                 <span class="case-metric-value" data-i18n="why.case.metric.before">Zero em vendas</span>
@@ -701,31 +697,16 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <p class="founder-case-sources-title">Fontes verificáveis:</p>
             <div class="source-badges">
                 <a href="https://www.bloomberglinea.com.br/negocios/serasa-experian-acerta-aquisicao-da-clearsale-por-r-21-bi-e-avanca-em-antifraude/" target="_blank" rel="noopener" class="source-badge">
-                    <span class="source-badge-icon">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </span>
-                    <span class="source-badge-text">
-                        <strong>Bloomberg Línea</strong>
-                        <span>Exit R$2,1 bi (Out/2024)</span>
-                    </span>
+                    <span class="source-badge-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                    <span class="source-badge-text"><strong>Bloomberg Línea</strong><span>Exit R$2,1 bi (Out/2024)</span></span>
                 </a>
                 <a href="https://www.seudinheiro.com/2021/empresas/acoes-da-clearsale-estreiam-na-bolsa-com-disparada-de-20-apos-ipo/" target="_blank" rel="noopener" class="source-badge">
-                    <span class="source-badge-icon">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </span>
-                    <span class="source-badge-text">
-                        <strong>Seu Dinheiro</strong>
-                        <span>IPO R$1 bi (Jul/2021)</span>
-                    </span>
+                    <span class="source-badge-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                    <span class="source-badge-text"><strong>Seu Dinheiro</strong><span>IPO R$1 bi (Jul/2021)</span></span>
                 </a>
                 <a href="https://endeavor.org.br/sobre-a-endeavor/endeavor-lanca-livro-com-10-historias-de-empreendedores-de-alto-impacto/" target="_blank" rel="noopener" class="source-badge">
-                    <span class="source-badge-icon">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-                    </span>
-                    <span class="source-badge-text">
-                        <strong>Endeavor Brasil</strong>
-                        <span>Livro #VQD (2014)</span>
-                    </span>
+                    <span class="source-badge-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+                    <span class="source-badge-text"><strong>Endeavor Brasil</strong><span>Livro #VQD (2014)</span></span>
                 </a>
             </div>
         </div>
@@ -734,8 +715,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <p data-i18n="why.case.takeaway"><strong>O que isso significa pra você:</strong> O que a história da ClearSale ilustra é um padrão que vejo se repetir: empresas com produto excelente e clientes satisfeitos que travam no crescimento porque não têm <strong>arquitetura comercial</strong>. Meu trabalho lá foi importante mas delimitado — ajudar a pensar e montar a primeira estrutura de vendas que não existia. Os resultados dessa fase foram claros: a ClearSale saiu de zero em vendas para uma operação comercial funcionando. Tudo que veio depois — a escala, o IPO, o exit — foi construído por muita gente competente ao longo de muitos anos.</p>
         </div>
     </div>
-
-    <!-- Process -->
 </section>
 
 <section id="processo" class="process-section">
@@ -847,7 +826,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#99faf6f7edf8edf6d9f8f5f8eff8f7f2f8b7faf6f4"><span class="__cf_email__" data-cfemail="781b17160c190c17381914190e19161319561b1715">[email&#160;protected]</span></a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#c3a0a2b1afacb083a2afa2b5a2ada8a2eda0acaeeda1b1"><span class="__cf_email__" data-cfemail="c3a0a2b1afacb083a2afa2b5a2ada8a2eda0acaeeda1b1">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -931,11 +910,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
 </section>
 
-<!-- ===== INVESTORS JOURNEY - ENHANCED ===== -->
-
-
 </main>
-
 
     <!-- Sources & References -->
     <div class="sources-section">
@@ -968,52 +943,39 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <svg viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.732 5.474 2.016 7.779L0 32l8.414-2.004A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.165 22.635c-.342.962-1.987 1.843-2.742 1.908-.712.062-1.583.089-2.554-.161-.59-.152-1.347-.356-2.316-.695-4.063-1.424-6.72-5.53-6.923-5.788-.203-.259-1.66-2.207-1.66-4.21 0-2.004 1.05-2.99 1.423-3.398.373-.407.814-.509 1.085-.509s.543.003.78.014c.25.012.586-.095.917.7.342.821 1.16 2.838 1.262 3.043.102.204.17.444.034.716-.136.271-.204.44-.407.68-.204.24-.429.537-.612.72-.204.204-.416.425-.179.834.237.408 1.054 1.74 2.264 2.818 1.555 1.387 2.866 1.817 3.274 2.021.407.204.645.17.882-.102.237-.272 1.016-1.186 1.288-1.593.271-.408.543-.34.916-.204.373.136 2.37 1.118 2.777 1.322.407.204.68.306.78.476.102.17.102.99-.24 1.953z"/></svg>
 </a>
 
+<!-- i18n System -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ══════════════════════════════════════════════════════════════════════════════
-   i18n - Internationalization System
-   Fix: Race condition quando nav.js dispara langChange antes do JSON carregar
-   ══════════════════════════════════════════════════════════════════════════════ */
 let currentLang = 'pt';
-let translations = null; // null = não carregado ainda
-let pendingLang = null;  // armazena mudança de idioma enquanto carrega
+let translations = null;
+let pendingLang = null;
 
-// Load translations from external file
 fetch('/translations.json')
     .then(response => response.json())
     .then(data => {
         translations = data;
-        
-        // Se houve mudança de idioma enquanto carregava, aplica agora
         if (pendingLang) {
             currentLang = pendingLang;
             pendingLang = null;
         } else {
-            // Aplica idioma salvo se existir
             const saved = localStorage.getItem('alavanka-lang');
             if (saved && saved !== currentLang) {
                 currentLang = saved;
             }
         }
-        
         applyTranslations();
     })
     .catch(err => console.warn('Could not load translations:', err));
 
 function toggleLang() {
     const newLang = currentLang === 'pt' ? 'en' : 'pt';
-    
     if (!translations) {
-        // JSON ainda não carregou - armazena para aplicar depois
         pendingLang = newLang;
         currentLang = newLang;
     } else {
         currentLang = newLang;
         applyTranslations();
     }
-    
     localStorage.setItem('alavanka-lang', currentLang);
-    
-    // Atualiza botões de toggle
     const btnText = currentLang === 'pt' ? 'EN' : 'PT';
     const langText = document.getElementById('langText');
     const langBtn = document.getElementById('langToggle');
@@ -1021,44 +983,32 @@ function toggleLang() {
     if (langText) langText.textContent = btnText;
     if (langBtn) langBtn.textContent = btnText;
     if (langBtnMobile) langBtnMobile.textContent = btnText;
-    
-    // GA4: Track language switch (Tag 18)
     if (typeof gtag === 'function') {
         gtag('event', 'language_changed', { language: currentLang });
     }
 }
 
-// Alias para compatibilidade
 window.toggleLanguage = toggleLang;
 
 function applyTranslations() {
     if (!translations) return;
-    
     const t = translations[currentLang];
     if (!t) return;
-    
     const btnText = currentLang === 'pt' ? 'EN' : 'PT';
     const langBtn = document.getElementById('langToggle');
     const langBtnMobile = document.getElementById('langToggleMobile');
     if (langBtn) langBtn.textContent = btnText;
     if (langBtnMobile) langBtnMobile.textContent = btnText;
-    
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            el.innerHTML = t[key];
-        }
+        if (t[key]) el.innerHTML = t[key];
     });
-    
-    // Atualiza atributo lang do HTML
     document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 }
 
-// Listener para evento langChange da nav.js
 window.addEventListener('langChange', function(e) {
     if (e.detail && e.detail.lang) {
         const newLang = e.detail.lang;
-        
         if (!translations) {
             pendingLang = newLang;
             currentLang = newLang;
@@ -1066,7 +1016,6 @@ window.addEventListener('langChange', function(e) {
             currentLang = newLang;
             applyTranslations();
         }
-        
         localStorage.setItem('alavanka-lang', currentLang);
     }
 });
@@ -1082,17 +1031,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (langBtnMobile) langBtnMobile.textContent = btnText;
     }
 });
+</script>
 
-// Audience Selector
-// Audience Gate - selection from overlay popup
+<!-- Audience Gate Logic -->
+<script>
 function selectAudience(audience, method) {
-    // GA4: Track audience gate selection (Tags 1-3)
     if (typeof gtag === 'function') {
         var params = { audience_type: audience };
         if (method === 'skip') params.method = 'skip';
         gtag('event', 'audience_selected', params);
     }
-
     var gate = document.getElementById('audienceGate');
     if (gate) {
         gate.classList.add('closing');
@@ -1106,43 +1054,23 @@ function selectAudience(audience, method) {
     }
 }
 
-// Apply audience choice
 function setAudience(audience, shouldScroll) {
     sessionStorage.setItem('alavanka-audience', audience);
-    
-    if (audience === 'investor') {
-        // Redirect to dedicated investors page
-        window.location.href = 'investidores.html';
-        return;
-    }
-    
-    if (audience === 'international') {
-        // Redirect to Market Entry Partnership page
-        window.location.href = 'market-entry.html';
-        return;
-    }
-    
+    if (audience === 'investor') { window.location.href = 'investidores.html'; return; }
+    if (audience === 'international') { window.location.href = 'market-entry.html'; return; }
     if (audience === 'other') {
-        // Show neutral/default content without personalization
         document.body.classList.add('audience-other');
-        
-        // Optional: Show subtle notification
         showAudienceToast('💡 Conteúdo geral carregado. Você pode personalizar a qualquer momento.');
-        
         return;
     }
-    
-    // Default: founder audience
     document.body.classList.add('audience-founder');
 }
 
-// Show toast notification
 function showAudienceToast(message) {
     var toast = document.createElement('div');
     toast.className = 'audience-toast';
     toast.textContent = message;
     document.body.appendChild(toast);
-    
     setTimeout(function() { toast.classList.add('visible'); }, 100);
     setTimeout(function() {
         toast.classList.remove('visible');
@@ -1150,44 +1078,36 @@ function showAudienceToast(message) {
     }, 5000);
 }
 
-// Gate initialization - skip if already selected in this session or coming from internal page
 (function() {
     var savedAudience = sessionStorage.getItem('alavanka-audience');
     var ref = document.referrer || '';
     var isInternal = ref.indexOf('alavanka.com') !== -1;
     var gate = document.getElementById('audienceGate');
-
     if (savedAudience || isInternal) {
-        // Already chose or came from internal page — skip gate
         if (gate) gate.remove();
         document.body.style.overflow = '';
-        // Only auto-apply founder audience; investors have their own page
         if (savedAudience === 'founder') setAudience(savedAudience);
     } else {
-        // First visit from external — show gate
         document.body.style.overflow = 'hidden';
     }
 })();
+</script>
 
-// FAQ Toggle - Improved with proper height calculation
+<!-- FAQ Toggle -->
+<script>
 function toggleFaq(button) {
     const item = button.parentElement;
     const wasActive = item.classList.contains('active');
     const answer = item.querySelector('.faq-answer');
     const content = item.querySelector('.faq-answer-content');
-    
-    // Close all items
     document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('active');
         const a = i.querySelector('.faq-answer');
         if (a) a.style.maxHeight = '0';
     });
-    
-    // Open clicked item if it wasn't active
     if (!wasActive && answer && content) {
         item.classList.add('active');
         answer.style.maxHeight = content.scrollHeight + 24 + 'px';
-        // GA4: Track FAQ opened (Tag 16)
         if (typeof gtag === 'function') {
             var items = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
             var idx = items.indexOf(item) + 1;
@@ -1195,16 +1115,15 @@ function toggleFaq(button) {
         }
     }
 }
+</script>
 
-// Dynamic Scroll Offset based on actual fixed header height
+<!-- Smooth Scroll + Animations -->
+<script>
 function getScrollOffset() {
     var nav = document.querySelector('nav');
-    var offset = 16;
-    if (nav) offset += nav.offsetHeight;
-    return offset;
+    return 16 + (nav ? nav.offsetHeight : 0);
 }
 
-// Smooth Scroll - with dynamic offset
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1216,7 +1135,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for animations - uses data-observe attribute
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1231,39 +1149,33 @@ document.querySelectorAll('.pain-card, .consequence-card, .comp-row, .credential
     observer.observe(el);
 });
 
-// ── UX AUDIT ENHANCEMENTS ──
-
-// A) Scroll-Reveal: smooth entrance for major blocks
 const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
     });
 }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.section-header, .pain-intro, .urgency-box, .why-hero, .founder-profile, .founder-case-study, .cta-box, .inv-hero, .inv-scorecard, .inv-cost-section, .inv-case-study, .inv-solution, .inv-model, .inv-deliverables, .inv-cta-section, .authority-badges, .logo-bar-section, .inv-trust').forEach(el => {
+document.querySelectorAll('.section-header, .pain-intro, .urgency-box, .why-hero, .founder-profile, .founder-case-study, .cta-box, .authority-badges, .logo-bar-section').forEach(el => {
     el.classList.add('reveal');
     revealObs.observe(el);
 });
 
-// B) Staggered reveal for card grids (consequence, inv-flag, inv-cost, inv-del, inv-model)
 const cardRevealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) {
-            const parent = e.target;
-            const cards = parent.querySelectorAll('.consequence-card, .inv-flag, .inv-cost-card, .inv-del-item, .inv-model-card, .comp-row, .credential-card');
+            const cards = e.target.querySelectorAll('.consequence-card, .comp-row, .credential-card');
             cards.forEach((card, i) => {
                 card.classList.add('reveal');
                 setTimeout(() => card.classList.add('is-visible'), 80 * i);
             });
-            cardRevealObs.unobserve(parent);
+            cardRevealObs.unobserve(e.target);
         }
     });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.consequence-grid, .inv-scorecard-grid, .inv-cost-grid, .inv-del-grid, .inv-model-options, .comparison-table, .credentials-grid').forEach(el => {
+document.querySelectorAll('.consequence-grid, .comparison-table, .credentials-grid').forEach(el => {
     cardRevealObs.observe(el);
 });
 
-// C) Scroll Progress Bar — single handler at section D
-// D) Mobile FAB: show after scrolling past hero
+// Mobile FAB
 (function() {
     const fab = document.getElementById('mobileFab');
     if (!fab || window.innerWidth >= 768) return;
@@ -1271,257 +1183,90 @@ document.querySelectorAll('.consequence-grid, .inv-scorecard-grid, .inv-cost-gri
     document.body.classList.add('fab-active');
     window.addEventListener('scroll', function() {
         const threshold = window.innerHeight * 0.6;
-        if (window.scrollY > threshold && !shown) {
-            fab.classList.add('is-visible'); shown = true;
-        } else if (window.scrollY <= threshold && shown) {
-            fab.classList.remove('is-visible'); shown = false;
-        }
+        if (window.scrollY > threshold && !shown) { fab.classList.add('is-visible'); shown = true; }
+        else if (window.scrollY <= threshold && shown) { fab.classList.remove('is-visible'); shown = false; }
     }, { passive: true });
 })();
 
-// E) Counter Animation: animate numeric values on scroll into view
+// Credentials expand
 (function() {
-    function animateCounter(el, target, suffix, prefix, duration) {
-        var start = 0, startTime = null;
-        function step(ts) {
-            if (!startTime) startTime = ts;
-            var progress = Math.min((ts - startTime) / duration, 1);
-            var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-            var current = Math.round(start + (target - start) * eased);
-            el.textContent = (prefix || '') + current.toLocaleString() + (suffix || '');
-            if (progress < 1) requestAnimationFrame(step);
+    var btn = document.getElementById('credExpandBtn');
+    var panel = document.getElementById('credExpandPanel');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function() {
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isExpanded));
+        panel.setAttribute('aria-hidden', String(isExpanded));
+        if (!isExpanded) {
+            panel.classList.add('is-open');
+            btn.classList.add('is-open');
+            if (typeof gtag === 'function') gtag('event', 'track_record_expanded', { event_category: 'engagement' });
+        } else {
+            panel.classList.remove('is-open');
+            btn.classList.remove('is-open');
         }
-        requestAnimationFrame(step);
-    }
-    
-    // Enhanced parser for complex patterns like "$48M→$240M" and "150% YoY"
-    function animateGrowthCard(el) {
-        var original = el.innerHTML;
-        // Pattern: "$48M→$240M" with optional <small> child
-        var arrowMatch = el.textContent.match(/^\$?(\d+)M?\s*→\s*\$?(\d+)M/);
-        if (arrowMatch) {
-            var fromVal = parseInt(arrowMatch[1]);
-            var toVal = parseInt(arrowMatch[2]);
-            var smallEl = el.querySelector('small');
-            var smallHTML = smallEl ? smallEl.outerHTML : '';
-            var startTime = null;
-            function stepArrow(ts) {
-                if (!startTime) startTime = ts;
-                var progress = Math.min((ts - startTime) / 1400, 1);
-                var eased = 1 - Math.pow(1 - progress, 3);
-                var curFrom = Math.round(fromVal * eased);
-                var curTo = Math.round(toVal * eased);
-                el.innerHTML = '$' + curFrom + 'M→$' + curTo + 'M' + smallHTML;
-                if (progress < 1) requestAnimationFrame(stepArrow);
-            }
-            requestAnimationFrame(stepArrow);
-            return;
-        }
-        // Pattern: "150% YoY"
-        var pctMatch = el.textContent.match(/^(\d+)%\s*(.*)/);
-        if (pctMatch) {
-            var pctVal = parseInt(pctMatch[1]);
-            var pctSuffix = pctMatch[2];
-            var smallEl2 = el.querySelector('small');
-            var smallHTML2 = smallEl2 ? smallEl2.outerHTML : '';
-            animateCounter(el, pctVal, '% ' + pctSuffix + smallHTML2.replace(/<[^>]*>/g,''), '', 1200);
-            // Restore small tag after animation
-            if (smallEl2) {
-                setTimeout(function(){
-                    var text = el.textContent;
-                    el.innerHTML = text.replace(smallEl2.textContent, '') + smallHTML2;
-                }, 1250);
-            }
-            return;
-        }
-    }
-    
-    var counterObs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) {
-            if (e.isIntersecting) {
-                var el = e.target;
-                // Check if it's a growth card (complex format)
-                if (el.classList.contains('growth')) {
-                    animateGrowthCard(el);
-                } else {
-                    var text = el.textContent.trim();
-                    // Parse patterns: "$240M", "67%", "$47M", "150%", "25+"
-                    var match = text.match(/^([\$]?)(\d+)([\+%M]?)(.*)$/);
-                    if (match) {
-                        animateCounter(el, parseInt(match[2]), match[3] + match[4], match[1], 1200);
-                    }
-                }
-                counterObs.unobserve(el);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.inv-stat-number').forEach(function(el) {
-        var text = el.textContent.trim();
-        if (/^\d+%?$/.test(text.replace(/[^0-9%]/g, ''))) counterObs.observe(el);
-    });
-    // MUDANÇA 2: Animate hero track-record numbers too
-    document.querySelectorAll('.track-card .growth').forEach(function(el) {
-        counterObs.observe(el);
     });
 })();
-
-// Progressive Disclosure — mobile only
-function togglePD(btn) {
-    var container = btn.closest('.pd-container');
-    if (!container) return;
-    var isCollapsed = container.classList.contains('pd-collapsed');
-    container.classList.toggle('pd-collapsed');
-    var label = btn.querySelector('span');
-    if (label) {
-        label.textContent = isCollapsed ? (btn.getAttribute('data-less') || 'Mostrar menos ↑') : (btn.getAttribute('data-more') || 'Ver mais ↓');
-    }
-    // GA4: Track progressive disclosure expand (Tag 19) — only on expand
-    if (isCollapsed && typeof gtag === 'function') {
-        var section = container.classList.contains('inv-scorecard-grid') ? 'scorecard' : 'deliverables';
-        gtag('event', 'pd_expanded', { section: section });
-    }
-}
-
-// Only enable PD on mobile — remove pd-collapsed on desktop
-function checkPDBreakpoint() {
-    var containers = document.querySelectorAll('.pd-container');
-    var isMobile = window.innerWidth < 768;
-    containers.forEach(function(c) {
-        var toggle = c.querySelector('.pd-toggle');
-        if (isMobile) {
-            if (!c.classList.contains('pd-expanded')) {
-                c.classList.add('pd-collapsed');
-            }
-            if (toggle) toggle.style.display = '';
-        } else {
-            c.classList.remove('pd-collapsed');
-            if (toggle) toggle.style.display = 'none';
-        }
-    });
-}
-checkPDBreakpoint();
-window.addEventListener('resize', checkPDBreakpoint);
 </script>
 
-<!-- GA4: CTA Click Tracking — Tags 4-14 -->
+<!-- GA4: CTA Click Tracking -->
 <script>
 (function() {
     if (typeof gtag !== 'function') return;
-
-    // Helper: find the closest <a> ancestor (or self)
     function closestLink(el) {
         while (el && el.tagName !== 'A') el = el.parentElement;
         return el;
     }
-
     document.addEventListener('click', function(e) {
         var link = closestLink(e.target);
         if (!link) return;
-
         var href = (link.getAttribute('href') || '').toLowerCase();
         var cls = ' ' + (link.className || '') + ' ';
         var params = null;
-
-        // --- Assessment CTAs (Tags 4, 5) ---
         if (href.indexOf('assessment.html') !== -1) {
-            if (cls.indexOf(' btn-hero') !== -1) {
-                params = { cta_type: 'assessment', location: 'hero' };            // Tag 4
-            } else if (cls.indexOf(' btn-section-cta') !== -1) {
-                params = { cta_type: 'assessment', location: 'inline_consequences' }; // NEW
-            } else {
-                params = { cta_type: 'assessment', location: 'other' };
-            }
+            params = { cta_type: 'assessment', location: cls.indexOf(' btn-hero') !== -1 ? 'hero' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline' : 'other' };
+        } else if (href.indexOf('calendly') !== -1) {
+            params = { cta_type: 'calendly', location: cls.indexOf(' hero-link') !== -1 ? 'hero' : cls.indexOf(' qualifier-cta') !== -1 ? 'qualifier' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline_solution' : cls.indexOf(' btn-primary') !== -1 ? 'cta_final' : cls.indexOf(' fab-primary') !== -1 ? 'fab_mobile' : 'other' };
+        } else if (href.indexOf('wa.me') !== -1) {
+            params = { cta_type: 'whatsapp', location: cls.indexOf(' sec-link') !== -1 ? 'cta_final' : cls.indexOf(' fab-ghost') !== -1 ? 'fab_mobile' : cls.indexOf(' whatsapp-float') !== -1 ? 'float' : 'contact_info' };
+        } else if (href.indexOf('mailto:') !== -1) {
+            params = { cta_type: 'email', location: 'contact_info' };
         }
-        // --- Calendly CTAs (Tags 6, 7, 8, 9) ---
-        else if (href.indexOf('calendly') !== -1) {
-            if (cls.indexOf(' hero-link') !== -1) {
-                params = { cta_type: 'calendly', location: 'hero' };             // Tag 6
-            } else if (cls.indexOf(' qualifier-cta') !== -1) {
-                params = { cta_type: 'calendly', location: 'qualifier' };        // NEW - was assessment
-            } else if (cls.indexOf(' btn-section-cta') !== -1) {
-                params = { cta_type: 'calendly', location: 'inline_solution' };  // NEW
-            } else if (cls.indexOf(' btn-primary') !== -1) {
-                params = { cta_type: 'calendly', location: 'cta_final' };        // Tag 7
-            } else if (cls.indexOf(' inv-cta-btn') !== -1 && cls.indexOf(' primary') !== -1) {
-                params = { cta_type: 'calendly', location: 'investor' };         // Tag 8
-            } else if (cls.indexOf(' fab-primary') !== -1) {
-                params = { cta_type: 'calendly', location: 'fab_mobile' };       // Tag 9
-            } else {
-                params = { cta_type: 'calendly', location: 'other' };
-            }
-        }
-        // --- WhatsApp CTAs (Tags 10, 11, 12) ---
-        else if (href.indexOf('wa.me') !== -1) {
-            if (cls.indexOf(' sec-link') !== -1) {
-                params = { cta_type: 'whatsapp', location: 'cta_final' };        // Tag 10
-            } else if (cls.indexOf(' fab-ghost') !== -1) {
-                params = { cta_type: 'whatsapp', location: 'fab_mobile' };       // Tag 11
-            } else if (cls.indexOf(' whatsapp-float') !== -1) {
-                params = { cta_type: 'whatsapp', location: 'float' };            // Tag 12
-            } else {
-                params = { cta_type: 'whatsapp', location: 'contact_info' };
-            }
-        }
-        // --- Email CTA (Tag 13) ---
-        else if (href.indexOf('mailto:') !== -1 || href.indexOf('email-protection') !== -1) {
-            params = { cta_type: 'email', location: 'contact_info' };            // Tag 13
-        }
-        // --- Guia Download — Investor (Tag 14) ---
-        else if (href.indexOf('guia.alavanka') !== -1) {
-            params = { cta_type: 'guia_download', location: 'investor' };        // Tag 14
-        }
-
         if (params) {
             gtag('event', 'cta_click', params);
-            // LinkedIn Conversion Tracking — fire for high-value CTAs
             if (typeof lintrk === 'function') {
-                if (params.cta_type === 'calendly') {
-                    lintrk('track', { conversion_id: 19814700 });
-                } else if (params.cta_type === 'whatsapp') {
-                    lintrk('track', { conversion_id: 19814716 });
-                } else if (params.cta_type === 'guia_download') {
-                    lintrk('track', { conversion_id: 19814732 });
-                }
+                if (params.cta_type === 'calendly') lintrk('track', { conversion_id: 19814700 });
+                else if (params.cta_type === 'whatsapp') lintrk('track', { conversion_id: 19814716 });
             }
         }
     });
 })();
 </script>
 
-<!-- GA4: Engagement Tracking — Tags 15-20 -->
+<!-- GA4: Engagement Tracking -->
 <script>
 (function() {
     if (typeof gtag !== 'function') return;
-
-    // --- Tag 15: Section Viewed (IntersectionObserver) ---
     var sectionIds = ['problema','solucao','porque','processo','contato','faq'];
     var viewedSections = {};
     var sectionObs = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 var id = entry.target.id;
-                if (!viewedSections[id]) {
-                    viewedSections[id] = true;
-                    gtag('event', 'section_viewed', { section: id });
-                }
+                if (!viewedSections[id]) { viewedSections[id] = true; gtag('event', 'section_viewed', { section: id }); }
             }
         });
     }, { threshold: 0.3 });
-
     sectionIds.forEach(function(id) {
         var el = document.getElementById(id);
         if (el) sectionObs.observe(el);
     });
-
-    // --- Tag 17: Scroll Depth Milestones ---
     var scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
     window.addEventListener('scroll', function() {
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         var docHeight = document.documentElement.scrollHeight - window.innerHeight;
         if (docHeight <= 0) return;
         var percent = Math.round((scrollTop / docHeight) * 100);
-
         [25, 50, 75, 100].forEach(function(milestone) {
             if (percent >= milestone && !scrollMilestones[milestone]) {
                 scrollMilestones[milestone] = true;
@@ -1529,187 +1274,17 @@ window.addEventListener('resize', checkPDBreakpoint);
             }
         });
     }, { passive: true });
-
-    // --- Tag 20: Time on Page (30s, 60s, 120s, 300s) ---
-    var timeIntervals = [30, 60, 120, 300];
-    timeIntervals.forEach(function(seconds) {
-        setTimeout(function() {
-            gtag('event', 'time_on_page', { seconds: seconds });
-        }, seconds * 1000);
+    [30, 60, 120, 300].forEach(function(seconds) {
+        setTimeout(function() { gtag('event', 'time_on_page', { seconds: seconds }); }, seconds * 1000);
     });
 })();
 </script>
 
-<!-- Third-party scripts - deferred for better TBT -->
-<script>
-function loadThirdPartyScripts() {
-    // LinkedIn Insight Tag
-    window._linkedin_partner_id = "9076865";
-    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
-    
-    if (!window.lintrk) {
-        window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-        window.lintrk.q = [];
-    }
-    var s = document.getElementsByTagName("script")[0];
-    var b = document.createElement("script");
-    b.type = "text/javascript";
-    b.async = true;
-    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);
-}
-
-// Load third-party scripts after page is interactive
-if (document.readyState === 'complete') {
-    loadThirdPartyScripts();
-} else {
-    window.addEventListener('load', loadThirdPartyScripts);
-}
-</script>
-<noscript>
-<img height="1" width="1" style="display:none;" alt="?Pid=9076865&Fmt=Gif" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" />
-</noscript>
-
-<!-- UX FIXES v2 - Melhorias de conversão -->
-<script>
-(function() {
-    'use strict';
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initUXFixes);
-    } else {
-        initUXFixes();
-    }
-    
-    function initUXFixes() {
-        enhanceHeroCTA();
-        createSlotsIndicator();
-        // createTrustTicker(); // REMOVIDO - redundante com hero badge
-        createMobileFAB();
-        setupEnhancedTracking();
-        initCredentialsExpand();
-    }
-    
-    // 0. Credentials strip expand/collapse
-    function initCredentialsExpand() {
-        var btn = document.getElementById('credExpandBtn');
-        var panel = document.getElementById('credExpandPanel');
-        if (!btn || !panel) return;
-        
-        btn.addEventListener('click', function() {
-            var isExpanded = btn.getAttribute('aria-expanded') === 'true';
-            btn.setAttribute('aria-expanded', String(!isExpanded));
-            panel.setAttribute('aria-hidden', String(isExpanded));
-            
-            if (!isExpanded) {
-                panel.classList.add('is-open');
-                btn.classList.add('is-open');
-                if (typeof gtag === 'function') {
-                    gtag('event', 'track_record_expanded', { event_category: 'engagement' });
-                }
-            } else {
-                panel.classList.remove('is-open');
-                btn.classList.remove('is-open');
-            }
-        });
-    }
-    
-    // 1. REMOVED: enhanceHeroCTA() — was overriding HTML CTA copy with conflicting text
-    //    Original "Fazer Assessment Gratuito" is clearer and matches page context.
-    //    The data-i18n attribute handles language switching natively.
-    function enhanceHeroCTA() { /* noop — preserved to avoid breaking initUXFixes call */ }
-    
-    // 2. REMOVED: createSlotsIndicator() — was injecting "1 vaga disponível Q1" which
-    //    contradicted the HTML scarcity badge showing "3 vagas disponíveis para Q1 2026".
-    //    The single source of truth is now the HTML .scarcity-badge element.
-    function createSlotsIndicator() { /* noop — preserved to avoid breaking initUXFixes call */ }
-    
-    // 4. Mobile FAB - CTA fixo após scroll
-    function createMobileFAB() {
-        // DISABLED: FAB is now static HTML element (#mobileFab)
-        return;
-        if (window.innerWidth > 767 || document.querySelector('.mobile-fab')) return;
-        
-        var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
-        var copy = { pt: 'Fazer Assessment Gratuito', en: 'Take Free Assessment' };
-        
-        var fab = document.createElement('div');
-        fab.className = 'mobile-fab';
-        fab.innerHTML = '<a href="assessment.html" class="mobile-fab-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>' + copy[lang] + '</span></a>';
-        document.body.appendChild(fab);
-        
-        var fabShown = false;
-        function showFAB() {
-            if (fabShown) return;
-            fab.classList.add('visible');
-            document.body.classList.add('fab-active');
-            fabShown = true;
-            if (typeof gtag === 'function') {
-                gtag('event', 'mobile_fab_shown', { event_category: 'ux_experiment' });
-            }
-        }
-        
-        window.addEventListener('scroll', function() {
-            var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent > 25) showFAB();
-        }, { passive: true });
-        
-        setTimeout(showFAB, 3000);
-        
-        fab.querySelector('.mobile-fab-btn').addEventListener('click', function() {
-            if (typeof gtag === 'function') {
-                gtag('event', 'cta_click', { cta_type: 'assessment', location: 'mobile_fab' });
-            }
-        });
-    }
-    
-    // 5. Enhanced tracking
-    function setupEnhancedTracking() {
-        if (typeof gtag !== 'function') return;
-        
-        var heroCtaObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    gtag('event', 'hero_cta_visible', { event_category: 'visibility', viewport_width: window.innerWidth });
-                    heroCtaObserver.disconnect();
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        var heroCta = document.querySelector('.btn-hero');
-        if (heroCta) heroCtaObserver.observe(heroCta);
-    }
-    
-    // Re-apply on language change
-    var langObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.attributeName === 'lang') {
-                setTimeout(function() {
-                    var si = document.querySelector('.slots-indicator'); if (si) si.remove();
-                    // var tt = document.querySelector('.trust-ticker'); if (tt) tt.remove(); // REMOVIDO
-                    var mf = document.querySelector('.mobile-fab'); if (mf) mf.remove();
-                    enhanceHeroCTA();
-                    createSlotsIndicator();
-                    // createTrustTicker(); // REMOVIDO
-                    createMobileFAB();
-                }, 100);
-            }
-        });
-    });
-    langObserver.observe(document.documentElement, { attributes: true });
-})();
-</script>
-
-<!-- UX FIX: Unified Mobile Bottom Bar (replaces 3 competing fixed elements) -->
-<!-- Combines: mobile-sticky-cta + whatsapp-float into one coordinated bar on mobile -->
+<!-- Unified Mobile Bottom Bar -->
 <div class="mobile-bottom-bar" id="mobileBottomBar">
     <div class="mobile-bottom-inner">
         <a href="assessment.html" class="mobile-bottom-primary" id="mobileBottomCTA">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 11l3 3L22 4"/>
-                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
             <span data-i18n="mobile.cta">Diagnóstico Gratuito</span>
         </a>
         <a href="https://wa.me/5511975341961" target="_blank" rel="noopener" class="mobile-bottom-whatsapp" aria-label="WhatsApp">
@@ -1717,274 +1292,145 @@ if (document.readyState === 'complete') {
         </a>
     </div>
 </div>
-
 <script>
-// UNIFIED Mobile Bottom Bar Logic (replaces old mobileCTA + FAB coordination)
 (function() {
     'use strict';
     var bar = document.getElementById('mobileBottomBar');
     if (!bar) return;
-    
     var hero = document.querySelector('.hero');
     var ctaFinal = document.getElementById('contato');
     var barVisible = false;
-    
     function updateBarVisibility() {
-        if (window.innerWidth > 767) {
-            bar.classList.remove('visible');
-            return;
-        }
-        
+        if (window.innerWidth > 767) { bar.classList.remove('visible'); return; }
         var scrollY = window.pageYOffset || window.scrollY;
         var pastHero = hero ? scrollY > hero.offsetHeight * 0.8 : scrollY > 400;
-        
-        // Hide when user reaches the final CTA section (avoid redundancy)
         var nearFinalCTA = false;
         if (ctaFinal) {
             var ctaRect = ctaFinal.getBoundingClientRect();
             nearFinalCTA = ctaRect.top < window.innerHeight * 0.7;
         }
-        
         if (pastHero && !nearFinalCTA) {
-            if (!barVisible) {
-                bar.classList.add('visible');
-                barVisible = true;
-            }
+            if (!barVisible) { bar.classList.add('visible'); barVisible = true; }
         } else {
-            if (barVisible) {
-                bar.classList.remove('visible');
-                barVisible = false;
-            }
+            if (barVisible) { bar.classList.remove('visible'); barVisible = false; }
         }
     }
-    
-    // Throttled scroll listener
     var ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
-                updateBarVisibility();
-                ticking = false;
-            });
+            window.requestAnimationFrame(function() { updateBarVisibility(); ticking = false; });
             ticking = true;
         }
     }, { passive: true });
-    
-    // Also check on resize (orientation change)
     window.addEventListener('resize', updateBarVisibility, { passive: true });
-    
-    // Track CTA clicks
     var ctaBtn = document.getElementById('mobileBottomCTA');
     if (ctaBtn) {
         ctaBtn.addEventListener('click', function() {
-            if (typeof gtag === 'function') {
-                gtag('event', 'cta_click', { cta_type: 'assessment', location: 'mobile_bottom_bar' });
-            }
+            if (typeof gtag === 'function') gtag('event', 'cta_click', { cta_type: 'assessment', location: 'mobile_bottom_bar' });
         });
     }
 })();
+</script>
 
-// Global close function - always available regardless of sessionStorage
-window.closeExitModal = function() { var m = document.getElementById("exitModal"); if (m) { m.classList.remove("active"); document.body.style.overflow = ""; setTimeout(function() { m.remove(); }, 300); if (typeof gtag === "function") { gtag("event", "exit_intent_declined"); } } };
+<!-- Exit Intent Modal -->
+<script>
+window.closeExitModal = function() {
+    var m = document.getElementById("exitModal");
+    if (m) { m.classList.remove("active"); document.body.style.overflow = ""; setTimeout(function() { m.remove(); }, 300); if (typeof gtag === "function") { gtag("event", "exit_intent_declined"); } }
+};
 
-// P1: Exit-Intent Modal (IMPROVED: value preview, loading states, safer mobile trigger)
 (function() {
-    var exitShown = sessionStorage.getItem('alavanka-exit-shown');
-    
-    if (exitShown) return;
-    
+    if (sessionStorage.getItem('alavanka-exit-shown')) return;
     function showExitModal() {
         if (document.getElementById('exitModal')) return;
         sessionStorage.setItem('alavanka-exit-shown', 'true');
-        
         var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
         var copy = {
-            pt: {
-                title: 'Antes de ir...',
-                subtitle: 'Receba o <strong>Playbook Fractional CRO 2025</strong> grátis',
-                bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)',
-                bullet2: '✓ Checklist de contratação de VP Sales',
-                bullet3: '✓ Benchmarks de crescimento B2B Brasil',
-                placeholder: 'Seu melhor email',
-                cta: 'Enviar Playbook Gratuito',
-                decline: 'Não, obrigado',
-                disclaimer: '1 email/mês • Sem spam • Cancele quando quiser',
-                sending: 'Enviando...',
-                errorMsg: 'Erro ao enviar. Tente novamente.'
-            },
-            en: {
-                title: 'Before you go...',
-                subtitle: 'Get the <strong>Fractional CRO Playbook 2025</strong> free',
-                bullet1: '✓ GTM diagnostic framework (25+ KPIs)',
-                bullet2: '✓ VP Sales hiring checklist',
-                bullet3: '✓ B2B growth benchmarks for Brazil',
-                placeholder: 'Your best email',
-                cta: 'Send Free Playbook',
-                decline: 'No, thanks',
-                disclaimer: '1 email/month • No spam • Unsubscribe anytime',
-                sending: 'Sending...',
-                errorMsg: 'Failed to send. Please try again.'
-            }
+            pt: { title: 'Antes de ir...', subtitle: 'Receba o <strong>Playbook Fractional CRO 2025</strong> grátis', bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)', bullet2: '✓ Checklist de contratação de VP Sales', bullet3: '✓ Benchmarks de crescimento B2B Brasil', placeholder: 'Seu melhor email', cta: 'Enviar Playbook Gratuito', decline: 'Não, obrigado', disclaimer: '1 email/mês • Sem spam • Cancele quando quiser', sending: 'Enviando...', errorMsg: 'Erro ao enviar. Tente novamente.' },
+            en: { title: 'Before you go...', subtitle: 'Get the <strong>Fractional CRO Playbook 2025</strong> free', bullet1: '✓ GTM diagnostic framework (25+ KPIs)', bullet2: '✓ VP Sales hiring checklist', bullet3: '✓ B2B growth benchmarks for Brazil', placeholder: 'Your best email', cta: 'Send Free Playbook', decline: 'No, thanks', disclaimer: '1 email/month • No spam • Unsubscribe anytime', sending: 'Sending...', errorMsg: 'Failed to send. Please try again.' }
         };
         var t = copy[lang];
-        
         var modal = document.createElement('div');
         modal.className = 'exit-modal';
         modal.id = 'exitModal';
-        modal.innerHTML = '<div class="exit-overlay"></div>' +
-            '<div class="exit-content">' +
-            '<button class="exit-close" aria-label="Fechar">&times;</button>' +
-            '<div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div>' +
-            '<h3>' + t.title + '</h3>' +
-            '<p>' + t.subtitle + '</p>' +
-            '<ul class="exit-value-list">' +
-            '<li>' + t.bullet1 + '</li>' +
-            '<li>' + t.bullet2 + '</li>' +
-            '<li>' + t.bullet3 + '</li>' +
-            '</ul>' +
-            '<form class="exit-form" id="exitForm">' +
-            '<input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput">' +
-            '<button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button>' +
-            '<div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div>' +
-            '</form>' +
-            '<button class="exit-btn-secondary">' + t.decline + '</button>' +
-            '<span class="exit-disclaimer">' + t.disclaimer + '</span>' +
-            '</div>';
-        
+        modal.innerHTML = '<div class="exit-overlay"></div><div class="exit-content"><button class="exit-close" aria-label="Fechar">&times;</button><div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div><h3>' + t.title + '</h3><p>' + t.subtitle + '</p><ul class="exit-value-list"><li>' + t.bullet1 + '</li><li>' + t.bullet2 + '</li><li>' + t.bullet3 + '</li></ul><form class="exit-form" id="exitForm"><input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput"><button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button><div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div></form><button class="exit-btn-secondary">' + t.decline + '</button><span class="exit-disclaimer">' + t.disclaimer + '</span></div>';
         document.body.appendChild(modal);
         document.body.style.overflow = 'hidden';
         setTimeout(function() { modal.classList.add('active'); }, 10);
-        
         modal.querySelector('.exit-overlay').addEventListener('click', function() { window.closeExitModal(); });
         modal.querySelector('.exit-close').addEventListener('click', function() { window.closeExitModal(); });
         modal.querySelector('.exit-btn-secondary').addEventListener('click', function() { window.closeExitModal(); });
         modal.querySelector('.exit-form').addEventListener('submit', function(e) { submitExitForm(e, t); });
-        
-        // ESC key to close
-        document.addEventListener('keydown', handleEscKey);
-        
-        // Track (no PII)
-        if (typeof gtag === 'function') {
-            gtag('event', 'exit_intent_triggered', { event_category: 'engagement' });
-        }
+        document.addEventListener('keydown', function handleEsc(e) { if (e.key === 'Escape') { window.closeExitModal(); document.removeEventListener('keydown', handleEsc); } });
+        if (typeof gtag === 'function') gtag('event', 'exit_intent_triggered', { event_category: 'engagement' });
     }
-    
-    function handleEscKey(e) {
-        if (e.key === 'Escape' || e.keyCode === 27) {
-            closeExitModal();
-        }
-    }
-    
-    // Desktop: mouse leave (only when cursor exits top of viewport)
     document.addEventListener('mouseleave', function(e) {
-        if (e.clientY <= 0 && !sessionStorage.getItem('alavanka-exit-shown') && window.scrollY > 800) {
-            showExitModal();
-        }
+        if (e.clientY <= 0 && !sessionStorage.getItem('alavanka-exit-shown') && window.scrollY > 800) showExitModal();
     });
-    
-    // Mobile: FIXED — only trigger on back-button-like behavior (scroll to near top after deep scroll)
-    // Old logic fired on 2 rapid scroll-ups anywhere, causing accidental triggers.
-    // New logic: user must have scrolled past 60% of page, then scroll back to top 15%.
     var maxScrollReached = 0;
     window.addEventListener('scroll', function() {
         var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         if (scrollPercent > maxScrollReached) maxScrollReached = scrollPercent;
-        
-        // Only trigger if they scrolled past 60% and are now near top
-        if (maxScrollReached > 60 && scrollPercent < 15 && !sessionStorage.getItem('alavanka-exit-shown')) {
-            showExitModal();
-        }
+        if (maxScrollReached > 60 && scrollPercent < 15 && !sessionStorage.getItem('alavanka-exit-shown')) showExitModal();
     }, { passive: true });
 })();
 
-// Exit form submission (IMPROVED: loading state, error handling, no PII in GA4)
-// NOTE: Uses getElementById instead of e.target.email to avoid Cloudflare email obfuscation
-function submitExitForm(e, translations) {
+function submitExitForm(e, t) {
     e.preventDefault();
     var emailInput = document.getElementById('exitEmailInput');
     if (!emailInput) return false;
     var emailVal = emailInput.value;
     if (!emailVal) return false;
-    
     var submitBtn = document.getElementById('exitSubmitBtn');
-    var errorDiv = document.getElementById('exitError');
-    var originalText = submitBtn ? submitBtn.textContent : '';
-    
-    // Loading state
-    if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = translations ? translations.sending : 'Enviando...';
-        submitBtn.style.opacity = '0.7';
-    }
-    if (errorDiv) errorDiv.style.display = 'none';
-    
-    // Track conversion (NO email in GA4 — LGPD compliance)
-    if (typeof gtag === 'function') {
-        gtag('event', 'exit_email_capture', { event_category: 'conversion', event_label: 'playbook' });
-    }
-    
-    // Send to Google Apps Script backend
-    var payload = {
-        source: 'exit_intent',
-        email: emailVal,
-        timestamp: new Date().toISOString(),
-        page: window.location.pathname
-    };
-    
-    // Show success immediately — the backend processes the POST before redirecting,
-    // so even if CSP blocks the redirect response, the data is already saved.
-    // Fire-and-forget: send request in background, don't wait for response.
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = t ? t.sending : 'Enviando...'; submitBtn.style.opacity = '0.7'; }
+    if (typeof gtag === 'function') gtag('event', 'exit_email_capture', { event_category: 'conversion', event_label: 'playbook' });
     showExitSuccess(emailVal);
-    
     try {
-        // Try sendBeacon first (fire-and-forget, no CORS/CSP redirect issues)
-        var sent = navigator.sendBeacon && navigator.sendBeacon(
-            'https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec',
-            JSON.stringify(payload)
-        );
-        
-        // Fallback: fetch with no-cors (request fires even if response is blocked)
-        if (!sent) {
-            fetch('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(payload)
-            }).catch(function() { /* fire-and-forget */ });
-        }
-    } catch(ignored) { /* fire-and-forget */ }
-    
+        var payload = { source: 'exit_intent', email: emailVal, timestamp: new Date().toISOString(), page: window.location.pathname };
+        var sent = navigator.sendBeacon && navigator.sendBeacon('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', JSON.stringify(payload));
+        if (!sent) { fetch('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) }).catch(function() {}); }
+    } catch(ignored) {}
     return false;
 }
 
 function showExitSuccess(email) {
     var content = document.querySelector('#exitModal .exit-content');
     if (!content) return;
-    content.innerHTML = '<div style="text-align:center;padding:40px 20px">' +
-        '<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="margin:0 auto 16px;display:block">' +
-        '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>' +
-        '<h3 style="margin:0 0 8px;color:var(--accent);font-size:22px;font-family:Space Grotesk,sans-serif">Obrigado!</h3>' +
-        '<p style="margin:0 0 20px;font-size:15px;color:var(--text-secondary)">Playbook enviado para<br><strong>' + email + '</strong></p>' +
-        '<button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:14px">Fechar</button>' +
-        '</div>';
-    
-    setTimeout(function() { closeExitModal(); }, 6000);
-}</script>
+    content.innerHTML = '<div style="text-align:center;padding:40px 20px"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="margin:0 auto 16px;display:block"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg><h3 style="margin:0 0 8px;color:var(--accent);font-size:22px;font-family:Space Grotesk,sans-serif">Obrigado!</h3><p style="margin:0 0 20px;font-size:15px;color:var(--text-secondary)">Playbook enviado para<br><strong>' + email + '</strong></p><button onclick="closeExitModal()" style="padding:12px 24px;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:14px">Fechar</button></div>';
+    setTimeout(function() { window.closeExitModal(); }, 6000);
+}
+</script>
 
+<!-- Third-party scripts: carregados após load para não bloquear TBT -->
+<script>
+function loadThirdPartyScripts() {
+    window._linkedin_partner_id = "9076865";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+    if (!window.lintrk) {
+        window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q = [];
+    }
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript"; b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);
+}
+if (document.readyState === 'complete') { loadThirdPartyScripts(); }
+else { window.addEventListener('load', loadThirdPartyScripts); }
+</script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=9076865&fmt=gif" /></noscript>
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
-    
-    
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vb4dciqpnm");
-    </script>
+<!-- PATCH 6: GA4 async no fim do body + gtag init (não bloqueia mais o render) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+<script>
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D8LLY1L1Z3', {'send_page_view': true});
+</script>
 
-    
-
-</body>
-</html>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(a
