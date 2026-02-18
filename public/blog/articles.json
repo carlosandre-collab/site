@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "quando-demitir-vendedor-que-bate-meta",
+      "slug": "quando-demitir-vendedor-que-bate-meta",
+      "slugs": {
+        "pt": "quando-demitir-vendedor-que-bate-meta",
+        "en": "when-to-fire-top-performing-salesperson"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Operações",
+        "en": "Operations"
+      },
+      "title": {
+        "pt": "Quando Demitir um Vendedor que Bate Meta: Guia por Estágio de Startup",
+        "en": "When to Fire Your Top-Performing Salesperson: A Stage-Based Guide for Startups"
+      },
+      "excerpt": {
+        "pt": "Vendedor tóxico batendo 150% de meta. Você aguenta ou demite? A resposta depende do estágio da sua startup. Framework prático com casos reais.",
+        "en": "Toxic salesperson hitting 150% quota. Do you keep them or fire them? The answer depends on your startup stage. Practical framework with real cases."
+      },
+      "readTime": {
+        "pt": "12 min de leitura",
+        "en": "12 min read"
+      },
+      "date": "2025-02-20",
+      "dateLabel": {
+        "pt": "Fev 2025",
+        "en": "Feb 2025"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/vendedor-toxico-arvore-envenenada-thumb.jpg",
+        "alt": {
+          "pt": "Ilustração conceitual: árvore com copa exuberante mas raízes envenenadas, representando vendedor que performa mas destrói a cultura",
+          "en": "Conceptual illustration: tree with lush canopy but poisoned roots, representing a salesperson who performs but destroys culture"
+        }
+      }
+    },
+    {
       "id": "perfil-vendedor-hunter-farmer-challenger",
       "slug": "perfil-vendedor-hunter-farmer-challenger",
       "slugs": {
         "pt": "perfil-vendedor-hunter-farmer-challenger",
         "en": "sales-profile-hunter-farmer-challenger"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Operações",
         "en": "Operations"
