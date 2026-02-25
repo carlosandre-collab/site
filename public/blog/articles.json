@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "vendas-governo-sem-atalhos-ilicitos",
+      "slug": "vendas-governo-sem-atalhos-ilicitos",
+      "slugs": {
+        "pt": "vendas-governo-sem-atalhos-ilicitos",
+        "en": "selling-to-government-no-shortcuts"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Estratégia & Growth",
+        "en": "Strategy & Growth"
+      },
+      "title": {
+        "pt": "O Setor Público Vale o Investimento? O Que Ninguém Te Conta Antes de Entrar",
+        "en": "Is the Public Sector Worth the Investment? What Nobody Tells You Before You Enter"
+      },
+      "excerpt": {
+        "pt": "Fechei centenas de milhões em contratos públicos na América Latina — sem propina, sem atalho. O que esse mercado exige, o que oferece em troca, e por que a maioria das empresas entra errado.",
+        "en": "I closed hundreds of millions in public contracts across Latin America — no bribes, no shortcuts. What this market demands, what it offers in return, and why most companies enter it wrong."
+      },
+      "readTime": {
+        "pt": "10 min de leitura",
+        "en": "10 min read"
+      },
+      "date": "2026-02-24",
+      "dateLabel": {
+        "pt": "Fev 2026",
+        "en": "Feb 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/vendas-governo-sem-atalhos-ilicitos-thumb.jpg",
+        "alt": {
+          "pt": "Ilustração representando negociação no setor público com integridade na América Latina",
+          "en": "Illustration representing public sector negotiation with integrity in Latin America"
+        }
+      }
+    },
+    {
       "id": "quando-demitir-vendedor-que-bate-meta",
       "slug": "quando-demitir-vendedor-que-bate-meta",
       "slugs": {
         "pt": "quando-demitir-vendedor-que-bate-meta",
         "en": "when-to-fire-top-performing-salesperson"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Operações",
         "en": "Operations"
