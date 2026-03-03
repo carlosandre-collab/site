@@ -16,6 +16,22 @@
     }
   },
   {
+    "id": "optimizing-latam-entry-model-en",
+    "slug": "optimizing-latam-entry-model-en",
+    "featured": false,
+    "category": "Market Entry",
+    "title": "Optimizing Your LATAM Entry Model for Success",
+    "excerpt": "Direct entry, partnerships, distribution or acquisition — the right LATAM entry model depends on your resources and risk tolerance. A practical guide to getting it right.",
+    "readTime": "4 min read",
+    "date": "2025-12-15",
+    "dateLabel": "December 2025",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/optimizing-latam-entry-model-en-thumb.jpg",
+      "alt": "Modern office building in a Latin American business district"
+    }
+  },
+  {
     "id": "ai-latam-gtm-strategies-en",
     "slug": "ai-latam-gtm-strategies-en",
     "featured": false,
