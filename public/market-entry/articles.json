@@ -1,8 +1,24 @@
 [
   {
+    "id": "mastering-pricing-localization-latam-en",
+    "slug": "mastering-pricing-localization-latam-en",
+    "featured": true,
+    "category": "International Market Expansion",
+    "title": "Mastering Pricing Localization for B2B High-Tech Firms in Latin America",
+    "excerpt": "Currency volatility, cultural perception, regulatory complexity — and practical steps to set prices that win deals in Latin America.",
+    "readTime": "3 min read",
+    "date": "2026-01-12",
+    "dateLabel": "January 2026",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/mastering-pricing-localization-latam-en-thumb.jpg",
+      "alt": "Digital pricing dashboard showing currency exchange rates and market data for Latin America"
+    }
+  },
+  {
     "id": "ai-latam-gtm-strategies-en",
     "slug": "ai-latam-gtm-strategies-en",
-    "featured": true,
+    "featured": false,
     "category": "Market Entry",
     "title": "The Role of AI in LATAM GTM Strategies",
     "excerpt": "How AI transforms go-to-market strategies for B2B tech companies expanding into Latin America — real-time intelligence, segmentation, and predictive analytics.",
