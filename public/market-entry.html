@@ -659,6 +659,7 @@
       </div>
       <div class="hero-ctas">
         <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Discuss Your Expansion &rarr;</a>
+        <a href="market-entry/calculator" class="btn-outline" style="color: var(--text-inverse); border-color: rgba(255,255,255,0.3);">Estimate Your LatAm ROI &rarr;</a>
         <a href="#the-model" class="btn-secondary">See How It Works</a>
       </div>
     </div>
@@ -746,6 +747,14 @@
             <li><span class="check">&#10003;</span> Your team stays focused on core business</li>
           </ul>
         </div>
+      </div>
+      <!-- Calculator CTA -->
+      <div style="text-align: center; margin-top: 32px;">
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Want to see the exact numbers for your business?</p>
+        <a href="market-entry/calculator" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 700; font-size: 14px; font-family: 'Space Grotesk', sans-serif; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 16px rgba(27,58,92,0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.35)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.25)';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+          Estimate Your LatAm ROI &rarr;
+        </a>
       </div>
     </div>
   </section>
@@ -977,7 +986,7 @@
             <span class="arrow">&#9660;</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">Total 4-year investment is approximately $890K in retainer fees (declining from $300K to $120K annually) plus a $50K one-time setup fee and a 10% revenue share that aligns our incentives. Compare this to $2-5M for traditional expansion with 100% of that at risk.</div>
+            <div class="faq-answer-inner">Total 4-year investment is approximately $890K in retainer fees (declining from $300K to $120K annually) plus a $50K one-time setup fee and a 10% revenue share that aligns our incentives. Compare this to $2-5M for traditional expansion with 100% of that at risk. <a href="market-entry/calculator" style="font-weight: 600; color: var(--warm);">Estimate your LatAm ROI &rarr;</a> with your own numbers.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -1001,7 +1010,7 @@
       <p>Schedule a strategy call to discuss your expansion goals and discover your cost advantage over traditional market entry.</p>
       <div class="cta-buttons">
         <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Schedule Strategy Call &rarr;</a>
-        <a href="mailto:info@alavanka.com" class="btn-outline" style="color: var(--text-inverse); border-color: rgba(255,255,255,0.3);">Email Us</a>
+        <a href="/cdn-cgi/l/email-protection#076e69616847666b667166696c662964686a" class="btn-outline" style="color: var(--text-inverse); border-color: rgba(255,255,255,0.3);">Email Us</a>
       </div>
     </div>
   </section>
@@ -1010,7 +1019,7 @@
   <footer id="main-footer"></footer>
 
   <!-- ========== FAQ SCRIPT ========== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
       'use strict';
       var items = document.querySelectorAll('.faq-item');
@@ -1024,9 +1033,4 @@
             // Close all
             for (var j = 0; j < items.length; j++) {
               items[j].classList.remove('open');
-              items[j].querySelector('.faq-answer').style.maxHeight = '0';
-            }
-            // Toggle current
-            if (!isOpen) {
-              item.classList.add('open');
-              
+              items[j].querySelector('.faq-answer').st
