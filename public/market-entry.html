@@ -979,7 +979,7 @@
   <footer id="main-footer"></footer>
 
   <!-- ========== FAQ SCRIPT ========== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     (function() {
       'use strict';
       var items = document.querySelectorAll('.faq-item');
@@ -993,4 +993,17 @@
             // Close all
             for (var j = 0; j < items.length; j++) {
               items[j].classList.remove('open');
-              items[j].querySelector('.faq-answer').st
+              items[j].querySelector('.faq-answer').style.maxHeight = '0';
+            }
+            // Toggle current
+            if (!isOpen) {
+              item.classList.add('open');
+              answer.style.maxHeight = inner.scrollHeight + 20 + 'px';
+            }
+          });
+        })(items[i]);
+      }
+    })();
+  </script>
+</body>
+</html>
