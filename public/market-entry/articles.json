@@ -16,6 +16,22 @@
     }
   },
   {
+    "id": "selling-to-latam-government-market-entry-en",
+    "slug": "selling-to-latam-government-market-entry-en",
+    "featured": false,
+    "category": "International Market Expansion",
+    "title": "Selling to Government in LATAM: What International Companies Get Wrong",
+    "excerpt": "The public sector is the largest buyer in Latin America. But international companies consistently misread the market, the cycle, and the rules. Here's what you need to know before you enter.",
+    "readTime": "10 min read",
+    "date": "2026-03-10",
+    "dateLabel": "March 2026",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/selling-to-latam-government-market-entry-thumb.jpg",
+      "alt": "Abstract illustration representing public sector procurement complexity in Latin America"
+    }
+  },
+  {
     "id": "mastering-pricing-localization-latam-en",
     "slug": "mastering-pricing-localization-latam-en",
     "featured": false,
