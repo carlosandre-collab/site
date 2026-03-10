@@ -1367,6 +1367,54 @@
     .quiz-nudge-wrap { flex-direction: column; text-align: center; }
     .quiz-nudge-btn { width: 100%; text-align: center; }
   }
+
+    /* ── SHARE BAR ── */
+    .me-share-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--warm-bg);
+      border: 1px solid rgba(200,150,90,0.25);
+      border-radius: var(--r-lg);
+      padding: 20px 28px;
+    }
+    .me-share-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .me-share-divider {
+      width: 1px; height: 20px;
+      background: rgba(200,150,90,0.3);
+      flex-shrink: 0;
+    }
+    .me-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--bg-card);
+      border: 1.5px solid var(--warm);
+      border-radius: var(--r-sm);
+      padding: 9px 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(200,150,90,0.15);
+    }
+    .me-share-btn:hover { background: var(--warm); color: #fff; }
+    .me-share-btn.copied { background: rgba(16,185,129,0.08); border-color: var(--success); color: var(--success); }
+    @media (max-width: 600px) {
+      .me-share-label { text-align: center; width: 100%; }
+      .me-share-divider { display: none; }
+    }
   </style>
 
   <script>
@@ -1488,6 +1536,24 @@
     </div>
   </section>
 
+  <!-- ========== SHARE BAR ========== -->
+  <section style="background: var(--bg); padding: 32px 0; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="me-share-bar">
+        <span class="me-share-label">Know someone evaluating LatAm expansion? Forward this page.</span>
+        <div class="me-share-divider"></div>
+        <a href="mailto:?subject=LatAm%20Market%20Entry%20—%20Alavanka&body=Thought%20this%20might%20be%20relevant%20for%20your%20LatAm%20expansion%20plans.%0A%0Ahttps%3A%2F%2Fwww.alavanka.com.br%2Fmarket-entry" class="me-share-btn" id="me-share-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Send by Email
+        </a>
+        <button class="me-share-btn" id="me-share-copy" onclick="meCopyLink()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          <span id="me-copy-label">Copy Link</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
   <footer id="main-footer"></footer>
 
@@ -1517,6 +1583,22 @@
         })(items[i]);
       }
     })();
+  </script>
+  <script>
+    function meCopyLink() {
+      var url = 'https://www.alavanka.com.br/market-entry';
+      var btn = document.getElementById('me-share-copy');
+      var label = document.getElementById('me-copy-label');
+      navigator.clipboard.writeText(url).then(function() {
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        if (typeof gtag === 'function') gtag('event', 'page_share', { method: 'copy_link', page: 'market-entry' });
+        setTimeout(function() { btn.classList.remove('copied'); label.textContent = 'Copy Link'; }, 2500);
+      });
+    }
+    document.getElementById('me-share-email').addEventListener('click', function() {
+      if (typeof gtag === 'function') gtag('event', 'page_share', { method: 'email', page: 'market-entry' });
+    });
   </script>
 </body>
 </html>

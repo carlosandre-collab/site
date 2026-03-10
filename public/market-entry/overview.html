@@ -130,8 +130,9 @@
        01 — OPENING STATEMENT
     ═══════════════════════════════════════ */
     .opening {
-      padding: 64px 0 48px;
+      padding: 72px 0 56px;
       border-bottom: 1px solid var(--rule);
+      text-align: center;
     }
     .opening-kicker {
       font-size: 0.78rem;
@@ -146,8 +147,8 @@
       font-size: clamp(2rem, 5vw, 3rem);
       line-height: 1.15;
       color: var(--navy);
-      max-width: 680px;
-      margin-bottom: 20px;
+      max-width: 720px;
+      margin: 0 auto 20px;
     }
     .opening h1 em {
       font-style: italic;
@@ -158,6 +159,7 @@
       color: var(--ink-2);
       max-width: 580px;
       line-height: 1.7;
+      margin: 0 auto;
     }
 
     /* ═══════════════════════════════════════
@@ -648,19 +650,29 @@
 
     /* ── SHARE BAR ── */
     .share-bar-wrap {
+      background: var(--amber-pale);
+      border: 1px solid var(--amber-line);
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      padding: 28px 0 0;
-      margin-top: 24px;
-      border-top: 1px solid var(--rule);
+      padding: 20px 28px;
+      margin-top: 32px;
+      text-align: center;
     }
     .share-label {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink-3);
-      margin-right: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex-shrink: 0;
+    }
+    .share-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--amber-line);
       flex-shrink: 0;
     }
     .share-btn-light {
@@ -668,24 +680,26 @@
       align-items: center;
       gap: 7px;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--ink-2);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy);
       background: var(--white);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      padding: 8px 16px;
+      border: 1.5px solid var(--amber);
+      border-radius: 8px;
+      padding: 9px 18px;
       text-decoration: none;
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(200,150,90,0.15);
     }
     .share-btn-light:hover {
-      border-color: var(--navy-mid);
-      color: var(--navy);
+      background: var(--amber);
+      color: var(--white);
     }
     .share-btn-light.copied {
+      background: rgba(21,128,61,0.1);
+      border-color: var(--green);
       color: var(--green);
-      border-color: rgba(21,128,61,0.3);
     }
     @media print { .share-bar-wrap { display: none; } }
 
@@ -932,7 +946,8 @@
 
     <!-- SHARE BAR — standalone below CTA -->
     <div class="share-bar-wrap fade-in">
-      <span class="share-label">Found this useful? Share it.</span>
+      <span class="share-label">Found this useful? Forward it.</span>
+      <div class="share-divider"></div>
       <a href="mailto:?subject=LatAm%20Market%20Entry%20—%20Alavanka%20Overview&body=Sharing%20this%20overview%20on%20Alavanka's%20Market%20Entry%20Partnership%20model%20for%20B2B%20tech%20companies%20expanding%20into%20LatAm.%0A%0Ahttps%3A%2F%2Fwww.alavanka.com.br%2Fmarket-entry%2Foverview" class="share-btn-light" id="share-email">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         Send by Email
