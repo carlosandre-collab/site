@@ -647,48 +647,47 @@
     .btn-ghost:hover { color: rgba(255,255,255,0.85); }
 
     /* ── SHARE BAR ── */
-    .share-bar {
+    .share-bar-wrap {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.1);
       flex-wrap: wrap;
+      padding: 28px 0 0;
+      margin-top: 24px;
+      border-top: 1px solid var(--rule);
     }
     .share-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-right: 4px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink-3);
+      margin-right: 6px;
+      flex-shrink: 0;
     }
-    .share-btn {
+    .share-btn-light {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.8rem;
       font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--ink-2);
+      background: var(--white);
+      border: 1px solid var(--rule);
       border-radius: 6px;
-      padding: 8px 14px;
+      padding: 8px 16px;
       text-decoration: none;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .share-btn:hover {
-      background: rgba(255,255,255,0.13);
-      color: #fff;
+    .share-btn-light:hover {
+      border-color: var(--navy-mid);
+      color: var(--navy);
     }
-    .share-btn.copied {
-      color: #6ee7b7;
-      border-color: rgba(110,231,183,0.3);
+    .share-btn-light.copied {
+      color: var(--green);
+      border-color: rgba(21,128,61,0.3);
     }
-    @media print { .share-bar { display: none; } }
+    @media print { .share-bar-wrap { display: none; } }
 
     /* ── PRINT ── */
     @media print {
@@ -928,19 +927,21 @@
           <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary" target="_blank" rel="noopener">Schedule a Strategy Call →</a>
           <a href="https://www.alavanka.com.br/market-entry" class="btn-ghost">Back to full page</a>
         </div>
-        <div class="share-bar" style="grid-column:1/-1;">
-          <span class="share-label">Share</span>
-          <a href="mailto:?subject=LatAm%20Market%20Entry%20—%20Alavanka%20Overview&body=Sharing%20this%20overview%20on%20Alavanka's%20Market%20Entry%20Partnership%20model%20for%20B2B%20tech%20companies%20expanding%20into%20LatAm.%0A%0Ahttps%3A%2F%2Fwww.alavanka.com.br%2Fmarket-entry%2Foverview" class="share-btn" id="share-email">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Send by Email
-          </a>
-          <button class="share-btn" id="share-copy" onclick="copyLink()">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-            <span id="copy-label">Copy Link</span>
-          </button>
-        </div>
       </div>
     </section>
+
+    <!-- SHARE BAR — standalone below CTA -->
+    <div class="share-bar-wrap fade-in">
+      <span class="share-label">Found this useful? Share it.</span>
+      <a href="mailto:?subject=LatAm%20Market%20Entry%20—%20Alavanka%20Overview&body=Sharing%20this%20overview%20on%20Alavanka's%20Market%20Entry%20Partnership%20model%20for%20B2B%20tech%20companies%20expanding%20into%20LatAm.%0A%0Ahttps%3A%2F%2Fwww.alavanka.com.br%2Fmarket-entry%2Foverview" class="share-btn-light" id="share-email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Send by Email
+      </a>
+      <button class="share-btn-light" id="share-copy" onclick="copyLink()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <span id="copy-label">Copy Link</span>
+      </button>
+    </div>
 
   </div><!-- /page -->
 
