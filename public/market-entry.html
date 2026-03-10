@@ -130,6 +130,20 @@
       background: radial-gradient(circle, rgba(200,150,90,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--warm);
+      background: rgba(200,150,90,0.12);
+      border: 1px solid rgba(200,150,90,0.3);
+      padding: 6px 16px;
+      border-radius: var(--r-full);
+      margin-bottom: 20px;
+    }
     .hero h1 { color: var(--text-inverse); margin-bottom: 20px; }
     .hero h1 span { color: var(--warm); }
     .hero p.subtitle {
@@ -423,77 +437,144 @@
     .process-section h2 { color: var(--text-inverse); }
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    @media (max-width: 768px) { .process-grid { grid-template-columns: 1fr; } }
     .process-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--r-lg);
-      padding: 32px;
-      transition: background 0.3s;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+      transition: background 0.25s;
     }
+    .process-card:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+    .process-card:last-child  { border-radius: 0 0 var(--r-lg) var(--r-lg); }
     .process-card:hover { background: rgba(255,255,255,0.08); }
+    .process-card-left { }
     .process-card .step-num {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: var(--warm);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
-    .process-card h3 { color: var(--text-inverse); margin-bottom: 12px; }
-    .process-card p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .process-card h3 { color: var(--text-inverse); font-size: 1rem; margin-bottom: 0; line-height: 1.3; }
+    .process-card-right p { color: rgba(255,255,255,0.65); font-size: 0.93rem; line-height: 1.65; margin-bottom: 12px; }
+    .process-card-right p:last-child { margin-bottom: 0; }
+    .process-outcome {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,150,90,0.12);
+      border: 1px solid rgba(200,150,90,0.25);
+      border-radius: var(--r-full);
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--warm-light);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .process-outcome::before { content: '✓'; font-size: 0.75rem; }
+    @media (max-width: 640px) {
+      .process-card { grid-template-columns: 1fr; gap: 12px; padding: 28px 24px; }
+    }
 
     /* ========== TEAM SECTION ========== */
     .team-section { background: var(--bg); }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      max-width: 900px;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 860px;
       margin: 0 auto;
     }
-    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } }
+
+    /* Carlos — featured card with metrics */
     .team-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--r-xl);
-      padding: 40px 32px;
-      text-align: center;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: start;
     }
+    @media (max-width: 680px) {
+      .team-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+    }
+    .team-card-identity { text-align: center; min-width: 120px; }
     .team-card .avatar {
-      width: 100px;
-      height: 100px;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
       background: var(--accent-bg);
-      margin: 0 auto 20px;
+      margin: 0 auto 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--accent);
+      border: 2px solid var(--border-accent);
     }
-    .team-card h3 { margin-bottom: 4px; }
+    .team-card h3 { font-size: 1rem; margin-bottom: 2px; white-space: nowrap; }
     .team-card .role {
       color: var(--warm);
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
-    .team-card p { color: var(--text-secondary); font-size: 0.9rem; text-align: left; }
-    .team-card .highlights {
-      margin-top: 16px;
+    .team-card-body { }
+    .team-card-bio {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .team-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 500px) { .team-metrics { grid-template-columns: 1fr 1fr; } }
+    .team-metric {
+      background: var(--accent-bg);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--r-md);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .team-metric .m-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1.1;
+    }
+    .team-metric .m-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .team-highlights {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      justify-content: center;
     }
-    .team-card .highlights span {
+    .team-highlights span {
       padding: 4px 12px;
       background: var(--accent-bg);
       color: var(--accent);
@@ -502,42 +583,87 @@
       border-radius: var(--r-full);
     }
 
+    /* Miguel — compact supporting card */
+    .team-card-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 680px) {
+      .team-card-secondary { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+    }
+    .team-card-secondary .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    .team-card-secondary h3 { font-size: 1rem; margin-bottom: 2px; }
+    .team-card-secondary .role {
+      color: var(--warm);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    .team-card-secondary p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
     /* ========== TESTIMONIALS ========== */
     .testimonials-section { background: var(--accent-bg); }
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 24px;
-      max-width: 900px;
+      max-width: 720px;
       margin: 0 auto;
     }
-    @media (max-width: 768px) { .testimonial-grid { grid-template-columns: 1fr; } }
     .testimonial-card {
       background: var(--bg-card);
       border-radius: var(--r-xl);
-      padding: 32px;
+      padding: 40px 48px;
       border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
     }
+    @media (max-width: 600px) { .testimonial-card { padding: 28px 24px; } }
     .testimonial-card blockquote {
       font-style: italic;
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
       position: relative;
-      padding-left: 20px;
+      padding-left: 24px;
       border-left: 3px solid var(--warm);
     }
     .testimonial-card .attribution {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
     .testimonial-card .attribution span {
       display: block;
       font-weight: 400;
       color: var(--text-muted);
       font-size: 0.85rem;
+      margin-top: 2px;
     }
 
     /* ========== FAQ ========== */
@@ -611,25 +737,25 @@
   <!-- ========== HERO ========== -->
   <section class="hero">
     <div class="container">
-      <h1>Launch Your B2B Tech Business<br>in <span>Latin America</span> Without Risk</h1>
-      <p class="subtitle">We build, operate, and transfer your entire LatAm operation in 3-4 years. A proven partnership model that replaces the $2-5M gamble of traditional expansion with a structured, de-risked path to market.</p>
+      <p class="hero-eyebrow">Market Entry Partnership</p>
+      <h1>Most LatAm Expansions Fail<br>Because Companies Go It <span>Alone</span></h1>
+      <p class="subtitle">We build, operate, and transfer your entire LatAm operation over 4 years — local team, compliance, pipeline, and customers included. You own 100% at the end. Your core team never gets distracted.</p>
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="number">+20 Years</span>
-          <span class="label">LatAm Growth Leadership</span>
+          <span class="number">25+ Years</span>
+          <span class="label">LatAm Operator Experience</span>
         </div>
         <div class="hero-stat">
           <span class="number">$300M+</span>
-          <span class="label">Cumulative Revenue Impact</span>
+          <span class="label">Revenue Built in LatAm</span>
         </div>
         <div class="hero-stat">
-          <span class="number">10-15x</span>
-          <span class="label">Business Scaling</span>
+          <span class="number">5 Markets</span>
+          <span class="label">Brazil &middot; Mexico &middot; Colombia &middot; Chile &middot; Argentina</span>
         </div>
       </div>
       <div class="hero-ctas">
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Discuss Your Expansion &rarr;</a>
-        <a href="market-entry/calculator" class="btn-outline" style="color: var(--text-inverse); border-color: rgba(255,255,255,0.3);">Estimate Your LatAm ROI &rarr;</a>
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Schedule a Strategy Call &rarr;</a>
         <a href="#the-model" class="btn-secondary">See How It Works</a>
       </div>
     </div>
@@ -640,8 +766,8 @@
     <div class="container">
       <div class="section-header">
         <span class="section-badge">The Challenge</span>
-        <h2>Why 67% of Tech Companies Fail in LatAm</h2>
-        <p>The hidden challenges that turn expansion dreams into expensive lessons.</p>
+        <h2>Why Most Tech Companies Struggle to Enter LatAm</h2>
+        <p>Brazil alone requires 1,501 hours/year in tax compliance — the highest burden ever recorded globally, 10× the OECD average. That's before your first sale. <small style="opacity:0.65">(World Bank / PwC Paying Taxes; IMF, 2021)</small></p>
       </div>
       <div class="problem-grid">
         <div class="problem-card">
@@ -687,7 +813,7 @@
           <div class="price">$2-5M</div>
           <p class="price-note">Upfront investment before first revenue</p>
           <ul>
-            <li><span class="cross">&#10007;</span> 67% failure rate in first 2 years</li>
+            <li><span class="cross">&#10007;</span> 1,501 hrs/year tax compliance in Brazil alone (World Bank)</li>
             <li><span class="cross">&#10007;</span> 18-36 months to profitability</li>
             <li><span class="cross">&#10007;</span> Cultural &amp; regulatory complexity</li>
             <li><span class="cross">&#10007;</span> Difficult to find trusted local talent</li>
@@ -829,50 +955,50 @@
   <section class="process-section" id="process">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge">Our Process</span>
-        <h2>The 8-Step Market Entry Framework</h2>
-        <p>A proven, repeatable process refined over 25 years of building LatAm operations.</p>
+        <span class="section-badge">How It Works</span>
+        <h2>From First Call to Full Ownership</h2>
+        <p>Four phases. Each one ends with a clear milestone — not a report, not a recommendation. A result.</p>
       </div>
       <div class="process-grid">
         <div class="process-card">
-          <div class="step-num">Step 01</div>
-          <h3>Initial Assessment</h3>
-          <p>Deep-dive market research, demand validation, revenue quantification, and customized go-to-market plans based on data and local insights.</p>
+          <div class="process-card-left">
+            <div class="step-num">Phase 01 &mdash; Weeks 1&ndash;6</div>
+            <h3>Validate &amp; Align</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Market assessment, demand validation, and revenue quantification for your specific product and ICP. We define the GTM motion, agree on KPIs, formalize partnership terms, and set 3-year targets with full governance transparency.</p>
+            <span class="process-outcome">You know exactly what LatAm is worth — and what it will take.</span>
+          </div>
         </div>
         <div class="process-card">
-          <div class="step-num">Step 02</div>
-          <h3>Partnership &amp; KPI Alignment</h3>
-          <p>Formalize terms that align incentives, set 3-year targets for revenue and market share, and establish governance with full transparency.</p>
+          <div class="process-card-left">
+            <div class="step-num">Phase 02 &mdash; Months 2&ndash;6</div>
+            <h3>Build the Foundation</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Legal entity registered, tax IDs secured, LGPD compliance in place. First hires onboarded from our vetted local network — country manager, enterprise AEs, technical staff. CRM, IT systems, and office operational. All of it running under our entity while yours is in progress.</p>
+            <span class="process-outcome">You have a local team on the ground before Month 6.</span>
+          </div>
         </div>
         <div class="process-card">
-          <div class="step-num">Step 03</div>
-          <h3>Legal Entity &amp; Compliance</h3>
-          <p>Handle all incorporation, registration, tax IDs, permits, and regulatory compliance. Turnkey solution with zero bureaucratic hassle.</p>
+          <div class="process-card-left">
+            <div class="step-num">Phase 03 &mdash; Months 6&ndash;36</div>
+            <h3>Drive Revenue &amp; Scale</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Pipeline activation, first customer wins, and rapid iteration on what works. As revenue grows, we expand the team, improve unit economics, and begin systematic knowledge transfer — playbooks, SOPs, and leadership succession — so the operation becomes progressively less dependent on us.</p>
+            <span class="process-outcome">First revenue within 12 months. Your board stops asking about LatAm.</span>
+          </div>
         </div>
         <div class="process-card">
-          <div class="step-num">Step 04</div>
-          <h3>Team Building</h3>
-          <p>Leverage our network to recruit experienced local professionals: country managers, enterprise AEs, and technical staff with day-one impact.</p>
-        </div>
-        <div class="process-card">
-          <div class="step-num">Step 05</div>
-          <h3>Infrastructure Development</h3>
-          <p>Secure office space, deploy IT systems, implement CRM and communication platforms. A fully functional local operation mirroring your standards.</p>
-        </div>
-        <div class="process-card">
-          <div class="step-num">Step 06</div>
-          <h3>Revenue Generation</h3>
-          <p>Immediate pipeline building, network activation, localized marketing, and early wins. Revenue validated quickly to fund further growth.</p>
-        </div>
-        <div class="process-card">
-          <div class="step-num">Step 07</div>
-          <h3>Operations Transfer</h3>
-          <p>Phased handover after hitting growth milestones. Intensive knowledge transfer and training to prepare your team for independence.</p>
-        </div>
-        <div class="process-card">
-          <div class="step-num">Step 08</div>
-          <h3>Full Ownership</h3>
-          <p>Complete control of the local operation. All assets, employees, customers, and processes. Zero disruption, no ongoing obligations. A proven, self-sustaining LatAm branch.</p>
+          <div class="process-card-left">
+            <div class="step-num">Phase 04 &mdash; Year 4</div>
+            <h3>Full Transfer &amp; Exit</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Clean handover of all assets, contracts, employees, and systems — agreed upfront, no surprises. Your team takes full ownership of a profitable, self-sustaining LatAm operation. We exit. You run it.</p>
+            <span class="process-outcome">You own 100% of a running business. Zero transition disruption.</span>
+          </div>
         </div>
       </div>
     </div>
@@ -887,30 +1013,55 @@
         <p>Executives with proven track records building and scaling LatAm operations.</p>
       </div>
       <div class="team-grid">
+
+        <!-- Carlos André — featured -->
         <div class="team-card">
-          <div class="avatar">CA</div>
-          <h3>Carlos Andr&eacute;</h3>
-          <div class="role">Co-Founder &amp; Managing Partner</div>
-          <p>25+ years building and scaling B2B tech operations across Latin America. Scaled Oracle Brazil from $48M to $240M, grew AT&amp;T LatAm from $3M to $47M in 2 years, and launched Informatica LatAm from scratch achieving $40M+ in new revenue.</p>
-          <div class="highlights">
-            <span>Oracle</span>
-            <span>AT&amp;T</span>
-            <span>Informatica</span>
-            <span>Endeavor</span>
+          <div class="team-card-identity">
+            <div class="avatar">CA</div>
+            <h3>Carlos Andr&eacute;</h3>
+            <div class="role">Co-Founder &amp;<br>Managing Partner</div>
+          </div>
+          <div class="team-card-body">
+            <p class="team-card-bio">25+ years building and scaling B2B tech operations across Latin America. Hired by Informatica's President of Worldwide Field Operations to open LatAm from scratch. Before that, took AT&amp;T LatAm from $3M to $47M in 2 years as the unit's first dedicated hire.</p>
+            <div class="team-metrics">
+              <div class="team-metric">
+                <span class="m-number">$48M→$240M</span>
+                <span class="m-label">Oracle Brazil</span>
+              </div>
+              <div class="team-metric">
+                <span class="m-number">$3M→$47M</span>
+                <span class="m-label">AT&amp;T LatAm<br>in 2 years</span>
+              </div>
+              <div class="team-metric">
+                <span class="m-number">$40M+</span>
+                <span class="m-label">Informatica LatAm<br>new revenue</span>
+              </div>
+            </div>
+            <div class="team-highlights">
+              <span>Oracle</span>
+              <span>AT&amp;T</span>
+              <span>Informatica</span>
+              <span>Endeavor</span>
+            </div>
           </div>
         </div>
-        <div class="team-card">
+
+        <!-- Miguel Velazquez — supporting -->
+        <div class="team-card-secondary">
           <div class="avatar">MV</div>
-          <h3>Miguel Velazquez</h3>
-          <div class="role">Co-Founder</div>
-          <p>25+ years driving B2B tech expansion across LatAm. Specializes in go-to-market strategy, sales leadership, and strategic partnerships. Track record includes market expansion across Mexico, Central America, and South America.</p>
-          <div class="highlights">
-            <span>Informatica</span>
-            <span>Aceco TI</span>
-            <span>Mexico</span>
-            <span>Central America</span>
+          <div>
+            <h3>Miguel Velazquez</h3>
+            <div class="role">Head of Operations &mdash; Mexico &amp; Central America</div>
+            <p>25+ years driving B2B tech expansion across LatAm. Specializes in go-to-market execution, sales leadership, and strategic partnerships across Mexico, Central America, and South America.</p>
+            <div class="team-highlights">
+              <span>Informatica</span>
+              <span>Aceco TI</span>
+              <span>Mexico</span>
+              <span>Central America</span>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -926,17 +1077,26 @@
         <div class="testimonial-card">
           <blockquote>I hired Carlos Andre to open up our Latin America Operation. He did a fantastic job developing a strategic plan, building a team, and rapidly growing a successful business. He truly understands the market and is adept at knowing his products and the value proposition they deliver. He and Miguel are a winning combination!</blockquote>
           <div class="attribution">
-            VP International
-            <span>Enterprise Software Company</span>
+            Paul Hoffman
+            <span>President, Worldwide Field Operations &mdash; Informatica Corporation</span>
           </div>
         </div>
-        <div class="testimonial-card">
-          <blockquote>Teaming up with Alavanka was a real game-changer. They took a good hard look at our sales setup &mdash; pricing, team structure, commissions, product packaging, the whole nine yards. The result? We smashed our sales records. If you're looking to shake things up and boost your sales, I'd definitely give Alavanka a shout.</blockquote>
-          <div class="attribution">
-            Founder
-            <span>Enterprise Software Company</span>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OVERVIEW CTA ========== -->
+  <section style="padding: 56px 0; background: var(--bg); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div style="max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 36px 40px; box-shadow: var(--shadow-sm);">
+        <div>
+          <p style="font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm); margin-bottom:8px;">Model Overview</p>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:6px;">Want the full picture before a call?</h3>
+          <p style="font-size:0.92rem; color:var(--text-secondary); max-width:420px; line-height:1.6;">The MEP Overview walks through the 4-phase model, our track record, and a full investment comparison — in one page, no form required.</p>
         </div>
+        <a href="market-entry/overview" style="white-space:nowrap; flex-shrink:0; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; padding:14px 28px; border-radius:var(--r-full); text-decoration:none; box-shadow:0 4px 16px rgba(27,58,92,0.2); transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.3)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.2)';">
+          Read the Overview →
+        </a>
       </div>
     </div>
   </section>
@@ -1001,6 +1161,15 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-inner">We have operational presence and deep networks in Brazil, Mexico, Colombia, Chile, and Argentina. Our team has executed market entries in 8+ countries across Latin America over 25 years. We tailor the approach to each specific market based on your product and target customer profile.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What's your long-term commitment to this engagement?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">This is Alavanka's core business and Carlos André's life project &mdash; not a consulting engagement we can walk away from. We have no interest in managing a portfolio of loosely-held relationships. We take on a small number of partners at a time, precisely because each one gets our full commitment for the duration. That said, the model is deliberately designed so that our involvement becomes <em>less</em> necessary over time, not more. From Month 1, we build the local entity to operate independently: the team has direct contracts with your entity, institutional knowledge is documented and owned by you as it's created, and leadership succession is planned from the start. By Year 4, you shouldn't need us &mdash; and that's exactly how we measure success.</div>
           </div>
         </div>
       </div>
