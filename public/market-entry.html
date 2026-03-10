@@ -118,6 +118,7 @@
       padding: 120px 0 80px;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     .hero::before {
       content: '';
@@ -135,7 +136,7 @@
       font-size: clamp(1.05rem, 2vw, 1.25rem);
       color: rgba(255,255,255,0.8);
       max-width: 640px;
-      margin-bottom: 32px;
+      margin: 0 auto 32px;
       line-height: 1.7;
     }
     .hero-stats {
@@ -143,8 +144,9 @@
       gap: 40px;
       margin-bottom: 40px;
       flex-wrap: wrap;
+      justify-content: center;
     }
-    .hero-stat { text-align: left; }
+    .hero-stat { text-align: center; }
     .hero-stat .number {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2rem;
@@ -158,7 +160,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
     /* ========== BUTTONS ========== */
     .btn-primary {
