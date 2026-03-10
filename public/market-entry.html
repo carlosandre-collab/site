@@ -721,6 +721,49 @@
     </div>
   </section>
 
+  <!-- ========== MINI QUIZ (1st instance — after Comparison) ========== -->
+  <section class="quiz-section quiz-section--mid" id="readiness-check">
+    <div class="container">
+      <div class="quiz-wrap">
+        <div class="quiz-intro" id="quizIntro1">
+          <span class="section-badge">Quick Check</span>
+          <h2 class="quiz-heading">Is this the right model for your situation?</h2>
+          <p class="quiz-sub">2 questions. No email. Instant answer.</p>
+          <button class="quiz-start-btn" onclick="quizStart(1)">Find Out →</button>
+        </div>
+        <div class="quiz-step" id="quizQ1a" style="display:none;">
+          <div class="quiz-step-label">Question 1 of 2</div>
+          <h3 class="quiz-q-text">What's your primary goal for LatAm in the next 12 months?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'pipeline','Build pipeline &amp; test the market')">Build pipeline &amp; test the market</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'revenue','Generate revenue from day one')">Generate revenue from day one</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'partners','Find local partners or resellers')">Find local partners or resellers</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'intelligence','Understand the opportunity before committing')">Understand the opportunity before committing</button>
+          </div>
+        </div>
+        <div class="quiz-step" id="quizQ2a" style="display:none;">
+          <div class="quiz-step-label">Question 2 of 2</div>
+          <h3 class="quiz-q-text">Where is your company right now?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'exploring','Exploring — no LatAm presence yet')">Exploring — no LatAm presence yet</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'ready','Ready to pilot — budget approved, leadership aligned')">Ready to pilot — budget approved, leadership aligned</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'operating','Already operating, but results below expectations')">Already operating, but results below expectations</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'expanding','Operating successfully, ready to scale further')">Operating successfully, ready to scale further</button>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult1" style="display:none;">
+          <div class="quiz-result-inner">
+            <div class="quiz-result-icon" id="quizIcon1"></div>
+            <h3 class="quiz-result-title" id="quizTitle1"></h3>
+            <p class="quiz-result-text" id="quizText1"></p>
+            <a class="quiz-result-cta" id="quizCta1" href="#" target="_blank"></a>
+            <button class="quiz-restart" onclick="quizRestart(1)">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== 4-YEAR JOURNEY ========== -->
   <section class="journey-section" id="the-model">
     <div class="container">
@@ -964,76 +1007,44 @@
     </div>
   </section>
 
-  <!-- ========== MINI QUIZ ========== -->
-  <section class="quiz-section" id="readiness">
+  <!-- ========== QUIZ NUDGE (2nd instance — after FAQ, compact) ========== -->
+  <section class="quiz-nudge-section" id="readiness">
     <div class="container">
-      <div class="quiz-wrap">
-        <!-- Intro state -->
-        <div class="quiz-intro" id="quizIntro">
-          <span class="section-badge">Quick Check</span>
-          <h2 class="quiz-heading">Is LatAm the right move for you right now?</h2>
-          <p class="quiz-sub">2 questions. No email. Instant answer.</p>
-          <button class="quiz-start-btn" onclick="quizStart()">Find Out →</button>
+      <div class="quiz-nudge-wrap">
+        <div class="quiz-nudge-text">
+          <span class="quiz-nudge-label">Still evaluating?</span>
+          <p>Answer 2 quick questions and get a tailored recommendation for your situation — no email required.</p>
         </div>
-
-        <!-- Question 1 -->
-        <div class="quiz-step" id="quizQ1" style="display:none;">
-          <div class="quiz-step-label">Question 1 of 2</div>
-          <h3 class="quiz-q-text">What's your primary goal for LatAm in the next 12 months?</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt" onclick="quizAnswer(1,'pipeline','Build pipeline & test the market')">Build pipeline &amp; test the market</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,'revenue','Generate revenue from day one')">Generate revenue from day one</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,'partners','Find local partners or resellers')">Find local partners or resellers</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,'intelligence','Understand the opportunity before committing')">Understand the opportunity before committing</button>
-          </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="quiz-step" id="quizQ2" style="display:none;">
-          <div class="quiz-step-label">Question 2 of 2</div>
-          <h3 class="quiz-q-text">Where is your company right now?</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt" onclick="quizAnswer(2,'exploring','Exploring — no LatAm presence yet')">Exploring — no LatAm presence yet</button>
-            <button class="quiz-opt" onclick="quizAnswer(2,'ready','Ready to pilot — budget approved, leadership aligned')">Ready to pilot — budget approved, leadership aligned</button>
-            <button class="quiz-opt" onclick="quizAnswer(2,'operating','Already operating, but results below expectations')">Already operating, but results below expectations</button>
-            <button class="quiz-opt" onclick="quizAnswer(2,'expanding','Operating successfully, ready to scale further')">Operating successfully, ready to scale further</button>
-          </div>
-        </div>
-
-        <!-- Result -->
-        <div class="quiz-result" id="quizResult" style="display:none;">
-          <div class="quiz-result-inner">
-            <div class="quiz-result-icon" id="quizIcon">→</div>
-            <h3 class="quiz-result-title" id="quizTitle"></h3>
-            <p class="quiz-result-text" id="quizText"></p>
-            <a class="quiz-result-cta" id="quizCta" href="#" target="_blank">Schedule Strategy Call →</a>
-            <button class="quiz-restart" onclick="quizRestart()">Start over</button>
-          </div>
-        </div>
+        <a href="#readiness-check" class="quiz-nudge-btn" onclick="smoothToQuiz(event)">Take the Quick Check →</a>
       </div>
     </div>
   </section>
 
   <style>
+  /* ── QUIZ SHARED STYLES (used by both instances) ── */
   .quiz-section {
-    padding: 96px 0;
+    padding: 80px 0;
     background: var(--bg);
     border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .quiz-section--mid {
+    background: #f4f6f9;
   }
   .quiz-wrap {
-    max-width: 620px;
+    max-width: 600px;
     margin: 0 auto;
     text-align: center;
   }
   .quiz-heading {
     font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     color: var(--text);
     margin: 14px 0 10px;
   }
   .quiz-sub {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 0.97rem;
     margin-bottom: 28px;
   }
   .quiz-start-btn {
@@ -1048,14 +1059,11 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .quiz-start-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-  }
+  .quiz-start-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
   .quiz-step { text-align: left; }
   .quiz-step-label {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1064,25 +1072,21 @@
   }
   .quiz-q-text {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     line-height: 1.35;
   }
-  .quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
   .quiz-opt {
-    background: var(--bg);
+    background: #fff;
     border: 1.5px solid var(--border);
     border-radius: var(--r-md);
-    padding: 14px 18px;
+    padding: 13px 18px;
     text-align: left;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     font-weight: 500;
     color: var(--text);
     cursor: pointer;
@@ -1090,17 +1094,14 @@
   }
   .quiz-opt:hover {
     border-color: var(--warm);
-    background: rgba(200,150,90,0.05);
+    background: rgba(200,150,90,0.04);
     transform: translateX(4px);
-  }
-  .quiz-result {
-    text-align: center;
-    animation: fadeSlideIn 0.4s cubic-bezier(0.16,1,0.3,1);
   }
   @keyframes fadeSlideIn {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+  .quiz-result { text-align: center; animation: fadeSlideIn 0.4s cubic-bezier(0.16,1,0.3,1); }
   .quiz-result-inner {
     background: linear-gradient(135deg, var(--bg-dark), var(--accent));
     border-radius: var(--r-xl);
@@ -1112,27 +1113,24 @@
     background: rgba(200,150,90,0.2);
     border: 1.5px solid rgba(200,150,90,0.4);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 1.4rem;
     margin: 0 auto 20px;
   }
   .quiz-result-title {
     font-family: 'DM Serif Display', Georgia, serif;
-    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
     font-weight: 400;
     margin-bottom: 12px;
     color: #fff;
   }
   .quiz-result-text {
-    font-size: 0.97rem;
+    font-size: 0.95rem;
     line-height: 1.65;
     color: rgba(255,255,255,0.78);
     margin-bottom: 28px;
     max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto; margin-right: auto;
   }
   .quiz-result-cta {
     display: inline-block;
@@ -1143,28 +1141,68 @@
     border-radius: var(--r-md);
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     transition: transform 0.2s, box-shadow 0.2s;
     margin-bottom: 14px;
   }
-  .quiz-result-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
-  }
+  .quiz-result-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
   .quiz-restart {
-    display: block;
-    margin: 0 auto;
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.45);
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: color 0.2s;
-    padding: 4px;
+    display: block; margin: 0 auto;
+    background: none; border: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem; cursor: pointer;
+    transition: color 0.2s; padding: 4px;
   }
-  .quiz-restart:hover { color: rgba(255,255,255,0.8); }
+  .quiz-restart:hover { color: rgba(255,255,255,0.75); }
+
+  /* ── NUDGE (2nd instance) ── */
+  .quiz-nudge-section {
+    padding: 32px 0;
+    background: rgba(27,58,92,0.04);
+    border-top: 1px solid var(--border);
+  }
+  .quiz-nudge-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .quiz-nudge-label {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    margin-bottom: 4px;
+  }
+  .quiz-nudge-text p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .quiz-nudge-btn {
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: var(--r-md);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .quiz-nudge-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+
   @media (max-width: 600px) {
     .quiz-result-inner { padding: 28px 20px; }
+    .quiz-nudge-wrap { flex-direction: column; text-align: center; }
+    .quiz-nudge-btn { width: 100%; text-align: center; }
   }
   </style>
 
@@ -1172,126 +1210,103 @@
   (function() {
     var answers = {};
 
-    window.quizStart = function() {
-      document.getElementById('quizIntro').style.display = 'none';
-      document.getElementById('quizQ1').style.display = 'block';
+    window.quizStart = function(instance) {
+      document.getElementById('quizIntro' + instance).style.display = 'none';
+      document.getElementById('quizQ1a').style.display = 'block';
       if (typeof gtag === 'function') {
-        gtag('event', 'quiz_started', { event_category: 'engagement', event_label: 'mep_readiness' });
+        gtag('event', 'quiz_started', { event_category: 'engagement', event_label: 'mep_readiness', quiz_instance: instance });
       }
     };
 
-    window.quizAnswer = function(q, key, label) {
+    window.quizAnswer = function(instance, q, key, label) {
       answers['q' + q] = { key: key, label: label };
       if (q === 1) {
-        document.getElementById('quizQ1').style.display = 'none';
-        document.getElementById('quizQ2').style.display = 'block';
+        document.getElementById('quizQ1a').style.display = 'none';
+        document.getElementById('quizQ2a').style.display = 'block';
       } else {
-        document.getElementById('quizQ2').style.display = 'none';
-        showResult();
+        document.getElementById('quizQ2a').style.display = 'none';
+        showResult(instance);
       }
     };
 
-    window.quizRestart = function() {
+    window.quizRestart = function(instance) {
       answers = {};
-      document.getElementById('quizResult').style.display = 'none';
-      document.getElementById('quizIntro').style.display = 'block';
+      document.getElementById('quizResult' + instance).style.display = 'none';
+      document.getElementById('quizIntro' + instance).style.display = 'block';
     };
 
-    function showResult() {
-      var goal = answers.q1 ? answers.q1.key : '';
+    window.smoothToQuiz = function(e) {
+      e.preventDefault();
+      var target = document.getElementById('readiness-check');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function() {
+          var btn = target.querySelector('.quiz-start-btn');
+          if (btn) btn.focus();
+        }, 600);
+      }
+    };
+
+    function showResult(instance) {
+      var goal  = answers.q1 ? answers.q1.key : '';
       var stage = answers.q2 ? answers.q2.key : '';
-      var result = getResult(goal, stage);
+      var r = getResult(goal, stage);
 
-      document.getElementById('quizIcon').textContent = result.icon;
-      document.getElementById('quizTitle').textContent = result.title;
-      document.getElementById('quizText').textContent = result.text;
-      var ctaEl = document.getElementById('quizCta');
-      ctaEl.href = result.cta;
-      ctaEl.textContent = result.ctaLabel;
-
-      document.getElementById('quizResult').style.display = 'block';
+      document.getElementById('quizIcon'  + instance).textContent = r.icon;
+      document.getElementById('quizTitle' + instance).textContent = r.title;
+      document.getElementById('quizText'  + instance).textContent = r.text;
+      var cta = document.getElementById('quizCta' + instance);
+      cta.href = r.cta;
+      cta.textContent = r.ctaLabel;
+      document.getElementById('quizResult' + instance).style.display = 'block';
 
       if (typeof gtag === 'function') {
         gtag('event', 'quiz_completed', {
           event_category: 'lead_generation',
           event_label: goal + '_' + stage,
           quiz_goal: goal,
-          quiz_stage: stage
+          quiz_stage: stage,
+          quiz_instance: instance
         });
       }
     }
 
     function getResult(goal, stage) {
-      var baseUrl = 'https://calendly.com/carlos-andre-alavanka/30min';
-
-      // Already operating — needs fix, not entry
-      if (stage === 'operating') {
-        return {
-          icon: '⚡',
-          title: 'You need a reset, not an entry.',
-          text: "You're already in LatAm but not hitting the numbers. That's usually a GTM fit problem, not a market problem. Let's diagnose what's blocking results before investing further.",
-          cta: baseUrl + '?utm_content=quiz_operating',
-          ctaLabel: 'Schedule a Diagnostic Call →'
-        };
-      }
-
-      // Scaling further — strong fit
-      if (stage === 'expanding') {
-        return {
-          icon: '🚀',
-          title: 'You\'re ready to scale.',
-          text: "You have proof it works. The next step is building the infrastructure to grow it — dedicated team, expanded markets, optimized unit economics. That's exactly what the MEP model accelerates.",
-          cta: baseUrl + '?utm_content=quiz_expanding',
-          ctaLabel: 'Let\'s Talk Scale →'
-        };
-      }
-
-      // Ready to pilot
-      if (stage === 'ready') {
-        if (goal === 'revenue') {
-          return {
-            icon: '✓',
-            title: 'Strong fit for the MEP model.',
-            text: "Budget approved, leadership aligned, and you want revenue from day one — that's the exact profile the Market Entry Partnership is built for. Let's talk about timelines and first markets.",
-            cta: baseUrl + '?utm_content=quiz_ready_revenue',
-            ctaLabel: 'Schedule Strategy Call →'
-          };
-        }
-        return {
-          icon: '✓',
-          title: 'Good fit. Let\'s get specific.',
-          text: "You have the internal alignment to move. The right model depends on your product, ACV, and target market — a 30-minute call is enough to map out the right approach for your situation.",
-          cta: baseUrl + '?utm_content=quiz_ready',
-          ctaLabel: 'Schedule Strategy Call →'
-        };
-      }
-
-      // Exploring — goal-specific
-      if (goal === 'intelligence') {
-        return {
-          icon: '🔍',
-          title: 'Smart move — validate before you commit.',
-          text: "Most companies that struggle in LatAm skipped this step. A structured market assessment gives you a clear picture of TAM, competitive dynamics, and the realistic path to ROI before you spend a dollar on operations.",
-          cta: baseUrl + '?utm_content=quiz_intelligence',
-          ctaLabel: 'Talk to Us About a Market Assessment →'
-        };
-      }
-      if (goal === 'partners') {
-        return {
-          icon: '🤝',
-          title: 'Partners can work — but rarely do.',
-          text: "The LatAm reseller market looks attractive until you discover that the best local talent prefers exclusive, aligned partnerships over loose agreements. Let's discuss whether MEP or a structured channel model fits your product better.",
-          cta: baseUrl + '?utm_content=quiz_partners',
-          ctaLabel: 'Discuss Channel vs. MEP →'
-        };
-      }
-      // pipeline or default exploring
+      var base = 'https://calendly.com/carlos-andre-alavanka/30min';
+      if (stage === 'operating') return {
+        icon: '⚡', title: 'You need a reset, not an entry.',
+        text: "You're already in LatAm but not hitting the numbers. That's usually a GTM fit problem, not a market problem. Let's diagnose what's blocking results before investing further.",
+        cta: base + '?utm_content=quiz_operating', ctaLabel: 'Schedule a Diagnostic Call →'
+      };
+      if (stage === 'expanding') return {
+        icon: '🚀', title: "You're ready to scale.",
+        text: "You have proof it works. The next step is building the infrastructure to grow it — dedicated team, expanded markets, optimized unit economics. That's exactly what the MEP model accelerates.",
+        cta: base + '?utm_content=quiz_expanding', ctaLabel: "Let's Talk Scale →"
+      };
+      if (stage === 'ready' && goal === 'revenue') return {
+        icon: '✓', title: 'Strong fit for the MEP model.',
+        text: "Budget approved, leadership aligned, and you want revenue from day one — that's the exact profile the Market Entry Partnership is built for. Let's talk about timelines and first markets.",
+        cta: base + '?utm_content=quiz_ready_revenue', ctaLabel: 'Schedule Strategy Call →'
+      };
+      if (stage === 'ready') return {
+        icon: '✓', title: "Good fit. Let's get specific.",
+        text: "You have the internal alignment to move. The right model depends on your product, ACV, and target market — a 30-minute call is enough to map out the right approach for your situation.",
+        cta: base + '?utm_content=quiz_ready', ctaLabel: 'Schedule Strategy Call →'
+      };
+      if (goal === 'intelligence') return {
+        icon: '🔍', title: 'Smart move — validate before you commit.',
+        text: "Most companies that struggle in LatAm skipped this step. A structured market assessment gives you a clear picture of TAM, competitive dynamics, and the realistic path to ROI before you spend a dollar on operations.",
+        cta: base + '?utm_content=quiz_intelligence', ctaLabel: 'Talk to Us About a Market Assessment →'
+      };
+      if (goal === 'partners') return {
+        icon: '🤝', title: 'Partners can work — but rarely do.',
+        text: "The LatAm reseller market looks attractive until you discover that the best local talent prefers exclusive, aligned partnerships over loose agreements. Let's discuss whether MEP or a structured channel model fits your product better.",
+        cta: base + '?utm_content=quiz_partners', ctaLabel: 'Discuss Channel vs. MEP →'
+      };
       return {
-        icon: '→',
-        title: 'A pilot is the right first step.',
+        icon: '→', title: 'A pilot is the right first step.',
         text: "Testing the market before full commitment is exactly the right approach. The MEP model is designed for this — low initial exposure, real pipeline, and clear decision gates before scaling investment.",
-        cta: baseUrl + '?utm_content=quiz_exploring',
-        ctaLabel: 'See How a Pilot Works →'
+        cta: base + '?utm_content=quiz_exploring', ctaLabel: 'See How a Pilot Works →'
       };
     }
   })();
