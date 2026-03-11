@@ -263,22 +263,36 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* Loading state */
-        .blog-grid.loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 300px;
+        /* Skeleton loading */
+        @keyframes shimmer {
+            0%   { background-position: -600px 0; }
+            100% { background-position: 600px 0; }
         }
-        .loader {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--border);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .skeleton {
+            background: linear-gradient(90deg, #e8eaed 25%, #f4f5f7 50%, #e8eaed 75%);
+            background-size: 600px 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
+            border-radius: 6px;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .skeleton-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .skeleton-card.featured-sk { grid-column: 1 / -1; }
+        .skeleton-card .sk-img     { height: 220px; width: 100%; border-radius: 0; }
+        .skeleton-card.featured-sk .sk-img { height: 300px; }
+        .skeleton-card-body        { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+        .skeleton-card .sk-badge   { height: 16px; width: 70px; }
+        .skeleton-card .sk-h4      { height: 20px; width: 88%; }
+        .skeleton-card .sk-h42     { height: 20px; width: 60%; }
+        .skeleton-card .sk-p       { height: 12px; width: 100%; }
+        .skeleton-card .sk-p2      { height: 12px; width: 80%; }
+        .skeleton-card .sk-meta    { height: 12px; width: 120px; margin-top: 4px; }
+        @media (max-width: 768px) {
+            .skeleton-card.featured-sk .sk-img { height: 200px; }
+        }
 
         /* Responsive */
         @media (max-width: 900px) {
@@ -336,7 +350,10 @@
 
         <div class="blog-container">
             <div class="blog-grid" id="blogGrid">
-                <div class="loader"></div>
+                <!-- Skeleton: substituído pelo JS ao carregar -->
+                <div class="skeleton-card featured-sk"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-badge"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-meta"></div></div></div>
+                <div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-badge"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-meta"></div></div></div>
+                <div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-badge"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-meta"></div></div></div>
             </div>
         </div>
     </main>
