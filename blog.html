@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATAM Market Entry Insights | Alavanka Blog</title>
+    <meta name="description" content="Expert insights on expanding your B2B tech business into Latin America. AI strategies, market entry frameworks, and operational best practices for LATAM expansion.">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-D8LLY1L1Z3');</script>
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","vb4dciqpnm");</script>
+    
+    <meta property="og:title" content="LATAM Market Entry Insights | Alavanka">
+    <meta property="og:description" content="Expert insights on expanding your B2B tech business into Latin America.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.alavanka.com.br/market-entry/blog.html">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://www.alavanka.com.br/market-entry/blog.html">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/nav-unified.css">
+    <script src="../components/nav.js" defer></script>
+    
+    <style>
+        /* ========== DESIGN TOKENS ========== */
+        :root {
+            --accent: #1B3A5C;
+            --accent-dark: #142D48;
+            --accent-light: #2D5F8A;
+            --accent-glow: rgba(27,58,92,0.25);
+            --accent-bg: rgba(27,58,92,0.06);
+            --warm: #C8965A;
+            --warm-dark: #B07D42;
+            --warm-light: #D4A96F;
+            --warm-glow: rgba(200,150,90,0.25);
+            --warm-bg: rgba(200,150,90,0.08);
+            --bg: #FAFBFD;
+            --bg-card: #FFFFFF;
+            --bg-dark: #0D1B2A;
+            --text: #0D1B2A;
+            --text-secondary: #4A5568;
+            --text-muted: #8C8CA1;
+            --text-inverse: #FFFFFF;
+            --border: #E5E7EB;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 24px;
+            --r-full: 9999px;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-light); }
+
+        /* ========== HEADER ========== */
+        .blog-header {
+            background: var(--bg-dark);
+            color: var(--text-inverse);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        .blog-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-inverse);
+            margin-bottom: 12px;
+        }
+        .blog-header h1 span { color: var(--warm); }
+        .blog-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .blog-header .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--warm);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .blog-header .back-link:hover { color: var(--warm-light); }
+
+        /* ========== CONTAINER ========== */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+        /* ========== FEATURED ARTICLE ========== */
+        .featured-section { padding: 48px 0; }
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .featured-card:hover { box-shadow: var(--shadow-md); }
+        .featured-card a { color: inherit; text-decoration: none; }
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+        .featured-content {
+            padding: 40px 32px 40px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .featured-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--warm-bg);
+            color: var(--warm-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: var(--r-full);
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+        .featured-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        .featured-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .featured-meta {
+            display: flex;
+            gap: 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-content { padding: 24px; }
+            .featured-image img { min-height: 200px; max-height: 240px; }
+        }
+
+        /* ========== ARTICLE GRID ========== */
+        .articles-section { padding: 0 0 80px; }
+        .articles-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 24px;
+        }
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 900px) { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 580px) { .articles-grid { grid-template-columns: 1fr; } }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.2s;
+        }
+        .article-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .article-card a { color: inherit; text-decoration: none; display: block; }
+        .article-card-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .article-card-body { padding: 20px; }
+        .article-card-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--accent-bg);
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: var(--r-full);
+            margin-bottom: 10px;
+        }
+        .article-card-body h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        .article-card-body p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-card-meta {
+            display: flex;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+            border-radius: var(--r-xl);
+            padding: 48px 40px;
+            text-align: center;
+            color: white;
+            margin-bottom: 80px;
+        }
+        .cta-banner h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: white;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        .cta-banner p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-banner .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: white;
+            color: var(--warm-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: var(--r-full);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        .cta-banner .btn:hover { transform: translateY(-2px); color: var(--warm-dark); }
+
+        /* ========== NO ARTICLES FALLBACK ========== */
+        .no-articles {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        /* ========== SKELETON LOADING ========== */
+        @keyframes shimmer {
+            0%   { background-position: -600px 0; }
+            100% { background-position: 600px 0; }
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #e8eaed 25%, #f4f5f7 50%, #e8eaed 75%);
+            background-size: 600px 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
+            border-radius: 6px;
+        }
+        .skeleton-featured {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            height: 320px;
+        }
+        .skeleton-featured-img { height: 100%; }
+        .skeleton-featured-body {
+            padding: 40px 32px 40px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+        }
+        .skeleton-featured-body .sk-badge  { height: 20px; width: 80px; }
+        .skeleton-featured-body .sk-title  { height: 28px; width: 90%; }
+        .skeleton-featured-body .sk-title2 { height: 28px; width: 70%; }
+        .skeleton-featured-body .sk-text   { height: 14px; width: 100%; }
+        .skeleton-featured-body .sk-text2  { height: 14px; width: 80%; }
+        .skeleton-featured-body .sk-meta   { height: 14px; width: 140px; margin-top: 8px; }
+        .skeleton-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+        }
+        .skeleton-card .sk-img  { height: 180px; width: 100%; border-radius: 0; }
+        .skeleton-card-body     { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .skeleton-card .sk-cat  { height: 16px; width: 80px; }
+        .skeleton-card .sk-h4   { height: 18px; width: 90%; }
+        .skeleton-card .sk-h42  { height: 18px; width: 65%; }
+        .skeleton-card .sk-p    { height: 12px; width: 100%; }
+        .skeleton-card .sk-p2   { height: 12px; width: 85%; }
+        .skeleton-card .sk-p3   { height: 12px; width: 60%; }
+        .skeleton-card .sk-meta { height: 12px; width: 120px; margin-top: 4px; }
+        @media (max-width: 768px) {
+            .skeleton-featured { grid-template-columns: 1fr; height: auto; }
+            .skeleton-featured-img { height: 200px; }
+            .skeleton-featured-body { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+
+    <!-- ========== HEADER ========== -->
+    <header class="blog-header">
+        <div class="container">
+            <h1><span>Insights</span> for LATAM Expansion</h1>
+            <p>Expert perspectives on AI-powered GTM strategies, market entry frameworks, and operational best practices for Latin America.</p>
+            <a href="../market-entry.html" class="back-link">&larr; Back to Market Entry Partnership</a>
+        </div>
+    </header>
+
+    <!-- ========== FEATURED ========== -->
+    <section class="featured-section">
+        <div class="container" id="featured-container">
+            <!-- Skeleton: replaced by JS on load -->
+            <div class="skeleton-featured" id="skeleton-featured">
+                <div class="skeleton skeleton-featured-img"></div>
+                <div class="skeleton-featured-body">
+                    <div class="skeleton sk-badge"></div>
+                    <div class="skeleton sk-title"></div>
+                    <div class="skeleton sk-title2"></div>
+                    <div class="skeleton sk-text"></div>
+                    <div class="skeleton sk-text2"></div>
+                    <div class="skeleton sk-meta"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ARTICLES GRID ========== -->
+    <section class="articles-section">
+        <div class="container">
+            <h3>All Articles</h3>
+            <div class="articles-grid" id="articles-grid">
+                <!-- Skeleton: replaced by JS on load -->
+                <div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-cat"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-p3"></div><div class="skeleton sk-meta"></div></div></div>
+                <div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-cat"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-p3"></div><div class="skeleton sk-meta"></div></div></div>
+                <div class="skeleton-card"><div class="skeleton sk-img"></div><div class="skeleton-card-body"><div class="skeleton sk-cat"></div><div class="skeleton sk-h4"></div><div class="skeleton sk-h42"></div><div class="skeleton sk-p"></div><div class="skeleton sk-p2"></div><div class="skeleton sk-p3"></div><div class="skeleton sk-meta"></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section>
+        <div class="container">
+            <div class="cta-banner">
+                <h3>Ready to Launch in Latin America?</h3>
+                <p>30 minutes to discuss your expansion goals. No pitch, no pressure.</p>
+                <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn">Schedule Strategy Call &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    (function() {
+        'use strict';
+
+        function loadArticles() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'articles.json', true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    try {
+                        var articles = JSON.parse(xhr.responseText);
+                        renderArticles(articles);
+                    } catch (e) {
+                        showFallback();
+                    }
+                } else {
+                    showFallback();
+                }
+            };
+            xhr.onerror = function() { showFallback(); };
+            xhr.send();
+        }
+
+        function renderArticles(articles) {
+            // Sort by date descending
+            articles.sort(function(a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
+
+            // Find featured
+            var featured = null;
+            var others = [];
+            for (var i = 0; i < articles.length; i++) {
+                if (articles[i].featured && !featured) {
+                    featured = articles[i];
+                } else {
+                    others.push(articles[i]);
+                }
+            }
+
+            // Render featured
+            var skFeat = document.getElementById('skeleton-featured');
+            if (skFeat) skFeat.parentNode.removeChild(skFeat);
+            if (featured) {
+                var fc = document.getElementById('featured-container');
+                fc.innerHTML = '<a href="posts/' + featured.slug + '.html" class="featured-card">' +
+                    '<div class="featured-image"><img src="' + featured.thumbnail.src + '" alt="' + featured.thumbnail.alt + '" loading="lazy"></div>' +
+                    '<div class="featured-content">' +
+                    '<span class="featured-badge">Featured</span>' +
+                    '<h2>' + featured.title + '</h2>' +
+                    '<p>' + featured.excerpt + '</p>' +
+                    '<div class="featured-meta"><span>' + featured.readTime + '</span><span>' + featured.dateLabel + '</span></div>' +
+                    '</div></a>';
+            }
+
+            // Render grid (others + featured if no others)
+            var gridItems = others.length > 0 ? others : articles;
+            var grid = document.getElementById('articles-grid');
+            var html = '';
+            for (var j = 0; j < gridItems.length; j++) {
+                var a = gridItems[j];
+                html += '<div class="article-card"><a href="posts/' + a.slug + '.html">' +
+                    '<div class="article-card-image"><img src="' + a.thumbnail.src + '" alt="' + a.thumbnail.alt + '" loading="lazy"></div>' +
+                    '<div class="article-card-body">' +
+                    '<span class="article-card-category">' + a.category + '</span>' +
+                    '<h4>' + a.title + '</h4>' +
+                    '<p>' + a.excerpt + '</p>' +
+                    '<div class="article-card-meta"><span>' + a.readTime + '</span><span>' + a.dateLabel + '</span></div>' +
+                    '</div></a></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function showFallback() {
+            var grid = document.getElementById('articles-grid');
+            grid.innerHTML = '<div class="no-articles"><p>Articles loading... Please refresh the page.</p></div>';
+        }
+
+        loadArticles();
+    })();
+    </script>
+</body>
+</html>
