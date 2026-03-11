@@ -1049,8 +1049,7 @@ function setAudience(audience, shouldScroll) {
     if (audience === 'investor') { window.location.href = 'investidores.html'; return; }
     if (audience === 'international') { window.location.href = 'market-entry.html'; return; }
     if (audience === 'other') {
-        document.body.classList.add('audience-other');
-        showAudienceToast('💡 Conteúdo geral carregado. Você pode personalizar a qualquer momento.');
+        document.body.classList.add('audience-founder');
         return;
     }
     document.body.classList.add('audience-founder');
