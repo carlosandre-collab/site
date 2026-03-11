@@ -86,8 +86,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 @keyframes gateIn{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .gate-logo{margin-bottom:28px;opacity:0;animation:gateFade 0.4s ease 0.15s both}
 .gate-logo img{height:28px;width:auto;opacity:0.5}
-.gate-question{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(28px,5vw,40px);font-weight:400;color:#0D1B2A;margin-bottom:6px;line-height:1.1;opacity:0;animation:gateFade 0.4s ease 0.25s both;letter-spacing:-0.02em}
-.gate-sub{font-size:14px;color:#8C8CA1;margin-bottom:32px;opacity:0;animation:gateFade 0.4s ease 0.35s both;font-family:'DM Sans',sans-serif}
+.gate-question{display:none}
+.gate-sub{display:none}
 @keyframes gateFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .gate-options{display:flex;flex-direction:column;gap:10px;opacity:0;animation:gateFade 0.4s ease 0.35s both}
 .gate-option{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;background:#FAFBFD;border:1.5px solid #E5E7EB;border-radius:14px;cursor:pointer;transition:all 0.2s ease;text-decoration:none;overflow:hidden;font-family:'DM Sans',sans-serif;color:inherit;text-align:left}
@@ -238,15 +238,15 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <div class="gate-logo">
             <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="140" height="28">
         </div>
-        <h2 class="gate-question">What brings you here?</h2>
+
         <div class="gate-options">
             <button class="gate-option" data-audience="founder" onclick="selectAudience('founder')">
                 <div class="gate-icon">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L3 14L8 9L13 12L21 3"/><path d="M17 3H21V7"/></svg>
                 </div>
                 <div class="gate-text">
-                    <div class="gate-label">Minha empresa B2B precisa crescer</div>
-                    <div class="gate-desc">Estruturar operação de receita no Brasil ou LatAm</div>
+                    <div class="gate-label">Minha startup precisa crescer</div>
+                    <div class="gate-desc">Arquitetura de receita e GTM para B2B</div>
                 </div>
                 <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
@@ -255,13 +255,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
                 <div class="gate-text">
-                    <div class="gate-label">My company wants to enter Latin America</div>
-                    <div class="gate-desc">Expanding B2B tech into Brazil and LatAm</div>
+                    <div class="gate-label">My company wants to enter LatAm</div>
+                    <div class="gate-desc">Build, operate &amp; transfer your expansion</div>
                 </div>
                 <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
         </div>
-        <button class="gate-skip" onclick="selectAudience('investor')" aria-label="Sou investidor ou VC">Sou investidor / VC →</button>
+        <button class="gate-skip" onclick="selectAudience('other')" aria-label="Só quero conhecer a Alavanka">Só quero conhecer a Alavanka →</button>
     </div>
 </div>
 
