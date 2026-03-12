@@ -31,7 +31,7 @@
     <meta property="og:title" content="The Role of AI in LATAM GTM Strategies">
     <meta property="og:description" content="How AI is transforming go-to-market strategies for B2B tech companies expanding into Latin America.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.alavanka.com.br/market-entry/posts/ai-latam-gtm-strategies-en.html">
+    <meta property="og:url" content="https://www.alavanka.com.br/blog/posts/ai-latam-gtm-strategies-en.html">
     <meta property="og:image" content="https://www.alavanka.com.br/assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg">
     <meta property="og:locale" content="en_US">
     <meta property="article:author" content="Carlos André">
@@ -41,9 +41,8 @@
     <meta name="twitter:title" content="The Role of AI in LATAM GTM Strategies">
     <meta name="twitter:description" content="How AI is transforming go-to-market strategies for B2B tech companies expanding into Latin America.">
     
-    <link rel="canonical" href="https://www.alavanka.com.br/market-entry/posts/ai-latam-gtm-strategies-en.html">
-    <link rel="alternate" hreflang="en" href="https://www.alavanka.com.br/market-entry/posts/ai-latam-gtm-strategies-en.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.alavanka.com.br/market-entry/posts/ai-latam-gtm-strategies-en.html">
+    <link rel="canonical" href="https://www.alavanka.com.br/blog/posts/ai-latam-gtm-strategies-en.html">
+    <link rel="alternate" hreflang="en" href="https://www.alavanka.com.br/blog/posts/ai-latam-gtm-strategies-en.html">
     
     <script type="application/ld+json">
     {
@@ -71,7 +70,7 @@
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.alavanka.com.br/market-entry/posts/ai-latam-gtm-strategies-en.html"
+            "@id": "https://www.alavanka.com.br/blog/posts/ai-latam-gtm-strategies-en.html"
         }
     }
     </script>
