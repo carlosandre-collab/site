@@ -85,7 +85,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-card{width:90%;max-width:480px;background:#fff;border-radius:24px;padding:44px 36px 36px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.18),0 0 0 1px rgba(0,0,0,0.04);animation:gateIn 0.5s cubic-bezier(0.16,1,0.3,1) both}
 @keyframes gateIn{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 .gate-logo{margin-bottom:28px;opacity:0;animation:gateFade 0.4s ease 0.15s both}
-.gate-logo img{height:28px;width:auto;opacity:0.5}
+.gate-logo img{height:28px;width:auto}
 .gate-question{display:none}
 .gate-sub{display:none}
 @keyframes gateFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -110,11 +110,11 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .gate-skip{display:block;margin-top:12px;padding:8px;background:none;border:none;color:#8C8CA1;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:color 0.2s}
 .gate-skip:hover{color:#1B3A5C}
 @media(max-width:640px){
-.audience-gate{align-items:flex-end;padding:0}
-.gate-card{width:100%;max-width:100%;border-radius:20px 20px 0 0;padding:32px 20px 24px;max-height:100dvh;overflow-y:auto;animation:gateSlideUp 0.4s cubic-bezier(0.16,1,0.3,1) both}
+.audience-gate{align-items:center;padding:20px}
+.gate-card{width:92%;max-width:440px;border-radius:20px;padding:32px 20px 24px;max-height:90dvh;overflow-y:auto;animation:gateIn 0.5s cubic-bezier(0.16,1,0.3,1) both}
 @keyframes gateSlideUp{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
 .gate-logo{margin-bottom:16px}
-.gate-logo img{height:22px}
+.gate-logo img{height:32px}
 .gate-question{font-size:28px;margin-bottom:4px}
 .gate-sub{font-size:13px;margin-bottom:20px}
 .gate-options{gap:8px}
@@ -236,7 +236,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <div class="audience-gate" id="audienceGate">
     <div class="gate-card">
         <div class="gate-logo">
-            <img src="assets/images/brand/logo-preto.png" alt="Alavanka" width="140" height="28">
+            <img src="assets/images/brand/logo-completo-navy.svg" alt="Alavanka" width="140" height="28">
         </div>
 
         <div class="gate-options">
