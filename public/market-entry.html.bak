@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build-Operate-Transfer | Launch Your B2B Tech in Latin America | Alavanka</title>
+  <meta name="description" content="Launch your B2B tech business in Latin America without risk. Build, operate, and transfer your entire LatAm operation in 3-4 years. Build-Operate-Transfer model by Alavanka.">
+  <meta property="og:title" content="Build-Operate-Transfer | Alavanka">
+  <meta property="og:description" content="Launch your B2B tech business in Latin America without risk. Build, operate, and transfer your entire LatAm operation in 3-4 years.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alavanka.com.br/market-entry.html">
+  <meta property="og:image" content="https://www.alavanka.com.br/assets/images/brand/logo-preto.png">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.alavanka.com.br/market-entry.html">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/nav-unified.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <script src="components/nav.js" defer></script>
+  <script src="components/footer.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Build-Operate-Transfer",
+    "provider": {
+      "@type": "Organization",
+      "name": "Alavanka",
+      "url": "https://www.alavanka.com.br"
+    },
+    "description": "Build, operate, and transfer your entire LatAm B2B tech operation in 3-4 years.",
+    "areaServed": ["Brazil", "Mexico", "Colombia", "Chile", "Argentina"],
+    "serviceType": "Build-Operate-Transfer"
+  }
+  </script>
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D8LLY1L1Z3');
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vb4dciqpnm");
+    </script>
+  <style>
+    /* ========== DESIGN TOKENS ========== */
+    :root {
+      --accent: #1B3A5C;
+      --accent-dark: #142D48;
+      --accent-light: #2D5F8A;
+      --accent-glow: rgba(27,58,92,0.25);
+      --accent-bg: rgba(27,58,92,0.06);
+      --warm: #C8965A;
+      --warm-dark: #B07D42;
+      --warm-light: #D4A96F;
+      --warm-glow: rgba(200,150,90,0.25);
+      --warm-bg: rgba(200,150,90,0.08);
+      --bg: #FAFBFD;
+      --bg-card: #FFFFFF;
+      --bg-dark: #0D1B2A;
+      --text: #0D1B2A;
+      --text-secondary: #4A5568;
+      --text-muted: #8C8CA1;
+      --text-inverse: #FFFFFF;
+      --success: #10B981;
+      --danger: #EF4444;
+      --warning: #F59E0B;
+      --border: #E5E7EB;
+      --border-accent: rgba(27,58,92,0.2);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+      --shadow-glow: 0 8px 32px rgba(200,150,90,0.3);
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+      --r-xl: 24px;
+      --r-full: 9999px;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent-light); }
+
+    /* ========== TYPOGRAPHY ========== */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; }
+    .decorative { font-family: 'DM Serif Display', serif; }
+
+    /* ========== LAYOUT ========== */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    @media (max-width: 768px) { section { padding: 56px 0; } }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: var(--bg-dark);
+      color: var(--text-inverse);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,150,90,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--warm);
+      background: rgba(200,150,90,0.12);
+      border: 1px solid rgba(200,150,90,0.3);
+      padding: 6px 16px;
+      border-radius: var(--r-full);
+      margin-bottom: 20px;
+    }
+    .hero h1 { color: var(--text-inverse); margin-bottom: 20px; }
+    .hero h1 span { color: var(--warm); }
+    .hero p.subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--warm);
+      display: block;
+    }
+    .hero-stat .label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+    /* ========== BUTTONS ========== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      box-shadow: var(--shadow-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,150,90,0.4); color: #fff; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text-inverse);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+    .btn-secondary:hover { border-color: var(--warm); background: rgba(200,150,90,0.1); color: #fff; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--accent);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--border-accent);
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-outline:hover { background: var(--accent); color: #fff; }
+
+    /* ========== SECTION HEADERS ========== */
+    .section-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: var(--r-full);
+      margin-bottom: 16px;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-top: 12px;
+    }
+
+    /* ========== PROBLEM SECTION ========== */
+    .problem-section { background: var(--bg); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px;
+      transition: box-shadow 0.3s;
+    }
+    .problem-card:hover { box-shadow: var(--shadow-md); }
+    .problem-card .icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(239,68,68,0.08);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 { margin-bottom: 12px; }
+    .problem-card p { color: var(--text-secondary); font-size: 0.95rem; }
+    .problem-card .stat {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--danger);
+      font-size: 0.9rem;
+    }
+
+    /* ========== COMPARISON SECTION ========== */
+    .comparison-section { background: var(--accent-bg); }
+    .comparison-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) { .comparison-table { grid-template-columns: 1fr; } }
+    .comparison-col {
+      background: var(--bg-card);
+      border-radius: var(--r-xl);
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+    }
+    .comparison-col.highlight {
+      border-color: var(--warm);
+      box-shadow: var(--shadow-glow);
+      position: relative;
+    }
+    .comparison-col.highlight::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -12px;
+      left: 32px;
+      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: var(--r-full);
+    }
+    .comparison-col h3 {
+      margin-bottom: 8px;
+    }
+    .comparison-col .price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .comparison-col.highlight .price { color: var(--warm-dark); }
+    .comparison-col .price-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .comparison-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .comparison-col ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .comparison-col ul li:last-child { border-bottom: none; }
+    .comparison-col ul li .check { color: var(--success); font-weight: 700; flex-shrink: 0; }
+    .comparison-col ul li .cross { color: var(--danger); font-weight: 700; flex-shrink: 0; }
+
+    /* ========== JOURNEY SECTION ========== */
+    .journey-section { background: var(--bg); }
+    .journey-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--warm), var(--accent));
+      border-radius: 2px;
+    }
+    @media (max-width: 768px) {
+      .journey-timeline::before { left: 24px; }
+    }
+    .journey-step {
+      position: relative;
+      padding-left: 80px;
+      padding-bottom: 48px;
+    }
+    @media (max-width: 768px) { .journey-step { padding-left: 64px; } }
+    .journey-step:last-child { padding-bottom: 0; }
+    .journey-step .step-number {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(200,150,90,0.3);
+    }
+    @media (max-width: 768px) {
+      .journey-step .step-number { left: 4px; width: 40px; height: 40px; }
+    }
+    .journey-step .step-year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--warm);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .journey-step h3 { margin-bottom: 12px; }
+    .journey-step .step-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .journey-step .step-tag {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: var(--r-full);
+    }
+
+    /* ========== PROCESS SECTION ========== */
+    .process-section { background: var(--bg-dark); color: var(--text-inverse); }
+    .process-section .section-badge { background: rgba(200,150,90,0.15); color: var(--warm); }
+    .process-section .section-header p { color: rgba(255,255,255,0.7); }
+    .process-section h2 { color: var(--text-inverse); }
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .process-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+      transition: background 0.25s;
+    }
+    .process-card:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+    .process-card:last-child  { border-radius: 0 0 var(--r-lg) var(--r-lg); }
+    .process-card:hover { background: rgba(255,255,255,0.08); }
+    .process-card-left { }
+    .process-card .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--warm);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+    .process-card h3 { color: var(--text-inverse); font-size: 1rem; margin-bottom: 0; line-height: 1.3; }
+    .process-card-right p { color: rgba(255,255,255,0.65); font-size: 0.93rem; line-height: 1.65; margin-bottom: 12px; }
+    .process-card-right p:last-child { margin-bottom: 0; }
+    .process-outcome {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,150,90,0.12);
+      border: 1px solid rgba(200,150,90,0.25);
+      border-radius: var(--r-full);
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--warm-light);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .process-outcome::before { content: '✓'; font-size: 0.75rem; }
+    @media (max-width: 640px) {
+      .process-card { grid-template-columns: 1fr; gap: 12px; padding: 28px 24px; }
+    }
+
+    /* ========== TEAM SECTION ========== */
+    .team-section { background: var(--bg); }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Carlos — featured card with metrics */
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    @media (max-width: 680px) {
+      .team-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+    }
+    .team-card-identity { text-align: center; min-width: 120px; }
+    .team-card .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      overflow: hidden;
+      border: 3px solid var(--warm);
+      flex-shrink: 0;
+    }
+    .team-card h3 { font-size: 1rem; margin-bottom: 2px; white-space: nowrap; }
+    .team-card .role {
+      color: var(--warm);
+      font-weight: 600;
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+    .team-card-body { }
+    .team-card-bio {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .team-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 500px) { .team-metrics { grid-template-columns: 1fr 1fr; } }
+    .team-metric {
+      background: var(--accent-bg);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--r-md);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .team-metric .m-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1.1;
+    }
+    .team-metric .m-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .team-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .team-highlights span {
+      padding: 4px 12px;
+      background: var(--accent-bg);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: var(--r-full);
+    }
+    .team-highlights span.highlight-logo {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 14px;
+    }
+
+    /* Miguel — compact supporting card */
+    .team-card-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 680px) {
+      .team-card-secondary { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+    }
+    .team-card-secondary .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .team-card-secondary h3 { font-size: 1rem; margin-bottom: 2px; }
+    .team-card-secondary .role {
+      color: var(--warm);
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    .team-card-secondary p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials-section { background: var(--accent-bg); }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--bg-card);
+      border-radius: var(--r-xl);
+      padding: 40px 48px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    @media (max-width: 600px) { .testimonial-card { padding: 28px 24px; } }
+    .testimonial-card blockquote {
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 24px;
+      border-left: 3px solid var(--warm);
+    }
+    .testimonial-card .attribution {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .testimonial-card .attribution span {
+      display: block;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-section { background: var(--bg); }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-question:hover { color: var(--accent-light); }
+    .faq-question .arrow {
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--text-muted);
+    }
+    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 0 20px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ========== CTA SECTION ========== */
+    .cta-section {
+      background: var(--bg-dark);
+      color: var(--text-inverse);
+      text-align: center;
+      padding: 80px 0;
+    }
+    .cta-section h2 { color: var(--text-inverse); margin-bottom: 16px; }
+    .cta-section p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .cta-section .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ========== FOOTER ========== */
+  </style>
+</head>
+<body>
+  <!-- NAV (injected by nav.js) -->
+  <nav id="main-nav"></nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Build-Operate-Transfer</p>
+      <h1>Most LatAm Expansions Fail<br>Because Companies Go It <span>Alone</span></h1>
+      <p class="subtitle">We build, operate, and transfer your entire LatAm operation over 4 years — local team, compliance, pipeline, and customers included. You own 100% at the end. Your core team never gets distracted.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="number">25+ Years</span>
+          <span class="label">LatAm Operator Experience</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number">$300M+</span>
+          <span class="label">Revenue Built in LatAm</span>
+        </div>
+        <div class="hero-stat">
+          <span class="number">5 Markets</span>
+          <span class="label">Brazil &middot; Mexico &middot; Colombia &middot; Chile &middot; Argentina</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Schedule a Strategy Call &rarr;</a>
+        <a href="#the-model" class="btn-secondary">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY COMPANIES FAIL ========== -->
+  <section class="problem-section" id="the-problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">The Challenge</span>
+        <h2>Why Most Tech Companies Struggle to Enter LatAm</h2>
+        <p>Brazil alone requires 1,501 hours/year in tax compliance — the highest burden ever recorded globally, 10× the OECD average. That's before your first sale. <small style="opacity:0.65">(World Bank / PwC Paying Taxes; IMF, 2021)</small></p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="icon">&#128176;</div>
+          <h3>The Capital Trap</h3>
+          <p>$500K legal setup, $300K infrastructure, $800K team building, $400K market research &mdash; all before seeing a single dollar in revenue. Most companies can't afford the entry ticket.</p>
+          <span class="stat">$2-5M upfront investment required</span>
+        </div>
+        <div class="problem-card">
+          <div class="icon">&#9203;</div>
+          <h3>The Time Drain</h3>
+          <p>6 months of legal setup, 6 more months hiring without a local network, another year of slow customer acquisition. Can your board wait 5-6 years for ROI?</p>
+          <span class="stat">36-48 months to breakeven</span>
+        </div>
+        <div class="problem-card">
+          <div class="icon">&#127922;</div>
+          <h3>The Talent Roulette</h3>
+          <p>No local network means no quality candidates, 6+ months average hiring time, cultural misalignment, and $250K+ cost per bad hire. Without local presence, you're hiring blind.</p>
+          <span class="stat">$250K+ cost per wrong hire</span>
+        </div>
+        <div class="problem-card">
+          <div class="icon">&#127963;</div>
+          <h3>The Compliance Maze</h3>
+          <p>14 different tax types in Brazil, constantly changing regulations, local banking requirements, and government contract complexity. One mistake can mean massive fines or shutdown.</p>
+          <span class="stat">14 tax types to navigate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON ========== -->
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Compare</span>
+        <h2>Traditional Expansion vs. Build-Operate-Transfer</h2>
+        <p>A smarter path to LatAm that compresses time-to-revenue and eliminates upfront risk.</p>
+      </div>
+      <div class="comparison-table">
+        <!-- Traditional -->
+        <div class="comparison-col">
+          <h3>Traditional Expansion</h3>
+          <div class="price">$2-5M</div>
+          <p class="price-note">Upfront investment before first revenue</p>
+          <ul>
+            <li><span class="cross">&#10007;</span> 1,501 hrs/year tax compliance in Brazil alone (World Bank)</li>
+            <li><span class="cross">&#10007;</span> 18-36 months to profitability</li>
+            <li><span class="cross">&#10007;</span> Cultural &amp; regulatory complexity</li>
+            <li><span class="cross">&#10007;</span> Difficult to find trusted local talent</li>
+            <li><span class="cross">&#10007;</span> 100% risk, your capital at stake</li>
+            <li><span class="cross">&#10007;</span> Core team distracted from home market</li>
+          </ul>
+        </div>
+        <!-- BOT -->
+        <div class="comparison-col highlight">
+          <h3>Build-Operate-Transfer</h3>
+          <div class="price">$25K/month</div>
+          <p class="price-note">Declining fees as you grow &mdash; you own 100% after 4 years</p>
+          <ul>
+            <li><span class="check">&#10003;</span> Proven 4-year success model</li>
+            <li><span class="check">&#10003;</span> Revenue within 12 months</li>
+            <li><span class="check">&#10003;</span> We handle all compliance &amp; regulations</li>
+            <li><span class="check">&#10003;</span> Our vetted local team from day 1</li>
+            <li><span class="check">&#10003;</span> Shared risk, aligned incentives</li>
+            <li><span class="check">&#10003;</span> Your team stays focused on core business</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Calculator CTA -->
+      <div style="text-align: center; margin-top: 32px;">
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Want to see the exact numbers for your business?</p>
+        <a href="market-entry/calculator" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 700; font-size: 14px; font-family: 'Space Grotesk', sans-serif; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 16px rgba(27,58,92,0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.35)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.25)';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+          Estimate Your LatAm ROI &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MINI QUIZ (1st instance — after Comparison) ========== -->
+  <section class="quiz-section quiz-section--mid" id="readiness-check">
+    <div class="container">
+      <div class="quiz-wrap">
+        <div class="quiz-intro" id="quizIntro1">
+          <span class="section-badge">Quick Check</span>
+          <h2 class="quiz-heading">Is this the right model for your situation?</h2>
+          <p class="quiz-sub">2 questions. No email. Instant answer.</p>
+          <button class="quiz-start-btn" onclick="quizStart(1)">Find Out →</button>
+        </div>
+        <div class="quiz-step" id="quizQ1a" style="display:none;">
+          <div class="quiz-step-label">Question 1 of 2</div>
+          <h3 class="quiz-q-text">What's your primary goal for LatAm in the next 12 months?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'pipeline','Build pipeline &amp; test the market')">Build pipeline &amp; test the market</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'revenue','Generate revenue from day one')">Generate revenue from day one</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'partners','Find local partners or resellers')">Find local partners or resellers</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'intelligence','Understand the opportunity before committing')">Understand the opportunity before committing</button>
+          </div>
+        </div>
+        <div class="quiz-step" id="quizQ2a" style="display:none;">
+          <div class="quiz-step-label">Question 2 of 2</div>
+          <h3 class="quiz-q-text">Where is your company right now?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'exploring','Exploring — no LatAm presence yet')">Exploring — no LatAm presence yet</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'ready','Ready to pilot — budget approved, leadership aligned')">Ready to pilot — budget approved, leadership aligned</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'operating','Already operating, but results below expectations')">Already operating, but results below expectations</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'expanding','Operating successfully, ready to scale further')">Operating successfully, ready to scale further</button>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult1" style="display:none;">
+          <div class="quiz-result-inner">
+            <div class="quiz-result-icon" id="quizIcon1"></div>
+            <h3 class="quiz-result-title" id="quizTitle1"></h3>
+            <p class="quiz-result-text" id="quizText1"></p>
+            <a class="quiz-result-cta" id="quizCta1" href="#" target="_blank"></a>
+            <button class="quiz-restart" onclick="quizRestart(1)">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4-YEAR JOURNEY ========== -->
+  <section class="journey-section" id="the-model">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">The Model</span>
+        <h2>Your 4-Year Journey: Build &rarr; Operate &rarr; Transfer</h2>
+        <p>A phased model that compresses time-to-revenue and ends in clean transfer to your team.</p>
+      </div>
+      <div class="journey-timeline">
+        <div class="journey-step">
+          <div class="step-number">1</div>
+          <span class="step-year">Year 1 &mdash; Build &amp; Launch</span>
+          <h3>Foundation Building &middot; Maximum Involvement</h3>
+          <div class="step-items">
+            <span class="step-tag">Entity + payroll live</span>
+            <span class="step-tag">1-2 AEs hired</span>
+            <span class="step-tag">First POCs &amp; pilots</span>
+            <span class="step-tag">Early pipeline</span>
+            <span class="step-tag">$300K retainer + setup</span>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-number">2</div>
+          <span class="step-year">Year 2 &mdash; Operate &amp; Scale</span>
+          <h3>Drive Expansion &middot; Begin Knowledge Transfer</h3>
+          <div class="step-items">
+            <span class="step-tag">Team scales</span>
+            <span class="step-tag">CAC improves</span>
+            <span class="step-tag">First marquee logos</span>
+            <span class="step-tag">Process optimization</span>
+            <span class="step-tag">$240K retainer</span>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-number">3</div>
+          <span class="step-year">Year 3 &mdash; Transition &amp; Transfer</span>
+          <h3>Gradual Handover &middot; Leadership Transition</h3>
+          <div class="step-items">
+            <span class="step-tag">SOPs codified</span>
+            <span class="step-tag">Leadership succession</span>
+            <span class="step-tag">Knowledge transfer</span>
+            <span class="step-tag">Margin expands</span>
+            <span class="step-tag">$180K retainer</span>
+          </div>
+        </div>
+        <div class="journey-step">
+          <div class="step-number">4</div>
+          <span class="step-year">Year 4 &mdash; Full Ownership</span>
+          <h3>You Own Everything &middot; We Exit Cleanly</h3>
+          <div class="step-items">
+            <span class="step-tag">Team is yours</span>
+            <span class="step-tag">Customers are yours</span>
+            <span class="step-tag">Systems are yours</span>
+            <span class="step-tag">Self-sustaining operation</span>
+            <span class="step-tag">$120K retainer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8-STEP PROCESS ========== -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">How It Works</span>
+        <h2>From First Call to Full Ownership</h2>
+        <p>Four phases. Each one ends with a clear milestone — not a report, not a recommendation. A result.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-card-left">
+            <div class="step-num">Phase 01 &mdash; Weeks 1&ndash;6</div>
+            <h3>Validate &amp; Align</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Market assessment, demand validation, and revenue quantification for your specific product and ICP. We define the GTM motion, agree on KPIs, formalize partnership terms, and set 3-year targets with full governance transparency.</p>
+            <span class="process-outcome">You know exactly what LatAm is worth — and what it will take.</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-left">
+            <div class="step-num">Phase 02 &mdash; Months 2&ndash;6</div>
+            <h3>Build the Foundation</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Legal entity registered, tax IDs secured, LGPD compliance in place. First hires onboarded from our vetted local network — country manager, enterprise AEs, technical staff. CRM, IT systems, and office operational. All of it running under our entity while yours is in progress.</p>
+            <span class="process-outcome">You have a local team on the ground before Month 6.</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-left">
+            <div class="step-num">Phase 03 &mdash; Months 6&ndash;36</div>
+            <h3>Drive Revenue &amp; Scale</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Pipeline activation, first customer wins, and rapid iteration on what works. As revenue grows, we expand the team, improve unit economics, and begin systematic knowledge transfer — playbooks, SOPs, and leadership succession — so the operation becomes progressively less dependent on us.</p>
+            <span class="process-outcome">First revenue within 12 months. Your board stops asking about LatAm.</span>
+          </div>
+        </div>
+        <div class="process-card">
+          <div class="process-card-left">
+            <div class="step-num">Phase 04 &mdash; Year 4</div>
+            <h3>Full Transfer &amp; Exit</h3>
+          </div>
+          <div class="process-card-right">
+            <p>Clean handover of all assets, contracts, employees, and systems — agreed upfront, no surprises. Your team takes full ownership of a profitable, self-sustaining LatAm operation. We exit. You run it.</p>
+            <span class="process-outcome">You own 100% of a running business. Zero transition disruption.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Leadership</span>
+        <h2>Built by Operators, Not Consultants</h2>
+        <p>Executives with proven track records building and scaling LatAm operations.</p>
+      </div>
+      <div class="team-grid">
+
+        <!-- Carlos André — featured -->
+        <div class="team-card">
+          <div class="team-card-identity">
+            <div class="avatar"><img src="assets/images/brand/carlos-andre.png" alt="Carlos André" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+            <h3>Carlos Andr&eacute;</h3>
+            <div class="role">Co-Founder &amp;<br>Managing Partner</div>
+          </div>
+          <div class="team-card-body">
+            <p class="team-card-bio">25+ years building and scaling B2B tech operations across Latin America. Hired by Informatica's President of Worldwide Field Operations to open LatAm from scratch. Before that, took AT&amp;T LatAm from $3M to $47M in 2 years as the unit's first dedicated hire.</p>
+            <div class="team-metrics">
+              <div class="team-metric">
+                <span class="m-number">$48M→$240M</span>
+                <span class="m-label">Oracle Brazil</span>
+              </div>
+              <div class="team-metric">
+                <span class="m-number">$3M→$47M</span>
+                <span class="m-label">AT&amp;T LatAm<br>in 2 years</span>
+              </div>
+              <div class="team-metric">
+                <span class="m-number">$40M+</span>
+                <span class="m-label">Informatica LatAm<br>new revenue</span>
+              </div>
+            </div>
+            <div class="team-highlights">
+              <span class="highlight-logo"><img src="assets/images/brand/logo-oracle.png" alt="Oracle" style="height:16px;object-fit:contain;max-width:80px;vertical-align:middle;"></span>
+              <span class="highlight-logo"><img src="assets/images/brand/logo-att.png" alt="AT&T" style="height:16px;object-fit:contain;max-width:60px;vertical-align:middle;"></span>
+              <span class="highlight-logo"><img src="assets/images/brand/logo-informatica.png" alt="Informatica" style="height:16px;object-fit:contain;max-width:90px;vertical-align:middle;"></span>
+              <span>Endeavor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Miguel Velazquez — supporting -->
+        <div class="team-card-secondary">
+          <div class="avatar"><img src="assets/images/brand/miguel-velazquez.jpg" alt="Miguel Velazquez" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div>
+            <h3>Miguel Velazquez</h3>
+            <div class="role">Head of Operations &mdash; Mexico &amp; Central America</div>
+            <p>25+ years driving B2B tech expansion across LatAm. Specializes in go-to-market execution, sales leadership, and strategic partnerships across Mexico, Central America, and South America.</p>
+            <div class="team-highlights">
+              <span>Informatica</span>
+              <span>Aceco TI</span>
+              <span>Mexico</span>
+              <span>Central America</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">What Clients Say</span>
+        <h2>Trusted by Global Tech Leaders</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <blockquote>I hired Carlos Andre to open up our Latin America Operation. He did a fantastic job developing a strategic plan, building a team, and rapidly growing a successful business. He truly understands the market and is adept at knowing his products and the value proposition they deliver. He and Miguel are a winning combination!</blockquote>
+          <div class="attribution">
+            Paul Hoffman
+            <span>President, Worldwide Field Operations &mdash; Informatica Corporation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OVERVIEW CTA ========== -->
+  <section style="padding: 56px 0; background: var(--bg); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div style="max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 36px 40px; box-shadow: var(--shadow-sm);">
+        <div>
+          <p style="font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm); margin-bottom:8px;">Model Overview</p>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:6px;">Want the full picture before a call?</h3>
+          <p style="font-size:0.92rem; color:var(--text-secondary); max-width:420px; line-height:1.6;">The BOT Overview walks through the 4-phase model, our track record, and a full investment comparison — in one page, no form required.</p>
+        </div>
+        <a href="market-entry/overview" style="white-space:nowrap; flex-shrink:0; display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; padding:14px 28px; border-radius:var(--r-full); text-decoration:none; box-shadow:0 4px 16px rgba(27,58,92,0.2); transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.3)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.2)';">
+          Read the Overview →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            What exactly is Build-Operate-Transfer?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Build-Operate-Transfer is our unique 3-4 year collaboration model where we build, operate, and transfer a complete LatAm business operation to you. Unlike consultants who just give advice, or distributors who sell alongside other products, we become your dedicated local team &mdash; hiring staff, setting up operations, driving sales, and gradually handing over full control to you.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How is this different from hiring a distributor or local partner?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Key differences: (1) Dedication &mdash; our team works exclusively on your products, not juggling multiple brands. (2) Ownership &mdash; you retain full control of customer relationships and ultimately own the entire operation. (3) Alignment &mdash; we share financial risk through performance-based compensation. (4) Transfer &mdash; the end goal is always your full ownership of a thriving business.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens at the end of the 3-4 year partnership?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">You assume 100% ownership of a fully operational local business &mdash; complete with staff, customers, infrastructure, and established market presence. All transition terms are agreed upfront. There are no surprise costs or hostile negotiations. Our success is measured by how smoothly you can take the reins of a profitable operation.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How do you protect our intellectual property?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We treat your business as our own. All intellectual property is safeguarded through strict NDAs and legal agreements. We implement IT systems and security controls that mirror your standards. Our team members adhere to your company's policies as if they were direct employees.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What's the total 4-year investment?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Total 4-year investment is approximately $890K in retainer fees (declining from $300K to $120K annually) plus a $50K one-time setup fee and a 10% revenue share that aligns our incentives. Compare this to $2-5M for traditional expansion with 100% of that at risk. <a href="market-entry/calculator" style="font-weight: 600; color: var(--warm);">Estimate your LatAm ROI &rarr;</a> with your own numbers.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Which markets do you cover?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We have operational presence and deep networks in Brazil, Mexico, Colombia, Chile, and Argentina. Our team has executed market entries in 8+ countries across Latin America over 25 years. We tailor the approach to each specific market based on your product and target customer profile.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            What's your long-term commitment to this engagement?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">This is Alavanka's core business and Carlos André's life project &mdash; not a consulting engagement we can walk away from. We have no interest in managing a portfolio of loosely-held relationships. We take on a small number of partners at a time, precisely because each one gets our full commitment for the duration. That said, the model is deliberately designed so that our involvement becomes <em>less</em> necessary over time, not more. From Month 1, we build the local entity to operate independently: the team has direct contracts with your entity, institutional knowledge is documented and owned by you as it's created, and leadership succession is planned from the start. By Year 4, you shouldn't need us &mdash; and that's exactly how we measure success.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUIZ NUDGE (2nd instance — after FAQ, compact) ========== -->
+  <section class="quiz-nudge-section" id="readiness">
+    <div class="container">
+      <div class="quiz-nudge-wrap">
+        <div class="quiz-nudge-text">
+          <span class="quiz-nudge-label">Still evaluating?</span>
+          <p>Answer 2 quick questions and get a tailored recommendation for your situation — no email required.</p>
+        </div>
+        <a href="#readiness-check" class="quiz-nudge-btn" onclick="smoothToQuiz(event)">Take the Quick Check →</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  /* ── QUIZ SHARED STYLES (used by both instances) ── */
+  .quiz-section {
+    padding: 80px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .quiz-section--mid {
+    background: #f4f6f9;
+  }
+  .quiz-wrap {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quiz-heading {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text);
+    margin: 14px 0 10px;
+  }
+  .quiz-sub {
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    margin-bottom: 28px;
+  }
+  .quiz-start-btn {
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: var(--r-md);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .quiz-start-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+  .quiz-step { text-align: left; }
+  .quiz-step-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    margin-bottom: 12px;
+  }
+  .quiz-q-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 18px;
+    line-height: 1.35;
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-opt {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 13px 18px;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.18s;
+  }
+  .quiz-opt:hover {
+    border-color: var(--warm);
+    background: rgba(200,150,90,0.04);
+    transform: translateX(4px);
+  }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .quiz-result { text-align: center; animation: fadeSlideIn 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .quiz-result-inner {
+    background: linear-gradient(135deg, var(--bg-dark), var(--accent));
+    border-radius: var(--r-xl);
+    padding: 40px 36px;
+    color: var(--text-inverse);
+  }
+  .quiz-result-icon {
+    width: 52px; height: 52px;
+    background: rgba(200,150,90,0.2);
+    border: 1.5px solid rgba(200,150,90,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 20px;
+  }
+  .quiz-result-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .quiz-result-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 28px;
+    max-width: 460px;
+    margin-left: auto; margin-right: auto;
+  }
+  .quiz-result-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--r-md);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.93rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 14px;
+  }
+  .quiz-result-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+  .quiz-restart {
+    display: block; margin: 0 auto;
+    background: none; border: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem; cursor: pointer;
+    transition: color 0.2s; padding: 4px;
+  }
+  .quiz-restart:hover { color: rgba(255,255,255,0.75); }
+
+  /* ── NUDGE (2nd instance) ── */
+  .quiz-nudge-section {
+    padding: 32px 0;
+    background: rgba(27,58,92,0.04);
+    border-top: 1px solid var(--border);
+  }
+  .quiz-nudge-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .quiz-nudge-label {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warm);
+    margin-bottom: 4px;
+  }
+  .quiz-nudge-text p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .quiz-nudge-btn {
+    white-space: nowrap;
+    background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: var(--r-md);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .quiz-nudge-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+
+  @media (max-width: 600px) {
+    .quiz-result-inner { padding: 28px 20px; }
+    .quiz-nudge-wrap { flex-direction: column; text-align: center; }
+    .quiz-nudge-btn { width: 100%; text-align: center; }
+  }
+
+    /* ── SHARE BAR ── */
+    .me-share-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--warm-bg);
+      border: 1px solid rgba(200,150,90,0.25);
+      border-radius: var(--r-lg);
+      padding: 20px 28px;
+    }
+    .me-share-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .me-share-divider {
+      width: 1px; height: 20px;
+      background: rgba(200,150,90,0.3);
+      flex-shrink: 0;
+    }
+    .me-share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--bg-card);
+      border: 1.5px solid var(--warm);
+      border-radius: var(--r-sm);
+      padding: 9px 18px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(200,150,90,0.15);
+    }
+    .me-share-btn:hover { background: var(--warm); color: #fff; }
+    .me-share-btn.copied { background: rgba(16,185,129,0.08); border-color: var(--success); color: var(--success); }
+    @media (max-width: 600px) {
+      .me-share-label { text-align: center; width: 100%; }
+      .me-share-divider { display: none; }
+    }
+  </style>
+
+  <script>
+  (function() {
+    var answers = {};
+
+    window.quizStart = function(instance) {
+      document.getElementById('quizIntro' + instance).style.display = 'none';
+      document.getElementById('quizQ1a').style.display = 'block';
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_started', { event_category: 'engagement', event_label: 'mep_readiness', quiz_instance: instance });
+      }
+    };
+
+    window.quizAnswer = function(instance, q, key, label) {
+      answers['q' + q] = { key: key, label: label };
+      if (q === 1) {
+        document.getElementById('quizQ1a').style.display = 'none';
+        document.getElementById('quizQ2a').style.display = 'block';
+      } else {
+        document.getElementById('quizQ2a').style.display = 'none';
+        showResult(instance);
+      }
+    };
+
+    window.quizRestart = function(instance) {
+      answers = {};
+      document.getElementById('quizResult' + instance).style.display = 'none';
+      document.getElementById('quizIntro' + instance).style.display = 'block';
+    };
+
+    window.smoothToQuiz = function(e) {
+      e.preventDefault();
+      var target = document.getElementById('readiness-check');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function() {
+          var btn = target.querySelector('.quiz-start-btn');
+          if (btn) btn.focus();
+        }, 600);
+      }
+    };
+
+    function showResult(instance) {
+      var goal  = answers.q1 ? answers.q1.key : '';
+      var stage = answers.q2 ? answers.q2.key : '';
+      var r = getResult(goal, stage);
+
+      document.getElementById('quizIcon'  + instance).textContent = r.icon;
+      document.getElementById('quizTitle' + instance).textContent = r.title;
+      document.getElementById('quizText'  + instance).textContent = r.text;
+      var cta = document.getElementById('quizCta' + instance);
+      cta.href = r.cta;
+      cta.textContent = r.ctaLabel;
+      document.getElementById('quizResult' + instance).style.display = 'block';
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_completed', {
+          event_category: 'lead_generation',
+          event_label: goal + '_' + stage,
+          quiz_goal: goal,
+          quiz_stage: stage,
+          quiz_instance: instance
+        });
+      }
+    }
+
+    function getResult(goal, stage) {
+      var base = 'https://calendly.com/carlos-andre-alavanka/30min';
+      if (stage === 'operating') return {
+        icon: '⚡', title: 'You need a reset, not an entry.',
+        text: "You're already in LatAm but not hitting the numbers. That's usually a GTM fit problem, not a market problem. Let's diagnose what's blocking results before investing further.",
+        cta: base + '?utm_content=quiz_operating', ctaLabel: 'Schedule a Diagnostic Call →'
+      };
+      if (stage === 'expanding') return {
+        icon: '🚀', title: "You're ready to scale.",
+        text: "You have proof it works. The next step is building the infrastructure to grow it — dedicated team, expanded markets, optimized unit economics. That's exactly what the BOT model accelerates.",
+        cta: base + '?utm_content=quiz_expanding', ctaLabel: "Let's Talk Scale →"
+      };
+      if (stage === 'ready' && goal === 'revenue') return {
+        icon: '✓', title: 'Strong fit for the BOT model.',
+        text: "Budget approved, leadership aligned, and you want revenue from day one — that's the exact profile the Build-Operate-Transfer model is built for. Let's talk about timelines and first markets.",
+        cta: base + '?utm_content=quiz_ready_revenue', ctaLabel: 'Schedule Strategy Call →'
+      };
+      if (stage === 'ready') return {
+        icon: '✓', title: "Good fit. Let's get specific.",
+        text: "You have the internal alignment to move. The right model depends on your product, ACV, and target market — a 30-minute call is enough to map out the right approach for your situation.",
+        cta: base + '?utm_content=quiz_ready', ctaLabel: 'Schedule Strategy Call →'
+      };
+      if (goal === 'intelligence') return {
+        icon: '🔍', title: 'Smart move — validate before you commit.',
+        text: "Most companies that struggle in LatAm skipped this step. A structured market assessment gives you a clear picture of TAM, competitive dynamics, and the realistic path to ROI before you spend a dollar on operations.",
+        cta: base + '?utm_content=quiz_intelligence', ctaLabel: 'Talk to Us About a Market Assessment →'
+      };
+      if (goal === 'partners') return {
+        icon: '🤝', title: 'Partners can work — but rarely do.',
+        text: "The LatAm reseller market looks attractive until you discover that the best local talent prefers exclusive, aligned partnerships over loose agreements. Let's discuss whether BOT or a structured channel model fits your product better.",
+        cta: base + '?utm_content=quiz_partners', ctaLabel: 'Discuss Channel vs. BOT →'
+      };
+      return {
+        icon: '→', title: 'A pilot is the right first step.',
+        text: "Testing the market before full commitment is exactly the right approach. The BOT model is designed for this — low initial exposure, real pipeline, and clear decision gates before scaling investment.",
+        cta: base + '?utm_content=quiz_exploring', ctaLabel: 'See How a Pilot Works →'
+      };
+    }
+  })();
+  </script>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta-section" id="connect">
+    <div class="container">
+      <span class="section-badge" style="background: rgba(200,150,90,0.15); color: var(--warm);">Get Started</span>
+      <h2 style="margin-top: 16px;">Ready to Launch in Latin America?</h2>
+      <p>Schedule a strategy call to discuss your expansion goals and discover your cost advantage over traditional market entry.</p>
+      <div class="cta-buttons">
+        <a href="https://calendly.com/carlos-andre-alavanka/30min" class="btn-primary">Schedule Strategy Call &rarr;</a>
+        <a href="/cdn-cgi/l/email-protection#076e69616847666b667166696c662964686a" class="btn-outline" style="color: var(--text-inverse); border-color: rgba(255,255,255,0.3);">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SHARE BAR ========== -->
+  <section style="background: var(--bg); padding: 32px 0; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="me-share-bar">
+        <span class="me-share-label">Know someone evaluating LatAm expansion? Forward this page.</span>
+        <div class="me-share-divider"></div>
+        <a href="/cdn-cgi/l/email-protection#caf5b9bfa8a0afa9bef786abbe8ba7eff8fa87abb8a1afbeeff8fa8fa4beb8b3eff8fa284a5eeff8fa8ba6abbcaba4a1abeca8a5aeb3f79ea2a5bfada2beeff8fabea2a3b9eff8faa7a3ada2beeff8faa8afeff8fab8afa6afbcaba4beeff8faaca5b8eff8fab3a5bfb8eff8fa86abbe8ba7eff8faafb2baaba4b9a3a5a4eff8fabaa6aba4b9e4effa8beffa8ba2bebebab9eff98beff88ceff88cbdbdbde4aba6abbcaba4a1abe4a9a5a7e4a8b8eff88ca7abb8a1afbee7afa4beb8b3" class="me-share-btn" id="me-share-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Send by Email
+        </a>
+        <button class="me-share-btn" id="me-share-copy" onclick="meCopyLink()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          <span id="me-copy-label">Copy Link</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="main-footer"></footer>
+
+  <!-- ========== FAQ SCRIPT ========== -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function() {
+      'use strict';
+      var items = document.querySelectorAll('.faq-item');
+      for (var i = 0; i < items.length; i++) {
+        (function(item) {
+          var btn = item.querySelector('.faq-question');
+          var answer = item.querySelector('.faq-answer');
+          var inner = item.querySelector('.faq-answer-inner');
+          btn.addEventListener('click', function() {
+            var isOpen = item.classList.contains('open');
+            // Close all
+            for (var j = 0; j < items.length; j++) {
+              items[j].classList.remove('open');
+              items[j].querySelector('.faq-answer').style.maxHeight = '0';
+            }
+            // Toggle current
+            if (!isOpen) {
+              item.classList.add('open');
+              answer.style.maxHeight = inner.scrollHeight + 20 + 'px';
+            }
+          });
+        })(items[i]);
+      }
+    })();
+  </script>
+  <script>
+    function meCopyLink() {
+      var url = 'https://www.alavanka.com.br/market-entry';
+      var btn = document.getElementById('me-share-copy');
+      var label = document.getElementById('me-copy-label');
+      navigator.clipboard.writeText(url).then(function() {
+        btn.classList.add('copied');
+        label.textContent = 'Copied!';
+        if (typeof gtag === 'function') gtag('event', 'page_share', { method: 'copy_link', page: 'market-entry' });
+        setTimeout(function() { bt
