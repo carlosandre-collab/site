@@ -7,7 +7,11 @@ const baseUrl = 'https://www.alavanka.com.br';
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/blog.html', priority: '0.9', changefreq: 'weekly' },
-  { url: '/guia-fractional-cro-brasil.html', priority: '0.9', changefreq: 'monthly' }
+  { url: '/guia-fractional-cro-brasil.html', priority: '0.9', changefreq: 'monthly' },
+  { url: '/market-entry.html', priority: '0.9', changefreq: 'weekly' },
+  { url: '/market-entry/blog.html', priority: '0.8', changefreq: 'weekly' },
+  { url: '/investidores.html', priority: '0.7', changefreq: 'monthly' },
+  { url: '/assessment.html', priority: '0.7', changefreq: 'monthly' }
 ];
 
 // Extensões de arquivos que NÃO são artigos
@@ -77,11 +81,43 @@ function getBlogPosts() {
   return files;
 }
 
+// Função para buscar todos HTMLs em /market-entry/posts
+function getMarketEntryPosts() {
+  let dir = path.join(__dirname, 'public', 'market-entry', 'posts');
+
+  if (!fs.existsSync(dir)) {
+    console.log('⚠️  Pasta /public/market-entry/posts não encontrada — pulando.');
+    return [];
+  }
+
+  console.log('✅ Pasta market-entry/posts encontrada em:', dir);
+
+  const files = fs.readdirSync(dir)
+    .filter(file => {
+      if (!file.endsWith('.html')) return false;
+      console.log(`   ✅ Incluindo: ${file}`);
+      return true;
+    })
+    .map(file => {
+      const filePath = path.join(dir, file);
+      const stats = fs.statSync(filePath);
+      return {
+        url: `/market-entry/posts/${file}`,
+        priority: '0.8',
+        changefreq: 'monthly',
+        lastmod: stats.mtime.toISOString().split('T')[0]
+      };
+    });
+
+  console.log(`✅ Total de ${files.length} artigos market-entry encontrados`);
+  return files;
+}
+
 // Gerar sitemap
 function generateSitemap() {
   console.log('🔨 Iniciando geração do sitemap...');
   
-  const allPages = [...staticPages, ...getBlogPosts()];
+  const allPages = [...staticPages, ...getBlogPosts(), ...getMarketEntryPosts()];
   
   // CRÍTICO: Declaração XML DEVE ser a primeira linha (sem espaços antes)
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
