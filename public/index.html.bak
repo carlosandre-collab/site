@@ -168,6 +168,39 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <script src="components/footer.js" defer></script>
     <script src="components/ux-enhancements.js" defer></script>
     
+    <!-- Organization + Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Alavanka",
+      "url": "https://www.alavanka.com.br",
+      "logo": "https://www.alavanka.com.br/assets/images/brand/logo-completo-navy.svg",
+      "description": "Fractional CRO para startups B2B no Brasil e Market Entry Partnership para empresas internacionais expandindo na América Latina.",
+      "foundingDate": "2023",
+      "areaServed": ["BR", "LATAM"],
+      "serviceType": ["Fractional CRO", "Market Entry Partnership", "B2B GTM Strategy"],
+      "sameAs": [
+        "https://www.linkedin.com/company/alavanka",
+        "https://www.alavanka.com"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Carlos André",
+        "jobTitle": "Founding Partner & Fractional CRO",
+        "url": "https://www.alavanka.com.br",
+        "sameAs": "https://www.linkedin.com/in/carlosacandre",
+        "knowsAbout": ["B2B Sales", "GTM Strategy", "Revenue Operations", "Latin America Expansion", "Fractional CRO"],
+        "alumniOf": [
+          { "@type": "Organization", "name": "Oracle Brasil" },
+          { "@type": "Organization", "name": "AT&T LATAM" },
+          { "@type": "Organization", "name": "Informatica" }
+        ],
+        "award": "Mentor de Impacto — Endeavor Brasil 2013"
+      }
+    }
+    </script>
+
     <!-- FAQPage Schema -->
     <script type="application/ld+json">
     {
