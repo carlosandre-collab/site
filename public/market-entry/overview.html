@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Market Entry Partnership — How It Works | Alavanka</title>
+  <title>LatAm Market Entry — Model Overview | Alavanka</title>
   <meta name="description" content="The 4-year model that builds, operates, and transfers your LatAm B2B operation. Track record, financial logic, and next steps.">
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://www.alavanka.com.br/market-entry/overview">
@@ -96,7 +96,9 @@
       border: 1px solid var(--amber-line);
       border-radius: 99px;
       padding: 4px 12px;
+      display: none;
     }
+    @media(min-width: 600px) { .topbar-pill { display: inline-block; } }
     .topbar-cta {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.82rem;
@@ -113,7 +115,8 @@
     .topbar-cta:hover { background: var(--amber-dark); }
 
     /* ── LAYOUT ── */
-    .page { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+    .page { max-width: 900px; margin: 0 auto; padding: 0 16px 80px; }
+    @media(min-width: 480px) { .page { padding: 0 24px 80px; } }
 
     /* ── SECTION LABEL ── */
     .sec-label {
@@ -311,6 +314,7 @@
       .timeline-track {
         grid-template-columns: 1fr;
         gap: 0;
+        overflow: visible;
       }
       .timeline-track::before { display: none; }
       .tl-phase {
@@ -462,6 +466,7 @@
       line-height: 1.65;
     }
 
+    .finance-section { overflow-x: auto; }
     .compare-table {
       width: 100%;
       border-collapse: collapse;
@@ -712,15 +717,7 @@
     }
 
     /* ── FADE-IN ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+
   </style>
 </head>
 <body>
@@ -731,7 +728,7 @@
       <a href="https://www.alavanka.com.br/market-entry" class="topbar-logo">
         <img src="../assets/images/brand/logo-completo-branco-transparent.png" alt="Alavanka" style="height:38px;display:block;">
       </a>
-      <span class="topbar-pill">Market Entry Partnership</span>
+      <span class="topbar-pill">Build. Operate. Transfer.</span>
       <a href="https://calendly.com/carlos-andre-alavanka/30min" class="topbar-cta" target="_blank" rel="noopener">Schedule a Call →</a>
     </div>
   </header>
@@ -739,14 +736,14 @@
   <div class="page">
 
     <!-- 01 — OPENING -->
-    <section class="opening fade-in">
-      <p class="opening-kicker">Alavanka · Market Entry Partnership · Overview</p>
+    <section class="opening">
+      <p class="opening-kicker">Alavanka · Build. Operate. Transfer.</p>
       <h1>LatAm is a $2T market.<br><em>Most companies never actually enter it.</em></h1>
       <p class="opening-lead">This document explains the model, the track record, and the financial logic behind a 4-year partnership that builds, operates, and transfers your full LatAm operation — with first revenue typically within 12 months.</p>
     </section>
 
     <!-- 02 — PROBLEM NUMBERS -->
-    <section class="problem fade-in">
+    <section class="problem">
       <p class="sec-label">Why expansions fail</p>
       <div class="problem-grid">
         <div class="problem-cell">
@@ -773,9 +770,9 @@
     </section>
 
     <!-- 03 — 4-YEAR TIMELINE -->
-    <section class="timeline-section fade-in">
+    <section class="timeline-section">
       <p class="sec-label">The model</p>
-      <p class="timeline-intro">Four phases, each ending with a defined milestone — not a report. By Year 4, you own 100% of a running business. The retainer declines as the local team becomes self-sufficient.</p>
+      <p class="timeline-intro">Four phases. Each one ends with a defined milestone — not a report. We build the operation, run it until it generates revenue, then transfer full ownership to you. The retainer declines as the local team becomes self-sufficient.</p>
 
       <div class="timeline-track">
 
@@ -819,9 +816,9 @@
     </section>
 
     <!-- 04 — TRACK RECORD -->
-    <section class="track-section fade-in">
+    <section class="track-section">
       <p class="sec-label">Track record</p>
-      <p class="track-intro">The MEP model is built on a pattern repeated across 25 years: entering markets from scratch, building local operations, and scaling to numbers the parent company couldn't reach alone.</p>
+      <p class="track-intro">The BOT model is built on a pattern repeated across 25 years: entering markets from scratch, building local operations, and scaling to numbers the parent company couldn't reach alone.</p>
 
       <div class="track-grid">
         <div class="track-card">
@@ -861,13 +858,13 @@
         <div class="track-bio-content">
           <div class="track-bio-name">Carlos André</div>
           <div class="track-bio-role">Co-Founder &amp; Managing Partner, Alavanka</div>
-          <div class="track-bio-text">25+ years building and scaling B2B tech operations across Latin America for Oracle, AT&T, and Informatica. The Market Entry Partnership is the structured version of the same playbook — applied exclusively to your company.</div>
+          <div class="track-bio-text">25+ years building and scaling B2B tech operations across Latin America for Oracle, AT&T, and Informatica. The Build. Operate. Transfer. model is the structured version of the same playbook — applied exclusively to your company.</div>
         </div>
       </div>
     </section>
 
     <!-- 05 — FINANCIAL COMPARISON -->
-    <section class="finance-section fade-in">
+    <section class="finance-section">
       <p class="sec-label">The financial logic</p>
       <p class="finance-intro">The total 4-year retainer is approximately $890K — declining annually as the operation matures. Compared to the alternative:</p>
 
@@ -876,7 +873,7 @@
           <tr>
             <th style="width:34%">Dimension</th>
             <th>Traditional Expansion</th>
-            <th class="col-mep">Market Entry Partnership</th>
+            <th class="col-mep">Build. Operate. Transfer.</th>
           </tr>
         </thead>
         <tbody>
@@ -915,7 +912,7 @@
     </section>
 
     <!-- 06 — TESTIMONIAL -->
-    <section class="testimonial-section fade-in">
+    <section class="testimonial-section">
       <p class="sec-label">From the field</p>
       <div style="display:grid;grid-template-columns:1fr;gap:20px;">
         <div class="testimonial-card">
@@ -942,7 +939,7 @@
     </section>
 
     <!-- 07 — CTA -->
-    <section class="cta-section fade-in">
+    <section class="cta-section">
       <div class="cta-box">
         <div>
           <div class="cta-eyebrow">Next step</div>
@@ -957,7 +954,7 @@
     </section>
 
     <!-- SHARE BAR — standalone below CTA -->
-    <div class="share-bar-wrap fade-in">
+    <div class="share-bar-wrap">
       <span class="share-label">Found this useful? Forward it.</span>
       <div class="share-divider"></div>
       <a href="/cdn-cgi/l/email-protection#e2dd91978088878196dfae8396a38fc7d0d2af8390898796c7d0d2a78c96909bc7d0d2006276c7d0d2a38e8394838c8983c7d0d2ad948790948b8795c4808d869bdfb18a83908b8c85c7d0d2968a8b91c7d0d28d948790948b8795c7d0d28d8cc7d0d2a38e8394838c8983c591c7d0d2af8390898796c7d0d2a78c96909bc7d0d2b28390968c8790918a8b92c7d0d28f8d86878ec7d0d2848d90c7d0d2a0d0a0c7d0d29687818ac7d0d2818d8f92838c8b8791c7d0d2879a92838c868b8c85c7d0d28b8c968dc7d0d2ae8396a38fccc7d2a3c7d2a38a96969291c7d1a3c7d0a4c7d0a4959595cc838e8394838c8983cc818d8fcc8090c7d0a48f8390898796cf878c96909bc7d0a48d948790948b8795" class="share-btn-light" id="share-email">
@@ -973,14 +970,7 @@
   </div><!-- /page -->
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // fade-in on scroll
-    var els = document.querySelectorAll('.fade-in');
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08 });
-    els.forEach(function(el) { io.observe(el); });
+
 
     // Copy link
     function copyLink() {
