@@ -1,51 +1,13 @@
 {
   "articles": [
     {
-      "id": "estilo-gestao-performance-composicao-time",
-      "slug": "estilo-gestao-performance-composicao-time",
-      "slugs": {
-        "pt": "estilo-gestao-performance-composicao-time",
-        "en": "management-style-meets-rep-profile"
-      },
-      "featured": true,
-      "category": {
-        "pt": "Gestão de Vendas",
-        "en": "Sales Management"
-      },
-      "title": {
-        "pt": "Seu Estilo de Gestão Encontra o Perfil do Seu Liderado: O Que Acontece Depois",
-        "en": "When Your Management Style Meets Your Rep's Profile: What Happens Next"
-      },
-      "excerpt": {
-        "pt": "A performance do time não depende só do gestor nem só do vendedor. Depende da composição entre os dois. Como identificar essa dinâmica e ajustar antes que apareça nos números.",
-        "en": "Team performance doesn't depend only on the manager or only on the rep. It depends on the composition between the two. How to identify this dynamic and adjust before it shows up in the numbers."
-      },
-      "readTime": {
-        "pt": "11 min de leitura",
-        "en": "11 min read"
-      },
-      "date": "2026-03-12",
-      "dateLabel": {
-        "pt": "Mar 2026",
-        "en": "Mar 2026"
-      },
-      "thumbnail": {
-        "type": "image",
-        "src": "assets/images/blog/estilo-gestao-performance-composicao-time-thumb.jpg",
-        "alt": {
-          "pt": "Ilustração abstrata representando a composição entre estilo de gestão e perfil do liderado",
-          "en": "Abstract illustration representing the composition between management style and rep profile"
-        }
-      }
-    },
-    {
       "id": "vendas-governo-sem-atalhos-ilicitos",
       "slug": "vendas-governo-sem-atalhos-ilicitos",
       "slugs": {
         "pt": "vendas-governo-sem-atalhos-ilicitos",
         "en": "selling-to-government-no-shortcuts"
       },
-      "featured": false,
+      "featured": true,
       "category": {
         "pt": "Estratégia & Growth",
         "en": "Strategy & Growth"
@@ -409,12 +371,12 @@
       "en": "Featured Article"
     },
     "blogTitle": {
-      "pt": "Insights de <span>GTM & Revenue</span>",
-      "en": "Insights on <span>GTM & Revenue</span>"
+      "pt": "Gestão de vendas, operação de <span>receita e crescimento B2B</span>.",
+      "en": "Sales management, <span>revenue operations and B2B growth</span>."
     },
     "blogSubtitle": {
-      "pt": "Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech — de quem construiu operações de $3M a $240M.",
-      "en": "Practical articles on Go-to-Market, revenue operations and growth for B2B Tech — from someone who built operations from $3M to $240M."
+      "pt": "Sem rodeio.",
+      "en": "No fluff."
     }
   }
 }
