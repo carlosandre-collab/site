@@ -1065,6 +1065,8 @@ function selectAudience(audience, method) {
         gtag('event', 'audience_selected', params);
     }
     var gate = document.getElementById('audienceGate');
+    if (audience === 'investor') { window.location.href = 'investidores.html'; return; }
+    if (audience === 'international') { window.location.href = 'market-entry.html'; return; }
     if (gate) {
         gate.classList.add('closing');
         setTimeout(function() {
