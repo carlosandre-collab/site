@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "canal-revenda-mito-que-vende-sozinho",
+      "slug": "canal-revenda-mito-que-vende-sozinho",
+      "slugs": {
+        "pt": "canal-revenda-mito-que-vende-sozinho",
+        "en": "channel-myth-that-sells-itself"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Estratégia & Growth",
+        "en": "Strategy & Growth"
+      },
+      "title": {
+        "pt": "Canal de Revenda B2B: O Mito do Canal que Vende Sozinho",
+        "en": "B2B Channel Partnerships: The Myth of the Self-Selling Channel"
+      },
+      "excerpt": {
+        "pt": "Você não precisa de canal. Você precisa de vendas. São coisas diferentes — e confundir as duas é o motivo pelo qual a maioria dos programas de canal B2B fracassa antes de gerar a primeira venda significativa.",
+        "en": "You don't need a channel. You need sales. Those are different things — and confusing the two is why most B2B channel programs fail before generating a single meaningful deal."
+      },
+      "readTime": {
+        "pt": "9 min de leitura",
+        "en": "9 min read"
+      },
+      "date": "2026-03-16",
+      "dateLabel": {
+        "pt": "Mar 2026",
+        "en": "Mar 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/canal-revenda-mito-que-vende-sozinho-thumb.jpg",
+        "alt": {
+          "pt": "Rede de micélio representando ecossistema de canais B2B — interdependência entre revendas, centros educacionais e certificação",
+          "en": "Mycelium network representing a B2B channel ecosystem — interdependence between resellers, educational centers, and certification"
+        }
+      }
+    },
+    {
       "id": "vendas-governo-sem-atalhos-ilicitos",
       "slug": "vendas-governo-sem-atalhos-ilicitos",
       "slugs": {
         "pt": "vendas-governo-sem-atalhos-ilicitos",
         "en": "selling-to-government-no-shortcuts"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Estratégia & Growth",
         "en": "Strategy & Growth"
@@ -319,7 +357,7 @@
       "date": "2024-12-01",
       "dateLabel": {
         "pt": "Dez 2024",
-        "en": "Dec 2024"
+        "en": "Dez 2024"
       },
       "thumbnail": {
         "type": "iframe",
