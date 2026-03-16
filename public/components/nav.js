@@ -116,9 +116,11 @@
                 hasDropdown: onExpandLatAmPage,
                 sections: [
                     { label: 'The Challenge', anchor: 'the-problem', page: marketEntryUrl },
-                    { label: 'Compare Models', anchor: 'comparison', page: marketEntryUrl },
+                    { label: 'BOT vs Traditional', anchor: 'comparison', page: marketEntryUrl },
                     { label: '4-Year Journey', anchor: 'the-model', page: marketEntryUrl },
-                    { label: '8-Step Framework', anchor: 'process', page: marketEntryUrl }
+                    { label: 'From Call to Ownership', anchor: 'process', page: marketEntryUrl },
+                    { label: 'Our Team', anchor: 'team', page: marketEntryUrl },
+                    { label: 'FAQ', anchor: 'faq', page: marketEntryUrl }
                 ],
                 extraItems: []
             },
