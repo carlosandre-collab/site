@@ -42,7 +42,7 @@
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var marketEntryUrl = basePath ? basePath + 'market-entry.html' : 'market-entry.html';
     var assessmentUrl = basePath ? basePath + 'assessment.html' : 'assessment.html';
-    var logoPath = basePath + 'assets/images/brand/logo-completo-navy.svg';
+    var logoPath = basePath + 'assets/images/brand/logo-completo-navy.png';
 
     // — Detect current page context —
     var currentPath = window.location.pathname;
