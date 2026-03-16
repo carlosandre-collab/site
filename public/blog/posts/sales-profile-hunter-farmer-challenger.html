@@ -18,6 +18,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/nav-unified.css">
   <link rel="stylesheet" href="../../styles/blog-article.css">
+  <!-- Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D8LLY1L1Z3', {'send_page_view': true});
+  </script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,"clarity","script","vb4dciqpnm");
+  </script>
   <script src="../../components/nav.js" defer></script>
   <script type="application/ld+json">
   {
@@ -366,6 +381,40 @@
       <p style="margin: 0; opacity: 0.8;">© 2025 Alavanka. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- GA4: Engagement Tracking -->
+  <script>
+  (function() {
+      if (typeof gtag !== 'function') return;
+      var scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+      window.addEventListener('scroll', function() {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight <= 0) return;
+          var percent = Math.round((scrollTop / docHeight) * 100);
+          [25, 50, 75, 100].forEach(function(m) {
+              if (percent >= m && !scrollMilestones[m]) {
+                  scrollMilestones[m] = true;
+                  gtag('event', 'scroll_depth', { depth: m, page: 'sales-profile-hunter-farmer-challenger' });
+              }
+          });
+      }, { passive: true });
+      [30, 60, 120, 300].forEach(function(s) {
+          setTimeout(function() { gtag('event', 'time_on_page', { seconds: s, page: 'sales-profile-hunter-farmer-challenger' }); }, s * 1000);
+      });
+      document.addEventListener('click', function(e) {
+          var el = e.target;
+          while (el && el.tagName !== 'A') el = el.parentElement;
+          if (!el) return;
+          var href = (el.getAttribute('href') || '').toLowerCase();
+          if (href.indexOf('calendly') !== -1) {
+              gtag('event', 'cta_click', { cta_type: 'calendly', page: 'sales-profile-hunter-farmer-challenger', location: 'article' });
+          } else if (href.indexOf('wa.me') !== -1) {
+              gtag('event', 'cta_click', { cta_type: 'whatsapp', page: 'sales-profile-hunter-farmer-challenger', location: 'article' });
+          }
+      });
+  })();
+  </script>
 
   <script>
     // Simple language toggle for blog articles
