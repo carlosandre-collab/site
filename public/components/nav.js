@@ -38,6 +38,15 @@
     // — Build URLs based on depth —
     var indexUrl = basePath ? basePath + 'index.html' : 'index.html';
     var blogUrl = basePath ? basePath + 'blog.html' : 'blog.html';
+    // MEP blog URL (market-entry/blog.html relative to current depth)
+    var mepBlogUrl;
+    if (basePath === '../../') {
+        mepBlogUrl = '../market-entry/blog.html';
+    } else if (basePath === '../') {
+        mepBlogUrl = 'market-entry/blog.html';
+    } else {
+        mepBlogUrl = 'market-entry/blog.html';
+    }
     var guiaUrl = basePath ? basePath + 'guia-fractional-cro-brasil.html' : 'guia-fractional-cro-brasil.html';
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var marketEntryUrl = basePath ? basePath + 'market-entry.html' : 'market-entry.html';
@@ -113,7 +122,7 @@
                 ],
                 extraItems: []
             },
-            blog: { label: 'Blog', url: blogUrl },
+            blog: { label: 'Blog', url: mepBlogUrl },
             cta: {
                 label: 'Schedule Call \u2192',
                 url: 'https://calendly.com/carlos-andre-alavanka/30min',
