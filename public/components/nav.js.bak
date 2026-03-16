@@ -42,7 +42,7 @@
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var marketEntryUrl = basePath ? basePath + 'market-entry.html' : 'market-entry.html';
     var assessmentUrl = basePath ? basePath + 'assessment.html' : 'assessment.html';
-    var logoPath = basePath + 'assets/images/brand/logo-completo-navy.svg';
+    var logoPath = basePath + 'assets/images/brand/logo-completo-navy.png';
 
     // — Detect current page context —
     var currentPath = window.location.pathname;
@@ -188,7 +188,7 @@
     var navHTML = ''
         + '<nav role="navigation" aria-label="' + cfg.ariaLabel + '">'
         + '  <a href="' + indexUrl + '" class="logo" aria-label="Alavanka - Home">'
-        + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img" width="201" height="77" fetchpriority="high">'
+        + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img">'
         + '  </a>'
         + '  <div class="nav-mobile-right">'
         + '    <a href="' + cfg.cta.url + '" class="nav-cta nav-cta-mobile"' + ctaTarget + '>' + mobileCTALabel + '</a>'
