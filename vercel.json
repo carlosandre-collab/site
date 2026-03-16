@@ -4,9 +4,9 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
-  
-  "regions": ["gru1"],
-  
+  "regions": [
+    "gru1"
+  ],
   "headers": [
     {
       "source": "/translations.json",
@@ -71,7 +71,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://snap.licdn.com https://px.ads.linkedin.com https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://*.vercel-insights.com https://*.vercel-scripts.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com https://snap.licdn.com https://px.ads.linkedin.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://*.vercel-insights.com https://vitals.vercel-insights.com https://www.clarity.ms https://*.clarity.ms; frame-src 'self' https://calendly.com https://www.youtube.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io https://script.google.com"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://snap.licdn.com https://px.ads.linkedin.com https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://*.vercel-insights.com https://*.vercel-scripts.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://formspree.io https://script.google.com https://script.googleusercontent.com https://snap.licdn.com https://px.ads.linkedin.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://region1.analytics.google.com https://stats.g.doubleclick.net https://*.vercel-insights.com https://vitals.vercel-insights.com https://www.clarity.ms https://*.clarity.ms; frame-src 'self' https://calendly.com https://www.youtube.com https://player.vimeo.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io https://script.google.com"
         },
         {
           "key": "Strict-Transport-Security",
@@ -104,7 +104,6 @@
       ]
     }
   ],
-  
   "redirects": [
     {
       "source": "/blog/custo-invisivel-cro.html",
@@ -129,6 +128,31 @@
     {
       "source": "/blog/value-proposition-impreciso-en.html",
       "destination": "/blog/posts/value-proposition-impreciso-en.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/compensacao-sistema-gtm",
+      "destination": "/blog/posts/compensacao-sistema-gtm.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/custo-invisivel-cro",
+      "destination": "/blog/posts/custo-invisivel-cro.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ilustracao_tres_vazamentos",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ilustracao_value_proposition",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ilustracao_capa.html",
+      "destination": "/blog",
       "permanent": true
     }
   ]
