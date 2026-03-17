@@ -1,8 +1,24 @@
 [
   {
+    "id": "b2b-channel-latam-myth-self-selling-en",
+    "slug": "b2b-channel-latam-myth-self-selling-en",
+    "featured": true,
+    "category": "International Market Expansion",
+    "title": "B2B Channel in LATAM: The Myth of the Self-Selling Channel",
+    "excerpt": "Most international tech companies enter Latin America through a reseller channel expecting fast revenue with low cost. Here's why that assumption fails — and what works instead.",
+    "readTime": "10 min read",
+    "date": "2026-03-16",
+    "dateLabel": "March 2026",
+    "thumbnail": {
+      "type": "image",
+      "src": "../assets/images/market-entry/b2b-channel-latam-myth-self-selling-en-thumb.jpg",
+      "alt": "Mycelium network representing B2B channel ecosystem — interdependence between resellers, educational centers, and certification"
+    }
+  },
+  {
     "id": "quota-latam-market-entry-en",
     "slug": "quota-latam-market-entry-en",
-    "featured": true,
+    "featured": false,
     "category": "International Market Expansion",
     "title": "Quota Mistakes That Kill LATAM Expansions (And What to Do Instead)",
     "excerpt": "Setting sales quotas for Brazil and Mexico requires more than translation. Learn what works, what backfires, and what destroys teams in LATAM markets.",
