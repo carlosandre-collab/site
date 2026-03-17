@@ -161,10 +161,11 @@
       --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px; --r-full: 9999px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; padding-top: 72px; }
+    @media (min-width: 768px) { body { padding-top: 80px; } }
     .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px; z-index: 100; }
     .skip-link:focus { top: 0; }
-    .article-wrapper { max-width: 800px; margin: 0 auto; padding: 120px 24px 80px; }
+    .article-wrapper { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
     .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     .breadcrumb a { color: var(--accent); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
