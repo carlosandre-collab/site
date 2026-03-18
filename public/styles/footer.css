@@ -111,6 +111,22 @@
     text-align: center;
     font-size: 0.75rem;
     color: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-privacy {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: color 0.2s;
+}
+
+.footer-privacy:hover {
+    color: #C8965A;
 }
 
 /* ── Responsive ── */

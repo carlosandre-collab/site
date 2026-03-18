@@ -91,6 +91,7 @@
             + '    </div>'
             + '    <div class="footer-bottom">'
             + '      <span>&copy; 2026 Alavanka. All rights reserved.</span>'
+            + '      <a href="' + basePath + 'privacy.html" class="footer-privacy">Privacy Policy</a>'
             + '    </div>'
             + '  </div>'
             + '</footer>';
@@ -132,6 +133,7 @@
             + '    </div>'
             + '    <div class="footer-bottom">'
             + '      <span data-i18n="footer.rights">&copy; 2026 Alavanka. Todos os direitos reservados.</span>'
+            + '      <a href="' + basePath + 'privacy.html" class="footer-privacy">Política de Privacidade</a>'
             + '    </div>'
             + '  </div>'
             + '</footer>';

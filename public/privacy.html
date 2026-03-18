@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade / Privacy Policy | Alavanka</title>
+  <meta name="description" content="Política de Privacidade da Alavanka. Como coletamos, usamos e protegemos seus dados. / Alavanka Privacy Policy. How we collect, use and protect your data.">
+  <link rel="canonical" href="https://www.alavanka.com.br/privacy.html">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D8LLY1L1Z3');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vb4dciqpnm");
+  </script>
+  <!-- LinkedIn Insight Tag -->
+  <script type="text/javascript">
+    _linkedin_partner_id = "9076865";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  </script>
+  <script type="text/javascript">
+    (function(l) {
+      if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+      window.lintrk.q=[]}
+      var s = document.getElementsByTagName("script")[0];
+      var b = document.createElement("script");
+      b.type = "text/javascript"; b.async = true;
+      b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+      s.parentNode.insertBefore(b, s);
+    })(window.lintrk);
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/nav-unified.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <script src="components/nav.js" defer></script>
+
+  <style>
+    :root {
+      --accent:#1B3A5C; --accent-dark:#142D48;
+      --accent-bg:rgba(27,58,92,0.06);
+      --warm:#C8965A; --warm-dark:#B07D42;
+      --bg:#FAFBFD; --bg-card:#FFFFFF; --bg-dark:#0D1B2A;
+      --text:#0D1B2A; --text-secondary:#4A5568; --text-muted:#8C8CA1;
+      --border:#E5E7EB; --border-accent:rgba(27,58,92,0.2);
+      --r-md:12px; --r-lg:16px; --r-xl:24px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-top:72px; }
+    @media(min-width:768px){ body { padding-top:80px; } }
+    .skip-link { position:absolute; top:-40px; left:0; background:var(--accent); color:white; padding:8px; z-index:100; }
+    .skip-link:focus { top:0; }
+
+    .page-wrapper { max-width:800px; margin:0 auto; padding:48px 5% 80px; }
+
+    /* Lang toggle */
+    .lang-switcher { display:flex; gap:8px; margin-bottom:2rem; }
+    .lang-btn { padding:6px 16px; border-radius:99px; font-family:'Space Grotesk',sans-serif; font-size:0.8rem; font-weight:600; cursor:pointer; border:1px solid var(--border-accent); background:transparent; color:var(--text-muted); transition:all 0.2s; }
+    .lang-btn.active { background:var(--accent); color:white; border-color:var(--accent); }
+
+    /* Section blocks */
+    .section { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-lg); padding:2.5rem; margin-bottom:1.5rem; }
+    .section:first-of-type { border-top:4px solid var(--accent); }
+
+    h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.8rem,4vw,2.4rem); color:var(--text); margin-bottom:0.5rem; }
+    .updated { font-size:0.85rem; color:var(--text-muted); margin-bottom:2rem; }
+    h2 { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700; color:var(--accent); margin-bottom:1rem; margin-top:0; }
+    p { color:var(--text-secondary); margin-bottom:1rem; font-size:0.975rem; }
+    p:last-child { margin-bottom:0; }
+    ul { margin:0.5rem 0 1rem 1.25rem; }
+    li { color:var(--text-secondary); font-size:0.975rem; margin-bottom:0.4rem; }
+    a { color:var(--accent); }
+    strong { color:var(--text); font-weight:600; }
+
+    .tool-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+    @media(max-width:560px){ .tool-grid { grid-template-columns:1fr; } }
+    .tool-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--r-md); padding:1rem 1.25rem; }
+    .tool-card strong { display:block; font-family:'Space Grotesk',sans-serif; font-size:0.875rem; color:var(--accent); margin-bottom:0.25rem; }
+    .tool-card span { font-size:0.825rem; color:var(--text-muted); }
+
+    .contact-box { background:var(--accent-bg); border:1px solid var(--border-accent); border-radius:var(--r-md); padding:1.25rem 1.5rem; margin-top:1rem; }
+    .contact-box p { margin:0; font-size:0.9rem; }
+
+    /* Hide/show language sections */
+    .pt-content { display:block; }
+    .en-content { display:none; }
+    body.en .pt-content { display:none; }
+    body.en .en-content { display:block; }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular / Skip</a>
+  <nav id="main-nav"></nav>
+
+  <main id="main-content">
+    <div class="page-wrapper">
+
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-pt" onclick="setLang('pt')">🇧🇷 Português</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇺🇸 English</button>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- PT-BR                                   -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="pt-content">
+
+        <h1>Política de Privacidade</h1>
+        <p class="updated">Última atualização: março de 2026</p>
+
+        <div class="section">
+          <h2>1. Quem somos</h2>
+          <p><strong>Alavanka</strong> é uma consultoria de receita para startups B2B, operada por Carlos André. Nosso site é <a href="https://www.alavanka.com.br">www.alavanka.com.br</a>.</p>
+          <p>Para dúvidas sobre esta política, entre em contato: <a href="mailto:carlos@alavanka.com">carlos@alavanka.com</a></p>
+        </div>
+
+        <div class="section">
+          <h2>2. Quais dados coletamos</h2>
+          <p>Coletamos apenas os dados que você fornece voluntariamente ou que são gerados automaticamente pela sua navegação:</p>
+          <ul>
+            <li><strong>Formulários de contato e newsletter:</strong> nome e endereço de e-mail</li>
+            <li><strong>LinkedIn Lead Gen Forms:</strong> nome, e-mail, cargo e empresa — quando você preenche um formulário em nossos anúncios</li>
+            <li><strong>Dados de navegação:</strong> páginas visitadas, tempo de permanência, dispositivo e localização aproximada — coletados de forma agregada e anônima</li>
+          </ul>
+          <p>Não coletamos dados sensíveis (saúde, origem racial, dados financeiros, etc.).</p>
+        </div>
+
+        <div class="section">
+          <h2>3. Como usamos seus dados</h2>
+          <ul>
+            <li>Responder às suas solicitações de contato</li>
+            <li>Enviar novos artigos e conteúdos que você solicitou via newsletter</li>
+            <li>Entrar em contato após o preenchimento de um formulário de geração de leads no LinkedIn</li>
+            <li>Analisar o desempenho do site e melhorar o conteúdo</li>
+          </ul>
+          <p>Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins comerciais.</p>
+        </div>
+
+        <div class="section">
+          <h2>4. Ferramentas e terceiros</h2>
+          <p>Utilizamos as seguintes ferramentas, cada uma com sua própria política de privacidade:</p>
+          <div class="tool-grid">
+            <div class="tool-card">
+              <strong>Google Analytics 4</strong>
+              <span>Análise de tráfego e comportamento no site. Dados anonimizados e agregados.<br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política Google →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Microsoft Clarity</strong>
+              <span>Mapas de calor e gravações de sessão anonimizadas para melhorar a experiência do site.<br><a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Política Microsoft →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>LinkedIn Insight Tag</strong>
+              <span>Rastreamento de conversões e remarketing via anúncios LinkedIn.<br><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener">Política LinkedIn →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Formspree</strong>
+              <span>Processamento dos formulários de contato e newsletter. Seus dados ficam nos servidores do Formspree.<br><a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Política Formspree →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Calendly</strong>
+              <span>Agendamento de reuniões. Ao clicar no link do Calendly, você acessa o ambiente deles, sujeito à política deles.<br><a href="https://calendly.com/privacy" target="_blank" rel="noopener">Política Calendly →</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>5. Cookies</h2>
+          <p>Nosso site utiliza cookies de análise (Google Analytics, Microsoft Clarity) e cookies de publicidade (LinkedIn Insight Tag). Esses cookies coletam informações de forma agregada e não identificam você individualmente.</p>
+          <p>Você pode desativar cookies no seu navegador a qualquer momento. Isso pode afetar a funcionalidade de algumas partes do site.</p>
+        </div>
+
+        <div class="section">
+          <h2>6. Seus direitos (LGPD)</h2>
+          <p>De acordo com a Lei Geral de Proteção de Dados (Lei 13.709/2018), você tem direito a:</p>
+          <ul>
+            <li>Confirmar a existência de tratamento dos seus dados</li>
+            <li>Acessar seus dados</li>
+            <li>Corrigir dados incompletos ou desatualizados</li>
+            <li>Solicitar a exclusão dos seus dados</li>
+            <li>Revogar consentimento a qualquer momento</li>
+            <li>Cancelar a inscrição da newsletter a qualquer momento</li>
+          </ul>
+          <div class="contact-box">
+            <p>Para exercer qualquer um desses direitos, entre em contato: <a href="mailto:carlos@alavanka.com">carlos@alavanka.com</a>. Respondemos em até 5 dias úteis.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>7. Retenção de dados</h2>
+          <p>Mantemos seus dados enquanto for necessário para a finalidade para a qual foram coletados. Dados de newsletter são excluídos imediatamente após o cancelamento da inscrição. Dados de formulários de contato são mantidos por até 2 anos.</p>
+        </div>
+
+        <div class="section">
+          <h2>8. Alterações nesta política</h2>
+          <p>Podemos atualizar esta política periodicamente. A data de "última atualização" no topo desta página indica quando ela foi revisada pela última vez. Mudanças significativas serão comunicadas por e-mail aos assinantes da newsletter.</p>
+        </div>
+
+      </div><!-- /pt-content -->
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- EN                                      -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="en-content">
+
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: March 2026</p>
+
+        <div class="section">
+          <h2>1. Who we are</h2>
+          <p><strong>Alavanka</strong> is a revenue consultancy for B2B startups, operated by Carlos André. Our website is <a href="https://www.alavanka.com.br">www.alavanka.com.br</a>.</p>
+          <p>For questions about this policy, contact us: <a href="mailto:carlos@alavanka.com">carlos@alavanka.com</a></p>
+        </div>
+
+        <div class="section">
+          <h2>2. What data we collect</h2>
+          <p>We only collect data you voluntarily provide or that is automatically generated by your browsing:</p>
+          <ul>
+            <li><strong>Contact and newsletter forms:</strong> first name and email address</li>
+            <li><strong>LinkedIn Lead Gen Forms:</strong> name, email, job title, and company — when you fill out a form in our ads</li>
+            <li><strong>Browsing data:</strong> pages visited, time on site, device, and approximate location — collected in aggregate and anonymous form</li>
+          </ul>
+          <p>We do not collect sensitive data (health, racial origin, financial data, etc.).</p>
+        </div>
+
+        <div class="section">
+          <h2>3. How we use your data</h2>
+          <ul>
+            <li>To respond to your contact requests</li>
+            <li>To send new articles and content you requested via newsletter</li>
+            <li>To follow up after you filled out a LinkedIn lead generation form</li>
+            <li>To analyze site performance and improve content</li>
+          </ul>
+          <p>We do not sell, rent, or share your data with third parties for commercial purposes.</p>
+        </div>
+
+        <div class="section">
+          <h2>4. Tools and third parties</h2>
+          <p>We use the following tools, each with their own privacy policy:</p>
+          <div class="tool-grid">
+            <div class="tool-card">
+              <strong>Google Analytics 4</strong>
+              <span>Traffic and behavior analysis. Anonymized and aggregated data.<br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Policy →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Microsoft Clarity</strong>
+              <span>Anonymized heatmaps and session recordings to improve site experience.<br><a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">Microsoft Policy →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>LinkedIn Insight Tag</strong>
+              <span>Conversion tracking and remarketing via LinkedIn ads.<br><a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener">LinkedIn Policy →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Formspree</strong>
+              <span>Processes contact and newsletter forms. Your data is stored on Formspree's servers.<br><a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">Formspree Policy →</a></span>
+            </div>
+            <div class="tool-card">
+              <strong>Calendly</strong>
+              <span>Meeting scheduling. When you click the Calendly link, you access their environment, subject to their policy.<br><a href="https://calendly.com/privacy" target="_blank" rel="noopener">Calendly Policy →</a></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>5. Cookies</h2>
+          <p>Our site uses analytics cookies (Google Analytics, Microsoft Clarity) and advertising cookies (LinkedIn Insight Tag). These cookies collect information in aggregate form and do not identify you individually.</p>
+          <p>You can disable cookies in your browser at any time. This may affect the functionality of some parts of the site.</p>
+        </div>
+
+        <div class="section">
+          <h2>6. Your rights (GDPR / LGPD)</h2>
+          <p>Under applicable data protection laws, including GDPR and Brazil's LGPD, you have the right to:</p>
+          <ul>
+            <li>Confirm whether we process your data</li>
+            <li>Access your data</li>
+            <li>Correct incomplete or outdated data</li>
+            <li>Request deletion of your data</li>
+            <li>Withdraw consent at any time</li>
+            <li>Unsubscribe from the newsletter at any time</li>
+          </ul>
+          <div class="contact-box">
+            <p>To exercise any of these rights, contact us: <a href="mailto:carlos@alavanka.com">carlos@alavanka.com</a>. We respond within 5 business days.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>7. Data retention</h2>
+          <p>We retain your data for as long as necessary for the purpose for which it was collected. Newsletter data is deleted immediately upon unsubscription. Contact form data is retained for up to 2 years.</p>
+        </div>
+
+        <div class="section">
+          <h2>8. Changes to this policy</h2>
+          <p>We may update this policy periodically. The "last updated" date at the top of this page indicates when it was last revised. Significant changes will be communicated by email to newsletter subscribers.</p>
+        </div>
+
+      </div><!-- /en-content -->
+
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script>
+    function setLang(lang) {
+      document.body.classList.toggle('en', lang === 'en');
+      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+    }
+    // Auto-detect from nav context
+    window.toggleLang = function() {
+      var isEN = document.body.classList.contains('en');
+      setLang(isEN ? 'pt' : 'en');
+    };
+    // Default to EN if coming from market-entry
+    if (document.referrer.indexOf('market-entry') !== -1) setLang('en');
+  </script>
+  <script src="components/footer.js" defer></script>
+</body>
+</html>
