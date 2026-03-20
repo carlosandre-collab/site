@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Alavanka | Startup Growth para B2B SaaS no Brasil</title>
-    <meta name="description" content="Sua startup B2B travada em crescimento? A Alavanka entra na operação, estrutura o GTM e executa junto com você. Não é consultoria — é operação conjunta.">
+    <title>Alavanka | Revenue Unlock para B2B Tech no Brasil</title>
+    <meta name="description" content="Sua receita B2B travada? A Alavanka entra na operação, destrava o crescimento e executa junto com você. Revenue Unlock — não é consultoria, é resultado.">
     
-    <meta property="og:title" content="Alavanka | Startup Growth para B2B SaaS no Brasil">
-    <meta property="og:description" content="Execução hands-on de Startup Growth para B2B SaaS no Brasil. Diagnóstico em 30 dias, execução imediata, resultado mensurável.">
+    <meta property="og:title" content="Alavanka | Revenue Unlock para B2B Tech no Brasil">
+    <meta property="og:description" content="Revenue Unlock para B2B Tech no Brasil. Destravamos o crescimento de empresas com produto validado que pararam de crescer. Diagnóstico em 30 dias, execução imediata.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.alavanka.com.br">
     <meta property="og:image" content="https://www.alavanka.com.br/assets/images/og-image.jpg">
@@ -70,6 +70,26 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp 0.6s ease forwards;opacity:0}
 .fade-up-1{animation-delay:0.1s}.fade-up-2{animation-delay:0.2s}.fade-up-3{animation-delay:0.3s}.fade-up-4{animation-delay:0.4s}.fade-up-5{animation-delay:0.5s}
+
+
+/* ── Section 5: Model Pillars ─────────────────────────────── */
+.solution-intro-section { padding: 80px 5% 60px; max-width: 1100px; margin: 0 auto; }
+.model-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
+.model-pillar { background: var(--bg-card); border: 1.5px solid var(--border); border-radius: var(--r-lg); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; transition: box-shadow .2s, border-color .2s; }
+.model-pillar:hover { border-color: var(--warm); box-shadow: var(--shadow-md); }
+.model-pillar-icon { width: 52px; height: 52px; background: var(--warm-bg); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--warm); }
+.model-pillar h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.model-pillar p { font-size: .95rem; color: var(--text-secondary); line-height: 1.7; }
+/* ── Section 6: Revenue Unlock model cards ────────────────── */
+.revenue-unlock-model { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin: 36px 0 48px; }
+.rum-card { background: var(--accent-bg); border: 1.5px solid var(--border-accent); border-radius: var(--r-lg); padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
+.rum-step { display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--warm); background: var(--warm-bg); border-radius: var(--r-full); padding: 4px 12px; width: fit-content; }
+.rum-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); }
+.rum-card p { font-size: .9rem; color: var(--text-secondary); line-height: 1.7; }
+@media (max-width: 768px) {
+  .model-pillars, .revenue-unlock-model { grid-template-columns: 1fr; }
+  .solution-intro-section { padding: 60px 5% 40px; }
+}
 
 /* PATCH 4: CLS fixes — reservar espaço antes de JS/CSS externo carregar */
 /* Nav: reserva altura ANTES de nav.js injetar HTML (maior fonte de CLS) */
@@ -187,10 +207,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
       "founder": {
         "@type": "Person",
         "name": "Carlos André",
-        "jobTitle": "Founding Partner & Fractional CRO",
+        "jobTitle": "Founding Partner & Revenue Unlock Specialist",
         "url": "https://www.alavanka.com.br",
         "sameAs": "https://www.linkedin.com/in/carlosacandre",
-        "knowsAbout": ["B2B Sales", "GTM Strategy", "Revenue Operations", "Latin America Expansion", "Fractional CRO"],
+        "knowsAbout": ["B2B Sales", "GTM Strategy", "Revenue Operations", "Latin America Expansion", "Revenue Unlock"],
         "alumniOf": [
           { "@type": "Organization", "name": "Oracle Brasil" },
           { "@type": "Organization", "name": "AT&T LATAM" },
@@ -209,15 +229,15 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "O que é um Fractional CRO?",
+          "name": "O que é Revenue Unlock?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO executa: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados."
+            "text": "Revenue Unlock é o que a Alavanka faz: entrar na operação 2-3 dias por semana, diagnosticar o que está travando o crescimento e executar a solução junto com o time. Não entregamos relatório — participamos de forecast, treinamos vendedores, estruturamos processos e respondemos por resultado via success fee."
           }
         },
         {
           "@type": "Question",
-          "name": "Quanto custa um Fractional CRO no Brasil?",
+          "name": "Quanto custa o Revenue Unlock?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. O modelo fracionário oferece 70-80% do impacto por 30-40% do custo."
@@ -225,7 +245,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         },
         {
           "@type": "Question",
-          "name": "Quando devo contratar um Fractional CRO?",
+          "name": "Para quem é o Revenue Unlock?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot."
@@ -233,10 +253,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         },
         {
           "@type": "Question",
-          "name": "Qual a diferença entre Fractional CRO e consultoria?",
+          "name": "Qual a diferença entre Revenue Unlock e consultoria?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Consultoria entrega PowerPoints. Fractional CRO executa: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real."
+            "text": "Consultoria entrega PowerPoints e vai embora. Revenue Unlock executa dentro da operação: 2-3 dias/semana, participando de forecast, treinando o time, ajustando GTM em tempo real. Com success fee — só ganhamos mais quando você cresce."
           }
         },
         {
@@ -306,7 +326,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <h1 class="fade-up fade-up-1" data-i18n="hero.title">De estagnação para<br><span class="highlight">crescimento estruturado</span></h1>
     
     <p class="hero-sub fade-up fade-up-2" data-i18n="hero.subtitle">
-        <strong>Fractional CRO</strong> para B2B. Execução de GTM com accountability — não consultoria. Para empresas que já provaram seu produto mas <strong>precisam de arquitetura de receita</strong>.
+        <strong>Revenue Unlock</strong> para B2B Tech. Entramos na sua operação, destravamos o crescimento e executamos junto — não consultoria. Para empresas que têm produto validado mas <strong>receita travada</strong>.
     </p>
     
     <div class="hero-credentials fade-up fade-up-3">
@@ -395,33 +415,21 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
             </svg>
-            <span data-i18n="hero.cta.assessment">Receber Diagnóstico Gratuito</span>
+            <span data-i18n="hero.cta.assessment">Descubra por que sua receita travou</span>
         </a>
         <p class="hero-cta-note" data-i18n="hero.cta.note">2 minutos • Resultado imediato • <strong>Sem compromisso</strong></p>
         
         <div class="hero-links">
             <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="hero-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                <span data-i18n="hero.cta.call">Ou agende direto</span>
+                <span data-i18n="hero.cta.call">Prefiro falar diretamente →</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Qualifier -->
-<section class="qualifier">
-    <div class="qualifier-inner">
-        <div class="qualifier-label" data-i18n="qualifier.label">Reconhece esse cenário?</div>
-        <h2 data-i18n="qualifier.title">Se sua empresa B2B vive isso, a gente conversa</h2>
-        <div class="qualifier-tags">
-            <span class="qualifier-tag" data-i18n="qualifier.tag1">Receita ≥ R$10M/ano</span>
-            <span class="qualifier-tag" data-i18n="qualifier.tag2">Série B+</span>
-            <span class="qualifier-tag" data-i18n="qualifier.tag3">Produto validado</span>
-            <span class="qualifier-tag" data-i18n="qualifier.tag4">Crescimento travou 6+ meses</span>
-        </div>
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="qualifier-cta" data-i18n="qualifier.cta">Isso descreve minha situação → Agendar conversa</a>
-    </div>
-</section>
+
+<div class="section-hr" aria-hidden="true"></div>
 
 <!-- Pain Section -->
 <section id="problema" class="pain-section">
@@ -516,19 +524,75 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
                 <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
             </svg>
-            <span data-i18n="cta.assessment.inline">Descobrir onde está o gargalo da minha receita →</span>
+            <span data-i18n="cta.assessment.inline">Ver onde está o gargalo da minha receita →</span>
         </a>
     </div>
 </section>
 
 <div class="section-hr" aria-hidden="true"></div>
 
-<!-- Solution -->
+<!-- O Modelo Certo — Seção 5 -->
+<section id="modelo-certo" class="solution-intro-section">
+    <div class="section-header">
+        <h2 data-i18n="model.title">O Que Uma Startup B2B Precisa <span class="hl">De Verdade</span></h2>
+        <p data-i18n="model.subtitle">Não é mais estratégia. Não é mais vendedor. É arquitetura de receita com execução e accountability.</p>
+    </div>
+
+    <div class="model-pillars">
+        <div class="model-pillar">
+            <div class="model-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <h3 data-i18n="model.pillar1.title">Diagnóstico Real</h3>
+            <p data-i18n="model.pillar1.text">Antes de mudar qualquer coisa, você precisa saber exatamente o que está travando — pipeline, processo, ICP, messaging ou liderança. Sem diagnóstico, qualquer ação é chute.</p>
+        </div>
+        <div class="model-pillar">
+            <div class="model-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+            </div>
+            <h3 data-i18n="model.pillar2.title">Execução Junto</h3>
+            <p data-i18n="model.pillar2.text">Estratégia sem execução é PowerPoint. O que move receita é alguém que entra na operação, participa de forecast, treina o time e ajusta em tempo real — não recomenda de fora.</p>
+        </div>
+        <div class="model-pillar">
+            <div class="model-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 data-i18n="model.pillar3.title">Accountability por Resultado</h3>
+            <p data-i18n="model.pillar3.text">Quem executa precisa ter pele no jogo. Success fee atrelado a crescimento de receita cria o alinhamento que consultoria ou VP recém-contratado nunca têm.</p>
+        </div>
+    </div>
+</section>
+
+<div class="section-hr" aria-hidden="true"></div>
+
+<!-- Revenue Unlock — Seção 6 -->
 <section id="solucao" class="solution-section">
     <div class="section-header">
-        <h2 data-i18n="solution.title">Por Que Soluções <span class="hl">Tradicionais</span> Falham</h2>
+        <h2 data-i18n="solution.intro.title">Revenue Unlock: <span class="hl">Como Funciona na Prática</span></h2>
+        <p data-i18n="solution.intro.subtitle">Um modelo de parceria que combina os três pilares que faltam: diagnóstico, execução e accountability — sem o custo ou risco de uma contratação executiva.</p>
     </div>
-    
+
+    <div class="revenue-unlock-model">
+        <div class="rum-card">
+            <div class="rum-step">D1–D30</div>
+            <h4 data-i18n="solution.rum1.title">Diagnóstico de GTM</h4>
+            <p data-i18n="solution.rum1.text">Deep-dive em 25+ KPIs. Entrevistas com time, clientes e lost deals. Baseline documentado. Você sabe exatamente onde está o problema antes de gastar um real em solução.</p>
+        </div>
+        <div class="rum-card">
+            <div class="rum-step">D30–D120</div>
+            <h4 data-i18n="solution.rum2.title">Execução na Operação</h4>
+            <p data-i18n="solution.rum2.text">2–3 dias por semana dentro da sua empresa. Processo de vendas instalado, ICP e messaging revisados, RevOps funcionando, time treinado e pipeline real sendo gerado.</p>
+        </div>
+        <div class="rum-card">
+            <div class="rum-step">D120+</div>
+            <h4 data-i18n="solution.rum3.title">Crescimento ou Kill-Switch</h4>
+            <p data-i18n="solution.rum3.text">Checkpoint obrigatório no D30 e D90. Se não funcionar, encerramos sem drama — você fica com todo o trabalho feito. Success fee só se houver resultado.</p>
+        </div>
+    </div>
+
+    <div class="section-header" style="margin-top:3rem">
+        <h3 data-i18n="solution.compare.title" style="font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700">Como o Revenue Unlock se Compara às Alternativas</h3>
+    </div>
     <div class="comparison-table">
         <div class="comp-row">
             <div class="comp-cell comp-old">
@@ -545,13 +609,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-new">
                 <span class="comp-label comp-label-win">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="solution.fractional.label">Fractional CRO</span>
+                    <span data-i18n="solution.fractional.label">Revenue Unlock</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h3>
                 <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
             </div>
         </div>
-        
+
         <div class="comp-row">
             <div class="comp-cell comp-old">
                 <span class="comp-label comp-label-fail">
@@ -567,37 +631,21 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-new">
                 <span class="comp-label comp-label-win">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="solution.fractional.label">Fractional CRO</span>
+                    <span data-i18n="solution.fractional.label">Revenue Unlock</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
                 <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
             </div>
         </div>
     </div>
-    
-    <div class="section-cta">
-        <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-section-cta btn-section-cta-secondary">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
-            </svg>
-            <span data-i18n="cta.calendly.inline">Conversar sobre minha empresa →</span>
-        </a>
-    </div>
-</section>
 
-<!-- Logo Bar -->
-<section class="logo-bar-section">
-    <div class="logo-bar-label" data-i18n="logobar.label">Receita Construída Em</div>
-    <div class="logo-bar">
-        <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-oracle.png" alt="Oracle" width="100" height="32" loading="lazy">
-        </div>
-        <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-att.png" alt="AT&T" width="80" height="32" loading="lazy">
-        </div>
-        <div class="logo-bar-item">
-            <img src="assets/images/brand/logo-informatica.png" alt="Informatica" width="120" height="28" loading="lazy">
-        </div>
+    <div class="section-cta">
+        <a href="assessment.html" class="btn-section-cta btn-section-cta-secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+            <span data-i18n="cta.calendly.inline">Entender o que está travando minha receita →</span>
+        </a>
     </div>
 </section>
 
@@ -607,11 +655,11 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <section id="porque" class="why-section">
     <div class="section-header">
         <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
-        <p data-i18n="why.subtitle">Primeira empresa especializada em Fractional CRO na América Latina. Fundada por Carlos André, a Alavanka reúne operadores sêniores com track record comprovado em B2B.</p>
+        <p data-i18n="why.subtitle">Primeira empresa especializada em Revenue Unlock na América Latina. Fundada por Carlos André, a Alavanka destrava o crescimento de empresas B2B Tech com produto validado — através de execução, não consultoria.</p>
     </div>
     
     <div class="founder-profile">
-        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Fractional CRO" class="founder-photo" width="200" height="200" loading="lazy">
+        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Revenue Unlock" class="founder-photo" width="200" height="200" loading="lazy">
         <div class="founder-info">
             <h3 data-i18n="why.founder.name">Carlos André</h3>
             <p class="founder-title" data-i18n="why.founder.title">Founding Partner, Alavanka</p>
@@ -836,7 +884,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="cta-box">
-        <h3 data-i18n="cta.box.title">Diagnóstico Inicial</h3>
+        <h3 data-i18n="cta.box.title">Conversa de 30 Minutos</h3>
         <p data-i18n="cta.box.text">Conversa direta para entender se faz sentido trabalharmos juntos. Sem pitch, sem pressão. Se não formos o fit certo, vamos te dizer.</p>
         <p class="cta-micro" data-i18n="cta.micro">Conversa direta com Carlos André — não com um SDR</p>
         <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="btn-primary" data-i18n="cta.button">Agendar Conversa →</a>
@@ -849,7 +897,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="mailto:carlos@alavanka.com.br">carlos@alavanka.com.br</a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#d6b5b7a4bab9a596b7bab7a0b7b8bdb7f8b5b9bbf8b4a4"><span class="__cf_email__" data-cfemail="ee8d8f9c82819dae8f828f988f80858fc08d8183c08c9c">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -866,45 +914,45 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="faq-container">
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q1">O que é um Fractional CRO?</span>
+                <span data-i18n="faq.q1">O que é Revenue Unlock?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a1">Um Fractional CRO é um executivo sênior de receita que trabalha parcialmente para sua empresa, tipicamente 2-3 dias por semana. Diferente de consultores que entregam relatórios, o Fractional CRO <strong>executa</strong>: participa de forecast, treina vendedores, estrutura processos e tem accountability por resultados.</p>
+                    <p data-i18n="faq.a1">Revenue Unlock é como chamamos o que fazemos: entrar na sua operação 2-3 dias por semana, diagnosticar o que está travando o crescimento e <strong>executar</strong> a solução junto com o time. Não entregamos relatório — participamos de forecast, treinamos vendedores, estruturamos processos e respondemos por resultado via success fee.</p>
                 </div>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q2">Quanto custa um Fractional CRO no Brasil?</span>
+                <span data-i18n="faq.q2">Quanto custa o Revenue Unlock?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a2">Entre R$25.000 e R$60.000 por mês, dependendo da senioridade. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. O modelo fracionário oferece <strong>70-80% do impacto por 30-40% do custo</strong>.</p>
+                    <p data-i18n="faq.a2">Retainer mensal entre R$25.000 e R$60.000 + success fee atrelado a crescimento de receita. Compare com um CRO full-time que custaria R$80.000-150.000/mês em salário, benefícios e equity. <strong>70-80% do impacto por 30-40% do custo</strong> — e só ganhamos mais se você crescer.</p>
                 </div>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q3">Quando devo contratar um Fractional CRO?</span>
+                <span data-i18n="faq.q3">Para quem é o Revenue Unlock?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a3">Quando sua empresa tem receita entre R$5M-50M, crescimento travou há 6+ meses, CEO gasta mais de 40% do tempo em vendas, e não tem orçamento para VP Sales full-time. Empresas Série A/B são o sweet spot.</p>
+                    <p data-i18n="faq.a3">Para empresas B2B Tech com receita entre R$10M-50M, crescimento travado há 6+ meses, e CEO gastando mais de 40% do tempo em vendas. Série B+ com produto validado — o problema é GTM, não produto.</p>
                 </div>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q4">Qual a diferença entre Fractional CRO e consultoria?</span>
+                <span data-i18n="faq.q4">Qual a diferença entre Revenue Unlock e consultoria?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a4">Consultoria entrega PowerPoints. Fractional CRO <strong>executa</strong>: participa de reuniões de forecast, treina reps, estrutura processos, cobra resultados. Temos metas e success fee atrelado a resultados — pele no jogo real.</p>
+                    <p data-i18n="faq.a4">Consultoria entrega PowerPoints e vai embora. Revenue Unlock <strong>executa dentro da sua operação</strong>: 2-3 dias/semana, participando de forecast, treinando o time, ajustando GTM em tempo real. Com success fee — só ganhamos mais quando você cresce.</p>
                 </div>
             </div>
         </div>
@@ -967,7 +1015,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 </a>
 
 <!-- i18n System -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 let currentLang = 'pt';
 let translations = null;
 let pendingLang = null;
@@ -1248,9 +1296,9 @@ document.querySelectorAll('.consequence-grid, .comparison-table, .credentials-gr
         var cls = ' ' + (link.className || '') + ' ';
         var params = null;
         if (href.indexOf('assessment.html') !== -1) {
-            params = { cta_type: 'assessment', location: cls.indexOf(' btn-hero') !== -1 ? 'hero' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline' : 'other' };
+            params = { cta_type: 'assessment', location: cls.indexOf(' btn-hero') !== -1 ? 'hero' : cls.indexOf(' qualifier-cta') !== -1 ? 'qualifier' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline' : 'other' };
         } else if (href.indexOf('calendly') !== -1) {
-            params = { cta_type: 'calendly', location: cls.indexOf(' hero-link') !== -1 ? 'hero' : cls.indexOf(' qualifier-cta') !== -1 ? 'qualifier' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline_solution' : cls.indexOf(' btn-primary') !== -1 ? 'cta_final' : cls.indexOf(' fab-primary') !== -1 ? 'fab_mobile' : 'other' };
+            params = { cta_type: 'calendly', location: cls.indexOf(' hero-link') !== -1 ? 'hero' : cls.indexOf(' btn-section-cta') !== -1 ? 'inline_solution' : cls.indexOf(' btn-primary') !== -1 ? 'cta_final' : cls.indexOf(' fab-primary') !== -1 ? 'fab_mobile' : 'other' };
         } else if (href.indexOf('wa.me') !== -1) {
             params = { cta_type: 'whatsapp', location: cls.indexOf(' sec-link') !== -1 ? 'cta_final' : cls.indexOf(' fab-ghost') !== -1 ? 'fab_mobile' : cls.indexOf(' whatsapp-float') !== -1 ? 'float' : 'contact_info' };
         } else if (href.indexOf('mailto:') !== -1) {
@@ -1309,7 +1357,7 @@ document.querySelectorAll('.consequence-grid, .comparison-table, .credentials-gr
     <div class="mobile-bottom-inner">
         <a href="assessment.html" class="mobile-bottom-primary" id="mobileBottomCTA">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            <span data-i18n="mobile.cta">Diagnóstico Gratuito</span>
+            <span data-i18n="mobile.cta">Descubra o Gargalo →</span>
         </a>
         <a href="https://wa.me/5511975341961" target="_blank" rel="noopener" class="mobile-bottom-whatsapp" aria-label="WhatsApp">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
@@ -1370,8 +1418,8 @@ window.closeExitModal = function() {
         sessionStorage.setItem('alavanka-exit-shown', 'true');
         var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
         var copy = {
-            pt: { title: 'Antes de ir...', subtitle: 'Receba o <strong>Playbook Fractional CRO 2025</strong> grátis', bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)', bullet2: '✓ Checklist de contratação de VP Sales', bullet3: '✓ Benchmarks de crescimento B2B Brasil', placeholder: 'Seu melhor email', cta: 'Enviar Playbook Gratuito', decline: 'Não, obrigado', disclaimer: '1 email/mês • Sem spam • Cancele quando quiser', sending: 'Enviando...', errorMsg: 'Erro ao enviar. Tente novamente.' },
-            en: { title: 'Before you go...', subtitle: 'Get the <strong>Fractional CRO Playbook 2025</strong> free', bullet1: '✓ GTM diagnostic framework (25+ KPIs)', bullet2: '✓ VP Sales hiring checklist', bullet3: '✓ B2B growth benchmarks for Brazil', placeholder: 'Your best email', cta: 'Send Free Playbook', decline: 'No, thanks', disclaimer: '1 email/month • No spam • Unsubscribe anytime', sending: 'Sending...', errorMsg: 'Failed to send. Please try again.' }
+            pt: { title: 'Antes de ir...', subtitle: 'Receba o <strong>Playbook Revenue Unlock 2025</strong> grátis', bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)', bullet2: '✓ Checklist de contratação de VP Sales', bullet3: '✓ Benchmarks de crescimento B2B Brasil', placeholder: 'Seu melhor email', cta: 'Enviar Playbook Gratuito', decline: 'Não, obrigado', disclaimer: '1 email/mês • Sem spam • Cancele quando quiser', sending: 'Enviando...', errorMsg: 'Erro ao enviar. Tente novamente.' },
+            en: { title: 'Before you go...', subtitle: 'Get the <strong>Revenue Unlock Playbook 2025</strong> free', bullet1: '✓ GTM diagnostic framework (25+ KPIs)', bullet2: '✓ VP Sales hiring checklist', bullet3: '✓ B2B growth benchmarks for Brazil', placeholder: 'Your best email', cta: 'Send Free Playbook', decline: 'No, thanks', disclaimer: '1 email/month • No spam • Unsubscribe anytime', sending: 'Sending...', errorMsg: 'Failed to send. Please try again.' }
         };
         var t = copy[lang];
         var modal = document.createElement('div');
@@ -1457,11 +1505,4 @@ else { window.addEventListener('load', loadThirdPartyScripts); }
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vb4dciqpnm");
-</script>
-
-</body>
-</html>
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(a
