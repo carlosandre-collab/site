@@ -78,10 +78,11 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'O Cen\u00e1rio', anchor: 'problema', page: indexUrl },
-                    { label: 'A Solu\u00e7\u00e3o', anchor: 'solucao', page: indexUrl },
-                    { label: 'Track Record', anchor: 'porque', page: indexUrl },
-                    { label: 'Como Funciona', anchor: 'processo', page: indexUrl },
+                    { label: 'O Problema', anchor: 'problema', page: indexUrl },
+                    { label: 'Growth Execution', anchor: 'solucao', page: indexUrl },
+                    { label: 'Para Quem', anchor: 'fit', page: indexUrl },
+                    { label: 'Por Que a Alavanka', anchor: 'porque', page: indexUrl },
+                    { label: 'Contato', anchor: 'contato', page: indexUrl },
                     { label: 'FAQ', anchor: 'faq', page: indexUrl }
                 ],
                 extraItems: [
