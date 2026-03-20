@@ -86,7 +86,7 @@
                 ],
                 extraItems: [
                     { label: 'Para Investidores/VCs', url: investidoresUrl },
-                    { label: '\uD83D\uDCD6 Guia Fractional CRO', url: guiaUrl }
+                    { label: '\uD83D\uDCD6 Guia Growth Execution', url: guiaUrl }
                 ]
             },
             expandLatAm: {
