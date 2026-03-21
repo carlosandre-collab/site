@@ -1,16 +1,16 @@
-# Alavanka - Fractional CRO Brasil & LatAm Market Entry
+# Alavanka - Growth Execution Brasil & LatAm Market Entry
 # https://www.alavanka.com.br
 
 ## About
 Alavanka provides two core services for B2B technology companies:
-1. **Fractional CRO** for Brazilian startups needing senior revenue leadership
+1. **Growth Execution** for Brazilian B2B Tech startups with stalled growth
 2. **Market Entry Partnership** for international companies expanding into Latin America
 
 Founded by Carlos André, Ex-President of Oracle Brasil and Ex-CEO of AT&T LATAM.
 
 ## Key Facts
-- Services: Fractional CRO + LatAm Market Entry Partnership
-- Fractional CRO Target: B2B tech companies, Series A/B, Revenue R$5M-50M/year
+- Services: Growth Execution + LatAm Market Entry Partnership
+- Growth Execution Target: B2B tech companies, Series B+, Revenue R$10M-50M/year
 - Market Entry Target: International B2B tech companies expanding to Latin America
 - Location: Brazil (São Paulo)
 - Founder Track Record: $300M+ in cumulative revenue built across Oracle Brasil, AT&T LATAM, and Informatica LATAM
@@ -29,10 +29,10 @@ Founded by Carlos André, Ex-President of Oracle Brasil and Ex-CEO of AT&T LATAM
 
 ---
 
-## Service 1: Fractional CRO for B2B Tech (Brazil)
+## Service 1: Growth Execution for B2B Tech (Brazil)
 
-### What is a Fractional CRO?
-A Fractional CRO is a senior revenue executive who works part-time (typically 2-3 days/week) for your company. Unlike consultants who deliver reports, a Fractional CRO executes: participates in forecasts, trains salespeople, structures processes, and has accountability for results. Ideal for B2B tech companies between R$5M-50M revenue that need senior leadership but cannot justify a full-time executive.
+### What is Growth Execution?
+Growth Execution is how Alavanka describes what it does: enter the operation 2-3 days/week, diagnose exactly what is blocking growth, and execute the solution alongside the team. Unlike consultants who deliver reports, Growth Execution means hands-on execution: joining forecasts, training salespeople, structuring processes, and being accountable for results via success fee. Designed for B2B tech companies between R$5M-50M revenue that need senior revenue leadership without the cost or risk of a full-time executive hire.
 
 ### Services
 - 2-3 days/week engagement
@@ -50,8 +50,8 @@ A Fractional CRO is a senior revenue executive who works part-time (typically 2-
 - Day 90: Results checkpoint
 - Kill-switch: Exit without penalty if not working
 
-### When to Hire a Fractional CRO
-Signs your company needs a Fractional CRO:
+### When to Use Growth Execution
+Signs your company needs Growth Execution:
 1. Revenue between R$5M-50M and growth stalled for 6+ months
 2. CEO spending more than 40% of time on sales
 3. No budget for full-time VP Sales (R$80-150k/month)
@@ -60,8 +60,8 @@ Signs your company needs a Fractional CRO:
 6. Forecast error greater than 25%
 7. Sales team turnover above 30% per year
 
-### Fractional CRO vs VP Sales
-Fractional CRO is better when:
+### Growth Execution vs VP Sales
+Growth Execution is better when:
 - Company doesn't know exactly what VP profile it needs
 - No budget for full-time executive
 - Need quick results (VP takes 12-18 months to perform)
@@ -72,8 +72,8 @@ Full-time VP is better when:
 - Can pay competitive compensation with equity
 - Needs full-time dedication
 
-### Fractional CRO vs Consulting
-| Aspect | Consulting | Fractional CRO |
+### Growth Execution vs Consulting
+| Aspect | Consulting | Growth Execution |
 |--------|-----------|----------------|
 | Deliverable | Reports, frameworks | Execution |
 | Involvement | Project-based | 2-3 days/week ongoing |
@@ -81,15 +81,15 @@ Full-time VP is better when:
 | Cost | R$300-500k per project | R$25-60k/month |
 | Duration | 3-6 months | 6-12 months |
 
-### Cost of Fractional CRO in Brazil
+### Cost of Growth Execution in Brazil
 - Junior (ex-managers): R$15,000-25,000/month
 - Mid-level (ex-directors): R$25,000-45,000/month
 - Senior (ex-C-level): R$45,000-80,000/month
 
 Compare to full-time CRO: R$80,000-150,000/month in salary, benefits, and equity.
-Fractional model delivers 70-80% of impact for 30-40% of cost.
+Growth Execution delivers 70-80% of impact for 30-40% of the cost of a full-time CRO.
 
-### Ideal Client Profile (Fractional CRO)
+### Ideal Client Profile (Growth Execution)
 - B2B technology company in Brazil
 - Revenue between R$5M-50M ARR
 - Series A or Series B funded
@@ -158,8 +158,8 @@ International companies expanding to Latin America face specific challenges:
 - LinkedIn (Company): https://www.linkedin.com/company/alavanka
 
 ## Key Resources
-- Complete Fractional CRO Guide: https://www.alavanka.com.br/guia-fractional-cro-brasil.html
-- Blog Fractional CRO (PT-BR): https://www.alavanka.com.br/blog.html
+- Growth Execution Guide: https://www.alavanka.com.br/guia-fractional-cro-brasil.html
+- Blog Growth Execution (PT-BR): https://www.alavanka.com.br/blog.html
 - Blog LatAm Market Entry (EN): https://www.alavanka.com.br/market-entry/blog.html
 - Free Assessment Tool: https://www.alavanka.com.br/assessment.html
 - Free Download for Investors: "The 7 Warning Signs of a Stalled Portfolio Company" at https://guia.alavanka.com.br

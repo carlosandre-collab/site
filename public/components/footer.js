@@ -104,7 +104,7 @@
             + '    <div class="footer-top">'
             + '      <div class="footer-brand-col">'
             + '        <img src="' + logoPath + '" alt="Alavanka" class="footer-logo">'
-            + '        <p class="footer-tagline" data-i18n="footer.tagline">Fractional CRO para startups B2B. Execu\u00e7\u00e3o de GTM com accountability.</p>'
+            + '        <p class="footer-tagline" data-i18n="footer.tagline">Growth Execution para B2B Tech. Destravamos crescimento com execu\u00e7\u00e3o real.</p>'
             + '      </div>'
             + '      <div class="footer-links-col">'
             + '        <div class="footer-group">'
