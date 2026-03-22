@@ -47,7 +47,7 @@
     } else {
         mepBlogUrl = 'market-entry/blog.html';
     }
-    var guiaUrl = basePath ? basePath + 'guia-fractional-cro-brasil.html' : 'guia-fractional-cro-brasil.html';
+    var guiaUrl = basePath ? basePath + 'guia-crescimento-receita-b2b.html' : 'guia-crescimento-receita-b2b.html';
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var marketEntryUrl = basePath ? basePath + 'market-entry.html' : 'market-entry.html';
     var assessmentUrl = basePath ? basePath + 'assessment.html' : 'assessment.html';
@@ -64,7 +64,7 @@
     var isMEP = currentPath.indexOf('market-entry') !== -1;
     var isBlog = currentPath.indexOf('blog') !== -1;
     var isAssessment = currentPath.indexOf('assessment') !== -1;
-    var isGuia = currentPath.indexOf('guia-fractional') !== -1;
+    var isGuia = currentPath.indexOf('guia-fractional') !== -1 || currentPath.indexOf('guia-crescimento') !== -1;
 
     // Which service page are we on?
     var onStartupGrowthPage = isIndex || isInvestidores || isAssessment || isGuia;
@@ -78,11 +78,10 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'O Problema', anchor: 'problema', page: indexUrl },
-                    { label: 'Growth Execution', anchor: 'solucao', page: indexUrl },
-                    { label: 'Para Quem', anchor: 'fit', page: indexUrl },
-                    { label: 'Por Que a Alavanka', anchor: 'porque', page: indexUrl },
-                    { label: 'Contato', anchor: 'contato', page: indexUrl },
+                    { label: 'O Cen\u00e1rio', anchor: 'problema', page: indexUrl },
+                    { label: 'A Solu\u00e7\u00e3o', anchor: 'solucao', page: indexUrl },
+                    { label: 'Track Record', anchor: 'porque', page: indexUrl },
+                    { label: 'Como Funciona', anchor: 'processo', page: indexUrl },
                     { label: 'FAQ', anchor: 'faq', page: indexUrl }
                 ],
                 extraItems: [

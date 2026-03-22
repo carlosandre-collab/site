@@ -37,7 +37,7 @@
     // — Build URLs —
     var indexUrl = basePath + 'index.html';
     var blogUrl = basePath + 'blog.html';
-    var guiaUrl = basePath + 'guia-fractional-cro-brasil.html';
+    var guiaUrl = basePath + 'guia-crescimento-receita-b2b.html';
     var marketEntryUrl = basePath + 'market-entry.html';
     var assessmentUrl = basePath + 'assessment.html';
     var investidoresUrl = basePath + 'investidores.html';
@@ -104,7 +104,7 @@
             + '    <div class="footer-top">'
             + '      <div class="footer-brand-col">'
             + '        <img src="' + logoPath + '" alt="Alavanka" class="footer-logo">'
-            + '        <p class="footer-tagline" data-i18n="footer.tagline">Growth Execution para B2B Tech. Destravamos crescimento com execu\u00e7\u00e3o real.</p>'
+            + '        <p class="footer-tagline" data-i18n="footer.tagline">Fractional CRO para startups B2B. Execu\u00e7\u00e3o de GTM com accountability.</p>'
             + '      </div>'
             + '      <div class="footer-links-col">'
             + '        <div class="footer-group">'

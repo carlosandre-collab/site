@@ -106,6 +106,16 @@
   ],
   "redirects": [
     {
+      "source": "/guia-fractional-cro-brasil.html",
+      "destination": "/guia-crescimento-receita-b2b",
+      "permanent": true
+    },
+    {
+      "source": "/guia-fractional-cro-brasil",
+      "destination": "/guia-crescimento-receita-b2b",
+      "permanent": true
+    },
+    {
       "source": "/blog/custo-invisivel-cro.html",
       "destination": "/blog/posts/custo-invisivel-cro.html",
       "permanent": true
