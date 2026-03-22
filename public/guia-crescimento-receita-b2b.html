@@ -103,6 +103,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/nav-unified.css">
+    <link rel="stylesheet" href="styles/footer.css">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -925,6 +926,152 @@
 
 </article>
 
+<!-- ── PDF DOWNLOAD ───────────────────────────────────────────────────────── -->
+<section class="pdf-capture-section">
+    <div class="pdf-capture-box">
+        <div class="pdf-capture-icon">📥</div>
+        <div class="pdf-capture-content">
+            <h3 data-i18n="ge.pdf.title">Baixe o Guia em PDF</h3>
+            <p data-i18n="ge.pdf.subtitle">Versão completa com todos os frameworks, benchmarks e checklist para usar no board meeting.</p>
+            <form class="pdf-capture-form" id="pdfCaptureForm">
+                <input type="email" id="pdfEmail" name="email"
+                       data-i18n-attr="placeholder" data-i18n="ge.pdf.placeholder"
+                       placeholder="Seu melhor email" required autocomplete="email">
+                <button type="submit" id="pdfSubmitBtn">
+                    <span data-i18n="ge.pdf.cta">Enviar PDF Gratuito</span>
+                </button>
+            </form>
+            <p class="pdf-capture-disclaimer" data-i18n="ge.pdf.disclaimer">1 email/mês • Sem spam • Cancele quando quiser</p>
+            <div class="pdf-capture-success" id="pdfSuccess" style="display:none">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38a169" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                <span data-i18n="ge.pdf.success">PDF enviado! Verifique seu email.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.pdf-capture-section {
+    background: linear-gradient(135deg, #1B3A5C, #142D48);
+    padding: 48px 20px;
+}
+.pdf-capture-box {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,150,90,0.25);
+    border-radius: 16px;
+    padding: 36px;
+}
+.pdf-capture-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+.pdf-capture-content { flex: 1; }
+.pdf-capture-content h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+.pdf-capture-content p {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+.pdf-capture-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.pdf-capture-form input[type="email"] {
+    flex: 1;
+    padding: 11px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    font-size: 0.92rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.pdf-capture-form input[type="email"]::placeholder { color: rgba(255,255,255,0.4); }
+.pdf-capture-form input[type="email"]:focus { border-color: #C8965A; }
+.pdf-capture-form button {
+    padding: 11px 22px;
+    background: linear-gradient(135deg, #C8965A, #B07D42);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+.pdf-capture-form button:hover { opacity: 0.9; }
+.pdf-capture-form button:disabled { opacity: 0.55; cursor: default; }
+.pdf-capture-disclaimer {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+}
+.pdf-capture-success {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.92rem;
+    color: #68d391;
+    margin-top: 8px;
+}
+@media (max-width: 600px) {
+    .pdf-capture-box { flex-direction: column; padding: 24px; gap: 16px; }
+    .pdf-capture-form { flex-direction: column; }
+    .pdf-capture-form button { width: 100%; }
+}
+</style>
+
+<script>
+(function() {
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec';
+    var form = document.getElementById('pdfCaptureForm');
+    var success = document.getElementById('pdfSuccess');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var emailVal = document.getElementById('pdfEmail').value;
+        if (!emailVal) return;
+        var btn = document.getElementById('pdfSubmitBtn');
+        btn.disabled = true;
+        btn.style.opacity = '0.6';
+        if (typeof gtag === 'function') {
+            gtag('event', 'pdf_download_request', { event_category: 'conversion', event_label: 'guia_growth_execution' });
+        }
+        var payload = {
+            source: 'guia_growth_execution',
+            email: emailVal,
+            timestamp: new Date().toISOString(),
+            page: window.location.pathname
+        };
+        var sent = navigator.sendBeacon && navigator.sendBeacon(GAS_URL, JSON.stringify(payload));
+        if (!sent) {
+            fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) }).catch(function() {});
+        }
+        form.style.display = 'none';
+        success.style.display = 'flex';
+    });
+})();
+</script>
+
+
 <!-- ── CTA FINAL ── -->
 <section class="cta-final-section">
     <div class="cta-final-box">
@@ -979,10 +1126,27 @@
     'use strict';
     var currentLang = localStorage.getItem('alavanka-lang') || 'pt';
     var translations = null;
+    var pendingLang = null;
+
+    // Register langChange listener immediately — before nav.js fires
+    window.addEventListener('langChange', function(e) {
+        if (!e.detail || !e.detail.lang) return;
+        currentLang = e.detail.lang;
+        localStorage.setItem('alavanka-lang', currentLang);
+        if (translations) {
+            applyTranslations();
+        } else {
+            pendingLang = currentLang; // apply once translations load
+        }
+    });
 
     fetch('translations.json')
         .then(function(r) { return r.json(); })
-        .then(function(data) { translations = data; applyTranslations(); })
+        .then(function(data) {
+            translations = data;
+            if (pendingLang) { currentLang = pendingLang; pendingLang = null; }
+            applyTranslations();
+        })
         .catch(function(e) { console.warn('Translations error:', e); });
 
     function applyTranslations() {
@@ -997,16 +1161,11 @@
             var key = el.getAttribute('data-i18n');
             if (t[key]) el.setAttribute(attr, t[key]);
         });
-        // Update html lang
         document.documentElement.lang = currentLang === 'en' ? 'en' : 'pt-BR';
+        // Sync nav lang button text if present
+        var langBtn = document.getElementById('langToggle');
+        if (langBtn) langBtn.textContent = currentLang === 'en' ? 'PT' : 'EN';
     }
-
-    window.addEventListener('langChange', function(e) {
-        if (e.detail && e.detail.lang) {
-            currentLang = e.detail.lang;
-            applyTranslations();
-        }
-    });
 })();
 </script>
 

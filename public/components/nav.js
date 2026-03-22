@@ -47,7 +47,7 @@
     } else {
         mepBlogUrl = 'market-entry/blog.html';
     }
-    var guiaUrl = basePath ? basePath + 'guia-fractional-cro-brasil.html' : 'guia-fractional-cro-brasil.html';
+    var guiaUrl = basePath ? basePath + 'guia-crescimento-receita-b2b.html' : 'guia-crescimento-receita-b2b.html';
     var investidoresUrl = basePath ? basePath + 'investidores.html' : 'investidores.html';
     var marketEntryUrl = basePath ? basePath + 'market-entry.html' : 'market-entry.html';
     var assessmentUrl = basePath ? basePath + 'assessment.html' : 'assessment.html';
@@ -64,7 +64,7 @@
     var isMEP = currentPath.indexOf('market-entry') !== -1;
     var isBlog = currentPath.indexOf('blog') !== -1;
     var isAssessment = currentPath.indexOf('assessment') !== -1;
-    var isGuia = currentPath.indexOf('guia-fractional') !== -1;
+    var isGuia = currentPath.indexOf('guia-fractional') !== -1 || currentPath.indexOf('guia-crescimento') !== -1;
 
     // Which service page are we on?
     var onStartupGrowthPage = isIndex || isInvestidores || isAssessment || isGuia;

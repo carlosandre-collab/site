@@ -797,7 +797,13 @@
     "ge.bio.badge5": "Conselheiro IBGC",
     "ge.phase1.li7": "<strong>Avaliação do modelo de vendas atual:</strong> qual GTM motion está em uso (inbound, outbound, ABS, canais, PLG), se está adequado ao ICP e ao ACV, e onde estão as lacunas entre o motion atual e o que o mercado exige",
     "ge.phase2.li7": "<strong>Redesenho do modelo de vendas (GTM motion):</strong> definição e implementação do motion adequado ao ICP e ao ACV — inbound, outbound, Account-Based Sales &amp; Marketing (ABS/ABM), programa de canais, PLG ou modelo híbrido; cada motion exige processos, métricas e capacitação distintos",
-    "investors.works.item5": "<strong>GTM motion:</strong> inbound, outbound, ABS ou canais — adequado ao ICP"
+    "investors.works.item5": "<strong>GTM motion:</strong> inbound, outbound, ABS ou canais — adequado ao ICP",
+    "ge.pdf.title": "Baixe o Guia em PDF",
+    "ge.pdf.subtitle": "Versão completa com todos os frameworks, benchmarks e checklist para usar no board meeting.",
+    "ge.pdf.placeholder": "Seu melhor email",
+    "ge.pdf.cta": "Enviar PDF Gratuito",
+    "ge.pdf.disclaimer": "1 email/mês • Sem spam • Cancele quando quiser",
+    "ge.pdf.success": "PDF enviado! Verifique seu email em alguns minutos."
   },
   "en": {
     "nav.problem": "The Problem",
@@ -1597,6 +1603,12 @@
     "ge.bio.badge5": "IBGC Board Member",
     "ge.phase1.li7": "<strong>Assessment of the current sales model:</strong> which GTM motion is in use (inbound, outbound, ABS, channels, PLG), whether it fits the ICP and ACV, and where the gaps are between the current motion and what the market requires",
     "ge.phase2.li7": "<strong>Sales model redesign (GTM motion):</strong> definition and implementation of the motion suited to the ICP and ACV — inbound, outbound, Account-Based Sales &amp; Marketing (ABS/ABM), channel program, PLG, or hybrid model; each motion requires distinct processes, metrics, and enablement",
-    "investors.works.item5": "<strong>GTM motion:</strong> inbound, outbound, ABS or channels — suited to the ICP"
+    "investors.works.item5": "<strong>GTM motion:</strong> inbound, outbound, ABS or channels — suited to the ICP",
+    "ge.pdf.title": "Download the Guide as PDF",
+    "ge.pdf.subtitle": "Complete version with all frameworks, benchmarks and checklist to use in your board meeting.",
+    "ge.pdf.placeholder": "Your best email",
+    "ge.pdf.cta": "Send Free PDF",
+    "ge.pdf.disclaimer": "1 email/month • No spam • Unsubscribe anytime",
+    "ge.pdf.success": "PDF sent! Check your email in a few minutes."
   }
 }
