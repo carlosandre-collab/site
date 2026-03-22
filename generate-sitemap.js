@@ -7,7 +7,7 @@ const baseUrl = 'https://www.alavanka.com.br';
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
   { url: '/blog.html', priority: '0.9', changefreq: 'weekly' },
-  { url: '/guia-fractional-cro-brasil.html', priority: '0.9', changefreq: 'monthly' },
+  { url: '/guia-crescimento-receita-b2b.html', priority: '0.9', changefreq: 'monthly' },
   { url: '/market-entry.html', priority: '0.9', changefreq: 'weekly' },
   { url: '/market-entry/blog.html', priority: '0.8', changefreq: 'weekly' },
   { url: '/investidores.html', priority: '0.7', changefreq: 'monthly' },
