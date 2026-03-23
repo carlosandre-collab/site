@@ -237,7 +237,14 @@
         + '  <div class="nav-links" id="navLinks">';
 
     if (isMEPPage) {
-        // Contexto market-entry: só badge Startup Growth
+        // Contexto market-entry: itens flat do MEP + sep + badge Startup Growth
+        if (cfg.expandLatAm.sections) {
+            for (var mi = 0; mi < cfg.expandLatAm.sections.length; mi++) {
+                var ms = cfg.expandLatAm.sections[mi];
+                navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-flat-link">' + ms.label + '</a>';
+            }
+        }
+        navHTML += '<div class="nav-separator"></div>';
         navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge">Startup Growth</a>';
     } else {
         // Contexto Startup Growth: anchors + Blog + Guia + sep + Fundos/VCs + sep + badge LatAm
