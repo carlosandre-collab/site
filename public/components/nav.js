@@ -78,12 +78,11 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'O Problema', anchor: 'problema', page: indexUrl },
-                    { label: 'Growth Execution', anchor: 'solucao', page: indexUrl },
-                    { label: 'Para Quem Funciona', anchor: 'fit', page: indexUrl },
-                    { label: 'Por Que a Alavanka', anchor: 'porque', page: indexUrl },
-                    { label: 'Contato', anchor: 'contato', page: indexUrl },
-                    { label: 'FAQ', anchor: 'faq', page: indexUrl }
+                    { label: 'Por que a receita trava', anchor: 'problema', page: indexUrl },
+                    { label: 'O que \u00e9 Growth Execution', anchor: 'solucao', page: indexUrl },
+                    { label: 'Para quem faz sentido', anchor: 'fit', page: indexUrl },
+                    { label: 'Por que a Alavanka', anchor: 'porque', page: indexUrl },
+                    { label: 'Perguntas frequentes', anchor: 'faq', page: indexUrl }
                 ],
                 extraItems: [
                     { label: 'Para Investidores/VCs', url: investidoresUrl },
