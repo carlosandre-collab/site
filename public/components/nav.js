@@ -55,7 +55,9 @@
 
     // — Detect current page context —
     var currentPath = window.location.pathname;
-    var isEN = currentPath.indexOf('market-entry') !== -1;
+    var isMEPPage = currentPath.indexOf('market-entry') !== -1;
+    var storedLang = localStorage.getItem('alavanka-lang');
+    var isEN = isMEPPage || (!isMEPPage && storedLang === 'en');
     var context = isEN ? 'en' : 'pt';
 
     // Page detection for active state + anchor links
@@ -192,8 +194,11 @@
         }
     }
 
-    // — Build navigation HTML —
-    var ctaTarget = cfg.cta.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+    // — Build and inject nav HTML —
+    function buildAndInjectNav(activeCfg, activeContext) {
+        var cfg = activeCfg;
+        var context = activeContext;
+        var ctaTarget = cfg.cta.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     var mobileCTALabel = context === 'en' ? 'Schedule Call' : 'Diagn\u00f3stico Gratuito';
 
     var navHTML = ''
@@ -253,13 +258,44 @@
     navHTML += '  <div class="menu-overlay" id="menuOverlay" onclick="alavankaNav.closeMenu()"></div>';
     navHTML += '</nav>';
 
-    // — Replace existing nav —
-    var existingNav = document.getElementById('main-nav');
-    if (existingNav) {
-        existingNav.outerHTML = navHTML;
-    } else {
-        document.body.insertAdjacentHTML('afterbegin', navHTML);
+        // — Inject —
+        var existingNav = document.querySelector('nav[role="navigation"]') || document.getElementById('main-nav');
+        if (existingNav) {
+            existingNav.outerHTML = navHTML;
+        } else {
+            document.body.insertAdjacentHTML('afterbegin', navHTML);
+        }
+        // Re-bind dropdown hover after re-render
+        var dropdownEl = document.querySelector('.nav-dropdown-active');
+        if (dropdownEl) {
+            var menuEl = dropdownEl.querySelector('.nav-dropdown-menu');
+            if (menuEl) {
+                var hideTimeout;
+                dropdownEl.addEventListener('mouseenter', function () {
+                    clearTimeout(hideTimeout);
+                    if (window.innerWidth >= 1024) menuEl.classList.add('visible');
+                });
+                dropdownEl.addEventListener('mouseleave', function () {
+                    hideTimeout = setTimeout(function () {
+                        if (menuEl && window.innerWidth >= 1024) menuEl.classList.remove('visible');
+                    }, 150);
+                });
+            }
+        }
     }
+
+    // Initial render
+    buildAndInjectNav(cfg, context);
+
+    // — Listen for language change and re-render nav —
+    window.addEventListener('langChange', function (e) {
+        if (!e.detail || !e.detail.lang) return;
+        if (isMEPPage) return; // MEP pages are always EN
+        var newContext = e.detail.lang;
+        var newCfg = NAV_CONFIG[newContext];
+        if (!newCfg) return;
+        buildAndInjectNav(newCfg, newContext);
+    });
 
     // — Navigation functions —
     window.alavankaNav = {
