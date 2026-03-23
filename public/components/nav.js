@@ -154,10 +154,10 @@
     }
 
     // — Build dropdown HTML —
-    function buildDropdown(serviceConfig) {
+    function buildDropdown(serviceConfig, activeContext) {
         var html = '<div class="nav-dropdown-menu">';
-        
-        var goLabel = context === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
+        var _ctx = activeContext || context;
+        var goLabel = _ctx === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
         html += '<a href="' + serviceConfig.page + '" class="nav-dropdown-page-link">' + goLabel + '</a>';
         
         if (serviceConfig.sections) {
@@ -187,7 +187,7 @@
                 + '  <button class="nav-dropdown-trigger nav-trigger-active">'
                 + '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
                 + '  </button>'
-                + buildDropdown(serviceConfig)
+                + buildDropdown(serviceConfig, activeContext)
                 + '</div>';
         } else {
             return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
@@ -230,9 +230,10 @@
     // CTA (desktop)
     navHTML += '<a href="' + cfg.cta.url + '" class="nav-cta nav-cta-desktop"' + ctaTarget + '>' + cfg.cta.label + '</a>';
 
-    // Lang toggle (only for PT contexts)
-    if (cfg.langToggle) {
-        navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">EN</button>';
+    // Lang toggle — always on non-MEP pages, label shows what you switch TO
+    if (!isMEPPage) {
+        var _curLang = localStorage.getItem('alavanka-lang') || 'pt';
+        navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + (_curLang === 'pt' ? 'EN' : 'PT') + '</button>';
     }
 
     // Mobile-only: contact + lang in sidebar footer
@@ -246,10 +247,11 @@
     navHTML += '      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>';
     navHTML += '      WhatsApp</a>';
     navHTML += '  </div>';
-    if (cfg.langToggle) {
+    if (!isMEPPage) {
+        var _mobLang = localStorage.getItem('alavanka-lang') || 'pt';
         navHTML += '  <div class="nav-mobile-lang">';
-        navHTML += '    <button class="nav-lang-btn nav-lang-active" onclick="alavankaNav.toggleLang()">PT</button>';
-        navHTML += '    <button class="nav-lang-btn" onclick="alavankaNav.toggleLang()">EN</button>';
+        navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'pt' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">PT</button>';
+        navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'en' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">EN</button>';
         navHTML += '  </div>';
     }
     navHTML += '</div>';
@@ -295,7 +297,6 @@
         var newCfg = NAV_CONFIG[newContext];
         if (!newCfg) return;
         buildAndInjectNav(newCfg, newContext);
-        rebindNavListeners();
     });
 
     // — Navigation functions —
@@ -321,19 +322,10 @@
             if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         },
         toggleLang: function () {
-            if (typeof window.toggleLang === 'function') {
-                window.toggleLang();
-                return;
-            }
-            if (typeof window.toggleLanguage === 'function') {
-                window.toggleLanguage();
-                return;
-            }
-            
-            var langBtn = document.getElementById('langToggle');
             var currentLang = localStorage.getItem('alavanka-lang') || 'pt';
             var newLang = currentLang === 'pt' ? 'en' : 'pt';
             localStorage.setItem('alavanka-lang', newLang);
+            var langBtn = document.getElementById('langToggle');
             if (langBtn) langBtn.textContent = newLang === 'pt' ? 'EN' : 'PT';
             
             var mobileLangBtns = document.querySelectorAll('.nav-lang-btn');
@@ -351,61 +343,55 @@
         }
     };
 
-    function rebindNavListeners() {
-        // — Desktop: hover to open dropdown —
-        var dropdownEl = document.querySelector('.nav-dropdown-active');
-        if (dropdownEl) {
-            var menuEl = dropdownEl.querySelector('.nav-dropdown-menu');
-            var hideTimeout;
-    
-            dropdownEl.addEventListener('mouseenter', function () {
-                clearTimeout(hideTimeout);
-                if (menuEl && window.innerWidth >= 1024) {
-                    menuEl.classList.add('visible');
-                }
-            });
-            dropdownEl.addEventListener('mouseleave', function () {
-                hideTimeout = setTimeout(function () {
-                    if (menuEl && window.innerWidth >= 1024) {
-                        menuEl.classList.remove('visible');
-                    }
-                }, 150);
-            });
-        }
-    
-        // — Mobile: tap trigger to toggle dropdown —
-        var trigger = document.querySelector('.nav-dropdown-trigger');
-        if (trigger) {
-            trigger.addEventListener('click', function (e) {
-                if (window.innerWidth < 1024) {
-                    e.preventDefault();
-                    var dd = this.closest('.nav-dropdown');
-                    if (dd) dd.classList.toggle('open');
-                }
-            });
-        }
-    
-        // — Close menu on link click (mobile) —
-        document.querySelectorAll('.nav-links a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                if (window.innerWidth < 1024) alavankaNav.closeMenu();
-            });
-        });
-    
-        // — Close menu on resize —
-        window.addEventListener('resize', function () {
-            if (window.innerWidth >= 1024) {
-                alavankaNav.closeMenu();
-                var dd = document.querySelector('.nav-dropdown');
-                if (dd) dd.classList.remove('open');
-                var menu = document.querySelector('.nav-dropdown-menu');
-                if (menu) menu.classList.remove('visible');
+    // — Desktop: hover to open dropdown —
+    var dropdownEl = document.querySelector('.nav-dropdown-active');
+    if (dropdownEl) {
+        var menuEl = dropdownEl.querySelector('.nav-dropdown-menu');
+        var hideTimeout;
+
+        dropdownEl.addEventListener('mouseenter', function () {
+            clearTimeout(hideTimeout);
+            if (menuEl && window.innerWidth >= 1024) {
+                menuEl.classList.add('visible');
             }
         });
-    
-    
+        dropdownEl.addEventListener('mouseleave', function () {
+            hideTimeout = setTimeout(function () {
+                if (menuEl && window.innerWidth >= 1024) {
+                    menuEl.classList.remove('visible');
+                }
+            }, 150);
+        });
     }
 
-    rebindNavListeners();
+    // — Mobile: tap trigger to toggle dropdown —
+    var trigger = document.querySelector('.nav-dropdown-trigger');
+    if (trigger) {
+        trigger.addEventListener('click', function (e) {
+            if (window.innerWidth < 1024) {
+                e.preventDefault();
+                var dd = this.closest('.nav-dropdown');
+                if (dd) dd.classList.toggle('open');
+            }
+        });
+    }
+
+    // — Close menu on link click (mobile) —
+    document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth < 1024) alavankaNav.closeMenu();
+        });
+    });
+
+    // — Close menu on resize —
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) {
+            alavankaNav.closeMenu();
+            var dd = document.querySelector('.nav-dropdown');
+            if (dd) dd.classList.remove('open');
+            var menu = document.querySelector('.nav-dropdown-menu');
+            if (menu) menu.classList.remove('visible');
+        }
+    });
 
 })();
