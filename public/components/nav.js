@@ -165,10 +165,10 @@
     }
 
     // — Build dropdown HTML —
-    function buildDropdown(serviceConfig) {
+    function buildDropdown(serviceConfig, activeContext) {
         var html = '<div class="nav-dropdown-menu">';
-        
-        var goLabel = context === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
+        var _ctx = activeContext !== undefined ? activeContext : context;
+        var goLabel = _ctx === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
         html += '<a href="' + serviceConfig.page + '" class="nav-dropdown-page-link">' + goLabel + '</a>';
         
         if (serviceConfig.sections) {
@@ -191,14 +191,14 @@
     }
 
     // — Build a nav item (dropdown or simple link) —
-    function buildNavItem(serviceConfig, isActiveService) {
+    function buildNavItem(serviceConfig, isActiveService, activeContext) {
         if (serviceConfig.hasDropdown && isActiveService) {
             return ''
                 + '<div class="nav-dropdown nav-dropdown-active">'
                 + '  <button class="nav-dropdown-trigger nav-trigger-active">'
                 + '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
                 + '  </button>'
-                + buildDropdown(serviceConfig)
+                + buildDropdown(serviceConfig, activeContext)
                 + '</div>';
         } else {
             return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
@@ -226,8 +226,8 @@
         + '  <div class="nav-links" id="navLinks">';
 
     // Service items
-    navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage);
-    navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage);
+    navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
+    navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
 
     // Separator
     navHTML += '<div class="nav-separator"></div>';
@@ -279,23 +279,37 @@
         } else {
             document.body.insertAdjacentHTML('afterbegin', navHTML);
         }
-        // Re-bind dropdown hover after re-render
-        var dropdownEl = document.querySelector('.nav-dropdown-active');
-        if (dropdownEl) {
-            var menuEl = dropdownEl.querySelector('.nav-dropdown-menu');
-            if (menuEl) {
-                var hideTimeout;
-                dropdownEl.addEventListener('mouseenter', function () {
-                    clearTimeout(hideTimeout);
-                    if (window.innerWidth >= 1024) menuEl.classList.add('visible');
+        // Re-bind all event listeners after re-render
+        var _dd = document.querySelector('.nav-dropdown-active');
+        if (_dd) {
+            var _menu = _dd.querySelector('.nav-dropdown-menu');
+            var _ht;
+            if (_menu) {
+                _dd.addEventListener('mouseenter', function () {
+                    clearTimeout(_ht);
+                    if (window.innerWidth >= 1024) _menu.classList.add('visible');
                 });
-                dropdownEl.addEventListener('mouseleave', function () {
-                    hideTimeout = setTimeout(function () {
-                        if (menuEl && window.innerWidth >= 1024) menuEl.classList.remove('visible');
+                _dd.addEventListener('mouseleave', function () {
+                    _ht = setTimeout(function () {
+                        if (_menu && window.innerWidth >= 1024) _menu.classList.remove('visible');
                     }, 150);
                 });
             }
+            var _trigger = _dd.querySelector('.nav-dropdown-trigger');
+            if (_trigger) {
+                _trigger.addEventListener('click', function (e) {
+                    if (window.innerWidth < 1024) {
+                        e.preventDefault();
+                        _dd.classList.toggle('open');
+                    }
+                });
+            }
         }
+        document.querySelectorAll('.nav-links a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth < 1024 && window.alavankaNav) alavankaNav.closeMenu();
+            });
+        });
     }
 
     // Initial render
