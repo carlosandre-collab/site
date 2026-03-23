@@ -863,6 +863,27 @@
 .credential-card ul { list-style: none; margin: 0; padding: 0; }
 .credential-card li { font-size: 13px; color: var(--text-secondary); padding: 5px 0; }
 
+/* ── Por que Alavanka: origem + pilares (adicionado 2026-03) ── */
+.why-origin-text { max-width: 780px; margin: 0 auto 48px; }
+.why-origin-text p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.2rem; }
+.why-origin-coda { font-size: 1.1rem !important; font-weight: 700; color: var(--accent) !important; }
+
+.why-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 48px; }
+.why-pillar { background: var(--bg-card); border: 1.5px solid var(--border); border-radius: var(--r-lg); padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; transition: box-shadow .2s, border-color .2s; }
+.why-pillar:hover { border-color: var(--warm); box-shadow: var(--shadow-md); }
+.why-pillar-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--warm); line-height: 1; }
+.why-pillar h4 { font-family: 'Space Grotesk', sans-serif; font-size: .95rem; font-weight: 700; color: var(--text); margin: 0; }
+.why-pillar p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+
+.why-section-divider { margin: 48px 0; border: none; border-top: 1px solid var(--border); }
+
+.credential-card-highlight { border-color: var(--warm); background: var(--warm-bg); }
+.credential-award-detail { font-size: .88rem; color: var(--text-secondary); line-height: 1.5; margin: 6px 0 10px; }
+
+.why-case-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+
+@media (max-width: 768px) { .why-pillars { grid-template-columns: 1fr; } }
+
 .founder-profile {
     display: flex;
     flex-direction: column;
