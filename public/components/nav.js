@@ -56,11 +56,9 @@
     // — Detect current page context —
     var currentPath = window.location.pathname;
     var isMEPPage = currentPath.indexOf('market-entry') !== -1;
-    // Read stored lang preference — user may have switched via toggle
+    // On PT pages, respect the stored language preference from the toggle
     var storedLang = localStorage.getItem('alavanka-lang');
-    // Market-entry pages are always EN regardless of stored lang
-    // PT pages respect the stored lang toggle
-    var isEN = isMEPPage || (storedLang === 'en' && !isMEPPage);
+    var isEN = isMEPPage || (!isMEPPage && storedLang === 'en');
     var context = isEN ? 'en' : 'pt';
 
     // Page detection for active state + anchor links
@@ -370,68 +368,82 @@
         }
     });
 
-    // — Re-render nav when language changes (toggle on PT pages) —
+    // — Update nav labels when language changes —
     window.addEventListener('langChange', function (e) {
         if (!e.detail || !e.detail.lang) return;
-        // Only re-render on non-MEP pages — MEP always stays EN
-        if (currentPath.indexOf('market-entry') !== -1) return;
-        // Re-inject the nav with updated context
-        var newContext = e.detail.lang;
-        var newCfg = NAV_CONFIG[newContext];
+        // MEP pages don't use the lang toggle
+        if (isMEPPage) return;
+
+        var lang = e.detail.lang;
+        var newCfg = NAV_CONFIG[lang];
         if (!newCfg) return;
 
-        // Rebuild nav HTML with new language config
-        var newCtaTarget = newCfg.cta.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-        var newMobileCTA = newContext === 'en' ? 'Schedule Call' : 'Diagn\u00f3stico Gratuito';
+        // Update service link labels
+        var serviceLinks = document.querySelectorAll('.nav-ctx-link, .nav-dropdown-trigger span');
+        var startupLabel = newCfg.startupGrowth ? newCfg.startupGrowth.label : '';
+        var expandLabel  = newCfg.expandLatAm   ? newCfg.expandLatAm.label   : '';
+        var i = 0;
+        serviceLinks.forEach(function(el) {
+            if (i === 0 && startupLabel) el.textContent = startupLabel;
+            if (i === 1 && expandLabel)  el.textContent = expandLabel;
+            i++;
+        });
 
-        var newNavHTML = ''
-            + '<div class="nav-inner">'
-            + '  <a href="' + indexUrl + '" class="logo" aria-label="Alavanka - Home">'
-            + '    <img src="' + logoPath + '" alt="Alavanka" width="140" height="32" loading="eager">'
-            + '  </a>'
-            + '  <button class="hamburger" id="hamburger" onclick="alavankaNav.toggleMenu()" aria-label="Menu" aria-expanded="false">'
-            + '    <span></span><span></span><span></span>'
-            + '  </button>'
-            + '  <div class="nav-links" id="navLinks">';
-
-        newNavHTML += buildNavItem(newCfg.startupGrowth, onStartupGrowthPage);
-        newNavHTML += buildNavItem(newCfg.expandLatAm, onExpandLatAmPage);
-        newNavHTML += '<a href="' + (newContext === 'en' ? mepBlogUrl : blogUrl) + '" class="nav-content-link">' + newCfg.blog.label + '</a>';
-
-        if (newCfg.langToggle) {
-            newNavHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + (newContext === 'pt' ? 'EN' : 'PT') + '</button>';
+        // Update section links inside dropdown
+        var dropLinks = document.querySelectorAll('.nav-dropdown-menu a');
+        if (newCfg.startupGrowth && newCfg.startupGrowth.sections) {
+            var sections = newCfg.startupGrowth.sections;
+            var dropItems = [];
+            dropLinks.forEach(function(a) {
+                if (!a.classList.contains('nav-dropdown-page-link') && !a.classList.contains('nav-dropdown-content-link')) {
+                    dropItems.push(a);
+                }
+            });
+            sections.forEach(function(s, idx) {
+                if (dropItems[idx]) dropItems[idx].textContent = s.label;
+            });
         }
-        newNavHTML += '    <a href="' + newCfg.cta.url + '" class="nav-cta nav-cta-desktop"' + newCtaTarget + '>' + newCfg.cta.label + '</a>';
-        newNavHTML += '  </div>';
 
-        // Mobile sidebar
-        newNavHTML += '  <div class="nav-sidebar" id="navSidebar">';
-        newNavHTML += '    <div class="nav-sidebar-links">';
-        newNavHTML += buildNavItem(newCfg.startupGrowth, onStartupGrowthPage);
-        newNavHTML += buildNavItem(newCfg.expandLatAm, onExpandLatAmPage);
-        newNavHTML += '<a href="' + (newContext === 'en' ? mepBlogUrl : blogUrl) + '" class="nav-content-link">' + newCfg.blog.label + '</a>';
-        newNavHTML += '    </div>';
-        newNavHTML += '    <div class="nav-sidebar-footer">';
-        newNavHTML += '      <div class="nav-mobile-contact-label">' + newCfg.contactLabel + '</div>';
-        newNavHTML += '      <a href="https://wa.me/5511975341961" target="_blank" class="nav-mobile-wa">';
-        newNavHTML += '        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.118 1.522 5.855L0 24l6.335-1.51A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.373l-.36-.214-3.727.978.995-3.636-.235-.373A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>';
-        newNavHTML += '        WhatsApp';
-        newNavHTML += '      </a>';
-        if (newCfg.langToggle) {
-            newNavHTML += '      <div class="nav-mobile-lang">';
-            newNavHTML += '        <button class="nav-lang-btn' + (newContext === 'pt' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">PT</button>';
-            newNavHTML += '        <button class="nav-lang-btn' + (newContext === 'en' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">EN</button>';
-            newNavHTML += '      </div>';
+        // Update extra items (Investidores, Guia)
+        var contentLinks = document.querySelectorAll('.nav-dropdown-content-link');
+        if (newCfg.startupGrowth && newCfg.startupGrowth.extraItems) {
+            newCfg.startupGrowth.extraItems.forEach(function(item, idx) {
+                if (contentLinks[idx]) contentLinks[idx].textContent = item.label;
+            });
         }
-        newNavHTML += '    </div>';
-        newNavHTML += '  </div>';
-        newNavHTML += '</div>';
 
-        var navEl = document.querySelector('nav#main-nav, #main-nav nav, nav[role="navigation"]');
-        if (navEl) {
-            navEl.setAttribute('aria-label', newCfg.ariaLabel);
-            navEl.innerHTML = newNavHTML;
-        }
+        // Update blog link
+        var blogLinks = document.querySelectorAll('.nav-content-link');
+        blogLinks.forEach(function(el) {
+            el.textContent = newCfg.blog.label;
+        });
+
+        // Update CTA
+        var ctaLinks = document.querySelectorAll('.nav-cta');
+        ctaLinks.forEach(function(el) {
+            el.textContent = newCfg.cta.label;
+            el.href = newCfg.cta.url;
+        });
+
+        // Update lang button text (shows the OTHER language = what you'll switch TO)
+        var langBtn = document.getElementById('langToggle');
+        if (langBtn) langBtn.textContent = lang === 'pt' ? 'EN' : 'PT';
+
+        // Update mobile lang buttons active state
+        var mobileLangBtns = document.querySelectorAll('.nav-lang-btn');
+        mobileLangBtns.forEach(function(btn) {
+            var isPT = btn.textContent.trim() === 'PT';
+            var isENBtn = btn.textContent.trim() === 'EN';
+            btn.classList.toggle('nav-lang-active', lang === 'pt' ? isPT : isENBtn);
+        });
+
+        // Update contact label
+        var contactLabel = document.querySelector('.nav-mobile-contact-label');
+        if (contactLabel) contactLabel.textContent = newCfg.contactLabel;
+
+        // Update aria-label on nav
+        var navEl = document.querySelector('nav[role="navigation"]');
+        if (navEl) navEl.setAttribute('aria-label', newCfg.ariaLabel);
     });
 
 })();
