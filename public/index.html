@@ -954,7 +954,7 @@ fetch('/translations.json')
             currentLang = pendingLang;
             pendingLang = null;
         } else {
-            const saved = localStorage.getItem('alavanka-lang');
+            const saved = sessionStorage.getItem('alavanka-lang');
             if (saved && saved !== currentLang) {
                 currentLang = saved;
             }
@@ -972,7 +972,7 @@ function toggleLang() {
         currentLang = newLang;
         applyTranslations();
     }
-    localStorage.setItem('alavanka-lang', currentLang);
+    sessionStorage.setItem('alavanka-lang', currentLang);
     const btnText = currentLang === 'pt' ? 'EN' : 'PT';
     const langText = document.getElementById('langText');
     const langBtn = document.getElementById('langToggle');
@@ -1015,12 +1015,12 @@ window.addEventListener('langChange', function(e) {
             currentLang = newLang;
             applyTranslations();
         }
-        localStorage.setItem('alavanka-lang', currentLang);
+        sessionStorage.setItem('alavanka-lang', currentLang);
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('alavanka-lang');
+    const saved = sessionStorage.getItem('alavanka-lang');
     if (saved) {
         currentLang = saved;
         const btnText = currentLang === 'pt' ? 'EN' : 'PT';

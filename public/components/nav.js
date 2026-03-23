@@ -56,7 +56,7 @@
     // — Detect current page context —
     var currentPath = window.location.pathname;
     var isMEPPage = currentPath.indexOf('market-entry') !== -1;
-    var storedLang = localStorage.getItem('alavanka-lang');
+    var storedLang = sessionStorage.getItem('alavanka-lang');
     var isEN = isMEPPage || (!isMEPPage && storedLang === 'en');
     var context = isEN ? 'en' : 'pt';
 
@@ -243,7 +243,7 @@
 
     // Lang toggle — always on non-MEP pages, label shows what you switch TO
     if (!isMEPPage) {
-        var _curLang = localStorage.getItem('alavanka-lang') || 'pt';
+        var _curLang = sessionStorage.getItem('alavanka-lang') || 'pt';
         var _toggleLabel = _curLang === 'pt' ? 'EN' : 'PT';
         navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + _toggleLabel + '</button>';
     }
@@ -260,7 +260,7 @@
     navHTML += '      WhatsApp</a>';
     navHTML += '  </div>';
     if (!isMEPPage) {
-        var _mobLang = localStorage.getItem('alavanka-lang') || 'pt';
+        var _mobLang = sessionStorage.getItem('alavanka-lang') || 'pt';
         navHTML += '  <div class="nav-mobile-lang">';
         navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'pt' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">PT</button>';
         navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'en' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">EN</button>';
@@ -334,9 +334,9 @@
             if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         },
         toggleLang: function () {
-            var currentLang = localStorage.getItem('alavanka-lang') || 'pt';
+            var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
             var newLang = currentLang === 'pt' ? 'en' : 'pt';
-            localStorage.setItem('alavanka-lang', newLang);
+            sessionStorage.setItem('alavanka-lang', newLang);
             var langBtn = document.getElementById('langToggle');
             if (langBtn) langBtn.textContent = newLang === 'pt' ? 'EN' : 'PT';
             
