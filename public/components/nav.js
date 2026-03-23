@@ -80,11 +80,12 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'Por que a receita trava', anchor: 'problema', page: indexUrl },
-                    { label: 'O que \u00e9 Growth Execution', anchor: 'solucao', page: indexUrl },
-                    { label: 'Para quem faz sentido', anchor: 'fit', page: indexUrl },
-                    { label: 'Por que a Alavanka', anchor: 'porque', page: indexUrl },
-                    { label: 'Perguntas frequentes', anchor: 'faq', page: indexUrl }
+                    { label: 'O problema', anchor: 'problema', page: indexUrl },
+                    { label: 'Como resolvemos', anchor: 'solucao', page: indexUrl },
+                    { label: 'Como fazemos', anchor: 'como', page: indexUrl },
+                    { label: 'Para quem', anchor: 'fit', page: indexUrl },
+                    { label: 'Case', anchor: 'casos', page: indexUrl },
+                    { label: 'Por que n\u00f3s', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
                     { label: 'Para Investidores/VCs', url: investidoresUrl },
@@ -112,11 +113,12 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'Why revenue stalls', anchor: 'problema', page: indexUrl },
-                    { label: 'What is Growth Execution', anchor: 'solucao', page: indexUrl },
-                    { label: 'Who it\'s for', anchor: 'fit', page: indexUrl },
-                    { label: 'Why Alavanka', anchor: 'porque', page: indexUrl },
-                    { label: 'FAQ', anchor: 'faq', page: indexUrl }
+                    { label: 'The Problem', anchor: 'problema', page: indexUrl },
+                    { label: 'How We Solve It', anchor: 'solucao', page: indexUrl },
+                    { label: 'How It Works', anchor: 'como', page: indexUrl },
+                    { label: 'Who It\'s For', anchor: 'fit', page: indexUrl },
+                    { label: 'Case', anchor: 'casos', page: indexUrl },
+                    { label: 'Why Us', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
                     { label: 'For Investors/VCs', url: investidoresUrl },
@@ -191,24 +193,18 @@
     }
 
     // — Build a nav item —
-    // Desktop Startup Growth ativo: label como link + anchors flat inline
-    // Desktop ExpandLatAm nao ativo: badge com borda navy
-    // Mobile: accordion preservado via .nav-mobile-only (oculto no desktop por CSS)
     function buildNavItem(serviceConfig, isActiveService, activeContext) {
         var _ctx = activeContext !== undefined ? activeContext : context;
 
         if (serviceConfig.hasDropdown && isActiveService) {
             var flat = '';
-            // Label como link simples (desktop)
-            flat += '<a href="' + serviceConfig.page + '" class="nav-flat-label">' + serviceConfig.label + '</a>';
-            // Anchors inline (desktop)
             if (serviceConfig.sections) {
                 for (var si = 0; si < serviceConfig.sections.length; si++) {
                     var sec = serviceConfig.sections[si];
                     flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-flat-link">' + sec.label + '</a>';
                 }
             }
-            // Accordion mobile (oculto no desktop via CSS .nav-mobile-only)
+            // Accordion mobile oculto no desktop via .nav-mobile-only
             flat += '<div class="nav-dropdown nav-dropdown-active nav-mobile-only">'
                  +  '  <button class="nav-dropdown-trigger nav-trigger-active">'
                  +  '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
@@ -218,12 +214,10 @@
             return flat;
         }
 
-        // ExpandLatAm nao ativo: badge
         if (!isActiveService && serviceConfig === cfg.expandLatAm) {
             return '<a href="' + serviceConfig.page + '" class="nav-latam-badge">' + serviceConfig.label + '</a>';
         }
 
-        // Fallback: link simples
         return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
     }
 
@@ -244,17 +238,22 @@
         + '  </div>'
         + '  <div class="nav-links" id="navLinks">';
 
-    // Service items
+    // Anchors flat + Blog
     navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
-    navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
-
-    // Separator
-    navHTML += '<div class="nav-separator"></div>';
-
-    // Blog
     navHTML += '<a href="' + cfg.blog.url + '" class="nav-content-link">' + cfg.blog.label + '</a>';
 
-    // CTA removido da nav — vive no hero/body
+    // Separador
+    navHTML += '<div class="nav-separator"></div>';
+
+    // VCs / Para Investidores
+    var vcsLabel = context === 'en' ? 'VCs' : 'Para Investidores/VCs';
+    navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
+
+    // Separador
+    navHTML += '<div class="nav-separator"></div>';
+
+    // Badge LatAm
+    navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
 
     // Lang toggle — always on non-MEP pages, label shows what you switch TO
     if (!isMEPPage) {
