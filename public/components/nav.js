@@ -110,7 +110,18 @@
             startupGrowth: {
                 label: 'Startup Growth',
                 page: indexUrl,
-                hasDropdown: false
+                hasDropdown: onStartupGrowthPage,
+                sections: [
+                    { label: 'Why revenue stalls', anchor: 'problema', page: indexUrl },
+                    { label: 'What is Growth Execution', anchor: 'solucao', page: indexUrl },
+                    { label: 'Who it\'s for', anchor: 'fit', page: indexUrl },
+                    { label: 'Why Alavanka', anchor: 'porque', page: indexUrl },
+                    { label: 'FAQ', anchor: 'faq', page: indexUrl }
+                ],
+                extraItems: [
+                    { label: 'For Investors/VCs', url: investidoresUrl },
+                    { label: '\uD83D\uDCD6 Growth Execution Guide', url: guiaUrl }
+                ]
             },
             expandLatAm: {
                 label: 'Expand to LatAm',
@@ -132,7 +143,7 @@
                 url: 'https://calendly.com/carlos-andre-alavanka/30min',
                 isExternal: true
             },
-            langToggle: false,
+            langToggle: true,
             ariaLabel: 'Main navigation',
             contactLabel: 'Direct contact'
         }
@@ -154,10 +165,10 @@
     }
 
     // — Build dropdown HTML —
-    function buildDropdown(serviceConfig, activeContext) {
+    function buildDropdown(serviceConfig) {
         var html = '<div class="nav-dropdown-menu">';
-        var _ctx = activeContext || context;
-        var goLabel = _ctx === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
+        
+        var goLabel = context === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
         html += '<a href="' + serviceConfig.page + '" class="nav-dropdown-page-link">' + goLabel + '</a>';
         
         if (serviceConfig.sections) {
@@ -187,7 +198,7 @@
                 + '  <button class="nav-dropdown-trigger nav-trigger-active">'
                 + '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
                 + '  </button>'
-                + buildDropdown(serviceConfig, activeContext)
+                + buildDropdown(serviceConfig)
                 + '</div>';
         } else {
             return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
@@ -233,7 +244,8 @@
     // Lang toggle — always on non-MEP pages, label shows what you switch TO
     if (!isMEPPage) {
         var _curLang = localStorage.getItem('alavanka-lang') || 'pt';
-        navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + (_curLang === 'pt' ? 'EN' : 'PT') + '</button>';
+        var _toggleLabel = _curLang === 'pt' ? 'EN' : 'PT';
+        navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + _toggleLabel + '</button>';
     }
 
     // Mobile-only: contact + lang in sidebar footer
