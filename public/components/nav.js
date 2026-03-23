@@ -80,12 +80,11 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'O problema', anchor: 'problema', page: indexUrl },
-                    { label: 'Como resolvemos', anchor: 'solucao', page: indexUrl },
-                    { label: 'Como fazemos', anchor: 'como', page: indexUrl },
+                    { label: 'Problema', anchor: 'problema', page: indexUrl },
+                    { label: 'Solu\u00e7\u00e3o', anchor: 'solucao', page: indexUrl },
+                    { label: 'Como', anchor: 'como', page: indexUrl },
                     { label: 'Para quem', anchor: 'fit', page: indexUrl },
-                    { label: 'Case', anchor: 'casos', page: indexUrl },
-                    { label: 'Por que n\u00f3s', anchor: 'porque', page: indexUrl }
+                    { label: 'Por que Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
                     { label: 'Para Investidores/VCs', url: investidoresUrl },
@@ -113,12 +112,11 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'The Problem', anchor: 'problema', page: indexUrl },
-                    { label: 'How We Solve It', anchor: 'solucao', page: indexUrl },
-                    { label: 'How It Works', anchor: 'como', page: indexUrl },
-                    { label: 'Who It\'s For', anchor: 'fit', page: indexUrl },
-                    { label: 'Case', anchor: 'casos', page: indexUrl },
-                    { label: 'Why Us', anchor: 'porque', page: indexUrl }
+                    { label: 'Problem', anchor: 'problema', page: indexUrl },
+                    { label: 'Solution', anchor: 'solucao', page: indexUrl },
+                    { label: 'How', anchor: 'como', page: indexUrl },
+                    { label: 'Who', anchor: 'fit', page: indexUrl },
+                    { label: 'Why Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
                     { label: 'For Investors/VCs', url: investidoresUrl },
@@ -238,15 +236,17 @@
         + '  </div>'
         + '  <div class="nav-links" id="navLinks">';
 
-    // Anchors flat + Blog
+    // Anchors flat + Blog + Guia
     navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
-    navHTML += '<a href="' + cfg.blog.url + '" class="nav-content-link">' + cfg.blog.label + '</a>';
+    navHTML += '<a href="' + cfg.blog.url + '" class="nav-flat-link">' + cfg.blog.label + '</a>';
+    var guiaLabel = context === 'en' ? 'Growth Guide' : 'Guia Crescimento';
+    navHTML += '<a href="' + guiaUrl + '" class="nav-flat-link">' + guiaLabel + '</a>';
 
     // Separador
     navHTML += '<div class="nav-separator"></div>';
 
-    // VCs / Para Investidores
-    var vcsLabel = context === 'en' ? 'VCs' : 'Para Investidores/VCs';
+    // Fundos/VCs
+    var vcsLabel = context === 'en' ? 'VCs' : 'Fundos/VCs';
     navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
 
     // Separador
