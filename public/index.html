@@ -176,25 +176,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .audience-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--accent);color:white;padding:16px 24px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9998;opacity:0;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);max-width:90%;text-align:center}
 .audience-toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:640px){.scarcity-badge{font-size:13px;padding:8px 16px}.audience-toast{bottom:100px;font-size:13px;padding:14px 20px}}
-    
-/* ── Por que Alavanka: origem + pilares ── */
-.why-origin-text { max-width: 780px; margin: 0 auto 48px; }
-.why-origin-text p { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.2rem; }
-.why-origin-coda { font-size: 1.1rem !important; font-weight: 700; color: var(--accent) !important; }
-.why-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 48px; }
-.why-pillar { background: var(--bg-card); border: 1.5px solid var(--border); border-radius: var(--r-lg); padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; transition: box-shadow .2s, border-color .2s; }
-.why-pillar:hover { border-color: var(--warm); box-shadow: var(--shadow-md); }
-.why-pillar-num { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--warm); line-height: 1; }
-.why-pillar h4 { font-family: 'Space Grotesk', sans-serif; font-size: .95rem; font-weight: 700; color: var(--text); margin: 0; }
-.why-pillar p { font-size: .9rem; color: var(--text-secondary); line-height: 1.6; margin: 0; }
-.why-section-divider { margin: 48px 0; border: none; border-top: 1px solid var(--border); }
-.credential-card-highlight { border-color: var(--warm); background: var(--warm-bg); }
-.credential-award-detail { font-size: .88rem; color: var(--text-secondary); line-height: 1.5; margin: 6px 0 10px; }
-.why-case-heading { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-@media (max-width: 768px) {
-    .why-pillars { grid-template-columns: 1fr; }
-}
-</style>
+    </style>
     
     <!-- EXTERNAL CSS FILES -->
     <link rel="stylesheet" href="styles/nav-unified.css">
@@ -683,88 +665,18 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 
 <div class="section-hr" aria-hidden="true"></div>
 
-<!-- Por que Alavanka: origem + pilares + perfil + case -->
-<section id="porque" class="why-section">
-
-    <!-- BLOCO 1: Origem -->
+<!-- Onde já foi feito -->
+<section id="casos" class="why-section">
     <div class="section-header">
-        <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
-    </div>
-    <div class="why-origin-text">
-        <p data-i18n="why.origin.intro">Em mais de 20 anos entre conselhos, mentorias e consultorias, sempre observei o mesmo padrão: o desafio de acelerar uma empresa raramente era um — eram dois.</p>
-        <p data-i18n="why.origin.p1">O primeiro: ter uma visão pragmática de como elaborar um projeto de crescimento com fundamentos reais — não apenas teoria, mas a experiência de quem já implementou, acertou e errou. Esse eu conseguia resolver e entregar.</p>
-        <p data-i18n="why.origin.p2">O segundo era o maior: fazer acontecer. Implementar o processo de forma que gerasse o máximo de resultados. E aí, muitas vezes — não sempre — esbarrava em barreiras de contratação, capacidade e crenças.</p>
-        <p class="why-origin-coda" data-i18n="why.origin.coda">A Alavanka nasceu para resolver esse impasse.</p>
-    </div>
-
-    <!-- BLOCO 2: Pilares -->
-    <div class="why-pillars">
-        <div class="why-pillar">
-            <div class="why-pillar-num">01</div>
-            <h4 data-i18n="why.pillar1.title">Execução, não relatório</h4>
-            <p data-i18n="why.pillar1.text">Estamos 2-3 dias por semana dentro da operação. Participamos de forecast, treinamos vendedores, ajustamos GTM em tempo real. O entregável é resultado, não slide.</p>
-        </div>
-        <div class="why-pillar">
-            <div class="why-pillar-num">02</div>
-            <h4 data-i18n="why.pillar2.title">Skin in the game</h4>
-            <p data-i18n="why.pillar2.text">Parte da remuneração é success fee atrelado a crescimento de receita. Só ganhamos mais quando você cresce. Sem isso, não é parceria — é fornecedor.</p>
-        </div>
-        <div class="why-pillar">
-            <div class="why-pillar-num">03</div>
-            <h4 data-i18n="why.pillar3.title">Saída planejada</h4>
-            <p data-i18n="why.pillar3.text">O objetivo não é criar dependência. É instalar uma arquitetura comercial que funcione sem nós. Em 6-12 meses você tem um time e um processo que rodam sozinhos.</p>
-        </div>
-    </div>
-
-    <div class="why-section-divider"></div>
-
-    <!-- BLOCO 3: Carlos André -->
-    <div class="founder-profile">
-        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Growth Execution" class="founder-photo" width="200" height="200" loading="lazy">
-        <div class="founder-info">
-            <h3 data-i18n="why.founder.name">Carlos André</h3>
-            <p class="founder-title" data-i18n="why.founder.title">Founding Partner, Alavanka</p>
-            <blockquote class="founder-quote" data-i18n="why.founder.quote">Empreendi a vida inteira — às vezes dentro de grandes corporações, às vezes por conta própria. Minhas duas paixões sempre foram empreender e construir estratégias de crescimento que funcionam. A Alavanka é a união das duas: aqui eu não aconselho crescimento, eu executo junto.</blockquote>
-        </div>
-    </div>
-
-    <div class="why-hero">
-        <div class="big-stat" data-i18n="why.track.stat">$300M+</div>
-        <div class="stat-label" data-i18n="why.track.label">construídos como operador</div>
-        <div class="stat-detail" data-i18n="why.track.detail">
-            Oracle Brasil: Presidente (12.5x em 5 anos)<br>
-            AT&T LATAM: CEO (15x em 2 anos)<br>
-            Informatica: VP LATAM (20x em 5 anos)
-        </div>
-    </div>
-
-    <div class="credentials-grid">
-        <div class="credential-card">
-            <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
-            <ul>
-                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $12M para $150M</li>
-                <li data-i18n="why.cred.att">CEO AT&T LATAM — de $3M para $47M em 2 anos</li>
-                <li data-i18n="why.cred.loysci">Co-Founder LoySci (9 anos como empreendedor)</li>
-            </ul>
-        </div>
-        <div class="credential-card credential-card-highlight">
-            <h4 data-i18n="why.cred.endeavorAward"><span class="badge-ic"><span class="ic ic-warm"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span></span> Premiado Mentor de Impacto — Endeavor Brasil (2013)</h4>
-            <p class="credential-award-detail" data-i18n="why.cred.endeavorAwardDetail">Concedido ao mentor com maior impacto na geração de crescimento dos seus mentorandos. Mais de 20 empresas da rede Endeavor mentoradas.</p>
-            <p data-i18n="why.cred.ibgc">Conselheiro certificado IBGC</p>
-        </div>
-    </div>
-
-    <div class="why-section-divider"></div>
-
-    <!-- BLOCO 4: Case ClearSale -->
-    <div class="section-header" style="margin-top:0">
-        <h3 class="why-case-heading" data-i18n="why.case.title">ClearSale: De Zero em Vendas a uma <span class="hl">Operação Comercial Estruturada</span></h3>
+        <h2 data-i18n="cases.title">Onde Já <span class="hl">Foi Feito</span></h2>
+        <p data-i18n="cases.subtitle">Um exemplo documentado: como uma fundação comercial sólida gera desdobramentos que se compõem por anos.</p>
     </div>
     <div class="founder-case-study">
         <div class="founder-case-header">
             <div class="founder-case-badge" data-i18n="why.case.badge">Case Documentado</div>
+            <h3 data-i18n="why.case.title">ClearSale: De Zero em Vendas a uma <span class="hl">Operação Comercial Estruturada</span></h3>
         </div>
-
+        
         <div class="case-metric-hero">
             <div class="case-metric-item">
                 <span class="case-metric-value" data-i18n="why.case.metric.before">Zero em vendas</span>
@@ -784,14 +696,14 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                 <div class="founder-case-marker">1</div>
                 <div class="founder-case-content">
                     <h4 data-i18n="why.case.step1.title">O Cenário</h4>
-                    <p data-i18n="why.case.step1.text">ClearSale tinha produto validado, mas precisava estruturar a operação comercial para escalar. Carlos André participou da definição e seleção da liderança comercial, atuando como mentor próximo da operação.</p>
+                    <p data-i18n="why.case.step1.text">ClearSale tinha o melhor produto de antifraude do Brasil e clientes satisfeitos — mas literalmente não tinha área de vendas. A equipe de compras era quem vendia. Não existia pipeline, processo comercial, gestão de vendas nem metas estruturadas.</p>
                 </div>
             </div>
             <div class="founder-case-step">
                 <div class="founder-case-marker">2</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step2.title">A Mentoria</h4>
-                    <p data-i18n="why.case.step2.text">Mentoria estratégica na estruturação da arquitetura comercial: apoio na definição de processos, pipeline, métricas e cadência. Orientação próxima que ajudou a transformar a operação de vendas em uma máquina de receita previsível.</p>
+                    <h4 data-i18n="why.case.step2.title">A Intervenção (~2 anos)</h4>
+                    <p data-i18n="why.case.step2.text">Carlos André atuou como mentor próximo, indo além da mentoria Endeavor, para apoiar a estruturação da operação comercial. O trabalho incluiu orientar: a contratação e treinamento dos primeiros vendedores, criação de processos de pipeline e forecast, implementação de cadência operacional e métricas de gestão.</p>
                 </div>
             </div>
             <div class="founder-case-step">
@@ -818,6 +730,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                     <p data-i18n="why.case.book.detail">Endeavor Brasil / Portfolio Penguin, 2014. Capítulo ClearSale, com prefácios de Jorge Paulo Lemann e Beto Sicupira.</p>
                 </div>
             </div>
+            <div class="founder-case-book" style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(200,150,90,0.15)">
+                <span class="ic ic-warm"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span>
+                <div>
+                    <strong data-i18n="why.case.award.title">Premiado Mentor de Impacto — Endeavor Brasil, 2013</strong>
+                    <p data-i18n="why.case.award.detail">Reconhecimento após mentorias de alto impacto em mais de 10 empresas da rede Endeavor.</p>
+                </div>
+            </div>
         </div>
 
         <div class="founder-case-sources">
@@ -842,7 +761,54 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <p data-i18n="why.case.takeaway"><strong>O que isso significa pra você:</strong> O que a história da ClearSale ilustra é um padrão que vejo se repetir: empresas com produto excelente e clientes satisfeitos que travam no crescimento porque não têm <strong>arquitetura comercial</strong>. Meu trabalho lá foi importante mas delimitado — ajudar a pensar e montar a primeira estrutura de vendas que não existia. Os resultados dessa fase foram claros: a ClearSale saiu de zero em vendas para uma operação comercial funcionando. Tudo que veio depois — a escala, o IPO, o exit — foi construído por muita gente competente ao longo de muitos anos.</p>
         </div>
     </div>
+</section>
 
+<div class="section-hr" aria-hidden="true"></div>
+
+<!-- Por que nós -->
+<section id="porque" class="why-section">
+    <div class="section-header">
+        <h2 data-i18n="why.title">Por Que a <span class="hl">Alavanka</span></h2>
+        <p data-i18n="why.subtitle">Fundada por Carlos André — ex-Presidente Oracle Brasil, ex-CEO AT&T LATAM — a Alavanka traz para startups B2B Tech a mesma liderança de receita que escala empresas de centenas de milhões de dólares.</p>
+    </div>
+    
+    <div class="founder-profile">
+        <img src="assets/images/brand/carlos-andre.png" alt="Carlos André - Growth Execution" class="founder-photo" width="200" height="200" loading="lazy">
+        <div class="founder-info">
+            <h3 data-i18n="why.founder.name">Carlos André</h3>
+            <p class="founder-title" data-i18n="why.founder.title">Founding Partner, Alavanka</p>
+            <blockquote class="founder-quote" data-i18n="why.founder.quote">Empreendi a vida inteira — às vezes dentro de grandes corporações, às vezes por conta própria. Minhas duas paixões sempre foram empreender e construir estratégias de crescimento que funcionam. A Alavanka é a união das duas: aqui eu não aconselho crescimento, eu executo junto.</blockquote>
+        </div>
+    </div>
+    
+    <div class="why-hero">
+        <div class="big-stat" data-i18n="why.track.stat">$300M+</div>
+        <div class="stat-label" data-i18n="why.track.label">construídos como operador</div>
+        <div class="stat-detail" data-i18n="why.track.detail">
+            Oracle Brasil: Presidente (12.5x em 5 anos)<br>
+            AT&T LATAM: CEO (15x em 2 anos)<br>
+            Informatica: VP LATAM (20x em 5 anos)
+        </div>
+    </div>
+    
+    <div class="credentials-grid">
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
+            <ul>
+                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $12M para $150M</li>
+                <li data-i18n="why.cred.att">CEO AT&T LATAM — de $3M para $47M em 2 anos</li>
+                <li data-i18n="why.cred.loysci">Co-Founder LoySci (9 anos como empreendedor)</li>
+            </ul>
+        </div>
+        <div class="credential-card">
+            <h4 data-i18n="why.cred.ecosystem">Impacto no Ecossistema</h4>
+            <ul>
+                <li data-i18n="why.cred.endeavorAward"><span class="badge-ic"><span class="ic ic-warm"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span></span> Premiado Mentor de Impacto — Endeavor Brasil (2013)</li>
+                <li data-i18n="why.cred.endeavorMentoring">Mentorias de alto impacto em 20+ empresas da rede Endeavor</li>
+                <li data-i18n="why.cred.ibgc">Conselheiro certificado IBGC</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <!-- CTA Final -->
@@ -1368,8 +1334,8 @@ window.closeExitModal = function() {
         sessionStorage.setItem('alavanka-exit-shown', 'true');
         var lang = document.documentElement.lang === 'en' ? 'en' : 'pt';
         var copy = {
-            pt: { title: 'Antes de ir...', subtitle: 'Receba o <strong>Playbook Growth Execution 2025</strong> grátis', bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)', bullet2: '✓ Checklist de contratação de VP Sales', bullet3: '✓ Benchmarks de crescimento B2B Brasil', placeholder: 'Seu melhor email', cta: 'Enviar Playbook Gratuito', decline: 'Não, obrigado', disclaimer: '1 email/mês • Sem spam • Cancele quando quiser', sending: 'Enviando...', errorMsg: 'Erro ao enviar. Tente novamente.' },
-            en: { title: 'Before you go...', subtitle: 'Get the <strong>Growth Execution Playbook 2025</strong> free', bullet1: '✓ GTM diagnostic framework (25+ KPIs)', bullet2: '✓ VP Sales hiring checklist', bullet3: '✓ B2B growth benchmarks for Brazil', placeholder: 'Your best email', cta: 'Send Free Playbook', decline: 'No, thanks', disclaimer: '1 email/month • No spam • Unsubscribe anytime', sending: 'Sending...', errorMsg: 'Failed to send. Please try again.' }
+            pt: { title: 'Antes de ir...', subtitle: 'Receba o <strong>Guia de Crescimento de Receita B2B</strong> grátis', bullet1: '✓ Framework de diagnóstico GTM (25+ KPIs)', bullet2: '✓ Checklist de contratação de VP Sales', bullet3: '✓ Benchmarks de crescimento B2B Brasil', placeholder: 'Seu melhor email', cta: 'Enviar Playbook Gratuito', decline: 'Não, obrigado', disclaimer: '1 email/mês • Sem spam • Cancele quando quiser', sending: 'Enviando...', errorMsg: 'Erro ao enviar. Tente novamente.' },
+            en: { title: 'Before you go...', subtitle: 'Get the <strong>B2B Revenue Growth Guide</strong> free', bullet1: '✓ GTM diagnostic framework (25+ KPIs)', bullet2: '✓ VP Sales hiring checklist', bullet3: '✓ B2B growth benchmarks for Brazil', placeholder: 'Your best email', cta: 'Send Free Playbook', decline: 'No, thanks', disclaimer: '1 email/month • No spam • Unsubscribe anytime', sending: 'Sending...', errorMsg: 'Failed to send. Please try again.' }
         };
         var t = copy[lang];
         var modal = document.createElement('div');

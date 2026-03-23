@@ -236,24 +236,21 @@
         + '  </div>'
         + '  <div class="nav-links" id="navLinks">';
 
-    // Anchors flat + Blog + Guia
-    navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
-    navHTML += '<a href="' + cfg.blog.url + '" class="nav-flat-link">' + cfg.blog.label + '</a>';
-    var guiaLabel = context === 'en' ? 'Growth Guide' : 'Guia Crescimento';
-    navHTML += '<a href="' + guiaUrl + '" class="nav-flat-link">' + guiaLabel + '</a>';
-
-    // Separador
-    navHTML += '<div class="nav-separator"></div>';
-
-    // Fundos/VCs
-    var vcsLabel = context === 'en' ? 'VCs' : 'Fundos/VCs';
-    navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
-
-    // Separador
-    navHTML += '<div class="nav-separator"></div>';
-
-    // Badge LatAm
-    navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
+    if (isMEPPage) {
+        // Contexto market-entry: só badge Startup Growth
+        navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge">Startup Growth</a>';
+    } else {
+        // Contexto Startup Growth: anchors + Blog + Guia + sep + Fundos/VCs + sep + badge LatAm
+        navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
+        navHTML += '<a href="' + cfg.blog.url + '" class="nav-flat-link">' + cfg.blog.label + '</a>';
+        var guiaLabel = context === 'en' ? 'Growth Guide' : 'Guia Crescimento';
+        navHTML += '<a href="' + guiaUrl + '" class="nav-flat-link">' + guiaLabel + '</a>';
+        navHTML += '<div class="nav-separator"></div>';
+        var vcsLabel = context === 'en' ? 'VCs' : 'Fundos/VCs';
+        navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
+        navHTML += '<div class="nav-separator"></div>';
+        navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
+    }
 
     // Lang toggle — always on non-MEP pages, label shows what you switch TO
     if (!isMEPPage) {
