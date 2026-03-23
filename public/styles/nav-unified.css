@@ -569,15 +569,63 @@ nav {
         margin: 3px 12px;
     }
     
-    /* CTA desktop visible */
+    /* CTA desktop — removido da nav, regra mantida por segurança */
     .nav-cta-desktop {
-        display: inline-flex;
+        display: none;
     }
-    
+
     /* Lang toggle visible on desktop */
     .lang-toggle {
         display: inline-block;
     }
+
+    /* ── Flat inline links (Startup Growth desktop) ── */
+    .nav-flat-label {
+        padding: 4px 2px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #1B3A5C;
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 2px solid #C8965A;
+        opacity: 0.9;
+        transition: opacity 0.15s;
+    }
+    .nav-flat-label:hover { opacity: 1; }
+
+    .nav-flat-link {
+        padding: 4px 2px;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: 'DM Sans', sans-serif;
+        color: #4A5568;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.15s;
+    }
+    .nav-flat-link:hover { color: #1B3A5C; }
+
+    /* ── LatAm badge ── */
+    .nav-latam-badge {
+        padding: 5px 13px;
+        font-size: 12.5px;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #1B3A5C;
+        text-decoration: none;
+        border: 1.5px solid #1B3A5C;
+        border-radius: 9999px;
+        white-space: nowrap;
+        transition: background 0.18s, color 0.18s;
+    }
+    .nav-latam-badge:hover {
+        background: #1B3A5C;
+        color: #fff;
+    }
+
+    /* Oculta accordion mobile no desktop */
+    .nav-mobile-only { display: none !important; }
 }
 
 /* ══════════════════════════════════════════════
@@ -587,13 +635,40 @@ nav {
     nav {
         padding: 0 5%;
     }
-    
+
     .nav-links {
         gap: 22px;
     }
-    
+
     .nav-logo-img {
         height: 56px;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   13b. FLAT NAV — ocultar no mobile
+   ══════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+    /* Flat links só existem no desktop */
+    .nav-flat-label,
+    .nav-flat-link  { display: none !important; }
+
+    /* Badge LatAm vira link simples no sidebar */
+    .nav-latam-badge {
+        display: block;
+        padding: 14px 24px;
+        color: #3a4a5c;
+        font-size: 15px;
+        font-weight: 500;
+        font-family: 'DM Sans', sans-serif;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+    }
+    .nav-latam-badge:hover {
+        background: #f4f6f8;
+        color: #1B3A5C;
     }
 }
 

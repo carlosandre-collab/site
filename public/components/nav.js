@@ -181,6 +181,7 @@
         return html;
     }
 
+<<<<<<< Updated upstream
     // — Build a nav item (dropdown or simple link) —
     function buildNavItem(serviceConfig, isActiveService) {
         if (serviceConfig.hasDropdown && isActiveService) {
@@ -193,20 +194,63 @@
                 + '</div>';
         } else {
             return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
+=======
+    // — Build a nav item —
+    // Desktop Startup Growth ativo: label como link + anchors flat inline
+    // Desktop ExpandLatAm nao ativo: badge com borda navy
+    // Mobile: accordion preservado via .nav-mobile-only (oculto no desktop por CSS)
+    function buildNavItem(serviceConfig, isActiveService, activeContext) {
+        var _ctx = activeContext !== undefined ? activeContext : context;
+
+        if (serviceConfig.hasDropdown && isActiveService) {
+            var flat = '';
+            // Label como link simples (desktop)
+            flat += '<a href="' + serviceConfig.page + '" class="nav-flat-label">' + serviceConfig.label + '</a>';
+            // Anchors inline (desktop)
+            if (serviceConfig.sections) {
+                for (var si = 0; si < serviceConfig.sections.length; si++) {
+                    var sec = serviceConfig.sections[si];
+                    flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-flat-link">' + sec.label + '</a>';
+                }
+            }
+            // Accordion mobile (oculto no desktop via CSS .nav-mobile-only)
+            flat += '<div class="nav-dropdown nav-dropdown-active nav-mobile-only">'
+                 +  '  <button class="nav-dropdown-trigger nav-trigger-active">'
+                 +  '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
+                 +  '  </button>'
+                 +  buildDropdown(serviceConfig, _ctx)
+                 +  '</div>';
+            return flat;
+>>>>>>> Stashed changes
         }
+
+        // ExpandLatAm nao ativo: badge
+        if (!isActiveService && serviceConfig === cfg.expandLatAm) {
+            return '<a href="' + serviceConfig.page + '" class="nav-latam-badge">' + serviceConfig.label + '</a>';
+        }
+
+        // Fallback: link simples
+        return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
     }
 
+<<<<<<< Updated upstream
     // — Build navigation HTML —
     var ctaTarget = cfg.cta.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     var mobileCTALabel = context === 'en' ? 'Schedule Call' : 'Diagn\u00f3stico Gratuito';
 
+=======
+    // — Build and inject nav HTML —
+    function buildAndInjectNav(activeCfg, activeContext) {
+        var cfg = activeCfg;
+        var context = activeContext;
+        var ctaTarget = cfg.cta.isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+>>>>>>> Stashed changes
     var navHTML = ''
         + '<nav role="navigation" aria-label="' + cfg.ariaLabel + '">'
         + '  <a href="' + indexUrl + '" class="logo" aria-label="Alavanka - Home">'
         + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img">'
         + '  </a>'
         + '  <div class="nav-mobile-right">'
-        + '    <a href="' + cfg.cta.url + '" class="nav-cta nav-cta-mobile"' + ctaTarget + '>' + mobileCTALabel + '</a>'
         + '    <button class="hamburger" id="hamburger" onclick="alavankaNav.toggleMenu()" aria-label="Menu" aria-expanded="false">'
         + '      <span></span><span></span><span></span>'
         + '    </button>'
@@ -223,11 +267,7 @@
     // Blog
     navHTML += '<a href="' + cfg.blog.url + '" class="nav-content-link">' + cfg.blog.label + '</a>';
 
-    // Separator before CTA
-    navHTML += '<div class="nav-separator"></div>';
-
-    // CTA (desktop)
-    navHTML += '<a href="' + cfg.cta.url + '" class="nav-cta nav-cta-desktop"' + ctaTarget + '>' + cfg.cta.label + '</a>';
+    // CTA removido da nav — vive no hero/body
 
     // Lang toggle (only for PT contexts)
     if (cfg.langToggle) {
