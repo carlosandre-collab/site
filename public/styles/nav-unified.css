@@ -578,6 +578,89 @@ nav {
     .lang-toggle {
         display: inline-block;
     }
+
+    /* CTA desktop removido da nav */
+    .nav-cta-desktop { display: none; }
+
+    /* ── Flat anchor links ── */
+    .nav-flat-link {
+        padding: 4px 2px;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: 'DM Sans', sans-serif;
+        color: #4A5568;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.15s;
+    }
+    .nav-flat-link:hover { color: #1B3A5C; }
+
+    /* ── Fundos/VCs — amber ── */
+    .nav-vcs-link {
+        padding: 4px 2px;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #C8965A;
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 2px solid #C8965A;
+        transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-vcs-link:hover { color: #B07D42; border-color: #B07D42; }
+
+    /* ── Badge (LatAm / Startup Growth) ── */
+    .nav-latam-badge {
+        padding: 5px 13px;
+        font-size: 12.5px;
+        font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #1B3A5C;
+        text-decoration: none;
+        border: 1.5px solid #1B3A5C;
+        border-radius: 9999px;
+        white-space: nowrap;
+        transition: background 0.18s, color 0.18s;
+    }
+    .nav-latam-badge:hover { background: #1B3A5C; color: #fff; }
+
+    /* ── Oculta accordion mobile no desktop ── */
+    .nav-mobile-only { display: none !important; }
+}
+
+/* ══════════════════════════════════════════════
+   13b. FLAT NAV — mobile
+   ══════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+    .nav-flat-link { display: none !important; }
+
+    .nav-vcs-link {
+        display: block;
+        padding: 14px 24px;
+        color: #C8965A;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: 'DM Sans', sans-serif;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+    }
+    .nav-vcs-link:hover { background: #f4f6f8; color: #B07D42; }
+
+    .nav-latam-badge {
+        display: block;
+        padding: 14px 24px;
+        color: #3a4a5c;
+        font-size: 15px;
+        font-weight: 500;
+        font-family: 'DM Sans', sans-serif;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #f0f0f0;
+        text-decoration: none;
+    }
+    .nav-latam-badge:hover { background: #f4f6f8; color: #1B3A5C; }
 }
 
 /* ══════════════════════════════════════════════
