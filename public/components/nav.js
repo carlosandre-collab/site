@@ -87,8 +87,10 @@
                     { label: 'Por que Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
-                    { label: 'Para Investidores/VCs', url: investidoresUrl },
-                    { label: '\uD83D\uDCD6 Guia Growth Execution', url: guiaUrl }
+                    { label: 'Blog', url: blogUrl },
+                    { label: 'Guia Crescimento', url: guiaUrl },
+                    { label: 'Fundos/VCs', url: investidoresUrl },
+                    { label: 'Expandir p/ LatAm', url: marketEntryUrl }
                 ]
             },
             expandLatAm: {
@@ -119,8 +121,10 @@
                     { label: 'Why Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
-                    { label: 'For Investors/VCs', url: investidoresUrl },
-                    { label: '\uD83D\uDCD6 Growth Execution Guide', url: guiaUrl }
+                    { label: 'Blog', url: mepBlogUrl },
+                    { label: 'Growth Guide', url: guiaUrl },
+                    { label: 'VCs', url: investidoresUrl },
+                    { label: 'Expand to LatAm', url: marketEntryUrl }
                 ]
             },
             expandLatAm: {
@@ -243,12 +247,12 @@
                 var ms = cfg.expandLatAm.sections[mi];
                 navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-flat-link">' + ms.label + '</a>';
                 // Mobile version
-                navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-mobile-link">' + ms.label + '</a>';
+                navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-ctx-link nav-desktop-hide">' + ms.label + '</a>';
             }
         }
         navHTML += '<div class="nav-separator"></div>';
         navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge">Startup Growth</a>';
-        navHTML += '<a href="' + indexUrl + '" class="nav-mobile-link">Startup Growth</a>';
+        navHTML += '<a href="' + indexUrl + '" class="nav-ctx-link nav-desktop-hide">Startup Growth</a>';
     } else {
         // Contexto Startup Growth: anchors + Blog + Guia + sep + Fundos/VCs + sep + badge LatAm
         navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
@@ -261,11 +265,7 @@
         navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
         navHTML += '<div class="nav-separator"></div>';
         navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
-        // Mobile: itens do sidebar (ocultos no desktop)
-        navHTML += '<a href="' + cfg.blog.url + '" class="nav-mobile-link">' + cfg.blog.label + '</a>';
-        navHTML += '<a href="' + guiaUrl + '" class="nav-mobile-link">' + guiaLabel + '</a>';
-        navHTML += '<a href="' + investidoresUrl + '" class="nav-mobile-link nav-mobile-link-vcs">' + vcsLabel + '</a>';
-        navHTML += '<a href="' + cfg.expandLatAm.page + '" class="nav-mobile-link">' + cfg.expandLatAm.label + '</a>';
+
     }
 
     // Lang toggle — always on non-MEP pages, label shows what you switch TO
