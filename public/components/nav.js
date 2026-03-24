@@ -201,16 +201,20 @@
             if (serviceConfig.sections) {
                 for (var si = 0; si < serviceConfig.sections.length; si++) {
                     var sec = serviceConfig.sections[si];
+                    // Desktop: flat link
                     flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-flat-link">' + sec.label + '</a>';
+                    // Mobile: link direto no sidebar
+                    flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-ctx-link nav-desktop-hide">' + sec.label + '</a>';
                 }
             }
-            // Accordion mobile oculto no desktop via .nav-mobile-only
-            flat += '<div class="nav-dropdown nav-dropdown-active nav-mobile-only">'
-                 +  '  <button class="nav-dropdown-trigger nav-trigger-active">'
-                 +  '    <span>' + serviceConfig.label + '</span> ' + chevronSvg
-                 +  '  </button>'
-                 +  buildDropdown(serviceConfig, _ctx)
-                 +  '</div>';
+            if (serviceConfig.extraItems && serviceConfig.extraItems.length > 0) {
+                for (var ei = 0; ei < serviceConfig.extraItems.length; ei++) {
+                    var extra = serviceConfig.extraItems[ei];
+                    // Mobile: extra items diretos (último com separador)
+                    var sepClass = (ei === serviceConfig.extraItems.length - 1) ? ' nav-desktop-hide-sep' : '';
+                    flat += '<a href="' + extra.url + '" class="nav-ctx-link nav-desktop-hide' + sepClass + '">' + extra.label + '</a>';
+                }
+            }
             return flat;
         }
 
@@ -249,7 +253,7 @@
             }
         }
         navHTML += '<div class="nav-separator"></div>';
-        navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge">Startup Growth</a>';
+        navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge nav-mobile-hide">Startup Growth</a>';
         navHTML += '<a href="' + indexUrl + '" class="nav-ctx-link nav-desktop-hide">Startup Growth</a>';
     } else {
         // Contexto Startup Growth: anchors + Blog + Guia + sep + Fundos/VCs + sep + badge LatAm
@@ -320,16 +324,17 @@
                     }, 150);
                 });
             }
-            document.querySelectorAll('.nav-dropdown-trigger').forEach(function (t) {
-                t.addEventListener('click', function (e) {
-                    if (window.innerWidth < 1024) {
-                        e.preventDefault();
-                        var dd = this.closest('.nav-dropdown');
-                        if (dd) dd.classList.toggle('open');
-                    }
-                });
-            });
         }
+        // Bind trigger para accordion mobile — todos os triggers após injeção
+        document.querySelectorAll('.nav-dropdown-trigger').forEach(function (t) {
+            t.addEventListener('click', function (e) {
+                if (window.innerWidth < 1024) {
+                    e.preventDefault();
+                    var dd = this.closest('.nav-dropdown');
+                    if (dd) dd.classList.toggle('open');
+                }
+            });
+        });
         document.querySelectorAll('.nav-links a').forEach(function (link) {
             link.addEventListener('click', function () {
                 if (window.innerWidth < 1024 && window.alavankaNav) alavankaNav.closeMenu();
@@ -415,16 +420,7 @@
         });
     }
 
-    // — Mobile: tap trigger to toggle dropdown —
-    document.querySelectorAll('.nav-dropdown-trigger').forEach(function (trigger) {
-        trigger.addEventListener('click', function (e) {
-            if (window.innerWidth < 1024) {
-                e.preventDefault();
-                var dd = this.closest('.nav-dropdown');
-                if (dd) dd.classList.toggle('open');
-            }
-        });
-    });
+    // — Mobile: tap trigger — handler em buildAndInjectNav após injeção
 
     // — Close menu on link click (mobile) —
     document.querySelectorAll('.nav-links a').forEach(function (link) {

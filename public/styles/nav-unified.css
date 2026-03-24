@@ -461,6 +461,7 @@ nav {
     transition: background 0.15s, color 0.15s;
 }
 .nav-desktop-hide:hover { background: #f4f6f8; color: #1B3A5C; }
+.nav-desktop-hide-sep { border-top: 1px solid #e5e7eb; margin-top: 4px; }
 
 /* ══════════════════════════════════════════════
    12. DESKTOP (1024px+)
@@ -669,6 +670,9 @@ nav {
    ══════════════════════════════════════════════ */
 @media (max-width: 1023px) {
     .nav-flat-link { display: none !important; }
+    .nav-vcs-link { display: none !important; }
+    .nav-latam-badge { display: none !important; }
+    .nav-mobile-hide { display: none !important; }
 
     .nav-vcs-link {
         display: block;
