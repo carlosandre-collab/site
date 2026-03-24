@@ -865,6 +865,84 @@ main {
 .nl-toggles-wrap.nl-compact .nl-toggles-label {
   margin-bottom: 7px;
 }
+
+/* ── Newsletter topic toggles ────────────────────────────── */
+.nl-toggles-wrap {
+  margin: 16px 0 4px;
+}
+.nl-toggles-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #8C8CA1);
+  margin-bottom: 10px;
+}
+.nl-toggles-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nl-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.nl-toggle-item input[type="checkbox"] {
+  display: none;
+}
+.nl-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--border, #E5E7EB);
+  border-radius: 999px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.nl-toggle-item input:checked + .nl-switch {
+  background: var(--accent, #1B3A5C);
+}
+.nl-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+.nl-toggle-item input:checked + .nl-switch::after {
+  transform: translateX(16px);
+}
+.nl-toggle-text {
+  font-size: 0.84rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.3;
+}
+/* Invert label colour on dark backgrounds (exit-intent modal) */
+.nl-dark .nl-toggles-label,
+.nl-dark .nl-toggle-text {
+  color: rgba(255,255,255,0.75);
+}
+.nl-dark .nl-switch {
+  background: rgba(255,255,255,0.25);
+}
+.nl-dark .nl-toggle-item input:checked + .nl-switch {
+  background: var(--warm, #C8965A);
+}
+/* Compact variant for inline single-row forms (guia-crescimento, market-entry) */
+.nl-toggles-wrap.nl-compact {
+  margin: 12px 0 0;
+}
+.nl-toggles-wrap.nl-compact .nl-toggles-label {
+  margin-bottom: 7px;
+}
 </style>
     
     <!-- Nav CSS -->
@@ -1088,6 +1166,22 @@ main {
                                 </select>
                             </div>
                         </div>
+
+<div class="nl-toggles-wrap" id="asmtNlWrap">
+  <p class="nl-toggles-label" data-nl-pt="Receber conteúdo sobre:" data-nl-en="Receive content on:" id="asmtNlLabel">Receber conteúdo sobre:</p>
+  <div class="nl-toggles-row">
+    <label class="nl-toggle-item">
+      <input type="checkbox" id="asmtNlGrowth" checked>
+      <span class="nl-switch"></span>
+      <span class="nl-toggle-text" data-nl-pt="Growth B2B & Receita" data-nl-en="B2B Growth Strategies" id="asmtNlGrowthLbl">Growth B2B & Receita</span>
+    </label>
+    <label class="nl-toggle-item">
+      <input type="checkbox" id="asmtNlLatam" checked>
+      <span class="nl-switch"></span>
+      <span class="nl-toggle-text" data-nl-pt="Expansão para LatAm" data-nl-en="Expanding into LatAm" id="asmtNlLatamLbl">Expansão para LatAm</span>
+    </label>
+  </div>
+</div>
 
 <div class="nl-toggles-wrap" id="asmtNlWrap">
   <p class="nl-toggles-label" data-nl-pt="Receber conteúdo sobre:" data-nl-en="Receive content on:" id="asmtNlLabel">Receber conteúdo sobre:</p>
@@ -1430,6 +1524,8 @@ async function submitAndDownload() {
     params.append('timestamp', new Date().toISOString());
     params.append('newsletter_growth', document.getElementById('asmtNlGrowth').checked ? 'yes' : 'no');
         params.append('newsletter_latam',  document.getElementById('asmtNlLatam').checked  ? 'yes' : 'no');
+    params.append('newsletter_growth', document.getElementById('asmtNlGrowth').checked ? 'yes' : 'no');
+        params.append('newsletter_latam',  document.getElementById('asmtNlLatam').checked  ? 'yes' : 'no');
     
     fetch('https://script.google.com/macros/s/SUA_URL_REAL/exec', {
         method: 'POST',
@@ -1457,6 +1553,32 @@ async function submitAndDownload() {
 
 // Initialize
 updateUI();
+
+// ── Newsletter toggle lang sync ───────────────────────────
+(function() {
+  var NL_PREFIXES = ["asmt"];
+
+  function syncNlLang(lang) {
+    NL_PREFIXES.forEach(function(pfx) {
+      var wrap  = document.getElementById(pfx + 'NlWrap');
+      if (!wrap) return;
+      var attr  = lang === 'en' ? 'data-nl-en' : 'data-nl-pt';
+      wrap.querySelectorAll('[data-nl-pt]').forEach(function(el) {
+        el.textContent = el.getAttribute(attr) || el.textContent;
+      });
+    });
+  }
+
+  // Initial render
+  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
+  syncNlLang(initLang);
+
+  // Listen for page-level lang changes (fired by nav.js / toggleLang)
+  document.addEventListener('langChange', function(e) {
+    syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
+  });
+})();
+
 
 // ── Newsletter toggle lang sync ───────────────────────────
 (function() {
