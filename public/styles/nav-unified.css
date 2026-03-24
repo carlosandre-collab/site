@@ -626,6 +626,9 @@ nav {
 
     /* ── Oculta accordion mobile no desktop ── */
     .nav-mobile-only { display: none !important; }
+
+    /* ── Oculta links mobile no desktop ── */
+    .nav-mobile-link { display: none !important; }
 }
 
 /* ══════════════════════════════════════════════
