@@ -448,8 +448,10 @@ nav {
 .nav-mobile-link-vcs { color: #C8965A; font-weight: 600; }
 .nav-mobile-link-vcs:hover { color: #B07D42; }
 
-/* ── nav-desktop-hide: visível no mobile, oculto no desktop ── */
-.nav-desktop-hide {
+/* ── nav-mobile-item: links mobile, mesmo estilo do nav-ctx-link ── */
+.nav-links > .nav-ctx-link.nav-mobile-item,
+.nav-links > .nav-mobile-item,
+.nav-mobile-item {
     display: block;
     padding: 14px 24px;
     color: #3a4a5c;
@@ -460,8 +462,9 @@ nav {
     font-family: 'DM Sans', sans-serif;
     transition: background 0.15s, color 0.15s;
 }
-.nav-desktop-hide:hover { background: #f4f6f8; color: #1B3A5C; }
-.nav-desktop-hide-sep { border-top: 1px solid #e5e7eb; margin-top: 4px; }
+.nav-links > .nav-ctx-link.nav-mobile-item:hover,
+.nav-links > .nav-mobile-item:hover,
+.nav-mobile-item:hover { background: #f4f6f8; color: #1B3A5C; }
 
 /* ══════════════════════════════════════════════
    12. DESKTOP (1024px+)
@@ -659,7 +662,7 @@ nav {
     .nav-mobile-only { display: none !important; }
 
     /* ── Oculta itens mobile-only no desktop ── */
-    .nav-desktop-hide { display: none !important; }
+    .nav-mobile-item { display: none !important; }
 
     /* ── Oculta links mobile no desktop ── */
     .nav-mobile-link { display: none !important; }

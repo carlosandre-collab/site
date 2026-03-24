@@ -80,10 +80,7 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'Problema', anchor: 'problema', page: indexUrl },
-                    { label: 'Solu\u00e7\u00e3o', anchor: 'solucao', page: indexUrl },
-                    { label: 'Como', anchor: 'como', page: indexUrl },
-                    { label: 'Para quem', anchor: 'fit', page: indexUrl },
+                    { label: 'Solução', anchor: 'solucao', page: indexUrl },
                     { label: 'Por que Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
@@ -114,10 +111,7 @@
                 page: indexUrl,
                 hasDropdown: onStartupGrowthPage,
                 sections: [
-                    { label: 'Problem', anchor: 'problema', page: indexUrl },
                     { label: 'Solution', anchor: 'solucao', page: indexUrl },
-                    { label: 'How', anchor: 'como', page: indexUrl },
-                    { label: 'Who', anchor: 'fit', page: indexUrl },
                     { label: 'Why Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
@@ -194,34 +188,20 @@
 
     // — Build a nav item —
     function buildNavItem(serviceConfig, isActiveService, activeContext) {
-        var _ctx = activeContext !== undefined ? activeContext : context;
-
         if (serviceConfig.hasDropdown && isActiveService) {
             var flat = '';
             if (serviceConfig.sections) {
                 for (var si = 0; si < serviceConfig.sections.length; si++) {
                     var sec = serviceConfig.sections[si];
-                    // Desktop: flat link
                     flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-flat-link">' + sec.label + '</a>';
-                    // Mobile: link direto no sidebar
-                    flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-ctx-link nav-desktop-hide">' + sec.label + '</a>';
-                }
-            }
-            if (serviceConfig.extraItems && serviceConfig.extraItems.length > 0) {
-                for (var ei = 0; ei < serviceConfig.extraItems.length; ei++) {
-                    var extra = serviceConfig.extraItems[ei];
-                    // Mobile: extra items diretos (último com separador)
-                    var sepClass = (ei === serviceConfig.extraItems.length - 1) ? ' nav-desktop-hide-sep' : '';
-                    flat += '<a href="' + extra.url + '" class="nav-ctx-link nav-desktop-hide' + sepClass + '">' + extra.label + '</a>';
+                    flat += '<a href="' + buildSectionUrl(sec) + '" class="nav-ctx-link nav-mobile-item">' + sec.label + '</a>';
                 }
             }
             return flat;
         }
-
         if (!isActiveService && serviceConfig === cfg.expandLatAm) {
             return '<a href="' + serviceConfig.page + '" class="nav-latam-badge">' + serviceConfig.label + '</a>';
         }
-
         return '<a href="' + serviceConfig.page + '" class="nav-ctx-link">' + serviceConfig.label + '</a>';
     }
 
@@ -249,24 +229,31 @@
                 var ms = cfg.expandLatAm.sections[mi];
                 navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-flat-link">' + ms.label + '</a>';
                 // Mobile version
-                navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-ctx-link nav-desktop-hide">' + ms.label + '</a>';
+                navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-ctx-link nav-mobile-item">' + ms.label + '</a>';
             }
         }
         navHTML += '<div class="nav-separator"></div>';
         navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge nav-mobile-hide">Startup Growth</a>';
-        navHTML += '<a href="' + indexUrl + '" class="nav-ctx-link nav-desktop-hide">Startup Growth</a>';
+        navHTML += '<a href="' + indexUrl + '" class="nav-ctx-link nav-mobile-item">Startup Growth</a>';
     } else {
-        // Contexto Startup Growth: anchors + Blog + Guia + sep + Fundos/VCs + sep + badge LatAm
+        // Startup Growth: sections + extras — desktop flat, mobile nav-desktop-hide
         navHTML += buildNavItem(cfg.startupGrowth, onStartupGrowthPage, context);
-        // Desktop: flat links
-        navHTML += '<a href="' + cfg.blog.url + '" class="nav-flat-link">' + cfg.blog.label + '</a>';
         var guiaLabel = context === 'en' ? 'Growth Guide' : 'Guia Crescimento';
-        navHTML += '<a href="' + guiaUrl + '" class="nav-flat-link">' + guiaLabel + '</a>';
-        navHTML += '<div class="nav-separator"></div>';
         var vcsLabel = context === 'en' ? 'VCs' : 'Fundos/VCs';
-        navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
+        // Blog
+        navHTML += '<a href="' + cfg.blog.url + '" class="nav-flat-link">' + cfg.blog.label + '</a>';
+        navHTML += '<a href="' + cfg.blog.url + '" class="nav-ctx-link nav-mobile-item">' + cfg.blog.label + '</a>';
+        // Guia
+        navHTML += '<a href="' + guiaUrl + '" class="nav-flat-link">' + guiaLabel + '</a>';
+        navHTML += '<a href="' + guiaUrl + '" class="nav-ctx-link nav-mobile-item">' + guiaLabel + '</a>';
+        // Sep + VCs
         navHTML += '<div class="nav-separator"></div>';
-        navHTML += buildNavItem(cfg.expandLatAm, onExpandLatAmPage, context);
+        navHTML += '<a href="' + investidoresUrl + '" class="nav-vcs-link">' + vcsLabel + '</a>';
+        navHTML += '<a href="' + investidoresUrl + '" class="nav-ctx-link nav-mobile-item">' + vcsLabel + '</a>';
+        // Sep + LatAm: badge desktop, link mobile
+        navHTML += '<div class="nav-separator"></div>';
+        navHTML += '<a href="' + cfg.expandLatAm.page + '" class="nav-latam-badge nav-mobile-hide">' + cfg.expandLatAm.label + '</a>';
+        navHTML += '<a href="' + cfg.expandLatAm.page + '" class="nav-ctx-link nav-mobile-item">' + cfg.expandLatAm.label + '</a>';
 
     }
 
