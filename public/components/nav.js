@@ -171,25 +171,23 @@
     // — Build dropdown HTML —
     function buildDropdown(serviceConfig, activeContext) {
         var html = '<div class="nav-dropdown-menu">';
-        var _ctx = activeContext !== undefined ? activeContext : context;
-        var goLabel = _ctx === 'en' ? '\u2192 Go to page' : '\u2192 Ir para p\u00e1gina';
-        html += '<a href="' + serviceConfig.page + '" class="nav-dropdown-page-link">' + goLabel + '</a>';
-        
+        // Sections — sem link Ir para página
         if (serviceConfig.sections) {
             for (var i = 0; i < serviceConfig.sections.length; i++) {
                 var s = serviceConfig.sections[i];
                 html += '<a href="' + buildSectionUrl(s) + '">' + s.label + '</a>';
             }
         }
-        
+        // Extra items — separador só antes do último
         if (serviceConfig.extraItems && serviceConfig.extraItems.length > 0) {
-            html += '<div class="nav-dropdown-separator"></div>';
             for (var j = 0; j < serviceConfig.extraItems.length; j++) {
                 var item = serviceConfig.extraItems[j];
+                if (j === serviceConfig.extraItems.length - 1) {
+                    html += '<div class="nav-dropdown-separator"></div>';
+                }
                 html += '<a href="' + item.url + '" class="nav-dropdown-content-link">' + item.label + '</a>';
             }
         }
-        
         html += '</div>';
         return html;
     }
@@ -322,15 +320,15 @@
                     }, 150);
                 });
             }
-            var _trigger = _dd.querySelector('.nav-dropdown-trigger');
-            if (_trigger) {
-                _trigger.addEventListener('click', function (e) {
+            document.querySelectorAll('.nav-dropdown-trigger').forEach(function (t) {
+                t.addEventListener('click', function (e) {
                     if (window.innerWidth < 1024) {
                         e.preventDefault();
-                        _dd.classList.toggle('open');
+                        var dd = this.closest('.nav-dropdown');
+                        if (dd) dd.classList.toggle('open');
                     }
                 });
-            }
+            });
         }
         document.querySelectorAll('.nav-links a').forEach(function (link) {
             link.addEventListener('click', function () {
@@ -418,8 +416,7 @@
     }
 
     // — Mobile: tap trigger to toggle dropdown —
-    var trigger = document.querySelector('.nav-dropdown-trigger');
-    if (trigger) {
+    document.querySelectorAll('.nav-dropdown-trigger').forEach(function (trigger) {
         trigger.addEventListener('click', function (e) {
             if (window.innerWidth < 1024) {
                 e.preventDefault();
@@ -427,7 +424,7 @@
                 if (dd) dd.classList.toggle('open');
             }
         });
-    }
+    });
 
     // — Close menu on link click (mobile) —
     document.querySelectorAll('.nav-links a').forEach(function (link) {
