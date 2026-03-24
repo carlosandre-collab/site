@@ -264,14 +264,12 @@
         navHTML += '<button class="lang-toggle" id="langToggle" onclick="alavankaNav.toggleLang()">' + _toggleLabel + '</button>';
     }
 
-    // Mobile: lang toggle inline após itens, sem contato
+    // Mobile: lang toggle como item inline após último link
     if (!isMEPPage) {
         var _mobLang = sessionStorage.getItem('alavanka-lang') || 'pt';
-        navHTML += '<div class="nav-mobile-footer">';
-        navHTML += '  <div class="nav-mobile-lang">';
-        navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'pt' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">PT</button>';
-        navHTML += '    <button class="nav-lang-btn' + (_mobLang === 'en' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">EN</button>';
-        navHTML += '  </div>';
+        navHTML += '<div class="nav-mobile-lang-row">';
+        navHTML += '  <button class="nav-lang-btn' + (_mobLang === 'pt' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">PT</button>';
+        navHTML += '  <button class="nav-lang-btn' + (_mobLang === 'en' ? ' nav-lang-active' : '') + '" onclick="alavankaNav.toggleLang()">EN</button>';
         navHTML += '</div>';
     }
 

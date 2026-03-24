@@ -466,6 +466,15 @@ nav {
 .nav-links > .nav-mobile-item:hover,
 .nav-mobile-item:hover { background: #f4f6f8; color: #1B3A5C; }
 
+/* ── Lang toggle inline no sidebar mobile ── */
+.nav-mobile-lang-row {
+    display: flex;
+    gap: 8px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(27,58,92,0.08);
+}
+
 /* ── Cross-site link (gate switch) — fundo destacado ── */
 .nav-cross-link {
     background: rgba(27,58,92,0.06);
@@ -675,6 +684,7 @@ nav {
 
     /* ── Oculta itens mobile-only no desktop ── */
     .nav-mobile-item { display: none !important; }
+    .nav-mobile-lang-row { display: none !important; }
 
     /* ── Oculta links mobile no desktop ── */
     .nav-mobile-link { display: none !important; }
