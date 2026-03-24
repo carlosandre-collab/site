@@ -466,6 +466,18 @@ nav {
 .nav-links > .nav-mobile-item:hover,
 .nav-mobile-item:hover { background: #f4f6f8; color: #1B3A5C; }
 
+/* ── Cross-site link (gate switch) — fundo destacado ── */
+.nav-cross-link {
+    background: rgba(27,58,92,0.06);
+    color: #1B3A5C !important;
+    font-weight: 600 !important;
+    border-top: 1px solid rgba(27,58,92,0.1);
+}
+.nav-cross-link:hover {
+    background: rgba(27,58,92,0.12) !important;
+    color: #1B3A5C !important;
+}
+
 /* ══════════════════════════════════════════════
    12. DESKTOP (1024px+)
    ══════════════════════════════════════════════ */
