@@ -815,8 +815,7 @@
     "ge.pdf.cta": "Receber o PDF",
     "ge.pdf.disclaimer": "1 email/mês • Sem spam • Cancele quando quiser",
     "ge.pdf.success": "Pronto! Clique para abrir o PDF:",
-    "ge.pdf.download": "📄 Abrir PDF agora",
-    "investors.report.form.other": "Outro"
+    "ge.pdf.download": "📄 Abrir PDF agora"
   },
   "en": {
     "nav.problem": "The Problem",
@@ -1634,7 +1633,6 @@
     "ge.pdf.cta": "Get the PDF",
     "ge.pdf.disclaimer": "1 email/month • No spam • Unsubscribe anytime",
     "ge.pdf.success": "Done! Click to open the PDF:",
-    "ge.pdf.download": "📄 Open PDF now",
-    "investors.report.form.other": "Other"
+    "ge.pdf.download": "📄 Open PDF now"
   }
 }

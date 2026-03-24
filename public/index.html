@@ -176,7 +176,85 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .audience-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--accent);color:white;padding:16px 24px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:9998;opacity:0;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);max-width:90%;text-align:center}
 .audience-toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:640px){.scarcity-badge{font-size:13px;padding:8px 16px}.audience-toast{bottom:100px;font-size:13px;padding:14px 20px}}
-    </style>
+    
+/* ── Newsletter topic toggles ────────────────────────────── */
+.nl-toggles-wrap {
+  margin: 16px 0 4px;
+}
+.nl-toggles-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #8C8CA1);
+  margin-bottom: 10px;
+}
+.nl-toggles-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nl-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.nl-toggle-item input[type="checkbox"] {
+  display: none;
+}
+.nl-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--border, #E5E7EB);
+  border-radius: 999px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.nl-toggle-item input:checked + .nl-switch {
+  background: var(--accent, #1B3A5C);
+}
+.nl-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+.nl-toggle-item input:checked + .nl-switch::after {
+  transform: translateX(16px);
+}
+.nl-toggle-text {
+  font-size: 0.84rem;
+  color: var(--text-secondary, #4A5568);
+  line-height: 1.3;
+}
+/* Invert label colour on dark backgrounds (exit-intent modal) */
+.nl-dark .nl-toggles-label,
+.nl-dark .nl-toggle-text {
+  color: rgba(255,255,255,0.75);
+}
+.nl-dark .nl-switch {
+  background: rgba(255,255,255,0.25);
+}
+.nl-dark .nl-toggle-item input:checked + .nl-switch {
+  background: var(--warm, #C8965A);
+}
+/* Compact variant for inline single-row forms (guia-crescimento, market-entry) */
+.nl-toggles-wrap.nl-compact {
+  margin: 12px 0 0;
+}
+.nl-toggles-wrap.nl-compact .nl-toggles-label {
+  margin-bottom: 7px;
+}
+</style>
     
     <!-- EXTERNAL CSS FILES -->
     <link rel="stylesheet" href="styles/nav-unified.css">
@@ -1352,7 +1430,7 @@ window.closeExitModal = function() {
         var modal = document.createElement('div');
         modal.className = 'exit-modal';
         modal.id = 'exitModal';
-        modal.innerHTML = '<div class="exit-overlay"></div><div class="exit-content"><button class="exit-close" aria-label="Fechar">&times;</button><div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div><h3>' + t.title + '</h3><p>' + t.subtitle + '</p><ul class="exit-value-list"><li>' + t.bullet1 + '</li><li>' + t.bullet2 + '</li><li>' + t.bullet3 + '</li></ul><form class="exit-form" id="exitForm"><input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput"><button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button><div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div></form><button class="exit-btn-secondary">' + t.decline + '</button><span class="exit-disclaimer">' + t.disclaimer + '</span></div>';
+        modal.innerHTML = '<div class="exit-overlay"></div><div class="exit-content"><button class="exit-close" aria-label="Fechar">&times;</button><div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div><h3>' + t.title + '</h3><p>' + t.subtitle + '</p><ul class="exit-value-list"><li>' + t.bullet1 + '</li><li>' + t.bullet2 + '</li><li>' + t.bullet3 + '</li></ul><form class="exit-form" id="exitForm"><input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput">' + '<div class="nl-toggles-wrap nl-dark" id="exitNlWrap"><p class="nl-toggles-label" id="exitNlLabel">' + (localStorage.getItem('alavanka-lang')==='en' ? 'Receive content on:' : 'Receber conteúdo sobre:') + '</p><div class="nl-toggles-row"><label class="nl-toggle-item"><input type="checkbox" id="exitNlGrowth" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlGrowthLbl">' + (localStorage.getItem('alavanka-lang')==='en' ? 'B2B Growth Strategies' : 'Growth B2B &amp; Receita') + '</span></label><label class="nl-toggle-item"><input type="checkbox" id="exitNlLatam" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlLatamLbl">' + (localStorage.getItem('alavanka-lang')==='en' ? 'Expanding into LatAm' : 'Expans&#227;o para LatAm') + '</span></label></div></div>' + <button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button><div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div></form><button class="exit-btn-secondary">' + t.decline + '</button><span class="exit-disclaimer">' + t.disclaimer + '</span></div>';
         document.body.appendChild(modal);
         document.body.style.overflow = 'hidden';
         setTimeout(function() { modal.classList.add('active'); }, 10);
@@ -1386,11 +1464,43 @@ function submitExitForm(e, t) {
     showExitSuccess(emailVal);
     try {
         var payload = { source: 'exit_intent', email: emailVal, timestamp: new Date().toISOString(), page: window.location.pathname };
-        var sent = navigator.sendBeacon && navigator.sendBeacon('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', JSON.stringify(payload));
-        if (!sent) { fetch('https://script.google.com/macros/s/AKfycbyy_bNoqwbED3Fkn1N0H7xicE1wuTYMbhM7VG9wWHT4gMTracqCGEIgxy9qXzhnb2gF/exec', { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) }).catch(function() {}); }
+        var exitParams = new URLSearchParams();
+        exitParams.append('source', 'exit_intent');
+        exitParams.append('email', payload.email || '');
+        exitParams.append('timestamp', payload.timestamp || new Date().toISOString());
+        exitParams.append('page', payload.page || window.location.pathname);
+        exitParams.append('newsletter_growth', document.getElementById('exitNlGrowth') && document.getElementById('exitNlGrowth').checked ? 'yes' : 'no');
+        exitParams.append('newsletter_latam',  document.getElementById('exitNlLatam')  && document.getElementById('exitNlLatam').checked  ? 'yes' : 'no');
+        fetch('https://script.google.com/macros/s/SUA_URL_REAL/exec', { method: 'POST', mode: 'no-cors', body: exitParams }).catch(function() {});
     } catch(ignored) {}
     return false;
 }
+
+
+// ── Newsletter toggle lang sync ───────────────────────────
+(function() {
+  var NL_PREFIXES = ["exit"];
+
+  function syncNlLang(lang) {
+    NL_PREFIXES.forEach(function(pfx) {
+      var wrap  = document.getElementById(pfx + 'NlWrap');
+      if (!wrap) return;
+      var attr  = lang === 'en' ? 'data-nl-en' : 'data-nl-pt';
+      wrap.querySelectorAll('[data-nl-pt]').forEach(function(el) {
+        el.textContent = el.getAttribute(attr) || el.textContent;
+      });
+    });
+  }
+
+  // Initial render
+  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
+  syncNlLang(initLang);
+
+  // Listen for page-level lang changes (fired by nav.js / toggleLang)
+  document.addEventListener('langChange', function(e) {
+    syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
+  });
+})();
 
 function showExitSuccess(email) {
     var content = document.querySelector('#exitModal .exit-content');

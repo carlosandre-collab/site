@@ -2136,85 +2136,7 @@ h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height
         justify-content: center;
     }
 }
-    
-/* ── Newsletter topic toggles ────────────────────────────── */
-.nl-toggles-wrap {
-  margin: 16px 0 4px;
-}
-.nl-toggles-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted, #8C8CA1);
-  margin-bottom: 10px;
-}
-.nl-toggles-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.nl-toggle-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  user-select: none;
-}
-.nl-toggle-item input[type="checkbox"] {
-  display: none;
-}
-.nl-switch {
-  position: relative;
-  width: 36px;
-  height: 20px;
-  background: var(--border, #E5E7EB);
-  border-radius: 999px;
-  transition: background 0.2s;
-  flex-shrink: 0;
-}
-.nl-toggle-item input:checked + .nl-switch {
-  background: var(--accent, #1B3A5C);
-}
-.nl-switch::after {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 14px;
-  height: 14px;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform 0.2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
-}
-.nl-toggle-item input:checked + .nl-switch::after {
-  transform: translateX(16px);
-}
-.nl-toggle-text {
-  font-size: 0.84rem;
-  color: var(--text-secondary, #4A5568);
-  line-height: 1.3;
-}
-/* Invert label colour on dark backgrounds (exit-intent modal) */
-.nl-dark .nl-toggles-label,
-.nl-dark .nl-toggle-text {
-  color: rgba(255,255,255,0.75);
-}
-.nl-dark .nl-switch {
-  background: rgba(255,255,255,0.25);
-}
-.nl-dark .nl-toggle-item input:checked + .nl-switch {
-  background: var(--warm, #C8965A);
-}
-/* Compact variant for inline single-row forms (guia-crescimento, market-entry) */
-.nl-toggles-wrap.nl-compact {
-  margin: 12px 0 0;
-}
-.nl-toggles-wrap.nl-compact .nl-toggles-label {
-  margin-bottom: 7px;
-}
-</style>
+    </style>
     
     <script src="components/nav.js" defer></script>
     <script src="components/footer.js" defer></script>
@@ -2734,7 +2656,6 @@ h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height
                             <option value="principal" data-i18n="investors.report.form.principal">Principal / Director</option>
                             <option value="analyst" data-i18n="investors.report.form.analyst">Analyst / Associate</option>
                             <option value="founder" data-i18n="investors.report.form.founder">Founder / CEO (portfolio)</option>
-                            <option value="other" data-i18n="investors.report.form.other">Outro</option>
                         </select>
                     </div>
                     <div class="report-field">
@@ -2748,22 +2669,6 @@ h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; line-height
                     O relatório inclui os dados do scorecard e calculadora acima. Complete essas seções para um diagnóstico mais preciso.
                 </p>
                 
-
-<div class="nl-toggles-wrap" id="invNlWrap">
-  <p class="nl-toggles-label" data-nl-pt="Receber conteúdo sobre:" data-nl-en="Receive content on:" id="invNlLabel">Receber conteúdo sobre:</p>
-  <div class="nl-toggles-row">
-    <label class="nl-toggle-item">
-      <input type="checkbox" id="invNlGrowth" checked>
-      <span class="nl-switch"></span>
-      <span class="nl-toggle-text" data-nl-pt="Growth B2B & Receita" data-nl-en="B2B Growth Strategies" id="invNlGrowthLbl">Growth B2B & Receita</span>
-    </label>
-    <label class="nl-toggle-item">
-      <input type="checkbox" id="invNlLatam" checked>
-      <span class="nl-switch"></span>
-      <span class="nl-toggle-text" data-nl-pt="Expansão para LatAm" data-nl-en="Expanding into LatAm" id="invNlLatamLbl">Expansão para LatAm</span>
-    </label>
-  </div>
-</div>
                 <button class="report-btn" onclick="generateReport()" id="reportBtn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
                         <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
@@ -3521,8 +3426,7 @@ async function generateReport() {
         'gp': 'GP / Partner',
         'principal': 'Principal / Director',
         'analyst': 'Analyst / Associate',
-        'founder': 'Founder / CEO (portfolio)',
-        'other': 'Outro / Other'
+        'founder': 'Founder / CEO (portfolio)'
     };
     
     // Coletar dados do scorecard
@@ -3657,8 +3561,6 @@ async function generateReport() {
             params.append(key, val === null || val === undefined ? '' : String(val));
         }
     }
-    params.append('newsletter_growth', document.getElementById('invNlGrowth') && document.getElementById('invNlGrowth').checked ? 'yes' : 'no');
-    params.append('newsletter_latam',  document.getElementById('invNlLatam')  && document.getElementById('invNlLatam').checked  ? 'yes' : 'no');
     
     fetch('https://script.google.com/macros/s/SUA_URL_REAL/exec', {
         method: 'POST',
@@ -3768,33 +3670,7 @@ async function generateReport() {
     window.updateScorecardVerdict = updateScorecardVerdict;
     
     // Global toggle function
-    
-// ── Newsletter toggle lang sync ───────────────────────────
-(function() {
-  var NL_PREFIXES = ["inv"];
-
-  function syncNlLang(lang) {
-    NL_PREFIXES.forEach(function(pfx) {
-      var wrap  = document.getElementById(pfx + 'NlWrap');
-      if (!wrap) return;
-      var attr  = lang === 'en' ? 'data-nl-en' : 'data-nl-pt';
-      wrap.querySelectorAll('[data-nl-pt]').forEach(function(el) {
-        el.textContent = el.getAttribute(attr) || el.textContent;
-      });
-    });
-  }
-
-  // Initial render
-  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
-  syncNlLang(initLang);
-
-  // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
-    syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
-  });
-})();
-
-window.toggleLang = function() {
+    window.toggleLang = function() {
         var newLang = currentLang === 'pt' ? 'en' : 'pt';
         
         if (!translations) {
