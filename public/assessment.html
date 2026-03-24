@@ -1106,36 +1106,7 @@ main {
   </div>
 </div>
 
-<div class="nl-toggles-wrap" id="asmtNlWrap">
-  <p class="nl-toggles-label" data-nl-pt="Receber conteúdo sobre:" data-nl-en="Receive content on:" id="asmtNlLabel">Receber conteúdo sobre:</p>
-  <div class="nl-toggles-row">
-    <label class="nl-toggle-item">
-      <input type="checkbox" id="asmtNlGrowth" checked>
-      <span class="nl-switch"></span>
-      <span class="nl-toggle-text" data-nl-pt="Growth B2B & Receita" data-nl-en="B2B Growth Strategies" id="asmtNlGrowthLbl">Growth B2B & Receita</span>
-    </label>
-    <label class="nl-toggle-item">
-      <input type="checkbox" id="asmtNlLatam" checked>
-      <span class="nl-switch"></span>
-      <span class="nl-toggle-text" data-nl-pt="Expansão para LatAm" data-nl-en="Expanding into LatAm" id="asmtNlLatamLbl">Expansão para LatAm</span>
-    </label>
-  </div>
 </div>
-                        <button class="btn-generate" id="formBtn" onclick="submitAndDownload()">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span>Enviar Diagnóstico</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="form-success" id="formSuccess">
-                    <div class="success-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <h4 id="successTitle">Diagnóstico enviado!</h4>
-                    <p id="successText">Verifique seu email. O PDF completo está em anexo.</p>
-                </div>
-            </div>
             
             <div class="divider" id="dividerText">ou converse diretamente</div>
             
@@ -1447,9 +1418,7 @@ async function submitAndDownload() {
     params.append('timestamp', new Date().toISOString());
     params.append('newsletter_growth', document.getElementById('asmtNlGrowth').checked ? 'yes' : 'no');
         params.append('newsletter_latam',  document.getElementById('asmtNlLatam').checked  ? 'yes' : 'no');
-    params.append('newsletter_growth', document.getElementById('asmtNlGrowth').checked ? 'yes' : 'no');
-        params.append('newsletter_latam',  document.getElementById('asmtNlLatam').checked  ? 'yes' : 'no');
-    
+        
     fetch('https://script.google.com/macros/s/AKfycbya0njJJE2NBkoj0mjQUvuR-EBwBOX8-cXYRIeIXLLIMLlB9hRye3Zzteyo3dD7Qawg/exec', {
         method: 'POST',
         mode: 'no-cors',
