@@ -1744,7 +1744,7 @@
     params.append('email', email);
     params.append('timestamp', new Date().toISOString());
     params.append('page', window.location.pathname);
-    fetch('https://script.google.com/macros/s/SUA_URL_REAL/exec', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
+    fetch('https://script.google.com/macros/s/AKfycbya0njJJE2NBkoj0mjQUvuR-EBwBOX8-cXYRIeIXLLIMLlB9hRye3Zzteyo3dD7Qawg/exec', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', { event_category: 'lead_generation', lead_source: 'market_entry_cta' });
     }

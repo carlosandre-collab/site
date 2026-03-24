@@ -1471,7 +1471,7 @@ function submitExitForm(e, t) {
         exitParams.append('page', payload.page || window.location.pathname);
         exitParams.append('newsletter_growth', document.getElementById('exitNlGrowth') && document.getElementById('exitNlGrowth').checked ? 'yes' : 'no');
         exitParams.append('newsletter_latam',  document.getElementById('exitNlLatam')  && document.getElementById('exitNlLatam').checked  ? 'yes' : 'no');
-        fetch('https://script.google.com/macros/s/SUA_URL_REAL/exec', { method: 'POST', mode: 'no-cors', body: exitParams }).catch(function() {});
+        fetch('https://script.google.com/macros/s/AKfycbya0njJJE2NBkoj0mjQUvuR-EBwBOX8-cXYRIeIXLLIMLlB9hRye3Zzteyo3dD7Qawg/exec', { method: 'POST', mode: 'no-cors', body: exitParams }).catch(function() {});
     } catch(ignored) {}
     return false;
 }
