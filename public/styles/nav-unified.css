@@ -432,6 +432,22 @@ nav {
     }
 }
 
+/* ── Mobile-only sidebar links ── */
+.nav-mobile-link {
+    display: block;
+    padding: 14px 24px;
+    color: #3a4a5c;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.15s, color 0.15s;
+}
+.nav-mobile-link:hover { background: #f4f6f8; color: #1B3A5C; }
+.nav-mobile-link-vcs { color: #C8965A; font-weight: 600; }
+.nav-mobile-link-vcs:hover { color: #B07D42; }
+
 /* ══════════════════════════════════════════════
    12. DESKTOP (1024px+)
    ══════════════════════════════════════════════ */
