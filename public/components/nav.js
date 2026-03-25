@@ -115,7 +115,7 @@
                     { label: 'Why Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
-                    { label: 'Blog', url: mepBlogUrl },
+                    { label: 'Blog', url: blogUrl },
                     { label: 'Growth Guide', url: guiaUrl },
                     { label: 'VCs', url: investidoresUrl },
                     { label: 'Expand to LatAm', url: marketEntryUrl }
@@ -232,15 +232,9 @@
                 navHTML += '<a href="' + buildSectionUrl(ms) + '" class="nav-ctx-link nav-mobile-item">' + ms.label + '</a>';
             }
         }
-        // Extra items (e.g. Blog) — desktop flat + mobile
-        if (cfg.expandLatAm.extraItems && cfg.expandLatAm.extraItems.length > 0) {
-            navHTML += '<div class="nav-separator"></div>';
-            for (var ei = 0; ei < cfg.expandLatAm.extraItems.length; ei++) {
-                var eItem = cfg.expandLatAm.extraItems[ei];
-                navHTML += '<a href="' + eItem.url + '" class="nav-flat-link">' + eItem.label + '</a>';
-                navHTML += '<a href="' + eItem.url + '" class="nav-ctx-link nav-mobile-item">' + eItem.label + '</a>';
-            }
-        }
+        navHTML += '<div class="nav-separator"></div>';
+        navHTML += '<a href="' + mepBlogUrl + '" class="nav-flat-link">Blog</a>';
+        navHTML += '<a href="' + mepBlogUrl + '" class="nav-ctx-link nav-mobile-item">Blog</a>';
         navHTML += '<div class="nav-separator"></div>';
         navHTML += '<a href="' + indexUrl + '" class="nav-latam-badge nav-mobile-hide">Startup Growth</a>';
         navHTML += '<a href="' + indexUrl + '" class="nav-ctx-link nav-mobile-item nav-cross-link">Startup Growth</a>';
