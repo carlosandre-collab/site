@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "estruturacao-programa-canal-b2b",
+      "slug": "estruturacao-programa-canal-b2b",
+      "slugs": {
+        "pt": "estruturacao-programa-canal-b2b",
+        "en": "structuring-b2b-channel-program"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Estratégia & Growth",
+        "en": "Strategy & Growth"
+      },
+      "title": {
+        "pt": "Estruturando o Programa de Canal B2B: Tiers, Contratos e os Erros que Custam 12 Meses",
+        "en": "Structuring a B2B Channel Program: Tiers, Contracts, and the Mistakes That Cost 12 Months"
+      },
+      "excerpt": {
+        "pt": "Critérios de seleção, modelo de tiers, cláusulas contratuais e tudo que ninguém te conta antes de abrir um programa de canal B2B.",
+        "en": "Selection criteria, tier models, contract clauses, and everything no one tells you before launching a B2B channel program."
+      },
+      "readTime": {
+        "pt": "13 min de leitura",
+        "en": "13 min read"
+      },
+      "date": "2026-03-25",
+      "dateLabel": {
+        "pt": "Mar 2026",
+        "en": "Mar 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/estruturacao-programa-canal-b2b-thumb.jpg",
+        "alt": {
+          "pt": "Estrutura de programa de canal B2B com modelo de tiers e critérios de seleção",
+          "en": "B2B channel program structure with tier model and partner selection criteria"
+        }
+      }
+    },
+    {
       "id": "canal-revenda-mito-que-vende-sozinho",
       "slug": "canal-revenda-mito-que-vende-sozinho",
       "slugs": {
         "pt": "canal-revenda-mito-que-vende-sozinho",
         "en": "channel-myth-that-sells-itself"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Estratégia & Growth",
         "en": "Strategy & Growth"
