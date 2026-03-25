@@ -38,13 +38,21 @@
     // — Build URLs based on depth —
     var indexUrl = basePath ? basePath + 'index.html' : 'index.html';
     var blogUrl = basePath ? basePath + 'blog.html' : 'blog.html';
-    // MEP blog URL (market-entry/blog.html relative to current depth)
+    // MEP blog URL — calculated from actual path, not just basePath
+    // basePath alone is ambiguous: '../../' is used by both blog/posts/ and market-entry/posts/
+    var _loc = window.location.pathname;
     var mepBlogUrl;
-    if (basePath === '../../') {
-        mepBlogUrl = '../market-entry/blog.html';
-    } else if (basePath === '../') {
-        mepBlogUrl = 'market-entry/blog.html';
+    if (_loc.indexOf('/market-entry/posts/') !== -1) {
+        // Inside market-entry/posts/ — go up one level to market-entry/
+        mepBlogUrl = '../blog.html';
+    } else if (_loc.indexOf('/market-entry/') !== -1) {
+        // Already inside market-entry/ (blog.html, overview.html, calculator.html)
+        mepBlogUrl = 'blog.html';
+    } else if (basePath === '../../') {
+        // Inside blog/posts/ (Startup Growth articles) — go up two levels then into market-entry/
+        mepBlogUrl = '../../market-entry/blog.html';
     } else {
+        // Root level
         mepBlogUrl = 'market-entry/blog.html';
     }
     var guiaUrl = basePath ? basePath + 'guia-crescimento-receita-b2b.html' : 'guia-crescimento-receita-b2b.html';
@@ -357,6 +365,12 @@
             if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
         },
         toggleLang: function () {
+            // If the page defines its own toggleLang (blog posts, guias), delegate to it.
+            // The page's function handles content switch + dispatches langChange for nav re-render.
+            if (typeof window.toggleLang === 'function' && window.toggleLang !== window.alavankaNav.toggleLang) {
+                window.toggleLang();
+                return;
+            }
             var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
             var newLang = currentLang === 'pt' ? 'en' : 'pt';
             sessionStorage.setItem('alavanka-lang', newLang);
