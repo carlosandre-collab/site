@@ -115,7 +115,7 @@
                     { label: 'Why Alavanka', anchor: 'porque', page: indexUrl }
                 ],
                 extraItems: [
-                    { label: 'Blog', url: mepBlogUrl },
+                    { label: 'Blog', url: blogUrl },
                     { label: 'Growth Guide', url: guiaUrl },
                     { label: 'VCs', url: investidoresUrl },
                     { label: 'Expand to LatAm', url: marketEntryUrl }
@@ -133,7 +133,9 @@
                     { label: 'Our Team', anchor: 'team', page: marketEntryUrl },
                     { label: 'FAQ', anchor: 'faq', page: marketEntryUrl }
                 ],
-                extraItems: []
+                extraItems: [
+                    { label: 'Blog', url: mepBlogUrl }
+                ]
             },
             blog: { label: 'Blog', url: mepBlogUrl },
             cta: {
