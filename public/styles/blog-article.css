@@ -365,40 +365,7 @@ body {
     box-shadow: 0 6px 20px rgba(27, 58, 92, 0.4);
 }
 
-/* ===== SITE FOOTER ===== */
-footer {
-    background-color: var(--bg-dark);
-    color: #ffffff;
-    padding: 40px 5%;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin: 5px 0;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: var(--accent-light);
-}
+/* Footer styles moved to footer.css — see components/footer.js */
 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float {

@@ -6,14 +6,7 @@
     <title>Canal de Revenda B2B: O Mito do Canal que Vende Sozinho | Alavanka</title>
     <meta name="description" content="Montar um canal de revenda não é suficiente para crescer. Sem GTM sincronizado e proposta de valor adaptada, o canal paralisa. Veja o que realmente funciona.">
 
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-D8LLY1L1Z3');
-    </script>
+    <!-- GA4 moved to end of body for performance -->
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -491,5 +484,19 @@
             window.location.href = 'channel-myth-that-sells-itself.html';
         };
     </script>
+
+<!-- Footer -->
+<footer id="main-footer"></footer>
+<script src="../../components/footer.js" defer></script>
+<link rel="stylesheet" href="../../styles/footer.css">
+
+<!-- GA4 (async, end of body) -->
+<script>window.dataLayer = window.dataLayer || [];</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+<script>
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D8LLY1L1Z3');
+</script>
 </body>
 </html>

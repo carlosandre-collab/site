@@ -22,13 +22,7 @@
   <script defer src="/_vercel/insights/script.js"></script>
     <!-- Vercel Speed Insights -->
     <script defer src="/_vercel/speed-insights/script.js"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D8LLY1L1Z3', {'send_page_view': true});
-  </script>
+    <!-- GA4 moved to end of body for performance -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -446,5 +440,14 @@
       }
     }
   </script>
+
+<!-- GA4 (async, end of body) -->
+<script>window.dataLayer = window.dataLayer || [];</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8LLY1L1Z3"></script>
+<script>
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D8LLY1L1Z3');
+</script>
 </body>
 </html>
