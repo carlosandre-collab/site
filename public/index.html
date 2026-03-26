@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<script defer src="/_vercel/insights/script.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,12 +54,12 @@ body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;c
 
 :root{
     --accent:#1B3A5C;--accent-dark:#142D48;--accent-light:#2D5F8A;--accent-glow:rgba(27,58,92,0.35);--accent-bg:rgba(27,58,92,0.10);
-    --warm:#D4883A;--warm-dark:#C17A32;--warm-light:#E0A050;--warm-glow:rgba(212,136,58,0.4);--warm-bg:rgba(212,136,58,0.12);
+    --warm:#C8965A;--warm-dark:#B07D42;--warm-light:#D4A96F;--warm-glow:rgba(200,150,90,0.25);--warm-bg:rgba(200,150,90,0.08);
     --bg:#FAFBFD;--bg-card:#FFFFFF;--bg-dark:#0D1B2A;
     --text:#0D1B2A;--text-secondary:#4A5568;--text-muted:#8C8CA1;--text-inverse:#FFFFFF;
     --success:#10B981;--success-bg:rgba(16,185,129,0.08);--danger:#EF4444;--danger-bg:rgba(239,68,68,0.08);--warning:#F59E0B;
     --border:#CBD5E1;--border-accent:rgba(27,58,92,0.2);
-    --shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 6px 20px rgba(27,58,92,0.12);--shadow-lg:0 16px 48px rgba(27,58,92,0.18);--shadow-glow:0 8px 32px rgba(212,136,58,0.45);
+    --shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 6px 20px rgba(27,58,92,0.12);--shadow-lg:0 16px 48px rgba(27,58,92,0.18);--shadow-glow:0 8px 32px rgba(200,150,90,0.3);
     --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-full:9999px;
 }
 
@@ -149,7 +148,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 60px;background:linear-gradient(180deg,var(--bg) 0%,rgba(250,251,253,0.5) 100%);position:relative}
 .hero-title{font-size:clamp(32px,6vw,56px);margin-bottom:20px;color:var(--text)}
 .hero-sub,.hero-subtitle{font-size:clamp(18px,2.5vw,22px);color:var(--text-secondary);margin-bottom:40px;max-width:680px}
-.hero h1 .highlight{color:#D4883A;position:relative;display:inline;background:linear-gradient(180deg,transparent 60%,rgba(212,136,58,0.15) 60%)}
+.hero h1 .highlight{color:#C8965A;position:relative;display:inline;background:linear-gradient(180deg,transparent 60%,rgba(200,150,90,0.15) 60%)}
 .track-record{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:48px auto;width:100%}
 .track-card{background:var(--bg-card);border:2px solid var(--border);border-radius:var(--r-lg);padding:24px;text-align:center;transition:all 0.3s ease}
 .track-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
@@ -1052,7 +1051,7 @@ fetch('/translations.json')
             currentLang = pendingLang;
             pendingLang = null;
         } else {
-            const saved = localStorage.getItem('alavanka-lang');
+            const saved = sessionStorage.getItem('alavanka-lang');
             if (saved && saved !== currentLang) {
                 currentLang = saved;
             }
@@ -1070,7 +1069,7 @@ function toggleLang() {
         currentLang = newLang;
         applyTranslations();
     }
-    localStorage.setItem('alavanka-lang', currentLang);
+    sessionStorage.setItem('alavanka-lang', currentLang);
     const btnText = currentLang === 'pt' ? 'EN' : 'PT';
     const langText = document.getElementById('langText');
     const langBtn = document.getElementById('langToggle');
@@ -1111,12 +1110,12 @@ window.addEventListener('langChange', function(e) {
             currentLang = newLang;
             applyTranslations();
         }
-        localStorage.setItem('alavanka-lang', currentLang);
+        sessionStorage.setItem('alavanka-lang', currentLang);
     }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('alavanka-lang');
+    const saved = sessionStorage.getItem('alavanka-lang');
     if (saved) {
         currentLang = saved;
         const btnText = currentLang === 'pt' ? 'EN' : 'PT';
@@ -1430,7 +1429,7 @@ window.closeExitModal = function() {
         var modal = document.createElement('div');
         modal.className = 'exit-modal';
         modal.id = 'exitModal';
-        modal.innerHTML = '<div class="exit-overlay"></div><div class="exit-content"><button class="exit-close" aria-label="Fechar">&times;</button><div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div><h3>' + t.title + '</h3><p>' + t.subtitle + '</p><ul class="exit-value-list"><li>' + t.bullet1 + '</li><li>' + t.bullet2 + '</li><li>' + t.bullet3 + '</li></ul><form class="exit-form" id="exitForm"><input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput">' + '<div class="nl-toggles-wrap nl-dark" id="exitNlWrap"><p class="nl-toggles-label" id="exitNlLabel">' + (localStorage.getItem('alavanka-lang')==='en' ? 'Receive content on:' : 'Receber conteúdo sobre:') + '</p><div class="nl-toggles-row"><label class="nl-toggle-item"><input type="checkbox" id="exitNlGrowth" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlGrowthLbl">' + (localStorage.getItem('alavanka-lang')==='en' ? 'B2B Growth Strategies' : 'Growth B2B &amp; Receita') + '</span></label><label class="nl-toggle-item"><input type="checkbox" id="exitNlLatam" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlLatamLbl">' + (localStorage.getItem('alavanka-lang')==='en' ? 'Expanding into LatAm' : 'Expans&#227;o para LatAm') + '</span></label></div></div>' + <button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button><div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div></form><button class="exit-btn-secondary">' + t.decline + '</button><span class="exit-disclaimer">' + t.disclaimer + '</span></div>';
+        modal.innerHTML = '<div class="exit-overlay"></div><div class="exit-content"><button class="exit-close" aria-label="Fechar">&times;</button><div class="exit-book-icon" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6" opacity="0.5"/></svg></div><h3>' + t.title + '</h3><p>' + t.subtitle + '</p><ul class="exit-value-list"><li>' + t.bullet1 + '</li><li>' + t.bullet2 + '</li><li>' + t.bullet3 + '</li></ul><form class="exit-form" id="exitForm"><input type="email" name="user_mail" placeholder="' + t.placeholder + '" required autocomplete="email" id="exitEmailInput">' + '<div class="nl-toggles-wrap nl-dark" id="exitNlWrap"><p class="nl-toggles-label" id="exitNlLabel">' + (sessionStorage.getItem('alavanka-lang')==='en' ? 'Receive content on:' : 'Receber conteúdo sobre:') + '</p><div class="nl-toggles-row"><label class="nl-toggle-item"><input type="checkbox" id="exitNlGrowth" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlGrowthLbl">' + (sessionStorage.getItem('alavanka-lang')==='en' ? 'B2B Growth Strategies' : 'Growth B2B &amp; Receita') + '</span></label><label class="nl-toggle-item"><input type="checkbox" id="exitNlLatam" checked><span class="nl-switch"></span><span class="nl-toggle-text" id="exitNlLatamLbl">' + (sessionStorage.getItem('alavanka-lang')==='en' ? 'Expanding into LatAm' : 'Expans&#227;o para LatAm') + '</span></label></div></div>' + <button type="submit" class="exit-btn-primary" id="exitSubmitBtn">' + t.cta + '</button><div class="exit-error" id="exitError" style="display:none">' + t.errorMsg + '</div></form><button class="exit-btn-secondary">' + t.decline + '</button><span class="exit-disclaimer">' + t.disclaimer + '</span></div>';
         document.body.appendChild(modal);
         document.body.style.overflow = 'hidden';
         setTimeout(function() { modal.classList.add('active'); }, 10);
@@ -1493,7 +1492,7 @@ function submitExitForm(e, t) {
   }
 
   // Initial render
-  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
+  var initLang = sessionStorage.getItem('alavanka-lang') || 'pt';
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
@@ -1538,5 +1537,9 @@ else { window.addEventListener('load', loadThirdPartyScripts); }
   gtag('js', new Date());
   gtag('config', 'G-D8LLY1L1Z3');
 </script>
+
+<!-- Vercel Analytics + Speed Insights -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>

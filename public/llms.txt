@@ -4,12 +4,12 @@
 ## About
 Alavanka provides two core services for B2B technology companies:
 1. **Growth Execution** for Brazilian B2B Tech startups with stalled growth
-2. **Market Entry Partnership** for international companies expanding into Latin America
+2. **Build, Operate & Transfer (BOT)** for international companies expanding into Latin America
 
 Founded by Carlos André, Ex-President of Oracle Brasil and Ex-CEO of AT&T LATAM.
 
 ## Key Facts
-- Services: Growth Execution + LatAm Market Entry Partnership
+- Services: Growth Execution + Build, Operate & Transfer (BOT) for LatAm
 - Growth Execution Target: B2B tech companies, Series B+, Revenue R$10M-50M/year
 - Market Entry Target: International B2B tech companies expanding to Latin America
 - Location: Brazil (São Paulo)
@@ -100,10 +100,10 @@ Growth Execution delivers 70-80% of impact for 30-40% of the cost of a full-time
 
 ---
 
-## Service 2: Market Entry Partnership (International → LatAm)
+## Service 2: Build, Operate & Transfer (International → LatAm)
 
-### What is the Market Entry Partnership?
-A hands-on partnership for international B2B tech companies expanding into Latin America. Unlike traditional market entry consulting that delivers reports and recommendations, the Market Entry Partnership provides embedded operational leadership with direct accountability for revenue results in the region.
+### What is the Build, Operate & Transfer (BOT) Model?
+A hands-on partnership for international B2B tech companies expanding into Latin America. Unlike traditional market entry consulting that delivers reports and recommendations, the Build, Operate & Transfer (BOT) provides embedded operational leadership with direct accountability for revenue results in the region.
 
 ### The LatAm Challenge
 International companies expanding to Latin America face specific challenges:

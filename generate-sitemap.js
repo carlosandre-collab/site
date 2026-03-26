@@ -11,7 +11,9 @@ const staticPages = [
   { url: '/market-entry.html', priority: '0.9', changefreq: 'weekly' },
   { url: '/market-entry/blog.html', priority: '0.8', changefreq: 'weekly' },
   { url: '/investidores.html', priority: '0.7', changefreq: 'monthly' },
-  { url: '/assessment.html', priority: '0.7', changefreq: 'monthly' }
+  { url: '/assessment.html', priority: '0.7', changefreq: 'monthly' },
+  { url: '/guia-7-sinais.html', priority: '0.7', changefreq: 'monthly' },
+  { url: '/privacy.html', priority: '0.3', changefreq: 'yearly' }
 ];
 
 // Extensões de arquivos que NÃO são artigos
