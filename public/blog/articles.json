@@ -77,6 +77,44 @@
       }
     },
     {
+      "id": "estilo-gestao-performance-composicao-time",
+      "slug": "estilo-gestao-performance-composicao-time",
+      "slugs": {
+        "pt": "estilo-gestao-performance-composicao-time",
+        "en": "management-style-meets-rep-profile"
+      },
+      "featured": false,
+      "category": {
+        "pt": "Gestão de Vendas",
+        "en": "Sales Management"
+      },
+      "title": {
+        "pt": "Seu Estilo de Gestão Encontra o Perfil do Seu Liderado: O Que Acontece Depois",
+        "en": "When Your Management Style Meets Your Rep's Profile: What Happens Next"
+      },
+      "excerpt": {
+        "pt": "A performance do time não depende só do gestor nem só do vendedor. Depende da composição entre os dois. Como identificar essa dinâmica e ajustar antes que o resultado apareça nos números.",
+        "en": "Team performance doesn't depend only on the manager or only on the rep. It depends on the composition between the two. How to identify this dynamic and adjust before it shows up in the numbers."
+      },
+      "readTime": {
+        "pt": "10 min de leitura",
+        "en": "10 min read"
+      },
+      "date": "2026-03-12",
+      "dateLabel": {
+        "pt": "Mar 2026",
+        "en": "Mar 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/estilo-gestao-performance-composicao-time-thumb.jpg",
+        "alt": {
+          "pt": "Dinâmica entre estilo de gestão e perfil do vendedor em times B2B",
+          "en": "Management style meets sales rep profile dynamics in B2B teams"
+        }
+      }
+    },
+    {
       "id": "vendas-governo-sem-atalhos-ilicitos",
       "slug": "vendas-governo-sem-atalhos-ilicitos",
       "slugs": {
@@ -336,6 +374,10 @@
           "pt": "Ilustração sobre precificação para startups B2B mostrando o impacto do preço no lucro",
           "en": "Illustration about B2B startup pricing showing the impact of price on profit"
         }
+      },
+      "slugs": {
+        "pt": "guia-precificacao-startups-b2b",
+        "en": "guia-precificacao-startups-b2b"
       }
     },
     {
@@ -370,6 +412,10 @@
           "pt": "Ilustração do sistema de GTM mostrando como compensação funciona como lente diagnóstica",
           "en": "GTM system illustration showing how compensation works as a diagnostic lens"
         }
+      },
+      "slugs": {
+        "pt": "compensacao-sistema-gtm",
+        "en": "compensacao-sistema-gtm"
       }
     },
     {
@@ -404,6 +450,10 @@
           "pt": "Ilustração do artigo sobre Value Proposition Impreciso",
           "en": "Illustration for the article about Unclear Value Proposition"
         }
+      },
+      "slugs": {
+        "pt": "value-proposition-impreciso",
+        "en": "value-proposition-impreciso-en"
       }
     },
     {
@@ -438,6 +488,10 @@
           "pt": "Ilustração do artigo sobre o custo invisível de não ter um CRO",
           "en": "Illustration for the article about the hidden cost of not having a CRO"
         }
+      },
+      "slugs": {
+        "pt": "custo-invisivel-cro",
+        "en": "custo-invisivel-cro"
       }
     }
   ],
