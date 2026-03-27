@@ -94,9 +94,17 @@
     }
 
     // ── 5. URL builder for section anchors ────────────────────
+    // Only use #anchor when we're on the EXACT target page (not sub-pages like blog.html)
+    var isOnMEPLanding = currentPath.indexOf('market-entry') !== -1 &&
+                         currentPath.indexOf('market-entry/') === -1;
+    // Also match /market-entry (clean URL without .html)
+    if (currentPath.endsWith('/market-entry') || currentPath.endsWith('/market-entry.html')) {
+        isOnMEPLanding = true;
+    }
+
     function sectionUrl(anchor, targetPage) {
         if (targetPage === indexUrl && isIndex) return '#' + anchor;
-        if (targetPage === marketEntryUrl && isMEPPage) return '#' + anchor;
+        if (targetPage === marketEntryUrl && isOnMEPLanding) return '#' + anchor;
         if (targetPage === investidoresUrl && isInvestidores) return '#' + anchor;
         return targetPage + '#' + anchor;
     }
@@ -132,7 +140,7 @@
             html += '<a href="' + cfg.blogUrl + '" class="nav-link-mobile nav-link-highlight">' + cfg.blogLabel + '</a>';
             // Startup Growth cross-link
             html += '<div class="nav-sep"></div>';
-            html += '<a href="' + indexUrl + '" class="nav-badge-pill nav-hide-mobile">' + cfg.sgLabel + '</a>';
+            html += '<a href="' + indexUrl + '" class="nav-badge-pill">' + cfg.sgLabel + '</a>';
             html += '<a href="' + indexUrl + '" class="nav-link-mobile nav-link-cross">' + cfg.sgLabel + '</a>';
 
         } else {
@@ -156,7 +164,7 @@
             html += '<a href="' + investidoresUrl + '" class="nav-link-mobile nav-link-vcs-mobile">' + cfg.vcsLabel + '</a>';
             // LatAm badge
             html += '<div class="nav-sep"></div>';
-            html += '<a href="' + marketEntryUrl + '" class="nav-badge-pill nav-hide-mobile">' + cfg.latamLabel + '</a>';
+            html += '<a href="' + marketEntryUrl + '" class="nav-badge-pill">' + cfg.latamLabel + '</a>';
             html += '<a href="' + marketEntryUrl + '" class="nav-link-mobile nav-link-cross">' + cfg.latamLabel + '</a>';
         }
 

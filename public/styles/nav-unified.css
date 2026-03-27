@@ -9,8 +9,7 @@
      .nav-link-vcs-mobile → VCs link (amber, mobile sidebar)
      .nav-link-highlight → Blog on MEP mobile (distinct styling)
      .nav-link-cross     → Cross-site link (Startup Growth / Expand to LatAm, mobile)
-     .nav-badge-pill     → Pill badge (desktop)
-     .nav-hide-mobile    → Force-hide on mobile
+     .nav-badge-pill     → Pill badge (hidden mobile, visible desktop)
      .nav-sep            → Vertical separator (desktop only)
      .nav-lang-desktop   → Lang toggle button (desktop)
      .nav-lang-row-mobile → PT/EN buttons (mobile sidebar)
@@ -125,9 +124,6 @@ nav[role="navigation"] {
 
 /* Badge pill: hidden on mobile */
 .nav-badge-pill { display: none; }
-
-/* Force-hide on mobile */
-.nav-hide-mobile { display: none !important; }
 
 /* Separator: hidden on mobile */
 .nav-sep { display: none; }
