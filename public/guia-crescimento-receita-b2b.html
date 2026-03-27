@@ -1190,7 +1190,7 @@
             fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
         } catch(ignored) {}
         // Show success with direct PDF link — lang-aware
-        var lang = localStorage.getItem('alavanka-lang') || 'pt';
+        var lang = sessionStorage.getItem('alavanka-lang') || 'pt';
         var pdfUrl = lang === 'en'
             ? '/blog/guia-growth-execution-en.pdf'
             : '/blog/guia-growth-execution-pt.pdf';
@@ -1217,7 +1217,7 @@
   }
 
   // Initial render
-  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
+  var initLang = sessionStorage.getItem('alavanka-lang') || 'pt';
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
@@ -1278,9 +1278,9 @@
 <script>
 // Lang toggle — nav.js delegates here via window.toggleLang
 window.toggleLang = function() {
-    var currentLang = localStorage.getItem('alavanka-lang') || 'pt';
+    var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
     var newLang = currentLang === 'pt' ? 'en' : 'pt';
-    localStorage.setItem('alavanka-lang', newLang);
+    sessionStorage.setItem('alavanka-lang', newLang);
     window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: newLang } }));
     if (typeof gtag === 'function') {
         gtag('event', 'language_changed', { event_category: 'engagement', language: newLang });
@@ -1292,7 +1292,7 @@ window.toggleLang = function() {
 <script>
 (function() {
     'use strict';
-    var currentLang = localStorage.getItem('alavanka-lang') || 'pt';
+    var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
     var translations = null;
     var pendingLang = null;
 
@@ -1300,7 +1300,7 @@ window.toggleLang = function() {
     window.addEventListener('langChange', function(e) {
         if (!e.detail || !e.detail.lang) return;
         currentLang = e.detail.lang;
-        localStorage.setItem('alavanka-lang', currentLang);
+        sessionStorage.setItem('alavanka-lang', currentLang);
         if (translations) {
             applyTranslations();
         } else {

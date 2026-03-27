@@ -3785,7 +3785,7 @@ async function generateReport() {
   }
 
   // Initial render
-  var initLang = localStorage.getItem('alavanka-lang') || 'pt';
+  var initLang = sessionStorage.getItem('alavanka-lang') || 'pt';
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
