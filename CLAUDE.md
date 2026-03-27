@@ -341,7 +341,8 @@ Every article delivery must include ALL three:
 ## Market-Entry articles.json
 
 - Location: `public/market-entry/articles.json`
-- Thumbnail paths use `assets/images/market-entry/` (no `../../` prefix — same as blog)
+- Thumbnail paths use `../assets/images/market-entry/` (with `../` prefix — because `market-entry/blog.html` resolves paths relative to `public/market-entry/`)
+- Blog `articles.json` uses `assets/images/blog/` (no prefix — `blog.html` is at root level)
 - Only 1 article with `"featured": true` at any time
 - EN only (no slugs object, no PT/EN split — single string fields)
 - Categories: International Market Expansion | Market Entry | Sales Strategies | Value Proposition | Strategy & Growth

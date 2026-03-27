@@ -11,7 +11,7 @@
     "dateLabel": "March 2026",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/b2b-channel-latam-structuring-program-en-thumb.jpg",
+      "src": "../assets/images/market-entry/b2b-channel-latam-structuring-program-en-thumb.jpg",
       "alt": "Vibrant illustration of a bridge being constructed over a stylized map of Latin America"
     }
   },
@@ -27,7 +27,7 @@
     "dateLabel": "March 2026",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/b2b-channel-latam-myth-self-selling-en-thumb.jpg",
+      "src": "../assets/images/market-entry/b2b-channel-latam-myth-self-selling-en-thumb.jpg",
       "alt": "World map with connection lines showing distance between global business hubs and Latin America"
     }
   },
@@ -43,7 +43,7 @@
     "dateLabel": "March 2026",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/vendas-governo-sem-atalhos-en-thumb.jpg",
+      "src": "../assets/images/market-entry/vendas-governo-sem-atalhos-en-thumb.jpg",
       "alt": "Two diverging roads representing ethical vs shortcut approaches to government sales"
     }
   },
@@ -59,7 +59,7 @@
     "dateLabel": "January 2026",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/quota-latam-market-entry-en-thumb.jpg",
+      "src": "../assets/images/market-entry/quota-latam-market-entry-en-thumb.jpg",
       "alt": "Business professional analyzing pricing data for Latin American markets"
     }
   },
@@ -75,7 +75,7 @@
     "dateLabel": "December 2025",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/optimizing-latam-entry-model-en-thumb.jpg",
+      "src": "../assets/images/market-entry/optimizing-latam-entry-model-en-thumb.jpg",
       "alt": "Modern office building in a Latin American business district"
     }
   },
@@ -91,7 +91,7 @@
     "dateLabel": "December 2025",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg",
+      "src": "../assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg",
       "alt": "AI analytics for LATAM market expansion"
     }
   },
@@ -107,7 +107,7 @@
     "dateLabel": "November 2025",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/ai-revolutionizes-sales-latam-en-thumb.jpg",
+      "src": "../assets/images/market-entry/ai-revolutionizes-sales-latam-en-thumb.jpg",
       "alt": "AI-powered sales dashboard for Latin America"
     }
   },
@@ -123,7 +123,7 @@
     "dateLabel": "November 2025",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/mastering-market-entry-latam-en-thumb.jpg",
+      "src": "../assets/images/market-entry/mastering-market-entry-latam-en-thumb.jpg",
       "alt": "Modern office in a Latin American city"
     }
   },
@@ -139,7 +139,7 @@
     "dateLabel": "June 2025",
     "thumbnail": {
       "type": "image",
-      "src": "assets/images/market-entry/reshape-gtm-ai-integration-en-thumb.jpg",
+      "src": "../assets/images/market-entry/reshape-gtm-ai-integration-en-thumb.jpg",
       "alt": "Data analytics dashboard with AI insights"
     }
   }
