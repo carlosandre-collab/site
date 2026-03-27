@@ -1,276 +1,351 @@
-# CLAUDE.md — Alavanka Site Guidelines
-
-*Updated: March 2026 (post-audit rewrite)*
+# CLAUDE.md - AI Assistant Guidelines for Alavanka Site
 
 ## Project Overview
 
-**Alavanka** operates two B2B revenue service lines from a single static site:
+**Alavanka** is a static marketing and blog website for a Fractional CRO (Chief Revenue Officer) consulting service targeting B2B SaaS companies in Brazil and Latin America.
 
-| Service | Domain | Language | Target |
-|---------|--------|----------|--------|
-| **Growth Execution (Fractional CRO)** | alavanka.com.br | PT-BR primary | Brazilian B2B startups (post-Series A, R$8M+ ARR) |
-| **Build, Operate & Transfer (BOT)** | alavanka.com → redirects to alavanka.com.br/market-entry | EN | International B2B tech expanding into LatAm |
-
-- **Stack:** Pure HTML, CSS, vanilla JavaScript (ES5 for shared components) — no frameworks, no build tools beyond sitemap
-- **Hosting:** Vercel (static deploy from `/public`, GitHub push → auto-deploy)
-- **Repo:** `github.com/carlosandre-collab/site` (private), branch `main`
-- **DNS:** Registro.br (`.com.br`), DMARC `p=quarantine`, SPF/DKIM passing on `.com.br`
-
-### About Carlos André (site author)
-
-President of Oracle Brasil, CEO of AT&T LATAM, VP LATAM at Informatica, High Impact Mentor at Endeavor Brasil, IBGC Certified Board Member, lecturer at Insper (Empreendedorismo em Ação — Sales & Marketing), Harvard Business School (Finance for Senior Executives), Columbia Business School. **$300M+ in cumulative revenue built as an operator** (this is the canonical figure — use it everywhere, never approximate).
-
----
+- **Website:** https://www.alavanka.com.br
+- **Tech Stack:** Pure HTML, CSS, vanilla JavaScript (no frameworks or build tools beyond sitemap generation)
+- **Hosting:** Vercel (static deployment from `/public` directory)
+- **Languages:** Bilingual (Portuguese-BR primary, English secondary)
 
 ## Directory Structure
 
 ```
-/
-├── public/                              # Vercel output directory
-│   ├── index.html                       # Home (audience gate, i18n via translations.json)
-│   ├── blog.html                        # Blog listing (reads blog/articles.json)
-│   ├── investidores.html                # Investor-focused landing page
-│   ├── assessment.html                  # Self-diagnosis tool (5 questions)
-│   ├── guia-crescimento-receita-b2b.html # Pillar page (ALWAYS in root)
-│   ├── guia-7-sinais.html              # Lead magnet guide
-│   ├── privacy.html                     # Privacy policy (bilingual PT/EN)
-│   ├── market-entry.html               # BOT service main page (EN)
-│   ├── market-entry/
-│   │   ├── blog.html                   # Market entry blog listing (EN)
-│   │   ├── articles.json               # Market entry article metadata
-│   │   ├── overview.html               # Mid-funnel BOT model overview
-│   │   ├── calculator.html             # ROI calculator (interactive)
-│   │   └── posts/*.html                # EN-only market entry articles
-│   ├── blog/
-│   │   ├── articles.json               # Blog article metadata (PT+EN)
-│   │   └── posts/                      # Bilingual blog articles
-│   │       ├── *.html                  # Portuguese articles
-│   │       └── *-en.html               # English translations
-│   ├── assets/images/
-│   │   ├── brand/                      # Logos (PNG, SVG)
-│   │   ├── blog/                       # Blog thumbnails (JPG, 1200×630, ≤200KB)
-│   │   └── market-entry/              # Market entry thumbnails (JPG, 1200×630)
-│   ├── styles/
-│   │   ├── nav-unified.css            # Nav component (all pages)
-│   │   ├── blog-article.css           # Blog post styles (typography, callouts, tables, CTA)
-│   │   ├── footer.css                 # Footer component styles
-│   │   └── styles-main.css            # Index page styles
-│   ├── components/
-│   │   ├── nav.js                     # Nav component (injected, auto-detects depth + context)
-│   │   ├── footer.js                  # Footer component (injected, dual context BR/MEP)
-│   │   ├── blog-tracking.js           # GA4 scroll/CTA event tracking
-│   │   ├── newsletter-widget.js       # Newsletter popup
-│   │   └── ux-enhancements.js         # Scroll progress, etc.
-│   ├── translations.json              # i18n strings for index.html (~74KB)
-│   ├── sitemap.xml                    # Auto-generated (42 URLs)
-│   ├── robots.txt                     # Crawler directives (AI bots explicitly allowed)
-│   └── llms.txt                       # LLM-friendly content index
-├── generate-sitemap.js                # Node.js sitemap builder
-├── validate-posts.sh                  # Pre-commit validator (canonical/hreflang/og:url)
-├── vercel.json                        # Deploy config, security headers, CSP, redirects
-└── CLAUDE.md                          # This file
+/home/user/site/
+â”œâ”€â”€ public/                          # Main deployment directory (Vercel output)
+â”‚   â”œâ”€â”€ index.html                  # Main landing page (founders focus)
+â”‚   â”œâ”€â”€ blog.html                   # Blog listing page
+â”‚   â”œâ”€â”€ investidores.html           # Investor-focused landing page
+â”‚   â”œâ”€â”€ assessment.html             # Assessment/qualification page
+â”‚   â”œâ”€â”€ guia-fractional-cro-brasil.html  # Playbook/guide page
+â”‚   â”‚
+â”‚   â”œâ”€â”€ blog/
+â”‚   â”‚   â”œâ”€â”€ posts/                  # Individual blog articles (PT + EN)
+â”‚   â”‚   â”‚   â”œâ”€â”€ *.html             # Portuguese articles
+â”‚   â”‚   â”‚   â”œâ”€â”€ *-en.html          # English translations
+â”‚   â”‚   â”‚   â””â”€â”€ articles.json      # Article metadata
+â”‚   â”‚   â””â”€â”€ playbook-fractional-cro-brasil-2025.pdf
+â”‚   â”‚
+â”‚   â”œâ”€â”€ assets/
+â”‚   â”‚   â””â”€â”€ images/
+â”‚   â”‚       â”œâ”€â”€ brand/             # Logos and partner branding (PNG)
+â”‚   â”‚       â”œâ”€â”€ blog/              # Article thumbnails (JPG, 16:9)
+â”‚   â”‚       â””â”€â”€ illustrations/     # SVG and HTML illustrations
+â”‚   â”‚
+â”‚   â”œâ”€â”€ styles/                     # Modular CSS files
+â”‚   â”‚   â”œâ”€â”€ nav-unified.css        # Navigation component styles
+â”‚   â”‚   â”œâ”€â”€ blog-article.css       # Blog post template styles
+â”‚   â”‚   â”œâ”€â”€ footer.css             # Footer component styles
+â”‚   â”‚   â””â”€â”€ styles-deferred.css    # Non-critical deferred styles
+â”‚   â”‚
+â”‚   â”œâ”€â”€ components/                 # JavaScript modules
+â”‚   â”‚   â”œâ”€â”€ nav.js                 # Navigation component (injected)
+â”‚   â”‚   â””â”€â”€ blog-tracking.js       # GA4 event tracking
+â”‚   â”‚
+â”‚   â”œâ”€â”€ translations.json           # i18n strings (~2,500+ keys)
+â”‚   â”œâ”€â”€ sitemap.xml                # Auto-generated SEO sitemap
+â”‚   â”œâ”€â”€ robots.txt                 # Crawler directives
+â”‚   â””â”€â”€ llms.txt                   # LLM-friendly content index
+â”‚
+â”œâ”€â”€ generate-sitemap.js             # Node.js sitemap builder (build script)
+â”œâ”€â”€ vercel.json                     # Vercel deployment & security config
+â”œâ”€â”€ package.json                    # Minimal NPM config
+â”œâ”€â”€ CLAUDE.md                       # This file
+â””â”€â”€ .github/
+    â””â”€â”€ copilot-instructions.md    # Legacy AI guidelines (see this file)
 ```
 
----
+## Key Files Reference
 
-## Absolute Rules
+| File | Purpose |
+|------|---------|
+| `public/index.html` | Main landing page with full design system (`:root` variables, hero, sections) |
+| `public/blog.html` | Blog listing with `.article-card` grid |
+| `public/investidores.html` | Investor-specific landing page |
+| `public/components/nav.js` | Shared navigation component (injected via JS) |
+| `public/styles/nav-unified.css` | Navigation styling (desktop + mobile) |
+| `public/translations.json` | All i18n strings for language switching |
+| `vercel.json` | Deployment config, security headers, redirects |
+| `generate-sitemap.js` | Build script that generates sitemap.xml |
 
-### NEVER do:
-- Use `.webp` images or `<picture>` with webp source → always `.jpg` or `.png`
-- Create images outside `assets/images/`
-- Use purple palette → navy + amber only
-- Use Inter or Montserrat fonts → DM Sans + Space Grotesk + DM Serif Display only
-- Write inline `<nav>` → always use nav.js + nav-unified.css
-- Set more than 1 `"featured": true` in any articles.json
-- Copy `blog/posts/` as template for `market-entry/posts/` → paths differ
-- Use `localStorage` for language → use `sessionStorage` (`alavanka-lang`)
-- Put GA4 in `<head>` → always at end of `<body>` (async)
-- Generate output files for large HTML edits → write Python scripts
-- Use macOS `sed` → use Python3 `str.replace()` instead
-- **Write an article without a personal case from Carlos André**
-- **Deliver an article without a LinkedIn post**
+## Technology Stack
 
-### ALWAYS do:
-- Create both PT and EN versions of every blog article
-- Preserve ALL 5 tracking tags on every page (GA4, Clarity, LinkedIn, Vercel Analytics, Vercel Speed Insights)
-- Include footer.js + footer.css on every article page
-- Run `validate-posts.sh` before committing articles
-- Use `assert` guards + `.bak` backups in Python scripts
-- Make scripts idempotent
+### Frontend
+- **HTML5:** Semantic markup, no templating engine
+- **CSS3:** CSS variables, Flexbox/Grid, responsive `@media` queries
+- **JavaScript:** Vanilla ES5 (no transpilation needed)
 
----
+### Fonts (Google Fonts)
+- **DM Sans:** Body text (400/500/600/700)
+- **DM Serif Display:** Headings (400)
+- **Space Grotesk:** UI elements (500/600/700)
 
-## Design Tokens (Single Source of Truth)
-
-### Colors
+### Color System
 ```css
-:root {
-  --accent: #1B3A5C; --accent-dark: #142D48; --accent-light: #2D5F8A;
-  --accent-glow: rgba(27,58,92,0.25); --accent-bg: rgba(27,58,92,0.06);
-  /* Amber — CANONICAL: #C8965A everywhere, never #D4883A */
-  --warm: #C8965A; --warm-dark: #B07D42; --warm-light: #D4A96F;
-  --warm-glow: rgba(200,150,90,0.25); --warm-bg: rgba(200,150,90,0.08);
-  --bg: #FAFBFD; --bg-card: #FFFFFF; --bg-dark: #0D1B2A;
-  --text: #0D1B2A; --text-secondary: #4A5568; --text-muted: #8C8CA1;
-  --border: #E5E7EB; --shadow-glow: 0 8px 32px rgba(200,150,90,0.3);
-  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px; --r-full: 9999px;
-}
+--accent: #1B3A5C;     /* Navy blue - primary */
+--warm: #C8965A;       /* Amber - secondary */
+--bg-light: #FAFBFD;   /* Light backgrounds */
+--text-primary: #0D1B2A; /* Dark text */
 ```
 
-### Typography
+### Analytics & Tracking
+- Google Analytics 4 (GA4)
+- Microsoft Clarity
+- LinkedIn Conversion Pixel
+- Custom scroll/CTA tracking in `blog-tracking.js`
+
+### External Integrations
+- Calendly (scheduling embeds)
+- Formspree (form handling)
+- WhatsApp Web API
+- YouTube/Vimeo (embedded videos)
+
+## Development Workflow
+
+### Local Development
+```bash
+# No build required for most changes
+# Serve the public directory locally:
+python -m http.server 8000 -d public
+# or
+npx serve public
 ```
-DM Sans (400,500,600,700) → body, UI, buttons
-Space Grotesk (500,600,700) → headings, article titles, badges
-DM Serif Display (400) → decorative hero titles, gate overlay
+
+### Build Process
+```bash
+# Only needed when adding/removing blog posts
+npm run build
+# This runs: node generate-sitemap.js
+```
+
+### Deployment
+- Push to main branch triggers Vercel auto-deploy
+- Vercel runs `node generate-sitemap.js` as build command
+- Output directory: `public/`
+- Clean URLs enabled (no `.html` extension needed)
+
+## CSS Architecture
+
+### Dual-Style Pattern
+This project uses **two CSS approaches intentionally**:
+
+1. **Inline `<style>` blocks** in HTML `<head>`:
+   - Critical above-the-fold CSS
+   - Page-specific styles
+   - `:root` variables for each page
+
+2. **External CSS files** in `styles/`:
+   - Shared components (nav, footer)
+   - Cross-page reusable patterns
+
+### Variable Duplication Warning
+CSS variables are duplicated between:
+- Inline `:root` in `index.html`, `blog.html`
+- `styles/` CSS files
+
+**When changing global colors/spacing:** Update BOTH the inline `:root` blocks AND the relevant `styles/*.css` files.
+
+### Class Naming
+Use BEM-like readable names:
+- `.article-card`, `.qualification-box`, `.founder-profile`
+- `.hero`, `.card`, `.two-col`
+- Reuse existing classes; avoid creating new ones unnecessarily
+
+## JavaScript Patterns
+
+### Component Injection
+`nav.js` injects the navigation component by replacing `<nav>` tags:
+```javascript
+// Auto-detects page depth for relative URLs
+// Handles language toggle with localStorage
+// Mobile hamburger menu with slide-out sidebar
+```
+
+### Event Tracking
+`blog-tracking.js` sends GA4 events:
+- `article_viewed` - on page load
+- `article_scroll_depth` - at 25%, 50%, 75%, 100%
+- `article_cta_click` - CTA interactions
+- `article_language_switch` - language changes
+
+### Conventions
+- IIFE pattern for scope isolation
+- `'use strict';` enabled
+- Graceful degradation (check for `gtag`/`translations` before use)
+- ES5 syntax (no `const`/`let`, arrow functions only where safe)
+
+## Common Tasks
+
+### Adding a New Blog Post
+
+1. **Copy an existing article:**
+   ```bash
+   cp public/blog/posts/existing-article.html public/blog/posts/new-article.html
+   ```
+
+2. **Update the new file:**
+   - `<title>` and `<meta name="description">`
+   - `<meta property="og:*">` tags
+   - `<link rel="canonical">` URL
+   - Hero section title and content
+   - Article body content
+
+3. **Add thumbnail image:**
+   ```
+   public/assets/images/blog/new-article-thumb.jpg  (16:9 ratio)
+   ```
+
+4. **Update blog.html:**
+   - Add new `.article-card` in the grid
+   - Follow existing card markup pattern
+
+5. **Regenerate sitemap:**
+   ```bash
+   npm run build
+   ```
+
+### Adding English Translation
+
+1. Copy the Portuguese article:
+   ```bash
+   cp public/blog/posts/article.html public/blog/posts/article-en.html
+   ```
+
+2. Add `hreflang` links to both versions:
+   ```html
+   <link rel="alternate" hreflang="pt-BR" href="article.html">
+   <link rel="alternate" hreflang="en" href="article-en.html">
+   ```
+
+3. Translate content and update metadata
+
+### Updating Navigation
+
+1. Edit `public/components/nav.js` for structure/behavior changes
+2. Edit `public/styles/nav-unified.css` for styling changes
+3. Test on multiple pages (nav is injected everywhere)
+
+### Updating Translations
+
+1. Edit `public/translations.json`
+2. Keys follow dot notation: `"nav.home"`, `"hero.title"`
+3. Both PT and EN values must be provided
+
+## Security Configuration
+
+`vercel.json` enforces strict security headers:
+
+- **CSP:** Restricts script/style/frame sources
+- **HSTS:** Forces HTTPS with 2-year max-age
+- **X-Frame-Options:** SAMEORIGIN only
+- **Permissions-Policy:** Blocks geolocation, microphone, camera, payment, USB
+
+### CSP Allowlisted Domains
+- Google Analytics/Tag Manager
+- LinkedIn Pixel
+- Calendly (frames)
+- Formspree (forms)
+- YouTube/Vimeo (embeds)
+- Google Fonts
+
+## Important Conventions for AI Assistants
+
+### DO:
+- Read files before editing them
+- Make minimal, focused changes (1-3 files per PR)
+- Reuse existing CSS classes and patterns
+- Update both inline and external CSS when changing global variables
+- Test changes by listing which pages to preview
+- Follow existing code style and naming conventions
+
+### DON'T:
+- Create new files unless absolutely necessary
+- Add new CSS classes when existing ones work
+- Make sweeping refactors without explicit request
+- Change security headers without understanding implications
+- Modify `generate-sitemap.js` unless adding new page types
+- Use ES6+ syntax that might break in older browsers
+
+### When Uncertain:
+- Ask for clarification about which pages must match visually
+- Verify if a change should be page-specific or global
+- Check if similar patterns exist elsewhere in the codebase
+
+## File Previews for Testing
+
+After making changes, recommend previewing:
+
+| Change Type | Files to Preview |
+|-------------|------------------|
+| Navigation | `index.html`, `blog.html`, any blog post |
+| Footer | `index.html`, `blog.html` |
+| Colors/Typography | `index.html`, `blog.html`, blog posts |
+| Blog post | `blog.html`, the new post itself |
+| Translations | All pages with `data-i18n` attributes |
+
+## Git Workflow
+
+- Recent commits focus on: nav updates, translations, investor page
+- Commit messages: `Update [filename]` or descriptive change summary
+- Keep PRs small and focused
+- List modified files in PR description
+
+## Quick Commands
+
+```bash
+# Local development server
+python -m http.server 8000 -d public
+
+# Build sitemap
+npm run build
+
+# Check file structure
+ls -la public/
+ls -la public/blog/posts/
+ls -la public/styles/
+ls -la public/components/
 ```
 
 ---
 
-## Analytics (ALL 5 required on EVERY page)
+## B2B Channel Series (Market-Entry / BOT audience)
 
-| Tag | ID | Position |
-|-----|----|----------|
-| GA4 | `G-D8LLY1L1Z3` | End of `<body>` (async) |
-| Microsoft Clarity | `vb4dciqpnm` | `<head>` |
-| LinkedIn Insight | PID `9076865` | `<head>` |
-| Vercel Analytics | `/_vercel/insights/script.js` | `<head>` or end of `<body>` (defer) |
-| Vercel Speed Insights | `/_vercel/speed-insights/script.js` | `<head>` or end of `<body>` (defer) |
+4-post series targeting international companies entering LATAM. EN only, lives in `market-entry/posts/`.
 
----
+| # | Title | Status | Slug |
+|---|-------|--------|------|
+| 1 | The Myth of the Self-Selling Channel | ✅ Published | `b2b-channel-latam-myth-self-selling-en` |
+| 2 | The Structure Decision That Comes Before Everything Else | ✅ Ready to deploy | `b2b-channel-latam-structuring-program-en` |
+| 3 | Recruiting, qualifying, and compensating partners | Pending | — |
+| 4 | What changes in the Brazilian and LATAM B2B SaaS context | Pending | — |
 
-## Shared Components
+**Post 2 case:** Anonymous German enterprise software company — distributor captured Brazilian market, years of U.S. litigation, Caca led the restructuring. Framework: 3 scenarios (global program → LATAM, channel-first, hybrid direct+channel). Companies named: Novell, Oracle, Informatica.
 
-### Navigation
-`components/nav.js` + `styles/nav-unified.css` → `<nav id="main-nav"></nav>`
-Prefix: `""` (root) or `"../../"` (blog/posts, market-entry/posts). Auto-detects context.
-
-### Footer
-`components/footer.js` + `styles/footer.css` → `<footer id="main-footer"></footer>`
-Same prefix as nav. Dual context (BR/MEP) auto-detected.
-
-### Audience Gate (index.html only)
-sessionStorage-based. Anti-flash via inline script in `<head>` adding `.gate-skip`.
+**B2B Channel Series (Blog / PT-BR audience)** — same 4-post structure, different audience (Brazilian startup founders). Posts 1+2 done (PT+EN). Posts 3+4 pending.
 
 ---
 
-## New Article — Complete Workflow
+## Article Delivery Standard
 
-### Step 0: Content Briefing (MANDATORY — before writing anything)
+Every article delivery must include ALL three:
 
-Claude MUST:
+1. **HTML file(s)** — blog or market-entry, following the correct template
+2. **LinkedIn post** — visceral first-person hook, 3-5 short paragraphs, CTA question, article link in first comment (not body). 800-1500 chars, max 3 hashtags, max 2-3 emojis.
+3. **Image prompt** — DALL-E/thumbnail prompt (1200x630, JPG, ≤200KB). Style is flexible/vivid — not restricted to navy+amber palette. Concept should represent the central theme of the article.
 
-1. **Ask for a personal case** — Every article MUST include a real story from Carlos André (Oracle, AT&T, Informatica, Endeavor mentoring, or Alavanka clients). Ask: *"Qual caso pessoal ou experiência sua encaixa nesse tema?"*
-2. **Confirm topic, key points, and CTA preference**
-3. **Identify 2-4 existing articles for cross-linking**
-
-⚠️ **Never proceed without a personal case. The case is what differentiates our content from generic AI material. If the user says "não tenho caso", suggest angles from their known track record and ask them to validate.**
-
-### Step 1: Create Article Files
-
-1. Slugs: PT `kebab-sem-acentos`, EN `kebab-english`
-2. Thumbnail: `assets/images/blog/[slug-pt]-thumb.jpg` (1200×630, ≤200KB)
-3. HTML PT + EN with: all meta/OG/hreflang, Schema.org, all 5 tracking tags, nav.js, footer.js, blog-article.css, GA4 at end of body
-4. `blog/articles.json`: add with `featured: true`, previous → `false`
-5. Run `validate-posts.sh`
-6. Commit: `git add -A && git commit -m "feat: novo artigo — [título]" && git push`
-
-### Step 2: Generate LinkedIn Post (MANDATORY — deliver with every article)
-
-Every article delivery MUST include a LinkedIn post ready to publish:
-
-**Structure:**
-1. **Hook (1ª linha)** — Frase visceral que faz parar de scrollar. Pessoal, provocativa ou contra-intuitiva.
-   - ✅ "Demiti o melhor vendedor que já tive. Ele batia 150% de meta."
-   - ✅ "Na Oracle, perdi R$2M em um quarter por um erro que ninguém fala."
-   - ❌ "Vou compartilhar 5 dicas sobre gestão de vendas" (genérico)
-   - ❌ "Neste artigo, discuto a importância de..." (corporativo)
-
-2. **Corpo (3-5 parágrafos curtos)** — Conte a história, revele o insight, conecte ao tema. Quebras de linha para legibilidade no feed.
-
-3. **CTA de engajamento** — Termine com pergunta que provoca comentários:
-   - "Qual foi a decisão mais difícil que você já tomou sobre seu time de vendas?"
-   - "Concorda ou discorda? Quero ouvir quem já passou por isso."
-
-4. **Link do artigo** — No PRIMEIRO COMENTÁRIO (não no corpo), com: "Artigo completo com framework e dados: [URL]"
-
-**Regras:**
-- Tom: primeira pessoa, vulnerável, sem jargão corporativo
-- Tamanho: 800-1500 caracteres
-- Máximo 3 hashtags (#B2B #Vendas #GrowthExecution)
-- Máximo 2-3 emojis, com propósito
-- Sempre em PT-BR
-- A história pode ser a mesma do artigo ou um ângulo diferente do mesmo tema
+**Never skip the image prompt.** It is part of the standard delivery.
 
 ---
 
-## blog/posts/ vs market-entry/posts/ — Key Differences
+## Market-Entry articles.json
 
-| Element | blog/posts/ | market-entry/posts/ |
-|---------|-------------|---------------------|
-| canonical | `alavanka.com.br/blog/posts/[slug].html` | `alavanka.com.br/market-entry/posts/[slug].html` |
-| hreflang x-default | PT slug | EN slug |
-| CSS | blog-article.css | nav-unified.css + inline only |
-
-**Never copy between sections.** Use existing files in each section as templates.
+- Location: `public/market-entry/articles.json`
+- Thumbnail paths use `assets/images/market-entry/` (no `../../` prefix — same as blog)
+- Only 1 article with `"featured": true` at any time
+- EN only (no slugs object, no PT/EN split — single string fields)
+- Categories: International Market Expansion | Market Entry | Sales Strategies | Value Proposition | Strategy & Growth
 
 ---
 
-## Market Entry / BOT
-
-- Terminology: "Build, Operate & Transfer" (BOT) — never "MEP"
-- llms.txt reflects BOT (updated March 2026)
-
----
-
-## SEO & LLM Discoverability
-
-- Meta descriptions in citable format: "Alavanka é X que faz Y para Z"
-- Schema.org Person with sameAs array (LinkedIn, Endeavor, IBGC, Insper) + alumniOf (Harvard, Columbia)
-- llms.txt maintained as LLM content index
-- sitemap.xml: 42 URLs (auto-generated)
-
----
-
-## Development Conventions
-
-- **Python scripts** for multi-file edits (assert guards, .bak backups, idempotent)
-- **ES5** for shared components; modern JS OK in inline page scripts
-- **`--warm: #C8965A`** everywhere — never `#D4883A`
-- **Radius:** `--r-sm/md/lg/xl` (not `--radius-*`)
-- **Commits:** `fix:` | `feat:` | `UX:` format
-- **Content tone:** founder-to-founder, first-person, personal cases always, no false metrics
-
----
-
-## Security (vercel.json)
-
-- CSP: `'unsafe-inline'` (no `unsafe-eval`)
-- HSTS: 2 years + preload
-- Assets cached immutable 1yr; HTML revalidates hourly
-
----
-
-## Pending Tasks
-
-### Wix Migration (7 articles → market-entry/posts/)
-Articles 4, 5, 7 need webp→jpg thumb conversion. See memory/project docs for full hash table.
-
-### Other:
-- DKIM for `alavanka.com`
-- Backlink outreach: Endeavor, IBGC, Insper, Startups.com.br
-- GSC: non-indexed URLs under review
-
----
-
-## Troubleshooting
-
-| Symptom | Fix |
-|---------|-----|
-| Article not showing | Check articles.json + deploy |
-| Broken image | Check path + extension (.jpg/.png only) |
-| Nav not appearing | Missing nav.js or nav-unified.css |
-| Footer missing | Add footer.js + footer.css + `<footer id="main-footer">` |
-| Lang toggle broken | Check `sessionStorage` (not localStorage) |
-| Tracking incomplete | Verify all 5 tags present |
-| Purple colors | Migrate to navy/amber tokens |
-| Gate flash | Missing gate-skip script in `<head>` |
+*Updated: March 2026*

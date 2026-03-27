@@ -1,8 +1,24 @@
 [
   {
+    "id": "b2b-channel-latam-structuring-program-en",
+    "slug": "b2b-channel-latam-structuring-program-en",
+    "featured": true,
+    "category": "International Market Expansion",
+    "title": "B2B Channel in LATAM: The Structure Decision That Comes Before Everything Else",
+    "excerpt": "Three scenarios for structuring a B2B channel program in Latin America — adapting a global program, building channel-first, or running a hybrid. What each requires to succeed.",
+    "readTime": "12 min read",
+    "date": "2026-03-27",
+    "dateLabel": "March 2026",
+    "thumbnail": {
+      "type": "image",
+      "src": "assets/images/market-entry/b2b-channel-latam-structuring-program-en-thumb.jpg",
+      "alt": "Vibrant illustration of a bridge being constructed over a stylized map of Latin America"
+    }
+  },
+  {
     "id": "b2b-channel-latam-myth-self-selling-en",
     "slug": "b2b-channel-latam-myth-self-selling-en",
-    "featured": true,
+    "featured": false,
     "category": "International Market Expansion",
     "title": "B2B Channel in LATAM: The Myth of the Self-Selling Channel",
     "excerpt": "Most international tech companies enter Latin America through a reseller channel expecting fast revenue with low cost. Here's why that assumption fails — and what works instead.",
@@ -11,8 +27,24 @@
     "dateLabel": "March 2026",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/b2b-channel-latam-myth-self-selling-en-thumb.jpg",
-      "alt": "Mycelium network representing B2B channel ecosystem — interdependence between resellers, educational centers, and certification"
+      "src": "assets/images/market-entry/b2b-channel-latam-myth-self-selling-en-thumb.jpg",
+      "alt": "World map with connection lines showing distance between global business hubs and Latin America"
+    }
+  },
+  {
+    "id": "vendas-governo-sem-atalhos-en",
+    "slug": "vendas-governo-sem-atalhos-en",
+    "featured": false,
+    "category": "Sales Strategies",
+    "title": "Selling to Government in Brazil: How We Won a $15M Contract Without Shortcuts",
+    "excerpt": "A real case of winning a major public sector contract through technical credibility and process rigor — no lobbyists, no intermediaries.",
+    "readTime": "10 min read",
+    "date": "2026-03-02",
+    "dateLabel": "March 2026",
+    "thumbnail": {
+      "type": "image",
+      "src": "assets/images/market-entry/vendas-governo-sem-atalhos-en-thumb.jpg",
+      "alt": "Two diverging roads representing ethical vs shortcut approaches to government sales"
     }
   },
   {
@@ -20,47 +52,15 @@
     "slug": "quota-latam-market-entry-en",
     "featured": false,
     "category": "International Market Expansion",
-    "title": "Quota Mistakes That Kill LATAM Expansions (And What to Do Instead)",
-    "excerpt": "Setting sales quotas for Brazil and Mexico requires more than translation. Learn what works, what backfires, and what destroys teams in LATAM markets.",
-    "readTime": "9 min read",
-    "date": "2026-03-09",
-    "dateLabel": "March 2026",
-    "thumbnail": {
-      "type": "image",
-      "src": "../assets/images/market-entry/quota-latam-market-entry-thumb.jpg",
-      "alt": "LATAM spelled in lego bricks with a missing piece"
-    }
-  },
-  {
-    "id": "selling-to-latam-government-market-entry-en",
-    "slug": "selling-to-latam-government-market-entry-en",
-    "featured": false,
-    "category": "International Market Expansion",
-    "title": "Selling to Government in LATAM: What International Companies Get Wrong",
-    "excerpt": "The public sector is the largest buyer in Latin America. But international companies consistently misread the market, the cycle, and the rules. Here's what you need to know before you enter.",
-    "readTime": "10 min read",
-    "date": "2026-03-10",
-    "dateLabel": "March 2026",
-    "thumbnail": {
-      "type": "image",
-      "src": "../assets/images/market-entry/selling-to-latam-government-market-entry-thumb.jpg",
-      "alt": "Abstract illustration representing public sector procurement complexity in Latin America"
-    }
-  },
-  {
-    "id": "mastering-pricing-localization-latam-en",
-    "slug": "mastering-pricing-localization-latam-en",
-    "featured": false,
-    "category": "International Market Expansion",
-    "title": "Mastering Pricing Localization for B2B High-Tech Firms in Latin America",
-    "excerpt": "Currency volatility, cultural perception, regulatory complexity — and practical steps to set prices that win deals in Latin America.",
-    "readTime": "3 min read",
-    "date": "2026-01-12",
+    "title": "Mastering Pricing Localization for LATAM B2B Expansion",
+    "excerpt": "How international tech companies can adapt pricing strategies for Latin American markets while maintaining global consistency.",
+    "readTime": "5 min read",
+    "date": "2026-01-20",
     "dateLabel": "January 2026",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/mastering-pricing-localization-latam-en-thumb.jpg",
-      "alt": "Digital pricing dashboard showing currency exchange rates and market data for Latin America"
+      "src": "assets/images/market-entry/quota-latam-market-entry-en-thumb.jpg",
+      "alt": "Business professional analyzing pricing data for Latin American markets"
     }
   },
   {
@@ -69,13 +69,13 @@
     "featured": false,
     "category": "Market Entry",
     "title": "Optimizing Your LATAM Entry Model for Success",
-    "excerpt": "Direct entry, partnerships, distribution or acquisition — the right LATAM entry model depends on your resources and risk tolerance. A practical guide to getting it right.",
+    "excerpt": "From channel selection to pricing adaptation, a practical guide to getting it right.",
     "readTime": "4 min read",
     "date": "2025-12-15",
     "dateLabel": "December 2025",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/optimizing-latam-entry-model-en-thumb.jpg",
+      "src": "assets/images/market-entry/optimizing-latam-entry-model-en-thumb.jpg",
       "alt": "Modern office building in a Latin American business district"
     }
   },
@@ -91,7 +91,7 @@
     "dateLabel": "December 2025",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg",
+      "src": "assets/images/market-entry/ai-latam-gtm-strategies-en-thumb.jpg",
       "alt": "AI analytics for LATAM market expansion"
     }
   },
@@ -107,7 +107,7 @@
     "dateLabel": "November 2025",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/ai-revolutionizes-sales-latam-en-thumb.jpg",
+      "src": "assets/images/market-entry/ai-revolutionizes-sales-latam-en-thumb.jpg",
       "alt": "AI-powered sales dashboard for Latin America"
     }
   },
@@ -123,7 +123,7 @@
     "dateLabel": "November 2025",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/mastering-market-entry-latam-en-thumb.jpg",
+      "src": "assets/images/market-entry/mastering-market-entry-latam-en-thumb.jpg",
       "alt": "Modern office in a Latin American city"
     }
   },
@@ -139,7 +139,7 @@
     "dateLabel": "June 2025",
     "thumbnail": {
       "type": "image",
-      "src": "../assets/images/market-entry/reshape-gtm-ai-integration-en-thumb.jpg",
+      "src": "assets/images/market-entry/reshape-gtm-ai-integration-en-thumb.jpg",
       "alt": "Data analytics dashboard with AI insights"
     }
   }
