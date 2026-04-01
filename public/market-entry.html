@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -85,731 +86,800 @@
       --r-full: 9999px;
     }
 
-    /* ========== RESET & BASE ========== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--accent-light); }
-
-    /* ========== TYPOGRAPHY ========== */
-    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text); line-height: 1.2; }
-    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
-    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; }
-    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; }
-    .decorative { font-family: 'DM Serif Display', serif; }
-
-    /* ========== LAYOUT ========== */
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 80px 0; }
-    @media (max-width: 768px) { section { padding: 56px 0; } }
-
-    /* ========== HERO ========== */
-    .hero {
-      background: var(--bg-dark);
-      color: var(--text-inverse);
-      padding: 120px 0 80px;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(200,150,90,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--warm);
-      background: rgba(200,150,90,0.12);
-      border: 1px solid rgba(200,150,90,0.3);
-      padding: 6px 16px;
-      border-radius: var(--r-full);
-      margin-bottom: 20px;
-    }
-    .hero h1 { color: var(--text-inverse); margin-bottom: 20px; }
-    .hero h1 span { color: var(--warm); }
-    .hero p.subtitle {
-      font-size: clamp(1.05rem, 2vw, 1.25rem);
-      color: rgba(255,255,255,0.8);
-      max-width: 640px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
-    }
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat .number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--warm);
-      display: block;
-    }
-    .hero-stat .label {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-
-    /* ========== BUTTONS ========== */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: none;
-      border-radius: var(--r-full);
-      cursor: pointer;
-      box-shadow: var(--shadow-glow);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,150,90,0.4); color: #fff; }
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      background: transparent;
-      color: var(--text-inverse);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-radius: var(--r-full);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      text-decoration: none;
-    }
-    .btn-secondary:hover { border-color: var(--warm); background: rgba(200,150,90,0.1); color: #fff; }
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      background: transparent;
-      color: var(--accent);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 2px solid var(--border-accent);
-      border-radius: var(--r-full);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .btn-outline:hover { background: var(--accent); color: #fff; }
-
-    /* ========== SECTION HEADERS ========== */
-    .section-badge {
-      display: inline-block;
-      padding: 6px 16px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      border-radius: var(--r-full);
-      margin-bottom: 16px;
-    }
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 56px;
-    }
-    .section-header p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-top: 12px;
-    }
-
-    /* ========== PROBLEM SECTION ========== */
-    .problem-section { background: var(--bg); }
-    .problem-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    @media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
-    .problem-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 32px;
-      transition: box-shadow 0.3s;
-    }
-    .problem-card:hover { box-shadow: var(--shadow-md); }
-    .problem-card .icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(239,68,68,0.08);
-      border-radius: var(--r-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-    }
-    .problem-card h3 { margin-bottom: 12px; }
-    .problem-card p { color: var(--text-secondary); font-size: 0.95rem; }
-    .problem-card .stat {
-      display: inline-block;
-      margin-top: 12px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      color: var(--danger);
-      font-size: 0.9rem;
-    }
-
-    /* ========== COMPARISON SECTION ========== */
-    .comparison-section { background: var(--accent-bg); }
-    .comparison-table {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) { .comparison-table { grid-template-columns: 1fr; } }
-    .comparison-col {
-      background: var(--bg-card);
-      border-radius: var(--r-xl);
-      padding: 40px 32px;
-      border: 1px solid var(--border);
-    }
-    .comparison-col.highlight {
-      border-color: var(--warm);
-      box-shadow: var(--shadow-glow);
-      position: relative;
-    }
-    .comparison-col.highlight::before {
-      content: 'RECOMMENDED';
-      position: absolute;
-      top: -12px;
-      left: 32px;
-      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-      color: #fff;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 4px 14px;
-      border-radius: var(--r-full);
-    }
-    .comparison-col h3 {
-      margin-bottom: 8px;
-    }
-    .comparison-col .price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .comparison-col.highlight .price { color: var(--warm-dark); }
-    .comparison-col .price-note {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-    .comparison-col ul {
-      list-style: none;
-      padding: 0;
-    }
-    .comparison-col ul li {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .comparison-col ul li:last-child { border-bottom: none; }
-    .comparison-col ul li .check { color: var(--success); font-weight: 700; flex-shrink: 0; }
-    .comparison-col ul li .cross { color: var(--danger); font-weight: 700; flex-shrink: 0; }
-
-    /* ========== JOURNEY SECTION ========== */
-    .journey-section { background: var(--bg); }
-    .journey-timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .journey-timeline::before {
-      content: '';
-      position: absolute;
-      left: 32px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--warm), var(--accent));
-      border-radius: 2px;
-    }
-    @media (max-width: 768px) {
-      .journey-timeline::before { left: 24px; }
-    }
-    .journey-step {
-      position: relative;
-      padding-left: 80px;
-      padding-bottom: 48px;
-    }
-    @media (max-width: 768px) { .journey-step { padding-left: 64px; } }
-    .journey-step:last-child { padding-bottom: 0; }
-    .journey-step .step-number {
-      position: absolute;
-      left: 12px;
-      top: 0;
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, var(--warm), var(--warm-dark));
-      color: #fff;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(200,150,90,0.3);
-    }
-    @media (max-width: 768px) {
-      .journey-step .step-number { left: 4px; width: 40px; height: 40px; }
-    }
-    .journey-step .step-year {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--warm);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
-    }
-    .journey-step h3 { margin-bottom: 12px; }
-    .journey-step .step-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .journey-step .step-tag {
-      display: inline-block;
-      padding: 6px 14px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-radius: var(--r-full);
-    }
-
-    /* ========== PROCESS SECTION ========== */
-    .process-section { background: var(--bg-dark); color: var(--text-inverse); }
-    .process-section .section-badge { background: rgba(200,150,90,0.15); color: var(--warm); }
-    .process-section .section-header p { color: rgba(255,255,255,0.7); }
-    .process-section h2 { color: var(--text-inverse); }
-    .process-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .process-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 0;
-      padding: 36px 40px;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 32px;
-      align-items: start;
-      transition: background 0.25s;
-    }
-    .process-card:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
-    .process-card:last-child  { border-radius: 0 0 var(--r-lg) var(--r-lg); }
-    .process-card:hover { background: rgba(255,255,255,0.08); }
-    .process-card-left { }
-    .process-card .step-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--warm);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
-    }
-    .process-card h3 { color: var(--text-inverse); font-size: 1rem; margin-bottom: 0; line-height: 1.3; }
-    .process-card-right p { color: rgba(255,255,255,0.65); font-size: 0.93rem; line-height: 1.65; margin-bottom: 12px; }
-    .process-card-right p:last-child { margin-bottom: 0; }
-    .process-outcome {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(200,150,90,0.12);
-      border: 1px solid rgba(200,150,90,0.25);
-      border-radius: var(--r-full);
-      padding: 6px 14px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--warm-light);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .process-outcome::before { content: '✓'; font-size: 0.75rem; }
-    @media (max-width: 640px) {
-      .process-card { grid-template-columns: 1fr; gap: 12px; padding: 28px 24px; }
-    }
-
-    /* ========== TEAM SECTION ========== */
-    .team-section { background: var(--bg); }
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* Carlos — featured card with metrics */
-    .team-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 40px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 36px;
-      align-items: start;
-    }
-    @media (max-width: 680px) {
-      .team-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
-    }
-    .team-card-identity { text-align: center; min-width: 120px; }
-    .team-card .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 16px;
-      overflow: hidden;
-      border: 3px solid var(--warm);
-      flex-shrink: 0;
-    }
-    .team-card h3 { font-size: 1rem; margin-bottom: 2px; white-space: nowrap; }
-    .team-card .role {
-      color: var(--warm);
-      font-weight: 600;
-      font-size: 0.8rem;
-      line-height: 1.3;
-    }
-    .team-card-body { }
-    .team-card-bio {
-      color: var(--text-secondary);
-      font-size: 0.93rem;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .team-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 500px) { .team-metrics { grid-template-columns: 1fr 1fr; } }
-    .team-metric {
-      background: var(--accent-bg);
-      border: 1px solid var(--border-accent);
-      border-radius: var(--r-md);
-      padding: 14px 12px;
-      text-align: center;
-    }
-    .team-metric .m-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      display: block;
-      line-height: 1.1;
-    }
-    .team-metric .m-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.3;
-    }
-    .team-highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .team-highlights span {
-      padding: 4px 12px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 500;
-      border-radius: var(--r-full);
-    }
-    .team-highlights span.highlight-logo {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 14px;
-    }
-
-    /* Miguel — compact supporting card */
-    .team-card-secondary {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      padding: 32px 40px;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 28px;
-      align-items: start;
-    }
-    @media (max-width: 680px) {
-      .team-card-secondary { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
-    }
-    .team-card-secondary .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-    .team-card-secondary h3 { font-size: 1rem; margin-bottom: 2px; }
-    .team-card-secondary .role {
-      color: var(--warm);
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
-    .team-card-secondary p {
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    /* ========== TESTIMONIALS ========== */
-    .testimonials-section { background: var(--accent-bg); }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .testimonial-card {
-      background: var(--bg-card);
-      border-radius: var(--r-xl);
-      padding: 40px 48px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-    }
-    @media (max-width: 600px) { .testimonial-card { padding: 28px 24px; } }
-    .testimonial-card blockquote {
-      font-style: italic;
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 24px;
-      position: relative;
-      padding-left: 24px;
-      border-left: 3px solid var(--warm);
-    }
-    .testimonial-card .attribution {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 700;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-    .testimonial-card .attribution img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 3px solid var(--warm);
-    }
-    .testimonial-card .attribution span {
-      display: block;
-      font-weight: 400;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-top: 2px;
-    }
-
-    /* ========== FAQ ========== */
-    .faq-section { background: var(--bg); }
-    .faq-list {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-item:first-child { border-top: 1px solid var(--border); }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      padding: 20px 0;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-    .faq-question:hover { color: var(--accent-light); }
-    .faq-question .arrow {
-      flex-shrink: 0;
-      transition: transform 0.3s;
-      color: var(--text-muted);
-    }
-    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .faq-answer-inner {
-      padding: 0 0 20px;
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    /* ========== CTA SECTION ========== */
-    .cta-section {
-      background: var(--bg-dark);
-      color: var(--text-inverse);
-      text-align: center;
-      padding: 80px 0;
-    }
-    .cta-section h2 { color: var(--text-inverse); margin-bottom: 16px; }
-    .cta-section p {
-      color: rgba(255,255,255,0.7);
-      font-size: 1.1rem;
-      max-width: 560px;
-      margin: 0 auto 32px;
-    }
-    .cta-section .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    /* ========== FOOTER ========== */
-  
-/* ── Newsletter topic toggles ────────────────────────────── */
-.nl-toggles-wrap {
-  margin: 16px 0 4px;
+```
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-.nl-toggles-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted, #8C8CA1);
-  margin-bottom: 10px;
-}
-.nl-toggles-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.nl-toggle-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  user-select: none;
-}
-.nl-toggle-item input[type="checkbox"] {
-  display: none;
-}
-.nl-switch {
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-light); }
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; color: var(--text); line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; }
+.decorative { font-family: 'DM Serif Display', serif; }
+
+/* ========== LAYOUT ========== */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+@media (max-width: 768px) { section { padding: 56px 0; } }
+
+/* ========== HERO ========== */
+.hero {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  padding: 120px 0 80px;
   position: relative;
-  width: 36px;
-  height: 20px;
-  background: var(--border, #E5E7EB);
-  border-radius: 999px;
-  transition: background 0.2s;
-  flex-shrink: 0;
+  overflow: hidden;
+  text-align: center;
 }
-.nl-toggle-item input:checked + .nl-switch {
-  background: var(--accent, #1B3A5C);
-}
-.nl-switch::after {
+.hero::before {
   content: '';
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 14px;
-  height: 14px;
-  background: #fff;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,150,90,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--warm);
+  background: rgba(200,150,90,0.12);
+  border: 1px solid rgba(200,150,90,0.3);
+  padding: 6px 16px;
+  border-radius: var(--r-full);
+  margin-bottom: 20px;
+}
+.hero h1 { color: var(--text-inverse); margin-bottom: 20px; }
+.hero h1 span { color: var(--warm); }
+.hero p.subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,0.8);
+  max-width: 640px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-stat { text-align: center; }
+.hero-stat .number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--warm);
+  display: block;
+}
+.hero-stat .label {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(200,150,90,0.4); color: #fff; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text-inverse);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+.btn-secondary:hover { border-color: var(--warm); background: rgba(200,150,90,0.1); color: #fff; }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--accent);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid var(--border-accent);
+  border-radius: var(--r-full);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-outline:hover { background: var(--accent); color: #fff; }
+
+/* ========== SECTION HEADERS ========== */
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--r-full);
+  margin-bottom: 16px;
+}
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-top: 12px;
+}
+
+/* ========== PROBLEM SECTION ========== */
+.problem-section { background: var(--bg); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .problem-grid { grid-template-columns: 1fr; } }
+.problem-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  transition: box-shadow 0.3s;
+}
+.problem-card:hover { box-shadow: var(--shadow-md); }
+.problem-card .icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(239,68,68,0.08);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+.problem-card h3 { margin-bottom: 12px; }
+.problem-card p { color: var(--text-secondary); font-size: 0.95rem; }
+.problem-card .stat {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+/* ========== COMPARISON SECTION ========== */
+.comparison-section { background: var(--accent-bg); }
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) { .comparison-table { grid-template-columns: 1fr; } }
+.comparison-col {
+  background: var(--bg-card);
+  border-radius: var(--r-xl);
+  padding: 40px 32px;
+  border: 1px solid var(--border);
+}
+.comparison-col.highlight {
+  border-color: var(--warm);
+  box-shadow: var(--shadow-glow);
+}
+.comparison-col h3 {
+  margin-bottom: 8px;
+}
+.comparison-col .price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.comparison-col.highlight .price { color: var(--warm-dark); }
+.comparison-col .price-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.comparison-col ul {
+  list-style: none;
+  padding: 0;
+}
+.comparison-col ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.comparison-col ul li:last-child { border-bottom: none; }
+.comparison-col ul li .check { color: var(--success); font-weight: 700; flex-shrink: 0; }
+.comparison-col ul li .cross { color: var(--danger); font-weight: 700; flex-shrink: 0; }
+
+.compare-group { margin-bottom: 20px; }
+.compare-group:last-child { margin-bottom: 0; }
+.compare-group ul { margin-top: 0; }
+.compare-group-label {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  background: var(--accent-bg);
+  border-radius: var(--r-full);
+}
+.compare-group-label--bot {
+  background: rgba(200,150,90,0.1);
+  color: var(--warm-dark);
+}
+
+/* ========== JOURNEY SECTION ========== */
+.journey-section { background: var(--bg); }
+.journey-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.journey-timeline::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--warm), var(--accent));
+  border-radius: 2px;
+}
+@media (max-width: 768px) {
+  .journey-timeline::before { left: 24px; }
+}
+.journey-step {
+  position: relative;
+  padding-left: 80px;
+  padding-bottom: 48px;
+}
+@media (max-width: 768px) { .journey-step { padding-left: 64px; } }
+.journey-step:last-child { padding-bottom: 0; }
+.journey-step .step-number {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--warm), var(--warm-dark));
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
   border-radius: 50%;
-  transition: transform 0.2s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(200,150,90,0.3);
+}
+@media (max-width: 768px) {
+  .journey-step .step-number { left: 4px; width: 40px; height: 40px; }
+}
+.journey-step .step-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--warm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.journey-step h3 { margin-bottom: 12px; }
+.journey-step .step-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.journey-step .step-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--r-full);
+}
+
+/* ========== PROCESS SECTION ========== */
+.process-section { background: var(--bg-dark); color: var(--text-inverse); }
+.process-section .section-badge { background: rgba(200,150,90,0.15); color: var(--warm); }
+.process-section .section-header p { color: rgba(255,255,255,0.7); }
+.process-section h2 { color: var(--text-inverse); }
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.process-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
+  transition: background 0.25s;
+}
+.process-card:first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+.process-card:last-child  { border-radius: 0 0 var(--r-lg) var(--r-lg); }
+.process-card:hover { background: rgba(255,255,255,0.08); }
+.process-card-left { }
+.process-card .step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--warm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+.process-card h3 { color: var(--text-inverse); font-size: 1rem; margin-bottom: 0; line-height: 1.3; }
+.process-card-right p { color: rgba(255,255,255,0.65); font-size: 0.93rem; line-height: 1.65; margin-bottom: 12px; }
+.process-card-right p:last-child { margin-bottom: 0; }
+.process-outcome {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200,150,90,0.12);
+  border: 1px solid rgba(200,150,90,0.25);
+  border-radius: var(--r-full);
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--warm-light);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.process-outcome::before { content: '✓'; font-size: 0.75rem; }
+@media (max-width: 640px) {
+  .process-card { grid-template-columns: 1fr; gap: 12px; padding: 28px 24px; }
+}
+
+/* ========== TEAM SECTION ========== */
+.team-section { background: var(--bg); }
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Carlos — featured card with metrics */
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 36px;
+  align-items: start;
+}
+@media (max-width: 680px) {
+  .team-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+}
+.team-card-identity { text-align: center; min-width: 120px; }
+.team-card .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border: 3px solid var(--warm);
+  flex-shrink: 0;
+}
+.team-card h3 { font-size: 1rem; margin-bottom: 2px; white-space: nowrap; }
+.team-card .role {
+  color: var(--warm);
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+.team-card-body { }
+.team-card-bio {
+  color: var(--text-secondary);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.team-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (max-width: 500px) { .team-metrics { grid-template-columns: 1fr 1fr; } }
+.team-metric {
+  background: var(--accent-bg);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--r-md);
+  padding: 14px 12px;
+  text-align: center;
+}
+.team-metric .m-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  line-height: 1.1;
+}
+.team-metric .m-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.team-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.team-highlights span {
+  padding: 4px 12px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: var(--r-full);
+}
+.team-highlights span.highlight-logo {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+}
+
+/* Miguel — compact supporting card */
+.team-card-secondary {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 32px 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 680px) {
+  .team-card-secondary { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+}
+.team-card-secondary .avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.team-card-secondary h3 { font-size: 1rem; margin-bottom: 2px; }
+.team-card-secondary .role {
+  color: var(--warm);
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+.team-card-secondary p {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-section { background: var(--accent-bg); }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: var(--bg-card);
+  border-radius: var(--r-xl);
+  padding: 40px 48px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+@media (max-width: 600px) { .testimonial-card { padding: 28px 24px; } }
+.testimonial-card blockquote {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  position: relative;
+  padding-left: 24px;
+  border-left: 3px solid var(--warm);
+}
+.testimonial-card .attribution {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.testimonial-card .attribution img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid var(--warm);
+}
+.testimonial-card .attribution span {
+  display: block;
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+/* ========== FAQ ========== */
+.faq-section { background: var(--bg); }
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 20px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.faq-question:hover { color: var(--accent-light); }
+.faq-question .arrow {
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  color: var(--text-muted);
+}
+.faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer-inner {
+  padding: 0 0 20px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ========== ORIGIN SECTION ========== */
+.origin-section { background: var(--bg); }
+.origin-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.origin-content h2 {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.origin-content > p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.origin-content > p strong {
+  color: var(--text);
+}
+.origin-lead {
+  font-size: 1.12rem !important;
+  color: var(--text) !important;
+  font-weight: 500;
+  margin-bottom: 24px !important;
+}
+.origin-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+@media (max-width: 768px) { .origin-pillars { grid-template-columns: 1fr; } }
+.origin-pillar {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+.origin-pillar:hover { box-shadow: var(--shadow-md); }
+.origin-pillar-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+.origin-pillar h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.origin-pillar p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.origin-pillar p strong {
+  color: var(--accent);
+}
+
+/* ========== CTA SECTION ========== */
+.cta-section {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  text-align: center;
+  padding: 80px 0;
+}
+.cta-section h2 { color: var(--text-inverse); margin-bottom: 16px; }
+.cta-section p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.1rem;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.cta-section .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ========== FOOTER ========== */
+```
+
+/* ── Newsletter topic toggles ────────────────────────────── */
+.nl-toggles-wrap {
+margin: 16px 0 4px;
+}
+.nl-toggles-label {
+font-size: 0.78rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: var(–text-muted, #8C8CA1);
+margin-bottom: 10px;
+}
+.nl-toggles-row {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+.nl-toggle-item {
+display: flex;
+align-items: center;
+gap: 8px;
+cursor: pointer;
+user-select: none;
+}
+.nl-toggle-item input[type=“checkbox”] {
+display: none;
+}
+.nl-switch {
+position: relative;
+width: 36px;
+height: 20px;
+background: var(–border, #E5E7EB);
+border-radius: 999px;
+transition: background 0.2s;
+flex-shrink: 0;
+}
+.nl-toggle-item input:checked + .nl-switch {
+background: var(–accent, #1B3A5C);
+}
+.nl-switch::after {
+content: ‘’;
+position: absolute;
+top: 3px;
+left: 3px;
+width: 14px;
+height: 14px;
+background: #fff;
+border-radius: 50%;
+transition: transform 0.2s;
+box-shadow: 0 1px 3px rgba(0,0,0,0.18);
 }
 .nl-toggle-item input:checked + .nl-switch::after {
-  transform: translateX(16px);
+transform: translateX(16px);
 }
 .nl-toggle-text {
-  font-size: 0.84rem;
-  color: var(--text-secondary, #4A5568);
-  line-height: 1.3;
+font-size: 0.84rem;
+color: var(–text-secondary, #4A5568);
+line-height: 1.3;
 }
 /* Invert label colour on dark backgrounds (exit-intent modal) */
 .nl-dark .nl-toggles-label,
 .nl-dark .nl-toggle-text {
-  color: rgba(255,255,255,0.75);
+color: rgba(255,255,255,0.75);
 }
 .nl-dark .nl-switch {
-  background: rgba(255,255,255,0.25);
+background: rgba(255,255,255,0.25);
 }
 .nl-dark .nl-toggle-item input:checked + .nl-switch {
-  background: var(--warm, #C8965A);
+background: var(–warm, #C8965A);
 }
 /* Compact variant for inline single-row forms (guia-crescimento, market-entry) */
 .nl-toggles-wrap.nl-compact {
-  margin: 12px 0 0;
+margin: 12px 0 0;
 }
 .nl-toggles-wrap.nl-compact .nl-toggles-label {
-  margin-bottom: 7px;
+margin-bottom: 7px;
 }
 
 </style>
@@ -819,6 +889,7 @@
   <nav id="main-nav"></nav>
 
   <!-- ========== HERO ========== -->
+
   <section class="hero">
     <div class="container">
       <p class="hero-eyebrow">Build-Operate-Transfer</p>
@@ -846,6 +917,7 @@
   </section>
 
   <!-- ========== WHY COMPANIES FAIL ========== -->
+
   <section class="problem-section" id="the-problem">
     <div class="container">
       <div class="section-header">
@@ -882,99 +954,45 @@
     </div>
   </section>
 
-  <!-- ========== COMPARISON ========== -->
-  <section class="comparison-section" id="comparison">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Compare</span>
-        <h2>Traditional Expansion vs. Build-Operate-Transfer</h2>
-        <p>A smarter path to LatAm that compresses time-to-revenue and eliminates upfront risk.</p>
-      </div>
-      <div class="comparison-table">
-        <!-- Traditional -->
-        <div class="comparison-col">
-          <h3>Traditional Expansion</h3>
-          <div class="price">$2-5M</div>
-          <p class="price-note">Upfront investment before first revenue</p>
-          <ul>
-            <li><span class="cross">&#10007;</span> 1,501 hrs/year tax compliance in Brazil alone (World Bank)</li>
-            <li><span class="cross">&#10007;</span> 18-36 months to profitability</li>
-            <li><span class="cross">&#10007;</span> Cultural &amp; regulatory complexity</li>
-            <li><span class="cross">&#10007;</span> Difficult to find trusted local talent</li>
-            <li><span class="cross">&#10007;</span> 100% risk, your capital at stake</li>
-            <li><span class="cross">&#10007;</span> Core team distracted from home market</li>
-          </ul>
-        </div>
-        <!-- BOT -->
-        <div class="comparison-col highlight">
-          <h3>Build-Operate-Transfer</h3>
-          <div class="price">$25K/month</div>
-          <p class="price-note">Declining fees as you grow &mdash; you own 100% after 4 years</p>
-          <ul>
-            <li><span class="check">&#10003;</span> Proven 4-year success model</li>
-            <li><span class="check">&#10003;</span> Revenue within 12 months</li>
-            <li><span class="check">&#10003;</span> We handle all compliance &amp; regulations</li>
-            <li><span class="check">&#10003;</span> Our vetted local team from day 1</li>
-            <li><span class="check">&#10003;</span> Shared risk, aligned incentives</li>
-            <li><span class="check">&#10003;</span> Your team stays focused on core business</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Calculator CTA -->
-      <div style="text-align: center; margin-top: 32px;">
-        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Want to see the exact numbers for your business?</p>
-        <a href="market-entry/calculator" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 700; font-size: 14px; font-family: 'Space Grotesk', sans-serif; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 16px rgba(27,58,92,0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.35)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.25)';">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
-          Estimate Your LatAm ROI &rarr;
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- ========== WHY THIS MODEL EXISTS ========== -->
 
-  <!-- ========== MINI QUIZ (1st instance — after Comparison) ========== -->
-  <section class="quiz-section quiz-section--mid" id="readiness-check">
+  <section class="origin-section" id="origin">
     <div class="container">
-      <div class="quiz-wrap">
-        <div class="quiz-intro" id="quizIntro1">
-          <span class="section-badge">Quick Check</span>
-          <h2 class="quiz-heading">Is this the right model for your situation?</h2>
-          <p class="quiz-sub">2 questions. No email. Instant answer.</p>
-          <button class="quiz-start-btn" onclick="quizStart(1)">Find Out →</button>
-        </div>
-        <div class="quiz-step" id="quizQ1a" style="display:none;">
-          <div class="quiz-step-label">Question 1 of 2</div>
-          <h3 class="quiz-q-text">What's your primary goal for LatAm in the next 12 months?</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt" onclick="quizAnswer(1,1,'pipeline','Build pipeline &amp; test the market')">Build pipeline &amp; test the market</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,1,'revenue','Generate revenue from day one')">Generate revenue from day one</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,1,'partners','Find local partners or resellers')">Find local partners or resellers</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,1,'intelligence','Understand the opportunity before committing')">Understand the opportunity before committing</button>
-          </div>
-        </div>
-        <div class="quiz-step" id="quizQ2a" style="display:none;">
-          <div class="quiz-step-label">Question 2 of 2</div>
-          <h3 class="quiz-q-text">Where is your company right now?</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt" onclick="quizAnswer(1,2,'exploring','Exploring — no LatAm presence yet')">Exploring — no LatAm presence yet</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,2,'ready','Ready to pilot — budget approved, leadership aligned')">Ready to pilot — budget approved, leadership aligned</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,2,'operating','Already operating, but results below expectations')">Already operating, but results below expectations</button>
-            <button class="quiz-opt" onclick="quizAnswer(1,2,'expanding','Operating successfully, ready to scale further')">Operating successfully, ready to scale further</button>
-          </div>
-        </div>
-        <div class="quiz-result" id="quizResult1" style="display:none;">
-          <div class="quiz-result-inner">
-            <div class="quiz-result-icon" id="quizIcon1"></div>
-            <h3 class="quiz-result-title" id="quizTitle1"></h3>
-            <p class="quiz-result-text" id="quizText1"></p>
-            <a class="quiz-result-cta" id="quizCta1" href="#" target="_blank"></a>
-            <button class="quiz-restart" onclick="quizRestart(1)">Start over</button>
-          </div>
-        </div>
+      <div class="origin-content">
+        <span class="section-badge">The Origin</span>
+        <h2>Why This Model Exists</h2>
+        <p class="origin-lead">Built from 25 years operating in LatAm for companies like Oracle, AT&amp;T, and Informatica &mdash; not designed in a boardroom.</p>
+
+```
+    <p>The operations that generated the most results were the ones where the regional leader was treated as the <strong>owner</strong> &mdash; full empowerment, aligned goals, real P&amp;L accountability. The ones that failed? They <strong>delegated their brand to a distributor</strong> who built leverage, raised fees, and held the relationship hostage &mdash; sometimes ending in years of litigation to reclaim their own name.</p>
+
+    <p>After launching and scaling multiple operations from scratch to $300M+ in cumulative revenue, <strong>a repeatable process emerged</strong> &mdash; not a framework on a slide, but a real playbook for building sustainable growth in the region.</p>
+
+    <div class="origin-pillars">
+      <div class="origin-pillar">
+        <div class="origin-pillar-icon">&#128273;</div>
+        <h3>You Own Everything</h3>
+        <p>Entity, team, customers, and every relationship are <strong>legally yours from day one</strong>. No leverage shift. No hostage situation.</p>
+      </div>
+      <div class="origin-pillar">
+        <div class="origin-pillar-icon">&#128737;</div>
+        <h3>Your Brand Is Protected</h3>
+        <p>We operate under <strong>your name and identity</strong>. When we transfer, there is nothing to &ldquo;buy back.&rdquo;</p>
+      </div>
+      <div class="origin-pillar">
+        <div class="origin-pillar-icon">&#128200;</div>
+        <h3>Proven Process</h3>
+        <p>Structured, phase-gated operation with <strong>clear KPIs, decision gates, and accountability</strong> at every stage.</p>
       </div>
     </div>
+  </div>
+</div>
+```
+
   </section>
 
   <!-- ========== 4-YEAR JOURNEY ========== -->
+
   <section class="journey-section" id="the-model">
     <div class="container">
       <div class="section-header">
@@ -1035,7 +1053,142 @@
     </div>
   </section>
 
+  <!-- ========== COMPARISON ========== -->
+
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Compare</span>
+        <h2>Traditional Expansion vs. Build-Operate-Transfer</h2>
+        <p>Same goal &mdash; enter LatAm. Very different outcomes in growth, scale, and risk.</p>
+      </div>
+      <div class="comparison-table">
+        <!-- Traditional -->
+        <div class="comparison-col">
+          <h3>Traditional Expansion</h3>
+          <p class="price-note" style="margin-bottom:20px;">Go it alone &mdash; hire, learn, and build from scratch</p>
+
+```
+      <div class="compare-group">
+        <span class="compare-group-label">Growth</span>
+        <ul>
+          <li><span class="cross">&#10007;</span> 18&ndash;36 months before first meaningful revenue</li>
+          <li><span class="cross">&#10007;</span> No local network &mdash; pipeline starts from zero</li>
+          <li><span class="cross">&#10007;</span> Core team distracted from home market</li>
+        </ul>
+      </div>
+
+      <div class="compare-group">
+        <span class="compare-group-label">Scalability</span>
+        <ul>
+          <li><span class="cross">&#10007;</span> 6+ months to hire each key role without local presence</li>
+          <li><span class="cross">&#10007;</span> No repeatable playbook &mdash; learning by trial and error</li>
+          <li><span class="cross">&#10007;</span> $250K+ cost per bad hire slows momentum</li>
+        </ul>
+      </div>
+
+      <div class="compare-group">
+        <span class="compare-group-label">Safety</span>
+        <ul>
+          <li><span class="cross">&#10007;</span> Distributors can hold your brand and customers hostage</li>
+          <li><span class="cross">&#10007;</span> No control over local IP, contracts, or relationships</li>
+          <li><span class="cross">&#10007;</span> 100% capital at risk before proving the market</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOT -->
+    <div class="comparison-col highlight">
+      <h3>Build-Operate-Transfer</h3>
+      <p class="price-note" style="margin-bottom:20px;">We operate it &mdash; you own it from day one</p>
+
+      <div class="compare-group">
+        <span class="compare-group-label compare-group-label--bot">Growth</span>
+        <ul>
+          <li><span class="check">&#10003;</span> Revenue within 12 months &mdash; pipeline from day one</li>
+          <li><span class="check">&#10003;</span> 25+ years of LatAm relationships activated immediately</li>
+          <li><span class="check">&#10003;</span> Your team stays focused on core business</li>
+        </ul>
+      </div>
+
+      <div class="compare-group">
+        <span class="compare-group-label compare-group-label--bot">Scalability</span>
+        <ul>
+          <li><span class="check">&#10003;</span> Vetted local team hired and operating within weeks</li>
+          <li><span class="check">&#10003;</span> Proven playbook &mdash; structured phases, clear KPIs</li>
+          <li><span class="check">&#10003;</span> Process designed for clean handoff and self-sustaining ops</li>
+        </ul>
+      </div>
+
+      <div class="compare-group">
+        <span class="compare-group-label compare-group-label--bot">Safety</span>
+        <ul>
+          <li><span class="check">&#10003;</span> Entity, customers, and IP are legally yours from day one</li>
+          <li><span class="check">&#10003;</span> Your brand is never delegated &mdash; nothing to &ldquo;buy back&rdquo;</li>
+          <li><span class="check">&#10003;</span> Shared risk with declining fees &mdash; aligned incentives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Calculator CTA -->
+  <div style="text-align: center; margin-top: 32px;">
+    <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Want to see the exact numbers for your business?</p>
+    <a href="market-entry/calculator" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: #fff; font-weight: 700; font-size: 14px; font-family: 'Space Grotesk', sans-serif; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 16px rgba(27,58,92,0.25); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(27,58,92,0.35)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 16px rgba(27,58,92,0.25)';">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+      Estimate Your LatAm ROI &rarr;
+    </a>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- ========== MINI QUIZ (1st instance — after Comparison) ========== -->
+
+  <section class="quiz-section quiz-section--mid" id="readiness-check">
+    <div class="container">
+      <div class="quiz-wrap">
+        <div class="quiz-intro" id="quizIntro1">
+          <span class="section-badge">Quick Check</span>
+          <h2 class="quiz-heading">Is this the right model for your situation?</h2>
+          <p class="quiz-sub">2 questions. No email. Instant answer.</p>
+          <button class="quiz-start-btn" onclick="quizStart(1)">Find Out →</button>
+        </div>
+        <div class="quiz-step" id="quizQ1a" style="display:none;">
+          <div class="quiz-step-label">Question 1 of 2</div>
+          <h3 class="quiz-q-text">What's your primary goal for LatAm in the next 12 months?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'pipeline','Build pipeline &amp; test the market')">Build pipeline &amp; test the market</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'revenue','Generate revenue from day one')">Generate revenue from day one</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'partners','Find local partners or resellers')">Find local partners or resellers</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,1,'intelligence','Understand the opportunity before committing')">Understand the opportunity before committing</button>
+          </div>
+        </div>
+        <div class="quiz-step" id="quizQ2a" style="display:none;">
+          <div class="quiz-step-label">Question 2 of 2</div>
+          <h3 class="quiz-q-text">Where is your company right now?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'exploring','Exploring — no LatAm presence yet')">Exploring — no LatAm presence yet</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'ready','Ready to pilot — budget approved, leadership aligned')">Ready to pilot — budget approved, leadership aligned</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'operating','Already operating, but results below expectations')">Already operating, but results below expectations</button>
+            <button class="quiz-opt" onclick="quizAnswer(1,2,'expanding','Operating successfully, ready to scale further')">Operating successfully, ready to scale further</button>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult1" style="display:none;">
+          <div class="quiz-result-inner">
+            <div class="quiz-result-icon" id="quizIcon1"></div>
+            <h3 class="quiz-result-title" id="quizTitle1"></h3>
+            <p class="quiz-result-text" id="quizText1"></p>
+            <a class="quiz-result-cta" id="quizCta1" href="#" target="_blank"></a>
+            <button class="quiz-restart" onclick="quizRestart(1)">Start over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== 8-STEP PROCESS ========== -->
+
   <section class="process-section" id="process">
     <div class="container">
       <div class="section-header">
@@ -1089,6 +1242,7 @@
   </section>
 
   <!-- ========== TEAM ========== -->
+
   <section class="team-section" id="team">
     <div class="container">
       <div class="section-header">
@@ -1098,59 +1252,63 @@
       </div>
       <div class="team-grid">
 
-        <!-- Carlos André — featured -->
-        <div class="team-card">
-          <div class="team-card-identity">
-            <div class="avatar"><img src="assets/images/brand/carlos-andre.png" alt="Carlos André" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
-            <h3>Carlos Andr&eacute;</h3>
-            <div class="role">Co-Founder &amp;<br>Managing Partner</div>
+```
+    <!-- Carlos André — featured -->
+    <div class="team-card">
+      <div class="team-card-identity">
+        <div class="avatar"><img src="assets/images/brand/carlos-andre.png" alt="Carlos André" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+        <h3>Carlos Andr&eacute;</h3>
+        <div class="role">Co-Founder &amp;<br>Managing Partner</div>
+      </div>
+      <div class="team-card-body">
+        <p class="team-card-bio">25+ years building and scaling B2B tech operations across Latin America. Hired by Informatica's President of Worldwide Field Operations to open LatAm from scratch. Before that, took AT&amp;T LatAm from $3M to $47M in 2 years as the unit's first dedicated hire.</p>
+        <div class="team-metrics">
+          <div class="team-metric">
+            <span class="m-number">$48M→$240M</span>
+            <span class="m-label">Oracle Brazil</span>
           </div>
-          <div class="team-card-body">
-            <p class="team-card-bio">25+ years building and scaling B2B tech operations across Latin America. Hired by Informatica's President of Worldwide Field Operations to open LatAm from scratch. Before that, took AT&amp;T LatAm from $3M to $47M in 2 years as the unit's first dedicated hire.</p>
-            <div class="team-metrics">
-              <div class="team-metric">
-                <span class="m-number">$48M→$240M</span>
-                <span class="m-label">Oracle Brazil</span>
-              </div>
-              <div class="team-metric">
-                <span class="m-number">$3M→$47M</span>
-                <span class="m-label">AT&amp;T LatAm<br>in 2 years</span>
-              </div>
-              <div class="team-metric">
-                <span class="m-number">$40M+</span>
-                <span class="m-label">Informatica LatAm<br>new revenue</span>
-              </div>
-            </div>
-            <div class="team-highlights">
-              <span class="highlight-logo"><img src="assets/images/brand/logo-oracle.png" alt="Oracle" style="height:16px;object-fit:contain;max-width:80px;vertical-align:middle;"></span>
-              <span class="highlight-logo"><img src="assets/images/brand/logo-att.png" alt="AT&T" style="height:16px;object-fit:contain;max-width:60px;vertical-align:middle;"></span>
-              <span class="highlight-logo"><img src="assets/images/brand/logo-informatica.png" alt="Informatica" style="height:16px;object-fit:contain;max-width:90px;vertical-align:middle;"></span>
-              <span>Endeavor</span>
-            </div>
+          <div class="team-metric">
+            <span class="m-number">$3M→$47M</span>
+            <span class="m-label">AT&amp;T LatAm<br>in 2 years</span>
+          </div>
+          <div class="team-metric">
+            <span class="m-number">$40M+</span>
+            <span class="m-label">Informatica LatAm<br>new revenue</span>
           </div>
         </div>
-
-        <!-- Miguel Velazquez — supporting -->
-        <div class="team-card-secondary">
-          <div class="avatar"><img src="assets/images/brand/miguel-velazquez.jpg" alt="Miguel Velazquez" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
-          <div>
-            <h3>Miguel Velazquez</h3>
-            <div class="role">Head of Operations &mdash; Mexico &amp; Central America</div>
-            <p>25+ years driving B2B tech expansion across LatAm. Specializes in go-to-market execution, sales leadership, and strategic partnerships across Mexico, Central America, and South America.</p>
-            <div class="team-highlights">
-              <span>Informatica</span>
-              <span>Aceco TI</span>
-              <span>Mexico</span>
-              <span>Central America</span>
-            </div>
-          </div>
+        <div class="team-highlights">
+          <span class="highlight-logo"><img src="assets/images/brand/logo-oracle.png" alt="Oracle" style="height:16px;object-fit:contain;max-width:80px;vertical-align:middle;"></span>
+          <span class="highlight-logo"><img src="assets/images/brand/logo-att.png" alt="AT&T" style="height:16px;object-fit:contain;max-width:60px;vertical-align:middle;"></span>
+          <span class="highlight-logo"><img src="assets/images/brand/logo-informatica.png" alt="Informatica" style="height:16px;object-fit:contain;max-width:90px;vertical-align:middle;"></span>
+          <span>Endeavor</span>
         </div>
-
       </div>
     </div>
+
+    <!-- Miguel Velazquez — supporting -->
+    <div class="team-card-secondary">
+      <div class="avatar"><img src="assets/images/brand/miguel-velazquez.jpg" alt="Miguel Velazquez" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;"></div>
+      <div>
+        <h3>Miguel Velazquez</h3>
+        <div class="role">Head of Operations &mdash; Mexico &amp; Central America</div>
+        <p>25+ years driving B2B tech expansion across LatAm. Specializes in go-to-market execution, sales leadership, and strategic partnerships across Mexico, Central America, and South America.</p>
+        <div class="team-highlights">
+          <span>Informatica</span>
+          <span>Aceco TI</span>
+          <span>Mexico</span>
+          <span>Central America</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+```
+
   </section>
 
   <!-- ========== TESTIMONIALS ========== -->
+
   <section class="testimonials-section" id="testimonials">
     <div class="container">
       <div class="section-header">
@@ -1177,6 +1335,7 @@
   </section>
 
   <!-- ========== OVERVIEW CTA ========== -->
+
   <section style="padding: 56px 0; background: var(--bg); border-top: 1px solid var(--border);">
     <div class="container">
       <div style="max-width: 780px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 36px 40px; box-shadow: var(--shadow-sm);">
@@ -1193,6 +1352,7 @@
   </section>
 
   <!-- ========== FAQ ========== -->
+
   <section class="faq-section" id="faq">
     <div class="container">
       <div class="section-header">
@@ -1268,6 +1428,7 @@
   </section>
 
   <!-- ========== QUIZ NUDGE (2nd instance — after FAQ, compact) ========== -->
+
   <section class="quiz-nudge-section" id="readiness">
     <div class="container">
       <div class="quiz-nudge-wrap">
@@ -1621,62 +1782,7 @@
   </script>
 
   <!-- ========== EMAIL CAPTURE ========== -->
-  <section style="padding: 72px 0; background: var(--bg); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div style="max-width: 640px; margin: 0 auto; text-align: center;">
-        <p style="font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm); margin-bottom:12px;">Free Resource</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:1.75rem; font-weight:700; color:var(--text); margin-bottom:12px; line-height:1.25;">Get the BOT Playbook</h2>
-        <p style="font-size:1rem; color:var(--text-secondary); line-height:1.65; margin-bottom:32px;">A practical guide to how the Build, Operate &amp; Transfer model works — phases, KPIs, investment structure, and what to expect in year one. No sales call needed.</p>
-        <div id="meEmailCapture">
-          <div id="meFormWrap" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-            <input type="email" id="meEmail" placeholder="your@company.com" autocomplete="email"
-              style="padding:14px 20px; border:1.5px solid var(--border); border-radius:var(--r-full); font-size:0.97rem; font-family:'DM Sans',sans-serif; outline:none; min-width:260px; flex:1; max-width:340px; color:var(--text); background:#fff; transition:border-color 0.2s;"
-              onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-            <button id="meSubmitBtn" onclick="meSubmit()"
-              style="padding:14px 28px; background:linear-gradient(135deg,var(--warm),var(--warm-dark)); color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; border:none; border-radius:var(--r-full); cursor:pointer; white-space:nowrap; box-shadow:0 4px 16px rgba(200,150,90,0.35); transition:transform 0.2s,box-shadow 0.2s;"
-              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(200,150,90,0.45)'"
-              onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(200,150,90,0.35)'">
-              Send me the Playbook &rarr;
-            </button>
-          </div>
-          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:12px;">No spam. One email with the PDF link.</p>
-          <div id="meSuccess" style="display:none; align-items:center; justify-content:center; gap:10px; color:var(--accent); font-family:'Space Grotesk',sans-serif; font-weight:600;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-            Check your inbox — the playbook is on its way.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script>
-  function meSubmit() {
-    var emailEl = document.getElementById('meEmail');
-    var btn     = document.getElementById('meSubmitBtn');
-    var success = document.getElementById('meSuccess');
-    var formWrap= document.getElementById('meFormWrap');
-    var email   = emailEl ? emailEl.value.trim() : '';
-    if (!email || email.indexOf('@') === -1) {
-      emailEl.style.borderColor = '#EF4444';
-      emailEl.focus();
-      return;
-    }
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    var params = new URLSearchParams();
-    params.append('source', 'market_entry_cta');
-    params.append('email', email);
-    params.append('timestamp', new Date().toISOString());
-    params.append('page', window.location.pathname);
-    fetch('https://script.google.com/macros/s/AKfycbya0njJJE2NBkoj0mjQUvuR-EBwBOX8-cXYRIeIXLLIMLlB9hRye3Zzteyo3dD7Qawg/exec', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', { event_category: 'lead_generation', lead_source: 'market_entry_cta' });
-    }
-    formWrap.style.display = 'none';
-    success.style.display  = 'flex';
-  }
-  </script>
 
-  <!-- ========== EMAIL CAPTURE ========== -->
   <section style="padding: 72px 0; background: var(--bg); border-top: 1px solid var(--border);">
     <div class="container">
       <div style="max-width: 640px; margin: 0 auto; text-align: center;">
@@ -1696,7 +1802,7 @@
                 Send me the Playbook &rarr;
               </button>
             </div>
-            
+
 <div class="nl-toggles-wrap nl-compact" id="meNlWrap">
   <p class="nl-toggles-label"  id="meNlLabel">Receive content on:</p>
   <div class="nl-toggles-row">
@@ -1713,15 +1819,18 @@
   </div>
 </div>
 
-            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px;">No spam. One email with the PDF link.</p>
-          </div>
-          <div id="meSuccess" style="display:none; align-items:center; justify-content:center; gap:10px; color:var(--accent); font-family:'Space Grotesk',sans-serif; font-weight:600;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-            Check your inbox — the playbook is on its way.
-          </div>
-        </div>
+```
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:8px;">No spam. One email with the PDF link.</p>
+      </div>
+      <div id="meSuccess" style="display:none; align-items:center; justify-content:center; gap:10px; color:var(--accent); font-family:'Space Grotesk',sans-serif; font-weight:600;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Check your inbox — the playbook is on its way.
       </div>
     </div>
+  </div>
+</div>
+```
+
   </section>
   <script>
   function meSubmit() {
@@ -1744,58 +1853,7 @@
     params.append('page', window.location.pathname);
     params.append('newsletter_growth', document.getElementById('meNlGrowth').checked ? 'yes' : 'no');
     params.append('newsletter_latam',  document.getElementById('meNlLatam').checked  ? 'yes' : 'no');
-    fetch('__ALAVANKA_GAS_URL__', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', { event_category: 'lead_generation', lead_source: 'market_entry_cta' });
-    }
-    formWrap.style.display = 'none';
-    success.style.display  = 'flex';
-  }
-  </script>
-
-  <!-- ========== EMAIL CAPTURE ========== -->
-  <section style="padding: 72px 0; background: var(--bg); border-top: 1px solid var(--border);">
-    <div class="container">
-      <div style="max-width: 640px; margin: 0 auto; text-align: center;">
-        <p style="font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--warm); margin-bottom:12px;">Free Resource</p>
-        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:1.75rem; font-weight:700; color:var(--text); margin-bottom:12px; line-height:1.25;">Get the BOT Playbook</h2>
-        <p style="font-size:1rem; color:var(--text-secondary); line-height:1.65; margin-bottom:32px;">A practical guide to how the Build, Operate &amp; Transfer model works — phases, KPIs, investment structure, and what to expect in year one. No sales call needed.</p>
-        <div id="meEmailCapture" style="max-width:480px; margin:0 auto;">
-          <div id="meFormWrap">
-            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:8px;">
-              <input type="email" id="meEmail" placeholder="your@company.com" autocomplete="email"
-                style="padding:14px 20px; border:1.5px solid var(--border); border-radius:var(--r-full); font-size:0.97rem; font-family:'DM Sans',sans-serif; outline:none; min-width:240px; flex:1; max-width:300px; color:var(--text); background:#fff; transition:border-color 0.2s;"
-                onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-              <button id="meSubmitBtn" onclick="meSubmit()"
-                style="padding:14px 28px; background:linear-gradient(135deg,var(--warm),var(--warm-dark)); color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem; border:none; border-radius:var(--r-full); cursor:pointer; white-space:nowrap; box-shadow:0 4px 16px rgba(200,150,90,0.35); transition:transform 0.2s,box-shadow 0.2s;"
-                onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(200,150,90,0.45)'"
-                onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(200,150,90,0.35)'">
-                Send me the Playbook &rarr;
-              </button>
-            </div>
-            
-</div>
-  </section>
-  <script>
-  function meSubmit() {
-    var emailEl = document.getElementById('meEmail');
-    var btn     = document.getElementById('meSubmitBtn');
-    var success = document.getElementById('meSuccess');
-    var formWrap= document.getElementById('meFormWrap');
-    var email   = emailEl ? emailEl.value.trim() : '';
-    if (!email || email.indexOf('@') === -1) {
-      emailEl.style.borderColor = '#EF4444';
-      emailEl.focus();
-      return;
-    }
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    var params = new URLSearchParams();
-    params.append('source', 'market_entry_cta');
-    params.append('email', email);
-    params.append('timestamp', new Date().toISOString());
-    params.append('page', window.location.pathname);
-    fetch('__ALAVANKA_GAS_URL__', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
+    fetch('https://script.google.com/macros/s/AKfycbya0njJJE2NBkoj0mjQUvuR-EBwBOX8-cXYRIeIXLLIMLlB9hRye3Zzteyo3dD7Qawg/exec', { method: 'POST', mode: 'no-cors', body: params }).catch(function() {});
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', { event_category: 'lead_generation', lead_source: 'market_entry_cta' });
     }
@@ -1805,6 +1863,7 @@
   </script>
 
   <!-- ========== CTA ========== -->
+
   <section class="cta-section" id="connect">
     <div class="container">
       <span class="section-badge" style="background: rgba(200,150,90,0.15); color: var(--warm);">Get Started</span>
@@ -1818,6 +1877,7 @@
   </section>
 
   <!-- ========== SHARE BAR ========== -->
+
   <section style="background: var(--bg); padding: 32px 0; border-top: 1px solid var(--border);">
     <div class="container">
       <div class="me-share-bar">
@@ -1835,9 +1895,11 @@
   </section>
 
   <!-- ========== FOOTER ========== -->
+
   <footer id="main-footer"></footer>
 
   <!-- ========== FAQ SCRIPT ========== -->
+
   <script>
     (function() {
       'use strict';
@@ -1864,6 +1926,7 @@
       }
     })();
   </script>
+
   <script>
     function meCopyLink() {
       var url = 'https://www.alavanka.com.br/market-entry';
@@ -1880,5 +1943,6 @@
       });
     }
   </script>
+
 </body>
 </html>
