@@ -83,9 +83,10 @@
             mep: {
                 sections: [
                     { label: 'The Challenge', anchor: 'the-problem' },
-                    { label: 'BOT vs Traditional', anchor: 'comparison' },
+                    { label: 'The Origin', anchor: 'origin' },
                     { label: '4-Year Journey', anchor: 'the-model' },
-                    { label: 'From Call to Ownership', anchor: 'process' },
+                    { label: 'Compare', anchor: 'comparison' },
+                    { label: 'How It Works', anchor: 'process' },
                     { label: 'Our Team', anchor: 'team' },
                     { label: 'FAQ', anchor: 'faq' }
                 ]
