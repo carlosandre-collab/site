@@ -4,9 +4,6 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
-  "regions": [
-    "gru1"
-  ],
   "headers": [
     {
       "source": "/translations.json",
@@ -26,7 +23,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+          "value": "public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400"
         }
       ]
     },
@@ -35,7 +32,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+          "value": "public, max-age=0, s-maxage=31536000, stale-while-revalidate=86400"
         }
       ]
     },
