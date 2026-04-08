@@ -47,7 +47,7 @@ nav[role="navigation"] {
    3. LOGO
    ══════════════════════════════════════════════ */
 .logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.nav-logo-img { height: 44px; width: auto; display: block; transition: opacity 0.2s; }
+.nav-logo-img { height: 44px; width: auto; aspect-ratio: 664/254; display: block; transition: opacity 0.2s; }
 .logo:hover .nav-logo-img { opacity: 0.8; }
 
 /* ══════════════════════════════════════════════
