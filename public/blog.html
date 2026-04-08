@@ -411,7 +411,9 @@
             // Thumbnail
             let thumbnailHTML = '';
             if (article.thumbnail.type === 'image') {
-                thumbnailHTML = `<img src="${article.thumbnail.src}" alt="${article.thumbnail.alt[lang]}" loading="lazy">`;
+                const imgLoading = isFeatured ? 'eager' : 'lazy';
+                const imgPriority = isFeatured ? ' fetchpriority="high"' : '';
+                thumbnailHTML = `<img src="${article.thumbnail.src}" alt="${article.thumbnail.alt[lang]}" loading="${imgLoading}"${imgPriority}>`;
             } else if (article.thumbnail.type === 'iframe') {
                 thumbnailHTML = `<iframe src="${article.thumbnail.src}" title="${article.thumbnail.alt[lang]}" loading="lazy"></iframe>`;
             }
