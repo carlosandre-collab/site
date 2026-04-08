@@ -38,6 +38,7 @@
 .footer-logo {
     max-width: 160px;
     height: auto;
+    aspect-ratio: 664/254;
     opacity: 0.9;
 }
 
