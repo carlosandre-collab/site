@@ -30,16 +30,14 @@
     <!-- PATCH 3: Preloads com caminhos corretos -->
     <link rel="preload" href="styles/nav-unified.css" as="style">
     <link rel="preload" href="components/nav.js" as="script">
-    <link rel="preload" href="styles/styles-main.css" as="style">
     
     <!-- Anti-flash script -->
     <script>
     (function(){
-        var hasLocal = localStorage.getItem('alavanka-audience');
         var hasCookie = document.cookie.indexOf('alavanka-pref=') !== -1;
         var hasSession = sessionStorage.getItem('alavanka-audience');
         var isInternal = (document.referrer || '').indexOf('alavanka.com') !== -1;
-        if (hasLocal || hasCookie || hasSession || isInternal) {
+        if (hasCookie || hasSession || isInternal) {
             document.documentElement.classList.add('gate-skip');
         }
     })();
@@ -258,7 +256,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <!-- EXTERNAL CSS FILES -->
     <link rel="stylesheet" href="styles/nav-unified.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/styles-main.css">
+    <link rel="preload" href="styles/styles-main.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles/styles-main.css"></noscript>
     
     <!-- JS Components -->
     <script src="components/nav.js" defer></script>
@@ -407,7 +406,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <section class="hero">
     <h1 class="fade-up fade-up-1" data-i18n="hero.title">Sua receita B2B<br><span class="highlight">parou de crescer.</span></h1>
     
-    <p class="hero-sub fade-up fade-up-2" data-i18n="hero.subtitle">
+    <p class="hero-sub" data-i18n="hero.subtitle">
         Produto validado, clientes satisfeitos — mas o crescimento travou. A Alavanka pratica <strong>Growth Execution</strong>: entra na sua operação, identifica o gargalo e executa a solução junto com o seu time.
     </p>
     
