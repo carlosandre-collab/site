@@ -20,6 +20,15 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+  <style>
+  /* CLS fix: reserve logo space before nav.js + nav-unified.css load */
+  #main-nav{display:block;min-height:72px}
+  .nav-logo-img{height:44px;width:auto;aspect-ratio:664/254;display:block}
+  .footer-logo{max-width:160px;height:auto;aspect-ratio:664/254}
+  @media(min-width:768px){#main-nav{min-height:80px}.nav-logo-img{height:50px}}
+  @media(min-width:1024px){.nav-logo-img{height:52px}}
+  @media(min-width:1280px){.nav-logo-img{height:56px}}
+  </style>
   <link rel="preload" href="styles/nav-unified.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="styles/nav-unified.css"></noscript>
   <link rel="preload" href="styles/footer.css" as="style" onload="this.rel='stylesheet'">
