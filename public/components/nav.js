@@ -117,7 +117,7 @@
         var html = ''
             + '<nav role="navigation" aria-label="' + cfg.ariaLabel + '">'
             + '  <a href="' + indexUrl + '" class="logo" aria-label="Alavanka - Home">'
-            + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img">'
+            + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img" width="146" height="56">'
             + '  </a>'
             + '  <div class="nav-mobile-right">'
             + '    <button class="hamburger" id="hamburger" onclick="alavankaNav.toggleMenu()" aria-label="Menu" aria-expanded="false">'
