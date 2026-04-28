@@ -1,13 +1,51 @@
 {
   "articles": [
     {
+      "id": "operacao-canal-b2b-enablement-governanca",
+      "slug": "operacao-canal-b2b-enablement-governanca",
+      "slugs": {
+        "pt": "operacao-canal-b2b-enablement-governanca",
+        "en": "operating-b2b-channel-enablement-governance"
+      },
+      "featured": true,
+      "category": {
+        "pt": "Estratégia & Growth",
+        "en": "Strategy & Growth"
+      },
+      "title": {
+        "pt": "Como Operar o Canal B2B: Enablement, Deal Registration e Governança",
+        "en": "How to Operate a B2B Channel: Enablement, Deal Registration and Governance"
+      },
+      "excerpt": {
+        "pt": "Programa de canal sem operação é contrato na gaveta. Como transferir o GTM para o parceiro, evitar conflito direto vs. indireto e governar com dados.",
+        "en": "A channel program without operations is a signed contract in a drawer. How to transfer GTM to partners, prevent direct vs. indirect conflict, and govern with data."
+      },
+      "readTime": {
+        "pt": "14 min de leitura",
+        "en": "14 min read"
+      },
+      "date": "2026-04-02",
+      "dateLabel": {
+        "pt": "Abr 2026",
+        "en": "Apr 2026"
+      },
+      "thumbnail": {
+        "type": "image",
+        "src": "assets/images/blog/operacao-canal-b2b-enablement-governanca-thumb.jpg",
+        "alt": {
+          "pt": "Operação de canal B2B com enablement, deal registration e governança de parceiros",
+          "en": "B2B channel operations with enablement, deal registration and partner governance"
+        }
+      }
+    },
+    {
       "id": "estruturacao-programa-canal-b2b",
       "slug": "estruturacao-programa-canal-b2b",
       "slugs": {
         "pt": "estruturacao-programa-canal-b2b",
         "en": "structuring-b2b-channel-program"
       },
-      "featured": true,
+      "featured": false,
       "category": {
         "pt": "Estratégia & Growth",
         "en": "Strategy & Growth"
