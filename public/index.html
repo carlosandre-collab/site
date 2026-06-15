@@ -374,13 +374,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
 
         <div class="gate-options">
-            <button class="gate-option" data-audience="founder" onclick="selectAudience('founder')">
+            <button class="gate-option" data-audience="investor" onclick="selectAudience('investor')">
                 <div class="gate-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L3 14L8 9L13 12L21 3"/><path d="M17 3H21V7"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
                 </div>
                 <div class="gate-text">
-                    <div class="gate-label">Minha startup precisa crescer</div>
-                    <div class="gate-desc">Arquitetura de receita e GTM para B2B</div>
+                    <div class="gate-label" data-i18n="gate.investorLabel">Invisto em B2B Tech</div>
+                    <div class="gate-desc" data-i18n="gate.investorDesc">Quero destravar o crescimento das minhas investidas</div>
                 </div>
                 <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
@@ -389,13 +389,23 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
                 <div class="gate-text">
-                    <div class="gate-label">My company wants to enter LatAm</div>
-                    <div class="gate-desc">Build, operate &amp; transfer your expansion</div>
+                    <div class="gate-label" data-i18n="gate.internationalLabel">My company wants to enter LatAm</div>
+                    <div class="gate-desc" data-i18n="gate.internationalDesc">Build, operate &amp; transfer your expansion</div>
+                </div>
+                <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+            </button>
+            <button class="gate-option" data-audience="founder" onclick="selectAudience('founder')">
+                <div class="gate-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L3 14L8 9L13 12L21 3"/><path d="M17 3H21V7"/></svg>
+                </div>
+                <div class="gate-text">
+                    <div class="gate-label" data-i18n="gate.founderLabel">Lidero uma empresa e quero crescer</div>
+                    <div class="gate-desc" data-i18n="gate.founderDesc">Arquitetura de receita e GTM para B2B</div>
                 </div>
                 <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
         </div>
-        <button class="gate-skip" onclick="selectAudience('other')" aria-label="Só quero conhecer a Alavanka">Só quero conhecer a Alavanka →</button>
+        <button class="gate-skip" onclick="selectAudience('other')" data-i18n="gate.skip" aria-label="Só quero conhecer a Alavanka">Só quero conhecer a Alavanka →</button>
     </div>
 </div>
 
@@ -416,7 +426,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <circle cx="12" cy="12" r="10"/>
             <path d="M12 6v6l4 2"/>
         </svg>
-        <span data-i18n="hero.scarcity"><strong>3 vagas disponíveis</strong> para o próximo trimestre</span>
+        <span data-i18n="hero.scarcity">Trabalhamos com no <strong>máximo 3 empresas</strong> simultaneamente. Vagas limitadas a cada trimestre.</span>
     </div>
 
     
@@ -478,6 +488,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                 <li data-i18n="problem.card2.item4">Follow-on em risco ou exigindo down-round</li>
                 <li data-i18n="problem.card2.item5">Múltiplo de exit comprimindo cada trimestre</li>
             </ul>
+            <a href="investidores.html" class="pain-card-cta" data-i18n="problem.card2.cta">Tem empresas assim no portfólio? Veja como trabalhamos com fundos →</a>
         </div>
     </div>
 </section>
@@ -596,7 +607,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <div class="rum-card">
             <div class="rum-step">D120+</div>
             <h4 data-i18n="solution.rum3.title">Crescimento ou Kill-Switch</h4>
-            <p data-i18n="solution.rum3.text">Checkpoint obrigatório no D30 e D90. Se não funcionar, encerramos sem drama — você fica com todo o trabalho feito. Success fee só se houver resultado.</p>
+            <p data-i18n="solution.rum3.text">Checkpoint obrigatório no D30 e D90. Se não houver progresso mensurável, encerramos sem penalidade. Success fee só se houver resultado.</p>
         </div>
     </div>
 
