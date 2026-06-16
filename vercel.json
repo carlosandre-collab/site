@@ -163,6 +163,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/ilustracao_value_proposition.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ilustracao_tres_vazamentos.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
       "source": "/blog/ilustracao_capa",
       "destination": "/blog",
       "permanent": true
