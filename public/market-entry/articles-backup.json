@@ -1,24 +1,8 @@
 [
   {
-    "id": "innovation-propensity-latam-country-city-en",
-    "slug": "innovation-propensity-latam-country-city-en",
-    "featured": true,
-    "category": "Market Entry",
-    "title": "Innovation Propensity by Country and City: The Missing Factor in Your Latin America GTM",
-    "excerpt": "The 2026 innovation indices by country, city and state — organized as a guide to decide where to sell B2B first in Latin America, with which entry model and what cycle to expect.",
-    "readTime": "12 min read",
-    "date": "2026-09-22",
-    "dateLabel": "September 2026",
-    "thumbnail": {
-      "type": "image",
-      "src": "../assets/images/market-entry/innovation-propensity-latam-country-city-en-thumb.jpg",
-      "alt": "Vintage-style map of Latin America with innovation hubs marked by pins of different sizes — São Paulo, Mexico City, Bogotá, Santiago and Buenos Aires"
-    }
-  },
-  {
     "id": "b2b-channel-latam-structuring-program-en",
     "slug": "b2b-channel-latam-structuring-program-en",
-    "featured": false,
+    "featured": true,
     "category": "International Market Expansion",
     "title": "B2B Channel in LATAM: The Structure Decision That Comes Before Everything Else",
     "excerpt": "Three scenarios for structuring a B2B channel program in Latin America — adapting a global program, building channel-first, or running a hybrid. What each requires to succeed.",
