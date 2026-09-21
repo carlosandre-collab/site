@@ -38,14 +38,14 @@
         var hasSession = sessionStorage.getItem('alavanka-audience');
         var isInternal = (document.referrer || '').indexOf('alavanka.com') !== -1;
         if (hasCookie || hasSession || isInternal) {
-            document.documentElement.classList.add('gate-bypass');
+            document.documentElement.classList.add('gate-skip');
         }
     })();
     </script>
     
     <!-- CRITICAL CSS INLINE -->
     <style>
-html.gate-bypass .audience-gate{display:none!important}
+html.gate-skip .audience-gate{display:none!important}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -359,23 +359,6 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
       ]
     }
     </script>
-<style id="desktop-readability">
-/* Desktop readability: larger text on screens >=1024px; mobile unchanged */
-@media (min-width:1024px){
-html body .pain-card li,html body #problema li,html body #fit li,html body .faq-answer-content p,html body .founder-case-content p,html body .founder-case-takeaway p,html body .comp-cell p,html body .urgency-box p,html body .why-hero .stat-detail,html body .model-pillar p,html body .why-pillar p,html body .rum-card p,html body .why-origin-text p{font-size:16.5px;line-height:1.65}
-html body #como li,html body #porque li,html body #porque p,html body .credential-card p.credential-award-detail,html body .founder-info .founder-title{font-size:15.5px}
-html body .consequence-card p,html body #como li.phase-delivery{font-size:14.5px;line-height:1.55}
-html body .consequence-card h3.consequence-title,html body .credential-card h4,html body .rum-card h4{font-size:16px}
-html body .hero-cta-note,html body .scarcity-badge span,html body .hero-link span,html body .sec-link span,html body #contato a{font-size:15px}
-html body .comp-label span,html body .founder-case-badge,html body .case-metric-label,html body .source-badge-text span,html body .source-badge-text strong,html body .rum-step,html body .founder-case-sources-title{font-size:13px}
-html body .sources-inline,html body .sources-inline strong,html body .sources-inline a,html body .sources-title{font-size:14px}
-html body .sources-note{font-size:13.5px}
-html body .nav-links a.nav-link-desktop,html body .nav-links a.nav-link-vcs{font-size:14.5px}
-html body .footer-group a,html body .footer-brand-col .footer-tagline,html body .footer-cross strong,html body .footer-cross a{font-size:15px}
-html body .footer-group h4{font-size:13.5px}
-html body .footer-bottom span,html body .footer-bottom a.footer-privacy{font-size:13px}
-}
-</style>
 </head>
 
 <body>
