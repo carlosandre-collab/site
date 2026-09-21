@@ -64,8 +64,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;c
 h1,h2{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.15;letter-spacing:-0.01em}
 h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-0.02em}
 
-@keyframes fadeUp{from{transform:translateY(16px)}to{transform:translateY(0)}}
-.fade-up{animation:fadeUp 0.5s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.6s ease forwards;opacity:0}
 .fade-up-1{animation-delay:0.1s}.fade-up-2{animation-delay:0.2s}.fade-up-3{animation-delay:0.3s}.fade-up-4{animation-delay:0.4s}.fade-up-5{animation-delay:0.5s}
 
 
@@ -100,13 +100,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 .audience-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(13,27,42,0.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:1;transition:opacity 0.5s ease}
 .audience-gate.closing{opacity:0;pointer-events:none}
 .gate-card{width:90%;max-width:480px;background:#fff;border-radius:24px;padding:44px 36px 36px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,0.18),0 0 0 1px rgba(0,0,0,0.04);animation:gateIn 0.5s cubic-bezier(0.16,1,0.3,1) both}
-@keyframes gateIn{from{transform:translateY(12px) scale(0.98)}to{transform:translateY(0) scale(1)}}
-.gate-logo{margin-bottom:28px}
+@keyframes gateIn{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.gate-logo{margin-bottom:28px;opacity:0;animation:gateFade 0.4s ease 0.15s both}
 .gate-logo img{height:118px;width:auto}
 .gate-question{display:none}
 .gate-sub{display:none}
-@keyframes gateFade{from{transform:translateY(8px)}to{transform:translateY(0)}}
-.gate-options{display:flex;flex-direction:column;gap:10px;animation:gateFade 0.4s ease both}
+@keyframes gateFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.gate-options{display:flex;flex-direction:column;gap:10px;opacity:0;animation:gateFade 0.4s ease 0.35s both}
 .gate-option{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;background:#FAFBFD;border:1.5px solid #E5E7EB;border-radius:14px;cursor:pointer;transition:all 0.2s ease;text-decoration:none;overflow:hidden;font-family:'DM Sans',sans-serif;color:inherit;text-align:left}
 .gate-option::before{display:none}
 .gate-option:hover{border-color:#C8965A;background:#FFFCF8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,90,0.12)}
@@ -390,7 +390,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                 </div>
                 <div class="gate-text">
                     <div class="gate-label" data-i18n="gate.internationalLabel">My company wants to enter LatAm</div>
-                    <div class="gate-desc" data-i18n="gate.internationalDesc">Build, operate & transfer your expansion</div>
+                    <div class="gate-desc" data-i18n="gate.internationalDesc">Build, operate &amp; transfer your expansion</div>
                 </div>
                 <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
             </button>
@@ -482,7 +482,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                 <h3 class="pain-card-title" data-i18n="problem.card2.title">O Que o VC Vê no Portfólio</h3>
             </div>
             <ul>
-                <li data-i18n="problem.card2.item1">Empresa na zona zumbi — não morre, mas não cresce</li>
+                <li data-i18n="problem.card2.item1">Empresa na "zona zumbi" — não morre, mas não cresce</li>
                 <li data-i18n="problem.card2.item2">CEO em burnout, perdido entre produto e vendas</li>
                 <li data-i18n="problem.card2.item3">Milestone sempre escorregando (6 → 9 → 12 meses)</li>
                 <li data-i18n="problem.card2.item4">Follow-on em risco ou exigindo down-round</li>
@@ -589,8 +589,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <!-- Como fazemos -->
 <section id="como" class="solution-section">
     <div class="section-header">
-        <h2 data-i18n="solution.intro.title">Sua receita não precisa de <span class="hl">mais uma opinião</span></h2>
-        <p data-i18n="solution.intro.subtitle">Você já tem diagnósticos. Já teve consultores com slides. Já considerou contratar um VP — e sabe que 12 a 18 meses de ramp é tempo que não tem. O que falta não é mais análise: é alguém que entre na operação 2 a 3 dias por semana, sente junto com o time no forecast, descobre onde exatamente os deals morrem, reconstrói o ICP e o processo de vendas com critérios reais, instala os rituais que fazem o pipeline se mover — e responde por resultado com success fee, não com fatura por hora. A esse modelo de parceria operacional, nós chamamos de <strong>Growth Execution</strong>.</p>
+        <h2 data-i18n="solution.intro.title">Growth Execution: <span class="hl">Como Funciona na Prática</span></h2>
+        <p data-i18n="solution.intro.subtitle">Um modelo de parceria que combina os três pilares que faltam: diagnóstico, execução e accountability — sem o custo ou risco de uma contratação executiva.</p>
     </div>
 
     <div class="revenue-unlock-model">
@@ -626,7 +626,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
                     <li data-i18n="process.phase1.item1">Deep-dive em 25+ KPIs de GTM</li>
                     <li data-i18n="process.phase1.item2">Entrevistas 360° (time, clientes, lost deals)</li>
                     <li data-i18n="process.phase1.item3">Baseline documentado + metas D30/D60/D90</li>
-                    <li data-i18n="process.phase1.item4">Kill-switch: Se não houver fit, encerramos com diagnóstico</li>
+                    <li data-i18n="process.phase1.item4">Kill-criteria definidos desde o início</li>
                     <li class="phase-delivery" data-i18n="process.phase1.delivery">Entrega: Baseline Report com 25+ KPIs documentados</li>
                 </ul>
             </div>
@@ -634,13 +634,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <div class="timeline-item">
             <div class="timeline-dot">2</div>
             <div class="timeline-content">
-                <h4 data-i18n="process.phase2.title">Arquitetura</h4>
-                <p class="duration" data-i18n="process.phase2.duration">60 dias</p>
+                <h4 data-i18n="process.phase2.title">Transformação</h4>
+                <p class="duration" data-i18n="process.phase2.duration">90 dias</p>
                 <ul>
-                    <li data-i18n="process.phase2.item1">Redesenho de processos de vendas</li>
-                    <li data-i18n="process.phase2.item2">Playbook documentado e treinamento</li>
-                    <li data-i18n="process.phase2.item3">Stack de ferramentas otimizado</li>
-                    <li data-i18n="process.phase2.item4">Métricas e dashboards implementados</li>
+                    <li data-i18n="process.phase2.item1">ICP, posicionamento e messaging reconstruídos</li>
+                    <li data-i18n="process.phase2.item2">Processo de vendas com critérios de stage</li>
+                    <li data-i18n="process.phase2.item3">RevOps e rituais semanais instalados</li>
+                    <li data-i18n="process.phase2.item4">Dashboards funcionando + quick wins</li>
                     <li class="phase-delivery" data-i18n="process.phase2.delivery">Entrega: GTM Playbook + Pipeline operacional</li>
                 </ul>
             </div>
@@ -648,13 +648,13 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         <div class="timeline-item">
             <div class="timeline-dot">3</div>
             <div class="timeline-content">
-                <h4 data-i18n="process.phase3.title">Execução</h4>
-                <p class="duration" data-i18n="process.phase3.duration">90 dias</p>
+                <h4 data-i18n="process.phase3.title">Aceleração</h4>
+                <p class="duration" data-i18n="process.phase3.duration">+60 dias</p>
                 <ul>
-                    <li data-i18n="process.phase3.item1">2 dias/semana na operação</li>
-                    <li data-i18n="process.phase3.item2">Coaching de gestores e vendedores</li>
-                    <li data-i18n="process.phase3.item3">Ajustes em tempo real baseados em dados</li>
-                    <li data-i18n="process.phase3.item4">Kill-switch: Checkpoint D90 com board</li>
+                    <li data-i18n="process.phase3.item1">Hiring/ajuste de liderança se necessário</li>
+                    <li data-i18n="process.phase3.item2">Playbooks documentados e rodando</li>
+                    <li data-i18n="process.phase3.item3">Handover estruturado para time interno</li>
+                    <li data-i18n="process.phase3.item4">Growth committee mensal (opcional)</li>
                     <li class="phase-delivery" data-i18n="process.phase3.delivery">Entrega: Time autônomo + documentação completa</li>
                 </ul>
             </div>
@@ -668,10 +668,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-old">
                 <span class="comp-label comp-label-fail">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    <span data-i18n="solution.traditional.label">❌ Opção tradicional</span>
+                    <span data-i18n="solution.traditional.label">Opção tradicional</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.vp.title">Contratar VP Sales</h3>
-                <p data-i18n="solution.vp.text">12-18 meses de ramp. 50% taxa de falha. Custo de R$1M+/ano.</p>
+                <p data-i18n="solution.vp.text">12-18 meses de ramp. ~50% taxa de falha em startups SaaS.* Custo de R$1M+/ano. Se não funcionar, você perdeu 18 meses.</p>
             </div>
             <div class="comp-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -679,10 +679,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-new">
                 <span class="comp-label comp-label-win">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="solution.fractional.label">✓ Growth Execution</span>
+                    <span data-i18n="solution.fractional.label">Growth Execution</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.vp.better.title">Instalar arquitetura primeiro</h3>
-                <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar. 70% do impacto por 30% do custo.</p>
+                <p data-i18n="solution.vp.better.text">Contratar VP quando a máquina funcionar e você souber o perfil certo. 70% do impacto por 30% do custo.</p>
             </div>
         </div>
 
@@ -690,10 +690,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-old">
                 <span class="comp-label comp-label-fail">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    <span data-i18n="solution.traditional.label">❌ Opção tradicional</span>
+                    <span data-i18n="solution.traditional.label">Opção tradicional</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.consulting.title">Consultoria Big 4</h3>
-                <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints. Zero execução.</p>
+                <p data-i18n="solution.consulting.text">R$500k-1.5M por PowerPoints bonitos. Zero execução. Consultores juniores fazendo benchmarks genéricos.</p>
             </div>
             <div class="comp-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -701,10 +701,10 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="comp-cell comp-new">
                 <span class="comp-label comp-label-win">
                     <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span data-i18n="solution.fractional.label">✓ Growth Execution</span>
+                    <span data-i18n="solution.fractional.label">Growth Execution</span>
                 </span>
                 <h3 class="comp-title" data-i18n="solution.consulting.better.title">Execução hands-on</h3>
-                <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Pele no jogo com success fee.</p>
+                <p data-i18n="solution.consulting.better.text">2 dias/semana na operação. Metas semanais, não relatórios mensais. Pele no jogo com success fee.</p>
             </div>
         </div>
     </div>
@@ -730,7 +730,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     
     <div class="fit-cards">
         <div class="fit-card positive">
-            <h3 data-i18n="fit.positive.title">Trabalhamos Com Empresas Que...</h3>
+            <h3 data-i18n="fit.positive.title"><span class="ic ic-success" style="width:22px;height:22px;display:inline-flex;vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg></span> Trabalhamos Com Empresas Que...</h3>
             <ul>
                 <li data-i18n="fit.positive.item1">Têm receita anual de pelo menos R$10M</li>
                 <li data-i18n="fit.positive.item2">Já captaram Série B ou posterior</li>
@@ -742,7 +742,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             </ul>
         </div>
         <div class="fit-card negative">
-            <h3 data-i18n="fit.negative.title">Não Trabalhamos Com Empresas Que...</h3>
+            <h3 data-i18n="fit.negative.title"><span class="ic ic-danger" style="width:22px;height:22px;display:inline-flex;vertical-align:middle;margin-right:6px"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Não Trabalhamos Com Empresas Que...</h3>
             <ul>
                 <li data-i18n="fit.negative.item1">Ainda buscam product-market fit</li>
                 <li data-i18n="fit.negative.item2">Receita abaixo de R$10M/ano</li>
@@ -805,7 +805,11 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="why-hero">
         <div class="big-stat" data-i18n="why.track.stat">$300M+</div>
         <div class="stat-label" data-i18n="why.track.label">construídos como operador</div>
-        <div class="stat-detail" data-i18n="why.track.detail">Oracle Brasil: Presidente (12.5x em 5 anos)<br>AT&T LATAM: CEO (15x em 2 anos)<br>Informatica: VP LATAM (20x em 5 anos)</div>
+        <div class="stat-detail" data-i18n="why.track.detail">
+            Oracle Brasil: Presidente (12.5x em 5 anos)<br>
+            AT&T LATAM: CEO (15x em 2 anos)<br>
+            Informatica: VP LATAM (20x em 5 anos)
+        </div>
     </div>
 
     <div class="credentials-grid">
@@ -818,7 +822,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             </ul>
         </div>
         <div class="credential-card credential-card-highlight">
-            <h4 data-i18n="why.cred.endeavorAward">🏆 Premiado Mentor de Impacto — Endeavor Brasil (2013)</h4>
+            <h4 data-i18n="why.cred.endeavorAward"><span class="badge-ic"><span class="ic ic-warm"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 000-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg></span></span> Premiado Mentor de Impacto — Endeavor Brasil (2013)</h4>
             <p class="credential-award-detail" data-i18n="why.cred.endeavorAwardDetail">Concedido ao mentor com maior impacto na geração de crescimento dos seus mentorandos. Mais de 20 empresas da rede Endeavor mentoradas.</p>
             <p data-i18n="why.cred.ibgc">Conselheiro certificado IBGC</p>
         </div>
@@ -832,7 +836,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     <div class="founder-case-study">
         <div class="founder-case-header">
-            <div class="founder-case-badge" data-i18n="why.case.badge">📖 Case Documentado</div>
+            <div class="founder-case-badge" data-i18n="why.case.badge">Case Documentado</div>
         </div>
         <div class="case-metric-hero">
             <div class="case-metric-item">
@@ -851,15 +855,15 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             <div class="founder-case-step">
                 <div class="founder-case-marker">1</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step1.title">O Desafio</h4>
-                    <p data-i18n="why.case.step1.text">ClearSale tinha produto validado, mas precisava estruturar a operação comercial para escalar. Carlos André participou da definição e seleção da liderança comercial, atuando como mentor próximo da operação.</p>
+                    <h4 data-i18n="why.case.step1.title">O Cenário</h4>
+                    <p data-i18n="why.case.step1.text">ClearSale tinha o melhor produto de antifraude do Brasil e clientes satisfeitos — mas literalmente não tinha área de vendas. A equipe de compras era quem vendia. Não existia pipeline, processo comercial, gestão de vendas nem metas estruturadas.</p>
                 </div>
             </div>
             <div class="founder-case-step">
                 <div class="founder-case-marker">2</div>
                 <div class="founder-case-content">
-                    <h4 data-i18n="why.case.step2.title">A Mentoria</h4>
-                    <p data-i18n="why.case.step2.text">Mentoria estratégica na estruturação da arquitetura comercial: apoio na definição de processos, pipeline, métricas e cadência. Orientação próxima que ajudou a transformar a operação de vendas em uma máquina de receita previsível.</p>
+                    <h4 data-i18n="why.case.step2.title">A Intervenção (~2 anos)</h4>
+                    <p data-i18n="why.case.step2.text">Carlos André atuou como mentor próximo, indo além da mentoria Endeavor, para apoiar a estruturação da operação comercial. O trabalho incluiu orientar: a contratação e treinamento dos primeiros vendedores, criação de processos de pipeline e forecast, implementação de cadência operacional e métricas de gestão.</p>
                 </div>
             </div>
             <div class="founder-case-step">
@@ -913,8 +917,8 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 <!-- CTA Final -->
 <section id="contato" class="cta-final">
     <div class="section-header">
-        <h2 data-i18n="cta.title">Pronto para <span class="hl">Destravar</span> o Crescimento?</h2>
-        <p data-i18n="cta.subtitle">30 minutos para entender sua situação. Sem pitch, sem pressão.</p>
+        <h2 data-i18n="cta.title">Próximo <span class="hl">Passo</span></h2>
+        <p data-i18n="cta.subtitle">Uma conversa de 30 minutos para entender sua situação</p>
     </div>
     
     <div class="cta-box">
@@ -931,7 +935,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     </div>
     
     <div class="contact-info">
-        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="mailto:carlos@alavanka.com.br">carlos@alavanka.com.br</a></p>
+        <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></span> <a href="/cdn-cgi/l/email-protection#88ebe9fae4e7fbc8e9e4e9fee9e6e3e9a6ebe7e5a6eafa"><span class="__cf_email__" data-cfemail="e38082918f8c90a3828f8295828d8882cd808c8ecd8191">[email&#160;protected]</span></a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span> <a href="https://wa.me/5511975341961">+55 11 97534-1961</a></p>
         <p><span class="ic ic-accent" style="width:24px;height:24px;display:inline-flex"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span> <a href="https://linkedin.com/in/carlosandre" target="_blank">LinkedIn</a></p>
     </div>
@@ -953,7 +957,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a1">Growth Execution é o que a Alavanka faz: entrar na sua operação 2-3 dias por semana, diagnosticar o que está travando o crescimento e <strong>executar</strong> a solução junto com o time. Não entregamos relatório — participamos de forecast, treinamos vendedores, estruturamos processos e respondemos por resultado via success fee.</p>
+                    <p data-i18n="faq.a1">Growth Execution é como chamamos o que fazemos: entrar na sua operação 2-3 dias por semana, diagnosticar o que está travando o crescimento e <strong>executar</strong> a solução junto com o time. Não entregamos relatório — participamos de forecast, treinamos vendedores, estruturamos processos e respondemos por resultado via success fee.</p>
                 </div>
             </div>
         </div>
@@ -992,23 +996,23 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
         </div>
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q6">Quantas empresas vocês atendem simultaneamente?</span>
+                <span data-i18n="faq.q6">Qual o investimento?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a6"><strong>Máximo 3</strong>. Isso garante profundidade e disponibilidade. Se não houver vaga, você entra na lista de espera com prioridade.</p>
+                    <p data-i18n="faq.a6">Retainer mensal + success fee atrelado a resultados. O modelo exato depende do diagnóstico inicial. Em geral, o investimento representa <strong>20-30% do custo de um VP Sales full-time</strong>, com ROI mensurável desde o primeiro quarter. Parte da compensação é variável — só ganhamos mais se você crescer.</p>
                 </div>
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span data-i18n="faq.q5">Como funciona o kill-switch?</span>
+                <span data-i18n="faq.q5">E se não funcionar?</span>
                 <span class="icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p data-i18n="faq.a5">Checkpoints obrigatórios no D30 e D90. Se não houver progresso mensurável ou fit cultural, encerramos sem penalidade. Você fica com todo o trabalho feito até ali.</p>
+                    <p data-i18n="faq.a5">Temos <strong>kill-switch</strong> no Dia 30 e Dia 90. Se não estiver funcionando, encerramos sem drama. Você não fica preso a contrato longo se os resultados não aparecerem. Parte da compensação é success fee — só ganhamos mais se você crescer.</p>
                 </div>
             </div>
         </div>
@@ -1034,7 +1038,7 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
     <div class="mobile-fab-row">
         <a href="https://calendly.com/carlos-andre-alavanka/30min" target="_blank" class="fab-btn fab-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            <span data-i18n="fab.call">Agendar</span>
+            <span data-i18n="fab.call">Agendar Conversa →</span>
         </a>
         <a href="https://wa.me/5511975341961" target="_blank" class="fab-btn fab-ghost">
             <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
@@ -1049,38 +1053,33 @@ h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;le
 </a>
 
 <!-- i18n System -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 let currentLang = 'pt';
 let translations = null;
 let pendingLang = null;
 
-// PT text is already in the HTML. translations.json (~140 KB) loads only when EN is needed.
-let translationsPromise = null;
-function loadTranslations() {
-    if (!translationsPromise) {
-        translationsPromise = fetch('/translations.json')
-            .then(response => response.json())
-            .then(data => {
-                translations = data;
-                if (pendingLang) { currentLang = pendingLang; pendingLang = null; }
-                applyTranslations();
-            })
-            .catch(err => { translationsPromise = null; console.warn('Could not load translations:', err); });
-    }
-    return translationsPromise;
-}
-(function () {
-    var saved = null;
-    try { saved = sessionStorage.getItem('alavanka-lang'); } catch (e) {}
-    if (saved && saved !== 'pt') { pendingLang = saved; loadTranslations(); }
-})();
+fetch('/translations.json')
+    .then(response => response.json())
+    .then(data => {
+        translations = data;
+        if (pendingLang) {
+            currentLang = pendingLang;
+            pendingLang = null;
+        } else {
+            const saved = sessionStorage.getItem('alavanka-lang');
+            if (saved && saved !== currentLang) {
+                currentLang = saved;
+            }
+        }
+        applyTranslations();
+    })
+    .catch(err => console.warn('Could not load translations:', err));
 
 function toggleLang() {
     const newLang = currentLang === 'pt' ? 'en' : 'pt';
     if (!translations) {
         pendingLang = newLang;
         currentLang = newLang;
-        loadTranslations();
     } else {
         currentLang = newLang;
         applyTranslations();
@@ -1122,7 +1121,6 @@ window.addEventListener('langChange', function(e) {
         if (!translations) {
             pendingLang = newLang;
             currentLang = newLang;
-            loadTranslations();
         } else {
             currentLang = newLang;
             applyTranslations();
