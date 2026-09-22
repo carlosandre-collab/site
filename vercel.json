@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "node generate-sitemap.js",
+  "buildCommand": "node build.js",
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
@@ -175,6 +175,46 @@
     {
       "source": "/blog/ilustracao_capa",
       "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/market-entry/blog",
+      "destination": "/blog?section=market-entry",
+      "permanent": true
+    },
+    {
+      "source": "/market-entry/blog.html",
+      "destination": "/blog?section=market-entry",
+      "permanent": true
+    },
+    {
+      "source": "/market-entry/articles.json",
+      "destination": "/blog/articles.json",
+      "permanent": true
+    },
+    {
+      "source": "/market-entry/posts/:slug",
+      "destination": "/blog/posts/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/blog/posts/innovation-propensity-latin-america-country-city",
+      "destination": "/blog/posts/innovation-propensity-latam-country-city-en",
+      "permanent": true
+    },
+    {
+      "source": "/blog/posts/innovation-propensity-latin-america-country-city.html",
+      "destination": "/blog/posts/innovation-propensity-latam-country-city-en",
+      "permanent": true
+    },
+    {
+      "source": "/blog/propensao-inovacao-america-latina-pais-cidade",
+      "destination": "/blog/posts/innovation-propensity-latam-country-city-en",
+      "permanent": true
+    },
+    {
+      "source": "/blog/posts/propensao-inovacao-america-latina-pais-cidade",
+      "destination": "/blog/posts/innovation-propensity-latam-country-city-en",
       "permanent": true
     }
   ]

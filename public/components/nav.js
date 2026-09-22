@@ -23,7 +23,8 @@
         var src = scripts[i].src || '';
         if (src.indexOf('components/nav.js') !== -1) {
             var tag = scripts[i].getAttribute('src');
-            if (tag.indexOf('../../') === 0) basePath = '../../';
+            if (tag.indexOf('/') === 0) basePath = '/';           // root-absolute (generated blog posts)
+            else if (tag.indexOf('../../') === 0) basePath = '../../';
             else if (tag.indexOf('../') === 0) basePath = '../';
             break;
         }
@@ -38,22 +39,15 @@
     var assessmentUrl = basePath + 'assessment.html';
     var logoPath = basePath + 'assets/images/brand/logo-completo-navy.png';
 
-    // MEP blog URL — path-aware (basePath is ambiguous for blog/posts vs market-entry/posts)
-    var loc = window.location.pathname;
-    var mepBlogUrl;
-    if (loc.indexOf('/market-entry/posts/') !== -1) {
-        mepBlogUrl = '../blog.html';
-    } else if (loc.indexOf('/market-entry/') !== -1) {
-        mepBlogUrl = 'blog.html';
-    } else if (basePath === '../../') {
-        mepBlogUrl = '../../market-entry/blog.html';
-    } else {
-        mepBlogUrl = 'market-entry/blog.html';
-    }
+    // Unified blog: Market Entry articles live in the same blog, filtered by section
+    var mepBlogUrl = blogUrl + '?section=market-entry';
 
     // ── 3. Detect page context ────────────────────────────────
     var currentPath = window.location.pathname;
-    var isMEPPage = currentPath.indexOf('market-entry') !== -1;
+    var sectionMeta = document.querySelector('meta[name="article:section"]');
+    var pageSection = sectionMeta ? sectionMeta.getAttribute('content') : '';
+    var isMEPPage = currentPath.indexOf('market-entry') !== -1 || pageSection === 'market-entry' ||
+                    (currentPath.indexOf('/blog') !== -1 && window.location.search.indexOf('section=market-entry') !== -1);
     var isIndex = currentPath === '/' || currentPath.indexOf('index') !== -1 ||
                   currentPath.endsWith('.com.br') || currentPath.endsWith('.com.br/');
     var isInvestidores = currentPath.indexOf('investidor') !== -1;

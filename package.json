@@ -2,6 +2,7 @@
   "name": "alavanka-site",
   "version": "1.0.0",
   "scripts": {
-    "build": "node generate-sitemap.js"
+    "build": "node build.js",
+    "dev": "node build.js && npx --yes serve public"
   }
 }

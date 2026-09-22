@@ -5,9 +5,60 @@
 **Alavanka** is a static marketing and blog website for a Fractional CRO (Chief Revenue Officer) consulting service targeting B2B SaaS companies in Brazil and Latin America.
 
 - **Website:** https://www.alavanka.com.br
-- **Tech Stack:** Pure HTML, CSS, vanilla JavaScript (no frameworks or build tools beyond sitemap generation)
+- **Tech Stack:** Pure HTML, CSS, vanilla JavaScript; one Node build step (`build.js`, no dependencies) generates the blog
 - **Hosting:** Vercel (static deployment from `/public` directory)
 - **Languages:** Bilingual (Portuguese-BR primary, English secondary)
+
+## Blog architecture (since 2026-09 — READ THIS FIRST)
+
+There is **one blog** (`/blog`) for both audiences. Every article carries a `section`:
+
+| section | audience | listing |
+|---|---|---|
+| `growth` | founders / VCs (Startup Growth) | `/blog` |
+| `market-entry` | international companies entering LatAm (BOT) | `/blog?section=market-entry` |
+
+Articles are **not** edited in `public/`. The source of truth is `content/posts/<slug>.html`
+(front matter between `---` lines + the article body only). `build.js` generates, on every
+Vercel deploy (`vercel.json` → `buildCommand: node build.js`):
+
+- `public/blog/posts/<slug>.html` — full page, from `templates/post.html` + `public/styles/blog-article.css`
+- `public/blog/articles.json` — the listing index (both sections, both languages)
+- `public/sitemap.xml`
+
+The build **fails** when a post has a missing thumbnail, a dead internal link, or a bad
+`alternate`, so a broken blog cannot reach production. Generated files are git-ignored.
+
+### Adding an article
+1. Write `content/posts/<slug>.html`:
+   ```
+   ---
+   title: Título do artigo
+   description: Meta description (≤ 160 chars) — also used as the card excerpt
+   lang: pt                      # pt | en
+   section: growth               # growth | market-entry
+   category: Estratégia & Growth
+   date: 2026-09-22
+   readTime: 12
+   thumbnail: /assets/images/blog/<slug>-thumb.jpg
+   thumbnailAlt: Descrição da imagem
+   alternate: <slug-of-the-other-language-version>   # optional
+   featured: true                                   # optional (one per section at most)
+   series: Canais B2B — Post 2 de 4                 # optional
+   cta: diagnostic               # diagnostic | conversation | assessment | market-entry
+   faq: [{"q":"...","a":"..."}, ...]                 # optional, one line of JSON
+   ---
+   <p class="lead">...</p>
+   <h2>...</h2> ... (body only — no <html>, <head>, nav, footer or CTA)
+   ```
+2. Add the thumbnail (1200×630 JPG) under `public/assets/images/blog/`.
+3. Run `node build.js` locally to validate (optional — Vercel runs it anyway).
+4. Commit `content/posts/<slug>.html` + the image. Nothing else.
+
+Links between posts: plain relative `href="<other-slug>.html"`; links to site pages: root-absolute (`/assessment`).
+Components available in the body (all styled by `blog-article.css`): `lead`, `callout` (+`-info/-warning/-success/-danger`),
+`highlight-box`, `data-point`, `stats-grid/stat-card`, `formula-box`, `table-wrap > data-table`, `source`,
+`funnel-diagram/funnel-step`, `steps-list`, `decision-tree`, `strategy-grid/strategy-card`, `series-nav`, `blockquote`.
 
 ## Directory Structure
 

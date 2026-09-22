@@ -290,6 +290,15 @@
         .skeleton-card .sk-p       { height: 12px; width: 100%; }
         .skeleton-card .sk-p2      { height: 12px; width: 80%; }
         .skeleton-card .sk-meta    { height: 12px; width: 120px; margin-top: 4px; }
+        .blog-filter { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+        .blog-filter button { font-family: inherit; font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border-radius: 999px; border: 1px solid var(--border, #E5E7EB); background: #fff; color: var(--text-secondary, #4A5568); cursor: pointer; transition: all .2s; }
+        .blog-filter button:hover { border-color: var(--accent, #1B3A5C); color: var(--accent, #1B3A5C); }
+        .blog-filter button.active { background: var(--accent, #1B3A5C); border-color: var(--accent, #1B3A5C); color: #fff; }
+        .card-tags { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+        .card-tags .article-category { margin-bottom: 0; }
+        .lang-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--warm-dark, #B07D42); background: rgba(200,150,90,.12); border-radius: 4px; padding: 2px 8px; line-height: 1.6; }
+        .section-tag { color: var(--warm-dark, #B07D42); }
+        .article-thumbnail iframe { width: 100%; height: 100%; border: 0; pointer-events: none; }
         @media (max-width: 768px) {
             .skeleton-card.featured-sk .sk-img { height: 200px; }
         }
@@ -344,8 +353,13 @@
 
     <main id="main-content">
         <section class="blog-header">
-            <h1 id="blogTitle">Insights de <span>GTM & Revenue</span></h1>
-            <p id="blogSubtitle">Artigos práticos sobre Go-to-Market, operações de receita e crescimento para B2B Tech – de quem construiu operações de $3M a $240M.</p>
+            <h1 id="blogTitle">Gestão de vendas, operação de <span>receita e crescimento B2B</span>.</h1>
+            <p id="blogSubtitle">Sem rodeio.</p>
+            <div class="blog-filter" role="tablist" aria-label="Seção">
+                <button type="button" data-section="all" class="active">Todos</button>
+                <button type="button" data-section="growth">Startup Growth</button>
+                <button type="button" data-section="market-entry">Market Entry</button>
+            </div>
         </section>
 
         <div class="blog-container">
@@ -368,29 +382,35 @@
 
     <script>
         // ============================================
-        // BLOG ENGINE - Carrega artigos do JSON
+        // BLOG ENGINE — one index (blog/articles.json) for both sections
+        // Sections: growth (Startup Growth) · market-entry (Market Entry / BOT)
         // ============================================
-        
-        let currentLang = 'pt';
-        let articlesData = null;
+        var params = new URLSearchParams(window.location.search);
+        var currentLang = params.get('lang') === 'en' ? 'en' : (params.get('section') === 'market-entry' ? 'en' : 'pt');
+        var currentSection = params.get('section') === 'market-entry' ? 'market-entry' : (params.get('section') === 'growth' ? 'growth' : 'all');
+        var articlesData = null;
 
-        // SVG icons como strings
-        const icons = {
+        var UI = {
+            pt: {
+                title: 'Gestão de vendas, operação de <span>receita e crescimento B2B</span>.', subtitle: 'Sem rodeio.',
+                titleME: 'Insights para <span>expansão na América Latina</span>.', subtitleME: 'Market entry, GTM e operação para empresas internacionais.',
+                all: 'Todos', growth: 'Startup Growth', 'market-entry': 'Market Entry', featured: 'Artigo em Destaque', onlyIn: { en: 'Em inglês', pt: 'Em português' }, readTime: 'min de leitura', empty: 'Nenhum artigo nesta seção ainda.'
+            },
+            en: {
+                title: 'Sales management, <span>revenue operations and B2B growth</span>.', subtitle: 'No fluff.',
+                titleME: 'Insights for <span>Latin America expansion</span>.', subtitleME: 'Market entry, GTM and operations for international companies.',
+                all: 'All', growth: 'Startup Growth', 'market-entry': 'Market Entry', featured: 'Featured Article', onlyIn: { en: 'In English', pt: 'In Portuguese' }, readTime: 'min read', empty: 'No articles in this section yet.'
+            }
+        };
+        var icons = {
             clock: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
             calendar: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
             star: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>'
         };
 
-        // Navegação traduções
-        const navTranslations = {
-            pt: { problem: 'O Problema', solution: 'A Solução', why: 'Por Que Nós', process: 'Como Funciona', contact: 'Contato' },
-            en: { problem: 'The Problem', solution: 'The Solution', why: 'Why Us', process: 'How It Works', contact: 'Contact' }
-        };
-
-        // Carregar JSON de artigos
         async function loadArticles() {
             try {
-                const response = await fetch('blog/articles.json');
+                var response = await fetch('/blog/articles.json');
                 if (!response.ok) throw new Error('Failed to load articles');
                 articlesData = await response.json();
                 renderArticles();
@@ -400,125 +420,84 @@
             }
         }
 
-        // Criar HTML de um card de artigo
-        function createArticleCard(article) {
-            const lang = currentLang;
-            const isFeatured = article.featured;
-            
-            // Slug - usa slug específico do idioma se existir, senão usa o padrão
-            const slug = (article.slugs && article.slugs[lang]) ? article.slugs[lang] : article.slug;
-            
-            // Thumbnail
-            let thumbnailHTML = '';
-            if (article.thumbnail.type === 'image') {
-                const imgLoading = isFeatured ? 'eager' : 'lazy';
-                const imgPriority = isFeatured ? ' fetchpriority="high"' : '';
-                thumbnailHTML = `<img src="${article.thumbnail.src}" alt="${article.thumbnail.alt[lang]}" loading="${imgLoading}"${imgPriority}>`;
-            } else if (article.thumbnail.type === 'iframe') {
-                thumbnailHTML = `<iframe src="${article.thumbnail.src}" title="${article.thumbnail.alt[lang]}" loading="lazy"></iframe>`;
-            }
-
-            // Featured badge
-            const featuredBadge = isFeatured ? `
-                <span class="featured-badge">
-                    ${icons.star}
-                    ${articlesData.ui.featuredBadge[lang]}
-                </span>
-            ` : '';
-
-            return `
-                <a href="blog/posts/${slug}.html" class="article-card ${isFeatured ? 'featured' : ''}">
-                    <div class="article-thumbnail">${thumbnailHTML}</div>
-                    <div class="article-content">
-                        ${featuredBadge}
-                        <span class="article-category">${article.category[lang]}</span>
-                        <h2 class="article-title">${article.title[lang]}</h2>
-                        <p class="article-excerpt">${article.excerpt[lang]}</p>
-                        <div class="article-meta">
-                            <span>${icons.clock} ${article.readTime[lang]}</span>
-                            <span>${icons.calendar} ${article.dateLabel[lang]}</span>
-                        </div>
-                    </div>
-                </a>
-            `;
+        // Posts visible in the current language: same-language posts, plus posts
+        // that only exist in the other language (shown with an "In English" badge).
+        function visiblePosts() {
+            var posts = articlesData.posts, lang = currentLang;
+            return posts.filter(function (p) {
+                if (currentSection !== 'all' && p.section !== currentSection) return false;
+                return p.lang === lang || !p.alternate;
+            });
         }
 
-        // Renderizar todos os artigos
+        function createArticleCard(article, isFeatured) {
+            var t = UI[currentLang];
+            var isIframe = /\.html$/.test(article.thumbnail);
+            var thumb = isIframe
+                ? '<iframe src="' + article.thumbnail + '" title="' + article.thumbnailAlt + '" loading="lazy"></iframe>'
+                : '<img src="' + article.thumbnail + '" alt="' + article.thumbnailAlt + '" loading="' + (isFeatured ? 'eager' : 'lazy') + '"' + (isFeatured ? ' fetchpriority="high"' : '') + '>';
+            var featuredBadge = isFeatured ? '<span class="featured-badge">' + icons.star + ' ' + t.featured + '</span>' : '';
+            var langBadge = article.lang !== currentLang ? '<span class="lang-badge">' + t.onlyIn[article.lang] + '</span>' : '';
+            var cat = article.category === t[article.section] ? '' : ' · ' + article.category;
+            return '<a href="/blog/posts/' + article.slug + '" class="article-card ' + (isFeatured ? 'featured' : '') + ' section-' + article.section + '">' +
+                '<div class="article-thumbnail">' + thumb + '</div>' +
+                '<div class="article-content">' + featuredBadge +
+                '<div class="card-tags"><span class="article-category"><span class="section-tag">' + t[article.section] + '</span>' + cat + '</span>' + langBadge + '</div>' +
+                '<h2 class="article-title">' + article.title + '</h2>' +
+                '<p class="article-excerpt">' + article.excerpt + '</p>' +
+                '<div class="article-meta"><span>' + icons.clock + ' ' + article.readTime + ' ' + t.readTime + '</span><span>' + icons.calendar + ' ' + article.dateLabel + '</span></div>' +
+                '</div></a>';
+        }
+
         function renderArticles() {
             if (!articlesData) return;
-
-            const grid = document.getElementById('blogGrid');
-            const lang = currentLang;
-
-            // Ordenar: featured primeiro, depois por data
-            const sortedArticles = [...articlesData.articles].sort((a, b) => {
-                if (a.featured && !b.featured) return -1;
-                if (!a.featured && b.featured) return 1;
-                return b.date.localeCompare(a.date);
+            var t = UI[currentLang];
+            var list = visiblePosts().sort(function (a, b) { return b.date.localeCompare(a.date); });
+            // featured: explicit flag within the visible set, else the newest
+            var idx = list.findIndex(function (p) { return p.featured; });
+            if (idx > 0) list.unshift(list.splice(idx, 1)[0]);
+            var grid = document.getElementById('blogGrid');
+            grid.innerHTML = list.length
+                ? list.map(function (p, i) { return createArticleCard(p, i === 0); }).join('')
+                : '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">' + t.empty + '</p>';
+            var me = currentSection === 'market-entry';
+            document.getElementById('blogTitle').innerHTML = me ? t.titleME : t.title;
+            document.getElementById('blogSubtitle').textContent = me ? t.subtitleME : t.subtitle;
+            // filter chips
+            document.querySelectorAll('.blog-filter button').forEach(function (btn) {
+                var sec = btn.getAttribute('data-section');
+                btn.textContent = t[sec];
+                btn.classList.toggle('active', sec === currentSection);
             });
-
-            // Renderizar cards
-            grid.innerHTML = sortedArticles.map(article => createArticleCard(article)).join('');
-
-            // Atualizar header
-            document.getElementById('blogTitle').innerHTML = articlesData.ui.blogTitle[lang];
-            document.getElementById('blogSubtitle').textContent = articlesData.ui.blogSubtitle[lang];
+            document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+            var url = new URL(window.location.href);
+            if (currentSection === 'all') url.searchParams.delete('section'); else url.searchParams.set('section', currentSection);
+            if (currentLang === 'pt') url.searchParams.delete('lang'); else url.searchParams.set('lang', 'en');
+            history.replaceState(null, '', url.pathname + (url.search || ''));
         }
 
-        // Alternar idioma
+        function setSection(sec) { currentSection = sec; renderArticles(); }
+
         function toggleLanguage() {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            const newLabel = currentLang === 'pt' ? 'EN' : 'PT';
-            
+            var newLabel = currentLang === 'pt' ? 'EN' : 'PT';
             var langBtn = document.getElementById('langToggle');
             var langBtnMobile = document.getElementById('langToggleMobile');
             if (langBtn) langBtn.textContent = newLabel;
             if (langBtnMobile) langBtnMobile.textContent = newLabel;
-            
-            // Update sidebar lang buttons (new nav v3)
-            document.querySelectorAll('.nav-lang-btn').forEach(function(btn) {
-                var isPT = btn.textContent === 'PT';
-                var isEN = btn.textContent === 'EN';
-                if (currentLang === 'en') {
-                    btn.classList.toggle('nav-lang-active', isEN);
-                } else {
-                    btn.classList.toggle('nav-lang-active', isPT);
-                }
+            document.querySelectorAll('.nav-lang-btn').forEach(function (btn) {
+                var isPT = btn.textContent === 'PT', isEN = btn.textContent === 'EN';
+                btn.classList.toggle('nav-lang-active', currentLang === 'en' ? isEN : isPT);
             });
-            
-            document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
-
-            // Atualizar navegação
-            const nav = navTranslations[currentLang];
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n').replace('nav.', '');
-                if (nav[key]) el.textContent = nav[key];
-            });
-
-            // Re-renderizar artigos no novo idioma
             renderArticles();
         }
-        // Alias for nav.js compatibility
         window.toggleLang = toggleLanguage;
 
-        // Menu mobile
-function closeMobileMenu() {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-
-        // Event listeners
-        window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMobileMenu(); });
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
-        document.addEventListener('DOMContentLoaded', () => {
-            loadArticles();
-            document.querySelectorAll('#navLinks a').forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.blog-filter button').forEach(function (btn) {
+                btn.addEventListener('click', function () { setSection(btn.getAttribute('data-section')); });
             });
+            loadArticles();
         });
     </script>
     <!-- Vercel Speed Insights -->

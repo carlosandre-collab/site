@@ -19,7 +19,9 @@
         var src = scripts[i].src || '';
         if (src.indexOf('components/footer.js') !== -1) {
             var scriptTag = scripts[i].getAttribute('src');
-            if (scriptTag.indexOf('../../') === 0) {
+            if (scriptTag.indexOf('/') === 0) {
+                basePath = '/';
+            } else if (scriptTag.indexOf('../../') === 0) {
                 basePath = '../../';
             } else if (scriptTag.indexOf('../') === 0) {
                 basePath = '../';
@@ -32,7 +34,10 @@
 
     // — Detect context —
     var currentPath = window.location.pathname;
-    var isMEP = currentPath.indexOf('/market-entry') !== -1;
+    var sectionMeta = document.querySelector('meta[name="article:section"]');
+    var isMEP = currentPath.indexOf('/market-entry') !== -1 ||
+                (sectionMeta && sectionMeta.getAttribute('content') === 'market-entry') ||
+                window.location.search.indexOf('section=market-entry') !== -1;
 
     // — Build URLs —
     var indexUrl = basePath + 'index.html';
@@ -44,14 +49,7 @@
     var logoPath = basePath + 'assets/images/brand/logo-completo-branco.png';
 
     // MEP blog URL
-    var mepBlogUrl;
-    if (basePath === '../../') {
-        mepBlogUrl = '../blog.html';
-    } else if (basePath === '../') {
-        mepBlogUrl = 'blog.html';
-    } else {
-        mepBlogUrl = 'market-entry/blog.html';
-    }
+    var mepBlogUrl = blogUrl + '?section=market-entry';
 
     var footerHTML;
 
