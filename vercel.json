@@ -64,6 +64,15 @@
       ]
     },
     {
+      "source": "/_archive/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
@@ -102,6 +111,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/",
+      "destination": "/market-entry",
+      "statusCode": 302
+    },
     {
       "source": "/guia-fractional-cro-brasil.html",
       "destination": "/guia-crescimento-receita-b2b",

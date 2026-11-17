@@ -12,7 +12,8 @@
     <meta name="geo.placename" content="São Paulo">
 
     <link rel="alternate" hreflang="pt-BR" href="https://www.alavanka.com.br/guia-crescimento-receita-b2b">
-    <link rel="alternate" hreflang="x-default" href="https://www.alavanka.com.br/guia-crescimento-receita-b2b">
+    <link rel="alternate" hreflang="en" href="https://www.alavanka.com.br/commercial-playbook-latam">
+    <link rel="alternate" hreflang="x-default" href="https://www.alavanka.com.br/commercial-playbook-latam">
 
     <meta property="og:title" content="Guia de Growth Execution para B2B Tech | Alavanka">
     <meta property="og:description" content="Como destravar crescimento de receita travado: diagnóstico, execução junto ao time e accountability. Por Carlos André, ex-Presidente Oracle Brasil.">
@@ -1221,7 +1222,7 @@
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
+  window.addEventListener('langChange', function(e) {
     syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
   });
 })();
@@ -1257,7 +1258,7 @@
         <div class="author-bio-avatar">CA</div>
         <div class="author-bio-content">
             <h4 data-i18n="ge.bio.name">Carlos André</h4>
-            <p data-i18n="ge.bio.text">Managing Partner da Alavanka. Mais de 25 anos de experiência em liderança de receita — Presidente da Oracle Brasil (de $12M para $150M em 5 anos), CEO da AT&T LATAM (de $3M para $47M em 2 anos) e VP da Informatica LATAM (150% crescimento YoY). Atende no máximo 3 empresas simultaneamente.</p>
+            <p data-i18n="ge.bio.text">Managing Partner da Alavanka. Mais de 25 anos de experiência em liderança de receita — Presidente da Oracle Brasil (de $48M para $240M em 5 anos), CEO da AT&T LATAM (de $3M para $47M em 2 anos) e VP da Informatica LATAM (150% crescimento YoY). Atende no máximo 3 empresas simultaneamente.</p>
             <div class="credentials">
                 <span class="credential-badge" data-i18n="ge.bio.badge1">Ex-Presidente Oracle Brasil</span>
                 <span class="credential-badge" data-i18n="ge.bio.badge2">Ex-CEO AT&T LATAM</span>
@@ -1277,11 +1278,11 @@
 
 <script>
 // Lang toggle — nav.js delegates here via window.toggleLang
+// nav.js has already stored the new language and dispatches 'langChange' itself
+// right after this call, so only record the analytics event here (flipping the
+// language again here caused a double toggle).
 window.toggleLang = function() {
-    var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
-    var newLang = currentLang === 'pt' ? 'en' : 'pt';
-    sessionStorage.setItem('alavanka-lang', newLang);
-    window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: newLang } }));
+    var newLang = sessionStorage.getItem('alavanka-lang') || 'pt';
     if (typeof gtag === 'function') {
         gtag('event', 'language_changed', { event_category: 'engagement', language: newLang });
     }

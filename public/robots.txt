@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /_archive/
 
 # Sitemap
 Sitemap: https://www.alavanka.com.br/sitemap.xml
@@ -10,27 +11,35 @@ Sitemap: https://www.alavanka.com.br/sitemap.xml
 # AI Crawlers - explicitly allow for LLM visibility
 User-agent: GPTBot
 Allow: /
+Disallow: /_archive/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /_archive/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /_archive/
 
 User-agent: Anthropic-AI
 Allow: /
+Disallow: /_archive/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /_archive/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /_archive/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /_archive/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /_archive/
 
 # Note: Removed "Disallow: /assets/" because Google needs 
 # to access CSS/JS/images to properly render and index pages.

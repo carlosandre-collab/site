@@ -37,8 +37,8 @@ const SECTIONS = {
 };
 const CTAS = {
     diagnostic: {
-        pt: { title: 'Receita travou e você não sabe onde está o problema?', text: 'Nosso diagnóstico gratuito percorre cada camada — do produto ao vendedor — e identifica onde a receita está travando na sua operação.', button: 'Agendar Diagnóstico Gratuito', link: '/#contato' },
-        en: { title: "Revenue stalled and you don't know where the problem is?", text: 'Our free diagnostic reviews every layer — from product to sales rep — and identifies where revenue is stuck in your operation.', button: 'Schedule Free Diagnostic', link: '/#contato' },
+        pt: { title: 'Receita travou e você não sabe onde está o problema?', text: 'Nosso diagnóstico gratuito percorre cada camada — do produto ao vendedor — e identifica onde a receita está travando na sua operação.', button: 'Agendar Diagnóstico Gratuito', link: 'https://calendly.com/carlos-andre-alavanka/30min' },
+        en: { title: "Revenue stalled and you don't know where the problem is?", text: 'Our free diagnostic reviews every layer — from product to sales rep — and identifies where revenue is stuck in your operation.', button: 'Schedule Free Diagnostic', link: 'https://calendly.com/carlos-andre-alavanka/30min' },
     },
     conversation: {
         pt: { title: 'Pronto para uma conversa direta?', text: '30 minutos para entender sua situação e avaliar se faz sentido trabalharmos juntos. Sem pitch, sem pressão.', button: 'Agendar Conversa', link: 'https://calendly.com/carlos-andre-alavanka/30min' },
@@ -209,8 +209,8 @@ console.log(`✓ articles.json (${index.posts.length} entries)`);
 
 // ---------- sitemap ----------
 const staticPages = [
-    ['/', '1.0', 'weekly'], ['/blog', '0.9', 'weekly'], ['/guia-crescimento-receita-b2b', '0.9', 'monthly'],
-    ['/market-entry', '0.9', 'weekly'], ['/investidores', '0.7', 'monthly'], ['/assessment', '0.7', 'monthly'],
+    // "/" is a 302 to /market-entry (vercel.json), so it is not listed.
+    ['/market-entry', '1.0', 'weekly'], ['/blog', '0.9', 'weekly'], ['/guia-crescimento-receita-b2b', '0.9', 'monthly'], ['/commercial-playbook-latam', '0.9', 'monthly'], ['/market-entry/readiness', '0.8', 'monthly'], ['/investidores', '0.7', 'monthly'],
     ['/guia-7-sinais', '0.7', 'monthly'], ['/privacy', '0.3', 'yearly'],
 ];
 const today = new Date().toISOString().slice(0, 10);

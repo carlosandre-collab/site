@@ -31,21 +31,21 @@
     <link rel="preload" href="styles/nav-unified.css" as="style">
     <link rel="preload" href="components/nav.js" as="script">
     
-    <!-- Anti-flash script -->
+    <!-- Redirect to the BOT landing page.
+         Primary redirect: vercel.json ("/" -> "/market-entry", 302). This inline
+         script is only the fallback (local dev, or a direct hit on /index.html) and
+         behaves the same way: same destination, query string and hash preserved.
+         Runs before <style> so nothing paints before the redirect (anti-flash). -->
     <script>
     (function(){
-        var hasCookie = document.cookie.indexOf('alavanka-pref=') !== -1;
-        var hasSession = sessionStorage.getItem('alavanka-audience');
-        var isInternal = (document.referrer || '').indexOf('alavanka.com') !== -1;
-        if (hasCookie || hasSession || isInternal) {
-            document.documentElement.classList.add('gate-bypass');
-        }
+        document.documentElement.style.visibility = 'hidden';
+        window.location.replace('/market-entry' + window.location.search + window.location.hash);
     })();
     </script>
-    
+    <noscript><meta http-equiv="refresh" content="0; url=/market-entry"></noscript>
+
     <!-- CRITICAL CSS INLINE -->
     <style>
-html.gate-bypass .audience-gate{display:none!important}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -382,49 +382,6 @@ html body .footer-bottom span,html body .footer-bottom a.footer-privacy{font-siz
 
 <!-- Scroll Progress Bar -->
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-<!-- Audience Gate Overlay -->
-<div class="audience-gate" id="audienceGate">
-    <div class="gate-card">
-        <div class="gate-logo">
-            <img src="assets/images/brand/logo-completo-navy.svg" alt="Alavanka" width="140" height="28">
-        </div>
-
-        <div class="gate-options">
-            <button class="gate-option" data-audience="investor" onclick="selectAudience('investor')">
-                <div class="gate-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
-                </div>
-                <div class="gate-text">
-                    <div class="gate-label" data-i18n="gate.investorLabel">Invisto em B2B Tech</div>
-                    <div class="gate-desc" data-i18n="gate.investorDesc">Quero destravar o crescimento das minhas investidas</div>
-                </div>
-                <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-            </button>
-            <button class="gate-option" data-audience="international" onclick="selectAudience('international')">
-                <div class="gate-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                </div>
-                <div class="gate-text">
-                    <div class="gate-label" data-i18n="gate.internationalLabel">My company wants to enter LatAm</div>
-                    <div class="gate-desc" data-i18n="gate.internationalDesc">Build, operate & transfer your expansion</div>
-                </div>
-                <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-            </button>
-            <button class="gate-option" data-audience="founder" onclick="selectAudience('founder')">
-                <div class="gate-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L3 14L8 9L13 12L21 3"/><path d="M17 3H21V7"/></svg>
-                </div>
-                <div class="gate-text">
-                    <div class="gate-label" data-i18n="gate.founderLabel">Lidero uma empresa e quero crescer</div>
-                    <div class="gate-desc" data-i18n="gate.founderDesc">Arquitetura de receita e GTM para B2B</div>
-                </div>
-                <div class="gate-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-            </button>
-        </div>
-        <button class="gate-skip" onclick="selectAudience('other')" data-i18n="gate.skip" aria-label="Só quero conhecer a Alavanka">Só quero conhecer a Alavanka →</button>
-    </div>
-</div>
 
 <!-- Navigation -->
 <nav id="main-nav"></nav><main id="main-content">
@@ -822,14 +779,14 @@ html body .footer-bottom span,html body .footer-bottom a.footer-privacy{font-siz
     <div class="why-hero">
         <div class="big-stat" data-i18n="why.track.stat">$300M+</div>
         <div class="stat-label" data-i18n="why.track.label">construídos como operador</div>
-        <div class="stat-detail" data-i18n="why.track.detail">Oracle Brasil: Presidente (12.5x em 5 anos)<br>AT&T LATAM: CEO (15x em 2 anos)<br>Informatica: VP LATAM (20x em 5 anos)</div>
+        <div class="stat-detail" data-i18n="why.track.detail">Oracle Brasil: Presidente (5x em 5 anos)<br>AT&T LATAM: CEO (15x em 2 anos)<br>Informatica: VP LATAM (20x em 5 anos)</div>
     </div>
 
     <div class="credentials-grid">
         <div class="credential-card">
             <h4 data-i18n="why.cred.operator">Operador, Não Consultor</h4>
             <ul>
-                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $12M para $150M</li>
+                <li data-i18n="why.cred.oracle">Presidente Oracle Brasil — receita de $48M para $240M</li>
                 <li data-i18n="why.cred.att">CEO AT&T LATAM — de $3M para $47M em 2 anos</li>
                 <li data-i18n="why.cred.loysci">Co-Founder LoySci (9 anos como empreendedor)</li>
             </ul>
@@ -1161,67 +1118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- Audience Gate Logic -->
-<script>
-function selectAudience(audience, method) {
-    if (typeof gtag === 'function') {
-        var params = { audience_type: audience };
-        if (method === 'skip') params.method = 'skip';
-        gtag('event', 'audience_selected', params);
-    }
-    var gate = document.getElementById('audienceGate');
-    if (audience === 'investor') { window.location.href = 'investidores.html'; return; }
-    if (audience === 'international') { window.location.href = 'market-entry.html'; return; }
-    if (gate) {
-        gate.classList.add('closing');
-        setTimeout(function() {
-            gate.remove();
-            document.body.style.overflow = '';
-            setAudience(audience, true);
-        }, 500);
-    } else {
-        setAudience(audience);
-    }
-}
-
-function setAudience(audience, shouldScroll) {
-    sessionStorage.setItem('alavanka-audience', audience);
-    if (audience === 'investor') { window.location.href = 'investidores.html'; return; }
-    if (audience === 'international') { window.location.href = 'market-entry.html'; return; }
-    if (audience === 'other') {
-        document.body.classList.add('audience-founder');
-        return;
-    }
-    document.body.classList.add('audience-founder');
-}
-
-function showAudienceToast(message) {
-    var toast = document.createElement('div');
-    toast.className = 'audience-toast';
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    setTimeout(function() { toast.classList.add('visible'); }, 100);
-    setTimeout(function() {
-        toast.classList.remove('visible');
-        setTimeout(function() { toast.remove(); }, 300);
-    }, 5000);
-}
-
-(function() {
-    var savedAudience = sessionStorage.getItem('alavanka-audience');
-    var ref = document.referrer || '';
-    var isInternal = ref.indexOf('alavanka.com') !== -1;
-    var gate = document.getElementById('audienceGate');
-    if (savedAudience || isInternal) {
-        if (gate) gate.remove();
-        document.body.style.overflow = '';
-        if (savedAudience === 'founder') setAudience(savedAudience);
-    } else {
-        document.body.style.overflow = 'hidden';
-    }
-})();
-</script>
-
 <!-- FAQ Toggle -->
 <script>
 function toggleFaq(button) {
@@ -1530,7 +1426,7 @@ function submitExitForm(e, t) {
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
+  window.addEventListener('langChange', function(e) {
     syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
   });
 })();

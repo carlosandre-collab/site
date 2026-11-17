@@ -1,0 +1,228 @@
+/* ============================================
+   Alavanka — Navigation CSS v5
+   REWRITTEN: 2026-03-27 (post-audit)
+
+   Class naming — clean separation:
+     .nav-link-desktop   → visible ≥1024px, hidden <1024px
+     .nav-link-mobile    → visible <1024px, hidden ≥1024px
+     .nav-link-vcs       → VCs link (amber, desktop)
+     .nav-link-vcs-mobile → VCs link (amber, mobile sidebar)
+     .nav-link-highlight → Blog on MEP mobile (distinct styling)
+     .nav-link-cross     → Cross-site link (Startup Growth / Expand to LatAm, mobile)
+     .nav-badge-pill     → Pill badge (hidden mobile, visible desktop)
+     .nav-sep            → Vertical separator (desktop only)
+     .nav-lang-desktop   → Lang toggle button (desktop)
+     .nav-lang-row-mobile → PT/EN buttons (mobile sidebar)
+   ============================================ */
+
+/* ══════════════════════════════════════════════
+   1. BODY OFFSET (nav is position:fixed)
+   ══════════════════════════════════════════════ */
+body { padding-top: 72px; }
+@media (min-width: 768px) { body { padding-top: 80px; } }
+
+/* CLS fix: reserve nav space before JS injects HTML */
+#main-nav { display: block; min-height: 72px; contain: layout style; }
+@media (min-width: 768px) { #main-nav { min-height: 80px; } }
+
+/* ══════════════════════════════════════════════
+   2. NAV BAR
+   ══════════════════════════════════════════════ */
+nav[role="navigation"] {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 72px;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E5E7EB;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+/* ══════════════════════════════════════════════
+   3. LOGO
+   ══════════════════════════════════════════════ */
+.logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+.nav-logo-img { height: 44px; width: auto; aspect-ratio: 664/254; display: block; transition: opacity 0.2s; }
+.logo:hover .nav-logo-img { opacity: 0.8; }
+
+/* ══════════════════════════════════════════════
+   4. HAMBURGER (mobile)
+   ══════════════════════════════════════════════ */
+.nav-mobile-right { display: flex; align-items: center; gap: 6px; }
+
+.hamburger {
+    display: flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 40px; height: 40px; padding: 9px;
+    background: none; border: none; cursor: pointer; z-index: 9999;
+}
+.hamburger span { display: block; width: 22px; height: 2px; background: #0D1B2A; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* ══════════════════════════════════════════════
+   5. SIDEBAR (mobile default)
+   ══════════════════════════════════════════════ */
+.nav-links {
+    position: fixed; top: 0; right: -300px; width: 300px; height: 100vh;
+    background: #fff; border-left: 1px solid #e5e5e5; z-index: 9998;
+    padding-top: 80px; overflow-y: auto; transition: right 0.3s ease;
+    display: flex; flex-direction: column;
+}
+.nav-links.active { right: 0; }
+
+/* Overlay */
+.menu-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 9997; }
+.menu-overlay.active { display: block; }
+
+/* ══════════════════════════════════════════════
+   6. MOBILE LINK STYLES (default, <1024px)
+   ══════════════════════════════════════════════ */
+
+/* Desktop links: hidden on mobile */
+.nav-link-desktop { display: none; }
+
+/* Mobile links: visible in sidebar */
+.nav-link-mobile {
+    display: block; padding: 14px 24px;
+    color: #3a4a5c; text-decoration: none; font-size: 15px; font-weight: 500;
+    border-bottom: 1px solid #f0f0f0; font-family: 'DM Sans', sans-serif;
+    transition: background 0.15s, color 0.15s;
+}
+.nav-link-mobile:hover { background: #f4f6f8; color: #1B3A5C; }
+
+/* Blog highlight on MEP mobile — stands out from section links */
+.nav-link-highlight {
+    display: block; padding: 14px 24px;
+    color: #1B3A5C; text-decoration: none; font-size: 15px; font-weight: 700;
+    border-bottom: 1px solid #f0f0f0; font-family: 'Space Grotesk', sans-serif;
+    background: rgba(27,58,92,0.03); border-left: 3px solid #C8965A;
+    transition: background 0.15s;
+}
+.nav-link-highlight:hover { background: rgba(27,58,92,0.06); }
+
+/* VCs mobile — amber accent */
+.nav-link-vcs-mobile {
+    color: #C8965A !important; font-weight: 600 !important;
+}
+.nav-link-vcs-mobile:hover { color: #B07D42 !important; }
+
+/* Cross-site link (switch between SG ↔ MEP) */
+.nav-link-cross {
+    background: rgba(27,58,92,0.06); color: #1B3A5C !important; font-weight: 600 !important;
+    border-top: 1px solid rgba(27,58,92,0.1);
+}
+.nav-link-cross:hover { background: rgba(27,58,92,0.12) !important; }
+
+/* VCs desktop: hidden on mobile */
+.nav-link-vcs { display: none; }
+
+/* Badge pill: hidden on mobile */
+.nav-badge-pill { display: none; }
+
+/* Separator: hidden on mobile */
+.nav-sep { display: none; }
+
+/* ══════════════════════════════════════════════
+   7. LANG TOGGLE (mobile)
+   ══════════════════════════════════════════════ */
+
+/* Desktop toggle: hidden on mobile */
+.nav-lang-desktop { display: none; }
+
+/* Mobile lang row */
+.nav-lang-row-mobile {
+    display: flex; gap: 8px; padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f0; border-top: 1px solid rgba(27,58,92,0.08);
+}
+.nav-lang-btn {
+    padding: 6px 14px; border: 1.5px solid #e0e0e0; border-radius: 6px;
+    background: transparent; font-size: 13px; font-weight: 600; color: #999;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s;
+}
+.nav-lang-btn:hover { border-color: #1B3A5C; color: #1B3A5C; }
+.nav-lang-btn.active { background: #1B3A5C; color: #fff; border-color: #1B3A5C; }
+
+/* ══════════════════════════════════════════════
+   8. TABLET (768px+)
+   ══════════════════════════════════════════════ */
+@media (min-width: 768px) {
+    nav[role="navigation"] { height: 80px; padding: 0 32px; }
+    .nav-logo-img { height: 50px; }
+}
+
+/* ══════════════════════════════════════════════
+   9. DESKTOP (1024px+)
+   ══════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+    body { padding-top: 80px; }
+    nav[role="navigation"] { height: 80px; padding: 0 4%; }
+    .nav-logo-img { height: 52px; }
+
+    /* Hide mobile controls */
+    .nav-mobile-right { display: none; }
+
+    /* Nav links: horizontal layout */
+    .nav-links {
+        position: static; width: auto; height: auto;
+        background: transparent; border: none; padding: 0; overflow: visible;
+        flex-direction: row; align-items: center; gap: 20px;
+    }
+
+    /* Desktop links: visible */
+    .nav-link-desktop {
+        display: inline-block; padding: 4px 2px; font-size: 13px; font-weight: 500;
+        font-family: 'DM Sans', sans-serif; color: #4A5568; text-decoration: none;
+        white-space: nowrap; transition: color 0.15s;
+    }
+    .nav-link-desktop:hover { color: #1B3A5C; }
+
+    /* Mobile links: hidden on desktop */
+    .nav-link-mobile { display: none !important; }
+    .nav-link-highlight { display: none !important; }
+    .nav-link-vcs-mobile { display: none !important; }
+    .nav-link-cross { display: none !important; }
+    .nav-lang-row-mobile { display: none !important; }
+
+    /* VCs link — amber accent */
+    .nav-link-vcs {
+        display: inline-block; padding: 4px 2px; font-size: 13px; font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif; color: #C8965A; text-decoration: none;
+        white-space: nowrap; border-bottom: 2px solid #C8965A; transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-link-vcs:hover { color: #B07D42; border-color: #B07D42; }
+
+    /* Badge pill (LatAm / Startup Growth) */
+    .nav-badge-pill {
+        display: inline-block; padding: 5px 13px; font-size: 12.5px; font-weight: 600;
+        font-family: 'Space Grotesk', sans-serif; color: #1B3A5C; text-decoration: none;
+        border: 1.5px solid #1B3A5C; border-radius: 9999px; white-space: nowrap;
+        transition: background 0.18s, color 0.18s;
+    }
+    .nav-badge-pill:hover { background: #1B3A5C; color: #fff; }
+
+    /* Separator */
+    .nav-sep { display: block; width: 1px; height: 18px; background: #E5E7EB; }
+
+    /* Lang toggle desktop */
+    .nav-lang-desktop {
+        display: inline-block; padding: 4px 10px; background: transparent;
+        border: 1px solid #e0e0e0; border-radius: 5px; font-size: 11px; font-weight: 600;
+        color: #999; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    }
+    .nav-lang-desktop:hover { border-color: #1B3A5C; color: #1B3A5C; }
+}
+
+/* ══════════════════════════════════════════════
+   10. WIDE DESKTOP (1280px+)
+   ══════════════════════════════════════════════ */
+@media (min-width: 1280px) {
+    nav[role="navigation"] { padding: 0 5%; }
+    .nav-links { gap: 22px; }
+    .nav-logo-img { height: 56px; }
+}

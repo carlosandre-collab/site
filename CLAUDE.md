@@ -2,14 +2,26 @@
 
 ## Project Overview
 
-**Alavanka** is a static marketing and blog website for a Fractional CRO (Chief Revenue Officer) consulting service targeting B2B SaaS companies in Brazil and Latin America.
+**Alavanka** is a static marketing and blog website for **Build, Operate & Transfer (BOT)**: Alavanka builds, runs and then transfers a Latin America operation for international B2B tech companies. Growth Execution (fractional CRO) is no longer sold standalone; it survives only as the commercial engine inside BOT.
 
 - **Website:** https://www.alavanka.com.br
 - **Tech Stack:** Pure HTML, CSS, vanilla JavaScript; one Node build step (`build.js`, no dependencies) generates the blog
 - **Hosting:** Vercel (static deployment from `/public` directory)
-- **Languages:** Bilingual (Portuguese-BR primary, English secondary)
+- **Languages:** English-first. Portuguese remains for pages that have a Portuguese version (blog, PT posts, the original guide)
 
-## Blog architecture (since 2026-09 — READ THIS FIRST)
+## Site structure since 2026-11 (BOT consolidation — READ THIS FIRST)
+
+- **Entry point:** `/` is a **302 to `/market-entry`** in `vercel.json`. `public/index.html` is only a fallback that redirects the same way (inline script in `<head>`); the founder/investor audience gate is gone. Do not reintroduce a homepage there.
+- **BOT pages:** `market-entry.html` (landing), `market-entry/readiness.html` (LatAm Entry Readiness diagnostic, 5 questions × 0–3 points, bands 12–15 / 8–11 / 4–7 / 0–3), `market-entry/overview.html`, `market-entry/calculator.html`.
+- **Commercial playbook:** `commercial-playbook-latam.html` (English, static, no i18n) is the English counterpart of `guia-crescimento-receita-b2b.html` (Portuguese); they declare each other via `hreflang`.
+- **Kept live, not linked from the nav:** `investidores.html`, `assessment.html` (assessment is also out of the sitemap).
+- **Navigation (`components/nav.js` v6):** one nav for every page — Home · The Model · How It Works · Readiness Check · Commercial Playbook · Blog · FAQ · Contact · language toggle. Default language English. The toggle only renders when the page is Portuguese or declares a `pt-BR` hreflang alternate. Language state lives in `sessionStorage('alavanka-lang')` — never `localStorage`.
+- **Blog listing:** English articles by default; Portuguese via the toggle or `?lang=pt`.
+- **Archive:** `public/_archive/2026-11-growth-execution/` holds the pre-consolidation files plus a reversal procedure (`public/_archive/README.md`). It is `Disallow`ed in `robots.txt` for every crawler group and served with `X-Robots-Tag: noindex, nofollow` (`vercel.json`), but still reachable by URL.
+- **Sitemap pages** are the hard-coded `staticPages` list in `build.js` — add new root pages there.
+- **Design tokens:** navy `#1B3A5C`, amber `#C8965A`; DM Sans, Space Grotesk, DM Serif Display. No purple, Inter, Montserrat or `.webp`.
+
+## Blog architecture (since 2026-09)
 
 There is **one blog** (`/blog`) for both audiences. Every article carries a `section`:
 
@@ -209,7 +221,7 @@ Use BEM-like readable names:
 `nav.js` injects the navigation component by replacing `<nav>` tags:
 ```javascript
 // Auto-detects page depth for relative URLs
-// Handles language toggle with localStorage
+// Handles language toggle with sessionStorage (never localStorage)
 // Mobile hamburger menu with slide-out sidebar
 ```
 

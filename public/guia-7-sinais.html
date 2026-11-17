@@ -1439,7 +1439,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
+  window.addEventListener('langChange', function(e) {
     syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
   });
 })();
