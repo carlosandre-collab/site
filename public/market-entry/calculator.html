@@ -703,7 +703,7 @@
       2: { label: 'Brazil + Mexico', traditionalBase: 4200000, tradSetupMonths: 24 },
       3: { label: '3+ Markets', traditionalBase: 6500000, tradSetupMonths: 30 }
     };
-    var MEP_RETAINERS = [300000, 240000, 180000, 120000];
+    var MEP_RETAINERS = [300000, 220000, 180000, 120000]; // illustrative schedule; actual amounts depend on each engagement
     var MEP_SETUP = 50000;
     var REV_SHARE = 0.10;
     var MIN_ACV = 30000;
@@ -930,7 +930,7 @@
       // Assumptions
       var cycle = salesCycleMonths(acv);
       assumptionsBody.innerHTML = ''
-        + '<strong>MEP costs:</strong> Retainer declining from $300K to $120K/yr over 4 years, $50K one-time setup, plus 10% revenue share on generated revenue. Total retainer: $840K + $50K setup = $890K before revenue share.<br>'
+        + '<strong>MEP costs:</strong> Retainer declining from $300K to $120K/yr over 4 years, $50K one-time setup, plus 10% revenue share on generated revenue. Total retainer: $820K + $50K setup = $870K before revenue share. Illustrative figures: the retainer always steps down year by year; actual amounts depend on the parameters of each engagement.<br>'
         + '<strong>Traditional costs:</strong> Based on industry benchmarks for ' + mkt.label.toLowerCase() + ' entry (~' + fmtCurrency(mkt.traditionalBase) + ' total), front-loaded: 55% in Year 1 (entity setup, infrastructure, initial hiring), declining as operations stabilize.<br>'
         + '<strong>Revenue ramp:</strong> MEP assumes 8 months of setup (entity, hiring, pipeline building) plus a ' + cycle + '-month sales cycle at your ACV — meaning first deals close around month ' + (8 + cycle) + ', with revenue accelerating from there toward 90% of your target. Traditional expansion assumes ' + mkt.tradSetupMonths + ' months of setup before pipeline even begins, plus the same sales cycle, with a slower ramp due to lack of local networks.<br>'
         + '<strong>Breakeven</strong> is the month when cumulative revenue exceeds cumulative costs — the point where the LatAm operation has paid for itself.<br>'
