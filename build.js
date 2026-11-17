@@ -209,8 +209,8 @@ console.log(`✓ articles.json (${index.posts.length} entries)`);
 
 // ---------- sitemap ----------
 const staticPages = [
-    ['/', '1.0', 'weekly'], ['/blog', '0.9', 'weekly'], ['/guia-crescimento-receita-b2b', '0.9', 'monthly'],
-    ['/market-entry', '0.9', 'weekly'], ['/investidores', '0.7', 'monthly'], ['/assessment', '0.7', 'monthly'],
+    // "/" is a 302 to /market-entry (vercel.json), so it is not listed.
+    ['/market-entry', '1.0', 'weekly'], ['/blog', '0.9', 'weekly'], ['/guia-crescimento-receita-b2b', '0.9', 'monthly'], ['/investidores', '0.7', 'monthly'], ['/assessment', '0.7', 'monthly'],
     ['/guia-7-sinais', '0.7', 'monthly'], ['/privacy', '0.3', 'yearly'],
 ];
 const today = new Date().toISOString().slice(0, 10);

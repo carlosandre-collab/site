@@ -103,6 +103,11 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "destination": "/market-entry",
+      "statusCode": 302
+    },
+    {
       "source": "/guia-fractional-cro-brasil.html",
       "destination": "/guia-crescimento-receita-b2b",
       "permanent": true
