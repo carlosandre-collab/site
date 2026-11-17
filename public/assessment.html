@@ -19,17 +19,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
-    <!-- UX Enhanced Styles -->
-    <link rel="stylesheet" href="styles/styles-ux-enhanced.css">
     
     <style>
 :root {
     --accent: #1B3A5C;
     --accent-dark: #142D48;
     --accent-light: #2D5F8A;
-    --warm: #D4883A;
-    --warm-dark: #C17A32;
-    --warm-light: #E8A355;
+    --warm: #C8965A;
+    --warm-dark: #B07D42;
+    --warm-light: #D4A96F;
     --bg: #FAFBFD;
     --bg-dark: #0D1B2A;
     --text: #0D1B2A;
@@ -1111,6 +1109,13 @@ main {
             <span>Enviar Diagnóstico</span>
         </button>
     </div>
+    <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 id="successTitle">Recebemos suas respostas!</h3>
+        <p id="successText">Vamos analisar o seu resultado e enviar o diagnóstico completo para o seu email.</p>
+    </div>
 </div>
 
 </div>
@@ -1141,8 +1146,8 @@ const T = {
         high: { t: "Alta Compatibilidade!", d: "Seu perfil indica forte alinhamento com o Growth Execution. Você tem a maturidade e os desafios certos para destravar crescimento de receita." },
         medium: { t: "Boa Compatibilidade", d: "Sua empresa pode se beneficiar do Growth Execution, mas existem alguns pontos a considerar. Uma conversa pode ajudar a entender se o timing está certo." },
         low: { t: "Timing Pode Não Ser Ideal", d: "Com base nas suas respostas, o Growth Execution pode não ser a melhor solução agora. Mas continue acompanhando nosso conteúdo." },
-        formT: "Baixe seu diagnóstico personalizado", formS: "PDF com análise detalhada e próximos passos", formBtn: "Gerar PDF",
-        successT: "Seu diagnóstico está pronto!", successS: "Clique abaixo para baixar o PDF.", downloadBtn: "Baixar PDF",
+        formT: "Receba o diagnóstico completo", formS: "Análise detalhada enviada para seu email", formBtn: "Enviar Diagnóstico",
+        successT: "Recebemos suas respostas!", successS: "Vamos analisar o seu resultado e enviar o diagnóstico completo para o seu email.",
         divider: "ou converse diretamente", cta: "Agendar Conversa →", backSite: "← Voltar ao site"
     },
     en: {
@@ -1155,13 +1160,15 @@ const T = {
         high: { t: "High Compatibility!", d: "Your profile indicates strong alignment with Growth Execution. You have the right maturity and challenges to unlock revenue growth." },
         medium: { t: "Good Compatibility", d: "Your company could benefit from Growth Execution, but there are some points to consider. A conversation can help understand if the timing is right." },
         low: { t: "Timing May Not Be Ideal", d: "Based on your answers, Growth Execution may not be the best solution right now. But keep following our content." },
-        formT: "Download your personalized diagnosis", formS: "PDF with detailed analysis and next steps", formBtn: "Generate PDF",
-        successT: "Your diagnosis is ready!", successS: "Click below to download the PDF.", downloadBtn: "Download PDF",
+        formT: "Get the full diagnosis", formS: "Detailed analysis sent to your email", formBtn: "Send Diagnosis",
+        successT: "We received your answers!", successS: "We will review your result and send the full diagnosis to your email.",
         divider: "or talk directly", cta: "Schedule Call →", backSite: "← Back to site"
     }
 };
 
-let lang = 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
+let lang = sessionStorage.getItem('alavanka-lang') === 'en' ? 'en' : 'pt', cur = 1, ans = {}, answerLabels = {}, userEmail = '';
+// Set before nav.js (deferred) runs, so the nav renders in the page's language.
+document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
 const total = 5;
 
 // Integrar com sistema de idioma global (nav.js)
@@ -1171,15 +1178,16 @@ function toggleLanguage() {
 }
 
 // Listener para mudança de idioma via nav
-window.addEventListener('languageChanged', function(e) {
+window.addEventListener('langChange', function(e) {
+    if (!e.detail || !e.detail.lang || e.detail.lang === lang) return;
     lang = e.detail.lang;
     applyLang();
 });
 
 // Detectar idioma inicial
 document.addEventListener('DOMContentLoaded', function() {
-    const savedLang = localStorage.getItem('alavanka_lang');
-    if (savedLang) {
+    const savedLang = sessionStorage.getItem('alavanka-lang');
+    if (savedLang === 'pt' || savedLang === 'en') {
         lang = savedLang;
         applyLang();
     }
@@ -1187,6 +1195,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function applyLang() {
     const t = T[lang];
+    document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
     document.getElementById('q1text').textContent = t.q1;
     document.getElementById('q2text').textContent = t.q2;
     document.getElementById('q3text').textContent = t.q3;
@@ -1473,36 +1482,12 @@ updateUI();
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
+  window.addEventListener('langChange', function(e) {
     syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
   });
 })();
 
 
-// ── Newsletter toggle lang sync ───────────────────────────
-(function() {
-  var NL_PREFIXES = ["asmt"];
-
-  function syncNlLang(lang) {
-    NL_PREFIXES.forEach(function(pfx) {
-      var wrap  = document.getElementById(pfx + 'NlWrap');
-      if (!wrap) return;
-      var attr  = lang === 'en' ? 'data-nl-en' : 'data-nl-pt';
-      wrap.querySelectorAll('[data-nl-pt]').forEach(function(el) {
-        el.textContent = el.getAttribute(attr) || el.textContent;
-      });
-    });
-  }
-
-  // Initial render
-  var initLang = sessionStorage.getItem('alavanka-lang') || 'pt';
-  syncNlLang(initLang);
-
-  // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
-    syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
-  });
-})();
 
 </script>
 

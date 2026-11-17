@@ -1222,7 +1222,7 @@
   syncNlLang(initLang);
 
   // Listen for page-level lang changes (fired by nav.js / toggleLang)
-  document.addEventListener('langChange', function(e) {
+  window.addEventListener('langChange', function(e) {
     syncNlLang(e.detail && e.detail.lang ? e.detail.lang : 'pt');
   });
 })();
@@ -1278,11 +1278,11 @@
 
 <script>
 // Lang toggle — nav.js delegates here via window.toggleLang
+// nav.js has already stored the new language and dispatches 'langChange' itself
+// right after this call, so only record the analytics event here (flipping the
+// language again here caused a double toggle).
 window.toggleLang = function() {
-    var currentLang = sessionStorage.getItem('alavanka-lang') || 'pt';
-    var newLang = currentLang === 'pt' ? 'en' : 'pt';
-    sessionStorage.setItem('alavanka-lang', newLang);
-    window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: newLang } }));
+    var newLang = sessionStorage.getItem('alavanka-lang') || 'pt';
     if (typeof gtag === 'function') {
         gtag('event', 'language_changed', { event_category: 'engagement', language: newLang });
     }

@@ -17,7 +17,7 @@
 - **Kept live, not linked from the nav:** `investidores.html`, `assessment.html` (assessment is also out of the sitemap).
 - **Navigation (`components/nav.js` v6):** one nav for every page — Home · The Model · How It Works · Readiness Check · Commercial Playbook · Blog · FAQ · Contact · language toggle. Default language English. The toggle only renders when the page is Portuguese or declares a `pt-BR` hreflang alternate. Language state lives in `sessionStorage('alavanka-lang')` — never `localStorage`.
 - **Blog listing:** English articles by default; Portuguese via the toggle or `?lang=pt`.
-- **Archive:** `public/_archive/2026-11-growth-execution/` holds the pre-consolidation files plus a reversal procedure (`public/_archive/README.md`). It is `Disallow`ed in `robots.txt` for every crawler group but still reachable by URL.
+- **Archive:** `public/_archive/2026-11-growth-execution/` holds the pre-consolidation files plus a reversal procedure (`public/_archive/README.md`). It is `Disallow`ed in `robots.txt` for every crawler group and served with `X-Robots-Tag: noindex, nofollow` (`vercel.json`), but still reachable by URL.
 - **Sitemap pages** are the hard-coded `staticPages` list in `build.js` — add new root pages there.
 - **Design tokens:** navy `#1B3A5C`, amber `#C8965A`; DM Sans, Space Grotesk, DM Serif Display. No purple, Inter, Montserrat or `.webp`.
 
