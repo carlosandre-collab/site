@@ -1,16 +1,23 @@
 /* ============================================
-   Alavanka — Unified Navigation Component v5
+   Alavanka — Unified Navigation Component v6
 
-   REWRITTEN: 2026-03-27 (post-audit)
+   REWRITTEN: 2026-11-17 (BOT consolidation, English-first)
 
    Architecture:
-   - Two contexts: Startup Growth (PT/EN) + Expand to LatAm (EN-only)
-   - Context auto-detected from URL path + sessionStorage
-   - buildAndInjectNav() renders full nav HTML and binds events
+   - One navigation for every page. Build-Operate-Transfer is the single
+     front-door offer, so all items point to the BOT pages.
+     Order: Logo → Home → The Model → How It Works → Readiness Check →
+            Commercial Playbook → Blog → FAQ → Contact → language toggle
+   - Default language is English. With no stored choice, the nav follows
+     the page's own language (<html lang>), so nav and content agree on
+     Portuguese pages; every other page gets English.
+   - The language toggle only appears on pages that have a Portuguese
+     version: the page itself is Portuguese, or it declares a pt-BR
+     <link rel="alternate" hreflang>. English-only pages hide it.
+   - sessionStorage('alavanka-lang') is the single source of truth.
    - langChange event triggers re-render (nav.js dispatches it itself
-     as fallback when page-level toggleLang forgets to)
-   - MEP pages are always EN, no lang toggle shown
-   - sessionStorage('alavanka-lang') is the single source of truth
+     as fallback when page-level toggleLang forgets to).
+   - investidores.html stays live but is intentionally not linked here.
    ============================================ */
 
 (function () {
@@ -23,7 +30,7 @@
         var src = scripts[i].src || '';
         if (src.indexOf('components/nav.js') !== -1) {
             var tag = scripts[i].getAttribute('src');
-            if (tag.indexOf('/') === 0) basePath = '/';           // root-absolute (generated blog posts)
+            if (tag.indexOf('/') === 0) basePath = '/';           // root-absolute (generated blog posts, readiness)
             else if (tag.indexOf('../../') === 0) basePath = '../../';
             else if (tag.indexOf('../') === 0) basePath = '../';
             break;
@@ -31,86 +38,68 @@
     }
 
     // ── 2. Build URLs ─────────────────────────────────────────
-    var indexUrl = basePath + 'index.html';
-    var blogUrl = basePath + 'blog.html';
-    var guiaUrl = basePath + 'guia-crescimento-receita-b2b.html';
-    var investidoresUrl = basePath + 'investidores.html';
     var marketEntryUrl = basePath + 'market-entry.html';
-    var assessmentUrl = basePath + 'assessment.html';
+    var readinessUrl = basePath + 'market-entry/readiness.html';
+    var playbookUrl = basePath + 'commercial-playbook-latam.html';
+    var blogUrl = basePath + 'blog.html';
     var logoPath = basePath + 'assets/images/brand/logo-completo-navy.png';
-
-    // Unified blog: Market Entry articles live in the same blog, filtered by section
-    var mepBlogUrl = blogUrl + '?section=market-entry';
 
     // ── 3. Detect page context ────────────────────────────────
     var currentPath = window.location.pathname;
-    var sectionMeta = document.querySelector('meta[name="article:section"]');
-    var pageSection = sectionMeta ? sectionMeta.getAttribute('content') : '';
-    var isMEPPage = currentPath.indexOf('market-entry') !== -1 || pageSection === 'market-entry' ||
-                    (currentPath.indexOf('/blog') !== -1 && window.location.search.indexOf('section=market-entry') !== -1);
-    var isIndex = currentPath === '/' || currentPath.indexOf('index') !== -1 ||
-                  currentPath.endsWith('.com.br') || currentPath.endsWith('.com.br/');
-    var isInvestidores = currentPath.indexOf('investidor') !== -1;
+    function endsWith(str, suffix) {
+        return str.length >= suffix.length && str.slice(-suffix.length) === suffix;
+    }
+    var isOnMEPLanding = endsWith(currentPath, '/market-entry') || endsWith(currentPath, '/market-entry.html');
 
-    // Language: MEP is always EN; others follow sessionStorage
+    var pageLangAttr = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+    var pageIsPortuguese = pageLangAttr.indexOf('pt') === 0;
+    var hasPortugueseVersion = pageIsPortuguese ||
+        !!document.querySelector('link[rel="alternate"][hreflang="pt-BR"], link[rel="alternate"][hreflang="pt"]');
+
+    // Pages that translate in place (data-i18n + translations.json) follow the
+    // visitor's stored choice. Every other page has a fixed content language
+    // (generated posts, the playbook, blog.html once it has resolved ?lang=),
+    // declared in <html lang>, and the nav must match it.
+    var translatesInPlace = !!document.querySelector('[data-i18n]');
+
+    // Language: English-only pages are always EN; fixed-language pages use
+    // <html lang>; in-place pages use sessionStorage, then <html lang>.
     function getCurrentLang() {
-        if (isMEPPage) return 'en';
-        return sessionStorage.getItem('alavanka-lang') || 'pt';
+        if (!hasPortugueseVersion) return 'en';
+        var pageLang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+        if (!translatesInPlace) return pageLang;
+        var stored = sessionStorage.getItem('alavanka-lang');
+        if (stored === 'pt' || stored === 'en') return stored;
+        return pageLang;
     }
 
     // ── 4. Nav configuration per language ─────────────────────
-    function getConfig(lang) {
-        var isEN = lang === 'en';
-        return {
-            sg: {
-                sections: isEN
-                    ? [{ label: 'Solution', anchor: 'solucao' }, { label: 'Why Alavanka', anchor: 'porque' }]
-                    : [{ label: 'Solução', anchor: 'solucao' }, { label: 'Por que Alavanka', anchor: 'porque' }]
-            },
-            blogLabel: 'Blog',
-            blogUrl: isMEPPage ? mepBlogUrl : blogUrl,
-            guiaLabel: isEN ? 'Growth Guide' : 'Guia Crescimento',
-            vcsLabel: isEN ? 'VCs' : 'Fundos/VCs',
-            latamLabel: 'Expand to LatAm',
-            sgLabel: 'Startup Growth',
-            ariaLabel: isEN ? 'Main navigation' : 'Navegação principal',
-            mep: {
-                sections: [
-                    { label: 'The Challenge', anchor: 'the-problem' },
-                    { label: 'The Origin', anchor: 'origin' },
-                    { label: '4-Year Journey', anchor: 'the-model' },
-                    { label: 'Compare', anchor: 'comparison' },
-                    { label: 'How It Works', anchor: 'process' },
-                    { label: 'Our Team', anchor: 'team' },
-                    { label: 'FAQ', anchor: 'faq' }
-                ]
-            }
-        };
+    function getItems(lang) {
+        var pt = lang === 'pt';
+        return [
+            { label: pt ? 'Início' : 'Home', href: isOnMEPLanding ? '#' : marketEntryUrl },
+            { label: pt ? 'O Modelo' : 'The Model', href: sectionUrl('the-model') },
+            { label: pt ? 'Como Funciona' : 'How It Works', href: sectionUrl('process') },
+            { label: pt ? 'Diagnóstico' : 'Readiness Check', href: readinessUrl },
+            { label: pt ? 'Playbook Comercial' : 'Commercial Playbook', href: playbookUrl },
+            { label: 'Blog', href: blogUrl },
+            { label: 'FAQ', href: sectionUrl('faq') },
+            { label: pt ? 'Contato' : 'Contact', href: sectionUrl('connect') }
+        ];
     }
 
-    // ── 5. URL builder for section anchors ────────────────────
-    // Only use #anchor when we're on the EXACT target page (not sub-pages like blog.html)
-    var isOnMEPLanding = currentPath.indexOf('market-entry') !== -1 &&
-                         currentPath.indexOf('market-entry/') === -1;
-    // Also match /market-entry (clean URL without .html)
-    if (currentPath.endsWith('/market-entry') || currentPath.endsWith('/market-entry.html')) {
-        isOnMEPLanding = true;
-    }
-
-    function sectionUrl(anchor, targetPage) {
-        if (targetPage === indexUrl && isIndex) return '#' + anchor;
-        if (targetPage === marketEntryUrl && isOnMEPLanding) return '#' + anchor;
-        if (targetPage === investidoresUrl && isInvestidores) return '#' + anchor;
-        return targetPage + '#' + anchor;
+    // ── 5. URL builder for market-entry section anchors ───────
+    function sectionUrl(anchor) {
+        return isOnMEPLanding ? '#' + anchor : marketEntryUrl + '#' + anchor;
     }
 
     // ── 6. Build and inject nav HTML ──────────────────────────
     function buildAndInjectNav(lang) {
-        var cfg = getConfig(lang);
+        var items = getItems(lang);
 
         var html = ''
-            + '<nav role="navigation" aria-label="' + cfg.ariaLabel + '">'
-            + '  <a href="' + indexUrl + '" class="logo" aria-label="Alavanka - Home">'
+            + '<nav role="navigation" aria-label="' + (lang === 'pt' ? 'Navegação principal' : 'Main navigation') + '">'
+            + '  <a href="' + marketEntryUrl + '" class="logo" aria-label="Alavanka - Home">'
             + '    <img src="' + logoPath + '" alt="Alavanka" class="nav-logo-img">'
             + '  </a>'
             + '  <div class="nav-mobile-right">'
@@ -120,56 +109,19 @@
             + '  </div>'
             + '  <div class="nav-links" id="navLinks">';
 
-        if (isMEPPage) {
-            // ── MEP context ──
-            var mepSections = cfg.mep.sections;
-            for (var m = 0; m < mepSections.length; m++) {
-                var ms = mepSections[m];
-                var mUrl = sectionUrl(ms.anchor, marketEntryUrl);
-                html += '<a href="' + mUrl + '" class="nav-link-desktop">' + ms.label + '</a>';
-                html += '<a href="' + mUrl + '" class="nav-link-mobile">' + ms.label + '</a>';
-            }
-            // Blog — visually distinct on mobile
-            html += '<div class="nav-sep"></div>';
-            html += '<a href="' + cfg.blogUrl + '" class="nav-link-desktop">' + cfg.blogLabel + '</a>';
-            html += '<a href="' + cfg.blogUrl + '" class="nav-link-mobile nav-link-highlight">' + cfg.blogLabel + '</a>';
-            // Startup Growth cross-link
-            html += '<div class="nav-sep"></div>';
-            html += '<a href="' + indexUrl + '" class="nav-badge-pill">' + cfg.sgLabel + '</a>';
-            html += '<a href="' + indexUrl + '" class="nav-link-mobile nav-link-cross">' + cfg.sgLabel + '</a>';
-
-        } else {
-            // ── Startup Growth context ──
-            var sgSections = cfg.sg.sections;
-            for (var s = 0; s < sgSections.length; s++) {
-                var sec = sgSections[s];
-                var sUrl = sectionUrl(sec.anchor, indexUrl);
-                html += '<a href="' + sUrl + '" class="nav-link-desktop">' + sec.label + '</a>';
-                html += '<a href="' + sUrl + '" class="nav-link-mobile">' + sec.label + '</a>';
-            }
-            // Blog
-            html += '<a href="' + cfg.blogUrl + '" class="nav-link-desktop">' + cfg.blogLabel + '</a>';
-            html += '<a href="' + cfg.blogUrl + '" class="nav-link-mobile">' + cfg.blogLabel + '</a>';
-            // Guia
-            html += '<a href="' + guiaUrl + '" class="nav-link-desktop">' + cfg.guiaLabel + '</a>';
-            html += '<a href="' + guiaUrl + '" class="nav-link-mobile">' + cfg.guiaLabel + '</a>';
-            // VCs
-            html += '<div class="nav-sep"></div>';
-            html += '<a href="' + investidoresUrl + '" class="nav-link-vcs">' + cfg.vcsLabel + '</a>';
-            html += '<a href="' + investidoresUrl + '" class="nav-link-mobile nav-link-vcs-mobile">' + cfg.vcsLabel + '</a>';
-            // LatAm badge
-            html += '<div class="nav-sep"></div>';
-            html += '<a href="' + marketEntryUrl + '" class="nav-badge-pill">' + cfg.latamLabel + '</a>';
-            html += '<a href="' + marketEntryUrl + '" class="nav-link-mobile nav-link-cross">' + cfg.latamLabel + '</a>';
+        for (var n = 0; n < items.length; n++) {
+            html += '<a href="' + items[n].href + '" class="nav-link-desktop">' + items[n].label + '</a>';
+            html += '<a href="' + items[n].href + '" class="nav-link-mobile">' + items[n].label + '</a>';
         }
 
-        // Lang toggle (not on MEP pages)
-        if (!isMEPPage) {
+        // Lang toggle (only on pages with a Portuguese version)
+        if (hasPortugueseVersion) {
             var toggleLabel = lang === 'pt' ? 'EN' : 'PT';
+            html += '<div class="nav-sep"></div>';
             html += '<button class="nav-lang-desktop" id="langToggle" onclick="alavankaNav.toggleLang()">' + toggleLabel + '</button>';
             html += '<div class="nav-lang-row-mobile">';
-            html += '  <button class="nav-lang-btn' + (lang === 'pt' ? ' active' : '') + '" onclick="alavankaNav.setLang(\'pt\')">PT</button>';
             html += '  <button class="nav-lang-btn' + (lang === 'en' ? ' active' : '') + '" onclick="alavankaNav.setLang(\'en\')">EN</button>';
+            html += '  <button class="nav-lang-btn' + (lang === 'pt' ? ' active' : '') + '" onclick="alavankaNav.setLang(\'pt\')">PT</button>';
             html += '</div>';
         }
 
@@ -186,11 +138,12 @@
         }
 
         // ── Bind: close sidebar on link click (mobile) ──
-        document.querySelectorAll('.nav-links a').forEach(function (link) {
-            link.addEventListener('click', function () {
+        var links = document.querySelectorAll('.nav-links a');
+        for (var l = 0; l < links.length; l++) {
+            links[l].addEventListener('click', function () {
                 if (window.innerWidth < 1024) alavankaNav.closeMenu();
             });
-        });
+        }
     }
 
     // ── 7. Initial render ─────────────────────────────────────
@@ -199,7 +152,7 @@
     // ── 8. Re-render on language change ───────────────────────
     window.addEventListener('langChange', function (e) {
         if (!e.detail || !e.detail.lang) return;
-        if (isMEPPage) return;
+        if (!hasPortugueseVersion) return;
         buildAndInjectNav(e.detail.lang);
     });
 
@@ -228,6 +181,7 @@
         },
 
         setLang: function (lang) {
+            if (!hasPortugueseVersion) return;
             var current = getCurrentLang();
             if (lang === current) return;
             sessionStorage.setItem('alavanka-lang', lang);
@@ -238,14 +192,12 @@
             }
 
             // ALWAYS dispatch langChange — guarantees nav re-renders
-            // This is the key fix: even if page's toggleLang doesn't dispatch it, we do
             window.dispatchEvent(new CustomEvent('langChange', { detail: { lang: lang } }));
         },
 
         toggleLang: function () {
             var current = getCurrentLang();
-            var newLang = current === 'pt' ? 'en' : 'pt';
-            alavankaNav.setLang(newLang);
+            alavankaNav.setLang(current === 'pt' ? 'en' : 'pt');
         }
     };
 
